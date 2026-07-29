@@ -1,0 +1,738 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>VAT & GST Calculator — Import Tax on Duty-Paid CIF Across 7 Markets</title>
+    <meta name="description" content="Pure VAT/GST import calculator. Enter your CIF value and the duty you've already paid — see exactly how much value-added tax each market charges at the border. Covers US, EU, UK, Canada, Australia, Mexico, and Japan. The middle link in the Duty → VAT → Landed Cost tool chain.">
+    <link rel="canonical" href="https://www.dutycalc.online/vat-calculator">
+    <meta property="og:title" content="VAT & GST Calculator — Import Tax on Duty-Paid CIF Across 7 Markets">
+    <meta property="og:description" content="Pure VAT/GST import calculator. Enter your CIF value and duty paid — see exactly how much value-added tax each market charges at the border.">
+    <meta property="og:url" content="https://www.dutycalc.online/vat-calculator">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VAT & GST Calculator — Import Tax on Duty-Paid CIF">
+    <meta name="twitter:description" content="CIF + duty in, VAT for 7 markets out. The middle link in the landed cost chain.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+    <style>
+        /* ── VAT Calculator — Component Styles ── */
+        .vc-input-panel {
+            background: var(--steel-dark);
+            border: 1px solid #1E293B;
+            border-left: 4px solid var(--offshore-green);
+            border-radius: var(--radius-sharp);
+            padding: 40px 48px;
+            margin-bottom: 20px;
+        }
+        .vc-input-panel h3 {
+            color: var(--offshore-green);
+            font-family: var(--font-terminal);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+        .vc-input-row {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+        .vc-field { flex: 1; min-width: 180px; }
+        .vc-field label {
+            display: block;
+            font-family: var(--font-terminal);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 6px;
+        }
+        .vc-field input, .vc-field select {
+            width: 100%;
+            padding: 12px 14px;
+            font-size: 1rem;
+            font-family: var(--font-terminal);
+            font-weight: 500;
+            color: #FFFFFF;
+            background: #1a1f2e;
+            border: 2px solid #1E293B;
+            border-radius: var(--radius-sharp);
+            outline: none;
+        }
+        .vc-field input:focus, .vc-field select:focus { border-color: var(--offshore-green); }
+        .vc-field .vc-hint {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            font-family: var(--font-data);
+        }
+        .vc-chain-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 0 24px;
+            font-family: var(--font-terminal);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+        }
+        .vc-chain-indicator a { color: var(--offshore-green); text-decoration: none; }
+        .vc-chain-indicator a:hover { text-decoration: underline; }
+        .vc-chain-indicator .vc-current {
+            color: #FFFFFF;
+            background: var(--offshore-green);
+            padding: 3px 12px;
+            border-radius: 2px;
+            color: var(--steel-black);
+        }
+        .vc-chain-arrow { color: var(--offshore-green); font-weight: 900; }
+
+        .vc-market-toggles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 8px 0 4px;
+        }
+        .vc-toggle {
+            padding: 8px 16px;
+            font-family: var(--font-terminal);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.5);
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: var(--radius-sharp);
+            cursor: pointer;
+            transition: all 0.15s;
+            white-space: nowrap;
+        }
+        .vc-toggle.on {
+            color: var(--steel-black);
+            background: var(--offshore-green);
+            border-color: var(--offshore-green);
+        }
+        .vc-toggle:hover:not(.on) { border-color: rgba(255,255,255,0.4); color: rgba(255,255,255,0.85); }
+
+        .vc-toggle-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 4px;
+        }
+        .vc-toggle-actions button {
+            font-family: var(--font-terminal);
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px 0;
+        }
+        .vc-toggle-actions button:hover { color: var(--offshore-green); }
+
+        /* Comparison Table */
+        .vc-results-wrap {
+            overflow-x: auto;
+            margin: 28px 0;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sharp);
+            background: var(--bg-surface);
+        }
+        .vc-results-wrap:not(.visible) { display: none; }
+        .vc-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            min-width: 900px;
+        }
+        .vc-table thead th {
+            background: var(--steel-dark);
+            color: #FFFFFF;
+            font-family: var(--font-terminal);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 14px 16px;
+            text-align: right;
+            border-bottom: 2px solid var(--offshore-green);
+            white-space: nowrap;
+        }
+        .vc-table thead th:first-child { text-align: left; min-width: 160px; }
+        .vc-table tbody td {
+            padding: 14px 16px;
+            text-align: right;
+            border-bottom: 1px solid var(--border-light);
+            font-family: var(--font-terminal);
+            font-variant-numeric: tabular-nums;
+        }
+        .vc-table tbody td:first-child { text-align: left; font-family: var(--font-data); }
+        .vc-table tbody tr:hover { background: #f8fafc; }
+        .vc-table .vc-market-cell {
+            font-weight: 700;
+            color: var(--steel-black);
+            font-size: 0.9rem;
+        }
+        .vc-table .vc-flag { font-size: 1.1rem; margin-right: 6px; }
+        .vc-table .vc-rate-cell input {
+            width: 48px;
+            padding: 4px 6px;
+            font-size: 0.78rem;
+            font-family: var(--font-terminal);
+            text-align: right;
+            border: 1px solid var(--border-light);
+            border-radius: 2px;
+            background: var(--bg-terminal);
+            color: var(--text-primary);
+        }
+        .vc-table .vc-vat-cell {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #991b1b;
+        }
+        .vc-table .vc-total-cell {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--offshore-green);
+        }
+        .vc-table .vc-free-cell { color: #166534; font-weight: 600; }
+        .vc-table .vc-warn-cell { color: #b45309; font-weight: 600; font-size: 0.75rem; }
+
+        .vc-empty-state {
+            text-align: center;
+            padding: 60px 24px;
+            color: var(--text-muted);
+            font-family: var(--font-terminal);
+            font-size: 0.88rem;
+        }
+
+        /* Market breakdown cards */
+        .vc-breakdown-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 20px;
+            margin: 36px 0;
+        }
+        .vc-bd-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sharp);
+            padding: 28px 32px;
+        }
+        .vc-bd-card h4 {
+            font-size: 1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: var(--steel-black);
+            margin-bottom: 6px;
+        }
+        .vc-bd-card .vc-bd-formula {
+            font-family: var(--font-terminal);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            letter-spacing: 0.3px;
+        }
+        .vc-bd-card p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+        .vc-bd-card p a { color: var(--offshore-green); font-weight: 600; }
+
+        /* Article body — reuse from import-cost-workflow */
+        .article-body p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+        .article-body p a { color: var(--offshore-green); font-weight: 600; }
+        .article-body h2 { font-size: 1.35rem; font-weight: 900; text-transform: uppercase; color: var(--steel-black); margin: 48px 0 18px; padding-bottom: 8px; border-bottom: 2px solid var(--steel-black); }
+        .article-body h3 { font-size: 1.05rem; font-weight: 700; color: var(--steel-black); margin: 32px 0 12px; }
+        .article-body ul, .article-body ol { margin: 8px 0 20px 22px; font-size: 0.93rem; color: var(--text-secondary); line-height: 1.8; }
+        .article-body ul li, .article-body ol li { margin-bottom: 8px; }
+
+        @media (max-width: 768px) {
+            .vc-input-panel { padding: 28px 20px; }
+            .vc-input-row { flex-direction: column; gap: 12px; }
+            .vc-field { min-width: auto; }
+            .vc-breakdown-grid { grid-template-columns: 1fr; }
+            .vc-table { font-size: 0.75rem; }
+            .vc-table thead th, .vc-table tbody td { padding: 10px 8px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header>
+            <h1>VAT & GST Calculator — The Tax Layer, Isolated</h1>
+            <p>Duty gets the headlines. VAT does the financial damage. Once your goods clear customs duty, every major market except the United States layers a value-added tax on top of the duty-paid CIF — and the rate ranges from 5% to 22%. This calculator takes your CIF value and the duty you've already computed (from the <a href="/import-duty-calculator">Import Duty Calculator</a>), then shows you the VAT bill in each market. The output feeds directly into the <a href="/landed-cost-calculator">Landed Cost Calculator</a> for your final door-to-door number. No account. No server. Just the tax math customs applies at the border.</p>
+        </header>
+
+        <!-- ═══ TOOL CHAIN INDICATOR ═══ -->
+        <div class="vc-chain-indicator">
+            <a href="/import-duty-calculator">◄ IMPORT DUTY</a>
+            <span class="vc-chain-arrow">→</span>
+            <span class="vc-current">VAT / GST (YOU ARE HERE)</span>
+            <span class="vc-chain-arrow">→</span>
+            <a href="/landed-cost-calculator">LANDED COST ►</a>
+        </div>
+
+        <!-- ═══ THE CALCULATOR ═══ -->
+        <section class="vc-input-panel" aria-label="VAT Calculator Inputs">
+            <h3>▼ ENTER DUTY-PAID SHIPMENT DETAILS</h3>
+            <div class="vc-input-row">
+                <div class="vc-field">
+                    <label for="vc-cif">CIF Value</label>
+                    <input type="number" id="vc-cif" value="5000" min="0" max="999999" step="0.01">
+                    <div class="vc-hint">Cost + Insurance + Freight. This is what customs sees at the port of entry.</div>
+                </div>
+                <div class="vc-field">
+                    <label for="vc-duty">Customs Duty Already Paid</label>
+                    <input type="number" id="vc-duty" value="175" min="0" max="999999" step="0.01">
+                    <div class="vc-hint">The duty amount you computed in the Import Duty Calculator. Enter 0 if under de minimis.</div>
+                </div>
+                <div class="vc-field">
+                    <label for="vc-currency">Currency</label>
+                    <select id="vc-currency">
+                        <option value="USD">USD $</option>
+                        <option value="EUR">EUR €</option>
+                        <option value="GBP">GBP £</option>
+                        <option value="CAD">CAD $</option>
+                        <option value="AUD">AUD $</option>
+                        <option value="MXN">MXN $</option>
+                        <option value="JPY">JPY ¥</option>
+                    </select>
+                    <div class="vc-hint">Currency of your CIF and duty figures. Converted at mid-market rates.</div>
+                </div>
+            </div>
+
+            <div class="vc-field" style="margin-top:4px;">
+                <label>Compare VAT Across These Markets</label>
+                <div class="vc-market-toggles" id="vc-toggles">
+                    <button class="vc-toggle on" data-market="us">🇺🇸 United States</button>
+                    <button class="vc-toggle on" data-market="eu">🇪🇺 European Union</button>
+                    <button class="vc-toggle on" data-market="uk">🇬🇧 United Kingdom</button>
+                    <button class="vc-toggle on" data-market="ca">🇨🇦 Canada</button>
+                    <button class="vc-toggle on" data-market="au">🇦🇺 Australia</button>
+                    <button class="vc-toggle" data-market="mx">🇲🇽 Mexico</button>
+                    <button class="vc-toggle" data-market="jp">🇯🇵 Japan</button>
+                </div>
+                <div class="vc-toggle-actions">
+                    <button id="vc-select-all">+ Select All</button>
+                    <button id="vc-clear-all">– Clear All</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ RESULTS TABLE ═══ -->
+        <div class="vc-results-wrap visible" id="vc-results-wrap">
+            <div class="vc-empty-state" id="vc-empty">Select at least one destination market above to see the VAT comparison.</div>
+            <table class="vc-table" id="vc-table" style="display:none;">
+                <thead>
+                    <tr>
+                        <th>Market</th>
+                        <th>VAT Type</th>
+                        <th>CIF + Duty (local)</th>
+                        <th>VAT Rate</th>
+                        <th>VAT Amount</th>
+                        <th>Total (CIF + Duty + VAT)</th>
+                        <th>Effective Tax %</th>
+                    </tr>
+                </thead>
+                <tbody id="vc-tbody"></tbody>
+            </table>
+        </div>
+
+        <!-- ═══ PER-MARKET BREAKDOWN ═══ -->
+        <section class="vc-breakdown-grid">
+            <h2 style="grid-column:1/-1;font-size:1.3rem;font-weight:900;text-transform:uppercase;color:var(--steel-black);margin-bottom:0;border-bottom:2px solid var(--steel-black);padding-bottom:8px;">Same Duty-Paid CIF, Seven Different VAT Bills</h2>
+
+            <div class="vc-bd-card">
+                <h4>🇺🇸 United States — The Zero-VAT Outlier</h4>
+                <div class="vc-bd-formula">No federal VAT or GST at the border. Period.</div>
+                <p>The United States is the only G7 economy without a federal value-added tax or goods and services tax collected at the border. CBP assesses customs duty only — no VAT layer. State sales tax is a domestic transaction between you and your customer; it is not charged at import. This structural advantage makes the US the cheapest major market to import into, all else equal. But the $800 Section 321 de minimis for duty is a cliff — cross it and full MFN duty applies on the entire CIF. At least there's no tax on top. See the <a href="/de-minimis-checker">Cliff Detector</a> to check if your shipment stays under.</p>
+            </div>
+
+            <div class="vc-bd-card">
+                <h4>🇪🇺 European Union — VAT from Euro One</h4>
+                <div class="vc-bd-formula">VAT Base = CIF + Duty. Rate: 19–22% (varies by member state). No VAT de minimis since July 2021.</div>
+                <p>The EU abolished its €22 VAT de minimis in July 2021. Every commercial import now attracts VAT from the first euro — even if the goods are duty-free under the €150 customs duty threshold. The VAT rate depends on the member state of entry: Germany 19%, France 20%, Netherlands 21%, Italy 22%. The IOSS (Import One-Stop Shop) system lets non-EU sellers collect VAT at checkout and remit directly, avoiding carrier handling fees at delivery. If you're not IOSS-registered, the carrier collects VAT from your customer plus a €10–20 brokerage fee — and your customer pays it before they get the package. Not a good first impression. <a href="/china-to-germany-customs">China→Germany</a> walks through the ATLAS filing.</p>
+            </div>
+
+            <div class="vc-bd-card">
+                <h4>🇬🇧 United Kingdom — The £135 Obligation Shift</h4>
+                <div class="vc-bd-formula">VAT Base = CIF + Duty. Rate: 20%. Below £135: seller must collect. Above: collected at border.</div>
+                <p>The UK's post-Brexit VAT regime split the rulebook at £135 consignment value. Below £135: no customs duty, but the <em>seller</em> must be UK VAT-registered and collect 20% VAT at the point of sale. This is not an exemption — it's an obligation moved upstream to the merchant. Above £135: full UK Global Tariff duty applies, and 20% VAT is collected at the border on the duty-paid CIF by the carrier, who adds a handling fee (£8–15). The £135 threshold includes shipping paid by the buyer — £128 goods + £10 shipping = £138 total, over the line. Customs uses the consignment value, not just the invoice. <a href="/eu-to-uk-post-brexit">Post-Brexit Trade Guide</a> and <a href="/china-to-uk-apparel">China→UK Apparel</a> cover this in detail.</p>
+            </div>
+
+            <div class="vc-bd-card">
+                <h4>🇨🇦 Canada — The CAD $20 Ceiling</h4>
+                <div class="vc-bd-formula">GST Base = CIF + Duty. Rate: 5% federal GST. Threshold: CAD $20. Provincial tax may apply separately.</div>
+                <p>The lowest de minimis in the G7 — CAD $20 (about USD $15). Above that line, every shipment faces 5% federal GST on the duty-paid CIF. Provinces with harmonized sales tax (HST: Ontario 13%, Atlantic provinces 15%) collect the blended rate at the border. Provinces with separate PST (BC, Quebec, Saskatchewan) levy it separately — sometimes at the point of sale, sometimes at customs. The CBSA's CARM digital system has streamlined filings but hasn't raised the threshold. For DTC brands selling into Canada: there is no low-value channel. Budget GST on every commercial shipment. <a href="/china-to-canada-freight">China→Canada Freight</a> has the breakdown.</p>
+            </div>
+
+            <div class="vc-bd-card">
+                <h4>🇦🇺 Australia — Generous Duty Line, Ruthless GST Rule</h4>
+                <div class="vc-bd-formula">GST Base = CIF + Duty. Rate: 10%. GST applies from AUD $1 on low-value imports — no floor.</div>
+                <p>Australia's AUD $1,000 FOB threshold for customs duty is one of the most generous worldwide. But since July 2018, the 10% GST applies to all low-value imported goods (under AUD $1,000) — collected by the seller or marketplace at checkout, not at the border. If you're not registered with the ATO to collect GST, the Australian Border Force holds your shipment. The formula asymmetry catches people: a $900 FOB shipment pays zero customs duty (under the $1,000 FOB test), but the seller still must collect and remit 10% GST. Duty-free does not equal tax-free. For shipments over AUD $1,000: GST is calculated on CIF + duty at the border instead. <a href="/china-to-australia-duty">China→Australia Duty</a> details ATO compliance.</p>
+            </div>
+
+            <div class="vc-bd-card">
+                <h4>🇲🇽 Mexico — IVA From the First Peso</h4>
+                <div class="vc-bd-formula">IVA Base = CIF + Duty. Rate: 16%. Threshold: MXN $50 (effectively none).</div>
+                <p>MXN $50 is about USD $2.50. It's symbolic — every commercial import pays 16% IVA on the duty-paid CIF. The formula is straightforward: customs duty (averaging 15% of CIF for Chinese goods, climbing toward 25–35% for textiles and steel since the 2026 tariff increases), then 16% IVA on top of that total. A shipment that incurs $1,000 in duty pays an additional $160 in IVA on the duty alone. Licensed customs brokers (agentes aduanales) charge MXN $1,500–3,500 per entry, independent of shipment value. The only structural relief is IMMEX: goods processed in Mexico and re-exported can defer both duty and IVA. <a href="/china-to-mexico-maquila">China→Mexico IMMEX</a> explains the program.</p>
+            </div>
+
+            <div class="vc-bd-card">
+                <h4>🇯🇵 Japan — The ¥10,000 Combined Cliff</h4>
+                <div class="vc-bd-formula">JCT Base = CIF + Duty. Rate: 10%. Combined threshold: ¥10,000 for both duty and JCT.</div>
+                <p>Japan bundles customs duty and the 10% consumption tax (JCT) under a single ¥10,000 CIF threshold. Under ¥10,000: both are zero. Over: both apply on the full amount — no partial exemption. The threshold tests against CIF inclusive of freight, so a ¥9,500 item with ¥600 shipping crosses the line. Between ¥10,000 and ¥200,000, a simplified declaration works. Above ¥200,000, a formal C-5020 filing is required. NACCS electronic processing handles most entries within hours. The cliff is stark: a ¥9,900 CIF shipment pays ¥0 in border charges. A ¥10,100 shipment pays ~3.5% duty + 10% JCT on the duty-paid amount — roughly ¥1,400 in combined charges for a ¥200 difference in value. <a href="/china-to-japan-cargo">China→Japan Cargo</a> walks through the NACCS workflow.</p>
+            </div>
+        </section>
+
+        <!-- ═══ SEO: THE VAT CONCEPT ═══ -->
+        <section class="article-body">
+            <h2>How Import VAT Actually Works — The Formula Customs Uses</h2>
+
+            <h3>It's always (CIF + Duty) × Rate. Always.</h3>
+            <p>Every country that charges VAT or GST at the border calculates it on the same base: the CIF value of your goods plus the customs duty you've already paid. Mathematically: <strong>VAT = (CIF + Duty) × VAT Rate</strong>. There are no deductions. No subtractions. The duty becomes part of the taxable value. This means VAT is a tax on a tax — the more duty you pay, the more VAT you pay. A 10% duty rate doesn't just add 10% to your cost; it adds 10% in duty, then the VAT rate on top of that whole amount. In a 20% VAT market, a 10% duty effectively becomes a 12% cost increase once the VAT multiplier compounds on top.</p>
+
+            <h3>Why the United States is the anomaly — and why it matters for your market selection</h3>
+            <p>No federal VAT at the US border means the import tax equation stops at customs duty. MFN 2.5% on electronics? You pay 2.5% and that's it. Compare the same shipment to Germany: MFN 4.5% + 19% EUSt on the duty-paid CIF. A $10,000 CIF shipment: US = $250 total border charges. Germany = $450 duty + ($10,450 × 19%) = $450 + $1,985.50 = $2,435.50 total. That's nearly a 10× difference in border tax liability between two developed economies for the same goods. When evaluating which markets to enter first, the VAT rate is often a larger cost driver than the duty rate. Our <a href="/landed-cost-calculator">Landed Cost Calculator</a> runs all three layers — duty, VAT, and total landed — side by side so you can see the full picture.</p>
+
+            <h3>De minimis for duty ≠ de minimis for VAT</h3>
+            <p>This is the most common mistake first-time importers make. They look up a country's de minimis threshold, see "€150," and assume their €120 shipment clears tax-free. It clears <em>duty</em>-free. The EU scrapped its VAT de minimis (€22) in July 2021. Every import now pays VAT from the first euro, regardless of whether it owes customs duty. The UK has a similar split: £135 for customs duty, but no VAT floor for commercial imports — 20% applies from the first pound. Australia split its thresholds too: AUD $1,000 for duty, but GST from AUD $1 on low-value imports. Canada's CAD $20 threshold bundles both — but it's so low it barely matters. The rule of thumb: assume you're paying VAT on every import into every market except the United States, no matter how small the shipment. The only question is whether you collect it at checkout or pay it at the border.</p>
+
+            <h3>Where the VAT is collected changes who pays the friction</h3>
+            <p>Border-collected VAT (traditional model): the carrier pays customs on your behalf, then charges your customer before delivery — plus a brokerage fee. Your customer is an involuntary tax collector who now associates your brand with an unexpected £25 charge. Marketplace/seller-collected VAT (IOSS, UK VAT scheme, Australian GST regime): you collect the tax at checkout and remit it to the tax authority. The shipment clears as "tax paid" — no carrier fees, no surprise invoice at the door. The tax amount is identical. The customer experience is not. If you're selling DTC into the EU, UK, or Australia, registering for the seller-collection scheme is not optional — it's the difference between a smooth delivery experience and a customer who disputes the charge and never buys from you again.</p>
+        </section>
+
+        <!-- ═══ FAQ ═══ -->
+        <section class="article-body">
+            <h2>Questions That Come Up After the First Calculation</h2>
+
+            <h3>Why does the calculator ask for duty I've "already paid" — isn't VAT calculated at the same time as duty?</h3>
+            <p>At the border, yes — customs calculates duty and VAT in one filing. But this tool is the middle link in a three-tool chain. The <a href="/import-duty-calculator">Import Duty Calculator</a> gives you the duty amount for your HS chapter + origin + destination. This calculator takes that number and shows you the VAT on top. The <a href="/landed-cost-calculator">Landed Cost Calculator</a> then combines everything into your door-to-door number. You can use each tool standalone, or run them in sequence for a complete customs bill. The chain design means you swap one number at a time instead of re-entering everything.</p>
+
+            <h3>Do I really pay VAT on the duty itself?</h3>
+            <p>Yes. Every country that charges VAT/GST at import includes the customs duty in the taxable base. The formula is universally (CIF + Duty) × VAT Rate — not CIF × VAT Rate + Duty. This is not a loophole or a mistake. Customs authorities explicitly define the taxable value as the CIF value plus all duties, taxes, and fees paid — including the customs duty itself. It's a tax on a tax, and it's by design. A 20% VAT rate on a shipment with 10% duty means the effective VAT burden is 22% of the original CIF, not 20%.</p>
+
+            <h3>Can I reclaim import VAT?</h3>
+            <p>If you're a VAT-registered business in the importing country: usually yes. Import VAT is typically recoverable as input tax on your next VAT return. You pay it at the border, then deduct it from the VAT you owe on your sales. The net cash-flow impact is the float between payment and recovery — typically 1–3 months. If you're not VAT-registered in the importing country: no, you cannot reclaim it. The import VAT becomes a permanent cost in your landed cost calculation. This is why the distinction matters: for B2B importers, VAT is a cash-flow item. For DTC sellers shipping from abroad without local registration, VAT is a hard cost. If you're doing volume into a market, registering for VAT/GST is almost always worth it — both for recovery and for the customer experience of tax-paid delivery.</p>
+
+            <h3>The VAT rate in the calculator — is that the final rate or an estimate?</h3>
+            <p>The rates shown are the standard VAT/GST rates for each market as of mid-2026. Some countries have reduced rates for specific goods (e.g., the UK's 5% VAT on children's car seats, the EU's reduced rates on books and food). The rate field is editable — if your product qualifies for a reduced rate, type it in. The calculator uses whatever number you enter. The formula doesn't change; only the rate does. If you're unsure whether your product qualifies for a reduced rate, use the standard rate — it's the safe, worst-case number.</p>
+
+            <h3>What about customs broker fees and carrier handling charges?</h3>
+            <p>Not in this calculator. VAT is the tax itself — broker fees for advancing the VAT payment to customs are a separate logistics cost. Carriers typically charge £8–15 (UK), €10–20 (EU), CAD $10–20 (Canada) for the "disbursement" or "advancement" of VAT at the border. These fees are per shipment and independent of the VAT amount — they're a fixed overhead, not a percentage. Budget them separately with your freight forwarder. This calculator isolates the tax so you know what portion of your import bill is government charges vs. service fees.</p>
+        </section>
+
+        <p style="margin-top:32px;">
+            <a href="/import-duty-calculator">← Import Duty Calculator</a> &nbsp;|&nbsp;
+            <a href="/landed-cost-calculator">Landed Cost Calculator →</a> &nbsp;|&nbsp;
+            <a href="/import-vat-guide">VAT Guide (Article) →</a> &nbsp;|&nbsp;
+            <a href="/">← Back to Home</a> &nbsp;|&nbsp;
+            <a href="/#lanes">All Trade Corridors</a> &nbsp;|&nbsp;
+            <a href="/tariff-calculator">Tariff Rate Lookup</a>
+        </p>
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/import-cost-workflow">Import Cost Workflow Guide</a></li>
+                    <li><a href="/tariff-calculator">Tariff Rate Lookup</a></li>
+                    <li><a href="/landed-cost-calculator">Landed Cost Calculator</a></li>
+                    <li><a href="/import-duty-calculator">Import Duty Calculator</a></li>
+                    <li><a href="/vat-calculator">VAT / GST Calculator</a></li>
+                    <li><a href="/de-minimis-checker">Cliff Detector Tool</a></li>
+                    <li><a href="/china-to-mexico-maquila">IMMEX Deferrals</a></li>
+                    <li><a href="/china-to-germany-customs">ATLAS Centralization</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About System</a></li>
+                    <li><a href="/privacy">Data Privacy Protocol</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent trade metrology data—not affiliated with any official government customs agency.</p>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        'use strict';
+
+        // ── MARKET DEFINITIONS ──────────────────────────────
+        // Each market has a distinct VAT treatment.
+        // vatBase: always 'cifPlusDuty' — the universal formula.
+        // deMinimisVat: the threshold below which VAT is not charged at the border.
+        //   null = no threshold (VAT from $0.01)
+        var markets = {
+            us: {
+                id: 'us', name: 'United States', flag: '🇺🇸',
+                currency: 'USD', defaultVatRate: 0,
+                deMinimisVat: 800, vatName: 'No federal VAT',
+                vatNote: 'The only G7 economy without a border VAT/GST. State sales tax is domestic, not customs.',
+                corridorLink: '/china-to-us-electronics', corridorLabel: 'China→US Electronics'
+            },
+            eu: {
+                id: 'eu', name: 'European Union', flag: '🇪🇺',
+                currency: 'EUR', defaultVatRate: 21,
+                deMinimisVat: null, vatName: 'VAT (EUSt)',
+                vatNote: 'No VAT de minimis since July 2021. Rate varies by member state: DE 19%, FR 20%, NL 21%, IT 22%.',
+                corridorLink: '/china-to-germany-customs', corridorLabel: 'China→Germany'
+            },
+            uk: {
+                id: 'uk', name: 'United Kingdom', flag: '🇬🇧',
+                currency: 'GBP', defaultVatRate: 20,
+                deMinimisVat: null, vatName: 'VAT',
+                vatNote: 'Under £135 consignment: seller must collect. Over £135: VAT at border. No VAT de minimis for commercial imports.',
+                corridorLink: '/china-to-uk-apparel', corridorLabel: 'China→UK Apparel'
+            },
+            ca: {
+                id: 'ca', name: 'Canada', flag: '🇨🇦',
+                currency: 'CAD', defaultVatRate: 5,
+                deMinimisVat: 20, vatName: 'GST',
+                vatNote: '5% federal GST from CAD $20. HST provinces (ON 13%, Atlantic 15%) charged at blended rate. PST varies.',
+                corridorLink: '/china-to-canada-freight', corridorLabel: 'China→Canada'
+            },
+            au: {
+                id: 'au', name: 'Australia', flag: '🇦🇺',
+                currency: 'AUD', defaultVatRate: 10,
+                deMinimisVat: null, vatName: 'GST',
+                vatNote: 'GST from AUD $1 on low-value imports. Seller must be ATO-registered. Above $1,000: GST at border on CIF+duty.',
+                corridorLink: '/china-to-australia-duty', corridorLabel: 'China→Australia'
+            },
+            mx: {
+                id: 'mx', name: 'Mexico', flag: '🇲🇽',
+                currency: 'MXN', defaultVatRate: 16,
+                deMinimisVat: 50, vatName: 'IVA',
+                vatNote: 'MXN $50 threshold is symbolic. 16% IVA on duty-paid CIF for every commercial shipment. IMMEX can defer.',
+                corridorLink: '/china-to-mexico-maquila', corridorLabel: 'China→Mexico'
+            },
+            jp: {
+                id: 'jp', name: 'Japan', flag: '🇯🇵',
+                currency: 'JPY', defaultVatRate: 10,
+                deMinimisVat: 10000, vatName: 'JCT',
+                vatNote: '¥10,000 combined threshold for duty + JCT. Under: both zero. Over: both apply on full CIF.',
+                corridorLink: '/china-to-japan-cargo', corridorLabel: 'China→Japan'
+            }
+        };
+
+        // ── EXCHANGE RATES (mid-market, June 2026) ──────────
+        var rates = {
+            USD: { USD:1, EUR:0.92, GBP:0.78, CAD:1.37, AUD:1.50, MXN:17.50, JPY:145 },
+            EUR: { USD:1.09, EUR:1, GBP:0.85, CAD:1.49, AUD:1.63, MXN:19.03, JPY:158 },
+            GBP: { USD:1.28, EUR:1.18, GBP:1, CAD:1.75, AUD:1.92, MXN:22.40, JPY:186 },
+            CAD: { USD:0.73, EUR:0.67, GBP:0.57, CAD:1, AUD:1.10, MXN:12.77, JPY:106 },
+            AUD: { USD:0.67, EUR:0.61, GBP:0.52, CAD:0.91, AUD:1, MXN:11.67, JPY:97 },
+            MXN: { USD:0.057, EUR:0.053, GBP:0.045, CAD:0.078, AUD:0.086, MXN:1, JPY:8.29 },
+            JPY: { USD:0.0069, EUR:0.0063, GBP:0.0054, CAD:0.0094, AUD:0.0103, MXN:0.121, JPY:1 }
+        };
+
+        var currencySymbols = { USD:'$', EUR:'€', GBP:'£', CAD:'CA$', AUD:'A$', MXN:'MX$', JPY:'¥' };
+
+        function fmtMoney(amount, currency) {
+            if (currency === 'JPY') return '¥' + Math.round(amount).toLocaleString();
+            if (currency === 'MXN') return 'MX$' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+            var sym = currencySymbols[currency] || '';
+            return sym + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+        }
+
+        // ── DOM refs ────────────────────────────────────────
+        var cifEl      = document.getElementById('vc-cif');
+        var dutyEl     = document.getElementById('vc-duty');
+        var currencyEl = document.getElementById('vc-currency');
+        var tbody      = document.getElementById('vc-tbody');
+        var table      = document.getElementById('vc-table');
+        var empty      = document.getElementById('vc-empty');
+        var toggleContainer = document.getElementById('vc-toggles');
+
+        function getActiveMarkets() {
+            var actives = [];
+            var toggles = toggleContainer.querySelectorAll('.vc-toggle.on');
+            for (var i = 0; i < toggles.length; i++) {
+                var m = toggles[i].getAttribute('data-market');
+                if (markets[m]) actives.push(m);
+            }
+            return actives;
+        }
+
+        function updateTable() {
+            var cif     = parseFloat(cifEl.value) || 0;
+            var duty    = parseFloat(dutyEl.value) || 0;
+            var inCur   = currencyEl.value;
+            var actives = getActiveMarkets();
+
+            if (actives.length === 0) {
+                table.style.display = 'none';
+                empty.style.display = 'block';
+                return;
+            }
+            table.style.display = '';
+            empty.style.display = 'none';
+
+            var rateMap = rates[inCur];
+            var rows = '';
+
+            for (var i = 0; i < actives.length; i++) {
+                var mk = markets[actives[i]];
+                var rate = rateMap[mk.currency];
+
+                // Convert to local currency
+                var cifLocal   = cif * rate;
+                var dutyLocal  = duty * rate;
+                var baseLocal  = cifLocal + dutyLocal;  // Taxable base = CIF + Duty
+
+                // Get user-set VAT rate
+                var vatRateInput = document.getElementById('vr-' + mk.id);
+                var vatRate = mk.defaultVatRate;
+                if (vatRateInput) {
+                    var v = parseFloat(vatRateInput.value);
+                    if (!isNaN(v) && v >= 0) vatRate = v;
+                }
+
+                // De minimis check for VAT
+                var underVatDM = false;
+                if (mk.deMinimisVat !== null && mk.deMinimisVat > 0) {
+                    // Test against CIF value (not duty-paid CIF) for de minimis
+                    underVatDM = cifLocal <= mk.deMinimisVat;
+                }
+
+                var vatAmount = 0;
+                if (vatRate > 0 && !underVatDM) {
+                    vatAmount = baseLocal * (vatRate / 100);
+                }
+
+                var totalLocal = baseLocal + vatAmount;
+                var effectiveRate = cifLocal > 0 ? ((totalLocal - cifLocal) / cifLocal * 100) : 0;
+
+                // Determine VAT cell display
+                var vatDisplay, vatCellClass;
+                if (vatRate === 0) {
+                    vatDisplay = 'N/A';
+                    vatCellClass = 'vc-free-cell';
+                } else if (underVatDM) {
+                    vatDisplay = 'Under threshold';
+                    vatCellClass = 'vc-free-cell';
+                } else {
+                    vatDisplay = fmtMoney(vatAmount, mk.currency);
+                    vatCellClass = 'vc-vat-cell';
+                }
+
+                // De minimis status
+                var dmStatus;
+                if (mk.deMinimisVat === null) {
+                    dmStatus = '<span class="vc-warn-cell">No minimum</span>';
+                } else if (underVatDM) {
+                    dmStatus = '<span class="vc-free-cell">✔ Under</span>';
+                } else {
+                    dmStatus = '<span class="vc-warn-cell">✘ Over</span>';
+                }
+
+                rows +=
+                    '<tr>' +
+                    '<td><span class="vc-flag">' + mk.flag + '</span><span class="vc-market-cell">' + mk.name + '</span></td>' +
+                    '<td><span style="font-size:0.8rem;color:var(--text-muted);">' + mk.vatName + '</span><br><span style="font-size:0.7rem;color:var(--text-muted);">' + (mk.deMinimisVat !== null ? 'Threshold: ' + fmtMoney(mk.deMinimisVat, mk.currency) : 'No threshold') + '</span></td>' +
+                    '<td>' + fmtMoney(baseLocal, mk.currency) + '</td>' +
+                    '<td class="vc-rate-cell"><input type="number" id="vr-' + mk.id + '" value="' + mk.defaultVatRate + '" min="0" max="30" step="0.1" style="width:48px;"> %</td>' +
+                    '<td class="' + vatCellClass + '">' + vatDisplay + '</td>' +
+                    '<td class="vc-total-cell">' + fmtMoney(totalLocal, mk.currency) + '<br><span style="font-size:0.7rem;font-weight:400;color:var(--text-muted);">+' + effectiveRate.toFixed(1) + '% over CIF</span></td>' +
+                    '<td style="font-size:0.75rem;color:var(--text-muted);">' + dmStatus + '</td>' +
+                    '</tr>';
+            }
+
+            tbody.innerHTML = rows;
+
+            // Bind VAT rate input changes
+            for (var j = 0; j < actives.length; j++) {
+                var vrInput = document.getElementById('vr-' + markets[actives[j]].id);
+                if (vrInput) {
+                    vrInput.addEventListener('input', updateTable);
+                }
+            }
+        }
+
+        // ── Toggle handlers ─────────────────────────────────
+        toggleContainer.addEventListener('click', function(e) {
+            var btn = e.target.closest('.vc-toggle');
+            if (!btn) return;
+            btn.classList.toggle('on');
+            updateTable();
+        });
+
+        document.getElementById('vc-select-all').addEventListener('click', function() {
+            var toggles = toggleContainer.querySelectorAll('.vc-toggle');
+            for (var i = 0; i < toggles.length; i++) toggles[i].classList.add('on');
+            updateTable();
+        });
+
+        document.getElementById('vc-clear-all').addEventListener('click', function() {
+            var toggles = toggleContainer.querySelectorAll('.vc-toggle');
+            for (var i = 0; i < toggles.length; i++) toggles[i].classList.remove('on');
+            updateTable();
+        });
+
+        // ── Input bindings ──────────────────────────────────
+        cifEl.addEventListener('input', updateTable);
+        dutyEl.addEventListener('input', updateTable);
+        currencyEl.addEventListener('change', updateTable);
+
+        // ── Initial render ──────────────────────────────────
+        updateTable();
+
+    })();
+    </script>
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

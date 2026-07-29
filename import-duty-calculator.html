@@ -1,0 +1,826 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>Import Duty Calculator — Estimate Customs Duty by HS Chapter (No VAT, Pure Duty)</title>
+    <meta name="description" content="Pure customs duty calculator. Pick your HS chapter, enter the goods value, select origin and destination — get the estimated MFN duty rate and amount before VAT is layered on. Covers US, EU, UK, CA, AU, MX, JP.">
+    <link rel="canonical" href="https://www.dutycalc.online/import-duty-calculator">
+    <meta property="og:title" content="Import Duty Calculator — Estimate Customs Duty by HS Chapter (No VAT, Pure Duty)">
+    <meta property="og:description" content="Pure customs duty calculator. Pick your HS chapter, enter the goods value, select origin and destination — get the estimated MFN duty rate and amount.">
+    <meta property="og:url" content="https://www.dutycalc.online/import-duty-calculator">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Import Duty Calculator — Pure Customs Duty by HS Chapter">
+    <meta name="twitter:description" content="Pick HS chapter, enter value, get the MFN duty rate and amount across 7 markets.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+    <style>
+        /* ── Import Duty Calculator — Distinct Layout ── */
+        .id-layout {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 36px;
+            margin: 32px 0;
+            align-items: start;
+        }
+        .id-main-panel {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-top: 3px solid var(--steel-black);
+            border-radius: var(--radius-sharp);
+            padding: 40px;
+            box-shadow: var(--shadow-flat);
+        }
+        .id-main-panel h3 {
+            font-size: 1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: var(--steel-black);
+            margin-bottom: 24px;
+            letter-spacing: -0.3px;
+        }
+
+        .id-field-row {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .id-field {
+            flex: 1;
+            min-width: 160px;
+        }
+        .id-field label {
+            display: block;
+            font-family: var(--font-terminal);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+        .id-field select, .id-field input {
+            width: 100%;
+            padding: 12px 14px;
+            font-size: 0.95rem;
+            font-family: var(--font-terminal);
+            font-weight: 500;
+            color: var(--text-primary);
+            background: var(--bg-terminal);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-sharp);
+            outline: none;
+        }
+        .id-field select:focus, .id-field input:focus {
+            border-color: var(--offshore-green);
+            background: #fff;
+        }
+        .id-field .id-sublabel {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 3px;
+            font-family: var(--font-data);
+        }
+
+        .id-calc-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            font-family: var(--font-terminal);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--steel-black);
+            background: var(--offshore-green);
+            border: none;
+            border-radius: var(--radius-sharp);
+            cursor: pointer;
+            transition: background 0.15s;
+            margin-top: 4px;
+        }
+        .id-calc-btn:hover { background: #00C47C; }
+
+        /* Result Card */
+        .id-result-card {
+            margin-top: 28px;
+            padding: 0;
+            display: none;
+        }
+        .id-result-card.visible { display: block; }
+
+        .id-result-header {
+            background: var(--steel-dark);
+            color: #FFFFFF;
+            padding: 20px 28px;
+            border-radius: var(--radius-sharp) var(--radius-sharp) 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .id-result-header h4 {
+            font-family: var(--font-terminal);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--offshore-green);
+            letter-spacing: 1px;
+            margin: 0;
+        }
+        .id-result-header .id-chapter-badge {
+            font-family: var(--font-terminal);
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: #FFFFFF;
+            padding: 6px 16px;
+            background: rgba(0,168,107,0.2);
+            border: 1px solid var(--offshore-green);
+            border-radius: var(--radius-sharp);
+        }
+
+        .id-result-body {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-top: none;
+            border-radius: 0 0 var(--radius-sharp) var(--radius-sharp);
+            padding: 28px;
+        }
+        .id-result-metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .id-result-metric:last-child { border-bottom: none; }
+        .id-metric-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-family: var(--font-data);
+        }
+        .id-metric-value {
+            font-family: var(--font-terminal);
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--steel-black);
+            text-align: right;
+        }
+        .id-metric-value.big {
+            font-size: 1.4rem;
+            color: var(--offshore-green);
+        }
+        .id-metric-value.warn {
+            color: #991b1b;
+            font-size: 0.9rem;
+        }
+
+        .id-alert-flags {
+            margin-top: 16px;
+            padding: 16px 20px;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-left: 3px solid #ef4444;
+            border-radius: 0 var(--radius-sharp) var(--radius-sharp) 0;
+            font-size: 0.85rem;
+            color: #991b1b;
+            line-height: 1.6;
+            display: none;
+        }
+        .id-alert-flags.visible { display: block; }
+        .id-alert-flags strong { display: block; margin-bottom: 4px; }
+
+        /* Sidebar Info Card */
+        .id-sidebar-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sharp);
+            padding: 28px;
+            margin-bottom: 20px;
+        }
+        .id-sidebar-card h4 {
+            font-family: var(--font-terminal);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--steel-black);
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--offshore-green);
+        }
+        .id-sidebar-card p {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        .id-sidebar-card p a { color: var(--offshore-green); font-weight: 600; }
+
+        /* Chapter reference table */
+        .id-chapter-ref {
+            margin: 48px 0 0;
+        }
+        .id-chapter-ref h2 {
+            font-size: 1.3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: var(--steel-black);
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--steel-black);
+        }
+        .id-chapter-ref table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.82rem;
+        }
+        .id-chapter-ref thead th {
+            background: var(--steel-dark);
+            color: #FFFFFF;
+            font-family: var(--font-terminal);
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 10px 14px;
+            text-align: left;
+            border: 1px solid #1E293B;
+            position: sticky;
+            top: 60px;
+            z-index: 1;
+        }
+        .id-chapter-ref tbody td {
+            padding: 10px 14px;
+            border: 1px solid var(--border-light);
+            vertical-align: top;
+        }
+        .id-chapter-ref tbody tr:hover { background: #f8fafc; }
+        .id-chapter-ref .ch-num {
+            font-family: var(--font-terminal);
+            font-weight: 700;
+            color: var(--steel-black);
+            white-space: nowrap;
+        }
+        .id-chapter-ref .ch-rate {
+            font-family: var(--font-terminal);
+            font-size: 0.8rem;
+            text-align: center;
+        }
+        .id-chapter-ref .ch-rate.zero { color: #166534; }
+        .id-chapter-ref .ch-rate.low { color: var(--offshore-green); }
+        .id-chapter-ref .ch-rate.mid { color: #b45309; }
+        .id-chapter-ref .ch-rate.high { color: #991b1b; font-weight: 700; }
+        .id-chapter-ref .ch-note {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .ch-table-wrap {
+            overflow-x: auto;
+            margin-bottom: 28px;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sharp);
+            max-height: 520px;
+            overflow-y: auto;
+        }
+
+        @media (max-width: 900px) {
+            .id-layout { grid-template-columns: 1fr; }
+            .id-main-panel { padding: 28px 20px; }
+            .id-field-row { flex-direction: column; gap: 12px; }
+            .id-field { min-width: auto; }
+            .id-result-header { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header>
+            <h1>Import Duty Calculator — Customs Duty, Nothing Else</h1>
+            <p>No VAT. No freight. No insurance. Just the customs duty line on your entry — estimated from HS chapter and market. This is the first number in the import cost chain. Get it right and everything downstream works. Get it wrong and you're fixing mistakes through every layer of the landed cost stack.</p>
+        </header>
+
+        <div class="id-layout">
+            <!-- ═══ MAIN CALCULATOR PANEL ═══ -->
+            <div>
+                <div class="id-main-panel">
+                    <h3>▼ DUTY ESTIMATOR</h3>
+
+                    <div class="id-field-row">
+                        <div class="id-field">
+                            <label for="id-chapter">HS Chapter (2-digit)</label>
+                            <select id="id-chapter"></select>
+                            <div class="id-sublabel">The first two digits of your product's HS code. If you don't know it, scan the reference table below.</div>
+                        </div>
+                    </div>
+
+                    <div class="id-field-row">
+                        <div class="id-field">
+                            <label for="id-value">Goods Value (FOB)</label>
+                            <input type="number" id="id-value" value="5000" min="0" max="999999" step="0.01">
+                            <div class="id-sublabel">Invoice value of the goods only. Not CIF — customs tests de minimis against FOB.</div>
+                        </div>
+                        <div class="id-field">
+                            <label for="id-currency">Currency</label>
+                            <select id="id-currency">
+                                <option value="USD">USD $</option>
+                                <option value="EUR">EUR €</option>
+                                <option value="GBP">GBP £</option>
+                                <option value="CAD">CAD $</option>
+                                <option value="AUD">AUD $</option>
+                                <option value="MXN">MXN $</option>
+                                <option value="JPY">JPY ¥</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="id-field-row">
+                        <div class="id-field">
+                            <label for="id-origin">Country of Origin</label>
+                            <select id="id-origin">
+                                <option value="CN">China</option>
+                                <option value="VN">Vietnam</option>
+                                <option value="IN">India</option>
+                                <option value="BD">Bangladesh</option>
+                                <option value="ID">Indonesia</option>
+                                <option value="KR">South Korea</option>
+                                <option value="JP">Japan</option>
+                                <option value="DE">Germany</option>
+                                <option value="IT">Italy</option>
+                                <option value="FR">France</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="US">United States</option>
+                                <option value="MX">Mexico</option>
+                                <option value="BR">Brazil</option>
+                                <option value="TR">Turkey</option>
+                                <option value="TH">Thailand</option>
+                                <option value="MY">Malaysia</option>
+                                <option value="OTHER">Other / Unknown</option>
+                            </select>
+                            <div class="id-sublabel">Where the goods were manufactured, not where they shipped from. This determines MFN vs FTA treatment.</div>
+                        </div>
+                        <div class="id-field">
+                            <label for="id-market">Importing Market</label>
+                            <select id="id-market">
+                                <option value="us">🇺🇸 United States</option>
+                                <option value="eu">🇪🇺 European Union</option>
+                                <option value="uk">🇬🇧 United Kingdom</option>
+                                <option value="ca">🇨🇦 Canada</option>
+                                <option value="au">🇦🇺 Australia</option>
+                                <option value="mx">🇲🇽 Mexico</option>
+                                <option value="jp">🇯🇵 Japan</option>
+                            </select>
+                            <div class="id-sublabel">The country whose customs authority will assess the duty. Not the transit country, not the final delivery country if different.</div>
+                        </div>
+                    </div>
+
+                    <button class="id-calc-btn" id="id-calc-btn">CALCULATE_DUTY ►</button>
+
+                    <!-- Result -->
+                    <div class="id-result-card" id="id-result">
+                        <div class="id-result-header">
+                            <h4>∥ DUTY ESTIMATE</h4>
+                            <span class="id-chapter-badge" id="id-chapter-badge">Chapter 84</span>
+                        </div>
+                        <div class="id-result-body">
+                            <div class="id-result-metric">
+                                <span class="id-metric-label">HS Chapter</span>
+                                <span class="id-metric-value" id="res-chapter">—</span>
+                            </div>
+                            <div class="id-result-metric">
+                                <span class="id-metric-label">Goods value in market currency</span>
+                                <span class="id-metric-value" id="res-value-local">—</span>
+                            </div>
+                            <div class="id-result-metric">
+                                <span class="id-metric-label">De minimis threshold</span>
+                                <span class="id-metric-value" id="res-deminimis">—</span>
+                            </div>
+                            <div class="id-result-metric">
+                                <span class="id-metric-label">Estimated MFN duty rate</span>
+                                <span class="id-metric-value" id="res-rate">—</span>
+                            </div>
+                            <div class="id-result-metric" style="border-top:2px solid var(--offshore-green);padding-top:16px;">
+                                <span class="id-metric-label" style="font-weight:700;font-size:0.95rem;">Estimated customs duty</span>
+                                <span class="id-metric-value big" id="res-duty">—</span>
+                            </div>
+                        </div>
+                        <div class="id-alert-flags" id="id-alerts"></div>
+                    </div>
+                </div>
+
+                <!-- ═══ CHAPTER RATE REFERENCE ═══ -->
+                <div class="id-chapter-ref">
+                    <h2>HS Chapter Duty Rate Reference — All 7 Markets</h2>
+                    <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:20px;line-height:1.6;">The rates below are representative MFN (Most Favored Nation) averages by 2-digit chapter as of mid-2026. Your specific 6- or 10-digit HS code may differ — particularly for products subject to tariff-rate quotas, seasonal duties, or antidumping orders. Use this as a directional estimate. The upcoming Tariff Calculator will provide HS-code-level precision.</p>
+
+                    <div class="ch-table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="min-width:50px;">Ch.</th>
+                                    <th style="min-width:180px;">Product Category</th>
+                                    <th style="width:70px;">US</th>
+                                    <th style="width:70px;">EU</th>
+                                    <th style="width:70px;">UK</th>
+                                    <th style="width:70px;">CA</th>
+                                    <th style="width:70px;">AU</th>
+                                    <th style="width:70px;">MX</th>
+                                    <th style="width:70px;">JP</th>
+                                    <th style="min-width:120px;">Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody id="id-chapter-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══ SIDEBAR ═══ -->
+            <aside>
+                <div class="id-sidebar-card">
+                    <h4>How This Calculator Works</h4>
+                    <p>This tool does one thing: multiplies your goods value by an estimated MFN duty rate for the HS chapter and market you select. It checks the de minimis threshold first — if your goods value is under the line, duty is zero regardless of the rate.</p>
+                    <p>It does <em>not</em> calculate VAT, freight, insurance, broker fees, or any other import cost. That's what the <a href="/landed-cost-calculator">Landed Cost Calculator</a> is for — take your duty number from here and plug it in there for the full picture.</p>
+                    <p>The duty rate shown is the <strong>MFN applied rate</strong> — what customs charges imports from WTO members with no FTA preference. If your goods qualify for a free trade agreement (RCEP, USMCA, CPTPP, etc.), the actual rate may be lower or zero. This calculator doesn't check FTA eligibility — that requires rules-of-origin analysis your customs broker should perform.</p>
+                </div>
+
+                <div class="id-sidebar-card">
+                    <h4>Duty, Then VAT — The Order Matters</h4>
+                    <p>Every customs authority in the world calculates import charges in the same sequence:</p>
+                    <p><strong>1. CIF value</strong> (goods + freight + insurance)<br>
+                       <strong>2. Customs duty</strong> (CIF × duty rate)<br>
+                       <strong>3. VAT/GST</strong> ((CIF + duty) × tax rate)</p>
+                    <p>Duty comes first. VAT is calculated on the <em>duty-paid</em> CIF — meaning duty inflates the VAT base. If the duty rate is 10% and VAT is 20%, the effective tax-on-tax is roughly 2% extra on top of the nominal VAT rate. This stacking effect is why getting the duty number right matters: an error of $50 in duty becomes a $60 error in total import cost once VAT is applied to the wrong base.</p>
+                    <p>Use this calculator to get the duty estimate, then run the full landed cost with VAT in the <a href="/landed-cost-calculator">Landed Cost Calculator</a>.</p>
+                </div>
+
+                <div class="id-sidebar-card">
+                    <h4>When MFN Isn't the Real Rate</h4>
+                    <p>Three situations where the rate in this calculator will be wrong — and what to do about each:</p>
+                    <p><strong>Section 301 / China tariffs (US).</strong> On top of the MFN rate shown here, goods of Chinese origin in certain HS chapters face additional Section 301 duties of 7.5%, 25%, or 100%. If the origin is China and the market is US, check the alert flags below the result. Our <a href="/section-301-china-tariffs-guide">Section 301 Guide</a> has the full product exclusion list.</p>
+                    <p><strong>Antidumping / countervailing duties.</strong> These are product-and-country-specific penalty rates that can exceed 100% of the goods value. They are not included in MFN schedules and won't appear here. If your product category has a history of AD/CVD cases (steel, aluminum, solar panels, textiles from China, furniture from Vietnam), ask your broker before relying on the MFN rate.</p>
+                    <p><strong>Free Trade Agreements.</strong> If your goods qualify under RCEP, USMCA, CPTPP, or a bilateral FTA, the preferential rate is often 0% — but you need a valid certificate of origin and the goods must meet the agreement's rules of origin. The calculator shows MFN rates because that's what applies when you <em>don't</em> have FTA documentation. If you do, your actual rate is probably lower.</p>
+                </div>
+            </aside>
+        </div>
+
+        <!-- ═══ SEO: HOW HS WORKS ═══ -->
+        <section class="seo-section" style="max-width:none;margin-top:48px;">
+            <h2>HS Classification — The Six Digits That Determine Your Duty Rate</h2>
+
+            <h3>What an HS code actually is</h3>
+            <p>The Harmonized System is a 6-digit product classification maintained by the World Customs Organization. Every country on earth uses it — over 200 customs administrations classify goods under the same 6-digit framework. The first two digits are the <strong>chapter</strong> (broad category: "machinery," "apparel," "furniture"). Digits 3-4 are the <strong>heading</strong> (subcategory within the chapter). Digits 5-6 are the <strong>subheading</strong> (the most specific WCO level). Beyond six digits, each country appends its own statistical suffix — the US Harmonized Tariff Schedule goes to 10 digits, the EU TARIC to 10 digits plus additional codes. But the first six digits are universal, and they're what determines the MFN duty rate. Misclassify at the 4-digit heading level and you've probably underpaid or overpaid by a factor of two. Customs audits HS codes on entry, and the penalty for misclassification is the unpaid duty plus interest — going back years if they find a pattern.</p>
+
+            <h3>Why two products that seem identical can have different duty rates</h3>
+            <p>A cotton T-shirt (Chapter 61, knitted apparel) and a cotton button-down shirt (Chapter 62, woven apparel) look similar to the consumer. To customs, they're different chapters with different MFN rates — Chapter 61 might be 10% while Chapter 62 is 12% in the same market. A leather shoe (Chapter 64) and a rubber boot (also Chapter 64) are in the same chapter but different headings with different rates. A laptop (Chapter 84, subheading 8471.30) and a tablet (also 8471.30) share the same rate — but a smartphone (Chapter 85, subheading 8517.12) is in a completely different chapter. The classification system rewards precision. Guessing wrong costs money. This calculator works at the 2-digit chapter level because that's where most people start. For transaction-level accuracy, you need the full 6-digit code and ideally a customs broker who has classified your specific product before.</p>
+
+            <h3>The difference between binding and non-binding classification</h3>
+            <p>The rates in this calculator are estimates based on published MFN tariff schedules. They are not binding on any customs authority. For a binding ruling — one that customs cannot retroactively overturn — you need to file a formal classification request with the importing country's customs agency: a Binding Tariff Information (BTI) ruling in the EU, an Advance Tariff Ruling in Canada, a Tariff Classification Advice in Australia. These take weeks to months but provide legal certainty. For most commercial shipments, a licensed customs broker's classification on the entry is sufficient — but the importer of record is always legally responsible for the accuracy of the classification, even if a broker prepared it. This tool gives you a starting point. Your broker gives you a defensible position. A binding ruling gives you certainty.</p>
+        </section>
+
+        <!-- ═══ SEO: COUNTRY-SPECIFIC DUTY NOTES ═══ -->
+        <section class="seo-section" style="max-width:none;">
+            <h2>How Each Market Calculates Duty — The Structural Differences</h2>
+
+            <h3>United States — CIF-based, Section 301 overlay, no VAT</h3>
+            <p>US customs duty is calculated on the CIF value of the goods. The US is unusual among major economies in having no federal VAT or GST at the border — the duty line is the only federal import charge. But for goods of Chinese origin, Section 301 duties stack on top of the MFN rate: 7.5% on most consumer goods (List 4A), 25% on industrial inputs (Lists 1-3), and 100% on electric vehicles (Section 301 investigation concluded May 2024). The effective duty rate on a Chapter 85 product from China can easily reach 27.5% — 2.5% MFN + 25% Section 301. This calculator shows the MFN rate only; the alert flag warns when Section 301 may apply. The US also has a Merchandise Processing Fee (0.3464% of CIF, min $31.67, max $614.35) on formal entries — not a duty, but functionally equivalent to one. <a href="/china-to-us-electronics">China→US Electronics</a> walks through a full CBP entry with the fee structure included.</p>
+
+            <h3>European Union — TARIC rates, €150 duty cliff, universal VAT</h3>
+            <p>The EU applies the Common Customs Tariff (TARIC) uniformly across all 27 member states. The duty rate you get in Rotterdam is the same as in Hamburg or Le Havre. The €150 de minimis exempts goods from duty — but not from VAT, which applies from €1. For goods over €150, duty is assessed on the full CIF value. The EU's duty rates are generally moderate (2-5% on most industrial goods), but there are sharp spikes on agricultural products, textiles, and footwear — the same protectionist pattern as most developed economies. Unlike the US, the EU has no additional country-specific tariffs on Chinese goods comparable to Section 301 — but it does impose antidumping duties on specific products (steel, aluminum, solar panels, ceramic tiles, bicycles) that effectively function the same way. <a href="/china-to-germany-customs">China→Germany Customs</a> covers ATLAS filing and the IOSS VAT system.</p>
+
+            <h3>Japan — Low MFN, combined threshold, no special China tariffs</h3>
+            <p>Japan has some of the lowest MFN rates in the developed world — 0% on most machinery and electronics (Chapters 84-85), 3.5% on consumer goods, with higher rates only on protected agricultural products. The ¥10,000 de minimis threshold covers both duty and the 10% consumption tax (JCT) combined — under ¥10,000 CIF, the shipment clears with zero charges. Over ¥10,000, both duty and JCT apply on the full CIF. Japan does not impose additional country-specific tariffs on Chinese goods comparable to Section 301, making it one of the lowest-friction developed markets for direct China-to-consumer e-commerce — at least from a tariff perspective. The challenge is product compliance (PSE, METI, food sanitation), not customs duty. <a href="/china-to-japan-cargo">China→Japan Cargo</a> covers NACCS processing and compliance requirements.</p>
+        </section>
+
+        <p style="margin-top:32px;"><a href="/landed-cost-calculator">Next: Landed Cost Calculator →</a> &nbsp;|&nbsp; <a href="/">← Back to Home</a> &nbsp;|&nbsp; <a href="/de-minimis-checker">Cliff Detector</a> &nbsp;|&nbsp; <a href="/#lanes">All Trade Corridors</a></p>
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/landed-cost-calculator">Landed Cost Calculator</a></li>
+                    <li><a href="/import-duty-calculator">Import Duty Calculator</a></li>
+                    <li><a href="/vat-calculator">VAT / GST Calculator</a></li>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/china-to-mexico-maquila">IMMEX Nearshoring</a></li>
+                    <li><a href="/china-to-germany-customs">EU ATLAS Hub</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data—not affiliated with any official government customs agency.</p>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        'use strict';
+
+        // ── HS CHAPTER DATA (2-digit, 01-99) ────────────────
+        // Rates: representative MFN averages by chapter for US/EU/UK/CA/AU/MX/JP
+        var hsChapters = [
+            {ch:'01',name:'Live animals',                      us:1.5, eu:11,  uk:9,  ca:3,  au:2,  mx:10, jp:6,  note:'High EU protection on livestock'},
+            {ch:'02',name:'Meat and edible offal',             us:5,   eu:45,  uk:38, ca:12, au:4,  mx:25, jp:15, note:'Tariff-rate quotas common'},
+            {ch:'03',name:'Fish and seafood',                  us:3,   eu:12,  uk:10, ca:5,  au:3,  mx:15, jp:5,  note:'Varies by species and preservation'},
+            {ch:'04',name:'Dairy, eggs, honey',                us:7,   eu:55,  uk:45, ca:18, au:5,  mx:30, jp:25, note:'Heavily protected in most markets'},
+            {ch:'05',name:'Animal products nesoi',             us:2,   eu:5,   uk:4,  ca:4,  au:2,  mx:10, jp:4,  note:'Miscellaneous animal byproducts'},
+            {ch:'06',name:'Live trees and plants',             us:2,   eu:8,   uk:7,  ca:5,  au:2,  mx:10, jp:3,  note:'Phytosanitary certificates required'},
+            {ch:'07',name:'Edible vegetables',                 us:4,   eu:14,  uk:12, ca:6,  au:3,  mx:15, jp:8,  note:'Seasonal duties on some vegetables'},
+            {ch:'08',name:'Fruit and nuts',                    us:3,   eu:12,  uk:11, ca:5,  au:3,  mx:15, jp:8,  note:'Seasonal tariffs on berries/citrus'},
+            {ch:'09',name:'Coffee, tea, spices',               us:3,   eu:6,   uk:5,  ca:4,  au:2,  mx:12, jp:5,  note:'Generally low — few countries grow these'},
+            {ch:'10',name:'Cereals',                           us:3,   eu:20,  uk:16, ca:8,  au:2,  mx:10, jp:25, note:'High protection on rice in JP/EU'},
+            {ch:'11',name:'Milling products',                  us:4,   eu:15,  uk:12, ca:6,  au:3,  mx:12, jp:12, note:'Processed grain products'},
+            {ch:'12',name:'Oil seeds, grains, fodder',         us:2,   eu:4,   uk:3,  ca:2,  au:1,  mx:8,  jp:3,  note:'Low protection — industrial inputs'},
+            {ch:'13',name:'Lac, gums, resins',                 us:2,   eu:4,   uk:3,  ca:3,  au:2,  mx:8,  jp:3,  note:'Niche industrial inputs'},
+            {ch:'14',name:'Vegetable plaiting materials',      us:2,   eu:3,   uk:2,  ca:2,  au:1,  mx:5,  jp:2,  note:'Minimal trade volume'},
+            {ch:'15',name:'Animal/vegetable fats and oils',    us:4,   eu:10,  uk:8,  ca:5,  au:2,  mx:12, jp:6,  note:'Palm oil disputes affect rates'},
+            {ch:'16',name:'Prepared meat and fish',            us:6,   eu:20,  uk:18, ca:10, au:5,  mx:22, jp:12, note:'Processed = higher than raw'},
+            {ch:'17',name:'Sugars and sugar confectionery',    us:8,   eu:35,  uk:30, ca:8,  au:5,  mx:20, jp:25, note:'TRQs and high over-quota rates'},
+            {ch:'18',name:'Cocoa and cocoa preparations',      us:4,   eu:10,  uk:8,  ca:5,  au:3,  mx:15, jp:10, note:'Chocolate faces higher rates than beans'},
+            {ch:'19',name:'Cereal, flour, starch preparations', us:6,   eu:15,  uk:12, ca:7,  au:4,  mx:18, jp:12, note:'Baked goods, pasta, processed carbs'},
+            {ch:'20',name:'Prepared vegetables and fruit',     us:5,   eu:18,  uk:15, ca:8,  au:4,  mx:18, jp:10, note:'Canned/jarred = higher than fresh'},
+            {ch:'21',name:'Miscellaneous edible preparations', us:5,   eu:10,  uk:8,  ca:6,  au:4,  mx:15, jp:10, note:'Sauces, soups, yeast, extracts'},
+            {ch:'22',name:'Beverages, spirits, vinegar',       us:4,   eu:12,  uk:10, ca:6,  au:5,  mx:15, jp:12, note:'Alcohol faces excise on top of duty'},
+            {ch:'23',name:'Food industry residues',            us:2,   eu:3,   uk:2,  ca:2,  au:1,  mx:5,  jp:2,  note:'Animal feed — low protection'},
+            {ch:'24',name:'Tobacco',                           us:18,  eu:55,  uk:50, ca:15, au:25, mx:30, jp:25, note:'Extreme protection + excise taxes'},
+            {ch:'25',name:'Salt, sulfur, earth, stone',        us:1,   eu:2,   uk:1,  ca:2,  au:0,  mx:5,  jp:1,  note:'Bulk industrial — near zero'},
+            {ch:'26',name:'Ores, slag and ash',                us:0.5, eu:1,   uk:1,  ca:1,  au:0,  mx:3,  jp:0,  note:'Mining inputs — effectively free'},
+            {ch:'27',name:'Mineral fuels, oils, waxes',        us:1.5, eu:3,   uk:2,  ca:2,  au:0,  mx:5,  jp:2,  note:'Crude oil = 0, refined = low single digits'},
+            {ch:'28',name:'Inorganic chemicals',               us:3,   eu:5,   uk:4,  ca:4,  au:2,  mx:8,  jp:3,  note:'Industrial chemicals — moderate'},
+            {ch:'29',name:'Organic chemicals',                 us:3.5, eu:5,   uk:4,  ca:4,  au:2,  mx:8,  jp:3,  note:'Pharmaceutical precursors vary'},
+            {ch:'30',name:'Pharmaceutical products',           us:0.5, eu:2,   uk:1,  ca:1,  au:0,  mx:5,  jp:0,  note:'WTO Pharma Agreement — near zero'},
+            {ch:'31',name:'Fertilizers',                       us:1,   eu:4,   uk:3,  ca:2,  au:0,  mx:5,  jp:2,  note:'Agricultural input — generally low'},
+            {ch:'32',name:'Tanning/dyeing extracts',           us:3,   eu:5,   uk:4,  ca:4,  au:2,  mx:8,  jp:3,  note:'Industrial colorants and pigments'},
+            {ch:'33',name:'Essential oils, perfumery',         us:3.5, eu:5,   uk:4,  ca:5,  au:3,  mx:10, jp:4,  note:'Cosmetics — moderate protection'},
+            {ch:'34',name:'Soap, waxes, polishes',             us:3,   eu:5,   uk:4,  ca:5,  au:3,  mx:10, jp:4,  note:'Household and industrial cleaning'},
+            {ch:'35',name:'Albuminoids, modified starches',    us:3,   eu:7,   uk:6,  ca:5,  au:3,  mx:10, jp:5,  note:'Industrial glues and gelatins'},
+            {ch:'36',name:'Explosives, pyrotechnics',          us:3,   eu:6,   uk:5,  ca:5,  au:3,  mx:10, jp:4,  note:'Regulated — licensing may apply'},
+            {ch:'37',name:'Photographic goods',                us:2.5, eu:5,   uk:4,  ca:3,  au:2,  mx:8,  jp:3,  note:'Declining category — film and paper'},
+            {ch:'38',name:'Miscellaneous chemical products',   us:3,   eu:5,   uk:4,  ca:4,  au:2,  mx:8,  jp:3,  note:'Catch-all for specialty chemicals'},
+            {ch:'39',name:'Plastics and articles thereof',     us:4,   eu:6,   uk:5,  ca:5,  au:4,  mx:10, jp:5,  note:'Raw pellets lower than finished goods'},
+            {ch:'40',name:'Rubber and articles thereof',       us:3.5, eu:5,   uk:4,  ca:5,  au:3,  mx:10, jp:4,  note:'Tires = higher than raw rubber'},
+            {ch:'41',name:'Raw hides and skins (not fur)',     us:2,   eu:3,   uk:2,  ca:3,  au:1,  mx:8,  jp:3,  note:'Industrial input — low protection'},
+            {ch:'42',name:'Leather articles, travel goods',    us:8,   eu:7,   uk:6,  ca:10, au:6,  mx:15, jp:10, note:'Finished leather goods — high rates'},
+            {ch:'43',name:'Furskins and artificial fur',       us:5,   eu:6,   uk:5,  ca:8,  au:5,  mx:15, jp:8,  note:'Natural fur faces CITES restrictions'},
+            {ch:'44',name:'Wood and articles of wood',         us:2.5, eu:4,   uk:3,  ca:3,  au:2,  mx:8,  jp:4,  note:'Raw timber lower than furniture'},
+            {ch:'45',name:'Cork and articles of cork',         us:2,   eu:3,   uk:2,  ca:3,  au:2,  mx:5,  jp:3,  note:'Niche — Portugal and Spain dominate'},
+            {ch:'46',name:'Straw and basketware',              us:3,   eu:4,   uk:3,  ca:4,  au:3,  mx:8,  jp:4,  note:'Handicraft category — modest trade'},
+            {ch:'47',name:'Pulp of wood',                      us:1,   eu:1,   uk:1,  ca:1,  au:0,  mx:5,  jp:1,  note:'Industrial input — near zero'},
+            {ch:'48',name:'Paper and paperboard',              us:2,   eu:3,   uk:2,  ca:3,  au:2,  mx:8,  jp:3,  note:'Newsprint lower than packaging'},
+            {ch:'49',name:'Printed books, newspapers',         us:0,   eu:0,   uk:0,  ca:0,  au:0,  mx:5,  jp:0,  note:'Cultural exemption — zero in most markets'},
+            {ch:'50',name:'Silk',                              us:3,   eu:5,   uk:4,  ca:4,  au:2,  mx:10, jp:5,  note:'Raw silk lower than fabric/garments'},
+            {ch:'51',name:'Wool, fine or coarse animal hair',  us:5,   eu:6,   uk:5,  ca:6,  au:3,  mx:12, jp:6,  note:'Wool fabric = higher than raw wool'},
+            {ch:'52',name:'Cotton',                            us:6,   eu:7,   uk:6,  ca:7,  au:4,  mx:12, jp:6,  note:'Raw cotton low; fabric higher'},
+            {ch:'53',name:'Other vegetable textile fibers',    us:4,   eu:5,   uk:4,  ca:5,  au:3,  mx:10, jp:5,  note:'Linen, hemp, jute — modest rates'},
+            {ch:'54',name:'Man-made filaments',                us:7,   eu:7,   uk:6,  ca:8,  au:5,  mx:14, jp:7,  note:'Synthetic yarns and fabrics'},
+            {ch:'55',name:'Man-made staple fibers',            us:7,   eu:7,   uk:6,  ca:8,  au:5,  mx:14, jp:7,  note:'Polyester staple — similar to Ch.54'},
+            {ch:'56',name:'Wadding, felt, nonwovens',          us:5,   eu:6,   uk:5,  ca:6,  au:3,  mx:12, jp:6,  note:'Industrial textiles — moderate'},
+            {ch:'57',name:'Carpets and textile floor coverings', us:6,  eu:8,   uk:7,  ca:8,  au:5,  mx:15, jp:8,  note:'Made-up textile — higher rates'},
+            {ch:'58',name:'Special woven fabrics',             us:7,   eu:8,   uk:7,  ca:8,  au:5,  mx:15, jp:7,  note:'Embroidery, lace, tapestries'},
+            {ch:'59',name:'Coated or laminated textile fabrics', us:5,  eu:6,   uk:5,  ca:6,  au:4,  mx:12, jp:5,  note:'Technical textiles — moderate'},
+            {ch:'60',name:'Knitted or crocheted fabrics',      us:8,   eu:8,   uk:7,  ca:9,  au:5,  mx:15, jp:7,  note:'Fabric for apparel — key input'},
+            {ch:'61',name:'Knitted apparel and clothing',      us:12,  eu:10,  uk:9,  ca:14, au:8,  mx:20, jp:10, note:'HEAVILY PROTECTED — high rates everywhere'},
+            {ch:'62',name:'Woven apparel and clothing',        us:10,  eu:10,  uk:9,  ca:13, au:8,  mx:20, jp:9,  note:'HEAVILY PROTECTED — similar to Ch.61'},
+            {ch:'63',name:'Other made-up textile articles',    us:8,   eu:9,   uk:8,  ca:10, au:6,  mx:16, jp:8,  note:'Bedding, curtains, sacks — high'},
+            {ch:'64',name:'Footwear, gaiters',                 us:15,  eu:12,  uk:10, ca:16, au:10, mx:22, jp:14, note:'MOST PROTECTED — 10-20% typical'},
+            {ch:'65',name:'Headgear',                          us:7,   eu:5,   uk:4,  ca:8,  au:5,  mx:15, jp:8,  note:'Hats, caps — moderate to high'},
+            {ch:'66',name:'Umbrellas, walking sticks',         us:5,   eu:5,   uk:4,  ca:5,  au:3,  mx:12, jp:5,  note:'Minor category — modest rates'},
+            {ch:'67',name:'Prepared feathers, artificial flowers', us:5, eu:5,  uk:4,  ca:5,  au:3,  mx:10, jp:5,  note:'Decorative articles — low volume'},
+            {ch:'68',name:'Stone, plaster, cement articles',   us:3,   eu:4,   uk:3,  ca:4,  au:3,  mx:10, jp:4,  note:'Construction materials — moderate'},
+            {ch:'69',name:'Ceramic products',                  us:5,   eu:6,   uk:5,  ca:5,  au:4,  mx:12, jp:5,  note:'Tiles and sanitaryware — moderate'},
+            {ch:'70',name:'Glass and glassware',               us:4,   eu:5,   uk:4,  ca:5,  au:3,  mx:10, jp:4,  note:'Float glass lower than tableware'},
+            {ch:'71',name:'Pearls, precious stones, metals',   us:3,   eu:1,   uk:1,  ca:3,  au:1,  mx:10, jp:2,  note:'Jewelry — EU/UK very low, others mixed'},
+            {ch:'72',name:'Iron and steel',                    us:3,   eu:4,   uk:3,  ca:4,  au:3,  mx:8,  jp:3,  note:'Section 232 = 25% on steel for US (not shown)'},
+            {ch:'73',name:'Articles of iron or steel',         us:4,   eu:5,   uk:4,  ca:5,  au:4,  mx:10, jp:4,  note:'Fabricated steel — higher than raw'},
+            {ch:'74',name:'Copper and articles thereof',       us:2.5, eu:4,   uk:3,  ca:3,  au:2,  mx:8,  jp:3,  note:'Industrial metal — moderate'},
+            {ch:'75',name:'Nickel and articles thereof',       us:2,   eu:3,   uk:2,  ca:2,  au:1,  mx:5,  jp:2,  note:'Minor industrial metal'},
+            {ch:'76',name:'Aluminum and articles thereof',     us:3.5, eu:6,   uk:5,  ca:4,  au:3,  mx:8,  jp:4,  note:'Section 232 = 10% on aluminum for US'},
+            {ch:'78',name:'Lead and articles thereof',         us:2.5, eu:3,   uk:2,  ca:2,  au:2,  mx:5,  jp:2,  note:'Minor metal — low protection'},
+            {ch:'79',name:'Zinc and articles thereof',         us:2,   eu:4,   uk:3,  ca:3,  au:2,  mx:5,  jp:2,  note:'Minor metal — galvanizing input'},
+            {ch:'80',name:'Tin and articles thereof',          us:2,   eu:3,   uk:2,  ca:2,  au:1,  mx:5,  jp:2,  note:'Canning and soldering — low rates'},
+            {ch:'81',name:'Other base metals',                 us:2.5, eu:4,   uk:3,  ca:3,  au:2,  mx:5,  jp:2,  note:'Tungsten, magnesium, cobalt — minor'},
+            {ch:'82',name:'Tools, implements, cutlery',        us:4,   eu:5,   uk:4,  ca:5,  au:3,  mx:10, jp:4,  note:'Hand tools and kitchen cutlery'},
+            {ch:'83',name:'Miscellaneous base metal articles', us:4,   eu:5,   uk:4,  ca:5,  au:3,  mx:10, jp:4,  note:'Locks, hinges, fittings — mixed'},
+            {ch:'84',name:'Machinery, mechanical appliances',  us:2,   eu:2,   uk:2,  ca:2,  au:2,  mx:8,  jp:0,  note:'LOW — ITA covers most; JP = 0%'},
+            {ch:'85',name:'Electrical machinery, electronics', us:2.5, eu:2.5, uk:2,  ca:2,  au:2,  mx:8,  jp:0,  note:'LOW — phones, computers, circuits'},
+            {ch:'86',name:'Railway locomotives, rolling stock', us:3,  eu:3,   uk:2,  ca:3,  au:2,  mx:8,  jp:0,  note:'Niche — government procurement driven'},
+            {ch:'87',name:'Vehicles (not railway)',            us:6,   eu:8,   uk:8,  ca:6,  au:5,  mx:15, jp:0,  note:'Cars = 6-10%; trucks higher; JP = 0%'},
+            {ch:'88',name:'Aircraft, spacecraft',              us:0.5, eu:1,   uk:1,  ca:0,  au:0,  mx:5,  jp:0,  note:'WTO Aircraft Agreement — near zero'},
+            {ch:'89',name:'Ships, boats, floating structures', us:2,   eu:2,   uk:2,  ca:3,  au:2,  mx:8,  jp:0,  note:'Commercial vessels often duty-free'},
+            {ch:'90',name:'Optical, medical, precision instruments', us:2.5, eu:3, uk:2, ca:3, au:2, mx:8, jp:0, note:'Medical devices often zero in JP/EU'},
+            {ch:'91',name:'Clocks and watches',                us:5,   eu:5,   uk:4,  ca:5,  au:3,  mx:12, jp:5,  note:'Swiss watch industry influences rates'},
+            {ch:'92',name:'Musical instruments',               us:3,   eu:3,   uk:2,  ca:3,  au:2,  mx:8,  jp:3,  note:'Minor category — modest rates'},
+            {ch:'93',name:'Arms and ammunition',               us:4,   eu:5,   uk:4,  ca:5,  au:5,  mx:10, jp:5,  note:'Regulated — import licenses required'},
+            {ch:'94',name:'Furniture, bedding, lighting',      us:5,   eu:5,   uk:4,  ca:6,  au:5,  mx:12, jp:5,  note:'AD duties on China furniture common'},
+            {ch:'95',name:'Toys, games, sports equipment',     us:3,   eu:4,   uk:3,  ca:4,  au:3,  mx:10, jp:3,  note:'Toys — moderate, safety regs add cost'},
+            {ch:'96',name:'Miscellaneous manufactured articles', us:4,  eu:5,   uk:4,  ca:5,  au:3,  mx:10, jp:4,  note:'Pens, lighters, sanitary products'},
+            {ch:'97',name:'Works of art, antiques',            us:0,   eu:0,   uk:0,  ca:0,  au:0,  mx:5,  jp:0,  note:'Cultural exemption — zero in most markets'}
+        ];
+
+        // Market definitions
+        var marketDefs = {
+            us: {name:'United States', flag:'🇺🇸', currency:'USD', deMinimis:800},
+            eu: {name:'European Union', flag:'🇪🇺', currency:'EUR', deMinimis:150},
+            uk: {name:'United Kingdom', flag:'🇬🇧', currency:'GBP', deMinimis:135},
+            ca: {name:'Canada', flag:'🇨🇦', currency:'CAD', deMinimis:20},
+            au: {name:'Australia', flag:'🇦🇺', currency:'AUD', deMinimis:1000},
+            mx: {name:'Mexico', flag:'🇲🇽', currency:'MXN', deMinimis:50},
+            jp: {name:'Japan', flag:'🇯🇵', currency:'JPY', deMinimis:10000}
+        };
+
+        var rates = {
+            USD: {USD:1, EUR:0.92, GBP:0.78, CAD:1.37, AUD:1.50, MXN:17.50, JPY:145},
+            EUR: {USD:1.09, EUR:1, GBP:0.85, CAD:1.49, AUD:1.63, MXN:19.03, JPY:158},
+            GBP: {USD:1.28, EUR:1.18, GBP:1, CAD:1.75, AUD:1.92, MXN:22.40, JPY:186},
+            CAD: {USD:0.73, EUR:0.67, GBP:0.57, CAD:1, AUD:1.10, MXN:12.77, JPY:106},
+            AUD: {USD:0.67, EUR:0.61, GBP:0.52, CAD:0.91, AUD:1, MXN:11.67, JPY:97},
+            MXN: {USD:0.057, EUR:0.053, GBP:0.045, CAD:0.078, AUD:0.086, MXN:1, JPY:8.29},
+            JPY: {USD:0.0069, EUR:0.0063, GBP:0.0054, CAD:0.0094, AUD:0.0103, MXN:0.121, JPY:1}
+        };
+
+        var currencySymbols = {USD:'$',EUR:'€',GBP:'£',CAD:'CA$',AUD:'A$',MXN:'MX$',JPY:'¥'};
+
+        function fmtMoney(amount, currency) {
+            if (currency === 'JPY') return '¥' + Math.round(amount).toLocaleString();
+            if (currency === 'MXN') return 'MX$' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+            return (currencySymbols[currency]||'') + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+        }
+
+        function getRateClass(rate) {
+            if (rate === 0) return 'zero';
+            if (rate <= 3) return 'low';
+            if (rate <= 8) return 'mid';
+            return 'high';
+        }
+
+        // ── Populate chapter select + reference table ────────
+        var chapterSelect = document.getElementById('id-chapter');
+        var chapterTbody = document.getElementById('id-chapter-tbody');
+        var optHtml = '';
+        var tbodyHtml = '';
+
+        for (var i = 0; i < hsChapters.length; i++) {
+            var c = hsChapters[i];
+            optHtml += '<option value="' + c.ch + '">' + c.ch + ' — ' + c.name + '</option>';
+
+            var mkKeys = ['us','eu','uk','ca','au','mx','jp'];
+            var rateCells = '';
+            for (var j = 0; j < mkKeys.length; j++) {
+                var rate = c[mkKeys[j]];
+                var cls = getRateClass(rate);
+                rateCells += '<td class="ch-rate ' + cls + '">' + rate.toFixed(1) + '%</td>';
+            }
+            tbodyHtml +=
+                '<tr>' +
+                '<td class="ch-num">' + c.ch + '</td>' +
+                '<td>' + c.name + '</td>' +
+                rateCells +
+                '<td class="ch-note">' + (c.note || '') + '</td>' +
+                '</tr>';
+        }
+        chapterSelect.innerHTML = optHtml;
+        chapterTbody.innerHTML = tbodyHtml;
+
+        // ── CALCULATE ────────────────────────────────────────
+        function calculateDuty() {
+            var chapterVal = chapterSelect.value;
+            var goodsValue = parseFloat(document.getElementById('id-value').value) || 0;
+            var inCurrency = document.getElementById('id-currency').value;
+            var origin     = document.getElementById('id-origin').value;
+            var marketKey  = document.getElementById('id-market').value;
+
+            var market = marketDefs[marketKey];
+            var chapterData = null;
+            for (var i = 0; i < hsChapters.length; i++) {
+                if (hsChapters[i].ch === chapterVal) { chapterData = hsChapters[i]; break; }
+            }
+            if (!chapterData) return;
+
+            // Convert to market currency
+            var rateX = rates[inCurrency][market.currency];
+            var valueLocal = goodsValue * rateX;
+
+            // Get duty rate
+            var dutyRate = chapterData[marketKey];
+
+            // De minimis check
+            var underDM = valueLocal <= market.deMinimis;
+            var dutyAmount = underDM ? 0 : valueLocal * (dutyRate / 100);
+
+            // Update result panel
+            document.getElementById('res-chapter').textContent = 'Chapter ' + chapterData.ch + ' — ' + chapterData.name;
+            document.getElementById('res-value-local').textContent = fmtMoney(valueLocal, market.currency);
+            document.getElementById('res-deminimis').textContent =
+                fmtMoney(market.deMinimis, market.currency) +
+                (underDM ? ' ✔ Under' : ' ✘ Over — duty applies');
+            document.getElementById('res-rate').textContent = dutyRate.toFixed(1) + '% MFN';
+            document.getElementById('res-duty').textContent =
+                underDM ? '— (under de minimis)' : fmtMoney(dutyAmount, market.currency);
+            document.getElementById('id-chapter-badge').textContent = 'Chapter ' + chapterData.ch;
+
+            document.getElementById('id-result').classList.add('visible');
+
+            // Alert flags
+            var alerts = document.getElementById('id-alerts');
+            var alertHtml = '';
+
+            // Section 301 flag
+            if (origin === 'CN' && marketKey === 'us') {
+                var chNum = parseInt(chapterData.ch);
+                var s301Rate = '';
+                if (chNum >= 84 && chNum <= 85) s301Rate = '25% (List 3 — machinery and electronics)';
+                else if (chNum >= 61 && chNum <= 64) s301Rate = '7.5% (List 4A — apparel and footwear)';
+                else if (chNum >= 94 && chNum <= 96) s301Rate = '7.5% (List 4A — furniture and consumer goods)';
+                else if (chNum >= 72 && chNum <= 83) s301Rate = '25% (List 1 — steel, aluminum, base metals)';
+                else if (chNum >= 39 && chNum <= 40) s301Rate = '25% (List 3 — plastics and rubber)';
+                else if (chNum >= 28 && chNum <= 38) s301Rate = '25% (List 2 — chemicals)';
+                else s301Rate = '7.5%–25% (check product-specific List)';
+
+                alertHtml += '<strong>⚠ Section 301 — Additional China Tariffs Apply</strong>';
+                alertHtml += 'Goods of Chinese origin in Chapter ' + chapterData.ch + ' face additional Section 301 duties of approximately <strong>' + s301Rate + '</strong> on top of the MFN rate shown above. The effective duty rate could be <strong>' + (dutyRate + (s301Rate.indexOf('25') >= 0 ? 25 : 7.5)).toFixed(1) + '%</strong> before VAT. See our <a href="/section-301-china-tariffs-guide" style="color:#991b1b;font-weight:700;">Section 301 Guide</a> for the full product exclusion list and current litigation status.';
+            }
+
+            // EU steel/aluminum safeguard
+            if ((chapterData.ch === '72' || chapterData.ch === '76') && marketKey === 'eu') {
+                alertHtml += '<strong>⚠ EU Steel/Aluminum Safeguard Measures</strong> The EU imposes tariff-rate quotas and safeguard duties on steel (Ch.72) and aluminum (Ch.76) imports above quota volumes. The MFN rate shown may not reflect the actual duty if the quota for your product category is filled. Check the current quota status with your EU customs broker.';
+            }
+
+            if (alertHtml) {
+                alerts.innerHTML = alertHtml;
+                alerts.classList.add('visible');
+            } else {
+                alerts.classList.remove('visible');
+            }
+        }
+
+        document.getElementById('id-calc-btn').addEventListener('click', calculateDuty);
+
+        // Also calculate on select/input changes for responsiveness
+        chapterSelect.addEventListener('change', calculateDuty);
+        document.getElementById('id-value').addEventListener('input', calculateDuty);
+        document.getElementById('id-currency').addEventListener('change', calculateDuty);
+        document.getElementById('id-origin').addEventListener('change', calculateDuty);
+        document.getElementById('id-market').addEventListener('change', calculateDuty);
+
+        // Initial calculation
+        calculateDuty();
+    })();
+    </script>
+
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

@@ -1,0 +1,483 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>Incoterms 2020 &amp; Import Duty — Why Your Supplier's Price Isn't Your Landed Cost</title>
+    <meta name="description" content="Your duty calculator is only as good as the number you type into it. EXW, FOB, CIF, DDP — here's what each Incoterm actually means for your customs bill, with real numbers from a $12,000 machinery shipment.">
+    <link rel="canonical" href="https://www.dutycalc.online/incoterms-guide">
+    <meta property="og:title" content="Incoterms 2020 &amp; Import Duty — Why Your Supplier's Price Isn't Your Landed Cost">
+    <meta property="og:description" content="EXW, FOB, CIF, DDP explained — not the legal definitions you've read a hundred times, but what each one does to your customs duty calculation. Real numbers, real mistakes, real math.">
+    <meta property="og:url" content="https://www.dutycalc.online/incoterms-guide">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Incoterms 2020 &amp; Import Duty — The Real Math Behind Each Term">
+    <meta name="twitter:description" content="Your supplier quoted FOB. Your calculator expects CIF. Here's the gap — and how to close it.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Incoterms 2020 & Import Duty — Why Your Supplier's Price Isn't Your Landed Cost",
+      "description": "EXW, FOB, CIF, and DDP explained from an importer's perspective. How each Incoterm changes your customs duty calculation, with real examples.",
+      "datePublished": "2026-07-15",
+      "dateModified": "2026-07-15",
+      "author": {"@type": "Organization", "name": "DutyCalc Research"},
+      "publisher": {"@type": "Organization", "name": "DutyCalc Research", "url": "https://www.dutycalc.online"},
+      "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.dutycalc.online/incoterms-guide"}
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which Incoterm should I use for my import duty calculation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Customs authorities worldwide calculate duty on the CIF value — Cost, Insurance, and Freight to the port of entry. If your supplier quotes EXW or FOB, you must add the missing costs (freight, insurance, inland transport) to reach the correct CIF figure before running any duty calculation. Using the supplier's EXW price directly will understate your duty bill, sometimes by thousands of dollars."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the difference between FOB and CIF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FOB (Free On Board) means the seller pays all costs until the goods are loaded onto the vessel at the origin port. CIF (Cost, Insurance, Freight) means the seller also pays for ocean freight and marine insurance to the destination port. For a typical China-to-US shipment, the gap between FOB and CIF is roughly 8-15% of the goods value — and since duty is calculated on CIF, using FOB instead of CIF understates your duty bill by that same percentage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I ask my supplier for FOB or CIF pricing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For most first-time importers, CIF is the safer choice — the supplier handles freight, and you get a single number to plug into your landed cost calculation. For experienced importers shipping full containers, FOB gives you more control: your own forwarder, your own routing, and often better rates than what the supplier marks up. Either way, you need both numbers: FOB to compare factory-gate prices across suppliers, and an estimated CIF to run your actual duty calculation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does DDP mean I pay nothing at the border?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — DDP (Delivered Duty Paid) means the seller is responsible for all costs including import duties, VAT, customs clearance, and last-mile delivery. You receive the goods at your door, cleared and tax-paid. But 'the seller pays' really means 'the seller priced it in.' A DDP quote that looks 25% higher than a CIF quote may simply reflect the actual duty and VAT that you'd have to pay anyway — the seller isn't absorbing those costs, they're estimating them and wrapping them into the unit price."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What Incoterm gives me the lowest landed cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "EXW (Ex Works) gives you the lowest supplier invoice price — but that's because you're taking on every cost after the factory gate: inland trucking, export clearance, ocean freight, insurance, import duty, VAT, customs brokerage, and last-mile delivery. The 'cheapest' Incoterm on the purchase order is often the most expensive by the time the goods reach your warehouse. Always compare total landed cost — not just the supplier's quoted price — when evaluating offers across different Incoterms."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I convert an FOB price to CIF for my duty calculation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Add ocean freight and marine insurance to the FOB value. As a rough rule of thumb for 2026 container shipping: add 8-12% of the goods value for full container loads (FCL) and 12-18% for less-than-container loads (LCL) from China to the US. From China to Europe, add 10-14% for FCL. From intra-Asia lanes, add 5-8%. For air freight, the FOB-to-CIF gap is smaller (2-5%) because the transit time is shorter and insurance costs less. These are estimates — your freight forwarder's quote is the real number."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "DutyCalc Online", "item": "https://www.dutycalc.online/"},
+        {"@type": "ListItem", "position": 2, "name": "Reference Guides", "item": "https://www.dutycalc.online/import-cost-workflow"},
+        {"@type": "ListItem", "position": 3, "name": "Incoterms 2020 Guide", "item": "https://www.dutycalc.online/incoterms-guide"}
+      ]
+    }
+    </script>
+
+    <style>
+        .article-body { margin: 0 auto; }
+        .article-lede {
+            font-size: 1.12rem; color: var(--text-primary); line-height: 1.8;
+            margin: 0 0 36px; font-weight: 500;
+            border-left: 3px solid var(--offshore-green); padding-left: 24px;
+        }
+        .article-body h2 {
+            font-size: 1.35rem; font-weight: 700; color: var(--steel-black);
+            margin: 48px 0 18px; padding-bottom: 8px;
+            border-bottom: 2px solid var(--offshore-green);
+        }
+        .article-body h3 {
+            font-size: 1.05rem; font-weight: 700; color: var(--steel-black);
+            margin: 32px 0 12px;
+            border-left: 3px solid var(--offshore-green); padding-left: 14px;
+        }
+        .article-body p {
+            font-size: 0.95rem; color: var(--text-secondary); line-height: 1.8;
+            margin-bottom: 16px; max-width: 72ch;
+        }
+        .article-body p a, .article-body li a {
+            color: var(--offshore-green); font-weight: 600;
+        }
+        .article-body p a:hover, .article-body li a:hover { text-decoration: underline; }
+        .article-body ul, .article-body ol {
+            margin: 8px 0 20px 22px; font-size: 0.93rem;
+            color: var(--text-secondary); line-height: 1.8;
+        }
+        .article-body ul li, .article-body ol li { margin-bottom: 8px; }
+        .article-body ul li::marker, .article-body ol li::marker { color: var(--offshore-green); }
+
+        /* Term cards */
+        .term-card {
+            background: var(--bg-surface); border: 1px solid var(--border-light);
+            border-left: 4px solid var(--steel-black); border-radius: 0 var(--radius-sharp) var(--radius-sharp) 0;
+            padding: 28px 32px; margin: 24px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+        }
+        .term-card h3 {
+            margin-top: 0; border-left: none; padding-left: 0;
+            display: flex; align-items: center; gap: 10px; font-size: 1.1rem;
+        }
+        .term-code {
+            display: inline-block; background: var(--steel-dark); color: #fff;
+            font-family: var(--font-data); font-size: 0.82rem; font-weight: 700;
+            padding: 4px 12px; border-radius: 4px; letter-spacing: 0.5px;
+        }
+        .term-aka { font-size: 0.82rem; color: var(--text-muted); font-weight: 400; }
+        .cost-bar {
+            display: flex; height: 14px; border-radius: 7px;
+            overflow: hidden; margin: 16px 0 10px; background: var(--bg-terminal);
+            border: 1px solid var(--border-light);
+        }
+        .cost-seller { background: var(--offshore-green); }
+        .cost-buyer { background: var(--accent); }
+        .cost-legend {
+            display: flex; gap: 20px; font-size: 0.75rem;
+            color: var(--text-muted); margin-bottom: 14px;
+        }
+        .cost-legend span { display: flex; align-items: center; gap: 6px; }
+        .legend-dot { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+        .legend-dot.seller { background: var(--offshore-green); }
+        .legend-dot.buyer { background: var(--accent); }
+        .term-risk { font-size: 0.85rem; color: var(--text-secondary); }
+
+        /* Numbered example */
+        .num-example {
+            background: var(--bg-terminal); border: 1px solid var(--border-light);
+            border-radius: var(--radius-sharp); padding: 28px 32px; margin: 24px 0;
+        }
+        .num-example h3 {
+            margin-top: 0; font-size: 1rem; color: var(--steel-black);
+            border-left: none; padding-left: 0;
+        }
+        .num-row {
+            display: flex; justify-content: space-between; padding: 6px 0;
+            font-size: 0.9rem; border-bottom: 1px solid var(--border-light);
+        }
+        .num-row:last-child { border-bottom: none; }
+        .num-label { color: var(--text-secondary); }
+        .num-val { font-family: var(--font-data); font-weight: 700; color: var(--steel-black); }
+        .num-val.highlight { color: #DC2626; font-size: 1rem; }
+
+        /* Comparison table */
+        .cmp-scroll { overflow-x: auto; margin: 24px 0; }
+        .cmp-scroll table {
+            width: 100%; border-collapse: collapse; font-size: 0.84rem;
+            min-width: 720px; border: 1px solid var(--border-light); border-radius: var(--radius-sharp);
+        }
+        .cmp-scroll thead th {
+            background: var(--steel-dark); color: #fff;
+            font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.4px; padding: 12px 14px; text-align: left;
+        }
+        .cmp-scroll thead th:last-child { text-align: right; }
+        .cmp-scroll tbody td {
+            padding: 11px 14px; border-bottom: 1px solid var(--border-light);
+            vertical-align: top; color: var(--text-secondary);
+        }
+        .cmp-scroll tbody td:last-child {
+            text-align: right; font-family: var(--font-data); font-weight: 700;
+            color: var(--steel-black); white-space: nowrap;
+        }
+        .cmp-scroll tbody tr:hover td { background: #f8fafc; }
+        .cmp-scroll .strike td { color: var(--text-muted); font-weight: 400; }
+        .cmp-scroll .best td { background: #F0FDF4; }
+
+        /* Rules of thumb box */
+        .rules-box {
+            background: var(--steel-dark); color: #e2e8f0;
+            border-radius: var(--radius-sharp); padding: 32px; margin: 28px 0;
+            border: 1px solid #1E293B;
+        }
+        .rules-box h3 {
+            color: var(--offshore-green); margin-top: 0; font-size: 0.82rem;
+            letter-spacing: 1px; text-transform: uppercase;
+            border-left: none; padding-left: 0;
+        }
+        .rules-box p { font-size: 0.88rem; line-height: 1.7; color: #cbd5e1; margin-bottom: 12px; max-width: none; }
+        .rules-box p:last-child { margin-bottom: 0; }
+        .rules-box strong { color: #fff; }
+
+        .back-block { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--border-light); }
+
+        @media (max-width: 768px) {
+            .term-card { padding: 20px; }
+            .num-example { padding: 18px 16px; }
+            .article-body h2 { font-size: 1.2rem; }
+            .article-lede { font-size: 1rem; padding-left: 16px; }
+            .rules-box { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header>
+            <h1>Your supplier's price isn't your <span>landed cost</span></h1>
+            <p>Incoterms 2020 — not the legal definitions, but what each term actually does to your customs duty calculation</p>
+        </header>
+
+        <div class="article-body">
+            <div class="seo-section">
+
+                <p class="article-lede">Here's a mistake that costs importers real money: you get a quote from a supplier in Shenzhen — $12,000 for a batch of industrial pump components. You type $12,000 into a duty calculator, add a guess for shipping, and get a landed cost estimate. <strong>The estimate is wrong.</strong> Not because the calculator is bad, but because $12,000 FOB Shenzhen and $12,000 CIF Hamburg are two completely different numbers, and customs charges duty on one of them, not the other. This page explains which one — and how to convert between them before you run the math.</p>
+
+                <h2>The problem in one paragraph</h2>
+                <p>Every customs authority on earth calculates import duty on the <strong>CIF value</strong> — Cost, Insurance, and Freight to the port of entry. But most suppliers quote <strong>FOB</strong> — the price at the factory gate with export clearance done and goods loaded on a vessel at the origin port. The gap between FOB and CIF is ocean freight, marine insurance, and sometimes inland transport at origin. For a typical container shipment, that gap is 8-15% of the goods value. If you skip it, you're under-declaring your dutiable value — and your landed cost calculator is working with the wrong input.</p>
+                <p>If you already understand how duty and VAT compound on top of CIF, the <a href="/import-cost-workflow">import cost workflow</a> walks through the full 4-step chain. This page is about the number you feed into step one.</p>
+
+                <h2>The four Incoterms that actually matter</h2>
+                <p>There are 11 Incoterms in the 2020 rulebook. For an importer running landed cost calculations, four of them cover 95% of real-world purchase orders. Here they are in order of <em>increasing</em> seller responsibility — and increasing purchase-order price:</p>
+
+                <!-- EXW -->
+                <div class="term-card">
+                    <h3><span class="term-code">EXW</span> Ex Works <span class="term-aka">— you pay for everything after the factory gate</span></h3>
+                    <div class="cost-bar">
+                        <div class="cost-seller" style="width:5%;"></div>
+                        <div class="cost-buyer" style="width:95%;"></div>
+                    </div>
+                    <div class="cost-legend">
+                        <span><span class="legend-dot seller"></span> Seller pays</span>
+                        <span><span class="legend-dot buyer"></span> You pay</span>
+                    </div>
+                    <p class="term-risk">The seller's obligation ends when they make the goods available at their premises. You handle — and pay for — loading, inland trucking, export clearance, ocean freight, insurance, import duties, customs brokerage, and delivery to your door. The purchase order price is the lowest of any Incoterm, but your actual out-the-door cost is the highest you'll ever pay relative to what's on the invoice.</p>
+                    <p class="term-risk"><strong>Calculator trap:</strong> If you type the EXW invoice price into a duty calculator that expects CIF, you're understating your dutiable value by 15-30%. A $12,000 EXW shipment from China to the US might have a true CIF of $14,500-$16,000 once freight, insurance, and origin charges are added — and duty is calculated on that larger number.</p>
+                </div>
+
+                <!-- FOB -->
+                <div class="term-card">
+                    <h3><span class="term-code">FOB</span> Free On Board <span class="term-aka">— the most common supplier quote</span></h3>
+                    <div class="cost-bar">
+                        <div class="cost-seller" style="width:35%;"></div>
+                        <div class="cost-buyer" style="width:65%;"></div>
+                    </div>
+                    <div class="cost-legend">
+                        <span><span class="legend-dot seller"></span> Seller pays</span>
+                        <span><span class="legend-dot buyer"></span> You pay</span>
+                    </div>
+                    <p class="term-risk">The seller delivers the goods to the named port and loads them onto the vessel. At that point, risk transfers to you. FOB is the default for most international trade because it gives a clean split: the seller handles the origin-side logistics they know best, and you control the ocean freight through your own forwarder. <strong>FOB does not include ocean freight or insurance.</strong> That's your side of the line.</p>
+                    <p class="term-risk"><strong>Calculator trap:</strong> This is where most calculators get mis-fed. The user copies the FOB invoice price into the "goods value" field, adds shipping in a separate box, and assumes the calculator handles the rest. That works — <em>if</em> the calculator is built to add FOB + freight internally. If it's built to expect a pre-combined CIF number (as many are), you'll get a correct result from a structural perspective but you had to supply the right input. Know what your calculator's "goods value" field expects.</p>
+                </div>
+
+                <!-- CIF -->
+                <div class="term-card">
+                    <h3><span class="term-code">CIF</span> Cost, Insurance &amp; Freight <span class="term-aka">— the number customs actually wants</span></h3>
+                    <div class="cost-bar">
+                        <div class="cost-seller" style="width:65%;"></div>
+                        <div class="cost-buyer" style="width:35%;"></div>
+                    </div>
+                    <div class="cost-legend">
+                        <span><span class="legend-dot seller"></span> Seller pays</span>
+                        <span><span class="legend-dot buyer"></span> You pay</span>
+                    </div>
+                    <p class="term-risk">The seller pays for the goods, export clearance, ocean freight to the destination port, and the minimum marine insurance (110% of invoice value, Institute Cargo Clauses C — the most basic coverage). Risk still transfers when goods cross the ship's rail at origin, but the seller is paying for the carriage. <strong>CIF is what customs uses as the dutiable value.</strong> If you have a CIF quote, you can plug it directly into any duty calculator's "goods value" field and get a correct result.</p>
+                    <p class="term-risk"><strong>Why suppliers like quoting CIF:</strong> It lets them bundle freight into the unit price, which inflates the invoice value for letter-of-credit purposes and gives them margin on the freight markup. For you, it's simpler — one number, no guessing — but you're paying a premium for that simplicity. Always ask for both FOB and CIF on the same quote, and compare the implied freight cost to what your own forwarder would charge.</p>
+                </div>
+
+                <!-- DDP -->
+                <div class="term-card">
+                    <h3><span class="term-code">DDP</span> Delivered Duty Paid <span class="term-aka">— the all-in Amazon-style price</span></h3>
+                    <div class="cost-bar">
+                        <div class="cost-seller" style="width:92%;"></div>
+                        <div class="cost-buyer" style="width:8%;"></div>
+                    </div>
+                    <div class="cost-legend">
+                        <span><span class="legend-dot seller"></span> Seller pays</span>
+                        <span><span class="legend-dot buyer"></span> You pay</span>
+                    </div>
+                    <p class="term-risk">The seller handles literally everything: freight, insurance, import duties, VAT, customs brokerage, and delivery to your named place. You receive the goods at your door, cleared and tax-paid. Your only obligation is unloading. DDP is the ultimate "one price" quote — and it's increasingly common in B2B e-commerce, especially on platforms like Alibaba for buyers who don't want to learn about customs.</p>
+                    <p class="term-risk"><strong>The hidden risk:</strong> The seller is estimating your import duties and VAT — and they have every incentive to under-estimate to make their DDP price look competitive. If they guess wrong, the difference is on them (per the Incoterm rules), but the practical reality is that an under-declared customs entry has <em>your</em> name on it as the importer of record. Before accepting a DDP quote, ask the seller to break out the duty and VAT line items so you can verify them independently. Our <a href="/landed-cost-calculator">landed cost calculator</a> will give you the independent number to compare against.</p>
+                </div>
+
+                <h2>Same goods, four Incoterms, four different duty bills</h2>
+                <p>Here's a real example. You're importing a $10,000 (factory value) shipment of CNC replacement parts from Shanghai to Los Angeles. Let's run the numbers through each Incoterm and see what happens to the customs duty calculation. The applicable US MFN rate is 4.2% (<a href="/china-to-us-machinery">China → US machinery corridor</a>), with an $800 de minimis — which this shipment far exceeds.</p>
+
+                <div class="cmp-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Term</th>
+                                <th>Invoice price</th>
+                                <th>+ Freight &amp; insurance</th>
+                                <th>= CIF (dutiable value)</th>
+                                <th>Duty @ 4.2%</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="strike">
+                                <td><strong>EXW</strong></td>
+                                <td>$10,000</td>
+                                <td>+ $2,600 (trucking, freight, insurance)</td>
+                                <td>$12,600</td>
+                                <td><strong>$529.20</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>FOB Shanghai</strong></td>
+                                <td>$10,800</td>
+                                <td>+ $1,400 (freight + insurance)</td>
+                                <td>$12,200</td>
+                                <td><strong>$512.40</strong></td>
+                            </tr>
+                            <tr class="best">
+                                <td><strong>CIF Los Angeles</strong></td>
+                                <td>$12,200</td>
+                                <td>— (already included)</td>
+                                <td>$12,200</td>
+                                <td><strong>$512.40</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>DDP Los Angeles</strong></td>
+                                <td>$13,400</td>
+                                <td>— (all in)</td>
+                                <td><em>Not separately stated</em></td>
+                                <td><em>Embedded in price</em></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>A few things to notice in the table above. <strong>FOB and CIF produce the same duty bill</strong> because the calculator ends up working with the same CIF number — $12,200. The difference is whether <em>you</em> calculated that CIF or the seller did. The EXW row is struck through because nobody should be using the raw EXW price to estimate duty — $10,000 isn't the dutiable value, $12,600 is. And the DDP row is opaque by design: the seller built the duty into the price and you can't see what they assumed.</p>
+                <p>Now imagine you didn't know any of this and just typed "10000" into the calculator because that's what the supplier's quote said. Your estimate would be $420 in duty. The actual bill at the border: $529.20. A $109.20 surprise per shipment. Across 10 shipments a year on a 15% net margin product, that's $1,092 in unpriced cost — enough to erase the profit on a full container.</p>
+
+                <h2>How to convert any Incoterm to CIF</h2>
+                <p>You don't need a freight forwarder on speed dial to get a ballpark CIF estimate. Here's what works in practice, based on 2026 market rates:</p>
+
+                <div class="rules-box">
+                    <h3>CIF Conversion Rules of Thumb (2026)</h3>
+                    <p><strong>EXW → CIF:</strong> Add 18-28% for FCL from China to US/EU. Add 25-35% for LCL. Covers inland trucking at origin, export clearance, ocean freight, and basic insurance. Intra-Asia lanes (e.g., China → Japan): add 10-18%.</p>
+                    <p><strong>FOB → CIF:</strong> Add 8-12% for FCL China → US West Coast. Add 12-15% for China → US East Coast or Europe. Add 5-8% for intra-Asia. For air freight: add only 2-5% — shorter transit means cheaper insurance and the freight cost is compressed into a higher rate per kg rather than a higher percentage of goods value.</p>
+                    <p><strong>CIF → nothing to add:</strong> If you already have a CIF quote, the number on the invoice is your dutiable value. Head straight to the <a href="/landed-cost-calculator">landed cost calculator</a>.</p>
+                    <p><strong>DDP → work backwards:</strong> Ask the seller for the FOB or CIF breakdown. If they won't provide it (some won't — it reveals their margin), get an independent FOB quote from another supplier for the same spec and use that as a cross-check. DDP without a cost breakdown is the most expensive way to buy anything.</p>
+                </div>
+
+                <p>These percentages are rough guides. Actual freight rates swing with fuel surcharges, peak season demand, and the specific port pair. For a precise number, get a quote from your forwarder. But for supplier evaluation — comparing one vendor's FOB Shenzhen against another's CIF Los Angeles — these rules will get you within 3-5%, which is good enough to decide which quote is actually cheaper.</p>
+
+                <h2>Which Incoterm should you be negotiating?</h2>
+                <p>There's no single right answer, but there's a decision framework that beats guessing:</p>
+
+                <ol>
+                    <li><strong>First shipment, new supplier, LCL cargo:</strong> Ask for CIF. You don't have a freight relationship yet, the shipping cost on an LCL pallet isn't worth optimizing, and one clean CIF number plugged into <a href="/landed-cost-calculator">the calculator</a> gives you a landed cost estimate you can trust. The premium you pay for supplier-arranged freight is cheaper than the cost of getting the duty calculation wrong.</li>
+                    <li><strong>Full container, established relationship, price-sensitive product:</strong> Negotiate on FOB and control the freight yourself. Your forwarder will almost always beat the supplier's freight markup on FCL shipments. Get the FOB quote, add your forwarder's actual freight quote, run the combined CIF number through the calculator, and you've got an accurate landed cost with no supplier margin hidden in the shipping line.</li>
+                    <li><strong>One-off equipment purchase from a brand-name manufacturer:</strong> Take the DDP. Yes, you're paying a premium. No, you don't care — a German CNC machine tool that arrives at your dock with a surprise customs bill you didn't budget for is a problem you don't want. DDP from reputable manufacturers is expensive but predictable.</li>
+                    <li><strong>Never negotiate on EXW unless you have a China-based logistics team.</strong> EXW looks cheaper on the purchase order but requires you to coordinate inland trucking from a factory in Dongguan, export declaration through a Chinese customs broker, and container loading at a terminal you've never seen. Unless your company has boots on the ground at origin, EXW is a false economy.</li>
+                </ol>
+
+                <h2>2026 market context: why Incoterms matter more right now</h2>
+                <p>Two things have changed since 2024 that make Incoterm literacy more important than it used to be:</p>
+                <p><strong>Ocean freight volatility is back.</strong> After the Red Sea diversions settled into a new normal in 2025, rates are fluctuating quarter to quarter again. A supplier's CIF quote from March may have baked in a freight rate that's $800 lower than what your forwarder would charge in July — or $1,200 higher. If you don't know how to split the CIF quote into its FOB and freight components, you can't tell which side of that gap you're on.</p>
+                <p><strong>De minimis reform is compressing the error tolerance.</strong> If the US de minimis drops from $800 to $200 (or lower) under the De Minimis Reciprocity Act, a lot more shipments will trigger formal entry with full duty and brokerage fees. When de minimis covered 80% of your volume, getting the CIF number slightly wrong on the remaining 20% was a manageable error. When nothing is de minimis, every shipment's duty calculation needs to be right. <a href="/section-321-de-minimis-reform-2026">Read our full 2026 de minimis reform analysis</a> for the scenarios.</p>
+
+                <h2>How this fits into the rest of your import math</h2>
+                <p>Incoterms are step zero. The full chain looks like this:</p>
+                <ol>
+                    <li><strong>Know your Incoterm</strong> — and convert it to CIF (this page)</li>
+                    <li><strong>Classify your goods</strong> — find the right 10-digit HS code. A wrong classification can mean a 12% rate instead of 2.5%. Start with our <a href="/hscode-duty-estimator">HS code estimator</a>.</li>
+                    <li><strong>Look up the corridor</strong> — duty rate, VAT rate, and de minimis threshold for your specific origin-destination pair. Browse the <a href="/#lanes">trade corridor directory</a> or jump directly to your lane — <a href="/china-to-us-electronics">China → US electronics</a>, <a href="/china-to-germany-customs">China → Germany</a>, <a href="/china-to-uk-apparel">China → UK apparel</a>, and 30+ others.</li>
+                    <li><strong>Run the landed cost calculation</strong> — duty first, then VAT on top of the duty-inflated base. The <a href="/landed-cost-calculator">landed cost calculator</a> does this across 7 markets at once.</li>
+                    <li><strong>Check the de minimis cliff</strong> — are you just above or just below the threshold? The <a href="/de-minimis-checker">de minimis cliff detector</a> shows you the step-function in your tax bill.</li>
+                </ol>
+
+                <div class="back-block">
+                    <p><a href="/">&larr; Back to All Calculators</a></p>
+                </div>
+
+            </div><!-- .seo-section -->
+        </div><!-- .article-body -->
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>DutyCalc Online</h2>
+                <p>Customs duty, VAT, and landed cost calculators for international trade. Independent trade metrology — not affiliated with any government customs agency.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <ul>
+                    <li><a href="/landed-cost-calculator">Landed Cost Calculator</a></li>
+                    <li><a href="/import-duty-calculator">Import Duty Calculator</a></li>
+                    <li><a href="/vat-calculator">VAT / GST Calculator</a></li>
+                    <li><a href="/tariff-calculator">Tariff Rate Lookup</a></li>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/hscode-duty-estimator">HS Code Estimator</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Info</h4>
+                <ul>
+                    <li><a href="/incoterms-guide">Incoterms Guide</a></li>
+                    <li><a href="/import-cost-workflow">Import Workflow Guide</a></li>
+                    <li><a href="/import-vat-guide">Import VAT Explained</a></li>
+                    <li><a href="/de-minimis-value-guide">De Minimis Guide</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                    <li><a href="/rate-updates">Rate Update History</a></li>
+                    <li><a href="/about">About This Platform</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent trade data — not affiliated with any government customs agency.</p>
+        </div>
+    </footer>
+
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

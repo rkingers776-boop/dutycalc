@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>EU to UK Customs Clearance Guide? (Free &amp; Instant Calculator)</title>
+    <meta name="description" content="Complete EU→UK customs clearance guide: CDS declarations, GB EORI numbers, commercial invoices, customs brokers, DDP vs DDU, and the paperwork every shipment needs post-Brexit.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="canonical" href="https://www.dutycalc.online/eu-to-uk-customs-clearance">
+    <meta property="og:title" content="EU to UK Customs Clearance Guide — CDS, EORI &amp; Paperwork">
+    <meta property="og:description" content="Complete EU→UK customs clearance guide: CDS declarations, GB EORI numbers, commercial invoices, customs brokers, DDP vs DDU — everything your shipment needs.">
+    <meta property="og:url" content="https://www.dutycalc.online/eu-to-uk-customs-clearance">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EU to UK Customs Clearance Guide — CDS, EORI &amp; Paperwork">
+    <meta name="twitter:description" content="Complete EU→UK customs clearance guide: CDS declarations, GB EORI numbers, commercial invoices, and what your freight forwarder needs from you. Free calculator included.">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+
+        <header>
+            <h1>EU to UK Customs Clearance — Complete Paperwork &amp; Process Guide</h1>
+            <p>CDS declarations, GB EORI numbers, commercial invoices, Incoterms (DDP vs DDU), customs broker selection, and what couriers handle vs what you're responsible for — every document your EU→UK shipment needs</p>
+        </header>
+
+        <div class="trade-tip"><span class="tip-label">CHIEF is dead. CDS is the new system.</span><br><strong>All UK import declarations now go through the Customs Declaration Service.</strong> If your broker hasn't migrated from CHIEF, your goods will not clear. Period. <a href="/eu-to-uk-commodity-codes">UK commodity codes on CDS 鈫?/a></div>
+
+        <!-- ═══ 嵌入式计算器 ═══ -->
+        <div class="calculator-card" data-duty-rate="2.0" data-vat-rate="20" data-deminimis="135">
+            <h3>EU → UK Post-Brexit Duty &amp; VAT Estimator</h3>
+            <p class="card-desc">Estimate the duty and VAT your shipment will face at UK customs. Use this before preparing your commercial invoice to understand the taxes your customer or broker will pay.</p>
+            <div class="input-group">
+                <label>Shipment Commercial Value (GBP)</label>
+                <input type="number" class="item-value unit-input" value="700" min="0" max="99999999" aria-label="Shipment commercial value in GBP">
+            </div>
+            <div class="input-group">
+                <label>Shipping &amp; Insurance Cost (GBP)</label>
+                <input type="number" class="shipping-cost unit-input" value="50" min="0" max="99999999" aria-label="Shipping and insurance cost in GBP">
+            </div>
+            <button class="btn-calc" aria-label="Calculate EU to UK Post-Brexit Duty">Calculate Landed Cost</button>
+            <div class="result-display result-hidden" aria-live="polite" aria-atomic="true">
+                <h4>Customs Clearing Summary:</h4>
+                <ul>
+                    <li>Import Tariff (2.0%): <span class="res-duty">--</span></li>
+                    <li>Standard Import VAT (20%): <span class="res-vat">--</span></li>
+                    <li>Total Government Taxes: <span class="res-total-tax">--</span></li>
+                    <li>Total Estimated Landed Cost: <span class="res-landed">--</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="trade-tip"><span class="tip-label">Dover-Calais: GVMS is the gatekeeper</span><br>Roll-on/roll-off freight through Dover requires Goods Vehicle Movement Service (GVMS) registration. Your haulier needs a Goods Movement Reference (GMR) before the truck boards the ferry. No GMR = no crossing. <a href="/eu-to-uk-post-brexit">Back to the big picture 鈫?/a></div>
+
+        <div>
+            <article class="seo-section">
+
+                <h2>How EU to UK Customs Clearance Works After Brexit</h2>
+                <p>Before 2021, goods moved between the EU and the UK without customs declarations — it was frictionless single-market trade. Today, every commercial shipment from the EU to Great Britain requires a full customs entry filed through the UK's <strong>CDS (Customs Declaration Service)</strong>. Understanding what's needed before your goods leave the EU warehouse is the difference between same-day clearance and a shipment stuck at the border for a week while your broker waits for missing information.</p>
+                <p>This guide covers the four documents every shipment needs, the two identification numbers you must have, the Incoterms decision that changes who pays what at the border, and how the clearance process differs between small parcel courier shipments and palletized/container freight.</p>
+                <p>Customs clearance procedures apply regardless of whether duties are owed. Even if your shipment is under the de minimis threshold, the declaration still needs to be filed. Our <a href="/de-minimis-value-guide">De Minimis Value Guide</a> explains when duties kick in across different trade lanes.</p>
+
+                <h2>The Four Documents Every EU→UK Shipment Needs</h2>
+
+                <h3>1. Commercial Invoice — The Single Most Important Document</h3>
+                <p>The commercial invoice is the foundation of the customs declaration. HMRC uses it to assess duty, VAT, and whether the goods meet any special requirements. An incomplete invoice is the #1 reason customs clearances are delayed. Every commercial invoice for EU→UK shipments must include:</p>
+                <ul class="content-list">
+                    <li><strong>Seller details:</strong> Full legal name, address, and (if VAT-registered) EU VAT number of the exporter</li>
+                    <li><strong>Buyer details:</strong> Full legal name and UK address of the consignee. If the buyer is a business, include their GB EORI number if they have one</li>
+                    <li><strong>Invoice number and date:</strong> Unique, sequential — HMRC cross-references this against the customs declaration</li>
+                    <li><strong>Full product description:</strong> Not "clothing" or "electronics" — describe what it is, what it's made of, and what it's used for. "Women's cotton denim jeans, blue, 98% cotton 2% elastane" is good. "Garment" is not. Generic descriptions are a red flag for customs inspection</li>
+                    <li><strong>Quantity and unit value:</strong> Number of units, price per unit in GBP, and extended total per line item</li>
+                    <li><strong>Total commercial value:</strong> Sum of all line items, in GBP. This is the value used for the £135 threshold test</li>
+                    <li><strong>Currency:</strong> State the currency explicitly (GBP preferred by HMRC, EUR also accepted)</li>
+                    <li><strong>Country of origin:</strong> Where the goods were manufactured — "European Union" or the specific EU country. This determines whether TCA preference applies</li>
+                    <li><strong>Harmonized System (HS) commodity code:</strong> At minimum the first 6 digits (internationally harmonized); ideally the full 10-digit UK commodity code. Your broker can look these up, but providing them speeds clearance</li>
+                    <li><strong>Incoterms:</strong> The agreed delivery terms — DAP, DDP, EXW, FCA, etc. This tells customs who is responsible for duty and VAT</li>
+                    <li><strong>TCA origin statement (if claiming preference):</strong> The standard declaration wording for zero-rate eligibility</li>
+                    <li><strong>Shipping and insurance costs:</strong> Separately itemized from the goods value, even if the customer paid a single all-in price</li>
+                </ul>
+                <p>A well-prepared commercial invoice has all of this information on a single page. If your broker has to email you for missing details — commodity code, origin, proper description — your clearance is already delayed. Send the invoice before the goods arrive at the border.</p>
+
+                <h3>2. Customs Declaration (CDS Entry) — What Your Broker Files</h3>
+                <p>The UK's Customs Declaration Service (CDS) replaced the old CHIEF system. Your freight forwarder or customs broker files the declaration electronically, using the information from your commercial invoice. The declaration is a structured data submission that tells HMRC:</p>
+                <ul class="content-list">
+                    <li>Who is importing (the importer of record — their GB EORI number)</li>
+                    <li>What is being imported (commodity codes, quantities, values)</li>
+                    <li>Where it came from (country of export and country of origin)</li>
+                    <li>How it arrived (ship, plane, truck — and the transport document reference)</li>
+                    <li>What procedure code applies (standard import, temporary admission, inward processing relief, etc.)</li>
+                    <li>Whether preference is claimed (TCA zero rate, GSP, etc.)</li>
+                    <li>How duty and VAT will be paid (immediate payment, deferment account, postponed VAT accounting)</li>
+                </ul>
+                <p>You don't file the CDS entry yourself (unless you're a registered customs agent with CDS access), but you provide every piece of information that goes into it. The quality of your commercial invoice directly determines the accuracy of the CDS entry. Garbage in, garbage out — and customs penalties follow the importer of record, not the broker.</p>
+
+                <h3>3. Transport Document — Proof of Movement</h3>
+                <p>Depending on the mode of transport, this is a CMR (road), air waybill (air), or bill of lading (sea). This document proves the goods physically moved from the EU to the UK and provides the reference number that links the physical shipment to the customs declaration. For courier shipments (DHL, FedEx, UPS), the tracking number serves this function.</p>
+
+                <h3>4. Packing List — What's in Each Box</h3>
+                <p>A packing list details the contents of each package in the consignment: box number, dimensions, weight, and which products from the commercial invoice are in which box. Not always required for small parcel shipments, but strongly recommended for anything on a pallet. If customs selects your shipment for physical inspection, a clear packing list lets the officer find the right box without opening all of them.</p>
+
+                <h2>The Two Numbers You Need</h2>
+
+                <h3>GB EORI Number — The Importer's ID</h3>
+                <p>Every entity that imports goods into the UK needs a GB EORI (Economic Operators Registration and Identification) number. It's a 12-digit number starting with "GB" (e.g., GB123456789000) issued by HMRC. The EORI number identifies who is responsible for the customs declaration and who HMRC will pursue if duties go unpaid.</p>
+                <p><strong>For UK-based importers:</strong> Apply through GOV.UK — free, takes about a week, and you need it before your first shipment clears. If you're already VAT-registered, HMRC may automatically issue an EORI.</p>
+                <p><strong>For EU-based sellers who act as importer of record:</strong> You can apply for a GB EORI as a non-UK business — also free, also through GOV.UK. If you're shipping DDP, you or your fiscal representative needs the EORI.</p>
+                <p><strong>For B2B shipments where the UK customer imports:</strong> The customer's GB EORI goes on the declaration. You still need to provide it to your broker or courier.</p>
+
+                <h3>CDS Account / Duty Deferment Account (Optional but Recommended)</h3>
+                <p>If you import regularly, a duty deferment account (DDA) lets you pay duty and VAT monthly rather than per-shipment. You post a financial guarantee (typically two months' estimated charges) and HMRC debits your account on the 15th of each month for the previous month's imports. For businesses doing 20+ shipments per month, this eliminates the per-shipment payment friction and speeds clearance. Application through HMRC — approval takes 4-8 weeks.</p>
+
+                <h2>DDP vs DDU — The Incoterms Decision That Determines Everything</h2>
+                <p>The Incoterms on your commercial invoice determine who pays duty and VAT at the UK border. For EU→UK shipments, the two most common choices create very different experiences for your UK customer:</p>
+
+                <p><strong>DAP — Delivered at Place</strong> (often called DDU — Delivered Duty Unpaid):</p>
+                <ul class="content-list">
+                    <li>You (the seller) pay for shipping to the UK delivery address</li>
+                    <li>The UK customer pays import duty and VAT before delivery — the courier contacts them for payment</li>
+                    <li>Customer experience: "Why do I have to pay £35 before DHL will deliver my package?" — this is the #1 complaint from UK customers buying from EU websites</li>
+                    <li>You don't need UK VAT registration (for above-£135 shipments)</li>
+                    <li>You don't need a GB EORI number — the customer's EORI (or the courier's brokerage EORI) is used</li>
+                </ul>
+
+                <p><strong>DDP — Delivered Duty Paid:</strong></p>
+                <ul class="content-list">
+                    <li>You (the seller) pay for shipping AND all import duties and taxes</li>
+                    <li>The UK customer receives the package with nothing to pay — seamless experience</li>
+                    <li>Your customs broker pays the duty and VAT at the border and bills you</li>
+                    <li>You need a GB EORI number (or your fiscal representative's EORI)</li>
+                    <li>You need to know the duty and VAT in advance to price it into your product or shipping fee</li>
+                    <li>For sub-£135 B2C consignments, DDP doesn't bypass the VAT registration requirement — you still need UK VAT registration for direct sales</li>
+                </ul>
+
+                <p>Many EU sellers start with DAP (simpler for them) and switch to DDP after customer complaints about surprise charges. The calculator on this page tells you exactly what the duty and VAT will be — use it to build DDP pricing.</p>
+
+                <h2>Courier Shipments vs Freight Shipments — Different Processes</h2>
+                <p><strong>Courier shipments</strong> (DHL, FedEx, UPS, TNT, Parcelforce) handle customs clearance as part of their service. You provide the commercial invoice (electronically or in a pouch on the box), the courier's in-house brokerage files the CDS entry, and they bill the duty/VAT to either you (DDP) or the customer (DAP). Courier brokerage fees for routine clearances range from £5 to £15 per shipment — usually included in the shipping cost for DDP, or added to the customer's charges for DAP. Minimum documentation: commercial invoice with HS codes and origin statement.</p>
+                <p><strong>Pallet and container freight</strong> requires a dedicated customs broker. You (or your freight forwarder) engage the broker, send them the commercial invoice and packing list, and they file the CDS entry. Brokerage fees range from £25–£65 per entry for standard clearances. You need to establish the brokerage relationship before the goods ship — don't wait until the container is at Felixstowe to find a broker. The broker needs your EORI, your deferment account details (if you have one), and clear instructions on DAP vs DDP.</p>
+
+                <h2>Customs Inspections — What Happens When Your Shipment Is Flagged</h2>
+                <p>HMRC risk-scores every customs declaration. Most clear in seconds with no human intervention. Some are flagged for document checks (the broker uploads the commercial invoice and HMRC reviews it — this takes hours to a day). A smaller number are flagged for physical inspection (customs opens the package at a Border Force facility — this can take 3-7 days).</p>
+                <p>Common triggers for inspection:</p>
+                <ul class="content-list">
+                    <li>Generic product descriptions ("gift," "samples," "merchandise")</li>
+                    <li>Unusually low declared value relative to the goods described</li>
+                    <li>Commodity codes that don't match the product description</li>
+                    <li>First-time importer with no compliance history</li>
+                    <li>Goods subject to additional controls (food, plants, animal products, dual-use items, excise goods)</li>
+                    <li>Random selection — sometimes there's no reason; HMRC inspects a percentage of all entries as a deterrent</li>
+                </ul>
+                <p>An inspection isn't a penalty — it's a verification. If your paperwork is correct, the goods are released and you move on. If errors are found, HMRC may amend the declaration, assess additional duty, or (in cases of suspected fraud) seize the goods. The best defense against inspection delays is a detailed, accurate commercial invoice.</p>
+
+                <p>Related guides: <a href="/eu-to-uk-post-brexit">Post-Brexit Overview</a> | <a href="/eu-to-uk-tca-origin-rules">TCA Origin Rules</a> | <a href="/eu-to-uk-vat-registration">UK VAT Registration</a> | <a href="/eu-to-uk-135-consignment-rule">£135 Consignment Rule</a> | <a href="/eu-to-uk-commodity-codes">Commodity Codes</a></p>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>Who is the "importer of record" and why does it matter?</h3>
+                <p>The importer of record (IOR) is the legal entity responsible for ensuring the customs declaration is accurate and that duties and taxes are paid. On the CDS entry, the IOR is identified by their GB EORI number. The IOR is HMRC's point of contact for any compliance issues — audits, penalties, duty demands all go to the IOR, not the exporter, not the freight forwarder, not the broker.</p>
+                <p>In a DAP shipment, the UK consignee (your customer) is usually the IOR — their EORI is on the entry, and they're responsible. In a DDP shipment, you (the seller) or your fiscal representative is the IOR. Never agree to be IOR on a shipment where you don't control the customs declaration — you'd be legally liable for a filing someone else prepared. This is why most EU sellers shipping DAP don't act as IOR; they let the UK customer or courier handle it.</p>
+
+                <h3>Can I clear customs myself without a broker?</h3>
+                <p><strong>Technically yes, practically no for most businesses.</strong> You can register for CDS access, take the customs declaration training, and file your own entries. But the CDS system has a learning curve, error rates for self-filers are higher than for professional brokers, and HMRC holds you fully liable for mistakes. A single misclassified commodity code can result in underpaid duty going back years.</p>
+                <p>Brokers file hundreds of entries per month and carry professional indemnity insurance. For businesses doing fewer than 100 shipments per year to the UK, a broker is almost always cheaper than the time and risk of self-filing. The exception: very large importers with in-house customs teams.</p>
+
+                <h3>What's postponed VAT accounting (PVA) and should I use it?</h3>
+                <p>Postponed VAT accounting allows UK VAT-registered importers to account for import VAT on their VAT return rather than paying it at the border. You declare the import VAT as both output tax and input tax on the same return — zero net cash impact if you can fully recover input VAT. This eliminates the cash-flow disadvantage of paying VAT upfront and waiting to recover it.</p>
+                <p>PVA is available to any UK VAT-registered business — you don't need a deferment account or special approval. Your broker simply selects the PVA procedure code on the CDS entry. For UK businesses importing regularly from the EU, PVA is the standard approach. For EU sellers shipping DDP, PVA isn't directly relevant — but your UK fiscal representative may use it if they're handling the import VAT through their own VAT registration.</p>
+
+                <h3>How long does UK customs clearance actually take for EU goods?</h3>
+                <p>For standard CDS entries with complete documentation: 1-2 hours for automated clearance, same-day for most express freight, 24-48 hours for sea freight at major ports (Felixstowe, Dover, London Gateway). Delays happen when: the commodity code is wrong, the EORI number is missing or invalid, the valuation looks off, or the goods are flagged for physical inspection. Physical inspections add 3-10 business days. For time-sensitive goods, using a customs broker with a deferment account and filing the declaration before the goods arrive (pre-lodgement) cuts the border delay to near zero.</p>
+
+                <p style="margin-top: 30px;"><a href="/eu-to-uk-post-brexit">&larr; Back to EU→UK Post-Brexit Main Guide</a></p>
+            </article>
+        </div>
+
+        
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/china-to-mexico-maquila">IMMEX Nearshoring</a></li>
+                    <li><a href="/china-to-germany-customs">EU ATLAS Hub</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data—not affiliated with any official government customs agency.</p>
+        </div>
+    </footer>
+
+    <script src="rate-data.js"></script>
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

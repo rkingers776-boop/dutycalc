@@ -1,0 +1,30 @@
+{
+  "name": "DutyCalc Online — Global Customs Duty Terminal",
+  "short_name": "DutyCalc",
+  "description": "High-precision customs duty, VAT, and landed cost calculators for international trade corridors.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F172A",
+  "theme_color": "#1E293B",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='24' fill='%231E293B'/><text x='96' y='132' text-anchor='middle' font-family='system-ui,sans-serif' font-size='108' font-weight='bold' fill='%230EA5E9'>$</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='64' fill='%231E293B'/><text x='256' y='352' text-anchor='middle' font-family='system-ui,sans-serif' font-size='288' font-weight='bold' fill='%230EA5E9'>$</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='64' fill='%231E293B'/><text x='256' y='352' text-anchor='middle' font-family='system-ui,sans-serif' font-size='288' font-weight='bold' fill='%230EA5E9'>$</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

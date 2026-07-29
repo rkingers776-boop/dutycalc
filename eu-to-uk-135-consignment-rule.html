@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>£135 Consignment Rule for EU→UK? (Free &amp; Instant Calculator)</title>
+    <meta name="description" content="The £135 consignment rule explained: how it splits duty (waived below £135) from VAT collection (seller collects below £135, buyer pays at border above). Free calculator included.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="canonical" href="https://www.dutycalc.online/eu-to-uk-135-consignment-rule">
+    <meta property="og:title" content="£135 Consignment Rule: EU→UK Duty &amp; VAT Explained — Free Calculator">
+    <meta property="og:description" content="The £135 consignment rule creates two different regimes for duty and VAT on EU→UK shipments. Understand both before your next shipment.">
+    <meta property="og:url" content="https://www.dutycalc.online/eu-to-uk-135-consignment-rule">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="£135 Consignment Rule: EU→UK Duty &amp; VAT Explained">
+    <meta name="twitter:description" content="The £135 consignment rule splits duty and VAT into two different collection regimes. Get it wrong and HMRC compliance letters follow. Free calculator included.">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+
+        <header>
+            <h1>£135 Consignment Rule — EU to UK Duty &amp; VAT Threshold Explained</h1>
+            <p>How one number creates two completely different customs regimes: duty-free entry below £135 vs standard import VAT collection above it. Plus why the seller becomes the tax collector for sub-£135 B2C shipments.</p>
+        </header>
+
+        <div class="trade-tip"><span class="tip-label">Per consignment, not per item</span><br><strong>The 拢135 threshold applies to the total consignment value, not each item.</strong> Three 拢50 items in one box = 拢150 consignment 鈫?over the threshold. Three separate shipments of 拢50 each = three sub-拢135 consignments 鈫?under the threshold. <a href="/eu-to-uk-vat-registration">UK VAT registration requirements 鈫?/a></div>
+
+        <!-- ═══ 嵌入式计算器 ═══ -->
+        <div class="calculator-card" data-duty-rate="2.0" data-vat-rate="20" data-deminimis="135">
+            <h3>EU → UK Post-Brexit Duty &amp; VAT Estimator</h3>
+            <p class="card-desc">Enter shipment value and shipping cost in GBP. The calculator applies the 2.0% duty rate (waived for consignments £135 and below) and 20% VAT on the duty-paid CIF value.</p>
+            <div class="input-group">
+                <label>Shipment Commercial Value (GBP)</label>
+                <input type="number" class="item-value unit-input" value="120" min="0" max="99999999" aria-label="Shipment commercial value in GBP">
+            </div>
+            <div class="input-group">
+                <label>Shipping &amp; Insurance Cost (GBP)</label>
+                <input type="number" class="shipping-cost unit-input" value="15" min="0" max="99999999" aria-label="Shipping and insurance cost in GBP">
+            </div>
+            <button class="btn-calc" aria-label="Calculate EU to UK Post-Brexit Duty">Calculate Landed Cost</button>
+            <div class="result-display result-hidden" aria-live="polite" aria-atomic="true">
+                <h4>Customs Clearing Summary:</h4>
+                <ul>
+                    <li>Import Tariff (2.0%): <span class="res-duty">--</span></li>
+                    <li>Standard Import VAT (20%): <span class="res-vat">--</span></li>
+                    <li>Total Government Taxes: <span class="res-total-tax">--</span></li>
+                    <li>Total Estimated Landed Cost: <span class="res-landed">--</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="trade-tip"><span class="tip-label">Gift exemption is separate</span><br>Gifts under 拢39 from individuals are exempt from UK VAT. But "gift" has a specific legal definition 鈥?marking a commercial shipment as a gift is customs fraud. HMRC checks. <a href="/de-minimis-value-guide">Compare de minimis rules globally 鈫?/a></div>
+
+        <div>
+            <article class="seo-section">
+
+                <h2>How the £135 Consignment Rule Actually Works for EU→UK Shipments</h2>
+                <p>The £135 consignment rule is the single most misunderstood mechanism in post-Brexit customs — because it's actually <strong>two separate rules</strong> sharing one number. One governs whether import duty is owed. The other governs who collects the VAT and at what point in the transaction. They use the same £135 threshold but operate completely independently. Mixing them up is the fastest way to get an HMRC compliance letter.</p>
+                <p>This guide disentangles both rules with concrete examples, explains what "consignment value" actually means (it's not what most people think), and covers the edge cases that trip up even experienced cross-border sellers — gift shipments, multi-package orders, and marketplace vs direct sales.</p>
+
+                <h2>Rule 1: Customs Duty — £135 Is the Duty-Free Ceiling</h2>
+                <p>For <strong>customs duty only</strong>, consignments with a goods value of £135 or below enter the UK <strong>duty-free, regardless of origin</strong>. You don't need to claim TCA preference. You don't need to prove EU origin. You don't need origin statements, supplier declarations, or HS code analyses. Duty is simply not charged below this threshold. Period.</p>
+                <p>Above £135, the applicable duty rate applies. For TCA-qualifying EU goods with a valid preference claim: 0%. For non-qualifying goods or shipments where no preference is claimed: the UK Global Tariff rate, averaging around 2.0%.</p>
+                <p>Compare the UK's £135 split to thresholds in other major economies in our <a href="/de-minimis-value-guide">De Minimis Value Guide</a> — the UK's approach (different rules for duty vs VAT at the same value) is unique globally.</p>
+
+                <p><strong>The formula for consignments valued at £135 or below:</strong></p>
+                <ol class="content-list">
+                    <li><strong>CIF Value</strong> = Goods Value &plus; Shipping &plus; Insurance</li>
+                    <li><strong>Customs Duty</strong> = £0 (waived entirely — origin doesn't matter)</li>
+                    <li><strong>Import VAT</strong> = depends on Rule 2 (see below)</li>
+                </ol>
+
+                <p><strong>The formula for consignments above £135:</strong></p>
+                <ol class="content-list">
+                    <li><strong>CIF Value</strong> = Goods Value &plus; Shipping &plus; Insurance</li>
+                    <li><strong>Customs Duty</strong> = CIF Value &times; Duty Rate (0% with TCA preference, 2.0% UKGT default without)</li>
+                    <li><strong>Import VAT</strong> = (CIF Value &plus; Customs Duty) &times; 20% — collected at the border</li>
+                </ol>
+
+                <p><strong>Important: what counts as the "consignment value."</strong> HMRC uses the <strong>goods value only</strong> — the price paid or payable for the goods themselves — to determine whether the £135 threshold is crossed. Shipping and insurance costs are <em>not</em> included in the threshold test. A £130 product with £30 shipping is below £135 for purposes of the duty exemption, even though the CIF value is £160. This is a common point of confusion: the threshold test uses goods value, but the duty and VAT calculations (when they apply) use CIF value.</p>
+
+                <h2>Rule 2: VAT Collection — The Seller-Becomes-Tax-Collector Split</h2>
+                <p>This is where it gets weird — and where EU sellers get caught out. For <strong>import VAT</strong>, the £135 threshold determines <em>who collects the VAT</em> and <em>where in the transaction it's charged</em>, not whether VAT is owed. VAT at 20% is always owed on EU goods entering the UK — the question is who remits it to HMRC.</p>
+
+                <p><strong>Consignments £135 or below (B2C):</strong> The <strong>EU seller</strong> is responsible for collecting UK VAT. The seller must:</p>
+                <ul class="content-list">
+                    <li>Register for UK VAT — mandatory from sale #1, no turnover minimum</li>
+                    <li>Charge 20% UK VAT at the point of sale (at checkout, on the customer's receipt)</li>
+                    <li>File quarterly VAT returns through HMRC's online portal</li>
+                    <li>Remit the collected VAT to HMRC each quarter</li>
+                    <li>Keep records for six years</li>
+                </ul>
+                <p>The goods then clear UK customs without additional VAT assessment — because the VAT was already collected at checkout. The customs declaration still needs to be filed, but the VAT line shows as settled.</p>
+
+                <p><strong>Consignments above £135:</strong> The traditional import VAT process applies — <strong>the customer (or their customs broker) pays VAT at the border</strong> on entry. The EU seller does not need UK VAT registration, does not charge VAT at checkout, and has no UK VAT filing obligations. The customer receives a VAT bill from the courier or broker before delivery.</p>
+
+                <p><strong>Why this split exists:</strong> Before Brexit, EU sellers charged their local VAT rate to UK customers under the EU's distance-selling rules. After Brexit, those rules stopped applying overnight. HMRC created the £135 split so that small consumer purchases (sub-£135) would have VAT collected at source — by making the seller the tax collector — while larger commercial shipments would go through the traditional import VAT process at the border. The policy goal was to prevent a flood of untaxed small parcels entering the UK without any VAT collection mechanism.</p>
+
+                <h2>B2B Shipments — A Different Regime Entirely</h2>
+                <p>The VAT collection rules above apply to <strong>B2C</strong> (business-to-consumer) sales. For <strong>B2B</strong> (business-to-business) shipments where both parties are VAT-registered, the rules are different:</p>
+                <ul class="content-list">
+                    <li><strong>Consignments £135 or below, B2B:</strong> The UK business customer accounts for VAT through their own VAT return using the reverse charge mechanism. The EU seller does not charge UK VAT. The UK customer declares the VAT as both output tax and input tax on the same return — net zero cash impact if the customer can fully recover input VAT.</li>
+                    <li><strong>Consignments above £135, B2B:</strong> Standard import VAT applies at the border. The UK business customer pays import VAT on entry and recovers it on their next VAT return. Or, if the customer has a duty deferment account, VAT is deferred and accounted for via postponed VAT accounting (PVA).</li>
+                </ul>
+                <p>The key distinction: for B2B sub-£135, the EU seller needs to verify the customer's UK VAT registration number and keep it on file. Without a valid VAT number, the transaction defaults to B2C treatment and the seller must charge VAT at checkout.</p>
+
+                <h2>Marketplace Sales — The Platform Handles VAT</h2>
+                <p>If you sell through an online marketplace (Amazon, eBay, Etsy, Not On The High Street, etc.) for sub-£135 consignments, the <strong>marketplace itself is the deemed supplier</strong> for VAT purposes. The platform — not you — is responsible for charging, collecting, and remitting UK VAT. You don't need UK VAT registration for marketplace sales alone.</p>
+                <p>This is a significant relief for small EU businesses: list on a marketplace, and the platform handles the entire UK VAT obligation for sub-£135 sales. Sell through your own Shopify/WooCommerce/Wix store, and the obligation falls entirely on you. Above £135, the marketplace rule doesn't apply — standard import VAT at the border, customer pays on entry, seller has no UK VAT obligations regardless of sales channel.</p>
+
+                <h2>Edge Cases That Trip People Up</h2>
+                <ul class="content-list">
+                    <li><strong>Multi-package orders.</strong> If a customer orders three £60 items and you ship them in three separate packages, each package is a separate consignment — each is below £135, so duty is waived and marketplace/seller VAT collection rules apply. But if HMRC determines you artificially split shipments to stay under the threshold, they can aggregate the consignment value and assess duty retroactively. Don't split shipments purely for customs advantage.</li>
+                    <li><strong>Gift shipments.</strong> Genuine gifts valued at £39 or below enter duty-free and VAT-free (a separate relief, not the £135 rule). Gifts between £39 and £135: duty-free under the £135 rule, but VAT is still due — and since there's no "seller" for a gift, the recipient pays VAT on entry. Gifts above £135: full duty and VAT apply.</li>
+                    <li><strong>Replacement parts and warranty items.</strong> If you ship a free replacement under warranty, the goods value for customs purposes is the replacement cost, not zero. A "free" replacement with a market value of £80 is still below £135 — but HMRC will assess based on commercial value, not the invoice price of £0.</li>
+                    <li><strong>Currency fluctuations.</strong> The £135 threshold is in GBP. If your goods are priced in EUR, the exchange rate on the day of import determines whether you're above or below. A €150 item can be above or below £135 depending on the EUR/GBP rate. For regularly shipped products with values near the threshold, check the rate before each shipment.</li>
+                </ul>
+
+                <p>Related guides: <a href="/eu-to-uk-post-brexit">Post-Brexit Overview</a> | <a href="/eu-to-uk-tca-origin-rules">TCA Origin Rules</a> | <a href="/eu-to-uk-vat-registration">UK VAT Registration</a> | <a href="/eu-to-uk-customs-clearance">Customs Clearance</a> | <a href="/eu-to-uk-commodity-codes">Commodity Codes</a></p>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>Is shipping included in the £135 threshold calculation?</h3>
+                <p><strong>No.</strong> HMRC uses the goods value only — the price paid or payable for the goods themselves — to determine whether the £135 threshold is crossed. Shipping, insurance, and other ancillary costs are excluded from the threshold test. So a £130 item with £30 shipping is below the £135 threshold for duty purposes (duty = £0), even though the CIF value is £160.</p>
+                <p>However, when duty <em>is</em> calculated (for consignments above £135), it's calculated on the CIF value — goods plus shipping plus insurance. And VAT is always calculated on CIF + duty. So shipping costs matter for the tax calculation; they just don't matter for the threshold test. This is one of the most common points of confusion among new importers.</p>
+
+                <h3>What happens if I sell both above and below £135 to UK customers?</h3>
+                <p>You need to handle two separate regimes simultaneously. For sub-£135 B2C sales through your own website: you must be UK VAT registered, charge 20% at checkout, and file quarterly returns. For above-£135 B2C sales: you do not charge VAT at checkout, the customer pays import VAT at the border, and you have no UK VAT filing obligation for those transactions.</p>
+                <p>On your quarterly UK VAT return, you only report the sub-£135 sales. Keep the two streams clearly separated in your accounting — HMRC will want to see that you correctly identified which sales required VAT collection and which didn't. Many EU sellers use a GBP price point of exactly £135 (before shipping) as the cutoff in their e-commerce platform: below = VAT added at checkout, above = no VAT, customer handles import.</p>
+
+                <h3>Can I just ship everything DDP and avoid thinking about the £135 rule?</h3>
+                <p>Shipping Delivered Duty Paid (DDP) doesn't exempt you from the £135 rule — it changes who pays, not whether it applies. For DDP shipments above £135, your broker pays the duty and VAT at the border and bills you. For DDP shipments below £135 where you sell through your own website, you still need UK VAT registration to properly account for the VAT — paying it through a broker at the border on a sub-£135 consignment technically violates the VAT collection mechanism HMRC expects.</p>
+                <p>Some couriers offer "DDP including VAT" services for sub-£135 shipments where they handle the UK VAT registration and filing on your behalf — but these services come at a cost (typically £500–£2,000 per year in addition to the VAT itself). For volume sellers, registering yourself is usually cheaper. For occasional sellers, the courier-handled option avoids the compliance burden.</p>
+
+                <h3>How does the UK's £135 rule compare to the EU's €150 IOSS threshold?</h3>
+                <p>Different mechanisms entirely. The UK's £135 splits VAT collection — seller collects below £135, customs collects above. The EU's €150 IOSS is optional: sellers CAN use IOSS below €150 to collect VAT at point of sale, but it's not mandatory (the alternative is standard import VAT at the border). The UK makes seller collection mandatory for sub-£135 B2C; the EU makes it optional. The EU threshold is also higher (€150 ≈ £130, close to but not exactly matching the UK's £135). For EU-to-UK shipments specifically, the £135 rule is the one that applies at the UK border — the €150 IOSS is irrelevant for goods entering the UK. See our <a href="/eu-to-uk-post-brexit">Post-Brexit overview</a> for the full framework.</p>
+
+                <p style="margin-top: 30px;"><a href="/eu-to-uk-post-brexit">&larr; Back to EU→UK Post-Brexit Main Guide</a></p>
+            </article>
+        </div>
+
+        
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/china-to-mexico-maquila">IMMEX Nearshoring</a></li>
+                    <li><a href="/china-to-germany-customs">EU ATLAS Hub</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data—not affiliated with any official government customs agency.</p>
+        </div>
+    </footer>
+
+    <script src="rate-data.js"></script>
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

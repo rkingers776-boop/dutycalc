@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>Japan to US Auto Parts Duty? (Free &amp; Instant Calculator)</title>
+    <meta name="description" content="Calculate import duty on Japanese auto parts entering the US. 2.5% MFN rate for OEM and aftermarket parts; $800 de minimis threshold. No Section 301 on Japanese goods. Free landed cost calculator with tariff and MPF breakdown.">
+    <link rel="canonical" href="https://www.dutycalc.online/japan-to-us-auto-parts">
+    <meta property="og:title" content="Japan to US Auto Parts Duty? (Free &amp; Instant Calculator)">
+    <meta property="og:description" content="Calculate import duty on Japanese auto parts entering the US. 2.5% MFN rate, $800 de minimis, no Section 301. OEM and aftermarket parts covered.">
+    <meta property="og:url" content="https://www.dutycalc.online/japan-to-us-auto-parts">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Japan to US Auto Parts Duty? (Free &amp; Instant Calculator)">
+    <meta name="twitter:description" content="Calculate import duty on Japanese auto parts entering the US. 2.5% MFN rate, $800 de minimis, no Section 301.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header>
+            <h1>Japan to US Auto Parts Duty Calculator</h1>
+            <p>Japanese automotive parts entering the US face a <strong>2.5% MFN duty rate</strong> — one of the lowest among major import categories.
+            No Section 301 applies to Japan. Shipments under <strong>$800</strong> qualify for de minimis duty-free entry.
+            Use the calculator below to get your landed cost instantly.</p>
+        </header>
+
+        <div>
+            <div class="trade-tip"><span class="tip-label">The 2019 trade deal locked this in</span><br><strong>The US-Japan Trade Agreement keeps auto parts at 2.5% or lower.</strong> Engine components, transmissions, and ECUs all benefit. Aftermarket parts slip through Section 321 if under $800. <a href="/korea-to-us-electronics">Korea has zero duty under KORUS 鈫?/a></div>
+
+            <section class="calculator-section">
+                <div class="calculator" data-duty-rate="2.5" data-vat-rate="0" data-deminimis="800">
+                    <div class="calc-input">
+                        <label for="goods-value">Auto Parts Value (USD)</label>
+                        <input type="number" id="goods-value" value="5000" min="0" step="0.01">
+                    </div>
+                    <div class="calc-input">
+                        <label for="shipping-cost">Shipping / Freight (USD)</label>
+                        <input type="number" id="shipping-cost" value="300" min="0" step="0.01">
+                    </div>
+                    <button type="button" id="calc-btn">Calculate Landed Cost</button>
+                    <div class="calc-result" id="calc-result" style="display:none;">
+                        <p><strong>Import Tariff (2.5% MFN):</strong> <span id="result-duty"></span></p>
+                        <p><strong>Import VAT / Sales Tax:</strong> <span id="result-vat"></span></p>
+                        <p><strong>Merchandise Processing Fee:</strong> <span id="result-mpf"></span></p>
+                        <p><strong>Total Landed Cost:</strong> <span id="result-total"></span></p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="trade-tip"><span class="tip-label">OEM vs. aftermarket 鈥?different paperwork</span><br>OEM parts shipped to US automakers often clear under specific HTS provisions with lower rates. Aftermarket parts use different classifications. Make sure your invoice distinguishes them. <a href="/germany-to-us-automotive">German auto parts face the same 2.5% 鈫?/a></div>
+
+            <section class="seo-section">
+                <h2>US Customs Duty on Japanese Auto Parts</h2>
+                <p>Japanese auto parts enter the US under MFN rates averaging <strong>2.5%</strong> — among the lowest of any major import category.
+                The US and Japan have a mature, integrated automotive supply chain stretching back to the 1980s.
+                Toyota, Honda, Nissan, and Subaru all operate US assembly plants that pull parts from Japanese suppliers daily.
+                No Section 301 applies to Japan — that trade action was specific to China.
+                For Japanese parts, what you see is what you get: the base MFN rate plus standard customs fees.</p>
+                <p>Here's a real-world example from a typical shipment:
+                <strong>$5,000 of Toyota OEM brake components sourced from Aichi Prefecture + $300 air freight via Narita = $5,300 CIF.</strong>
+                Duty at 2.5% on CIF = $132.50.
+                Merchandise Processing Fee (0.3464% of CIF, minimum $29.66) = roughly $18.36.
+                Total customs cost: $150.86 on a $5,300 shipment.
+                That's an effective rate of about 2.8% — and that's the whole story.
+                No hidden charges, no punitive add-ons, no trade-war surcharges.</p>
+
+                <h2>The $800 De Minimis — Works for Small Orders</h2>
+                <p>Section 321 of the Tariff Act exempts shipments valued at $800 or less (per person, per day) from duty, tax, and MPF.
+                For a single replacement sensor, a set of spark plugs, or a small batch of gaskets ordered directly from a Japanese supplier, de minimis works perfectly — the shipment clears with zero customs cost.</p>
+                <p>For pallet-loads of engine components, transmission assemblies, or bulk brake rotors: those are well over $800, and the full 2.5% applies on the entire CIF value.
+                Auto parts distributors bringing in regular container-loads of stock from Japan should simply budget the duty.
+                At 2.5%, it's rarely the deciding cost factor in whether a parts line is profitable.
+                See our <a href="/de-minimis-value-guide">de minimis value guide</a> for the full rules.</p>
+
+                <h2>OEM vs Aftermarket Parts — Same HTS, Same Duty</h2>
+                <p>One of the most common questions from auto parts importers: do OEM (Original Equipment Manufacturer) parts get a different duty rate than aftermarket parts?
+                <strong>Answer: no.</strong> HTS classification is based on what the part <em>is</em> — brake pad, fuel injector, wheel bearing, alternator — not who manufactured it or what vehicle it's destined for.</p>
+                <p>A Denso OEM alternator for a Toyota Camry and a generic aftermarket alternator for the same application go under the same HTS subheading at the same 2.5% rate.
+                Quality certifications, OEM branding, and IATF 16949 compliance are commercial considerations that affect the invoice value — not the duty rate.
+                CBP looks at the physical article, not the box it comes in.</p>
+
+                <h2>Key HTS Chapters for Japanese Auto Parts</h2>
+                <p>Knowing the right chapter saves time at entry. Here are the major HTS chapters covering Japanese auto parts imports:</p>
+                <ul class="content-list">
+                    <li><strong>Chapter 8708:</strong> Parts and accessories for motor vehicles — this is the big one, covering the majority of auto parts imports. Brake parts and servos (8708.30), suspension systems and parts (8708.80), clutches and parts (8708.93), radiators (8708.91), exhaust systems and parts (8708.92), body panels and stampings (8708.10). All at 2.5% typical.</li>
+                    <li><strong>Chapter 8409:</strong> Parts suitable for use solely or principally with engines — pistons, cylinder liners, intake and exhaust valves, fuel injection nozzles. 2.5% typical across the board.</li>
+                    <li><strong>Chapter 8483:</strong> Transmission shafts, gears, gearboxes, ball screws, bearings, and housed bearings. 2.5% typical. This covers the drivetrain parts that Japanese suppliers like NSK and NTN are famous for.</li>
+                    <li><strong>Chapter 4011:</strong> New pneumatic tires of rubber — 3.4% to 4% depending on type and size. Japanese tire brands (Bridgestone, Yokohama, Toyo, Falken) ship enormous volumes into the US replacement tire market.</li>
+                    <li><strong>Chapter 8511:</strong> Electrical ignition and starting equipment — spark plugs, starter motors, alternators, ignition coils, distributors. 2.5% typical. NGK and Denso dominate Japanese exports in this chapter.</li>
+                    <li><strong>Chapter 8421:</strong> Centrifuges and filtering/purifying machinery — oil filters, air filters, fuel filters. 0% to 2.5% depending on the specific subheading.</li>
+                </ul>
+
+                <h2>The US-Japan Auto Parts Supply Chain Reality</h2>
+                <p>The US and Japan have one of the most deeply integrated automotive supply chains in the world.
+                Most major Japanese OEMs — Toyota (Kentucky, Texas, Mississippi, Indiana, Alabama), Honda (Ohio, Alabama, Indiana), Nissan (Tennessee, Mississippi), Subaru (Indiana) — operate large US assembly plants that pull parts from a mix of Japanese, US, and other Asian suppliers on a just-in-time basis.</p>
+                <p>For Japanese-made parts entering US assembly plants, CBP processes these through the Automotive Products Trade Act framework where applicable, though the vast majority simply enter under standard MFN rates without any special program.
+                Parts shipped to US dealership networks and independent parts distributors for the aftermarket follow the same straightforward customs process.
+                The volume is staggering — billions of dollars annually in Japanese auto parts imports, covering everything from engine long blocks and transmissions down to individual gaskets, seals, and fasteners.
+                This is a mature, stable trade lane with well-understood customs procedures.</p>
+
+                <h2>USMCA Impact on Japanese Auto Parts</h2>
+                <p>Here's a wrinkle that trips up importers: Japanese auto parts manufacturers operate massive production facilities in Mexico, particularly in the Guanajuato and Aguascalientes automotive clusters.
+                Parts made in those Mexican plants by Japanese-owned companies (Denso, Aisin, NSK, JTEKT, Yorozu) qualify for USMCA zero-duty treatment when shipped to the US — because origin is determined by where they're <em>made</em>, not who owns the factory.</p>
+                <p>Parts made in Japan and shipped directly to the US: pay the 2.5% MFN.
+                Parts made in Japan, shipped to a Mexican warehouse for consolidation, and then forwarded to the US:
+                <strong>still Japanese origin, still pay 2.5%.</strong>
+                Transshipment through a third country does not change the country of origin for customs purposes.
+                The origin is where the last substantial transformation occurred.
+                This distinction matters a lot when you're routing mixed-origin shipments through a Mexican distribution center.
+                See also our <a href="/us-to-canada-duty">US to Canada duty guide</a> for North American trade lanes.</p>
+
+                <h2>Automotive Safety Standards — What NHTSA and EPA Require</h2>
+                <p>Customs clearance is only half the compliance picture.
+                Auto parts imports face regulatory requirements beyond what CBP checks at the border.
+                NHTSA (National Highway Traffic Safety Administration) regulates safety-critical replacement parts: brake hoses, brake fluid, lighting equipment, tires, airbags, seat belt assemblies, and glazing materials.
+                These must meet applicable Federal Motor Vehicle Safety Standards (FMVSS) and, where required, bear the DOT symbol.</p>
+                <p>EPA regulates emissions-related parts under the Clean Air Act: catalytic converters, oxygen sensors, engine control units (ECUs), and evaporative emissions canisters.
+                These must meet EPA certification requirements for the model year they're being installed into.
+                Racing-use-only parts are exempt, but they must be permanently marked and the importer must maintain documentation supporting the racing-use-only designation.</p>
+                <p>CBP doesn't enforce FMVSS or EPA compliance at the port of entry directly — but NHTSA and EPA can issue recalls, stop-sale orders, and civil penalties for non-compliant imports discovered after entry.
+                The DOT or EPA marking on applicable parts is your visible indicator of compliance.
+                When in doubt, get a conformity certificate from your Japanese supplier before the shipment leaves Japan.</p>
+
+                <h2>Documentation Checklist for Japanese Auto Parts Imports</h2>
+                <p>Getting your paperwork right before the shipment lands avoids storage fees and CBP holds.
+                For a standard Japanese auto parts entry, you'll need:</p>
+                <ul class="content-list">
+                    <li><strong>Commercial Invoice</strong> — Itemized with part numbers, quantities, unit values, and country of origin (Japan). Japanese suppliers are meticulous with invoices; make sure yours lists the correct importer of record and has a harmonized description for each line item.</li>
+                    <li><strong>Packing List</strong> — Box-by-box breakdown with weights and dimensions. Critical for consolidated air freight shipments where multiple part numbers share a single airway bill.</li>
+                    <li><strong>Bill of Lading (sea) or Airway Bill (air)</strong> — The transport document issued by the carrier. Most Japanese parts move via air freight from Narita/Haneda or sea freight from Yokohama/Nagoya/Kobe.</li>
+                    <li><strong>CBP Form 7501</strong> — Entry summary filed by your customs broker. Your broker will need the HTS codes; providing accurate 10-digit codes upfront prevents post-entry amendments and potential penalties.</li>
+                    <li><strong>Importer Security Filing (ISF-10)</strong> — Required for ocean shipments, must be filed 24 hours before vessel loading at the Japanese port. Your freight forwarder or broker handles this, but you supply the data.</li>
+                </ul>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>What's the duty rate for Japanese auto parts entering the US?</h3>
+                <p><strong>2.5% average MFN rate</strong> for most auto parts covered by Chapter 8708.
+                Engine parts (Chapter 8409), transmission parts (Chapter 8483), and electrical components (Chapter 8511) all hover around 2.5%.
+                Tires (Chapter 4011) run 3.4% to 4% depending on type and size.
+                No Section 301 or other additional duties apply to Japanese goods.</p>
+
+                <h3>Do OEM parts from Japan pay different duty than aftermarket?</h3>
+                <p><strong>No.</strong> HTS classification is based on the physical article — its material, function, and construction — not the brand name on the box or the vehicle it's intended for.
+                A Denso OEM alternator and a generic aftermarket alternator share the same HTS code and the same duty rate.
+                Brand, certification, and OEM pedigree affect the commercial invoice value but not the tariff classification.</p>
+
+                <h3>Can Japanese auto parts enter the US duty-free?</h3>
+                <p><strong>Yes</strong> — if the total shipment value (goods + shipping) is $800 or less, Section 321 de minimis exempts it from duty, taxes, and MPF.
+                For shipments above $800, the standard MFN rate applies to the full CIF value.
+                There is no US-Japan free trade agreement that eliminates or reduces auto parts duties for commercial-size shipments.</p>
+
+                <h3>Are Japanese auto parts subject to any additional tariffs?</h3>
+                <p><strong>No additional tariffs on the parts themselves.</strong>
+                Unlike Chinese goods (which face Section 301 tariffs of up to 25%), Japanese goods face only the standard MFN rate.
+                The US-Japan trade relationship on auto parts has been stable for decades.
+                One caveat: certain steel-intensive auto parts classified under Chapter 73 (iron and steel articles) may be subject to Section 232 national-security steel tariffs of 25% if they exceed the applicable tariff-rate quota.
+                This affects things like raw stamped steel body panels and bare steel structural components — not finished assemblies.
+                Verify your specific HTS code with a licensed customs broker if you're unsure.</p>
+
+                <p>For duty rates on auto parts from all origins — China, Korea, Germany, Mexico — and the full HTS chapter map with compliance checklists, see the <a href="/auto-parts-import-duty">Auto Parts Import Duty Hub</a>.</p>
+                <p><a href="/">&larr; Back to All Calculators</a></p>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/china-to-mexico-maquila">IMMEX Nearshoring</a></li>
+                    <li><a href="/china-to-germany-customs">EU ATLAS Hub</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data—not affiliated with any official government customs agency.</p>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        var calcBtn = document.getElementById('calc-btn');
+        var resultDiv = document.getElementById('calc-result');
+        if (!calcBtn || !resultDiv) return;
+
+        calcBtn.addEventListener('click', function() {
+            var goodsVal = parseFloat(document.getElementById('goods-value').value) || 0;
+            var shipVal = parseFloat(document.getElementById('shipping-cost').value) || 0;
+            var cif = goodsVal + shipVal;
+            var dutyRate = 0.025;
+            var vatRate = 0;
+            var deminimis = 800;
+
+            var duty = cif <= deminimis ? 0 : cif * dutyRate;
+            var vat = cif <= deminimis ? 0 : cif * vatRate;
+            var mpf = cif <= deminimis ? 0 : Math.min(538.40, Math.max(29.66, cif * 0.003464));
+            var total = cif + duty + vat + mpf;
+
+            document.getElementById('result-duty').textContent = '$' + duty.toFixed(2);
+            document.getElementById('result-vat').textContent = '$' + vat.toFixed(2);
+            document.getElementById('result-mpf').textContent = '$' + mpf.toFixed(2);
+            document.getElementById('result-total').textContent = '$' + total.toFixed(2);
+            resultDiv.style.display = 'block';
+        });
+    })();
+    </script>
+    <script src="rate-data.js"></script>
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

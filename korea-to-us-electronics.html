@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>Korea to US Electronics Duty? (Free &amp; Instant Calculator)</title>
+    <meta name="description" content="Calculate import duty on Korean electronics to the US. 0% under KORUS FTA, $800 de minimis. Covers Korean semiconductors and consumer electronics.">
+    <link rel="canonical" href="https://www.dutycalc.online/korea-to-us-electronics">
+    <meta property="og:title" content="Korea to US Electronics Duty? (Free & Instant Calculator)">
+    <meta property="og:description" content="Calculate import duty on Korean electronics to the US. 0% under KORUS FTA, $800 de minimis.">
+    <meta property="og:url" content="https://www.dutycalc.online/korea-to-us-electronics">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Korea to US Electronics Duty? (Free & Instant Calculator)">
+    <meta name="twitter:description" content="Calculate import duty on Korean electronics to the US. 0% under KORUS FTA, $800 de minimis.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header>
+            <h1>Korea to US Electronics Duty Calculator</h1>
+            <p>South Korean electronics — semiconductors, phones, displays, appliances — enter the US at 0% under the KORUS FTA. $800 de minimis threshold applies under Section 321.</p>
+        </header>
+
+        <div>
+            <section class="calculator-section">
+                <div class="calculator" data-duty-rate="0.0" data-vat-rate="0" data-deminimis="800">
+                    <div class="calc-row">
+                        <label for="goods-value">Electronics Shipment Value (USD)</label>
+                        <input type="number" id="goods-value" value="8000" min="0" step="1">
+                    </div>
+                    <div class="calc-row">
+                        <label for="shipping-cost">Shipping &amp; Insurance Cost (USD)</label>
+                        <input type="number" id="shipping-cost" value="500" min="0" step="1">
+                    </div>
+                    <button id="calculate-btn">Calculate Landed Cost</button>
+                    <div class="calc-results" id="calc-results">
+                        <div class="result-row">
+                            <span class="result-label">Import Tariff (0% under KORUS):</span>
+                            <span class="result-value" id="result-duty">$0.00</span>
+                        </div>
+                        <div class="result-row">
+                            <span class="result-label">Import VAT / Sales Tax:</span>
+                            <span class="result-value" id="result-vat">$0.00</span>
+                        </div>
+                        <div class="result-row result-total">
+                            <span class="result-label">Total Landed Cost:</span>
+                            <span class="result-value" id="result-total">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trade-tip"><span class="tip-label">KORUS FTA: actually zero</span><br><strong>Virtually all Korean electronics enter the US duty-free under KORUS.</strong> Semiconductors, displays, phones, home appliances 鈥?zero percent. You just need the origin certificate. <a href="/japan-to-us-auto-parts">Japan's deal is also good but not zero 鈫?/a></div>
+            </section>
+
+            <section class="seo-section">
+                <h2>US Import Duty on Korean Electronics — The KORUS FTA Advantage</h2>
+                <p>The US-Korea Free Trade Agreement (KORUS FTA, effective 2012) eliminated tariffs on the vast majority of Korean electronic goods. For most consumer electronics — phones, TVs, semiconductors, computer components — the rate is <strong>0% under KORUS</strong>. Our calculator reflects 0% duty under the KORUS FTA. Most Korean electronics — semiconductors, phones, displays, and appliances — are fully covered and enter the US duty-free when the importer claims KORUS preference (SPI "KR" on the entry).</p>
+                <p>Real example: $8,000 of Samsung display modules from Suwon + $500 air freight = $8,500 CIF. Duty at 0% under KORUS (correctly claimed): $0. Even without claiming KORUS preference, most Korean electronics still enter at 0% under standard MFN rates due to the Information Technology Agreement and zero MFN bindings on semiconductors. This means the duty line is $0 either way — but claiming KORUS preference is still the correct compliance practice.</p>
+                <p>What makes this trade lane especially favorable: Korea is the only major electronics exporter with both an FTA zero-rate structure and no Section 301 exposure. Compare that to China (7.5-25% Section 301 plus MFN) or Vietnam (MFN rates of 1-5% for electronics, no FTA with the US). For US importers, Korean sourcing means the lowest landed cost after duties of any Asian electronics origin.</p>
+
+                <h2>KORUS FTA — How to Claim the Zero Rate</h2>
+                <p>KORUS zero-rate treatment is <strong>not automatic</strong>. You must claim it on the CBP entry by citing the KORUS special program indicator (SPI) <strong>"KR"</strong> in the HTS. You also need a certification of origin — either from the exporter, importer, or producer. Under KORUS, importers can self-certify based on their knowledge that the goods meet the origin rules (this is called "importer's knowledge").</p>
+                <p>The rule of origin test: the goods must be wholly obtained or produced in Korea, or meet a regional value content threshold (35-55% depending on the product, calculated under the build-up or build-down method). For most Korean electronics (Samsung, LG, SK Hynix), the goods are wholly manufactured in Korea and qualify easily.</p>
+                <p>On the CBP Form 7501 entry summary, column 34 is where you enter the SPI "KR." Column 35 is where you enter the country of origin "KR." If you file through a customs broker, tell them explicitly: "This is a KORUS-eligible entry — apply SPI KR." Brokers don't automatically apply FTA preference unless instructed. Also, CBP can audit your KORUS claims for up to 5 years after entry, so keep your certifications of origin on file.</p>
+                <p>Beyond the duty rate itself, every formal entry (shipments over $2,500) is also subject to the <strong>Merchandise Processing Fee (MPF)</strong> — 0.3464% of the entered value. For an $8,500 CIF electronics shipment, the MPF is $29.44 (above the $32.71 minimum, so the minimum applies: $32.71). The MPF applies regardless of whether you claim KORUS preference — it's a separate CBP administrative fee, not a duty. The Harmonized System Maintenance Fee (HMF) of 0.125% applies to ocean freight only, not air freight.</p>
+
+                <h2>The $800 De Minimis and Korean DTC Electronics</h2>
+                <p>Section 321 exempts shipments under $800. For Korean electronics this is mostly relevant for B2C: a single smartphone, a tablet, a set of earbuds. Most individual consumer electronics from Korea to US customers fall under the $800 threshold and enter duty-free under Section 321 — KORUS doesn't even need to be claimed. For B2B shipments (pallets of monitors, containers of appliances), the value exceeds $800 and KORUS preference should be claimed to get the 0% rate. <a href="/de-minimis-value-guide">Read our de minimis value guide</a>.</p>
+                <p>For formal entries above $2,500, you'll also need a continuous customs bond (or a single-entry bond). A continuous bond costs roughly $280-$500 per year for a $50,000 bond limit (sufficient for most small to mid-size electronics importers). The bond guarantees payment of duties, taxes, and fees to CBP and is required before your entry can be filed.</p>
+
+                <h2>Key HTS Chapters for Korean Electronics</h2>
+                <p>The same HS chapters apply to Korean electronics as to any origin — what changes is the rate you pay. For the full product-by-product breakdown across every country of origin, see our <a href="/electronics-import-duty">Electronics Import Duty</a> overview.</p>
+                <ul class="content-list">
+                    <li><strong>Chapter 8517:</strong> Smartphones, network equipment — 0% MFN under ITA. Samsung and LG phones are prominent. KORUS rate: 0%.</li>
+                    <li><strong>Chapter 8471:</strong> Computers, tablets, storage devices — 0% MFN under ITA. Samsung SSDs, SK Hynix memory modules. KORUS: 0%.</li>
+                    <li><strong>Chapter 8528:</strong> TVs and monitors — 0-5% MFN. Samsung and LG dominate the US TV market. Under KORUS: 0% for most TV categories.</li>
+                    <li><strong>Chapter 8541-8542:</strong> Semiconductors, integrated circuits — 0% MFN under ITA. This is Korea's single largest export category to the US. KORUS: 0%.</li>
+                    <li><strong>Chapter 8418:</strong> Refrigerators and freezers — 1.5-2.5% MFN. Samsung and LG home appliances. KORUS: 0%.</li>
+                    <li><strong>Chapter 8450:</strong> Washing machines — 1.4-2.6% MFN. Note: Korean large residential washers faced safeguard tariffs (Section 201) from 2018-2023. These have now expired. Current rate under KORUS: 0%.</li>
+                    <li><strong>Chapter 8507:</strong> Lithium-ion batteries and battery packs — 2.7% MFN. Battery cells from LG Energy Solution and Samsung SDI. KORUS rate: 0%. Requires UN 38.3 test certification for shipping.</li>
+                </ul>
+
+                <h2>Samsung, LG, SK Hynix — The Korean Electronics Giants</h2>
+                <p>Korean electronics exports to the US are dominated by a few massive chaebols. Samsung Electronics alone accounts for roughly 20% of Korea's total exports. LG dominates home appliances and displays. SK Hynix is the world's second-largest memory chip maker. For US importers buying from these companies: they typically ship with full KORUS origin documentation. Their customs compliance teams are thorough — you'll get the paperwork you need to claim KORUS preference.</p>
+                <p>In 2025, Korea exported approximately $76 billion in semiconductors to the US — more than Korea's next three export categories combined. Memory chips (DRAM and NAND flash) account for the largest share, driven by AI data center demand for HBM (high-bandwidth memory) from SK Hynix and Samsung. These chips enter at 0% under the ITA regardless of KORUS, making semiconductor imports from Korea truly duty-free under any scenario.</p>
+                <p>For smaller Korean electronics manufacturers: ask for the KORUS certification up front. Don't assume you'll get it after the shipment lands. A typical small Korean OEM might not have a dedicated customs team, and producing a certification of origin after the fact can delay clearance by days. Include the KORUS certification requirement in your purchase order or supply agreement. Specify that the certification must follow the format in CBP's KORUS implementing instructions (19 CFR 10 Subpart R).</p>
+                <p>The practical reality for US importers: if you're buying from Samsung, LG, or SK Hynix directly, your duty exposure is $0 — these companies ship with complete origin documentation and their goods unambiguously qualify. If you're buying from a smaller Korean parts supplier (connectors, PCB assemblies, wiring harnesses), verify that the goods are Korean-origin and that the supplier can provide a certification. Some smaller suppliers source sub-components from China, which can break the KORUS origin chain if the Chinese content is substantial enough to trigger a tariff shift requirement.</p>
+
+                <div class="trade-tip"><span class="tip-label">Origin certificate is worth the paperwork</span><br>The difference between claiming KORUS preference and paying standard MFN on a $50,000 container of electronics is roughly $1,250. Filing the origin certificate takes about 15 minutes. <a href="/china-to-us-electronics">Chinese electronics pay 2.5% MFN + Section 301 risk 鈫?/a></div>
+
+                <h2>Shipping from Korea — Air Freight, Ocean, and Major Ports</h2>
+                <p>Most Korean electronics exports to the US move through two major gateways: <strong>Incheon International Airport (ICN)</strong> for air freight and <strong>Busan Port</strong> for ocean freight. Air freight from ICN to Los Angeles (LAX) typically takes 12-16 hours flight time, with total transit door-to-door of 2-4 days including customs clearance. Rates for electronics air freight from Korea to US West Coast run roughly $3.50-$5.50/kg depending on volume and season. To the East Coast (JFK), add roughly $1.00-$1.50/kg.</p>
+                <p>Ocean freight from Busan to Los Angeles/Long Beach takes 12-16 days on the water, plus 2-3 days for port handling and customs. A 40-foot container of Korean electronics runs $2,800-$4,200 depending on the shipping line and season. To the East Coast via Panama Canal, expect 28-35 days and $5,500-$7,500 per container. For high-value, low-weight electronics (chips, phones), air freight is the default. For appliances (refrigerators, washers), ocean is standard.</p>
+                <p>Samsung and LG operate their own logistics arms that handle freight forwarding for large customers. If you're buying full containers from these manufacturers, they'll typically arrange shipping under CIF or DDP terms. For smaller LCL (less-than-container-load) shipments from Korean parts suppliers, work with a freight forwarder with a Korea desk — Hanjin, Hyundai Glovis, and Pantos Logistics all specialize in Korea-US electronics freight.</p>
+                <p>Before your shipment departs Korea, you (or your broker) must file an <strong>Importer Security Filing (ISF, aka "10+2")</strong> with CBP at least 24 hours before vessel loading for ocean freight. For air freight, the equivalent Air Cargo Advance Screening (ACAS) filing is required before the aircraft is loaded. Late ISF filings carry a $5,000 penalty per violation. Korean forwarders typically prompt for ISF details, but the legal obligation to file rests with the US importer of record.</p>
+
+                <h2>Product Safety and FCC Compliance</h2>
+                <p>Korean electronics entering the US need: <strong>FCC compliance</strong> for anything that emits radio frequency (phones, Wi-Fi devices, Bluetooth products). <strong>UL or ETL safety certification</strong> (while not legally mandatory, retailers and insurers typically require it). <strong>Energy efficiency:</strong> DOE and Energy Star requirements for appliances (refrigerators, washing machines). <strong>FDA registration</strong> for any electronics with medical applications.</p>
+                <p>Korean manufacturers are generally sophisticated about US compliance — Samsung and LG products are designed for the US market from the start. But for smaller Korean OEM/ODM suppliers: verify FCC and UL certification before ordering. A non-compliant shipment doesn't just risk CBP detention — it can be refused entry entirely and ordered re-exported at the importer's expense.</p>
+                <p>FCC certification for Korean electronics typically follows one of two paths: FCC Certification (for intentional radiators — phones, Wi-Fi, Bluetooth) or FCC Supplier's Declaration of Conformity (SDoC, for unintentional radiators — computer monitors, power supplies). An FCC-certified Korean product will carry an FCC ID (e.g., A3LSMG998U for a Samsung phone). You can verify any FCC ID on the FCC OET equipment authorization database at fcc.gov/oet/ea. For UL/ETL, look for the certification mark on the product label or request a copy of the test report from the supplier.</p>
+                <p>Electronics importers fall under CBP's Electronics Center of Excellence and Expertise (CEE) based in Los Angeles. The CEE provides specialized guidance for electronics classification and valuation. If your entry gets flagged for review, it may be routed to an electronics specialist at the CEE rather than a generalist at the local port — this can be faster for correctly classified, well-documented shipments.</p>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>What's the duty rate for Korean electronics entering the US?</h3>
+                <p>0% for most products under the KORUS FTA. MFN rates are also 0% for the few categories where KORUS doesn't apply. ITA-covered products (phones, laptops, chips) are 0% even under MFN.</p>
+
+                <h3>How do I claim KORUS FTA duty-free treatment?</h3>
+                <p>Use SPI "KR" in the HTS on your CBP entry. Have a certification of origin from the Korean exporter, producer, or your own importer's knowledge. Keep origin documentation for at least 5 years.</p>
+
+                <h3>Are Korean electronics subject to Section 301?</h3>
+                <p>No. Section 301 applies only to Chinese goods. Korean electronics face only MFN rates (typically 0% under KORUS or ITA).</p>
+
+                <h3>What about Korean washing machines — I heard there were safeguard tariffs?</h3>
+                <p>Section 201 safeguard tariffs on large residential washers (20-50% declining over 5 years) expired in February 2023. Current rate under KORUS: 0%. Washer parts were never subject to the safeguard.</p>
+
+                <h3>Do I need a customs broker for Korean electronics imports?</h3>
+                <p>For shipments over $2,500 in value, you are required to use a licensed customs broker to file the CBP entry (Form 7501). The broker can also file KORUS preference on your behalf — but you must instruct them to do so and provide the certification of origin. Broker fees for a standard electronics entry typically range from $125-$250 plus the Merchandise Processing Fee (MPF), which is 0.3464% of the entered value (min $32.71, max $634.62 in 2026). For small Korean electronics shipments under $2,500, you can file an informal entry yourself without a broker.</p>
+
+                <h3>What about Korean electronics shipped to Amazon FBA?</h3>
+                <p>Korean electronics shipped directly to Amazon FBA warehouses in the US are subject to the same duty rules as any other import. You still enter them through CBP, claim KORUS preference if applicable, and pay any duties owed before the goods are released. Amazon itself does not act as the importer of record for FBA shipments — you (or your designated customs broker) must do it. Additionally, Amazon requires that FBA-bound electronics comply with all applicable US safety and FCC regulations, and Amazon may request compliance documentation before accepting inventory.</p>
+
+                <p><a href="/">&larr; Back to All Calculators</a></p>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/china-to-mexico-maquila">IMMEX Nearshoring</a></li>
+                    <li><a href="/china-to-germany-customs">EU ATLAS Hub</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data—not affiliated with any official government customs agency.</p>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        var calc = document.querySelector('.calculator');
+        var dutyRate = parseFloat(calc.getAttribute('data-duty-rate')) / 100;
+        var vatRate = parseFloat(calc.getAttribute('data-vat-rate')) / 100;
+        var deminimis = parseFloat(calc.getAttribute('data-deminimis'));
+
+        var goodsInput = document.getElementById('goods-value');
+        var shippingInput = document.getElementById('shipping-cost');
+        var btn = document.getElementById('calculate-btn');
+
+        var dutyEl = document.getElementById('result-duty');
+        var vatEl = document.getElementById('result-vat');
+        var totalEl = document.getElementById('result-total');
+
+        function fmt(n) { return '$' + n.toFixed(2); }
+
+        function calcAll() {
+            var goods = parseFloat(goodsInput.value) || 0;
+            var shipping = parseFloat(shippingInput.value) || 0;
+            var cif = goods + shipping;
+
+            var duty = (goods <= deminimis) ? 0 : cif * dutyRate;
+            var vat = vatRate * cif;
+            var total = cif + duty + vat;
+
+            dutyEl.textContent = fmt(duty);
+            vatEl.textContent = fmt(vat);
+            totalEl.textContent = fmt(total);
+        }
+
+        if (btn) btn.addEventListener('click', calcAll);
+        calcAll();
+    })();
+    </script>
+    <script src="rate-data.js"></script>
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>China to US Electronics Duty? (Free &amp; Instant Calculator)</title>
+    <meta name="description" content="Calculate import duty on electronics shipped from China to the US. 2.5% base tariff, $800 Section 321 de minimis, Section 301 exclusions — free estimator.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="canonical" href="https://www.dutycalc.online/china-to-us-electronics">
+    <meta property="og:title" content="China to US Electronics Duty Calculator — Free Instant Estimator">
+    <meta property="og:description" content="Calculate import duty on electronics shipped from China to the US. 2.5% base tariff, $800 Section 321 de minimis, Section 301 exclusions.">
+    <meta property="og:url" content="https://www.dutycalc.online/china-to-us-electronics">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="China to US Electronics Duty Calculator — Free Instant Estimator">
+    <meta name="twitter:description" content="Calculate import duty on electronics shipped from China to the US. 2.5% base tariff, $800 Section 321 de minimis, Section 301 exclusions.">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+
+        <header>
+            <h1>China to US Electronics Duty Calculator</h1>
+            <p>Free instant estimator for phones, laptops, PCBs, gadgets, and consumer electronics from China — duty, landed cost, and compliance notes</p>
+        </header>
+
+        <div class="trade-tip"><span class="tip-label">Heads-up from the dock</span><br><strong>ITA zero rates cover most consumer electronics 鈥?but not accessories.</strong> That USB cable you bundle with a tablet? It might be classified separately and hit with 2.5%. Always itemize your packing list by HS subheading. <a href="/china-to-us-clothing">See how apparel gets hit much harder 鈫?/a></div>
+
+        <!-- ═══ 嵌入式计算器 ═══ -->
+        <div class="calculator-card" data-duty-rate="2.5" data-vat-rate="0" data-deminimis="800">
+            <h3>China → US Electronics Duty Estimator</h3>
+            <p class="card-desc">Enter your electronics shipment value and shipping cost. The calculator applies the 2.5% composite duty rate and checks the $800 Section 321 de minimis automatically.</p>
+            <div class="input-group">
+                <label>Electronics Shipment Commercial Value (USD)</label>
+                <input type="number" class="item-value unit-input" value="1200" min="0" max="99999999" aria-label="Electronics shipment commercial value in USD">
+            </div>
+            <div class="input-group">
+                <label>Shipping &amp; Insurance Cost (USD)</label>
+                <input type="number" class="shipping-cost unit-input" value="150" min="0" max="99999999" aria-label="Shipping and insurance cost in USD">
+            </div>
+            <button class="btn-calc" aria-label="Calculate China to US Electronics Duty">Calculate Landed Cost</button>
+            <div class="result-display result-hidden" aria-live="polite" aria-atomic="true">
+                <h4>Customs Clearing Summary:</h4>
+                <ul>
+                    <li>Import Tariff (2.5%): <span class="res-duty">--</span></li>
+                    <li>Import VAT / Sales Tax: <span class="res-vat">--</span></li>
+                    <li>Total Government Taxes: <span class="res-total-tax">--</span></li>
+                    <li>Total Estimated Landed Cost: <span class="res-landed">--</span></li>
+                </ul>
+            </div>
+            <a href="/china-to-us-electronics" class="detail-link" style="display:none;">View Full Country Guide &rarr;</a>
+        </div>
+
+        <div class="trade-tip"><span class="tip-label">What experienced shippers do</span><br>If your electronics shipment is under $800, file it as a <strong>Section 321 Type 86 entry</strong>. It clears in hours instead of days. But CBP has been tightening Type 86 processing times at LAX/LGB 鈥?<a href="/section-321-de-minimis-reform-2026">here is what changed in 2026 鈫?/a></div>
+
+        <div>
+            <article class="seo-section">
+
+                <h2>How to Calculate Import Duty on Electronics Shipped from China to the US</h2>
+                <p>Electronics from China get some of the lowest duty rates in the tariff book. Most consumer devices — phones, laptops, tablets, PCBs, chargers, accessories — land between <strong>0% and 3.5%</strong> in the HTS. Our calculator uses <strong>2.5%</strong>, which covers the majority of consumer electronics, smart gadgets, and assemblies. Compare that to apparel (16.5%) or furniture (8%) — electronics are cheap to import, duty-wise.</p>
+                <p>But duty isn't the only cost that matters. Compliance paperwork, Section 301 tariff exposure, and lithium battery shipping rules can all bite if you don't know what to expect. Here's how it all works.</p>
+                <p>Start with your <strong>CIF value</strong> — the factory cost of the goods plus freight and insurance to the US port of entry. CBP uses CIF, not the FOB factory invoice. For electronics shipped by air from Shenzhen, freight is usually light per unit; sea freight for bulk orders is even cheaper per unit. Either way, add it in. CBP adds it in.</p>
+                <p>One thing that trips people up: CBP doesn't care what currency you paid the factory in. If your supplier invoice is in RMB, you convert to USD at the exchange rate on the date of export. Not the date you wired the money, not the date the goods arrived — the date they left China. Get the rate wrong and you've either overpaid or under-declared. Neither is great.</p>
+
+                <h2>The CIF Duty Formula for Chinese Electronics</h2>
+                <p>The math US Customs uses is straightforward. No federal VAT in the US, so the calculation ends after duty:</p>
+                <ol class="content-list">
+                    <li><strong>CIF Value</strong> = Goods Value &plus; Shipping &plus; Insurance</li>
+                    <li><strong>Customs Duty</strong> = CIF Value &times; Duty Rate (2.5% for most Chinese electronics)</li>
+                    <li><strong>Total Landed Cost</strong> = CIF Value &plus; Customs Duty</li>
+                </ol>
+                <p>Run the numbers: a $4,000 shipment of Bluetooth speakers with $300 air freight lands at $4,300 CIF. At 2.5%, duty is $107.50. Total landed cost: $4,407.50. The duty line is under 3% of the shipment value — electronics are cheap. But forget the freight in your CIF calc and you've under-declared. CBP will catch it on audit.</p>
+                <p>Insurance counts toward CIF even if you didn't buy separate cargo insurance. If your freight forwarder charges a flat rate that bundles insurance, you need to split it out for the customs declaration. Most forwarders' standard rates include a small insurance component — typically 0.3% to 0.5% of the cargo value. It's not much, but CBP wants it declared. Leaving it out is technically under-valuation, and electronics shipments get audited plenty.</p>
+
+                <h3>Section 321 — $800 and Under Pays Zero</h3>
+                <p>Section 321 is the gift that keeps giving for electronics importers. Shipments with a goods value of <strong>$800 or less</strong> per person per day enter duty-free. A single phone, a laptop, a batch of prototype PCBs — all probably under $800 individually. Clearance is electronic (Type 86 entry), no bond required, no broker needed.</p>
+                <p>The $800 cap applies to goods value only — shipping doesn't count toward the threshold. A $750 device with $50 air freight stays under. A $801 device with $1 shipping does not, and the full CIF becomes dutiable. Hard cliff. No partial break.</p>
+                <p>Per-person-per-day means CBP can aggregate multiple packages to the same recipient from the same shipper on the same day. Splitting a $2,400 order into three $800 boxes to dodge the threshold is structuring. CBP prosecutes structuring. Just pay the 2.5% — at these rates, the penalty costs more than the duty.</p>
+                <p>Enforcement reality: CBP's aggregation trigger isn't always automatic. If three boxes from the same Shenzhen supplier land at JFK on the same flight, same consignee, same day — yeah, they'll probably get aggregated. But if they arrive on different days or through different ports? Less likely. That said, don't build your logistics around gaming the system. The risk-reward on structuring is terrible, especially when the duty rate is only 2.5%. One CBP penalty notice wipes out years of saved duty.</p>
+                <p>See how the US $800 threshold compares globally in our <a href="/de-minimis-value-guide">De Minimis Value Guide</a> — the US is uniquely generous, and the difference vs. the UK (£135), EU (€150), and Canada (CAD $20) explains a lot about why Chinese e-commerce flows the way it does.</p>
+
+                <h3>The HTS Codes That Actually Matter for Electronics</h3>
+                <p>Electronics classification is more straightforward than apparel — fewer fiber-content and construction variables. But the 10-digit HTS code still determines your exact rate. Here are the most common ones for Chinese electronics imports:</p>
+                <ul class="content-list">
+                    <li><strong>8471.30:</strong> Laptops, tablets, and portable computers — often free under WTO ITA</li>
+                    <li><strong>8517.12:</strong> Smartphones and mobile phones — 0% under ITA for most models</li>
+                    <li><strong>8517.62:</strong> Routers, switches, modems, and network gear</li>
+                    <li><strong>8518.30:</strong> Headphones, earbuds, speakers — usually 0–2.6%</li>
+                    <li><strong>8528.71:</strong> TVs and monitors — rates vary by panel type and resolution</li>
+                    <li><strong>8534.00:</strong> Bare and assembled PCBs — 0–3% depending on layer count and material</li>
+                    <li><strong>8543.70:</strong> Power banks, chargers, dongles, and miscellaneous electronic devices</li>
+                    <li><strong>8507.60:</strong> Lithium-ion battery packs — classified separately from the device they power</li>
+                </ul>
+                <p>The first six digits are harmonized globally. Digits 7–10 are US-specific and pin down the exact rate. Many electronics HTS codes within Chapters 84 and 85 benefit from the WTO Information Technology Agreement (ITA), which binds participating countries to zero or near-zero tariffs on IT products. The US is an ITA participant, so most consumer electronics enter at 0% or close to it. But ITA coverage isn't universal — accessories, power supplies, and niche industrial electronics sometimes sit outside it. Check your specific 10-digit code.</p>
+                <p>The HTS code you pick has to match what the product actually is, not what you wish it was. A "smart display" that's really a tablet with a stand goes under 8471.30, not 8528.71. A Bluetooth speaker with a built-in power bank might need two separate HTS classifications if the battery function is more than incidental. CBP officers see misclassified electronics all the time — it's probably the single most common flag on electronics entries. When in doubt, spend the $100 on a broker's opinion. It's cheaper than a penalty.</p>
+                <p>Electronics HTS codes vary by subheading — our <a href="/hscode-duty-estimator">HS Code Duty Estimator</a> provides a baseline, and our <a href="/korea-to-us-electronics">Korea to US Electronics</a> calculator shows how the rates change when the origin country doesn't carry Section 301. For the full picture across every product type and origin, see our <a href="/electronics-import-duty">Electronics Import Duty</a> overview.</p>
+
+                <h3>Multi-Function Devices — How CBP Decides the Classification</h3>
+                <p>Electronics love to combine functions. A smartwatch tracks fitness, tells time, takes calls, and runs apps. A drone carries a camera, flies autonomously, and streams video. So which HTS code wins?</p>
+                <p>CBP uses the <strong>essential character</strong> test: which function defines what the product is, at its core? It's subjective, and that's where things get messy. A drone with a camera is still a drone (classified under 8525.80 for unmanned aircraft with imaging capability, or 8802.11 depending on weight). A smartwatch that makes calls is generally classified as a phone accessory (8517.62) rather than a timepiece (9102).</p>
+                <p>If your product straddles two categories, get a binding ruling from CBP before importing at volume. The process takes 30–60 days and costs nothing beyond your time filling out the form. A binding ruling means CBP can't retroactively reclassify your goods and bill you for back duties — which they absolutely can do otherwise, going back up to five years. For a product you plan to import repeatedly, skip the guessing game. File for the ruling.</p>
+
+                <h3>Section 301 on Chinese Electronics — What's Still in Play</h3>
+                <p>Chinese electronics got hit hard by Section 301 when it first rolled out in 2018 — some categories were at 25%. Since then, exclusions have peeled away a lot of that. The good news for mid-2026: most consumer categories (smartphones, laptops, tablets, gaming consoles, smartwatches) have active exclusions and enter with no Section 301 surcharge. The base MFN rate is all you pay.</p>
+                <p>The Section 301 list assignment is the single most important thing to get right for Chinese electronics imports. Our <a href="/section-301-china-tariffs-guide">Section 301 China Tariffs guide</a> maps every list, every rate, and the exclusion process — in plain English, not USTR legalese.</p>
+                <p>The not-so-good news: PCBs, networking gear, and certain industrial electronics have been on-again-off-again with exclusions. USTR reviews these in cycles — a category that was excluded last year might not be this year. Before you quote a landed cost on a container of routers or bare PCBs, pull up the current USTR exclusion list for your exact HTS code. The difference between 2.5% and 27.5% effective rate is not something you want to discover after the shipment lands.</p>
+                <p>A practical note: some importers have shifted from Chinese PCB fabrication to Vietnam or Taiwan for boards that carry active Section 301 duties. The fabrication cost might be slightly higher, but the duty savings can more than offset it at scale. Worth a spreadsheet if Section 301 applies to your parts.</p>
+                <p>A note on the exclusion process: USTR accepts public comments during open windows, and yes, individual businesses can and do file comments. You don't need a lobbyist. A well-written comment explaining why a specific HTS code should be excluded — with data on price impacts, supply chain alternatives, and harm to US businesses — actually gets read. If your business depends on a particular electronics category, set a calendar reminder for USTR's next review cycle and submit something. Silence is treated as consent to keep the tariff.</p>
+
+                <h3>FCC Compliance — Paperwork That Actually Matters</h3>
+                <p>Anything with Wi-Fi, Bluetooth, cellular, or any RF emitter needs FCC equipment authorization before it clears customs. Not optional. Two paths:</p>
+                <ul class="content-list">
+                    <li><strong>FCC Certification:</strong> For intentional radiators (Wi-Fi, Bluetooth, cellular devices). Must be tested at an FCC-recognized lab. This is the harder, more expensive path — but it's what most wireless products need.</li>
+                    <li><strong>Supplier's Declaration of Conformity (SDoC):</strong> For unintentional radiators — devices that emit RF as a byproduct of operation but don't intentionally transmit. Self-declared, cheaper, faster.</li>
+                </ul>
+                <p>No FCC authorization = CBP can detain or seize the shipment. Chinese manufacturers who export to the US regularly know the drill and often have FCC test reports ready. But the importer of record is legally responsible for compliance, not the factory. If your supplier can't produce an FCC test report from a recognized lab, get your own testing done before the shipment leaves China. Testing after arrival is a customs nightmare.</p>
+                <p>Consider this example: a small brand imports Bluetooth earbuds from a Shenzhen factory. The factory says "yes yes, FCC certified" and provides a test report. The shipment lands, CBP flags it, and on closer inspection the test report references a different model number than what's on the commercial invoice. The whole shipment gets held for two weeks while the importer scrambles to get actual certification. Cost: detention fees, lab rush fees, and a missed Amazon restock window. The lesson: check the test report yourself. Match the model numbers. Make sure the lab is on the FCC's recognized list. The FCC website has a searchable database — use it.</p>
+
+                <h3>Lithium Batteries — Shipping Rules, Not Duty Rules, But They'll Still Stop Your Shipment</h3>
+                <p>If your electronics contain lithium batteries — and most do — you've got extra hoops to jump through before the goods even reach US Customs. Lithium batteries are classified as dangerous goods (Class 9) for air transport. You need:</p>
+                <ul class="content-list">
+                    <li>UN 38.3 test certification for each battery model</li>
+                    <li>Proper IATA dangerous goods declaration and labeling on the air waybill</li>
+                    <li>State of charge limits — lithium-ion batteries shipped by air must be at 30% charge or less</li>
+                    <li>Packaging that passes the 1.2-meter drop test</li>
+                </ul>
+                <p>These aren't CBP rules — they're DOT/IATA rules enforced at origin by the airline and freight forwarder. But if your shipment doesn't meet them, it never gets on the plane, and it definitely never clears customs. Work with a forwarder who handles DG (dangerous goods) shipments regularly. Your regular DHL account rep can help; just don't show up at the cargo terminal with undeclared lithium batteries and expect things to go smoothly.</p>
+                <p>Sea freight is more forgiving on lithium battery paperwork than air freight, but the rules still apply. The IMO (International Maritime Organization) has its own dangerous goods code, and lithium batteries fall under it. If you're shipping a container of power banks by sea, the DG declaration is still mandatory — the paperwork is just less urgent than air freight where they check it at the gate.</p>
+                <p>Battery quantity limits matter too. Air freight caps lithium-ion batteries at 35 kg net per package for standalone batteries (Section IB of IATA DGR), and 5 kg net for batteries packed with equipment. Exceed those limits and you're into fully regulated Class 9 territory, which needs hazmat-trained staff and different paperwork. If your shipment is mostly batteries — power banks, replacement cells, battery packs — check the per-package limits carefully before booking freight.</p>
+
+                <h3>How to Handle Customs Paperwork for Electronics</h3>
+                <p>Every electronics shipment into the US needs a commercial invoice with: seller and buyer details, a clear product description (model number, function, quantity), unit and total value, country of origin, and the correct 10-digit HTS code. "Electronic device" is not a product description — write "Bluetooth wireless earbuds, model X3, 100 units." Vague descriptions get shipments held for examination.</p>
+                <p>For formal entries — anything commercial above $800, or above $2,500 regardless — you file through ACE (Automated Commercial Environment) with CBP Form 3461. You need a customs bond. Continuous bonds cover all entries for a year and cost $500–$800; single-entry bonds are prorated per shipment. If you import electronics more than twice a year, get the continuous bond.</p>
+                <p>A customs broker is worth it for electronics, especially if you're dealing with Section 301 or FCC compliance questions. Broker fees run $75–$200 per entry and they know which HTS codes currently have active exclusions. The broker's fee is usually cheaper than the penalty for a misclassification — and electronics HTS codes can be surprisingly specific. A "wireless speaker" and a "smart speaker with voice assistant" can go into different subheadings with different rates.</p>
+
+                <h3>Country of Origin Marking for Electronics — Yes, It's Required</h3>
+                <p>Every electronics product imported into the US has to be marked with its country of origin in a way that's permanent, legible, and visible to the end buyer. "Printed in China" on the retail box counts. But if you're importing bulk components that get assembled in the US, and the assembly process "substantially transforms" the product, the country of origin becomes the United States — and no marking is needed.</p>
+                <p>What counts as substantial transformation for electronics? Soldering components onto a bare PCB? Yes. Programming firmware onto a blank microcontroller? Sometimes. Just putting a Chinese-made circuit board into a US-made plastic housing? Probably not — the board is still the essence of the product. CBP rulings on this are case-by-case, and there's decades of precedent. If you're doing any kind of US-based assembly, get a ruling on whether your process changes the country of origin. Incorrect marking penalties start at a few hundred dollars and go up from there.</p>
+
+                <h3>Warranty Returns and Replacement Parts — Different Rules Apply</h3>
+                <p>Sending a defective electronic device back to China for repair or replacement? Or shipping a replacement unit to a US customer? These aren't standard commercial entries and they get different treatment.</p>
+                <p>For warranty returns going back to China: file it as a temporary export (CBP Form 7512) or a permanent export depending on whether the unit is coming back. If the repaired unit re-enters the US, it qualifies for duty-free treatment under HTS 9801.00.10 (US goods returned after repair abroad) — but only the original US-made components are duty-free. Any new parts added during repair are dutiable at their normal rate. Keep records showing what was original and what was replaced.</p>
+                <p>For replacement units shipped from China to a US customer under warranty: these are treated as standard imports and duty applies normally. The fact that it's a "free" replacement to the customer doesn't make it free to CBP. The declared value is the actual cost of the replacement unit — what the manufacturer paid to produce it, not what the customer paid (which is zero). CBP wants fair market value, and "it's a warranty replacement" doesn't zero out the CIF.</p>
+
+                <h3>Prototypes and Engineering Samples — The Gray Area</h3>
+                <p>Engineering samples, pre-production prototypes, and beta units that aren't intended for resale are still dutiable on their declared value. CBP doesn't have a blanket exemption for "samples." If the sample has commercial value — and a working prototype absolutely does — duty applies.</p>
+                <p>The practical workaround: samples valued under $800 slide under Section 321, same as any other shipment. Since most individual prototype units fall under that number, you're usually fine. For higher-value samples, declare the actual cost of production (not the retail equivalent) and pay the 2.5% — it's rarely worth the headache of trying to argue for a lower valuation.</p>
+                <p>One exception: samples that are non-functional, mutilated, or rendered commercially useless can enter duty-free under HTS 9811.00.60. This covers things like cut-away demo units, disassembled boards for trade shows, and non-working display models. But the item has to genuinely be non-functional — a fully working prototype labeled "SAMPLE — NOT FOR RESALE" doesn't automatically qualify.</p>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>What is the duty rate for electronics shipped from China to the US?</h3>
+                <p>Most consumer electronics run <strong>0% to 3.5%</strong>. Phones and laptops are typically 0% under the WTO ITA agreement. Accessories, peripherals, and gadgets average around 2.5%. PCBs, networking gear, and industrial electronics run 0–3% base MFN.</p>
+                <p>The wildcard is Section 301. If your HTS code has no exclusion, add 7.5% to 25% to the base rate. Consumer devices (phones, laptops, tablets, consoles) have active exclusions as of mid-2026. Industrial electronics and PCBs are less predictable — check the USTR list for your code.</p>
+                <p>All rates are on CIF (goods + freight + insurance), not factory price. No federal VAT in the US, so duty is the only line item.</p>
+
+                <h3>Do electronics from China under $800 pay import duty?</h3>
+                <p>No. Section 321 waives duty and tax on shipments with a goods value of <strong>$800 or less</strong> per person per day. Clearance is electronic (Type 86) — no bond, no broker, no duty.</p>
+                <p>The $800 threshold is on goods value only, not shipping. A $790 device + $50 shipping qualifies. An $810 device + $1 shipping doesn't, and the full CIF becomes taxable. Hard cutoff, no sliding scale.</p>
+                <p>Per-person-per-day means CBP can aggregate multiple packages to the same recipient from the same supplier on the same day. Don't split orders to stay under $800 — that's structuring, and CBP enforces it.</p>
+
+                <h3>Do I need FCC certification to import electronics from China?</h3>
+                <p>If the device emits RF energy — Wi-Fi, Bluetooth, cellular, or any wireless function — <strong>yes</strong>, you need FCC equipment authorization before import. Intentional radiators (anything that transmits) need FCC Certification from an FCC-recognized lab. Unintentional radiators (devices that emit RF as a byproduct but don't transmit intentionally) can self-declare under SDoC.</p>
+                <p>No FCC authorization = CBP can detain the shipment. The importer of record is responsible, not the Chinese factory. Get test reports from your supplier before the shipment leaves China. Lithium batteries in your devices also need UN 38.3 certification and IATA dangerous goods compliance for air freight — separate from FCC but equally mandatory.</p>
+
+                <h3>How do I know if my electronics HTS code has a Section 301 exclusion?</h3>
+                <p>Check the USTR's online exclusion portal — it's searchable by 10-digit HTS code. The portal shows active exclusions, expired ones, and pending review dates. Don't go by what your supplier says or what was true last quarter. The exclusion list moves.</p>
+                <p>For consumer electronics, the picture is mostly good in 2026: phones, laptops, tablets, consoles, and smartwatches all have active exclusions. Industrial electronics — PCBs, networking infrastructure, automation controllers — are a mixed bag. Some codes are excluded, some aren't, and some are in a gray zone where the exclusion technically expired but no new duties have been assessed yet. That last category is the most dangerous because it can change with a single Federal Register notice. If your HTS code is borderline, talk to a broker who specializes in electronics and check the USTR portal monthly.</p>
+
+                <h3>What happens if my shipment gets flagged for examination at the port?</h3>
+                <p>CBP flags electronics shipments for exam more often than you'd think — especially first-time importers, new HTS codes, and shipments from unfamiliar suppliers. If your shipment gets pulled, it goes to a CBP examination site (CES) or a centralized examination station (CES) at the port. You'll pay exam fees — typically $300-$800 for a non-intrusive inspection (X-ray) and $1,000+ for an intensive exam where they open boxes and test products.</p>
+                <p>The exam itself takes 3–7 business days on average, but it can stretch longer during peak season. Your freight forwarder or broker handles the logistics; your job is to provide accurate paperwork so the exam goes smoothly. If CBP finds discrepancies — wrong HTS code, undervaluation, missing FCC docs — the delay compounds and you're looking at weeks, not days. The best defense is a clean commercial invoice with accurate HTS codes, model numbers, and country of origin marked clearly on every line.</p>
+
+                <h3>Why do phones and laptops from China pay 0% duty but PCBs pay 25%?</h3>
+                <p>Because of List assignment. Smartphones (8517.12) and laptops (8471.30) are on List 4A at 7.5% Section 301 — AND their base MFN rate is 0% under the ITA (Information Technology Agreement). So you pay 0% + 7.5% = 7.5%. Bare PCBs (8534.00) are on List 1 at 25% Section 301, with an MFN rate around 3%. Total: 28%. The ITA zeroes out MFN rates on finished IT products but doesn't touch Section 301. Our <a href="/section-301-china-tariffs-guide">Section 301 guide</a> has the full list-by-list breakdown for every major electronics subheading.</p>
+
+                <h3>How do Chinese electronics duties compare to Korean or Japanese electronics?</h3>
+                <p>Korean electronics: 0% under KORUS FTA for most products. Japanese electronics: 1.5% average MFN, no Section 301. Chinese electronics: 0-3.5% MFN + 7.5-25% Section 301 depending on the list. The Section 301 surcharge makes China the highest-tax origin for electronics entering the US. Samsung and LG (Korea) and Sony and Panasonic (Japan) have a structural tariff advantage over Xiaomi, Huawei, and other Chinese brands for the US market. See our <a href="/korea-to-us-electronics">Korea to US Electronics</a> and <a href="/japan-to-us-auto-parts">Japan to US Auto Parts</a> calculators for comparison.</p>
+
+                <p>For the full breakdown of how Section 301, anti-dumping duties, and de minimis reform stack on top of MFN rates for every product category from China, see the <a href="/china-to-us-tariff-panorama">2026 China–US Tariff Panorama</a>.</p>
+                <p style="margin-top: 30px;"><a href="/">&larr; Back to All Calculators</a></p>
+            </article>
+        </div>
+
+        
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/china-to-mexico-maquila">IMMEX Nearshoring</a></li>
+                    <li><a href="/china-to-germany-customs">EU ATLAS Hub</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data—not affiliated with any official government customs agency.</p>
+        </div>
+    </footer>
+
+    <script src="rate-data.js"></script>
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

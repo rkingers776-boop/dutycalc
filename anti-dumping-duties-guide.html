@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>Anti-Dumping &amp; Countervailing Duties (AD/CVD): A 2026 US Importer's Field Guide</title>
+    <meta name="description" content="How US anti-dumping and countervailing duties actually work, why Chinese goods draw 216% orders, how to check in 10 minutes whether your HS code is covered, and how AD/CVD stack on MFN and Section 301 tariffs.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="canonical" href="https://www.dutycalc.online/anti-dumping-duties-guide">
+    <meta property="og:title" content="Anti-Dumping &amp; Countervailing Duties (AD/CVD): A 2026 US Importer's Field Guide">
+    <meta property="og:description" content="What AD/CVD duties really cost, China's NME treatment, how to check if your product is on an order, and how they stack with MFN and Section 301.">
+    <meta property="og:url" content="https://www.dutycalc.online/anti-dumping-duties-guide">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Anti-Dumping &amp; Countervailing Duties (AD/CVD): A 2026 US Importer's Field Guide">
+    <meta name="twitter:description" content="What AD/CVD duties really cost, China's NME treatment, how to check if your product is on an order, and how they stack with MFN and Section 301.">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+
+        <header>
+            <h1>Anti-Dumping and Countervailing Duties: What They Really Cost US Importers</h1>
+            <p>Most importers find out about anti-dumping duties the same way Dan did — at the port, after the container is already on the water.</p>
+            <p>Dan's Guangdong factory quoted wooden bedroom sets with a 0% MFN tariff and a 7.5% Section 301 surcharge. The quote didn't mention the anti-dumping order on Chinese wooden bedroom furniture, which carries a cash-deposit rate of up to 216%. On a $40,000 container, Customs collected $86,400 in duties before it would release the goods. The factory had never heard of the order. Dan had never thought to ask.</p>
+            <p>This guide is about not being Dan. It covers what AD and CVD duties are, why Chinese goods draw the heaviest orders, how to check in about ten minutes whether your product sits under one, and how these duties stack on top of the tariffs you already know about.</p>
+        </header>
+
+        <article class="seo-section">
+
+            <h2>Two duties, two different problems</h2>
+            <p>Anti-dumping (AD) and countervailing (CVD) duties are the trade-remedy tools in US law — Title VII of the Tariff Act of 1930, rebuilt after the 1994 Uruguay Round. They aren't the ordinary Most-Favored-Nation tariff that applies to almost every country. MFN is broad and predictable. AD and CVD are sniper rounds: one product, from one country, where the government has decided someone is playing unfair.</p>
+            <p>Anti-dumping goes after <em>price</em>. The claim is that an exporter is selling into the US for less than it charges at home — or less than it costs to make the thing. Countervailing duties go after <em>money</em>: a foreign government handing a producer a leg up through a below-market loan, a tax holiday, cheap land, or subsidized power and steel. Same destination, different weapon. And neither one replaces your other duties. They pile on.</p>
+
+            <h2>Who actually sets the rate, and how an order is born</h2>
+            <p>Two agencies run every case, and they answer different questions. The Commerce Department's International Trade Administration calculates the margin — how unfair the pricing or subsidy is, and therefore the percentage you'll pay. The International Trade Commission decides whether the imports actually hurt a US industry. No injury finding, no order, no matter how egregious the pricing.</p>
+            <p>From petition to a permanent order takes 12 to 18 months. Commerce opens a properly filed case within about 20 days. A preliminary margin shows up roughly 140 days in, and Customs starts collecting cash deposits the day it's published — before anyone knows the final number. The final margin lands about 75 days later, the ITC votes on injury, and if it agrees the order is printed in the Federal Register and stays there until a five-year sunset review kills it.</p>
+
+            <h2>Why "China" changes the math</h2>
+            <p>The single most important thing to understand about US anti-dumping law is that Commerce doesn't trust Chinese prices. Under US statute, China is still treated as a Non-Market Economy for anti-dumping purposes. That sounds like diplomatic trivia. It isn't — it's the reason Chinese goods attract the largest and most numerous AD orders on the books.</p>
+            <p>For a market economy — Germany, Japan, Korea — Commerce uses the exporter's actual home-market prices to decide whether it's dumping. For China it refuses those prices and instead builds a "normal value" out of a surrogate country's costs: a developing market with roughly comparable wages and inputs. Surrogate-country math almost always produces a much higher normal value, which inflates the dumping margin.</p>
+            <p>There's an escape hatch. A Chinese producer that proves it operates free of government control can request a separate, company-specific rate instead of the punitive China-wide rate. Producers who answer Commerce's questionnaires get lower individualized numbers. Producers who ignore the investigation get the China-wide rate by default — on wooden bedroom furniture, that has historically meant 216%. (Our <a href="/china-to-us-furniture">China-to-US furniture walkthrough</a> shows exactly where that number lands in a real landed-cost model.)</p>
+
+            <h2>The orders that actually sink shipments</h2>
+            <p>Dozens of AD and CVD orders are live at any moment. A few Chinese ones are so large and so old that they function as permanent features of certain supply chains:</p>
+            <table class="cmp-table">
+                <thead>
+                    <tr><th>Order</th><th>Coverage</th><th>Deposit range</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Wooden bedroom furniture (A-570-890)</td><td>HTS 9403.50</td><td>0%–216%</td><td>Live since 2005</td></tr>
+                    <tr><td>Ceramic tableware &amp; kitchenware</td><td>Chapter 69</td><td>China-wide for non-cooperators</td><td>Renewed through 2028</td></tr>
+                    <tr><td>Aluminum extrusions</td><td>AD + CVD</td><td>steep combined layer</td><td>Live; window frames to heat sinks</td></tr>
+                    <tr><td>Crystalline silicon PV cells/modules</td><td>AD + CVD</td><td>combined 200%+ at peak</td><td>Live; pushed supply chain to SE Asia</td></tr>
+                    <tr><td>Steel &amp; aluminum downstream</td><td>pipes, plate, wire &amp; more</td><td>varies, plus <a href="/section-301-china-tariffs-guide">Section 232</a></td><td>Live across the metals web</td></tr>
+                </tbody>
+            </table>
+            <p>China is the epicenter, but not the only target. The US maintains live orders on Vietnamese shrimp and steel, Indian shrimp and paper, Italian fabrics, Spanish olives, and plenty more. The lesson isn't "avoid China." It's "check the country of origin" — the real one, where the goods were substantially transformed, not just where they shipped from.</p>
+
+            <h2>What it does to your landed cost</h2>
+            <p>Here's the same furniture container, worked properly. Assume a $10,000 CIF shipment from a factory stuck at the 216% China-wide rate:</p>
+            <table class="cmp-table">
+                <thead>
+                    <tr><th>Duty layer</th><th>Rate</th><th>On $10,000 CIF</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>MFN (HTS 9403.50, wooden bedroom furniture)</td><td>0%</td><td>$0</td></tr>
+                    <tr><td>Section 301 List 3</td><td>7.5%</td><td>$750</td></tr>
+                    <tr><td>AD cash deposit (China-wide rate)</td><td>216%</td><td>$21,600</td></tr>
+                    <tr><td>MPF (Merchandise Processing Fee)</td><td>0.3464%</td><td>$34.64</td></tr>
+                    <tr><td>HMF (Harbor Maintenance Fee)</td><td>0.125%</td><td>$12.50</td></tr>
+                    <tr><td><strong>Total government charges</strong></td><td>—</td><td><strong>$22,397.14</strong></td></tr>
+                </tbody>
+            </table>
+            <p>Strip the anti-dumping order and the bill drops to about $797. The AD layer is 96% of the total. That's the scale we're talking about, and it's why "is my product on an order?" should be the first question you ask — before you negotiate a single factory price, not after the goods sail.</p>
+            <p>And no, the 2026 suspension of the $800 de minimis exemption doesn't help here. Small shipments are no longer automatically duty-free, and trade-remedy duties apply to the full entered value of a formal entry no matter the size. There is no "ship it in $799 chunks" escape hatch for AD/CVD. Read the <a href="/de-minimis-value-guide">de minimis threshold guide</a> or the <a href="/section-321-de-minimis-reform-2026">2026 reform explainer</a> for the mechanics.</p>
+
+            <h2>Find out before you pay</h2>
+            <p>You don't need a lawyer for a first-pass check. Set aside ten minutes.</p>
+            <p>Start with your exact 10-digit HTS code — not the four-digit chapter, the full subheading, because one digit can move you in or out of an order. Then open ITA's ACCESS system at <a href="https://access.trade.gov">access.trade.gov</a>, run the AD/CVD search filtered by that code and your country of origin, and confirm the order is still active (rates shift in annual reviews). If an order exists, look up your specific factory's producer case number: cooperating suppliers have individual rates, everyone else inherits the country-wide rate. Build all of it — MFN, Section 301, AD, CVD, the fees — into your <a href="/landed-cost-calculator">landed-cost model</a> before you sign the purchase order. Our <a href="/tariff-calculator">tariff lookup</a> gets you the HTS code if you don't have it yet.</p>
+            <p>If your supplier can't tell you their producer case number, assume the country-wide rate. For wooden bedroom furniture from China, that's 216%. Walk away.</p>
+
+            <h2>The catch nobody mentions: deposits aren't the final bill</h2>
+            <p>The rate Customs collects at the border is a cash deposit, not a final assessment. Every year Commerce re-examines each exporter's margins in an administrative review and can raise or lower the final number retroactively. You might deposit 41% now and get a bill for another 20% two years later — or a refund. Budget for the swing.</p>
+            <p>A few more moving parts. A first-time exporter can request a new-shipper review to earn its own rate. Commerce runs circumvention inquiries to close loopholes where goods are lightly processed in a third country to dodge a Chinese order — transshipping through Vietnam or Malaysia does not change the country of origin, and origin fraud gets your goods seized. And every five years a sunset review can terminate an order if US producers can't show injury would continue. Most survive. Some lapse.</p>
+
+            <h2>Can you get out from under an order?</h2>
+            <p>AD/CVD doesn't have the broad USTR exclusion process that <a href="/section-301-china-tariffs-guide">Section 301</a> offers. Your realistic exits are narrower: a scope ruling proving your product falls outside the order's wording, a successful separate-rate or new-shipper review, or a future sunset termination. These are lawyer territory. The stakes — potentially 200% of value — are too high to DIY, and a wrong answer at the port is a seizure, not a warning.</p>
+
+            <h2>Frequently asked questions</h2>
+            <h3>Does the de minimis exemption still shield small shipments from AD/CVD?</h3>
+            <p>No. With the 2026 suspension of the $800 exemption, sub-$800 shipments are no longer automatically duty-free, and anti-dumping and countervailing duties apply to the full entered value on a formal entry regardless of size. The small-batch trick never worked for trade-remedy duties.</p>
+            <h3>How is AD/CVD different from Section 232 metals tariffs?</h3>
+            <p>Section 232 is a blanket national-security tariff on whole sectors — steel at 25%/50%, aluminum at 25%/50% — applied regardless of pricing or subsidies. AD/CVD is product- and country-specific and requires a dumping or subsidy finding plus an injury vote from the ITC. A Chinese steel product can face MFN, Section 232 (50%), and AD/CVD all at once. See our <a href="/section-301-china-tariffs-guide">Section 301 guide</a> for how the China layers fit together.</p>
+            <h3>Can I get my product excluded from an AD/CVD order?</h3>
+            <p>Not through a broad exclusion list. Relief comes via a scope ruling, a separate-rate or new-shipper review, or a sunset termination — each a formal legal route, and the kind of decision best made with a customs attorney rather than a calculator.</p>
+            <h3>How long does an anti-dumping order stay in force?</h3>
+            <p>Until a five-year sunset review ends it. The ITC checks whether injury would continue; most orders are renewed, though some do lapse when US producers don't make the case.</p>
+
+        </article>
+
+        <div class="trade-tip"><span class="tip-label">Next step</span><br>Run your real numbers through the full stack — MFN + Section 301 + AD/CVD + MPF + HMF — with the <a href="/landed-cost-calculator">Landed Cost Calculator</a>, or read the <a href="/import-cost-workflow">Import Cost Workflow</a> to see where AD/CVD fits in the clearance sequence.</div>
+
+    </main>
+
+    <!-- ═══ FOOTER (matches site) ═══ -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>DutyCalc Online</h2>
+                <p>Customs duty, VAT, and landed cost calculators for international trade. Independent trade metrology — not affiliated with any government customs agency.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <ul>
+                    <li><a href="/landed-cost-calculator">Landed Cost Calculator</a></li>
+                    <li><a href="/import-duty-calculator">Import Duty Calculator</a></li>
+                    <li><a href="/vat-calculator">VAT / GST Calculator</a></li>
+                    <li><a href="/tariff-calculator">Tariff Rate Lookup</a></li>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/hscode-duty-estimator">HS Code Estimator</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Info</h4>
+                <ul>
+                    <li><a href="/import-cost-workflow">Import Workflow Guide</a></li>
+                    <li><a href="/import-vat-guide">Import VAT Explained</a></li>
+                    <li><a href="/de-minimis-value-guide">De Minimis Guide</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                    <li><a href="/section-301-china-tariffs-guide">Section 301 China Tariffs</a></li>
+                    <li><a href="/rate-updates">Rate Update History</a></li>
+                    <li><a href="/about">About This Platform</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent trade data — not affiliated with any government customs agency.</p>
+        </div>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does the de minimis exemption still shield small shipments from AD/CVD duties?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. With the 2026 suspension of the $800 de minimis exemption, sub-$800 shipments are no longer automatically duty-free, and anti-dumping and countervailing duties apply to the full entered value on a formal entry regardless of size."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is AD/CVD different from Section 232 metals tariffs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Section 232 is a blanket national-security tariff on entire sectors such as steel (25%/50%) and aluminum (25%/50%), applied regardless of pricing or subsidies. AD/CVD is product- and country-specific and requires a dumping or subsidy finding plus an injury vote from the ITC. A Chinese steel product can face MFN, Section 232 (50%), and AD/CVD simultaneously."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get my product excluded from an AD/CVD order?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is no broad exclusion list like the one USTR runs for Section 301. Relief comes through a scope ruling showing your product falls outside the order, a successful separate-rate or new-shipper review, or a future sunset termination — each a formal legal route best handled by a customs attorney."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does an anti-dumping order stay in force?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Until a five-year sunset review ends it. The US International Trade Commission reviews whether injury would continue; most orders are renewed, though some lapse."
+          }
+        }
+      ]
+    }
+    </script>
+
+</body>
+</html>

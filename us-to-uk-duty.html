@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>US to UK Import Duty? (Free &amp; Instant Calculator)</title>
+    <meta name="description" content="Calculate import duty and VAT on US goods shipped to the UK. 4.5% average UKGT tariff, 20% VAT, £135 consignment rule — free instant estimator for American exporters.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="canonical" href="https://www.dutycalc.online/us-to-uk-duty">
+    <meta property="og:title" content="US to UK Import Duty Calculator — Free Instant Estimator">
+    <meta property="og:description" content="Calculate import duty and VAT on US goods shipped to the UK. 4.5% average UKGT tariff, 20% VAT, £135 consignment rule — free instant estimator for American exporters.">
+    <meta property="og:url" content="https://www.dutycalc.online/us-to-uk-duty">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="US to UK Import Duty Calculator — Free Instant Estimator">
+    <meta name="twitter:description" content="Calculate import duty and VAT on US goods shipped to the UK. 4.5% average UKGT tariff, 20% VAT, £135 consignment rule.">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+
+        <header>
+            <h1>US to UK Import Duty Calculator</h1>
+            <p>Free instant estimator for American goods entering Great Britain — post-Brexit UKGT averaging 4.5%, 20% VAT on duty-paid CIF,
+               the £135 consignment mechanism, and what US exporters actually need to know before shipping across the Atlantic</p>
+        </header>
+
+        <div class="trade-tip"><span class="tip-label">No FTA means full UK Global Tariff</span><br><strong>US exports to the UK pay the same rates as any other non-FTA country.</strong> 20% VAT applies from the first pound. The 拢135 consignment threshold only covers customs duty 鈥?VAT is assessed regardless. <a href="/uk-to-us-duty">UK鈫扷S comparison 鈫?/a></div>
+
+        <!-- ═══ US → UK Import Duty & VAT Calculator ═══ -->
+        <div class="calculator-card" data-duty-rate="4.5" data-vat-rate="20" data-deminimis="135">
+            <h3>US → UK Import Duty &amp; VAT Estimator</h3>
+            <p class="card-desc">Enter shipment value and shipping cost in GBP. The calculator applies the 4.5% average UKGT duty rate,
+               20% VAT on duty-paid CIF, and the £135 consignment de minimis threshold.</p>
+            <div class="input-group">
+                <label>Shipment Value (GBP)</label>
+                <input type="number" class="item-value unit-input" value="1000" min="0" max="99999999" aria-label="Shipment value in GBP">
+            </div>
+            <div class="input-group">
+                <label>Shipping &amp; Insurance Cost (GBP)</label>
+                <input type="number" class="shipping-cost unit-input" value="80" min="0" max="99999999" aria-label="Shipping and insurance cost in GBP">
+            </div>
+            <button class="btn-calc" aria-label="Calculate US to UK Import Duty">Calculate Landed Cost</button>
+            <div class="result-display result-hidden" aria-live="polite" aria-atomic="true">
+                <h4>Customs Clearing Summary:</h4>
+                <ul>
+                    <li>Import Tariff (4.5%): <span class="res-duty">--</span></li>
+                    <li>Standard Import VAT (20%): <span class="res-vat">--</span></li>
+                    <li>Total Government Taxes: <span class="res-total-tax">--</span></li>
+                    <li>Total Estimated Landed Cost: <span class="res-landed">--</span></li>
+                </ul>
+            </div>
+            <a href="/us-to-uk-duty" class="detail-link" style="display:none;">View Full Country Guide &rarr;</a>
+        </div>
+
+        <div class="trade-tip"><span class="tip-label">UK customs is still transitioning</span><br>HMRC replaced the old CHIEF system with CDS (Customs Declaration Service). If your UK customer's broker is still using CHIEF, your shipment will get held. Make sure they're on CDS. <a href="/eu-to-uk-customs-clearance">How UK customs clearance works 鈫?/a></div>
+
+        <div>
+            <article class="seo-section">
+
+                <h2>UK Import Duty on US Goods — The UKGT Post-Brexit Framework</h2>
+                <p>After leaving the EU customs union on 1 January 2021, the UK established its own independent tariff schedule —
+                   the <strong>UK Global Tariff (UKGT)</strong>. For American goods the picture is relatively straightforward:
+                   UKGT rates on US-origin products average around <strong>4.5%</strong>. That number closely mirrors the old
+                   EU TARIC rates that applied to US goods before Brexit — the UKGT was designed to be slightly lower and simpler
+                   than the EU's Common External Tariff, but the reduction for US goods was modest, dropping most tariff lines
+                   by only a point or two.</p>
+                <p>The United States and the United Kingdom have no comprehensive free trade agreement. This means <strong>Most-Favored-Nation (MFN) rates</strong> apply to every US-origin product entering Great Britain.
+                   American goods face the UKGT MFN column — the same treatment given to goods from China, India, Brazil, or any other non-preferential trading partner. There is no "special relationship" discount at the border.</p>
+                <p>Real example: £500 of American goods (clothing, tools, electronics) plus £60 shipping and insurance = £560 CIF. Customs duty at 4.5% = £25.20. Then 20% VAT on the duty-paid CIF of £585.20 = £117.04.
+                   Total import charges: £142.24. Landed cost delivered to your UK buyer: £702.24. Run your own numbers in the calculator above — swap the defaults for your actual shipment figures.</p>
+
+                <h2>The £135 Consignment Rule — How It Works for US Sellers</h2>
+                <p>Post-Brexit, the £135 threshold — measured on <strong>goods value only</strong>, excluding shipping and insurance — splits both duty and VAT treatment into two completely separate regimes.
+                   Getting this right is the single most important compliance question for any US brand or retailer selling into the UK market. Two different rules, both keyed to the same number, and people mix them up constantly.</p>
+                <p><strong>For customs duty:</strong> consignments with a goods value of £135 or below enter duty-free. HMRC waives customs duty entirely below this threshold — the 4.5% UKGT rate simply does not apply.
+                   Above £135 the full UKGT MFN rate kicks in on the CIF value. This side is straightforward: your goods value is either above the line or below it, and duty is either zero or the full rate.</p>
+                <p><strong>For import VAT:</strong> this is where the mechanism gets more complex. Consignments of £135 or below are supposed to have VAT collected by the <strong>seller at the point of sale</strong>, not at the border.
+                   The US seller registers for UK VAT, charges 20% at checkout, and remits quarterly to HMRC. The goods then clear UK customs without additional VAT assessment — the CDS declaration is still filed, but the VAT line is marked "collected at point of sale."
+                   Above £135 standard import VAT applies: the UK customer or their broker pays VAT at customs upon entry, and the US seller does not need UK VAT registration.</p>
+                <p>For marketplace sales through Amazon UK or eBay UK: the platform itself is responsible for VAT on sub-£135 consignments — the marketplace collects and remits, and the individual seller does not need to register.
+                   For sales through your own Shopify or WooCommerce site: <strong>you carry the VAT collection obligation directly</strong>. HMRC expects quarterly returns and six years of records.
+                   For a deeper dive into the mechanics, our <a href="/eu-to-uk-post-brexit">EU to UK post-Brexit guide</a> covers the £135 rule in thorough detail — the mechanism works identically for US goods.</p>
+
+                <h2>UKGT Rates for Major US Export Categories</h2>
+                <p>The 4.5% average conceals enormous variation across product categories. American exporters need to look up their specific commodity code — here is how the major US-to-UK export chapters break down in practice:</p>
+                <ul class="content-list">
+                    <li><strong>Clothing and textiles (Chapters 61–62):</strong> 8–12%. American fashion, streetwear, and workwear brands pay full UKGT on every garment. No preference, no quota relief, no concession.
+                        A £200 jacket from a US DTC brand attracts £16–£24 in duty alone before VAT is even calculated.</li>
+                    <li><strong>Electronics (Chapter 85):</strong> 0% for most ITA-covered goods — smartphones, laptops, tablets, and semiconductor devices enter duty-free under the UK's commitment to the WTO Information Technology Agreement.
+                        Accessories, chargers, cables, and peripherals outside ITA coverage typically run 2–4%.</li>
+                    <li><strong>Machinery and industrial equipment (Chapter 84):</strong> 0–4%. US-made pumps, valves, engines, and mechanical equipment mostly enter at low or zero UKGT rates — one of the more favourable categories for American exporters.</li>
+                    <li><strong>Food and beverages (Chapters 02–22):</strong> extremely variable — no single rate works as a planning assumption. American bourbon and whiskey at 0–6%. Beef at 12% base rate plus a 200%+ tariff-rate quota once the quota volume fills.
+                        Cheese at 15–40% depending on type. Every food SKU needs its own 10-digit commodity-code lookup on the GOV.UK Trade Tariff tool.</li>
+                    <li><strong>Books and printed matter (Chapter 49):</strong> 0%. The UK charges zero customs duty on printed books, same as the US — one of the few genuinely frictionless categories in transatlantic trade.
+                        Manuals, brochures, and technical documentation also enter at 0%.</li>
+                    <li><strong>Furniture (Chapter 94):</strong> 0–4%. Most American-made wooden and metal furniture enters at low rates; upholstered seating with textile covers may attract higher lines depending on fabric composition and whether the filling is foam or feather.</li>
+                </ul>
+
+
+                <h2>No US-UK FTA — What It Means for Importers</h2>
+                <p>The US and UK have been discussing a comprehensive free trade agreement since the 2016 Brexit referendum. Progress has been slow and uneven.
+                   A limited sectoral agreement was signed in 2023 covering select agricultural and industrial goods at reduced rates — but it is narrow in scope,
+                   covering perhaps 10–15% of tariff lines, and does not come close to a full zero-tariff deal. For the vast majority of US product categories, MFN rates under the UKGT remain the reality on the ground.</p>
+                <p>This is one structural reason UK-US trade volume has not expanded as quickly as post-Brexit advocates predicted. Tariff friction runs both ways: US goods pay UKGT MFN rates entering the UK, and UK goods pay US Column 1 MFN rates entering the United States
+                   (see our <a href="/uk-to-us-duty">UK to US duty guide</a> for the reverse-direction numbers). American exporters should budget for full MFN rates on every shipment until a comprehensive FTA is ratified —
+                   trade negotiations between the two countries have been parked at the working-group level since 2024. Do not assume a deal is imminent.</p>
+
+
+                <h2>UK Customs Clearance — CDS, EORI, and What You Need</h2>
+                <p>All commercial imports into the UK go through the <strong>Customs Declaration Service (CDS)</strong> — the old CHIEF system was fully retired at the end of 2022.
+                   US exporters need three things in place before the first shipment leaves American soil:</p>
+                <ul class="content-list">
+                    <li>A <strong>GB EORI number</strong> — free from HMRC, applied for through the UK government gateway, typically issued within a week. The format is "GB" followed by your VAT registration number if you have one,
+                        or a standalone 12-digit code if you do not. No EORI = no customs clearance, period.</li>
+                    <li>Correct <strong>UK commodity codes</strong> — 6 to 10 digits. The first six digits are the globally harmonized HS code; digits 7–10 are UK-specific subheadings that determine your exact duty rate.
+                        Use the UK Trade Tariff tool on GOV.UK to look up each product line. Guessing the code means guessing the duty rate — and HMRC corrects errors retroactively with interest.</li>
+                    <li>A detailed <strong>commercial invoice</strong> showing seller name and address, buyer name and address, full product description, quantity, unit value, total value, currency, country of origin (United States),
+                        the agreed Incoterm, and the UK commodity code for each line item.</li>
+                </ul>
+                <p>A UK-based customs broker or freight forwarder handles the actual CDS electronic filing — you provide the paperwork, they submit the entry to HMRC's system. For shipments under £135 where the seller has already collected VAT at point of sale,
+                   the CDS declaration is still legally required but the VAT line is coded as "VAT collected at point of sale" to prevent double payment.
+                   Courier services (DHL, FedEx, UPS) include brokerage in most express air services; for palletized or container freight, a dedicated customs broker is standard practice.</p>
+
+
+                <h2>The UK Plastic Packaging Tax — An Extra Cost to Know About</h2>
+                <p>Since 1 April 2022, the UK has charged a <strong>Plastic Packaging Tax of £210.82 per metric tonne</strong> on plastic packaging containing less than 30% recycled content. This applies to imported goods —
+                   if your US products arrive in plastic packaging that does not meet the 30% recycled threshold and you are importing 10 or more tonnes of plastic packaging across a rolling 12-month period, the tax is due.
+                   Registration and quarterly returns go through HMRC's dedicated Plastic Packaging Tax portal.</p>
+                <p>For most individual US-to-UK shipments — single parcels, small pallets, DTC orders — this will not apply. The 10-tonne annual threshold excludes virtually all small and medium-sized exporters.
+                   But for volume importers shipping containers of consumer goods in virgin plastic packaging, it is an extra £210.82 per tonne on top of customs duty and VAT. If you are anywhere near the 10-tonne threshold,
+                   calculate your annual plastic packaging weight across all UK imports — including pallet wrap, bubble wrap, poly bags, and product packaging. The tax is assessed on total packaging weight, not the product weight inside it.</p>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>What's the duty rate for US goods entering the UK?</h3>
+                <p>The average UKGT rate on US goods is <strong>4.5%</strong> — but this is a blended average. Electronics and IT equipment are often 0% under the Information Technology Agreement. Clothing and textiles run 8–12%.
+                   Food and beverages range from 0% (bourbon under certain quota lines) to 40%+ (some cheese categories). Industrial machinery mostly sits at 0–4%. There is no US-UK free trade agreement, so MFN rates apply to all US-origin goods.
+                   The only reliable way to determine your exact rate is to look up your specific 10-digit UK commodity code in the UK Trade Tariff tool on GOV.UK — it is free, regularly updated, and legally authoritative.</p>
+
+                <h3>How does the £135 rule work for US sellers?</h3>
+                <p>Two separate rules share the same £135 number. For <strong>customs duty:</strong> consignments at £135 or below (goods value only, not shipping) enter duty-free — the 4.5% UKGT rate is waived. Above £135 the full duty rate applies to the CIF value.
+                   For <strong>import VAT:</strong> consignments at £135 or below require the US seller to register for UK VAT, charge 20% at checkout, and remit quarterly to HMRC — the goods then clear without additional VAT at the border.
+                   Above £135 the UK customer pays VAT at customs and the US seller does not need UK VAT registration. If you sell through Amazon UK or eBay UK for sub-£135 consignments, the marketplace handles VAT — you do not need to register. For your own Shopify or WooCommerce site, you carry the obligation directly.</p>
+
+                <h3>Do US goods get any preferential treatment in the UK?</h3>
+                <p>No. The US and UK have no comprehensive free trade agreement. A limited sectoral deal signed in 2023 covers some agricultural and industrial goods at reduced rates, but its product coverage is narrow and it is not a zero-tariff agreement.
+                   For the vast majority of US-origin goods — clothing, electronics, machinery, furniture, and most food products — full UKGT MFN rates apply. American exporters should budget for MFN rates on every shipment
+                   unless they have confirmed that their specific 10-digit commodity code is covered by the 2023 agreement. A comprehensive FTA has been under discussion since 2016 and remains unratified as of 2026.</p>
+
+                <h3>What's the difference between customs duty and VAT in the UK?</h3>
+                <p><strong>Customs duty</strong> is a tariff on imported goods — averaging 4.5% on US goods under the UKGT — calculated on the CIF value (goods + shipping + insurance). It is collected by HMRC's customs division and is a <strong>permanent, non-recoverable cost</strong>. Once paid, it is gone.
+                   <strong>VAT</strong> is a consumption tax at the 20% standard rate, calculated on the CIF value plus any customs duty already paid — meaning you pay tax on the tax. VAT-registered UK businesses can recover import VAT through their quarterly VAT return via postponed VAT accounting,
+                   so for B2B shipments VAT is a cash-flow timing issue rather than a permanent cost. For B2C shipments both duty and VAT are end costs borne by the consumer. Customs duty is never recoverable under any mechanism.</p>
+
+                <p style="margin-top: 30px;"><a href="/">&larr; Back to All Calculators</a></p>
+            </article>
+        </div>
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/china-to-mexico-maquila">IMMEX Nearshoring</a></li>
+                    <li><a href="/china-to-germany-customs">EU ATLAS Hub</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data—not affiliated with any official government customs agency.</p>
+        </div>
+    </footer>
+
+    <script src="rate-data.js"></script>
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

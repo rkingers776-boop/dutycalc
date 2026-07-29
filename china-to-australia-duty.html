@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>China to Australia Import Duty Calculator — Free Instant Estimator</title>
+    <meta name="description" content="Calculate import duty and GST on goods shipped from China to Australia. 5% tariff, 10% GST, AUD $1,000 de minimis — free instant landed cost estimator.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="canonical" href="https://www.dutycalc.online/china-to-australia-duty">
+    <meta property="og:title" content="China to Australia Import Duty Calculator — Free Instant Estimator">
+    <meta property="og:description" content="Calculate import duty and GST on goods shipped from China to Australia. 5% tariff, 10% GST, AUD $1,000 de minimis.">
+    <meta property="og:url" content="https://www.dutycalc.online/china-to-australia-duty">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="China to Australia Import Duty Calculator — Free Instant Estimator">
+    <meta name="twitter:description" content="Calculate import duty and GST on goods shipped from China to Australia. 5% tariff, 10% GST, AUD $1,000 de minimis.">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+
+        <header>
+            <h1>China to Australia Import Duty Calculator</h1>
+            <p>Free instant estimator for Chinese goods entering Australia — 5% customs duty, 10% GST, AUD $1,000 de minimis, and ABF clearance explained</p>
+        </header>
+
+        <!-- ═══ 广告位 1: 计算器上方 ═══ -->
+        <div class="trade-tip"><span class="tip-label">ChAFTA already did the work</span><br><strong>Most Chinese goods enter Australia duty-free under the free trade agreement.</strong> The 5% rate on this page is the fallback for non-qualifying products. If you're paying duty on a Chinese import into Australia, check whether you should be claiming ChAFTA preference. <a href="/china-to-japan-cargo">Japan also has an FTA with China (RCEP) 鈫?/a></div>
+
+        <!-- ═══ 嵌入式计算器 ═══ -->
+        <div class="calculator-card" data-duty-rate="5.0" data-vat-rate="10" data-deminimis="1000">
+            <h3>China → Australia Duty &amp; GST Estimator</h3>
+            <p class="card-desc">Enter your shipment's commercial value and shipping cost in Australian dollars. The calculator applies the 5% MFN duty rate, 10% GST, and checks the AUD $1,000 de minimis threshold automatically.</p>
+            <div class="input-group">
+                <label>Shipment Commercial Value (AUD)</label>
+                <input type="number" class="item-value unit-input" value="800" min="0" max="99999999" aria-label="Shipment commercial value in AUD">
+            </div>
+            <div class="input-group">
+                <label>Shipping &amp; Insurance Cost (AUD)</label>
+                <input type="number" class="shipping-cost unit-input" value="120" min="0" max="99999999" aria-label="Shipping and insurance cost in AUD">
+            </div>
+            <button class="btn-calc" aria-label="Calculate China to Australia Import Duty">Calculate Landed Cost</button>
+            <div class="result-display result-hidden" aria-live="polite" aria-atomic="true">
+                <h4>Customs Clearing Summary:</h4>
+                <ul>
+                    <li>Import Tariff (5.0%): <span class="res-duty">--</span></li>
+                    <li>GST (10%): <span class="res-vat">--</span></li>
+                    <li>Total Government Taxes: <span class="res-total-tax">--</span></li>
+                    <li>Total Estimated Landed Cost: <span class="res-landed">--</span></li>
+                </ul>
+            </div>
+            <a href="/china-to-australia-duty" class="detail-link" style="display:none;">View Full Country Guide &rarr;</a>
+        </div>
+
+        <!-- ═══ 广告位 2: 计算器与文章之间 ═══ -->
+        <div class="trade-tip"><span class="tip-label">AUD $1,000 is the most generous threshold going</span><br>No other developed country gives you a four-figure duty-free allowance. US is $800, UK is 拢135, Canada is a laughable CAD $20. <a href="/de-minimis-value-guide">Full de minimis comparison 鈫?/a></div>
+
+        <!-- ═══ SEO 长文区块 ═══ -->
+        <div>
+            <article class="seo-section">
+
+                <h2>How Australian Border Force Calculates Duty and GST on Chinese Imports</h2>
+                <p>When a shipment from China lands at an Australian port or airport, the Australian Border Force doesn't tax your factory invoice. It taxes your <strong>CIF value</strong> — Cost of the goods plus Insurance and Freight to the Australian point of entry. Get this wrong and you'll under-budget by hundreds per container.</p>
+                <p>The formula ABF uses is straightforward but worth walking through step by step:</p>
+                <ol class="content-list">
+                    <li><strong>CIF Value</strong> = Goods Value &plus; Freight &plus; Insurance</li>
+                    <li><strong>Customs Duty</strong> = CIF Value &times; 5.0%</li>
+                    <li><strong>GST</strong> = (CIF Value &plus; Customs Duty) &times; 10%</li>
+                    <li><strong>Total Landed Cost</strong> = CIF Value &plus; Customs Duty &plus; GST</li>
+                </ol>
+                <p>Let's run a real example. You import AUD $800 worth of Chinese home goods with $120 in shipping and insurance. Your CIF is $920. Duty at 5% comes to <strong>$46.00</strong>. GST at 10% applies to the duty-paid value of $966, yielding <strong>$96.60</strong>. Total government charges: $142.60. Final landed cost: <strong>$1,062.60</strong>. That's about 15.5% in taxes on a shipment that just barely crosses the AUD $1,000 threshold.</p>
+                <p>One critical detail: ABF uses the <strong>FOB value of the goods alone</strong> for the de minimis test. The AUD $1,000 threshold is based on the goods value, not the CIF. Your $800 shipment is under the threshold even with $120 shipping, so no duty applies. But once your goods value hits $1,001, the tax calculation uses the full CIF — shipping and insurance get swept into the dutiable base. And here is the twist people miss: GST can apply even when you are under AUD $1,000. Since July 2018, Australia has required GST collection on low-value imported goods through a separate regime — more on that below.</p>
+                <p>Now let us look at what happens when you cross the threshold. Same Chinese home goods, but this time the shipment is worth AUD $1,200 with $200 in freight and insurance. CIF is $1,400. Since the goods value exceeds $1,000, the de minimis no longer applies. Duty at 5% on the full CIF: <strong>$70.00</strong>. GST at 10% on the duty-paid value of $1,470: <strong>$147.00</strong>. Total government charges: $217.00. Final landed cost: <strong>$1,617.00</strong>. The effective tax rate on the goods value alone is about 18%, and you also need a customs broker to file the formal entry — tack on another $150–200. The jump from $999 to $1,001 in goods value can add over $350 in taxes and fees. That cliff effect is exactly why getting the de minimis calculation right matters.</p>
+                <p>ABF follows the WTO Customs Valuation Agreement for determining the transaction value. In most cases this is straightforward — the price actually paid or payable for the goods, adjusted for freight and insurance. But ABF can challenge declared values if they appear artificially low, particularly when the buyer and seller are related parties. Transfer pricing between a Chinese factory and its Australian subsidiary or distributor must reflect an arm's-length transaction; if ABF suspects undervaluation, they will issue a valuation advice requiring substantiation. Penalties for deliberate undervaluation include the unpaid duty plus a penalty of up to 200% of the duty shortfall under the Customs Act 1901. Declare the real transaction value — the savings from fudging an invoice are not worth the audit exposure.</p>
+
+                <h2>The AUD $1,000 De Minimis — Australia's Standout Feature</h2>
+                <p>Australia has one of the highest de minimis thresholds in the developed world. At <strong>AUD $1,000 based on the FOB goods value</strong>, it is more generous than Canada's tiered system, the EU's €150 duty threshold, and the UK's £135 consignment limit. Only the US — at USD $800 — comes close.</p>
+                <p>Shipments with a goods value under AUD $1,000 pay <strong>zero customs duty</strong>. No tariff, no formal entry processing fee. They clear through a simplified self-assessed clearance declaration with minimal paperwork. For the thousands of small e-commerce parcels flying from Shenzhen to Sydney every week, this threshold is what makes the economics work.</p>
+                <p>But duty is only half the story. GST follows different rules. Since <strong>July 1, 2018</strong>, Australia has required GST collection on low-value imported goods — items under AUD $1,000 that previously slipped through entirely tax-free. The mechanism is different from the standard border collection: the seller or marketplace platform is supposed to register with the Australian Taxation Office, charge 10% GST at the point of sale, and remit it quarterly. If the seller does not register, the ATO can hold the shipment at the border. The $1,000 threshold is for <strong>duty only</strong> — GST has its own playbook. For a full breakdown of how de minimis thresholds work across trade lanes, see our <a href="/de-minimis-value-guide">de minimis value guide</a>.</p>
+
+                <h3>The Low-Value Goods GST — What Changed in 2018</h3>
+                <p>Before July 2018, goods under AUD $1,000 entering Australia were completely GST-free. An Australian consumer could order a $900 item from a Chinese website and pay nothing beyond the purchase price — no duty, no GST, no border charges of any kind. Domestic retailers called it an unfair loophole for years, and in 2018 the government finally closed it.</p>
+                <p>The new rule is straightforward in principle: if you sell more than <strong>AUD $75,000 in annual turnover</strong> to Australian consumers, you must register for GST with the ATO, charge 10% at checkout, and remit quarterly. This applies whether you are based in Guangzhou, Glasgow, or Geelong — the obligation follows the turnover, not the location. Legal &amp; Protocolss like Amazon, eBay, and AliExpress handle this for marketplace sellers by registering as the deemed supplier and collecting GST on every transaction. But if you sell through your own independent website and your Australian turnover crosses the $75,000 mark, <strong>you carry the obligation directly</strong>. There is no de minimis exemption for GST — it applies from the first dollar of a transaction, unlike the AUD $1,000 duty threshold.</p>
+                <p>For shipments over AUD $1,000, GST is not collected at the point of sale under the low-value regime. Instead, it is collected at the border through the standard import process — the same way duty is assessed. The $1,000 line determines which collection mechanism applies: seller-side below, border-side above. The rate is the same 10% either way; only the collection point and responsible party change.</p>
+                <p>ATO enforcement has tightened considerably since the regime launched. The ATO now cross-references ABF import data with GST registration records, and unregistered sellers shipping into Australia below the $1,000 threshold face ATO compliance action — goods can be held at the border until GST is accounted for, and penalties can reach 75% of the unpaid GST amount. If you are a Chinese seller shipping to Australian consumers, registering for Australian GST is not optional if your turnover exceeds $75,000 — and the ATO calculates turnover based on gross sales to Australia, not profit. For more on how GST works across trade corridors, see our guides on <a href="/uk-to-australia-retail">UK to Australia retail shipments</a> and <a href="/us-to-australia-commerce">US to Australia commerce</a>.</p>
+
+                <h2>Australian Clearance Process and Key Requirements</h2>
+                <p>ABF processes all imports through the <strong>Integrated Cargo System (ICS)</strong>, the electronic platform that tracks every shipment from pre-arrival reporting through final clearance. The clearance process splits at the AUD $1,000 line:</p>
+                <ul class="content-list">
+                    <li><strong>Under AUD $1,000:</strong> Self-Assessed Clearance (SAC) declaration. Filed electronically through ICS with minimal data — importer details, a basic goods description, and declared value. No customs broker required. Processing is largely automated and typically clears within hours.</li>
+                    <li><strong>Over AUD $1,000:</strong> Formal entry required — an Import Declaration (N10 form) lodged through ICS by a <strong>licensed customs broker</strong>. The broker classifies the goods under the correct 8-digit tariff code, calculates duty and GST, and pays on your behalf. Brokerage fees typically run AUD $100–250 per formal entry, depending on complexity and volume.</li>
+                </ul>
+                <p>You also need an identifier on file with ABF. If you are a business, this means an <strong>Australian Business Number (ABN)</strong> registered for GST. If you are an individual importing occasionally, you can use an <strong>Importer Reference Number</strong> — free to obtain from ABF and valid indefinitely. Either way, ABF needs to know who is responsible for the goods before they will release them.</p>
+                <p>One practical note on timing: sea freight shipments require a pre-arrival report (PAR) filed at least 48 hours before the vessel arrives at an Australian port. Air freight requires an airway bill filed through ICS upon departure from the origin airport. Your freight forwarder or customs broker handles both of these, but delayed paperwork from the Chinese supplier — particularly missing or incomplete commercial invoices — is the number one cause of clearance delays. Many Chinese manufacturers are accustomed to EU and US paperwork standards, which differ from Australia's in subtle ways. Send your supplier a template commercial invoice formatted to ABF specifications <em>before</em> the goods ship, not after they arrive. It is the single cheapest way to avoid demurrage charges, which run AUD $100–300 per day for containers sitting on the wharf awaiting clearance.</p>
+                <p>Then there is biosecurity — and Australia takes it more seriously than almost any other country. The <strong>Department of Agriculture, Fisheries and Forestry (DAFF)</strong> inspects shipments for quarantine risk at the importer's expense. Anything shipped with wood packaging — pallets, crates, dunnage — must meet <strong>ISPM 15</strong> standards: heat-treated and stamped with the IPPC mark. Unmarked wood gets quarantined on arrival, and you pay for treatment or re-export. Textiles, footwear, food products, and anything with organic materials face additional scrutiny. DAFF inspection fees can add AUD $75–200 to a flagged consignment, and if they find live pests, the costs escalate quickly.</p>
+
+                <h3>What the Commercial Invoice Must Show</h3>
+                <p>ABF expects a detailed commercial invoice for every shipment, whether it clears via SAC or formal entry. A bare-bones invoice that says "goods" with a lump-sum value will get your shipment held. The invoice must include, in English: the seller's and buyer's full names and physical addresses, a line-by-line description of each item (including material composition, intended use, and country of origin), the quantity and unit value of each line, the total invoice value in AUD (or the foreign currency equivalent with exchange rate), the Incoterms (FOB, CIF, etc.), and the freight and insurance charges itemized separately. For ChAFTA claims, add the origin declaration or attach the Certificate of Origin.</p>
+                <p>Courier shipments add another layer. DHL, FedEx, and UPS all operate in-house brokerage services for Australian imports, and their clearance fees are typically built into the air freight rate for express services. Australia Post handles smaller parcels through its own customs clearance unit. For air freight consolidated shipments, the freight forwarder usually acts as the customs broker. Sea freight LCL (less-than-container-load) shipments almost always go through a licensed customs broker appointed by the freight forwarder or the importer directly. The key point: if you are importing regularly, build a relationship with a broker who knows your product categories — they will classify correctly from day one, flag biosecurity risks before the shipment leaves China, and keep your entries clean if ABF ever audits.</p>
+
+                <h3>GST Registration and Input Tax Credits for Australian Importers</h3>
+                <p>If you are an Australian business importing Chinese goods for resale, GST is generally recoverable. When you pay GST at the border (for shipments over AUD $1,000), ABF issues a customs entry that serves as your tax invoice. You report the GST paid as an input tax credit on your next Business Activity Statement (BAS), offsetting it against the GST you collected on your domestic sales. The net effect is that GST on imports is a cash flow issue, not a permanent cost — you pay it upfront and claim it back, usually within one to three months depending on your BAS lodgement cycle.</p>
+                <p>For shipments under AUD $1,000 where GST was collected at the point of sale by a registered overseas seller, the Australian business buyer does not pay GST at the border and therefore has no input tax credit to claim — the GST was paid by the end consumer through the seller-collection model. If you are buying from an unregistered Chinese supplier and the shipment is under $1,000, no GST is collected at either point, which means neither party claims or remits anything. This gap is precisely what the 2018 reforms were designed to close for B2C transactions, though B2B imports under $1,000 from unregistered suppliers can still technically bypass GST. The ATO is aware of this and has signaled further reforms may be coming.</p>
+
+                <h2>Key Tariff Classifications for Chinese Goods into Australia</h2>
+                <p>Australia uses <strong>8-digit tariff codes</strong> under the Customs Tariff Act 1995. The first six digits follow the global Harmonized System; digits seven and eight are Australia-specific. Your classification determines whether you pay 0%, 5%, or something in between. Here are the major categories for Chinese imports:</p>
+                <ul class="content-list">
+                    <li><strong>Chapter 85 — Electronics and electrical machinery:</strong> Generally 0–5%. Phones, laptops, circuit boards, and consumer electronics mostly enter at 0% under ChAFTA. Power supplies, certain batteries, and non-ITA-covered accessories may attract 5%.</li>
+                    <li><strong>Chapter 84 — Machinery and mechanical appliances:</strong> 0–5%. Industrial equipment, pumps, engines, and manufacturing machinery. The vast majority qualify for ChAFTA zero rates.</li>
+                    <li><strong>Chapters 61–62 — Apparel and clothing accessories:</strong> 5–10%. Knitted garments (Ch. 61) and woven garments (Ch. 62) are among the few categories where meaningful tariffs survive. Cotton and synthetic apparel from China often faces 5%, with some subcategories at 10%. This is where the 5% rate on our calculator matters most.</li>
+                    <li><strong>Chapter 94 — Furniture, bedding, and lighting:</strong> 5%. Home furniture, mattresses, lamps, and prefabricated buildings. Most furniture qualifies for duty-free entry under ChAFTA, so the 5% applies primarily to non-originating goods or categories where tariff elimination was incomplete.</li>
+                    <li><strong>Chapter 95 — Toys, games, and sporting goods:</strong> 0–5%. The overwhelming majority of toys from China enter duty-free. A small number of subcategories (certain sporting equipment and game accessories) carry residual 5% rates.</li>
+                </ul>
+                <p>The Australia-China Free Trade Agreement, signed in 2015, eliminated duties on the vast majority of Chinese goods. The 5% rate used by our calculator reflects the handful of categories where tariffs remain — predominantly certain textiles, clothing, footwear, and steel products that did not receive full tariff elimination under ChAFTA. For most importers, the real-world duty rate is zero. But you need to confirm your specific 8-digit code, because the line between 0% and 5% can be a single subheading.</p>
+
+                <h2>ChAFTA — Why Most Chinese Goods Enter Australia Duty-Free</h2>
+                <p>The China-Australia Free Trade Agreement, which entered into force on December 20, 2015, has progressively eliminated tariffs on Chinese goods entering Australia. As of 2019, the phase-down was essentially complete for the majority of product categories. Most electronics, machinery, furniture, toys, household goods, and industrial components from China now enter Australia at <strong>0% duty under ChAFTA</strong>.</p>
+                <p>The 5% rate we use on this calculator applies to the residual categories: certain textile products, some footwear classifications, and specific steel articles that did not get full tariff elimination. These are the holdouts — products where domestic Australian manufacturing interests secured continued protection during the FTA negotiations. If your goods fall into one of these categories, you pay 5%. If they do not, your duty liability is zero.</p>
+                <p>To claim the ChAFTA preferential rate, you need either a <strong>Certificate of Origin</strong> issued by an authorised body in China (typically the China Council for the Promotion of International Trade or a local Entry-Exit Inspection and Quarantine bureau) or a <strong>declaration of origin</strong> on the commercial invoice from the exporter. For shipments under AUD $1,000, origin documentation is rarely required in practice — the shipment clears duty-free under the de minimis threshold regardless. But for larger commercial shipments, filing the ChAFTA claim is what separates a 5% duty bill from a zero-duty entry. Most Chinese manufacturers are familiar with the certificate process and can provide the documentation as part of standard export paperwork.</p>
+                <p>What qualifies for ChAFTA preference? The product must meet the agreement's rules of origin, which for most manufactured goods means either: the goods are wholly obtained or produced in China, or they meet the Product-Specific Rules (PSR) — typically a change in tariff classification (the final product falls under a different HS chapter than any non-originating inputs) or a minimum 40% regional value content calculated on the ex-works price. The RVC test matters most for goods that incorporate components from third countries. If your product is assembled in China from Chinese-made components, the CTC test is usually satisfied automatically. If it uses significant imported inputs — say, Japanese electronic components inside a Chinese-assembled device — you need to run the RVC calculation to confirm ChAFTA eligibility.</p>
+
+                <h3>Shipping Routes and Clearance Ports — Practical Considerations</h3>
+                <p>Most Chinese goods enter Australia through four major ports: Sydney (Port Botany), Melbourne (Port of Melbourne), Brisbane (Port of Brisbane), and Fremantle (Perth). Sea freight from Shanghai, Ningbo, or Shenzhen to the Australian east coast typically takes 14–21 days port-to-port, with LCL consolidation adding another 3–7 days at each end. Air freight from Guangzhou, Shenzhen, or Shanghai to Sydney or Melbourne is 1–3 days transit, though customs clearance and last-mile delivery add another 2–3 business days on average.</p>
+                <p>The port of entry determines which ABF and DAFF office handles your clearance, and processing times vary by port. Melbourne and Sydney handle the highest volumes and generally offer the fastest clearance for standard cargo — but biosecurity queues can spike during peak season (October through December, ahead of the Australian summer and Christmas retail period). Brisbane and Perth have lower volumes but fewer brokers to choose from, which can mean longer turnaround for complex entries. If you have flexibility on routing, entering through Melbourne or Sydney usually yields the fastest overall clearance for Chinese general cargo. For time-sensitive air freight, Sydney (Kingsford Smith) and Melbourne (Tullamarine) are the primary entry airports, with Brisbane handling Queensland-bound cargo. DAFF inspection capacity is more constrained at Brisbane and Perth airports, so biosecurity-referred air shipments can sit for an extra 1–2 business days compared to Sydney or Melbourne.</p>
+
+                <h3>Anti-Dumping Duties on Chinese Goods — The Overlooked Risk</h3>
+                <p>Australia's Anti-Dumping Commission actively investigates Chinese imports, and dumping duties can stack on top of whatever rate you see on this calculator. Unlike the standard 5% MFN rate, anti-dumping duties are product-specific, exporter-specific, and can run from 10% to over 60%. Products currently or historically under Australian anti-dumping orders include: aluminium extrusions, steel reinforcing bar (rebar), hollow structural sections, zinc-coated steel sheet, and certain transformers. If your product is in a metal-intensive category — particularly steel or aluminium — check the Anti-Dumping Commission's public register at <strong>adcommission.gov.au</strong> before placing your order.</p>
+                <p>A dumping duty landing on your shipment is assessed at the border by ABF and added to whatever MFN or ChAFTA rate applies. There is no de minimis exemption for dumping duties — they apply regardless of shipment value. A AUD $500 shipment of aluminium extrusions from a Chinese exporter with a 30% dumping order pays $150 in dumping duty alone, even though it is under the $1,000 de minimis for standard customs duty. The Anti-Dumping Commission publishes a running list of active measures with exporter names, duty rates, and expiry dates. Dumping orders typically last five years but can be extended through sunset reviews, which the Commission conducts proactively. If you are sourcing metal products from China, check the AD register before committing to a supplier — switching to an exporter without an active order can save you tens of thousands on a single container.</p>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>Do I pay duty on Chinese goods under $1,000 entering Australia?</h3>
+                <p>No customs duty. The AUD $1,000 FOB threshold applies, and shipments under that value enter Australia duty-free. You file a simplified SAC declaration through the ICS and pay zero tariff. But GST at 10% still applies under the low-value goods regime. If you are buying from a registered seller or marketplace, GST should have been collected at the point of sale. If you are importing commercially for resale, GST applies at the border for shipments over $1,000 and should be collected by your registered supplier for shipments under $1,000. The $1,000 threshold is for duty only — do not confuse it with a blanket tax exemption.</p>
+
+                <h3>Are Chinese electronics duty-free into Australia?</h3>
+                <p>Yes, the overwhelming majority are. Under ChAFTA, most electronics in Chapter 85 — smartphones, laptops, tablets, televisions, audio equipment, and components — enter Australia at 0% duty. This is consistent with Australia's participation in the WTO Information Technology Agreement, which already zeroed out tariffs on a broad range of IT products independent of any FTA. The 5% rate on our calculator is a conservative fallback for non-qualifying goods. If your electronics shipment meets ChAFTA origin requirements (which most Chinese-manufactured electronics do), your effective duty rate is zero. Always confirm your 8-digit tariff code against the current ABF schedule before relying on the 0% assumption.</p>
+
+                <h3>What is the difference between Australia's de minimis and the US $800?</h3>
+                <p>Australia's AUD $1,000 FOB threshold is numerically higher than the US $800 — but the comparison is not as simple as the dollar amounts suggest. The key difference is that the US $800 threshold under Section 321 exempts shipments from <strong>both duty and any applicable taxes</strong>. A $700 shipment from China to a US consumer pays nothing — no duty, no tax, no processing fee. Period.</p>
+                <p>Australia's $1,000 threshold exempts duty only. Since 2018, GST applies from the first dollar of value under the low-value goods regime — it is just collected differently (at point of sale rather than at the border). So a $700 shipment from China to an Australian consumer should have had 10% GST applied at checkout by a registered seller. If it did not, the ATO can intercept the shipment. The US system is more generous in practice because the exemption covers everything. Australia's system gives you a higher duty-free ceiling but applies GST from dollar one through a seller-collection model that shifts the compliance burden upstream.</p>
+
+                <h3>How does the Australia-China de minimis compare to the UK and EU thresholds for Chinese imports?</h3>
+                <p>Australia's AUD $1,000 FOB threshold is dramatically higher than what Chinese sellers face when shipping west. The UK applies a £135 consignment-value threshold for duty — roughly AUD $270 — and VAT is collected from the first pound under a seller-registration model similar to Australia's. The EU scrapped its €22 VAT exemption in 2021 and now collects VAT from €0.01 via the Import One-Stop Shop (IOSS), with customs duty kicking in only above €150 (about AUD $250). So a Chinese seller shipping a AUD $500 product to an Australian customer pays zero duty under the $1,000 threshold, while the same product shipped to a UK customer faces full VAT at 20% and possibly duty, and to an EU customer faces VAT at 19-27% with duty depending on the product category. Australia's threshold gives Chinese exporters a meaningful price advantage in the Australian market compared to European destinations — the $1,000 buffer absorbs most consumer goods categories entirely, while European thresholds are low enough that virtually everything gets taxed.</p>
+
+                <h3>Do I need a customs broker for shipments from China to Australia?</h3>
+                <p>Under AUD $1,000: no. SAC declarations are self-filed through the ICS, and the process is designed for direct lodgement by the importer. You need an ABN or Importer Reference Number, but no broker is required.</p>
+                <p>Over AUD $1,000: yes, in practice. Formal entry requires an Import Declaration (N10 form) lodged through ICS, and while technically an individual can file this themselves, the classification, valuation, and compliance requirements are substantial enough that most importers use a licensed customs broker. Broker fees typically run AUD $100–250 per formal entry, with volume discounts available for regular importers. The broker handles tariff classification, duty and GST calculation, payment to ABF, and any DAFF biosecurity referrals. For one-off shipments, the broker fee may be a meaningful percentage of the total landed cost — factor it into your sourcing decision. For recurring commercial imports, a standing relationship with a broker pays for itself in faster clearance, fewer holds, and correct classification from day one.</p>
+                <p>When selecting a broker, look for one with specific experience in your product category. A broker who handles clothing imports daily knows the Chapter 61/62 classification nuances; one who specializes in industrial machinery knows the ChAFTA origin rules for Chapter 84. The Australian Customs Brokers and Forwarders Council (CBFCA) maintains a member directory searchable by specialty. Expect to pay on the higher end of the range for complex classifications or shipments requiring biosecurity referrals. And always ask whether the quoted fee includes the ABF import declaration processing charge (AUD $50–90 depending on lodgement method) or whether that is a separate line item — different brokers quote differently, and an apples-to-apples comparison requires knowing what is included.</p>
+
+                <p style="margin-top: 30px;"><a href="/">&larr; Back to All Calculators</a></p>
+            </article>
+        </div>
+
+        <!-- ═══ 广告位 3: 页脚上方 ═══ -->
+        
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/china-to-mexico-maquila">IMMEX Nearshoring</a></li>
+                    <li><a href="/china-to-germany-customs">EU ATLAS Hub</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data—not affiliated with any official government customs agency.</p>
+        </div>
+    </footer>
+
+    <!-- 挂载计算引擎与税率数据库 -->
+    <script src="rate-data.js"></script>
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

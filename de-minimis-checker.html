@@ -1,0 +1,510 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>De Minimis Cliff Detector — Which Countries Tax Your Shipment?</title>
+    <meta name="description" content="Enter your shipment value and instantly see which of 7 major markets will charge customs duty, which will let it through tax-free, and how close you are to each country's de minimis cliff. US, EU, UK, Canada, Australia, Mexico, Japan.">
+    <meta property="og:title" content="De Minimis Cliff Detector — Which Countries Tax Your Shipment?">
+    <meta property="og:description" content="Enter your shipment value and instantly see which of 7 major markets will charge customs duty, which will let it through tax-free, and how close you are to each country's de minimis cliff. US, EU, UK, Canada, Australia, Mexico, Japan.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.dutycalc.online/de-minimis-checker">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="De Minimis Cliff Detector — Which Countries Tax Your Shipment?">
+    <meta name="twitter:description" content="Enter your shipment value and instantly see which of 7 major markets will charge customs duty, which will let it through tax-free, and how close you are to each country's de minimis cliff. US, EU, UK, Canada, Australia, Mexico, Japan.">
+    <link rel="canonical" href="https://www.dutycalc.online/de-minimis-checker">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header>
+            <h1>De Minimis Cliff Detector</h1>
+            <p>Type a shipment value. Instantly see which countries let it through duty-free — and which ones hit you with a bill at the border. The de minimis is the single most important number in cross-border e-commerce, and getting it wrong by one dollar can cost you hundreds.</p>
+        </header>
+
+        <!-- ═══ THE DETECTOR ═══ -->
+        <section class="detector-module" aria-label="De Minimis Detector">
+            <div class="detector-input-panel">
+                <div class="detector-field">
+                    <label for="shipment-value" class="detector-label">SHIPMENT VALUE</label>
+                    <div class="detector-input-row">
+                        <input type="number" id="shipment-value" class="detector-value-input" value="200" min="0" max="999999" step="0.01" aria-label="Shipment commercial value">
+                        <select id="currency-select" class="detector-currency-select" aria-label="Currency">
+                            <option value="USD">USD $</option>
+                            <option value="EUR">EUR €</option>
+                            <option value="GBP">GBP £</option>
+                            <option value="CAD">CAD $</option>
+                            <option value="AUD">AUD $</option>
+                            <option value="MXN">MXN $</option>
+                            <option value="JPY">JPY ¥</option>
+                        </select>
+                    </div>
+                    <p class="detector-hint">Enter the goods value only — not shipping. Customs tests de minimis on FOB value in most jurisdictions.</p>
+                </div>
+            </div>
+
+            <div class="detector-results-panel" id="detector-results" aria-live="polite">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <!-- ═══ INTERPRETATION ═══ -->
+        <div class="detector-interpretation" id="detector-interpretation">
+            <!-- Populated by JS -->
+        </div>
+
+        <!-- ═══ THE COUNTRY CARDS ═══ -->
+        <section class="threshold-cards-grid">
+            <h2>Each Country's De Minimis — The Rules Behind the Results</h2>
+
+            <div class="threshold-card" id="card-us">
+                <div class="threshold-card-head">
+                    <span class="threshold-flag">🇺🇸</span>
+                    <h3>United States — $800 (Section 321)</h3>
+                </div>
+                <p>The most generous de minimis in the developed world. Section 321 of the Tariff Act allows goods valued at <strong>$800 or less</strong> per person per day to enter duty-free and tax-free. This threshold is based on the <strong>goods value alone</strong> — shipping costs don't count toward the $800 cap. Clearance is electronic via Type 86 entry: no bond required, no broker needed, no Merchandise Processing Fee. Cross $800.01 and the full CIF becomes dutiable — no partial exemption, no sliding scale. CBP can aggregate multiple packages to the same consignee on the same day, so splitting a $1,500 order into two $750 boxes to dodge the threshold is structuring. CBP prosecutes structuring, and the penalty costs more than the duty ever would.</p>
+                <p><strong>⚠ July 2026:</strong> This threshold is under active threat. Congress is considering legislation that would kill de minimis for Chinese goods entirely, and CBP has already tightened Type 86 enforcement at major ports. Read our full breakdown: <a href="/section-321-de-minimis-reform-2026">Section 321 De Minimis Reform 2026 — what's changing and what it costs you</a>.</p>
+                <p class="threshold-link"><a href="/china-to-us-electronics">China→US calculator</a> &nbsp;|&nbsp; <a href="/de-minimis-value-guide">Full threshold guide</a></p>
+            </div>
+
+            <div class="threshold-card" id="card-eu">
+                <div class="threshold-card-head">
+                    <span class="threshold-flag">🇪🇺</span>
+                    <h3>European Union — €150 (Duty) / €0 (VAT)</h3>
+                </div>
+                <p>It's a split threshold — and that's what burns people. Customs <strong>duty</strong> is exempt below <strong>€150</strong> goods value. But <strong>VAT</strong> has zero de minimis floor since July 2021, when the EU abolished the old €22 exemption. Every euro of import value attracts VAT — collected either through IOSS at the point of sale or by the carrier at delivery with a handling fee. If you sell B2C into the EU and you're not IOSS-registered, your customer gets an email from DHL demanding 20%+ of the purchase price plus a €10-20 processing charge before they'll release the package. That email is the number one cause of refused deliveries and chargebacks for non-EU sellers. Duty is the easy part. VAT is the cliff.</p>
+                <p class="threshold-link"><a href="/china-to-france-customs">China→France calculator</a> &nbsp;|&nbsp; <a href="/china-to-germany-customs">China→Germany calculator</a> &nbsp;|&nbsp; <a href="/de-minimis-value-guide">Full threshold guide</a></p>
+            </div>
+
+            <div class="threshold-card" id="card-uk">
+                <div class="threshold-card-head">
+                    <span class="threshold-flag">🇬🇧</span>
+                    <h3>United Kingdom — £135 (Consignment Value)</h3>
+                </div>
+                <p>Post-Brexit, the UK's system is built around the <strong>£135 consignment value</strong> threshold. Goods valued at £135 or below: no customs duty, but VAT is collected <strong>at the point of sale</strong> by the seller, who must be UK VAT-registered. Above £135: full customs duty at the UK Global Tariff rate plus VAT at the border. The key operational headache: if the seller doesn't collect VAT at checkout for a sub-£135 order, HMRC holds the shipment and the carrier collects the VAT plus a handling fee from the buyer. Many Chinese marketplace sellers learned this the hard way in 2021-22. The £135 line is not a free pass — it's an obligation shift from the border to the merchant.</p>
+                <p class="threshold-link"><a href="/china-to-uk-apparel">China→UK calculator</a> &nbsp;|&nbsp; <a href="/eu-to-uk-post-brexit">Post-Brexit guide</a> &nbsp;|&nbsp; <a href="/de-minimis-value-guide">Full threshold guide</a></p>
+            </div>
+
+            <div class="threshold-card" id="card-canada">
+                <div class="threshold-card-head">
+                    <span class="threshold-flag">🇨🇦</span>
+                    <h3>Canada — CAD $20 (The Lowest in the G7)</h3>
+                </div>
+                <p>Canada's de minimis is an embarrassment — <strong>CAD $20</strong> (about USD $15) for customs duty exemption. It's the lowest of any G7 country and has been the subject of repeated reform proposals that go nowhere. Above $20, full MFN duty applies. A separate CAD $40 threshold exists for GST on gifts, and a CAD $150 threshold under the Courier Imports Remission Order (CIRO) provides some relief for courier shipments specifically. But for standard commercial freight — pallets, containers, wholesale orders — $20 is the number. Every commercial shipment from China to Canada triggers full customs formalities: B3 entry, broker filing, GST at 5% on the duty-paid value. The CBSA's CARM digital system has made clearance faster, but it hasn't made the $20 threshold any less punitive.</p>
+                <p class="threshold-link"><a href="/china-to-canada-freight">China→Canada calculator</a> &nbsp;|&nbsp; <a href="/de-minimis-value-guide">Full threshold guide</a></p>
+            </div>
+
+            <div class="threshold-card" id="card-australia">
+                <div class="threshold-card-head">
+                    <span class="threshold-flag">🇦🇺</span>
+                    <h3>Australia — AUD $1,000 (But Only for Duty)</h3>
+                </div>
+                <p>Australia offers one of the highest thresholds globally — <strong>AUD $1,000</strong> based on the FOB goods value — but there's a trap. The $1,000 threshold applies to <strong>customs duty only</strong>. Since July 2018, GST at 10% on low-value imported goods has been collected through a separate regime: sellers and marketplace platforms must register with the ATO, charge GST at the point of sale, and remit quarterly. If the seller isn't registered, the ATO can hold the shipment. So a $900 shipment from China is duty-free under the $1,000 threshold, but the seller still needs to collect and remit 10% GST — or the shipment doesn't clear. Australia's system is generous on duty and ruthless on GST compliance. The spreadsheet logic: duty is zero below $1,000, but GST is never zero.</p>
+                <p class="threshold-link"><a href="/china-to-australia-duty">China→Australia calculator</a> &nbsp;|&nbsp; <a href="/de-minimis-value-guide">Full threshold guide</a></p>
+            </div>
+
+            <div class="threshold-card" id="card-mexico">
+                <div class="threshold-card-head">
+                    <span class="threshold-flag">🇲🇽</span>
+                    <h3>Mexico — MXN $50 (Effectively Zero)</h3>
+                </div>
+                <p><strong>MXN $50</strong> — roughly USD $2.50-3.00. It's the lowest de minimis of any major Western economy and, for all practical purposes, means every single commercial shipment from China undergoes full customs formalities: formal pedimento, licensed agente aduanal filing, 15% average duty plus 16% IVA on the duty-paid CIF, assessed from peso one. There is no low-value parcel channel comparable to US Section 321. Mexico's policy is deliberate — they want no Chinese e-commerce parcels circumventing the IVA. The only escape hatch is IMMEX: if your goods are destined for re-export after processing, duty and IVA are deferred. For direct-to-consumer sales into the Mexican domestic market, budget the full landed cost on every single package.</p>
+                <p class="threshold-link"><a href="/china-to-mexico-maquila">China→Mexico calculator</a> &nbsp;|&nbsp; <a href="/de-minimis-value-guide">Full threshold guide</a></p>
+            </div>
+
+            <div class="threshold-card" id="card-japan">
+                <div class="threshold-card-head">
+                    <span class="threshold-flag">🇯🇵</span>
+                    <h3>Japan — ¥10,000 (Duty + Tax Combined)</h3>
+                </div>
+                <p>Japan exempts shipments valued at <strong>¥10,000 or below</strong> (roughly USD $65-70) from <em>both</em> customs duty and the 10% consumption tax (JCT). This is a combined duty-and-tax threshold — more generous than Canada's split system, less generous than the US or Australia. Three ¥4,000 items in one box total ¥12,000 and trigger full assessment on the entire CIF amount, not just the excess. Between ¥10,000 and ¥200,000, a simplified declaration is available. Above ¥200,000, a formal C-5020 declaration is mandatory. Japan's NACCS electronic system processes everything, so clearance is fast — but the threshold itself is hard-coded in the Customs Law with no ministerial discretion to adjust it. For the math: a ¥9,900 shipment = zero duty + zero JCT. A ¥10,100 shipment = full MFN duty (typically 3.5%) + 10% JCT on the duty-paid CIF. That ¥200 difference in goods value can trigger ¥2,000+ in border charges. The cliff is steep.</p>
+                <p class="threshold-link"><a href="/china-to-japan-cargo">China→Japan calculator</a> &nbsp;|&nbsp; <a href="/de-minimis-value-guide">Full threshold guide</a></p>
+            </div>
+        </section>
+
+        <!-- ═══ THE $1 CLIFF ═══ -->
+        <section class="cliff-case-study">
+            <h2>The $1 Cliff — When Crossing the Line Costs Real Money</h2>
+            <p>De minimis thresholds are not sliding scales. They are cliffs. One dollar over and the entire shipment becomes dutiable — not just the excess. Here's what that looks like on an actual shipment:</p>
+
+            <div class="cliff-table-wrap">
+                <table class="cliff-table">
+                    <thead>
+                        <tr><th>Scenario</th><th>US ($800)</th><th>EU (€150)</th><th>UK (£135)</th><th>AU (AUD $1K)</th><th>JP (¥10K)</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>$1 under</strong></td>
+                            <td class="cliff-pass">$0 duty</td>
+                            <td class="cliff-pass">$0 duty</td>
+                            <td class="cliff-pass">$0 duty*</td>
+                            <td class="cliff-pass">$0 duty</td>
+                            <td class="cliff-pass">$0 duty + tax</td>
+                        </tr>
+                        <tr>
+                            <td><strong>$1 over</strong></td>
+                            <td class="cliff-fail">Full MFN + MPF on CIF</td>
+                            <td class="cliff-fail">Full TARIC on CIF</td>
+                            <td class="cliff-fail">Full UKGT + VAT</td>
+                            <td class="cliff-fail">Full duty + GST on CIF</td>
+                            <td class="cliff-fail">Full duty + 10% JCT on CIF</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Extra cost</strong></td>
+                            <td class="cliff-fail">$20–200+</td>
+                            <td class="cliff-fail">€7–70+</td>
+                            <td class="cliff-fail">£6–60+</td>
+                            <td class="cliff-fail">AUD $50–150+</td>
+                            <td class="cliff-fail">¥350–3,500+</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="cliff-note">* UK: VAT still applies at point of sale for sub-£135 consignments. The cliff is duty, not tax.</p>
+            <p>The extra cost column is conservative — it assumes a typical consumer good at a mid-range MFN rate. For high-tariff categories like apparel or footwear, multiply by 3-5x. The lesson: if your shipment value is sitting within 10% of a de minimis line, adjust the invoice or split the shipment. The arithmetic almost always favors staying under.</p>
+        </section>
+
+        <!-- ═══ FAQ ═══ -->
+        <section class="seo-section" style="margin-top:48px;">
+            <h2>De Minimis Questions That Actually Come Up at the Border</h2>
+
+            <h3>Does shipping cost count toward the de minimis threshold?</h3>
+            <p>It depends on the country — and getting this wrong is the single most common de minimis mistake. The US ($800) and Australia ($1,000) test de minimis against the <strong>goods value only</strong> — shipping and insurance are excluded from the threshold test but get swept into the CIF base once the threshold is crossed. The EU (€150) also tests against the goods value excluding shipping. The UK (£135) tests against the <strong>consignment value</strong> — which is the total transaction value including shipping paid by the buyer. Japan's ¥10,000 threshold applies to the <strong>CIF total</strong> including freight. Canada and Mexico: at $20 CAD and $50 MXN respectively, the distinction is academic — everything exceeds the threshold. When in doubt, assume the worst case: CIF inclusive.</p>
+
+            <h3>Can I split a shipment to stay under the de minimis?</h3>
+            <p>Splitting a single order into multiple packages to dodge a de minimis threshold is legal — as long as each package is a genuine separate shipment to a different recipient, or genuinely shipped on different days. What's illegal is <strong>structuring</strong>: deliberately breaking up a single commercial transaction into multiple shipments to the same recipient on the same day specifically to evade duties. US CBP, Australian ABF, and EU customs authorities all have aggregation rules. CBP can aggregate packages from the same shipper to the same consignee arriving on the same day. If they determine the split was intentional duty evasion, the penalty is the unpaid duty plus a civil penalty of up to the domestic value of the merchandise. The risk-reward ratio is terrible — especially when the duty rate is low. Split shipments for legitimate logistics reasons. Don't split them to dodge a 3% duty. The penalty will cost you more than a lifetime of paying the duty honestly.</p>
+
+            <h3>Do marketplaces like Amazon and eBay handle de minimis for me?</h3>
+            <p>Sometimes yes, often no — and never assume. Amazon handles VAT collection for FBA inventory in the EU and UK through its marketplace facilitator obligations, but it does <strong>not</strong> manage customs duty de minimis determinations — that's between your freight forwarder, your customs broker, and the border authority. For DTC shipments: Amazon's global selling programs may collect VAT/GST at checkout in certain jurisdictions, but the de minimis threshold for customs duty is tested independently at the border. A shipment can have VAT collected by Amazon at checkout and still trigger customs duty at the border if it exceeds the duty de minimis. eBay's Global Shipping Program handles some of this, but only for shipments routed through their consolidation centers. If you self-fulfill, you're on your own. Never assume a platform is managing your border costs — verify. Your customs broker is the only person who can give you a definitive answer on what will actually happen when your goods hit the border.</p>
+
+            <h3>Which country has the most generous de minimis for e-commerce?</h3>
+            <p>Australia, on paper: AUD $1,000 FOB goods value for duty exemption. But the GST obligation at $0.01 undermines it — sellers still need to collect and remit 10% GST regardless of the duty exemption. The United States, in practice: $800 per person per day, goods value only, no federal VAT or sales tax at the border, and the Type 86 electronic entry clears shipments in seconds without a broker. For a DTC brand selling from China directly to consumers, the US de minimis regime is hands-down the most favorable in the developed world — and it's not close. The EU comes third, but only because the €150 duty threshold is paired with universal VAT from €1, which adds friction. For the full cross-country comparison, see our <a href="/de-minimis-value-guide">de minimis value guide</a>.</p>
+        </section>
+
+        <p style="margin-top:32px;"><a href="/">&larr; Back to All Calculators</a> &nbsp;|&nbsp; <a href="/de-minimis-value-guide">Full De Minimis Guide</a> &nbsp;|&nbsp; <a href="/#lanes">All Trade Corridors</a></p>
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/china-to-mexico-maquila">IMMEX Nearshoring</a></li>
+                    <li><a href="/china-to-germany-customs">EU ATLAS Hub</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data—not affiliated with any official government customs agency.</p>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        'use strict';
+
+        // ── THRESHOLD DATA ────────────────────────────────
+        var thresholds = [
+            {
+                id: 'us',
+                name: 'United States',
+                flag: '🇺🇸',
+                currency: 'USD',
+                dutyThreshold: 800,
+                vatThreshold: 800,
+                note: 'Section 321: goods under $800 enter duty-free and tax-free via Type 86 electronic entry.',
+                corridorLink: '/china-to-us-electronics',
+                corridorLabel: 'China→US calculator',
+                overNote: 'Full MFN duty + MPF on entire CIF. No partial exemption above $800.',
+                nearNote: 'Close to the $800 line — verify goods value against invoice before shipping. CBP may aggregate multiple packages to same consignee on same day.'
+            },
+            {
+                id: 'eu',
+                name: 'European Union',
+                flag: '🇪🇺',
+                currency: 'EUR',
+                dutyThreshold: 150,
+                vatThreshold: 0,
+                note: 'Duty-free below €150 FOB goods value. But VAT applies from €1 — IOSS or border collection.',
+                corridorLink: '/china-to-france-customs',
+                corridorLabel: 'China→France calculator',
+                overNote: 'Full TARIC duty on entire CIF above €150. VAT applies regardless — zero de minimis floor for VAT since July 2021.',
+                nearNote: 'If goods value is near €150, ensure your commercial invoice is precise — customs may challenge declared values that appear artificially depressed.'
+            },
+            {
+                id: 'uk',
+                name: 'United Kingdom',
+                flag: '🇬🇧',
+                currency: 'GBP',
+                dutyThreshold: 135,
+                vatThreshold: 0,
+                note: 'Consignments under £135: no customs duty, but VAT collected at point of sale by seller. Over £135: full duty + VAT at border.',
+                corridorLink: '/china-to-uk-apparel',
+                corridorLabel: 'China→UK calculator',
+                overNote: 'Full UK Global Tariff duty + 20% VAT on duty-paid CIF. Standard customs declaration required.',
+                nearNote: 'The £135 is consignment value (including shipping). If buyer paid £15 shipping on £125 goods, total is £140 — over the line.'
+            },
+            {
+                id: 'canada',
+                name: 'Canada',
+                flag: '🇨🇦',
+                currency: 'CAD',
+                dutyThreshold: 20,
+                vatThreshold: 20,
+                note: 'CAD $20 duty de minimis is the lowest in the G7. Every commercial shipment triggers full customs clearance.',
+                corridorLink: '/china-to-canada-freight',
+                corridorLabel: 'China→Canada calculator',
+                overNote: 'Full MFN duty + 5% federal GST on duty-paid CIF. B3 entry + broker filing mandatory. CARM digital clearance in effect.',
+                nearNote: 'At CAD $20, essentially every commercial shipment is over the line. Budget the full landed cost from the start.'
+            },
+            {
+                id: 'australia',
+                name: 'Australia',
+                flag: '🇦🇺',
+                currency: 'AUD',
+                dutyThreshold: 1000,
+                vatThreshold: 0,
+                note: 'Duty-free under AUD $1,000 FOB goods value. But GST at 10% applies to low-value imports since July 2018.',
+                corridorLink: '/china-to-australia-duty',
+                corridorLabel: 'China→Australia calculator',
+                overNote: 'Full MFN duty + 10% GST on duty-paid CIF. Formal entry required above $1,000.',
+                nearNote: 'The $1,000 test is on FOB goods value only — exclude freight. But GST applies regardless, collected by seller or ATO.'
+            },
+            {
+                id: 'mexico',
+                name: 'Mexico',
+                flag: '🇲🇽',
+                currency: 'MXN',
+                dutyThreshold: 50,
+                vatThreshold: 50,
+                note: 'MXN $50 — effectively zero. Every commercial shipment gets full customs treatment: pedimento, agente aduanal, duty + IVA.',
+                corridorLink: '/china-to-mexico-maquila',
+                corridorLabel: 'China→Mexico calculator',
+                overNote: '15% average MFN duty + 16% IVA on duty-paid CIF. Broker fees MXN $1,500-3,500 per entry. IMMEX available for re-export.',
+                nearNote: 'At roughly USD $2.50, the threshold is symbolic. Budget the full landed cost on every shipment regardless of value.'
+            },
+            {
+                id: 'japan',
+                name: 'Japan',
+                flag: '🇯🇵',
+                currency: 'JPY',
+                dutyThreshold: 10000,
+                vatThreshold: 10000,
+                note: 'Combined duty-and-tax exemption at ¥10,000 (approx USD $65-70). Both charges apply or neither applies — no split threshold.',
+                corridorLink: '/china-to-japan-cargo',
+                corridorLabel: 'China→Japan calculator',
+                overNote: 'Full MFN duty (typically 3.5%) + 10% JCT consumption tax on entire CIF. Simplified declaration under ¥200,000.',
+                nearNote: 'The ¥10,000 threshold tests CIF inclusive. A ¥9,500 shipment with ¥600 shipping = ¥10,100 total → over the line.'
+            }
+        ];
+
+        // ── EXCHANGE RATES (approximate, June 2026) ──────
+        var rates = {
+            USD: { USD: 1, EUR: 0.92, GBP: 0.78, CAD: 1.37, AUD: 1.50, MXN: 17.50, JPY: 145 },
+            EUR: { USD: 1.09, EUR: 1, GBP: 0.85, CAD: 1.49, AUD: 1.63, MXN: 19.03, JPY: 158 },
+            GBP: { USD: 1.28, EUR: 1.18, GBP: 1, CAD: 1.75, AUD: 1.92, MXN: 22.40, JPY: 186 },
+            CAD: { USD: 0.73, EUR: 0.67, GBP: 0.57, CAD: 1, AUD: 1.10, MXN: 12.77, JPY: 106 },
+            AUD: { USD: 0.67, EUR: 0.61, GBP: 0.52, CAD: 0.91, AUD: 1, MXN: 11.67, JPY: 97 },
+            MXN: { USD: 0.057, EUR: 0.053, GBP: 0.045, CAD: 0.078, AUD: 0.086, MXN: 1, JPY: 8.29 },
+            JPY: { USD: 0.0069, EUR: 0.0063, GBP: 0.0054, CAD: 0.0094, AUD: 0.0103, MXN: 0.121, JPY: 1 }
+        };
+
+        var currencySymbols = { USD: '$', EUR: '€', GBP: '£', CAD: 'CA$', AUD: 'A$', MXN: 'MX$', JPY: '¥' };
+        var currencyNames = { USD: 'US Dollar', EUR: 'Euro', GBP: 'British Pound', CAD: 'Canadian Dollar', AUD: 'Australian Dollar', MXN: 'Mexican Peso', JPY: 'Japanese Yen' };
+
+        function formatMoney(amount, currency) {
+            if (currency === 'JPY') return '¥' + Math.round(amount).toLocaleString();
+            if (currency === 'MXN') return 'MX$' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+            return currencySymbols[currency] + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+        }
+
+        function getGapColor(ratio, thresholdVal) {
+            if (ratio <= 1.0) return 'cliff-safe';       // under threshold — green
+            if (ratio <= 1.15) return 'cliff-warn';       // within 15% over — amber
+            return 'cliff-over';                            // well over — red
+        }
+
+        function updateDetector() {
+            var inputEl = document.getElementById('shipment-value');
+            var currencyEl = document.getElementById('currency-select');
+            var resultsPanel = document.getElementById('detector-results');
+            var interpPanel = document.getElementById('detector-interpretation');
+
+            var inputValue = parseFloat(inputEl.value);
+            var inputCurrency = currencyEl.value;
+
+            if (isNaN(inputValue) || inputValue < 0) {
+                resultsPanel.innerHTML = '<p class="detector-empty">Enter a shipment value above to see which countries clear it duty-free.</p>';
+                interpPanel.innerHTML = '';
+                return;
+            }
+
+            var rateMap = rates[inputCurrency];
+            var html = '';
+            var interp = '';
+            var safeCount = 0;
+            var warnCount = 0;
+            var overCount = 0;
+            var totalMarkets = thresholds.length;
+
+            thresholds.forEach(function(t) {
+                var convertedValue = inputValue * rateMap[t.currency];
+                var dutyRatio = convertedValue / t.dutyThreshold;
+                var vatRatio = (t.vatThreshold > 0) ? convertedValue / t.vatThreshold : 999;
+                var overThreshold = dutyRatio > 1.0;
+                var overVat = vatRatio > 1.0 && t.vatThreshold > 0;
+
+                var statusClass, statusText, detail;
+
+                if (!overThreshold && !overVat) {
+                    // Fully under both thresholds
+                    statusClass = 'cliff-safe';
+                    statusText = 'CLEAR';
+                    detail = 'Duty-free &amp; tax-free. Entire shipment clears without customs charges.';
+                    safeCount++;
+                } else if (!overThreshold && overVat && t.vatThreshold === 0) {
+                    // Under duty threshold but VAT applies (EU, UK, AU)
+                    statusClass = 'cliff-warn';
+                    statusText = 'WATCH';
+                    detail = 'No customs duty. But VAT/GST is collected at sale or border — duty exemption doesn\'t shield you from tax obligation.';
+                    safeCount++;
+                } else if (overThreshold && dutyRatio <= 1.15) {
+                    // Slightly over — cliff warning
+                    statusClass = 'cliff-warn';
+                    statusText = 'CLIFF';
+                    detail = 'Over the de minimis line by less than 15%. Full duty applies on entire CIF — not just the excess. Adjust invoice or split shipment to stay under.';
+                    warnCount++;
+                } else {
+                    // Well over
+                    statusClass = 'cliff-over';
+                    statusText = 'DUTIABLE';
+                    detail = 'Full customs duty + VAT/GST apply. Budget the landed cost using our corridor calculator for this destination.';
+                    overCount++;
+                }
+
+                html +=
+                    '<div class="detector-country-row ' + statusClass + '">' +
+                    '  <div class="detector-country-head">' +
+                    '    <span class="detector-flag">' + t.flag + '</span>' +
+                    '    <span class="detector-country-name">' + t.name + '</span>' +
+                    '    <span class="detector-status ' + statusClass + '">' + statusText + '</span>' +
+                    '  </div>' +
+                    '  <div class="detector-country-body">' +
+                    '    <div class="detector-metric">' +
+                    '      <span class="detector-metric-label">Your value in ' + t.currency + '</span>' +
+                    '      <span class="detector-metric-value">' + formatMoney(convertedValue, t.currency) + '</span>' +
+                    '    </div>' +
+                    '    <div class="detector-metric">' +
+                    '      <span class="detector-metric-label">De minimis threshold</span>' +
+                    '      <span class="detector-metric-value detector-threshold-line">' + formatMoney(t.dutyThreshold, t.currency) + '</span>' +
+                    '    </div>' +
+                    '  </div>' +
+                    '  <p class="detector-detail">' + detail + ' <a href="' + t.corridorLink + '" class="detector-corridor-link">' + t.corridorLabel + ' →</a></p>' +
+                    '</div>';
+            });
+
+            // Build interpretation narrative
+            interp = '<h2>What This Means For Your Shipment</h2>';
+
+            var inputStr = formatMoney(inputValue, inputCurrency);
+
+            if (safeCount === totalMarkets) {
+                interp += '<p>At <strong>' + inputStr + '</strong>, your shipment clears <strong>duty-free in all 7 major markets</strong>. This is the de minimis sweet spot: small enough to avoid customs friction everywhere. For DTC e-commerce, staying at or below this value per package eliminates customs as a cost variable across every destination. But remember — the EU, UK, and Australia still collect VAT/GST regardless of the duty exemption. Duty-free does not mean tax-free in those jurisdictions.</p>';
+            } else if (overCount === totalMarkets) {
+                interp += '<p>At <strong>' + inputStr + '</strong>, your shipment triggers <strong>full customs formalities in all 7 markets</strong>. Every jurisdiction will assess duty, VAT/GST, and processing fees on the full CIF value. This is commercial freight territory — budget the landed cost per corridor using our calculator matrix, and make sure your customer (or your margin) is prepared for the border bill.</p>';
+            } else {
+                var safeMarkets = thresholds.filter(function(t) {
+                    return (inputValue * rateMap[t.currency]) <= t.dutyThreshold;
+                }).map(function(t) { return t.flag + ' ' + t.name; });
+
+                var overMarkets = thresholds.filter(function(t) {
+                    return (inputValue * rateMap[t.currency]) > t.dutyThreshold;
+                }).map(function(t) { return t.flag + ' ' + t.name; });
+
+                interp += '<p>At <strong>' + inputStr + '</strong>, your shipment clears duty-free in <strong>' + safeCount + ' markets</strong> and triggers full customs treatment in <strong>' + overCount + '</strong>.';
+
+                if (safeMarkets.length > 0) {
+                    interp += ' Duty-free destinations: ' + safeMarkets.join(', ') + '.';
+                }
+                if (overMarkets.length > 0) {
+                    interp += ' Dutiable destinations: ' + overMarkets.join(', ') + '.';
+                }
+                interp += '</p>';
+
+                if (warnCount > 0) {
+                    interp += '<p><strong>' + warnCount + ' market(s) flagged CLIFF:</strong> your shipment is within 15% of the de minimis line. A small adjustment to the declared goods value — or splitting the shipment — could move these from DUTIABLE to CLEAR. The cost difference between just-under and just-over is not incremental; it\'s the full duty on the entire CIF. If you control the invoice value, consider whether staying under is worth the paperwork.</p>';
+                }
+            }
+
+            interp += '<p class="detector-disclaimer">Exchange rates: approximate mid-market rates as of June 2026. Actual customs conversion uses the official rate published by the importing country\'s customs authority on the date of entry. Always verify against the current rate before committing to a shipment value strategy. This tool gives you a directional answer — the exact cliff point depends on the FX rate your broker uses at clearance.</p>';
+
+            resultsPanel.innerHTML = html;
+            interpPanel.innerHTML = interp;
+        }
+
+        // ── Bind events ─────────────────────────────────
+        var valueInput = document.getElementById('shipment-value');
+        var currencySelect = document.getElementById('currency-select');
+
+        valueInput.addEventListener('input', updateDetector);
+        currencySelect.addEventListener('change', updateDetector);
+
+        // Fire on load
+        updateDetector();
+    })();
+    </script>
+
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

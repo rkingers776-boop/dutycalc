@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>China to Canada General Cargo Duty? (Free &amp; Instant Calculator)</title>
+    <meta name="description" content="Calculate import duty on general cargo shipped from China to Canada. 6.5% average tariff, 5% federal GST, CAD $20 de minimis — free instant estimator for Vancouver/Montreal port entry.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="canonical" href="https://www.dutycalc.online/china-to-canada-freight">
+    <meta property="og:title" content="China to Canada General Cargo Duty Calculator — Free Instant Estimator">
+    <meta property="og:description" content="Calculate import duty on general cargo shipped from China to Canada. 6.5% tariff, 5% GST, CAD $20 de minimis.">
+    <meta property="og:url" content="https://www.dutycalc.online/china-to-canada-freight">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="China to Canada General Cargo Duty Calculator — Free Instant Estimator">
+    <meta name="twitter:description" content="Calculate import duty on general cargo shipped from China to Canada. 6.5% tariff, 5% GST, CAD $20 de minimis.">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+        <header>
+            <h1>China to Canada General Cargo Duty Calculator</h1>
+            <p>Free instant estimator for electronics, plastics, tools, and general merchandise from China entering Canada — Vancouver and Montreal port entry, 5% GST, and the layered de minimis thresholds</p>
+        </header>
+        <div class="trade-tip"><span class="tip-label">The CAD $20 trap</span><br><strong>Canada's de minimis is the worst in the developed world.</strong> A CAD $21 shipment pays 6.5% duty plus 5% GST. Compare that to the US $800 threshold 鈥?a Canadian consumer buying the same $30 item from the same Chinese seller pays tax while the American does not. <a href="/de-minimis-checker">See all de minimis thresholds 鈫?/a></div>
+        <div class="calculator-card" data-duty-rate="6.5" data-vat-rate="5" data-deminimis="20">
+            <h3>China → Canada General Cargo Duty &amp; GST Estimator</h3>
+            <p class="card-desc">Enter shipment value and shipping cost in CAD. The calculator applies the 6.5% duty rate, 5% federal GST on the duty-paid CIF, and CAD $20 de minimis thresholds.</p>
+            <div class="input-group">
+                <label>Cargo Commercial Value (CAD)</label>
+                <input type="number" class="item-value unit-input" value="500" min="0" max="99999999">
+            </div>
+            <div class="input-group">
+                <label>Shipping &amp; Insurance Cost (CAD)</label>
+                <input type="number" class="shipping-cost unit-input" value="60" min="0" max="99999999">
+            </div>
+            <button class="btn-calc">Calculate Landed Cost</button>
+            <div class="result-display result-hidden" aria-live="polite" aria-atomic="true">
+                <h4>Customs Clearing Summary:</h4>
+                <ul>
+                    <li>Import Tariff (6.5%): <span class="res-duty">--</span></li>
+                    <li>Federal GST (5%): <span class="res-vat">--</span></li>
+                    <li>Total Government Taxes: <span class="res-total-tax">--</span></li>
+                    <li>Total Estimated Landed Cost: <span class="res-landed">--</span></li>
+                </ul>
+            </div>
+            <a href="/china-to-canada-freight" class="detail-link" style="display:none;">View Full Country Guide &rarr;</a>
+        </div>
+        <div class="trade-tip"><span class="tip-label">CARM is mandatory now</span><br>The CBSA Assessment and Revenue Management system replaced the old import accounting process. If you import into Canada, you need a CARM portal account 鈥?no exceptions. <a href="/us-to-canada-duty">US-to-Canada is simpler under USMCA 鈫?/a></div>
+        <div>
+            <article class="seo-section">
+
+                <h2>How CBSA Calculates Duty and GST on Chinese General Cargo</h2>
+                <p>CBSA doesn't make it obvious, but the math is straightforward once you know the formula. Everything starts with the CIF value — that's your goods' commercial value plus shipping and insurance. Say you paid $1,000 for a pallet of electronics from Shenzhen and freight plus insurance ran $120. Your CIF is $1,120 — that's the number CBSA uses as the base.</p>
+                <p>From there, duty is applied first. For general cargo out of China — electronics, plastic parts, hand tools, household goods — the Most Favoured Nation rate averages 6.5%. On $1,120 CIF, duty = $1,120 × 0.065 = $72.80. Then CBSA tacks on GST, but here's the detail people miss: GST isn't on just the CIF — it's on the CIF <em>plus</em> the duty. That's $1,120 + $72.80 = $1,192.80, then 5% GST = $59.64. Total government bite: $132.44. Landed cost before brokerage: $1,252.44.</p>
+                <p>CBSA calls this the "value for duty" calculation. It works the same whether your container hits Vancouver, Montreal, or Toronto. The variable is provincial sales tax: BC adds 7% PST, Ontario layers 8% HST (harmonized with GST), Quebec tacks on 9.975% QST. Alberta, Yukon, NWT, and Nunavut get only the 5% federal GST. This calculator gives you the federal baseline — check your province's rate for the full landed picture.</p>
+                <p>One more wrinkle: CBSA uses the transaction value — what you actually paid the supplier — not some made-up customs number. But they can adjust if they suspect understatement. Keep your invoices clean and consistent. If CBSA flags a valuation discrepancy, they'll hold your shipment and demand bank transfer records, purchase orders, and supplier contracts to verify your declared numbers.</p>
+
+                <h2>The CAD $20 De Minimis — Why It's So Low</h2>
+                <p>Ship from China to the US and $800 of goods sail through without a cent of duty. Canada? The threshold is twenty bucks — CAD $20. It's been CAD $20 since the 1980s, one of the lowest de minimis thresholds anywhere in the developed world. Any commercial shipment valued above CAD $20 pays full MFN rates, no exceptions, no phase-in, no relief.</p>
+                <p>This tiny threshold is a constant headache for Chinese e-commerce sellers. A $25 phone case from AliExpress? Technically dutiable. A $40 set of LED strips? Same thing. A $60 pair of Bluetooth earbuds? You owe 6.5% duty plus 5% GST. In practice CBSA doesn't chase down every $30 package — the admin cost of collecting $1.95 in duty isn't worth it — but the legal obligation exists, and commercial shipments through formal entry get no pass whatsoever.</p>
+                <p>The GST de minimis is slightly more nuanced. For commercial shipments it's also CAD $20. Gifts get bumped to CAD $40 — so grandma in Guangzhou can send a birthday package tax-free. For courier imports — DHL, FedEx, UPS — the Courier Imports Remission Order lifts the practical threshold to CAD $150 (more on that below). Canada's retail lobby has fought raising the de minimis for decades, arguing a US-style $800 threshold would hollow out Canadian brick-and-mortar. They've won every round. For a complete breakdown across all lanes, see our <a href="/de-minimis-value-guide">de minimis value guide</a>.</p>
+
+                <h3>The Courier Imports Remission Order — CAD $150 for Express Shipments</h3>
+                <p>Here's where it gets practical for e-commerce. The Courier Imports Remission Order — commonly called the Courier Low Value Shipment (LVS) program — lets goods through designated couriers enter duty-free and GST-free at CAD $150 or under. That's FedEx, UPS, DHL Express, Purolator, and other CBSA-approved carriers. This is the threshold that actually matters for Chinese e-commerce into Canada.</p>
+                <p>Above CAD $150 through a courier, full duty and GST kick in — no phase-in, no partial relief. Cross $151 in declared value and you're paying 6.5% MFN plus 5% GST on the full amount. There's a second cliff at CAD $3,300: above that, formal entry is required — a full B3 customs declaration by a licensed broker. Below $3,300, the courier's in-house brokerage handles a simplified entry, faster and cheaper for everyone.</p>
+                <p>The practical takeaway: if you're importing samples or low-volume inventory from China, keep individual shipments under CAD $150 through FedEx or DHL and dodge duty and GST entirely. Cross that line and the landed cost math changes — use the calculator above to see exactly how much. For US importers, the thresholds are completely different; see our <a href="/us-to-canada-duty">US to Canada duty guide</a>.</p>
+
+                <h2>Key Ports and Clearance Process</h2>
+                <p>Most Chinese ocean freight lands at the Port of Vancouver — GCT Deltaport in Delta, BC, and DP World's Centerm terminal in Vancouver proper. Container ships from Shanghai, Ningbo, and Yantian dock daily. Vancouver handles roughly 70% of Canada's containerized imports from China. Prince Rupert takes another 15-20% for prairie and central-Canada freight. Montreal covers the remainder, mostly for Quebec and Atlantic Canada distribution.</p>
+                <p>For air freight, Vancouver International (YVR) is the western gateway, Toronto Pearson (YYZ) handles the east. Chinese air cargo — electronics, samples, time-sensitive parts — lands daily on direct flights from Shanghai Pudong, Beijing Capital, Guangzhou Baiyun, and Hong Kong. Most courier shipments from Chinese sellers come through YVR or YYZ, then truck to the destination province. Calgary (YYC) and Montreal (YUL) handle smaller direct air freight volumes from China.</p>
+                <p>CBSA clearance now runs almost entirely through CARM — CBSA Assessment and Revenue Management. To import commercially, you need a Business Number (BN) from the CRA and a linked RM (Revenue Management) account. Your customs broker files the entry electronically before goods arrive, and CBSA either releases, flags for doc review, or calls physical exam — all paperless. Get your BN and RM account set up <em>before</em> your first shipment. If cargo hits the dock without an active RM account, you're paying storage charges while you wait for activation.</p>
+                <p>One thing importers learn the hard way: CBSA's exam rate on Chinese shipments runs higher than on US or EU cargo, partly from tariff classification issues and SIMA enforcement on steel and industrial goods. A VACS exam (Verification and Compliance) adds 5-10 business days. Budget for that, especially around Chinese New Year when post-holiday backlogs clog the queue. Container exam fees from terminal operators typically run CAD $500 to $1,500 depending on how deep they dig into your shipment.</p>
+
+                <h2>Key HTS Chapters for Chinese General Cargo into Canada</h2>
+                <p>Canada uses the same Harmonized System as everyone, but the tariff rate depends entirely on the specific HTS classification — your broker's 10-digit code determines everything. Here are the chapters covering the bulk of general cargo from China, with real-world MFN rates you'll actually see on your customs entry:</p>
+                <ul>
+                    <li><strong>Chapter 84 — Machinery and Mechanical Appliances:</strong> Industrial pumps, conveyor belts, HVAC equipment. Chinese goods typically land at 6.5% MFN, with many subheadings at 0% under tariff phase-outs. If importing factory equipment or mechanical parts from China, expect 0-8% depending on the exact subheading. Diesel engines, pumps, compressors, and gearboxes all live here.</li>
+                    <li><strong>Chapter 85 — Electrical Machinery and Electronics:</strong> The big one for Chinese imports — consumer electronics, circuit boards, chargers, LED lighting, battery packs. MFN rates range 0% to 6.5%. ITA-covered goods (most consumer electronics) enter at 0%: power banks, USB cables, Bluetooth speakers. But electric water heaters and certain industrial electrical gear still carry 6-6.5% — always check the specific subheading.</li>
+                    <li><strong>Chapter 39 — Plastics and Plastic Articles:</strong> Kitchenware, storage bins, packaging, injection-moulded parts. Standard MFN is 6.5% with not much variation — CBSA treats plastics consistently. If it's a finished plastic consumer product, budget 6.5%. Raw plastic resins and pellets sit at 0% under certain tariff items, but that's industrial feedstock, not general cargo.</li>
+                    <li><strong>Chapter 94 — Furniture, Bedding, Lighting:</strong> Flat-pack furniture from China — the Amazon and Wayfair mainstay. Rates range widely: 0% for certain lighting fixtures, 6% for wooden bedroom furniture, 9.5% for upholstered seating. Upholstered furniture from China has been under active anti-dumping scrutiny since 2021. Check the SIMA register before booking — the base duty is manageable, but the stacked anti-dumping duty is what kills the economics.</li>
+                    <li><strong>Chapters 61-62 — Apparel:</strong> Some of Canada's highest MFN rates. Knit apparel under 61 (t-shirts, sweaters, leggings) and woven under 62 (jeans, dress shirts, jackets) routinely hit 10-18%. On a $5,000 shipment of Chinese-made hoodies, 18% duty = $900 before GST. Apparel is the single biggest cost shock for importers who assume everything from China lands at 6.5%.</li>
+                    <li><strong>Chapter 95 — Toys and Games:</strong> The good news. Action figures, building blocks, board games, plush — most enter at 0% MFN. Some ride-on toys and electronic games carry 7-8%, but the vast majority of children's toys are duty-free into Canada. Confirm the subheading, but you'll likely pay nothing in duty. GST still applies above the de minimis, of course.</li>
+                </ul>
+                <p>These are CBSA published MFN rates as of early 2026. Tariff classifications can shift — CBSA issues tariff classification rulings and the Customs Tariff schedule gets updated annually. Always verify your specific HTS code against the current schedule before filing. A wrong classification understating duty by a few points triggers an AMPS penalty starting at CAD $250 for a first offence, escalating quickly if CBSA sees a pattern.</p>
+
+                <h2>China-Canada Trade Policy — No FTA</h2>
+                <p>Here's the blunt reality: China has no free trade agreement with Canada. Exploratory talks ran from 2016 to 2018, then froze after the Huawei CFO arrest in Vancouver and never restarted. Unlike Mexico under USMCA, the EU under CETA, or CPTPP members like Japan and Vietnam, Chinese imports pay full MFN rates on every single entry. No preferential tariff treatment exists, no certificate-of-origin workaround, no way to legally cut the rate except through accurate tariff classification.</p>
+                <p>The General Preferential Tariff — Canada's developing-country import program — sounds like it might apply to China, but it doesn't. China isn't a GPT beneficiary and hasn't been for years. The GPT list covers about 100 smaller developing economies; China graduated as its per-capita income passed the thresholds. Chinese goods are firmly in MFN territory and will stay there barring a major bilateral policy shift that nobody expects anytime soon.</p>
+                <p>What Canada does have is a growing set of targeted surtaxes and anti-dumping measures. EVs from China got hit with a 100% surtax in 2024, matching the US approach. Chinese steel and aluminum face both anti-dumping and countervailing duties under SIMA. Certain aluminum extrusions, steel pipe, and solar panels carry combined duties exceeding 50% above the MFN rate. These are product-specific measures, not blanket tariffs — unlike US Section 301 — but they cover a lot of industrial ground. If importing anything metal or photovoltaic, check the CBSA SIMA register before committing. For a comparison with US import rules on Chinese electronics, see our <a href="/china-to-us-electronics">China to US electronics duty guide</a>.</p>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>What's the duty rate for general cargo from China to Canada?</h3>
+                <p>The practical average for mixed general cargo — electronics, plastic goods, tools, household items — sits around 6.5%. But "average" is a guide, not a promise. ITA-covered electronics (phones, laptops, semiconductors) enter at 0%. Plastics stay close to 6.5%. Apparel can hit 18% before GST. Toys are mostly 0%. Furniture ranges 0-9.5% with anti-dumping risk on upholstered pieces. The only way to get your exact rate is to find your specific 10-digit HTS code in the Customs Tariff schedule. This calculator uses 6.5% as a reasonable midpoint — it'll get you close, but your broker's entry will use the actual subheading rate for your specific goods.</p>
+
+                <h3>Can I ship from China to Canada duty-free under $150?</h3>
+                <p>Yes — through designated couriers. The Courier Imports Remission Order exempts shipments at CAD $150 or below from both duty and GST when shipped through CBSA-approved couriers like FedEx, UPS, or DHL Express. This is the pathway practically every Chinese e-commerce seller relies on for small orders into Canada. Ship via regular postal service (China Post to Canada Post) and the threshold drops — the CAD $20 de minimis applies, and anything above is technically dutiable, though postal enforcement is inconsistent. The cleanest route for duty-free entry from China is courier under $150. Above $150, full MFN duty and GST apply. Above $3,300, formal entry through a licensed broker is required.</p>
+
+                <h3>Does Canada have Section 301-style tariffs on China?</h3>
+                <p>Not in the same blanket form as the US. Canada doesn't have a broad Section 301 equivalent slapping an extra 25% on everything Chinese. Instead, Canada uses product-specific measures: a 100% surtax on Chinese EVs (imposed 2024), anti-dumping and countervailing duties on Chinese steel and aluminum under SIMA, and targeted surtaxes on certain industrial goods. For general cargo — electronics, plastics, toys, tools — there's no additional surtax layer. The MFN rate is what you pay. But SIMA's net is wide on metals, and solar panels plus certain upholstered furniture from China have active SIMA findings too. New investigations open regularly — always check the register before importing.</p>
+
+                <h3>How long does Canada Customs clearance take for Chinese shipments?</h3>
+                <p>For courier shipments under CAD $3,300 — the bulk of Chinese e-commerce — clearance typically takes 1-2 business days. FedEx and DHL have in-house brokerage teams that file simplified entries and release packages quickly through CARM.</p>
+                <p>For formal ocean freight entries — your FCL or LCL shipment coming through Vancouver — expect 2-5 business days for standard electronic release, assuming clean paperwork: correct HS code, proper commercial invoice, complete packing list, no flagged goods.</p>
+                <p>If CBSA pulls your shipment for a VACS examination — more common on Chinese-origin cargo than US or EU shipments — add 5-10 business days, sometimes more during peak periods. Container exam fees run CAD $500 to $1,500 depending on how thoroughly they unpack, and those costs land directly on the importer.</p>
+                <p>During peak season — August through October for holiday inventory, and the weeks around Chinese New Year when shipments bunch up after factory closures — exam backlogs at Vancouver can push clearance past two weeks. Factor exam risk into your lead times, especially for your first few shipments while CBSA builds a compliance profile. Once you've established a clean track record, exam frequency drops off significantly.</p>
+
+                <p style="margin-top: 30px;"><a href="/">&larr; Back to All Calculators</a></p>
+            </article>
+        </div>
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/china-to-mexico-maquila">IMMEX Nearshoring</a></li>
+                    <li><a href="/china-to-germany-customs">EU ATLAS Hub</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data—not affiliated with any official government customs agency.</p>
+        </div>
+    </footer>
+    <script src="rate-data.js"></script>
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

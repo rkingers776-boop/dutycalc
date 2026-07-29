@@ -1,0 +1,689 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>Landed Cost Calculator — CIF, Customs Duty, VAT, and Total Import Cost Compared</title>
+    <meta name="description" content="Run your FOB, freight, and insurance through the actual customs formula for up to 7 destination markets at once. Shows CIF, duty, VAT/GST, and total landed cost side by side. The math border authorities use, not an estimate.">
+    <link rel="canonical" href="https://www.dutycalc.online/landed-cost-calculator">
+    <meta property="og:title" content="Landed Cost Calculator — CIF, Customs Duty, VAT, and Total Import Cost Compared">
+    <meta property="og:description" content="Run your FOB, freight, and insurance through the actual customs formula for up to 7 destination markets at once. Shows CIF, duty, VAT/GST, and total landed cost side by side.">
+    <meta property="og:url" content="https://www.dutycalc.online/landed-cost-calculator">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Landed Cost Calculator — CIF, Duty, VAT, Landed Cost Compared">
+    <meta name="twitter:description" content="FOB + freight + insurance through the real customs formula. 7 markets, side by side.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+    <style>
+        /* ── Landed Cost Calculator — Component Styles ── */
+        .lc-input-panel {
+            background: var(--steel-dark);
+            border: 1px solid #1E293B;
+            border-left: 4px solid var(--offshore-green);
+            border-radius: var(--radius-sharp);
+            padding: 40px 48px;
+            margin-bottom: 20px;
+        }
+        .lc-input-panel h3 {
+            color: var(--offshore-green);
+            font-family: var(--font-terminal);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+        .lc-input-row {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+        .lc-field { flex: 1; min-width: 180px; }
+        .lc-field label {
+            display: block;
+            font-family: var(--font-terminal);
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 6px;
+        }
+        .lc-field input, .lc-field select {
+            width: 100%;
+            padding: 12px 14px;
+            font-size: 1rem;
+            font-family: var(--font-terminal);
+            font-weight: 500;
+            color: #FFFFFF;
+            background: #1a1f2e;
+            border: 2px solid #1E293B;
+            border-radius: var(--radius-sharp);
+            outline: none;
+        }
+        .lc-field input:focus, .lc-field select:focus { border-color: var(--offshore-green); }
+        .lc-field .lc-hint {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            font-family: var(--font-data);
+        }
+
+        .lc-market-toggles {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 8px 0 4px;
+        }
+        .lc-toggle {
+            padding: 8px 16px;
+            font-family: var(--font-terminal);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.5);
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: var(--radius-sharp);
+            cursor: pointer;
+            transition: all 0.15s;
+            white-space: nowrap;
+        }
+        .lc-toggle.on {
+            color: #FFFFFF;
+            background: var(--offshore-green);
+            border-color: var(--offshore-green);
+            color: var(--steel-black);
+        }
+        .lc-toggle:hover:not(.on) { border-color: rgba(255,255,255,0.4); color: rgba(255,255,255,0.85); }
+
+        .lc-toggle-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 4px;
+        }
+        .lc-toggle-actions button {
+            font-family: var(--font-terminal);
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px 0;
+        }
+        .lc-toggle-actions button:hover { color: var(--offshore-green); }
+
+        /* Comparison Table */
+        .lc-results-wrap {
+            overflow-x: auto;
+            margin: 28px 0;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sharp);
+            background: var(--bg-surface);
+        }
+        .lc-results-wrap:not(.visible) { display: none; }
+        .lc-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            min-width: 900px;
+        }
+        .lc-table thead th {
+            background: var(--steel-dark);
+            color: #FFFFFF;
+            font-family: var(--font-terminal);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 14px 16px;
+            text-align: right;
+            border-bottom: 2px solid var(--offshore-green);
+            white-space: nowrap;
+        }
+        .lc-table thead th:first-child { text-align: left; min-width: 160px; }
+        .lc-table tbody td {
+            padding: 14px 16px;
+            text-align: right;
+            border-bottom: 1px solid var(--border-light);
+            font-family: var(--font-terminal);
+            font-variant-numeric: tabular-nums;
+        }
+        .lc-table tbody td:first-child { text-align: left; font-family: var(--font-data); }
+        .lc-table tbody tr:hover { background: #f8fafc; }
+        .lc-table .lc-market-cell {
+            font-weight: 700;
+            color: var(--steel-black);
+            font-size: 0.9rem;
+        }
+        .lc-table .lc-flag { font-size: 1.1rem; margin-right: 6px; }
+        .lc-table .lc-duty-rate-cell { color: var(--text-muted); font-size: 0.78rem; }
+        .lc-table .lc-duty-rate-cell input {
+            width: 48px;
+            padding: 4px 6px;
+            font-size: 0.78rem;
+            font-family: var(--font-terminal);
+            text-align: right;
+            border: 1px solid var(--border-light);
+            border-radius: 2px;
+            background: var(--bg-terminal);
+            color: var(--text-primary);
+        }
+        .lc-table .lc-total-cell {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--offshore-green);
+        }
+        .lc-table .lc-free-cell { color: #166534; font-weight: 600; }
+        .lc-table .lc-duty-cell { color: #991b1b; }
+
+        .lc-empty-state {
+            text-align: center;
+            padding: 60px 24px;
+            color: var(--text-muted);
+            font-family: var(--font-terminal);
+            font-size: 0.88rem;
+        }
+
+        /* Market breakdown cards */
+        .lc-breakdown-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 20px;
+            margin: 36px 0;
+        }
+        .lc-bd-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sharp);
+            padding: 28px 32px;
+        }
+        .lc-bd-card h4 {
+            font-size: 1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: var(--steel-black);
+            margin-bottom: 6px;
+        }
+        .lc-bd-card .lc-bd-formula {
+            font-family: var(--font-terminal);
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            letter-spacing: 0.3px;
+        }
+        .lc-bd-card p {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+        .lc-bd-card p a { color: var(--offshore-green); font-weight: 600; }
+
+        @media (max-width: 768px) {
+            .lc-input-panel { padding: 28px 20px; }
+            .lc-input-row { flex-direction: column; gap: 12px; }
+            .lc-field { min-width: auto; }
+            .lc-breakdown-grid { grid-template-columns: 1fr; }
+            .lc-table { font-size: 0.75rem; }
+            .lc-table thead th, .lc-table tbody td { padding: 10px 8px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header>
+            <h1>Landed Cost Calculator — See the Full Import Bill Before You Ship</h1>
+            <p>A shipment's true cost is not what you wired to the supplier. It's what you pay to get the goods across the border and into your warehouse. FOB + freight + insurance = CIF. CIF × duty rate = customs duty. (CIF + duty) × VAT rate = tax. CIF + duty + tax = your landed cost. This page runs those numbers across every major import market in parallel — pick your destinations, tweak the rates if you know your HS code, and compare. No account. No server. The math runs in your browser.</p>
+        </header>
+
+        <!-- ═══ THE CALCULATOR ═══ -->
+        <section class="lc-input-panel" aria-label="Landed Cost Inputs">
+            <h3>▼ ENTER SHIPMENT DETAILS</h3>
+            <div class="lc-input-row">
+                <div class="lc-field">
+                    <label for="lc-fob">FOB Value</label>
+                    <input type="number" id="lc-fob" value="5000" min="0" max="999999" step="0.01">
+                    <div class="lc-hint">Goods value at factory door. What you pay the supplier.</div>
+                </div>
+                <div class="lc-field">
+                    <label for="lc-freight">Ocean / Air Freight</label>
+                    <input type="number" id="lc-freight" value="800" min="0" max="999999" step="0.01">
+                    <div class="lc-hint">Door-to-port or port-to-port. Carrier's quote, not an estimate.</div>
+                </div>
+                <div class="lc-field">
+                    <label for="lc-insurance">Cargo Insurance</label>
+                    <input type="number" id="lc-insurance" value="120" min="0" max="999999" step="0.01">
+                    <div class="lc-hint">Typically 0.3–0.5% of 110% CIF. Or enter your actual premium.</div>
+                </div>
+                <div class="lc-field">
+                    <label for="lc-currency">Input Currency</label>
+                    <select id="lc-currency">
+                        <option value="USD">USD $</option>
+                        <option value="EUR">EUR €</option>
+                        <option value="GBP">GBP £</option>
+                        <option value="CAD">CAD $</option>
+                        <option value="AUD">AUD $</option>
+                        <option value="MXN">MXN $</option>
+                        <option value="JPY">JPY ¥</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="lc-field" style="margin-top:4px;">
+                <label>Compare These Markets</label>
+                <div class="lc-market-toggles" id="lc-toggles">
+                    <button class="lc-toggle on" data-market="us">🇺🇸 United States</button>
+                    <button class="lc-toggle on" data-market="eu">🇪🇺 European Union</button>
+                    <button class="lc-toggle on" data-market="uk">🇬🇧 United Kingdom</button>
+                    <button class="lc-toggle on" data-market="ca">🇨🇦 Canada</button>
+                    <button class="lc-toggle on" data-market="au">🇦🇺 Australia</button>
+                    <button class="lc-toggle" data-market="mx">🇲🇽 Mexico</button>
+                    <button class="lc-toggle" data-market="jp">🇯🇵 Japan</button>
+                </div>
+                <div class="lc-toggle-actions">
+                    <button id="lc-select-all">+ Select All</button>
+                    <button id="lc-clear-all">– Clear All</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ COMPARISON TABLE ═══ -->
+        <div class="lc-results-wrap visible" id="lc-results-wrap">
+            <div class="lc-empty-state" id="lc-empty">Select at least one destination market above to see the comparison.</div>
+            <table class="lc-table" id="lc-table" style="display:none;">
+                <thead>
+                    <tr>
+                        <th>Market</th>
+                        <th>CIF (local)</th>
+                        <th>De Minimis</th>
+                        <th>Duty Rate</th>
+                        <th>Duty</th>
+                        <th>VAT / GST</th>
+                        <th>Total Landed</th>
+                    </tr>
+                </thead>
+                <tbody id="lc-tbody"></tbody>
+            </table>
+        </div>
+
+        <!-- ═══ HOW EACH MARKET CALCULATES ═══ -->
+        <section class="lc-breakdown-grid">
+            <h2 style="grid-column:1/-1;font-size:1.3rem;font-weight:900;text-transform:uppercase;color:var(--steel-black);margin-bottom:0;border-bottom:2px solid var(--steel-black);padding-bottom:8px;">The Same Shipment, Seven Different Import Bills</h2>
+
+            <div class="lc-bd-card">
+                <h4>🇺🇸 United States — Section 321 Sweet Spot</h4>
+                <div class="lc-bd-formula">CIF → Duty (on CIF) → No federal VAT</div>
+                <p>Under $800 FOB goods value: zero duty, zero tax, Type 86 electronic clearance in seconds. Over $800: MFN duty on the <em>full</em> CIF, plus Merchandise Processing Fee (0.3464% of CIF, $31.67–$614.35). No federal VAT or GST at the border — the only G7 economy without one. State sales tax is between you and your customer. The $800 line is a cliff: $799.99 = $0 duty. $800.01 = full MFN on the whole CIF. See our <a href="/de-minimis-checker">Cliff Detector</a> if your shipment is near the line, or the <a href="/us-import-customs-guide">US Import Guide</a> for the full entry process. For product-specific duty rates: <a href="/china-to-us-electronics">China→US Electronics</a> or <a href="/china-to-us-clothing">China→US Apparel</a>.</p>
+            </div>
+
+            <div class="lc-bd-card">
+                <h4>🇪🇺 European Union — VAT from Euro One</h4>
+                <div class="lc-bd-formula">CIF → Duty (on CIF, over €150) → VAT (on duty-paid CIF, from €1)</div>
+                <p>The split threshold catches people. Duty exemption at €150 FOB goods value — cross it and full TARIC duty applies on the CIF, not just the excess. But VAT has <em>no floor</em> since the €22 exemption was scrapped in July 2021. A €30 shipment from China pays zero duty but still gets hit with 21% VAT plus the carrier's €10–20 clearance fee if the seller isn't IOSS-registered. The EU's IOSS system lets non-EU sellers collect VAT at checkout and remit directly — but only if you register. If you don't, your customer pays at delivery, and they won't be happy about it. <a href="/china-to-germany-customs">China→Germany calculator</a> walks through the ATLAS filing step by step.</p>
+            </div>
+
+            <div class="lc-bd-card">
+                <h4>🇬🇧 United Kingdom — The £135 Obligation Shift</h4>
+                <div class="lc-bd-formula">CIF → Duty (on CIF, over £135) → VAT (on duty-paid CIF, from £1)</div>
+                <p>Under £135 consignment value: no customs duty, but the <em>seller</em> must be UK VAT-registered and collect 20% VAT at the point of sale. This isn't a free pass — it's a compliance obligation moved from the border to the merchant. Over £135: full UK Global Tariff duty on CIF plus 20% VAT at the border, collected by the carrier with a handling charge. The £135 threshold includes shipping paid by the buyer — £125 goods + £15 shipping = £140 total, over the line. Customs uses the consignment value, not just the goods value. Many sellers learned this distinction the hard way in 2021. <a href="/china-to-uk-apparel">China→UK Apparel</a> and <a href="/eu-to-uk-post-brexit">Post-Brexit Trade Guide</a> cover the specifics.</p>
+            </div>
+
+            <div class="lc-bd-card">
+                <h4>🇨🇦 Canada — The CAD $20 Problem</h4>
+                <div class="lc-bd-formula">CIF → Duty (on CIF, over CAD $20) → GST (5% on duty-paid CIF)</div>
+                <p>The lowest de minimis in the G7 — CAD $20 (roughly USD $15). Every commercial shipment triggers full CBSA formalities: B3 entry, broker filing, 5% federal GST on the duty-paid value. There's a separate CAD $150 threshold under the Courier Imports Remission Order that gives some relief for courier shipments specifically — but pallets, containers, and wholesale orders get no such break. The CBSA's CARM digital system has made clearance faster, but it hasn't made the $20 threshold any less punitive. For DTC brands selling into Canada from China: budget the full landed cost on every package. There is no low-value channel worth building a business around. <a href="/china-to-canada-freight">China→Canada Freight</a> has a full breakdown.</p>
+            </div>
+
+            <div class="lc-bd-card">
+                <h4>🇦🇺 Australia — Generous on Duty, Ruthless on GST</h4>
+                <div class="lc-bd-formula">CIF → Duty (on FOB, over AUD $1,000) → GST (10% on duty-paid CIF, from $1)</div>
+                <p>AUD $1,000 FOB goods value for duty exemption — one of the highest thresholds globally, and it tests against FOB (excluding freight), which makes it even more generous. But since July 2018, 10% GST applies to all low-value imported goods, collected by the seller or marketplace at checkout. If you're not registered with the ATO to collect GST, your shipments get held. The formula trap: a $900 FOB shipment is duty-free, but the seller still owes 10% GST. Duty-free does not mean tax-free — not in Australia. <a href="/china-to-australia-duty">China→Australia Duty</a> details the ATO compliance workflow.</p>
+            </div>
+
+            <div class="lc-bd-card">
+                <h4>🇲🇽 Mexico — No Free Rides</h4>
+                <div class="lc-bd-formula">CIF → Duty (on CIF, from MXN $1) → IVA (16% on duty-paid CIF)</div>
+                <p>MXN $50 de minimis — about USD $2.50. It's symbolic. Every commercial shipment undergoes full customs: formal pedimento filed by a licensed agente aduanal, MFN duty averaging 15% of CIF, then 16% IVA on top of the duty-paid amount. Broker fees run MXN $1,500–3,500 per entry, independent of shipment value. The only structural relief is IMMEX: if your goods are processed in Mexico and re-exported, duty and IVA are deferred. For direct sales into the Mexican domestic market, there's no shortcut. Budget the full landed cost on every single shipment. <a href="/china-to-mexico-maquila">China→Mexico IMMEX</a> explains the deferral program in detail.</p>
+            </div>
+
+            <div class="lc-bd-card">
+                <h4>🇯🇵 Japan — The ¥10,000 Cliff</h4>
+                <div class="lc-bd-formula">CIF → Duty (on CIF, over ¥10,000 combined) → JCT (10% on duty-paid CIF, over ¥10,000)</div>
+                <p>Japan bundles duty and the 10% consumption tax (JCT) under a single ¥10,000 threshold. Under ¥10,000 CIF total: both charges are zero. Over: both apply on the full amount — no partial exemption, no sliding scale. The threshold tests against CIF inclusive of freight, so a ¥9,500 item with ¥600 shipping crosses the line. Between ¥10,000 and ¥200,000, a simplified declaration works. Above ¥200,000, you need a formal C-5020 filing. Japan's NACCS electronic system processes everything fast — the math is the hard part, not the paperwork. For a ¥9,900 shipment: total import cost = CIF only. For a ¥10,100 shipment: add ~3.5% duty + 10% JCT on the duty-paid amount. A ¥200 gap in goods value can trigger ¥2,000+ in border charges. <a href="/china-to-japan-cargo">China→Japan Cargo</a> covers the NACCS workflow.</p>
+            </div>
+        </section>
+
+        <!-- ═══ SEO: THE CIF CONCEPT ═══ -->
+        <section class="seo-section" style="margin-top:48px;">
+            <h2>The Three Numbers That Actually Matter at the Border</h2>
+
+            <h3>FOB is not your cost. CIF is not your cost. Landed is your cost.</h3>
+            <p>Every customs authority in the world calculates duty on CIF — the Cost, Insurance, and Freight value of your goods at the port of entry. Not FOB. Not the supplier's invoice. The CIF value is what customs sees when your container hits the terminal. If you're pricing your product based on FOB alone, you're understating your import cost by 5–25%, sometimes more. The sequence is mechanical and unforgiving: FOB + ocean freight + marine insurance = CIF. CIF × MFN duty rate = customs duty. (CIF + duty) × VAT/GST rate = tax. CIF + duty + tax = what you actually pay to get the goods across the border. Broker fees, terminal handling, and trucking to your warehouse are on top of that. This calculator handles the customs portion. Your freight forwarder handles the rest.</p>
+
+            <h3>Why the same shipment costs 30% more in Mexico than in the US</h3>
+            <p>Take a $5,000 FOB shipment of consumer electronics from Shenzhen. Add $800 ocean freight and $120 insurance = $5,920 CIF. In the US, under Section 321, if the goods value is under $800, the whole thing clears duty-free and tax-free. But this is a $5,000 shipment — well over the line. US MFN on electronics averages 2.3% on CIF: about $136 in duty. No federal VAT. Total import cost: roughly $6,056 plus broker fees. Now run the same shipment into Mexico: 8% MFN duty on electronics = $474. Then 16% IVA on the duty-paid CIF = $1,023 in VAT. Total import cost: roughly $7,417 plus agente aduanal fees of MXN $2,000–3,500. That's a 23% cost difference between two countries that share a border. The landed cost math, not the supplier's price, determines whether a market is profitable. This calculator exists so you can run that comparison in 30 seconds instead of building a spreadsheet.</p>
+
+            <h3>De minimis isn't a discount. It's a cliff.</h3>
+            <p>Every market in this calculator has a de minimis threshold — a value below which customs charges are waived. But these are not sliding scales. One dollar over and the <em>entire</em> shipment becomes dutiable, not just the excess. A $799.99 shipment to the US pays $0 in duty. An $800.01 shipment pays full MFN duty on the whole $800.01 CIF. The calculus is binary. If your goods value is within 10% of a de minimis line, adjusting the invoice or splitting the shipment is almost always the right play. Our <a href="/de-minimis-checker">De Minimis Cliff Detector</a> visualizes exactly how close you are to each country's line. Use it before you commit to a shipment value strategy.</p>
+        </section>
+
+        <!-- ═══ FAQ ═══ -->
+        <section class="seo-section">
+            <h2>Questions That Come Up After the First Run</h2>
+
+            <h3>Why do I need to enter insurance? I never insure my cargo.</h3>
+            <p>Customs assumes it's insured whether you bought a policy or not. Most authorities impute insurance at 0.5% of CIF if you can't produce a certificate. Entering your actual premium — or even a token $50 — gives you a more accurate CIF base than leaving it blank and having customs round up. If you genuinely don't insure, enter zero. Just know that customs might not see it the same way.</p>
+
+            <h3>The duty rates in the calculator — are those real or placeholder?</h3>
+            <p>They're realistic MFN averages by market, drawn from published tariff schedules as of mid-2026. But they're <em>averages</em> — the actual rate for your product depends on the full 6-digit HS code and can be higher or lower. Each row has an editable rate field. If you've looked up your product's exact MFN rate, type it in. The calculator uses whatever number you put there. If you don't know your rate yet, the default is a reasonable directional estimate until you get a broker to classify the shipment properly.</p>
+
+            <h3>What about broker fees, terminal charges, and trucking?</h3>
+            <p>Not included here. This calculator covers the <em>customs</em> portion of the landed cost: CIF + duty + VAT/GST. Broker fees, terminal handling charges, customs exam fees (if your container gets flagged), and inland trucking are separate line items that vary by port, volume, and broker relationship. Ask your freight forwarder for an all-in quote that includes these. The customs portion we calculate here is usually 60–80% of the total door-to-door cost — the rest is logistics, not taxes.</p>
+
+            <h3>Does the calculator handle FTA preferential rates?</h3>
+            <p>No — because that's a documentation question, not a calculation question. If your goods qualify for a free trade agreement (USMCA, RCEP, CPTPP, a bilateral FTA), the preferential rate replaces the MFN rate in the formula. Type the FTA rate into the editable rate field and the math works exactly the same. The calculation doesn't care whether the number is MFN or preferential — it just multiplies. What matters is whether you can produce a valid certificate of origin if customs audits the entry. If your broker has confirmed your goods qualify, use the FTA rate. If you're not sure, use the MFN rate — that's the worst-case number that customs will assess if your origin claim gets challenged.</p>
+        </section>
+
+        <p style="margin-top:32px;"><a href="/">← Back to Home</a> &nbsp;|&nbsp; <a href="/de-minimis-checker">De Minimis Cliff Detector</a> &nbsp;|&nbsp; <a href="/#lanes">All Trade Corridors</a> &nbsp;|&nbsp; <a href="/de-minimis-value-guide">Global De Minimis Guide</a></p>
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/landed-cost-calculator">Landed Cost Calculator</a></li>
+                    <li><a href="/vat-calculator">VAT / GST Calculator</a></li>
+                    <li><a href="/import-duty-calculator">Import Duty Calculator</a></li>
+                    <li><a href="/us-import-customs-guide">US Import Guide</a></li>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/china-to-mexico-maquila">IMMEX Nearshoring</a></li>
+                    <li><a href="/china-to-germany-customs">EU ATLAS Hub</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data—not affiliated with any official government customs agency.</p>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        'use strict';
+
+        // ── MARKET DEFINITIONS ──────────────────────────────
+        var markets = {
+            us: {
+                id: 'us', name: 'United States', flag: '🇺🇸',
+                currency: 'USD', defaultDutyRate: 3.5,
+                deMinimis: 800, vatDeMinimis: 800,
+                vatRate: 0, dutyOn: 'cif', vatLabel: 'No federal VAT',
+                corridorLink: '/china-to-us-electronics', corridorLabel: 'China→US Electronics'
+            },
+            eu: {
+                id: 'eu', name: 'European Union', flag: '🇪🇺',
+                currency: 'EUR', defaultDutyRate: 4.5,
+                deMinimis: 150, vatDeMinimis: 0,
+                vatRate: 21, dutyOn: 'cif', vatLabel: 'VAT 21%',
+                corridorLink: '/china-to-germany-customs', corridorLabel: 'China→Germany'
+            },
+            uk: {
+                id: 'uk', name: 'United Kingdom', flag: '🇬🇧',
+                currency: 'GBP', defaultDutyRate: 4.0,
+                deMinimis: 135, vatDeMinimis: 0,
+                vatRate: 20, dutyOn: 'cif', vatLabel: 'VAT 20%',
+                corridorLink: '/china-to-uk-apparel', corridorLabel: 'China→UK Apparel'
+            },
+            ca: {
+                id: 'ca', name: 'Canada', flag: '🇨🇦',
+                currency: 'CAD', defaultDutyRate: 6.5,
+                deMinimis: 20, vatDeMinimis: 20,
+                vatRate: 5, dutyOn: 'cif', vatLabel: 'GST 5%',
+                corridorLink: '/china-to-canada-freight', corridorLabel: 'China→Canada'
+            },
+            au: {
+                id: 'au', name: 'Australia', flag: '🇦🇺',
+                currency: 'AUD', defaultDutyRate: 5.0,
+                deMinimis: 1000, vatDeMinimis: 0,
+                vatRate: 10, dutyOn: 'fob', vatLabel: 'GST 10%',
+                corridorLink: '/china-to-australia-duty', corridorLabel: 'China→Australia'
+            },
+            mx: {
+                id: 'mx', name: 'Mexico', flag: '🇲🇽',
+                currency: 'MXN', defaultDutyRate: 15.0,
+                deMinimis: 50, vatDeMinimis: 50,
+                vatRate: 16, dutyOn: 'cif', vatLabel: 'IVA 16%',
+                corridorLink: '/china-to-mexico-maquila', corridorLabel: 'China→Mexico'
+            },
+            jp: {
+                id: 'jp', name: 'Japan', flag: '🇯🇵',
+                currency: 'JPY', defaultDutyRate: 3.5,
+                deMinimis: 10000, vatDeMinimis: 10000,
+                vatRate: 10, dutyOn: 'cif', vatLabel: 'JCT 10%',
+                corridorLink: '/china-to-japan-cargo', corridorLabel: 'China→Japan'
+            }
+        };
+
+        // ── EXCHANGE RATES (mid-market, June 2026) ──────────
+        var rates = {
+            USD: { USD:1, EUR:0.92, GBP:0.78, CAD:1.37, AUD:1.50, MXN:17.50, JPY:145 },
+            EUR: { USD:1.09, EUR:1, GBP:0.85, CAD:1.49, AUD:1.63, MXN:19.03, JPY:158 },
+            GBP: { USD:1.28, EUR:1.18, GBP:1, CAD:1.75, AUD:1.92, MXN:22.40, JPY:186 },
+            CAD: { USD:0.73, EUR:0.67, GBP:0.57, CAD:1, AUD:1.10, MXN:12.77, JPY:106 },
+            AUD: { USD:0.67, EUR:0.61, GBP:0.52, CAD:0.91, AUD:1, MXN:11.67, JPY:97 },
+            MXN: { USD:0.057, EUR:0.053, GBP:0.045, CAD:0.078, AUD:0.086, MXN:1, JPY:8.29 },
+            JPY: { USD:0.0069, EUR:0.0063, GBP:0.0054, CAD:0.0094, AUD:0.0103, MXN:0.121, JPY:1 }
+        };
+
+        var currencySymbols = { USD:'$', EUR:'€', GBP:'£', CAD:'CA$', AUD:'A$', MXN:'MX$', JPY:'¥' };
+
+        function fmtMoney(amount, currency) {
+            if (currency === 'JPY') return '¥' + Math.round(amount).toLocaleString();
+            if (currency === 'MXN') return 'MX$' + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+            var sym = currencySymbols[currency] || '';
+            return sym + amount.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+        }
+
+        // ── DOM refs ────────────────────────────────────────
+        var fobEl     = document.getElementById('lc-fob');
+        var freightEl = document.getElementById('lc-freight');
+        var insEl     = document.getElementById('lc-insurance');
+        var currencyEl = document.getElementById('lc-currency');
+        var tbody     = document.getElementById('lc-tbody');
+        var table     = document.getElementById('lc-table');
+        var empty     = document.getElementById('lc-empty');
+        var toggleContainer = document.getElementById('lc-toggles');
+
+        // Track which markets are selected
+        function getActiveMarkets() {
+            var actives = [];
+            var toggles = toggleContainer.querySelectorAll('.lc-toggle.on');
+            for (var i = 0; i < toggles.length; i++) {
+                var m = toggles[i].getAttribute('data-market');
+                if (markets[m]) actives.push(m);
+            }
+            return actives;
+        }
+
+        function updateTable() {
+            var fob     = parseFloat(fobEl.value) || 0;
+            var freight = parseFloat(freightEl.value) || 0;
+            var ins     = parseFloat(insEl.value) || 0;
+            var inCur   = currencyEl.value;
+            var cifInput = fob + freight + ins;
+            var actives = getActiveMarkets();
+
+            if (actives.length === 0) {
+                table.style.display = 'none';
+                empty.style.display = 'block';
+                return;
+            }
+            table.style.display = '';
+            empty.style.display = 'none';
+
+            var rateMap = rates[inCur];
+            var rows = '';
+
+            for (var i = 0; i < actives.length; i++) {
+                var mk = markets[actives[i]];
+                var rate = rateMap[mk.currency];
+                var fobLocal    = fob * rate;
+                var freightLocal = freight * rate;
+                var insLocal    = ins * rate;
+                var cifLocal    = fobLocal + freightLocal + insLocal;
+
+                // Determine dutiable base
+                var dutyBase = (mk.dutyOn === 'fob') ? fobLocal : cifLocal;
+
+                // Get user-set duty rate from input (will be set after first render)
+                var dutyRateInput = document.getElementById('dr-' + mk.id);
+                var dutyRate = mk.defaultDutyRate;
+                if (dutyRateInput) {
+                    var v = parseFloat(dutyRateInput.value);
+                    if (!isNaN(v) && v >= 0) dutyRate = v;
+                }
+
+                // De minimis check
+                var underDM = fobLocal <= mk.deMinimis;
+                var dutyAmount = underDM ? 0 : dutyBase * (dutyRate / 100);
+
+                // VAT check
+                var underVatDM = mk.vatDeMinimis > 0 && fobLocal <= mk.vatDeMinimis;
+                var vatAmount = 0;
+                if (mk.vatRate > 0 && !underVatDM) {
+                    vatAmount = (cifLocal + dutyAmount) * (mk.vatRate / 100);
+                }
+
+                var totalLanded = cifLocal + dutyAmount + vatAmount;
+                var effectiveRate = cifLocal > 0 ? ((totalLanded - cifLocal) / cifLocal * 100) : 0;
+
+                var dutyCell, vatCell;
+                if (underDM && mk.vatRate === 0) {
+                    dutyCell = '<td class="lc-free-cell">Duty-free</td>';
+                    vatCell = '<td class="lc-free-cell">N/A</td>';
+                } else if (underDM && mk.vatDeMinimis === 0) {
+                    dutyCell = '<td class="lc-free-cell">$0 (under de minimis)</td>';
+                    vatCell = '<td>' + fmtMoney(vatAmount, mk.currency) + '</td>';
+                } else if (underDM) {
+                    dutyCell = '<td class="lc-free-cell">$0</td>';
+                    vatCell = '<td class="lc-free-cell">$0</td>';
+                } else {
+                    dutyCell = '<td class="lc-duty-cell">' + fmtMoney(dutyAmount, mk.currency) + '</td>';
+                    vatCell = '<td>' + fmtMoney(vatAmount, mk.currency) + '</td>';
+                }
+
+                rows +=
+                    '<tr>' +
+                    '<td><span class="lc-flag">' + mk.flag + '</span><span class="lc-market-cell">' + mk.name + '</span></td>' +
+                    '<td>' + fmtMoney(cifLocal, mk.currency) + '</td>' +
+                    '<td>' + (underDM ? '<span class="lc-free-cell">✔ Under</span>' : '<span class="lc-duty-cell">✘ Over</span>') + ' ' + fmtMoney(mk.deMinimis, mk.currency) + '</td>' +
+                    '<td class="lc-duty-rate-cell"><input type="number" id="dr-' + mk.id + '" value="' + mk.defaultDutyRate + '" min="0" max="100" step="0.1" style="width:52px;"> %</td>' +
+                    dutyCell +
+                    '<td>' + mk.vatLabel + '<br><span style="font-size:0.75rem;color:var(--text-muted);">' + vatCell + '</span></td>' +
+                    '<td class="lc-total-cell">' + fmtMoney(totalLanded, mk.currency) + '<br><span style="font-size:0.7rem;font-weight:400;color:var(--text-muted);">+' + effectiveRate.toFixed(1) + '% over CIF</span></td>' +
+                    '</tr>';
+            }
+
+            tbody.innerHTML = rows;
+
+            // Bind duty rate input changes
+            for (var j = 0; j < actives.length; j++) {
+                var drInput = document.getElementById('dr-' + markets[actives[j]].id);
+                if (drInput) {
+                    drInput.addEventListener('input', updateTable);
+                }
+            }
+        }
+
+        // ── Toggle handlers ─────────────────────────────────
+        toggleContainer.addEventListener('click', function(e) {
+            var btn = e.target.closest('.lc-toggle');
+            if (!btn) return;
+            btn.classList.toggle('on');
+            updateTable();
+        });
+
+        document.getElementById('lc-select-all').addEventListener('click', function() {
+            var toggles = toggleContainer.querySelectorAll('.lc-toggle');
+            for (var i = 0; i < toggles.length; i++) toggles[i].classList.add('on');
+            updateTable();
+        });
+
+        document.getElementById('lc-clear-all').addEventListener('click', function() {
+            var toggles = toggleContainer.querySelectorAll('.lc-toggle');
+            for (var i = 0; i < toggles.length; i++) toggles[i].classList.remove('on');
+            updateTable();
+        });
+
+        // ── Input bindings ──────────────────────────────────
+        fobEl.addEventListener('input', updateTable);
+        freightEl.addEventListener('input', updateTable);
+        insEl.addEventListener('input', updateTable);
+        currencyEl.addEventListener('change', updateTable);
+
+        // ── Initial render ──────────────────────────────────
+        updateTable();
+
+        // After initial render, bind duty rate inputs
+        var actives = getActiveMarkets();
+        for (var k = 0; k < actives.length; k++) {
+            var dr = document.getElementById('dr-' + markets[actives[k]].id);
+            if (dr) dr.addEventListener('input', updateTable);
+        }
+    })();
+    </script>
+
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

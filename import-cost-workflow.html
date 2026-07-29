@@ -1,0 +1,699 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>How to Calculate Import Costs — The Complete 4-Step Workflow (with Real Numbers)</title>
+    <meta name="description" content="Stop budgeting off your supplier's invoice. Here's how to calculate the actual landed cost of an import shipment — HS classification, tariff rate lookup, customs duty, and VAT — across the US, EU, UK, Canada, Australia, Mexico, and Japan, with real examples for each market.">
+    <meta property="og:title" content="How to Calculate Import Costs — The Complete 4-Step Workflow (with Real Numbers)">
+    <meta property="og:description" content="Stop budgeting off your supplier's invoice. Here's how to calculate the actual landed cost of an import shipment — HS classification, tariff rate lookup, customs duty, and VAT — across the US, EU, UK, Canada, Australia, Mexico, and Japan, with real examples for each market.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.dutycalc.online/import-cost-workflow">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Calculate Import Costs — The Complete 4-Step Workflow (with Real Numbers)">
+    <meta name="twitter:description" content="Stop budgeting off your supplier's invoice. Here's how to calculate the actual landed cost of an import shipment — HS classification, tariff rate lookup, customs duty, and VAT — across the US, EU, UK, Canada, Australia, Mexico, and Japan, with real examples for each market.">
+    <link rel="canonical" href="https://www.dutycalc.online/import-cost-workflow">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+    <style>
+        .article-body { margin: 0 auto; }
+        .article-lede { font-size: 1.15rem; color: var(--text-primary); line-height: 1.75; margin: 0 0 36px; font-weight: 500; border-left: 3px solid var(--offshore-green); padding-left: 24px; }
+        .article-body h2 { font-size: 1.35rem; font-weight: 900; text-transform: uppercase; color: var(--steel-black); margin: 48px 0 18px; padding-bottom: 8px; border-bottom: 2px solid var(--steel-black); }
+        .article-body h3 { font-size: 1.05rem; font-weight: 700; color: var(--steel-black); margin: 32px 0 12px; }
+        .article-body p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+        .article-body p a, .article-body li a { color: var(--offshore-green); font-weight: 600; }
+        .article-body ul, .article-body ol { margin: 8px 0 20px 22px; font-size: 0.93rem; color: var(--text-secondary); line-height: 1.8; }
+        .article-body ul li, .article-body ol li { margin-bottom: 8px; }
+
+        .step-block { background: var(--bg-surface); border: 1px solid var(--border-light); border-left: 4px solid var(--steel-black); border-radius: 0 var(--radius-sharp) var(--radius-sharp) 0; padding: 28px 32px; margin: 28px 0; }
+        .step-block h3 { margin-top: 0; display: flex; align-items: center; gap: 12px; }
+        .step-num { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; background: var(--steel-dark); color: #fff; font-family: var(--font-terminal); font-size: 1rem; font-weight: 900; border-radius: var(--radius-sharp); flex-shrink: 0; }
+        .step-tool-link { display: inline-block; margin-top: 14px; font-family: var(--font-terminal); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; color: var(--steel-black); background: var(--offshore-green); padding: 8px 18px; border-radius: var(--radius-sharp); text-decoration: none; transition: background 0.15s; }
+        .step-tool-link:hover { background: #00C47C; }
+
+        .mkt-card { background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-sharp); padding: 32px; margin: 28px 0; }
+        .mkt-card h3 { margin-top: 0; display: flex; align-items: center; gap: 10px; font-size: 1.1rem; }
+        .mkt-card .mkt-flag { font-size: 1.4rem; }
+        .mkt-formula { font-family: var(--font-terminal); font-size: 0.78rem; color: var(--text-muted); letter-spacing: 0.3px; margin-bottom: 16px; padding: 10px 14px; background: var(--bg-terminal); border-radius: 3px; display: inline-block; }
+        .mkt-example { background: #f8fafc; border: 1px solid var(--border-light); border-radius: var(--radius-sharp); padding: 20px 24px; margin: 16px 0; }
+        .mkt-example table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        .mkt-example td { padding: 6px 0; vertical-align: top; }
+        .mkt-example td:first-child { color: var(--text-secondary); width: 55%; }
+        .mkt-example td:last-child { font-family: var(--font-terminal); font-weight: 700; color: var(--steel-black); text-align: right; white-space: nowrap; }
+        .mkt-example .total-row td { border-top: 2px solid var(--steel-black); padding-top: 10px; font-size: 0.95rem; color: var(--offshore-green); }
+
+        /* FAQ accordion */
+        .snap-line { font-family: var(--font-terminal); font-size: 1rem; font-weight: 700; color: var(--steel-black); text-align: center; padding: 18px 0; margin: 0; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+
+        /* ASCII diagram box */
+        .ascii-box { background: var(--steel-dark); color: #e2e8f0; font-family: var(--font-terminal); font-size: 0.8rem; line-height: 1.55; padding: 28px 32px; border-radius: var(--radius-sharp); overflow-x: auto; white-space: pre; margin: 24px 0; border: 1px solid #1E293B; }
+        .ascii-box .green { color: var(--offshore-green); }
+        .ascii-box .yellow { color: #fbbf24; }
+        .ascii-box .red { color: #f87171; }
+        .ascii-box .dim { color: #64748b; }
+
+        /* Bar chart (CSS bars inside ascii box style) */
+        .bar-chart { margin: 24px 0; }
+        .bar-row { display: flex; align-items: center; margin-bottom: 8px; gap: 10px; }
+        .bar-label { font-family: var(--font-terminal); font-size: 0.78rem; font-weight: 700; color: var(--text-primary); min-width: 120px; text-align: right; }
+        .bar-track { flex: 1; background: var(--bg-terminal); border-radius: 3px; height: 26px; position: relative; overflow: hidden; border: 1px solid var(--border-light); }
+        .bar-fill { height: 100%; border-radius: 2px; display: flex; align-items: center; padding-left: 10px; font-family: var(--font-terminal); font-size: 0.72rem; font-weight: 700; color: #fff; white-space: nowrap; transition: width 0.3s; }
+        .bar-fill.low { background: #166534; }
+        .bar-fill.mid { background: #b45309; }
+        .bar-fill.high { background: #991b1b; }
+
+        .cmp-table-wrap { overflow-x: auto; margin: 24px 0; border: 1px solid var(--border-light); border-radius: var(--radius-sharp); }
+        .cmp-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; min-width: 700px; }
+        .cmp-table thead th { background: var(--steel-dark); color: #fff; font-family: var(--font-terminal); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; padding: 10px 14px; text-align: left; }
+        .cmp-table tbody td { padding: 10px 14px; border-bottom: 1px solid var(--border-light); font-size: 0.82rem; }
+        .cmp-table tbody tr:hover { background: #f8fafc; }
+
+        /* FAQ accordion */
+        .faq-item { border: 1px solid var(--border-light); border-radius: var(--radius-sharp); margin-bottom: 10px; overflow: hidden; }
+        .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; cursor: pointer; user-select: none; font-weight: 700; font-size: 0.93rem; color: var(--steel-black); background: var(--bg-surface); transition: background 0.1s; }
+        .faq-q:hover { background: #f8fafc; }
+        .faq-q .faq-icon { font-family: var(--font-terminal); font-size: 1rem; color: var(--offshore-green); transition: transform 0.2s; }
+        .faq-a { display: none; padding: 0 24px 20px; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.75; background: #fafbfc; }
+        .faq-item.open .faq-a { display: block; }
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+        /* Cheat sheet card */
+        .cheat-card { background: var(--steel-dark); color: #e2e8f0; border-radius: var(--radius-sharp); padding: 32px; margin: 28px 0; border: 1px solid #1E293B; }
+        .cheat-card h3 { color: var(--offshore-green); margin-top: 0; font-family: var(--font-terminal); font-size: 0.82rem; letter-spacing: 1px; }
+        .cheat-card code { color: var(--offshore-green); background: rgba(0,168,107,0.12); padding: 3px 8px; border-radius: 3px; font-family: var(--font-terminal); font-size: 0.82rem; }
+        .cheat-card .formula-line { padding: 6px 0; font-family: var(--font-terminal); font-size: 0.84rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+
+        /* Decision tree */
+        .dectree { background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-sharp); padding: 32px; margin: 28px 0; }
+        .dectree h3 { margin-top: 0; }
+        .tree-node { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 14px 0; padding: 12px 16px; background: var(--bg-terminal); border-radius: var(--radius-sharp); font-size: 0.88rem; font-family: var(--font-data); }
+        .tree-q { font-weight: 700; color: var(--steel-black); }
+        .tree-arrow { color: var(--offshore-green); font-family: var(--font-terminal); margin: 0 8px; }
+        .tree-yes { color: #166534; font-weight: 700; }
+        .tree-no { color: #991b1b; font-weight: 700; }
+        .tree-indent { margin-left: 24px; border-left: 2px solid var(--border-light); padding-left: 16px; }
+
+        @media (max-width: 768px) {
+            .article-body { padding: 0 8px; }
+            .article-lede { font-size: 1rem; padding-left: 16px; }
+            .step-block, .mkt-card { padding: 20px; }
+            .article-body h2 { font-size: 1.2rem; }
+            .ascii-box { font-size: 0.65rem; padding: 16px 14px; }
+            .bar-label { min-width: 80px; font-size: 0.68rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="site-nav" aria-label="Terminal Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header>
+            <h1>How to Calculate Import Costs — The Complete Workflow, With Real Numbers</h1>
+            <p style="font-size:1.05rem;max-width:780px;">A step-by-step walkthrough of the four calculations that convert your supplier's invoice into what you actually pay to get goods across the border. Covers the US, EU, UK, Canada, Australia, Mexico, and Japan — with an example shipment run through every market so you can see exactly where the differences come from.</p>
+        </header>
+
+        <div class="article-body">
+
+            <p class="article-lede">Most people who start importing learn the same lesson the same way: they wire $12,000 to a supplier in Shenzhen, the goods arrive at the port, and the bill from customs is $4,700 more than they budgeted. Not because anyone lied to them. Because the supplier's invoice is not your cost. The landed cost — FOB + freight + insurance + customs duty + VAT — is your cost. And until you calculate all five, you don't know what you're paying. This page walks through the four calculations, in order, that turn a supplier quote into a real import budget. At each step there's a link to the DutyCalc tool that does the math for you. If you read nothing else, read the market walkthroughs at the bottom — they're where the numbers stop being abstractions and start being money you either save or lose.</p>
+
+            <!-- ═══ THREE NUMBERS ═══ -->
+            <h2>Three Numbers, Only One of Which Matters</h2>
+            <p>Every import transaction has three price points. If you only know two of them, you're guessing on the third — and the third is the one you actually pay.</p>
+
+            <p><strong>FOB — Free On Board.</strong> The price of the goods loaded onto the vessel at the port of export. This is what your supplier quotes you. If you're not sure how FOB fits into the bigger Incoterms picture — or what to do when your supplier quotes EXW or CIF instead — we published a <a href="/incoterms-guide">dedicated Incoterms 2020 guide</a> that walks through all four trade terms importers actually encounter, with the same $12,000 example shipment run through each one. It includes the cost of manufacturing, the supplier's margin, and inland transport to the port. It does not include ocean freight, marine insurance, customs duty, or VAT. For most consumer goods shipped from China to the US, FOB is about 65–80% of the final landed cost — meaning if you budget off FOB alone, you're short by 20–35%. On high-duty categories like apparel or footwear, the gap can exceed 50%.</p>
+            <p class="snap-line">The customs officer doesn't care what your supplier quoted.</p>
+            <p><strong>CIF — Cost, Insurance, Freight.</strong> FOB plus the cost of moving the container across the ocean plus marine insurance. This is the number customs authorities use to assess duty. Not FOB — CIF. Most countries calculate duty on the CIF value. Australia is an exception — they test duty against FOB. This distinction sounds academic until you run the numbers. Using the same $5,000 FOB shipment with $800 freight and $120 insurance from our example above: Australian duty is calculated on $5,000 FOB; US duty is calculated on $5,920 CIF. At a 10% duty rate, that's a $92 difference per shipment. Over a year of weekly shipments, that's $4,784 in duty you either accounted for or didn't — purely from which number customs uses as the base.</p>
+            <p><strong>Landed Cost.</strong> CIF + customs duty + VAT/GST + broker fees + port charges + inland trucking to your warehouse. This is what the shipment actually costs, door to door. Our tools handle the customs portion — CIF, duty, and VAT. Broker fees and logistics are separate costs you get from your freight forwarder. The customs portion is typically 70–85% of the total door-to-door cost.</p>
+
+            <!-- ═══ P1: ASCII FLOWCHART ═══ -->
+            <div class="ascii-box">
+<span class="dim">╔══════════════════════════════════════════════════════════════════╗
+║            IMPORT COST FLOW — SUPPLIER TO WAREHOUSE            ║
+╚══════════════════════════════════════════════════════════════════╝</span>
+
+   <span class="yellow">SUPPLIER INVOICE (FOB)</span>                 <span class="dim">$5,000.00</span>
+          │
+          ├── <span class="green">+ Ocean Freight</span>                     <span class="dim">$  800.00</span>
+          ├── <span class="green">+ Marine Insurance</span>                  <span class="dim">$  120.00</span>
+          │
+          ▼
+   <span class="yellow">CIF VALUE</span>                                <span class="dim">$5,920.00</span>
+          │                                    <span class="dim">◄── Customs calculates duty on THIS</span>
+          │
+          ├── <span class="green">× Duty Rate (varies by HS code + market)</span>
+          │         │
+          │         └── <span class="dim">Chapter avg: 0–22% depending on product</span>
+          │               <span class="dim">Section 301: +7.5–25% (China → US only)</span>
+          │               <span class="dim">AD/CVD: +5–216% (product-specific)</span>
+          │               <span class="dim">FTA rate: 0% (if origin qualifies)</span>
+          │
+          ▼
+   <span class="red">CUSTOMS DUTY</span>                              <span class="dim">$  148.00  (2.5% MFN, electronics, US)</span>
+          │                                    <span class="dim">$1,628.00  (2.5% MFN + 25% Section 301)</span>
+          │
+          ├── <span class="green">Duty-Paid CIF = CIF + Duty</span>
+          │
+          ├── <span class="green">× VAT/GST Rate (varies by country)</span>
+          │         │
+          │         └── <span class="dim">US: 0% | JP: 10% | AU: 10%</span>
+          │               <span class="dim">MX: 16% | DE: 19% | UK: 20%</span>
+          │
+          ▼
+   <span class="red">VAT / GST</span>                                 <span class="dim">$    0.00  (US — no federal VAT)</span>
+          │                                    <span class="dim">$1,053.00  (Germany, 19% on duty-paid CIF)</span>
+          │
+          ▼
+   <span class="yellow">═══ LANDED COST ═══</span>                       <span class="dim">$6,100.00  (US, MFN only)</span>
+          │                                    <span class="dim">$7,580.00  (US, MFN + Section 301)</span>
+          │                                    <span class="dim">$7,221.00  (EU / Germany)</span>
+          │
+          ├── <span class="dim">+ Broker fee ...................... $50–150</span>
+          ├── <span class="dim">+ Terminal handling ............... $50–200</span>
+          ├── <span class="dim">+ Inland trucking ................. $200–600</span>
+          │
+          ▼
+   <span class="yellow">═══ DOOR-TO-DOOR COST ═══</span>                  <span class="dim">(landed + logistics)</span>
+            </div>
+
+            <!-- ═══ 4-STEP WORKFLOW ═══ -->
+            <h2>The Four Calculations, In Order</h2>
+            <p>Customs math is sequential by design — each step feeds the next. If you get step 1 wrong, the error compounds through steps 2, 3, and 4. If you skip a step entirely, the gap between what you budgeted and what you pay is exactly the size of the step you skipped.</p>
+
+            <div class="step-block">
+                <h3><span class="step-num">1</span> Classify Your Product — Find the Right HS Code</h3>
+                <p>Every product traded internationally has a six-digit Harmonized System code maintained by the World Customs Organization. The first two digits are the chapter. Digits 3–4 are the heading. Digits 5–6 are the subheading. Beyond six digits, each country adds its own statistical suffix — the US uses 10-digit HTS codes, the EU uses 10-digit TARIC codes. But the first six digits are universal, and they determine your duty rate.</p>
+                <p>Misclassify at the chapter level and your duty rate could be wrong by a factor of five. A cotton T-shirt is Chapter 61 (knitted apparel, 10–12% MFN). A cotton button-down is Chapter 62 (woven apparel, 9–11% MFN). They look the same to the consumer. They are different six-digit codes with different rates. Customs audits classifications on entry, and if they reclassify your goods, you owe the difference plus interest — going back three to five years in most countries.</p>
+                <p>The 99 chapters cover everything from live animals (Ch. 01) to antiques (Ch. 97). The most common chapters for consumer goods imports are 61–62 (apparel), 64 (footwear), 84–85 (electronics and machinery), 94 (furniture), and 95 (toys). If your product doesn't obviously fit one of these, spend the time on classification before you spend money on a purchase order. If you don't have a customs broker yet, start with our <a href="/hscode-duty-estimator">HS Code Estimator</a>.</p>
+                <a href="/hscode-duty-estimator" class="step-tool-link">OPEN_HS_CODE_ESTIMATOR →</a>
+            </div>
+
+            <div class="step-block">
+                <h3><span class="step-num">2</span> Look Up the Actual Tariff Rate — Not the Chapter Average</h3>
+                <p>Once you have a chapter number (and ideally a heading), look up what that product actually costs at the border — not the chapter-level average, which can be misleading. A chapter average of 4% might hide subheadings ranging from 0% to 15%. The rate that applies to <em>your</em> product is the one that matters.</p>
+                <p>The rate you pay has up to four layers:</p>
+                <ol>
+                    <li><strong>The MFN base rate</strong> — what every WTO member charges every other WTO member. Published in each country's tariff schedule. For electronics and machinery, it's often 0–2.5%. For apparel, 9–16%. For footwear, 10–22%.</li>
+                    <li><strong>Country-specific additional duties</strong> — Section 301 in the US (7.5–25% on Chinese goods), EU safeguard measures on steel and aluminum. These stack <em>on top</em> of the MFN rate. A Chinese-made machine tool at 2.5% MFN plus 25% Section 301 = 27.5%. Budgeting 2.5% and discovering 27.5% at the port is a $2,500 error on a $10,000 shipment.</li>
+                    <li><strong>Antidumping and countervailing duties</strong> — product-and-country-specific penalty rates imposed after domestic industry petitions. AD rates can exceed 100% of goods value. They're not in the standard tariff schedule. If you're importing steel, aluminum, furniture, textiles, chemicals, or solar products, you need a broker to screen for AD/CVD before you ship.</li>
+                    <li><strong>Free Trade Agreement preferences</strong> — if your goods qualify, the preferential rate replaces the MFN rate. USMCA can take a Mexican-made product from 15% to 0% — but only with a valid certificate of origin and only if the goods meet the agreement's rules of origin. The rate exists. Whether you qualify is a documentation question your broker answers.</li>
+                </ol>
+                <p>The <a href="/tariff-calculator">Tariff Rate Lookup</a> shows the MFN base rate, Section 301 overlay, available FTAs by origin-destination pair, and chapter-level AD/CVD risk flags — all six markets at once.</p>
+                <a href="/tariff-calculator" class="step-tool-link">OPEN_TARIFF_RATE_LOOKUP →</a>
+            </div>
+
+            <div class="step-block">
+                <h3><span class="step-num">3</span> Calculate the Customs Duty — Pure Duty, Before VAT</h3>
+                <p>With the effective rate in hand, multiply it by the dutiable base. For most countries, the dutiable base is CIF (goods + freight + insurance). For Australia, it's FOB. For goods under the de minimis threshold, duty is zero regardless of the rate — but de minimis tests against goods value (usually FOB), not CIF, and it's a cliff, not a sliding scale. One dollar over and the entire shipment becomes dutiable. Not just the excess. The whole thing.</p>
+                <p>This is the number that sets the floor for everything that follows. If your duty estimate is wrong, your VAT estimate is wrong — because VAT is calculated on the duty-paid value. A $50 error in duty becomes a $60 error in total import cost once 20% VAT is applied to the wrong base.</p>
+                <p>The <a href="/import-duty-calculator">Import Duty Calculator</a> handles this step in isolation. Pick your HS chapter, enter the goods value, select the country of origin and the destination market, and it returns the MFN duty rate, the estimated duty amount, the de minimis check, and any Section 301 or EU safeguard alerts. It does not touch VAT, freight, or insurance — that's step 4.</p>
+                <a href="/import-duty-calculator" class="step-tool-link">OPEN_IMPORT_DUTY_CALCULATOR →</a>
+            </div>
+
+            <div class="step-block">
+                <h3><span class="step-num">4</span> Add VAT, Freight, and Insurance — Get the Full Landed Cost</h3>
+                <p>The final layer. Take your CIF value, add the customs duty from step 3, and multiply by the destination country's VAT/GST rate. Then add CIF + duty + VAT = your landed cost. Broker fees, terminal handling, and inland trucking go on top of that.</p>
+                <p>The tax-on-tax effect is what catches people: VAT is charged on CIF <em>plus</em> duty, meaning the duty amount gets taxed. If your CIF is $10,000, your duty is $500 (5%), and VAT is 20%, you pay $2,100 in VAT — not $2,000. That extra $100 is the tax on the duty. Stack Section 301 on top and the effect compounds. A Chinese-origin shipment facing 25% Section 301 + 5% MFN = 30% duty on $10,000 = $3,000. Then 20% VAT on $13,000 (CIF + duty) = $2,600. Total import charges: $5,600 on a $10,000 shipment. Effective rate over CIF: 56%.</p>
+                <p class="snap-line">That's not an edge case. That's Chinese steel entering the US.</p>
+                <p>The <a href="/landed-cost-calculator">Landed Cost Calculator</a> runs this math across up to seven destination markets simultaneously. Enter FOB, freight, and insurance once, toggle which markets you want to compare, and it shows CIF, duty, VAT, and total landed cost side by side. Each market row has an editable duty rate field — if you already looked up your exact rate in step 2, type it in and the entire stack recalculates.</p>
+                <a href="/landed-cost-calculator" class="step-tool-link">OPEN_LANDED_COST_CALCULATOR →</a>
+            </div>
+
+            <!-- ═══ P4: CHEAT SHEET ═══ -->
+            <div class="cheat-card">
+                <h3>∥ IMPORT COST FORMULA CHEAT SHEET</h3>
+                <div class="formula-line"><code>CIF</code> = FOB + Ocean Freight + Marine Insurance</div>
+                <div class="formula-line"><code>Dutiable Base</code> = CIF (or FOB for Australia)</div>
+                <div class="formula-line"><code>Customs Duty</code> = Dutiable Base × (MFN Rate + Section 301 + AD/CVD) &nbsp;<span class="dim">— unless under de minimis</span></div>
+                <div class="formula-line"><code>Duty-Paid Value</code> = CIF + Customs Duty</div>
+                <div class="formula-line"><code>VAT / GST</code> = Duty-Paid Value × VAT Rate &nbsp;<span class="dim">— NOT CIF × VAT Rate</span></div>
+                <div class="formula-line" style="border-bottom:none;"><code style="color:#fbbf24;">Landed Cost</code> = CIF + Duty + VAT</div>
+                <p style="margin-top:16px;font-size:0.8rem;color:var(--text-muted);">Print this. Tape it to your monitor. The VAT-on-duty step — formula #5 — is the one spreadsheets get wrong most often.</p>
+            </div>
+
+            <!-- ═══ P4: COUNTRY THRESHOLD SNAPSHOT ═══ -->
+            <div class="cmp-table-wrap">
+                <table class="cmp-table">
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th>De Minimis</th>
+                            <th>Dutiable Base</th>
+                            <th>VAT / GST Rate</th>
+                            <th>VAT Floor</th>
+                            <th>Mandatory Broker?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>🇺🇸 United States</td><td>$800 FOB</td><td>CIF</td><td>0% (no federal VAT)</td><td>—</td><td>No (Type 86 under $800)</td></tr>
+                        <tr><td>🇪🇺 European Union</td><td>€150 FOB</td><td>CIF</td><td>17–27% (varies by member state)</td><td>€0 (no floor since 2021)</td><td>No (IOSS for B2C)</td></tr>
+                        <tr><td>🇬🇧 United Kingdom</td><td>£135 consignment</td><td>CIF</td><td>20%</td><td>£0 (seller collects under £135)</td><td>No</td></tr>
+                        <tr><td>🇨🇦 Canada</td><td>CAD $20</td><td>CIF</td><td>5% federal + 0–10% provincial</td><td>CAD $20</td><td>Effectively yes (B3 required)</td></tr>
+                        <tr><td>🇦🇺 Australia</td><td>AUD $1,000 FOB</td><td><strong>FOB</strong> ← unique</td><td>10%</td><td>$0 (no floor since 2018)</td><td>No</td></tr>
+                        <tr><td>🇲🇽 Mexico</td><td>MXN $50 (~$2.50)</td><td>CIF</td><td>16%</td><td>MXN $50</td><td><strong>Yes — agente aduanal required</strong></td></tr>
+                        <tr><td>🇯🇵 Japan</td><td>¥10,000 CIF</td><td>CIF</td><td>10%</td><td>¥10,000 (combined threshold)</td><td>No (under ¥200,000)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-size:0.78rem;color:var(--text-muted);margin-top:-16px;">Snapshot as of July 2026. Thresholds can change — check our <a href="/de-minimis-value-guide">Global De Minimis Guide</a> for updates. "VAT Floor" means the value below which VAT is not charged. "0" means VAT applies from the first dollar.</p>
+
+            <!-- ═══ 7 MARKET WALKTHROUGHS — P3: RHYTHM DISRUPTION ═══ -->
+            <h2>The Same Shipment, Seven Different Import Bills</h2>
+            <p>A $5,000 FOB shipment of consumer electronics from Shenzhen. $800 ocean freight, $120 marine insurance. CIF = $5,920. Here's what happens when this shipment clears customs in each market. The numbers are mid-2026 estimates — directional precision. Your exact HS subheading might shift the duty rate by a few points, but the structure doesn't change.</p>
+
+            <!-- ═══ US — Pull-quote rhythm ═══ -->
+            <div class="mkt-card">
+                <h3><span class="mkt-flag">🇺🇸</span> United States</h3>
+                <span class="mkt-formula">CIF → MFN duty (on CIF, over $800 FOB) → No federal VAT → $31–$614 Merchandise Processing Fee</span>
+                <p>The US is the only G7 economy with no federal VAT at the border. That sounds great. For shipments under $800, it is — Section 321 (Type 86 entry) clears them duty-free and tax-free in seconds.</p>
+                <p>But.</p>
+                <p>Over $800, you pay MFN duty on the full CIF, not just the excess. There's no partial exemption and no sliding scale. $799.99 FOB = zero. $800.01 = full duty on $5,920 CIF. The Merchandise Processing Fee adds 0.3464% of CIF — $20.50 on this shipment, but there's a $31.67 minimum. Not a duty, technically. Still money you pay at the border.</p>
+                <p>If the electronics are of Chinese origin, Section 301 adds 25% on most Chapter 85 subheadings. The effective rate goes to 2.5% MFN + 25% Section 301 = 27.5%. That changes the economics of the entire shipment.</p>
+                <p class="snap-line">Which side of the Section 301 line your product falls on is a $1,628 question.</p>
+                <div class="mkt-example">
+                    <table>
+                        <tr><td>FOB goods value</td><td>$5,000.00</td></tr>
+                        <tr><td>+ Ocean freight</td><td>$800.00</td></tr>
+                        <tr><td>+ Marine insurance</td><td>$120.00</td></tr>
+                        <tr style="border-top:1px solid var(--border-light);"><td><strong>CIF value</strong></td><td><strong>$5,920.00</strong></td></tr>
+                        <tr><td>De minimis threshold</td><td>$800 — ✘ Over (FOB $5,000)</td></tr>
+                        <tr><td>MFN duty (electronics, 2.5% of CIF)</td><td>$148.00</td></tr>
+                        <tr style="color:#991b1b;"><td>+ Section 301 overlay (China origin, 25% of CIF) <em>if applicable</em></td><td>+$1,480.00</td></tr>
+                        <tr><td>Merchandise Processing Fee (0.3464% of CIF)</td><td>$31.67 (minimum)</td></tr>
+                        <tr><td>Federal VAT</td><td>None — no US federal VAT</td></tr>
+                        <tr class="total-row"><td>Total import cost (MFN only, no 301)</td><td>$6,099.67</td></tr>
+                        <tr class="total-row"><td>Total import cost (MFN + Section 301)</td><td>$7,579.67</td></tr>
+                    </table>
+                </div>
+                <p style="font-size:0.85rem;color:var(--text-muted);">The difference between these two numbers — $1,480 — is the Section 301 overlay. Whether it applies depends on your exact 10-digit HTS code. Check our <a href="/section-301-china-tariffs-guide">Section 301 Guide</a> for the current exclusion lists, or run your HS code through the <a href="/tariff-calculator">Tariff Rate Lookup</a>. For product-specific US import walkthroughs: <a href="/us-import-customs-guide">US Import Customs Guide</a>, <a href="/china-to-us-electronics">China→US Electronics</a>, <a href="/china-to-us-clothing">China→US Apparel</a>, <a href="/china-to-us-furniture">China→US Furniture</a>.</p>
+            </div>
+
+            <!-- ═══ EU — Q&A embedded rhythm ═══ -->
+            <div class="mkt-card">
+                <h3><span class="mkt-flag">🇪🇺</span> European Union</h3>
+                <span class="mkt-formula">CIF → Duty (on CIF, over €150 FOB) → VAT (on duty-paid CIF, from €1) → + carrier clearance fee if no IOSS</span>
+                <p>The split threshold catches first-time importers regularly.</p>
+                <p><strong>Duty:</strong> exempt under €150 FOB. Over that line — and our $5,000 shipment is well over — full TARIC duty applies on CIF. <strong>VAT:</strong> there is no floor. The €22 VAT exemption died in July 2021. A €30 shipment pays zero duty but still gets hit with 19–21% VAT plus the carrier's €10–20 clearance fee if the seller isn't IOSS-registered. The customs officer processes this a hundred times a day. They've seen every variation of "but I thought it was exempt."</p>
+                <p>This surprises many first-time importers: the EU's IOSS system is voluntary. If you register, you collect VAT at checkout and remit to one EU member state. If you don't, your customer pays at delivery. Most customers who get a surprise VAT bill at the door don't order from you again.</p>
+                <p>We'll use Germany as the destination (19% VAT).</p>
+                <div class="mkt-example">
+                    <table>
+                        <tr><td>FOB goods value</td><td>€4,587 (≈$5,000 at 1.09 EUR/USD)</td></tr>
+                        <tr><td>+ Ocean freight</td><td>€734</td></tr>
+                        <tr><td>+ Marine insurance</td><td>€110</td></tr>
+                        <tr style="border-top:1px solid var(--border-light);"><td><strong>CIF value</strong></td><td><strong>€5,431</strong></td></tr>
+                        <tr><td>De minimis for duty</td><td>€150 — ✘ Over</td></tr>
+                        <tr><td>MFN duty (electronics, 2.5% TARIC average)</td><td>€135.78</td></tr>
+                        <tr><td>Duty-paid CIF</td><td>€5,566.78</td></tr>
+                        <tr><td>German VAT (19% on duty-paid CIF)</td><td>€1,057.69</td></tr>
+                        <tr class="total-row"><td>Total import cost (CIF + duty + VAT)</td><td>€6,624.47 (≈$7,221)</td></tr>
+                    </table>
+                </div>
+                <p style="font-size:0.85rem;color:var(--text-muted);">The EU total is about $1,100 higher than the US (MFN-only scenario), almost entirely from 19% VAT. For full EU customs filing details: <a href="/china-to-germany-customs">China→Germany (ATLAS Hub)</a>, <a href="/china-to-france-customs">China→France (DELTA/IOSS)</a>.</p>
+            </div>
+
+            <!-- ═══ UK — Anecdote-first rhythm ═══ -->
+            <div class="mkt-card">
+                <h3><span class="mkt-flag">🇬🇧</span> United Kingdom</h3>
+                <span class="mkt-formula">CIF → Duty (on CIF, over £135 consignment) → VAT (on duty-paid CIF, from £1) → Seller liability shift under £135</span>
+                <p>In January 2021, a UK Etsy seller bought a £130 ceramic vase from a small workshop in Portugal. Shipping was £12. The total consignment value was £142 — £7 over the £135 threshold. HMRC assessed full UK Global Tariff duty on the CIF value plus 20% VAT, and the carrier added an £8 handling fee. The seller paid £34 in charges on a £130 item because of £12 in shipping that pushed the consignment over the line. The £135 threshold includes shipping paid by the buyer. A £130 item with £15 shipping is a £145 consignment and crosses the line. This distinction generated more chargebacks in 2021 than any other single post-Brexit customs change.</p>
+                <p>Under £135: no customs duty, but the seller must be UK VAT-registered and collect 20% VAT at checkout. Over £135: full duty and VAT at the border.</p>
+                <div class="mkt-example">
+                    <table>
+                        <tr><td>FOB goods value</td><td>£3,906 (≈$5,000 at 1.28 GBP/USD)</td></tr>
+                        <tr><td>+ Ocean freight</td><td>£625</td></tr>
+                        <tr><td>+ Marine insurance</td><td>£94</td></tr>
+                        <tr style="border-top:1px solid var(--border-light);"><td><strong>CIF value</strong></td><td><strong>£4,625</strong></td></tr>
+                        <tr><td>De minimis for duty</td><td>£135 — ✘ Over</td></tr>
+                        <tr><td>UK Global Tariff duty (electronics, 2%)</td><td>£92.50</td></tr>
+                        <tr><td>Duty-paid CIF</td><td>£4,717.50</td></tr>
+                        <tr><td>VAT (20% on duty-paid CIF)</td><td>£943.50</td></tr>
+                        <tr class="total-row"><td>Total import cost (CIF + duty + VAT)</td><td>£5,661.00 (≈$7,246)</td></tr>
+                    </table>
+                </div>
+                <p style="font-size:0.85rem;color:var(--text-muted);">UK import costs are broadly similar to the EU — the 20% VAT is the main driver. For UK-specific product guidance: <a href="/china-to-uk-apparel">China→UK Apparel</a>, <a href="/china-to-uk-electronics">China→UK Electronics</a>, <a href="/eu-to-uk-post-brexit">Post-Brexit Trade Guide</a>.</p>
+            </div>
+
+            <!-- ═══ Canada — Ultra-short rhythm ═══ -->
+            <div class="mkt-card">
+                <h3><span class="mkt-flag">🇨🇦</span> Canada</h3>
+                <span class="mkt-formula">CIF → Duty (on CIF, over CAD $20) → GST (5% on duty-paid CIF)</span>
+                <p>The lowest de minimis in the G7 — CAD $20. About USD $15.</p>
+                <p class="snap-line">Every commercial shipment triggers a full customs entry. Every single one.</p>
+                <p>There's a separate CAD $150 threshold under the Courier Imports Remission Order for courier shipments specifically, but palletized freight and containers get no such relief. Province-level taxes (7% PST in BC, 9.975% QST in Quebec) add 7–10 percentage points on top of the federal 5% GST shown below.</p>
+                <div class="mkt-example">
+                    <table>
+                        <tr><td>FOB goods value</td><td>CA$6,850 (≈$5,000 at 1.37 CAD/USD)</td></tr>
+                        <tr><td>+ Ocean freight</td><td>CA$1,096</td></tr>
+                        <tr><td>+ Marine insurance</td><td>CA$164</td></tr>
+                        <tr style="border-top:1px solid var(--border-light);"><td><strong>CIF value</strong></td><td><strong>CA$8,110</strong></td></tr>
+                        <tr><td>De minimis</td><td>CA$20 — ✘ Over (by a factor of 400)</td></tr>
+                        <tr><td>MFN duty (electronics, 2% of CIF)</td><td>CA$162.20</td></tr>
+                        <tr><td>GST (5% on duty-paid CIF)</td><td>CA$413.61</td></tr>
+                        <tr class="total-row"><td>Total import cost (federal only)</td><td>CA$8,685.81 (≈$6,340)</td></tr>
+                    </table>
+                </div>
+                <p style="font-size:0.85rem;color:var(--text-muted);">Cheapest destination on this list for our electronics shipment — low duty plus low GST. But no low-value channel exists. <a href="/china-to-canada-freight">China→Canada Freight</a> covers CBSA's CARM system.</p>
+            </div>
+
+            <!-- ═══ Australia — One-sentence hook rhythm ═══ -->
+            <div class="mkt-card">
+                <h3><span class="mkt-flag">🇦🇺</span> Australia</h3>
+                <span class="mkt-formula">CIF → Duty (on FOB, over AUD $1,000) → GST (10% on duty-paid value, from $1)</span>
+                <p>Australia calculates duty on FOB, not CIF. It is the only major market on this page that does.</p>
+                <p>This sounds technical. Here's what it means in practice: the $1,200 you paid to ship the container across the Pacific is not subject to duty. The freight portion of the shipment value escapes entirely. On a $1,200 freight bill at a 5% duty rate, that's $60 saved per shipment compared to a country that taxes CIF. Over a year of weekly shipments: $3,120.</p>
+                <p class="snap-line">Duty-free does not mean tax-free in Australia.</p>
+                <p>The AUD $1,000 FOB threshold for duty is generous. But since July 2018, 10% GST applies to all low-value imported goods from $1, collected by the seller or marketplace at checkout. If you're not ATO-registered, your shipments get held. Marketplace sellers who assume "under $1,000 = zero charges" discover their customers are being asked to pay GST at delivery — and that conversation doesn't end well for repeat business.</p>
+                <div class="mkt-example">
+                    <table>
+                        <tr><td>FOB goods value</td><td>AU$7,500 (≈$5,000 at 1.50 AUD/USD)</td></tr>
+                        <tr><td>+ Ocean freight</td><td>AU$1,200</td></tr>
+                        <tr><td>+ Marine insurance</td><td>AU$180</td></tr>
+                        <tr style="border-top:1px solid var(--border-light);"><td><strong>CIF value</strong></td><td><strong>AU$8,880</strong></td></tr>
+                        <tr><td>De minimis for duty (tested on FOB)</td><td>AU$1,000 — ✘ Over</td></tr>
+                        <tr><td>MFN duty (electronics, 2% of <strong>FOB</strong> = AU$7,500)</td><td>AU$150.00</td></tr>
+                        <tr><td>GST (10% on CIF + duty)</td><td>AU$903.00</td></tr>
+                        <tr class="total-row"><td>Total import cost</td><td>AU$9,933.00 (≈$6,622)</td></tr>
+                    </table>
+                </div>
+                <p style="font-size:0.85rem;color:var(--text-muted);">The duty is only AU$150 — 2% on AU$7,500 FOB, not on AU$8,880 CIF. FOB-based duty saves AU$27.60 on this one shipment. Across a container with 200 similar-value cartons: AU$5,520 in duty Australia doesn't charge. <a href="/china-to-australia-duty">China→Australia Duty</a> explains ATO registration and ChAFTA rates.</p>
+            </div>
+
+            <!-- ═══ Mexico — Narrative rhythm ═══ -->
+            <div class="mkt-card">
+                <h3><span class="mkt-flag">🇲🇽</span> Mexico</h3>
+                <span class="mkt-formula">CIF → Duty (on CIF, from ~$2.50) → IVA (16% on duty-paid CIF) → + mandatory agente aduanal</span>
+                <p>Here's what happens when your container hits the port of Manzanillo.</p>
+                <p>A licensed agente aduanal files the pedimento — you cannot self-clear in Mexico. The broker examines your commercial invoice and classification. They charge MXN $1,500–3,500 regardless of whether your shipment is worth $500 or $50,000. Then customs assesses duty — 8% MFN on electronics, higher on most consumer goods. Then SAT applies 16% IVA on the duty-paid CIF. Three charges. Three separate payees. None optional.</p>
+                <p>Mexico's tariff schedule was negotiated during the import-substitution era and was never liberalized to the degree of the US or EU schedules. Rates of 15–22% on consumer goods are normal. The only structural relief is IMMEX — if your goods are processed in Mexico and re-exported, duty and IVA are deferred. For goods sold into the domestic market, IMMEX doesn't help.</p>
+                <div class="mkt-example">
+                    <table>
+                        <tr><td>FOB goods value</td><td>MX$87,500 (≈$5,000 at 17.50 MXN/USD)</td></tr>
+                        <tr><td>+ Ocean freight</td><td>MX$14,000</td></tr>
+                        <tr><td>+ Marine insurance</td><td>MX$2,100</td></tr>
+                        <tr style="border-top:1px solid var(--border-light);"><td><strong>CIF value</strong></td><td><strong>MX$103,600</strong></td></tr>
+                        <tr><td>De minimis</td><td>MX$50 — ✘ Over (≈$2.50, functionally zero)</td></tr>
+                        <tr><td>MFN duty (electronics, 8% of CIF)</td><td>MX$8,288</td></tr>
+                        <tr><td>IVA (16% on CIF + duty)</td><td>MX$17,902</td></tr>
+                        <tr style="color:var(--text-muted);"><td>Broker fee (pedimento, estimated)</td><td>MX$2,500</td></tr>
+                        <tr class="total-row"><td>Total import cost (CIF + duty + IVA + broker)</td><td>MX$132,290 (≈$7,559)</td></tr>
+                    </table>
+                </div>
+                <p style="font-size:0.85rem;color:var(--text-muted);">The highest total on this list — nearly $7,600 — driven by 8% MFN on electronics (vs 2–2.5% elsewhere) and the mandatory broker fee. <a href="/china-to-mexico-maquila">China→Mexico IMMEX</a> explains the deferral rules.</p>
+            </div>
+
+            <!-- ═══ Japan — Bullet-point rhythm ═══ -->
+            <div class="mkt-card">
+                <h3><span class="mkt-flag">🇯🇵</span> Japan</h3>
+                <span class="mkt-formula">CIF → Duty (on CIF, over ¥10,000 combined) → JCT (10% on duty-paid CIF, over ¥10,000 combined)</span>
+                <p>Three things to know about Japanese customs, in order of importance:</p>
+                <ul>
+                    <li><strong>Electronics and machinery (Chapters 84–85) are 0% duty.</strong> Japan is an ITA signatory and applies zero MFN on virtually all computers, phones, semiconductors, and industrial machinery. This is not a preference — it's the baseline rate. Our electronics shipment pays $0 in duty.</li>
+                    <li><strong>The ¥10,000 threshold bundles duty and tax together.</strong> Under ¥10,000 CIF: both are zero. Over: both apply on the full amount — not the excess. A ¥9,500 item with ¥600 shipping = ¥10,100 CIF. Over the line. Full JCT on everything.</li>
+                    <li><strong>Simplified declarations work up to ¥200,000.</strong> No broker needed, no formal C-5020 filing. NACCS processes it electronically. For shipments above ¥200,000, you need a formal entry.</li>
+                </ul>
+                <div class="mkt-example">
+                    <table>
+                        <tr><td>FOB goods value</td><td>¥725,000 (≈$5,000 at 145 JPY/USD)</td></tr>
+                        <tr><td>+ Ocean freight</td><td>¥116,000</td></tr>
+                        <tr><td>+ Marine insurance</td><td>¥17,400</td></tr>
+                        <tr style="border-top:1px solid var(--border-light);"><td><strong>CIF value</strong></td><td><strong>¥858,400</strong></td></tr>
+                        <tr><td>De minimis for duty + tax</td><td>¥10,000 — ✘ Over</td></tr>
+                        <tr><td>MFN duty (electronics, 0% — ITA-covered)</td><td>¥0</td></tr>
+                        <tr><td>JCT (10% on CIF)</td><td>¥85,840</td></tr>
+                        <tr class="total-row"><td>Total import cost</td><td>¥944,240 (≈$6,512)</td></tr>
+                    </table>
+                </div>
+                <p style="font-size:0.85rem;color:var(--text-muted);">Second-cheapest destination after Canada. A ¥9,800 shipment costs ¥9,800 at the border. A ¥10,100 shipment costs roughly ¥11,200. Japanese consumers split orders to stay under ¥10,000 because the cliff is real and the math is predictable. <a href="/china-to-japan-cargo">China→Japan Cargo</a> covers NACCS and the simplified declaration process.</p>
+            </div>
+
+            <!-- ═══ COMPARISON TABLE ═══ -->
+            <h2>Side by Side — What a $5,000 Electronics Shipment Costs in Every Market</h2>
+            <p>The table below summarizes the seven walkthroughs above. All numbers converted to USD at mid-2026 exchange rates. The "effective rate over CIF" column is the number that matters for unit economics — it's the premium you pay above goods-and-freight to get the shipment across the border.</p>
+
+            <div class="cmp-table-wrap">
+                <table class="cmp-table">
+                    <thead>
+                        <tr><th>Market</th><th>CIF (USD)</th><th>Duty</th><th>VAT/GST</th><th>Other</th><th>Total Import Cost</th><th>Effective Rate Over CIF</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>🇺🇸 US (MFN only)</strong></td><td>$5,920</td><td>$148</td><td>$0</td><td>$32 MPF</td><td><strong>$6,100</strong></td><td>+3.0%</td></tr>
+                        <tr><td><strong>🇨🇦 Canada</strong></td><td>$5,920</td><td>$118</td><td>$302</td><td>—</td><td><strong>$6,340</strong></td><td>+7.1%</td></tr>
+                        <tr><td><strong>🇯🇵 Japan</strong></td><td>$5,920</td><td>$0</td><td>$592</td><td>—</td><td><strong>$6,512</strong></td><td>+10.0%</td></tr>
+                        <tr><td><strong>🇦🇺 Australia</strong></td><td>$5,920</td><td>$100</td><td>$602</td><td>—</td><td><strong>$6,622</strong></td><td>+11.9%</td></tr>
+                        <tr><td><strong>🇪🇺 EU (Germany)</strong></td><td>$5,920</td><td>$148</td><td>$1,153</td><td>—</td><td><strong>$7,221</strong></td><td>+22.0%</td></tr>
+                        <tr><td><strong>🇬🇧 UK</strong></td><td>$5,920</td><td>$118</td><td>$1,208</td><td>—</td><td><strong>$7,246</strong></td><td>+22.4%</td></tr>
+                        <tr><td><strong>🇲🇽 Mexico</strong></td><td>$5,920</td><td>$474</td><td>$1,023</td><td>$143 broker</td><td><strong>$7,559</strong></td><td>+27.7%</td></tr>
+                        <tr style="background:#fff7ed;"><td><strong>🇺🇸 US (MFN + 301)</strong></td><td>$5,920</td><td>$1,628</td><td>$0</td><td>$32 MPF</td><td><strong>$7,580</strong></td><td>+28.0%</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>The spread from cheapest to most expensive is $1,459 — about 24% of CIF. Every dollar of that spread is tariff and tax policy, not logistics. The freight, insurance, and goods cost are identical across every row. If you're choosing which market to enter first, this table is more important than your supplier's quote.</p>
+
+            <!-- ═══ P1: COUNTRY COST RANKING BAR CHART ═══ -->
+            <div class="bar-chart">
+                <h3 style="font-size:0.9rem;font-weight:900;text-transform:uppercase;color:var(--steel-black);margin-bottom:14px;">Total Import Cost — $5,000 Electronics Shipment (USD)</h3>
+                <div class="bar-row"><span class="bar-label">🇨🇦 Canada</span><div class="bar-track"><div class="bar-fill low" style="width:84%;">$6,340</div></div></div>
+                <div class="bar-row"><span class="bar-label">🇯🇵 Japan</span><div class="bar-track"><div class="bar-fill low" style="width:86%;">$6,512</div></div></div>
+                <div class="bar-row"><span class="bar-label">🇦🇺 Australia</span><div class="bar-track"><div class="bar-fill low" style="width:88%;">$6,622</div></div></div>
+                <div class="bar-row"><span class="bar-label">🇪🇺 EU</span><div class="bar-track"><div class="bar-fill mid" style="width:95%;">$7,221</div></div></div>
+                <div class="bar-row"><span class="bar-label">🇬🇧 UK</span><div class="bar-track"><div class="bar-fill mid" style="width:96%;">$7,246</div></div></div>
+                <div class="bar-row"><span class="bar-label">🇲🇽 Mexico</span><div class="bar-track"><div class="bar-fill high" style="width:100%;">$7,559</div></div></div>
+                <p style="font-size:0.72rem;color:var(--text-muted);margin-top:10px;">US (MFN only) = $6,100 excluded — no VAT creates an unfair comparison. US (MFN + Section 301) = $7,580, slightly above Mexico. Bar widths normalized to Mexico = 100%.</p>
+            </div>
+
+            <!-- ═══ P4: DECISION TREE ═══ -->
+            <div class="dectree">
+                <h3>Quick Decision Tree — Which Calculation Do You Need?</h3>
+                <p style="font-size:0.88rem;color:var(--text-secondary);margin-bottom:18px;">Answer three questions. The path tells you which tool to open.</p>
+
+                <div class="tree-node">
+                    <span class="tree-q">Do you know your product's HS code?</span>
+                </div>
+                <div class="tree-indent">
+                    <div class="tree-node">
+                        <span class="tree-no">NO</span><span class="tree-arrow">→</span>
+                        <span>Open the <a href="/hscode-duty-estimator">HS Code Estimator</a>. Find your 2-digit chapter first. Come back when you have at least 4 digits.</span>
+                    </div>
+                </div>
+
+                <div class="tree-node">
+                    <span class="tree-q">Do you need the duty rate only (no freight, no VAT)?</span>
+                </div>
+                <div class="tree-indent">
+                    <div class="tree-node">
+                        <span class="tree-yes">YES</span><span class="tree-arrow">→</span>
+                        <span>Open the <a href="/import-duty-calculator">Import Duty Calculator</a>. Pure duty. One number. Build your cost stack from this.</span>
+                    </div>
+                    <div class="tree-node">
+                        <span class="tree-no">NO — I need the full cost with freight and VAT</span><span class="tree-arrow">→</span>
+                        <span>Open the <a href="/landed-cost-calculator">Landed Cost Calculator</a>. CIF + duty + VAT across up to 7 markets.</span>
+                    </div>
+                </div>
+
+                <p style="font-size:0.85rem;color:var(--text-muted);margin-top:20px;">For China-origin goods entering the US: run the <a href="/tariff-calculator">Tariff Rate Lookup</a> before either calculator. Section 301 can triple your effective rate, and knowing the real number before you budget is the difference between a viable product and a loss.</p>
+            </div>
+
+            <!-- ═══ COMMON MISTAKES ═══ -->
+            <h2>Four Mistakes That Cost More Than the Duty Itself</h2>
+
+            <h3>1. Budgeting off FOB and discovering CIF at the port</h3>
+            <p>This is the most common error among first-time importers — and the most expensive. Your supplier quotes $8,000 FOB. You budget $8,000 plus "a few hundred" for shipping. The actual freight bill is $1,500 for a shared container, plus $200 for marine insurance. CIF is $9,700. Duty is calculated on $9,700, not $8,000. At a 10% rate, that's $970 in duty you didn't budget vs $800 you did — a $170 gap before VAT. On high-freight lanes, the FOB-vs-CIF gap can swing the duty bill by hundreds of dollars per shipment. Always budget off CIF. If your forwarder hasn't quoted freight yet, estimate 15–20% of FOB for ocean and 0.3–0.5% for insurance. Better to overestimate and spend less than the reverse.</p>
+
+            <h3>2. Assuming the de minimis is a discount, not a cliff</h3>
+            <p>Every market on this page has a de minimis threshold, and every single one of them is a cliff. One dollar over and the <em>entire</em> shipment is dutiable. A $799.99 shipment to the US pays $0 in duty. An $800.01 shipment pays full MFN duty on $800.01. The difference is binary. If your goods value is within 10% of the de minimis line, adjusting the invoice or splitting the shipment is almost always correct. Our <a href="/de-minimis-checker">De Minimis Cliff Detector</a> shows exactly how close you are to each market's threshold.</p>
+
+            <h3>3. Ignoring the tax-on-tax effect (VAT on duty)</h3>
+            <p>Every VAT and GST in the world is calculated on the duty-paid CIF, not on the pre-duty CIF. If your duty rate is 10% and your VAT rate is 20%, the effective tax-on-tax adds about 2 percentage points to the total import burden. On a $10,000 CIF shipment: duty = $1,000; VAT = 20% × $11,000 = $2,200. Total = $3,200. The incorrect calculation (VAT before duty): $2,000 + $1,000 = $3,000. Gap: $200. On high-duty, high-VAT combinations, the gap can exceed 3% of CIF. The <a href="/landed-cost-calculator">Landed Cost Calculator</a> applies the correct sequence automatically. If you're building a spreadsheet: <strong>VAT = (CIF + duty) × VAT_rate</strong>, not VAT = CIF × VAT_rate.</p>
+
+            <h3>4. Relying on MFN rates when Section 301 or AD/CVD applies</h3>
+            <p>Budget the MFN rate for Chinese-made steel and discover at the port that Section 301 adds 25% and Section 232 adds another 25% — your effective rate is 53%, not 3%. On a $50,000 container, that's a $25,000 error.</p>
+            <p class="snap-line">There is no refund for "I didn't know about the additional duties."</p>
+            <p>The importer of record is responsible for the full rate stack before the goods ship. Our <a href="/tariff-calculator">Tariff Rate Lookup</a> flags Section 301 by chapter. For AD/CVD, you need a broker — there is no substitute for a scope ruling.</p>
+
+            <!-- ═══ P2: FAQ ═══ -->
+            <h2>Questions That Come Up After the First Shipment</h2>
+
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    Does customs duty include shipping?
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-a">
+                    <p>Yes — in every major market except Australia. When customs calculates duty, they use the CIF value (Cost + Insurance + Freight), which includes the cost of shipping. If your goods cost $1,000 and shipping is $300, duty is assessed on $1,300 — not $1,000. This is why getting a freight quote before you budget is essential. The freight cost inflates the dutiable base, which inflates the duty, which inflates the VAT. Australia is the exception — they assess duty on FOB (goods only, excluding freight and insurance). Every other market on this page uses CIF.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    Is VAT calculated before or after duty?
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-a">
+                    <p>After. Always. VAT is calculated on the duty-paid value — CIF plus customs duty — in every country that charges VAT on imports. The formula is: VAT = (CIF + Duty) × VAT_Rate. If you calculate VAT on CIF alone and ignore the duty, you're understating your tax by the duty amount multiplied by the VAT rate. On a shipment with 10% duty and 20% VAT, that's a 2% undercount. On a shipment with 25% duty and 25% VAT, it's a 6.25% undercount. The tax authorities don't care that your spreadsheet was set up wrong. They care that you paid the correct amount.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    Is insurance included in CIF?
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-a">
+                    <p>Yes — the "I" in CIF stands for Insurance. Marine insurance typically costs 0.3–0.5% of 110% of the CIF value. On a $10,000 shipment, that's $33–55. But here's the thing: customs assumes the goods are insured whether you bought a policy or not. Most authorities impute insurance at 0.5% of CIF if you can't produce a certificate. Entering your actual premium — even a token $50 — gives you a more accurate CIF base than leaving it at zero and having customs round up. If you genuinely don't insure, enter zero and be prepared to explain. Customs has heard the "I self-insure" argument before and they're generally not impressed by it.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    Can I deduct broker fees from my import costs?
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-a">
+                    <p>For accounting purposes, yes — broker fees are a cost of goods sold and are deductible as a business expense. For customs valuation purposes, no — broker fees are not deducted from the CIF value when calculating duty. Customs assesses duty on the transaction value of the goods plus freight and insurance. What you pay a third party to file the paperwork is between you and the third party. The customs authority doesn't reduce your dutiable value because you hired help. Broker fees are an above-the-line import cost — part of your total landed cost, but not part of the customs calculation.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    What happens if my shipment is one dollar over the de minimis?
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-a">
+                    <p>The entire shipment becomes dutiable. Not just the excess — the whole thing. A $799.99 shipment to the US pays $0 in duty. An $800.01 shipment pays full MFN duty on $800.01. This is the most important fact about de minimis thresholds and the one beginners get wrong most often. They're not deductions, they're not sliding scales, and they're not "duty-free up to the threshold." They are cliffs. One cent over, and customs treats the shipment as if the threshold never existed. If your goods value is within 10% of a de minimis line, adjusting the commercial invoice or splitting the shipment into two packages is almost always the right financial move. Our <a href="/de-minimis-checker">De Minimis Cliff Detector</a> shows the dollar difference on both sides of every major market's line.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    Do I pay duty on freight even if my goods are duty-free?
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-a">
+                    <p>No — if the duty rate on your product is 0%, you pay zero duty regardless of the freight cost. Zero times anything is zero. The freight still matters for VAT, though: VAT is calculated on CIF (which includes freight) plus duty (which is zero in this case). A duty-free shipment with $500 in freight pays VAT on that $500 even though the duty line is zero. This is most relevant for ITA-covered electronics entering Japan (0% duty, 10% JCT on CIF) and books entering most markets (0% duty, standard VAT rate on CIF). Duty-free doesn't mean tax-free. Freight always inflates the VAT base, even when it doesn't inflate the duty.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    What's the difference between MFN and preferential rates?
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-a">
+                    <p>MFN (Most Favored Nation) is the baseline rate every WTO member charges every other WTO member. It's the default — no special deal, no FTA, just the standard rate. A preferential rate is a lower rate negotiated through a free trade agreement (USMCA, RCEP, CPTPP, bilateral FTAs) that replaces the MFN rate <em>if</em> your goods qualify. The rate on the tariff schedule might be 0% under USMCA, but you need a certificate of origin proving the goods meet the agreement's rules of origin — typically a minimum percentage of value added in the FTA partner country. Without that certificate, customs applies the MFN rate. The preferential rate exists on paper. Whether your shipment qualifies is a documentation question. If you're not sure, budget the MFN rate — that's the number customs will use if your origin claim gets challenged. For a full matrix of which FTAs apply to which origin-destination pairs, see our <a href="/tariff-calculator">Tariff Rate Lookup</a>.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+                    Why does Mexico cost so much more than Canada for the same shipment?
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-a">
+                    <p>Three reasons. First, Mexico's MFN rate on electronics is 8% vs Canada's 2% — a structural difference built into the tariff schedules. Second, Mexico's IVA is 16% vs Canada's 5% GST. Third, Mexico requires a licensed agente aduanal to file every entry, adding MXN $1,500–3,500 per shipment that doesn't exist in Canada. The combined effect: a shipment that costs $6,340 to import into Canada costs $7,559 to import into Mexico — a 19% difference driven entirely by policy. This is why tariff engineering matters. If your business model works at Mexico's rates, it works almost anywhere. If it only works at Canada's rates, you need to stay out of high-tariff, mandatory-broker markets until you have the margins to absorb the difference.</p>
+                </div>
+            </div>
+
+            <!-- ═══ WHEN TO CALL A BROKER ═══ -->
+            <h2>When the Math Is Done and You Still Need a Human</h2>
+            <p>The tools on this site give you directional costs accurate enough for product viability decisions, market selection, and pricing models. They are not a substitute for a licensed customs broker when:</p>
+            <ul>
+                <li>You're importing a product in a chapter with active AD/CVD orders (steel, aluminum, chemicals, furniture, textiles, solar products)</li>
+                <li>You're claiming FTA preferential treatment and need a certificate of origin and rules-of-origin determination</li>
+                <li>Your goods are subject to a tariff-rate quota and quota fill status determines which rate applies</li>
+                <li>You're importing goods that require a permit or license (FDA, EPA, Fish & Wildlife, etc.)</li>
+                <li>You've never imported this product into this market before and need a binding classification ruling</li>
+                <li>Your shipment value exceeds $2,500 and you're filing a formal US entry for the first time</li>
+            </ul>
+            <p>A broker's fee — typically $50–150 for a standard entry — is the cheapest insurance you'll buy against a customs penalty. Use the calculators to get to a number you're confident in. Then pay a broker to tell you whether that number is right.</p>
+            <p class="snap-line">The cost of being wrong is always higher than the cost of the broker.</p>
+
+            <!-- ═══ NEXT STEPS ═══ -->
+            <h2>Where to Go From Here</h2>
+            <ul>
+                <li><strong>Not sure what HS code your product falls under?</strong> → <a href="/hscode-duty-estimator">HS Code Estimator</a></li>
+                <li><strong>Have an HS code and want the rate stack across all markets?</strong> → <a href="/tariff-calculator">Tariff Rate Lookup</a></li>
+                <li><strong>Want a pure duty estimate — no VAT, no freight?</strong> → <a href="/import-duty-calculator">Import Duty Calculator</a></li>
+                <li><strong>Ready to run the full landed cost with freight, insurance, duty, and VAT?</strong> → <a href="/landed-cost-calculator">Landed Cost Calculator</a></li>
+                <li><strong>Worried your shipment value is near a de minimis cliff?</strong> → <a href="/de-minimis-checker">De Minimis Cliff Detector</a></li>
+                <li><strong>Need the Section 301 product exclusion list?</strong> → <a href="/section-301-china-tariffs-guide">Section 301 Guide</a></li>
+                <li><strong>Looking for product-specific corridor data?</strong> → <a href="/#lanes">Trade Corridor Directory</a> (36 corridors)</li>
+            </ul>
+
+        </div><!-- /.article-body -->
+
+        <p style="margin-top:36px;">
+            <a href="/">← Back to Home</a> &nbsp;|&nbsp;
+            <a href="/landed-cost-calculator">Landed Cost Calculator</a> &nbsp;|&nbsp;
+            <a href="/import-duty-calculator">Import Duty Calculator</a> &nbsp;|&nbsp;
+            <a href="/tariff-calculator">Tariff Rate Lookup</a> &nbsp;|&nbsp;
+            <a href="/de-minimis-checker">De Minimis Cliff Detector</a>
+        </p>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/import-cost-workflow">Import Cost Workflow</a></li>
+                    <li><a href="/tariff-calculator">Tariff Rate Lookup</a></li>
+                    <li><a href="/landed-cost-calculator">Landed Cost Calculator</a></li>
+                    <li><a href="/import-duty-calculator">Import Duty Calculator</a></li>
+                    <li><a href="/vat-calculator">VAT / GST Calculator</a></li>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data — not affiliated with any official government customs agency. The cost calculations on this page are estimates based on published MFN tariff schedules and VAT rates as of July 2026. Actual import costs vary based on full HTS classification, FTA eligibility, antidumping/countervailing duty orders, tariff-rate quota status, broker fees, and port-specific charges. Always verify with a licensed customs broker before entering a commercial shipment.</p>
+        </div>
+    </footer>
+
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

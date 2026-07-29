@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>China to US Machinery Duty? (Free &amp; Instant Calculator)</title>
+    <meta name="description" content="Calculate import duty on industrial machinery shipped from China to the US. 4.2% average MFN rate, Section 301 List 1 adds 25%, $800 de minimis — free instant estimator.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="canonical" href="https://www.dutycalc.online/china-to-us-machinery">
+    <meta property="og:title" content="China to US Machinery Duty Calculator — Free Instant Estimator">
+    <meta property="og:description" content="Calculate import duty on industrial machinery shipped from China to the US. 4.2% MFN, Section 301 List 1 at 25%, $800 de minimis.">
+    <meta property="og:url" content="https://www.dutycalc.online/china-to-us-machinery">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="China to US Machinery Duty Calculator — Free Instant Estimator">
+    <meta name="twitter:description" content="Calculate import duty on industrial machinery shipped from China to the US. 4.2% MFN, Section 301 List 1 at 25%, $800 de minimis.">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+        <header>
+            <h1>China to US Machinery Duty Calculator</h1>
+            <p>Free instant estimator for industrial machinery, equipment, and mechanical parts from China — MFN rates, Section 301 List 1 at 25%, and real landed cost math</p>
+        </header>
+        <div class="trade-tip"><span class="tip-label">Exclusion roulette</span><br><strong>The Section 301 machinery exclusion list changes quarterly.</strong> CNC machines, industrial pumps, and bearings are the most affected categories. A part that was excluded last quarter might not be this quarter. <a href="/tariff-calculator">Look up your HS code now 鈫?/a></div>
+        <div class="calculator-card" data-duty-rate="4.2" data-vat-rate="0" data-deminimis="800">
+            <h3>China → US Machinery Duty Estimator</h3>
+            <p class="card-desc">Enter shipment value and shipping cost in USD. The calculator applies the 4.2% MFN duty rate and the $800 Section 321 de minimis. Section 301 List 1 adds 25% on top — read the full guide below for the combined math.</p>
+            <div class="input-group">
+                <label>Machinery Shipment Commercial Value (USD)</label>
+                <input type="number" class="item-value unit-input" value="15000" min="0" max="99999999">
+            </div>
+            <div class="input-group">
+                <label>Shipping &amp; Insurance Cost (USD)</label>
+                <input type="number" class="shipping-cost unit-input" value="1200" min="0" max="99999999">
+            </div>
+            <button class="btn-calc">Calculate Landed Cost</button>
+            <div class="result-display result-hidden" aria-live="polite" aria-atomic="true">
+                <h4>Customs Clearing Summary:</h4>
+                <ul>
+                    <li>Import Tariff (4.2% MFN): <span class="res-duty">--</span></li>
+                    <li>Import VAT / Sales Tax: <span class="res-vat">--</span></li>
+                    <li>Total Government Taxes: <span class="res-total-tax">--</span></li>
+                    <li>Total Estimated Landed Cost: <span class="res-landed">--</span></li>
+                </ul>
+            </div>
+            <a href="/china-to-us-machinery" class="detail-link" style="display:none;">View Full Country Guide &rarr;</a>
+        </div>
+        <div class="trade-tip"><span class="tip-label">Port strategy matters</span><br>LA/Long Beach clears machinery differently than Houston or Newark. If your shipment includes components that could be classified under multiple HTS headings, the port of entry can affect which rate you get. <a href="/china-to-us-electronics">See how electronics classification works 鈫?/a></div>
+        <div>
+            <article class="seo-section">
+                <h2>US Import Duty on Chinese Industrial Machinery: MFN + Section 301 = The Real Rate</h2>
+                <p>Most people see "4.2%" and think that is the whole story. It is not. The actual cost to clear a Chinese machine through US Customs is a two-layer system, and the second layer is where the real money is.</p>
+                <p>MFN rates on machinery under Chapters 84 and 85 of the Harmonized Tariff Schedule average 4.2%. That number, by itself, is genuinely low — it is a legacy of decades of trade liberalization in industrial goods. Some subcategories are even zero-rated: certain industrial robots, specific machine-tool accessories, and a handful of specialized manufacturing apparatus enter duty-free at the MFN level. But for machinery made in China, you do not just pay the MFN rate. Section 301 List 1 adds a flat 25% on top of most industrial machinery classifications, and that changes the math completely.</p>
+                <p>Combined, you are looking at a 29.2% effective duty rate on List 1 machinery. Run the numbers on a real purchase: a $50,000 CNC lathe with $3,000 in ocean freight and insurance gives you a CIF value of $53,000. MFN at 4.2% comes to $2,226. Section 301 at 25% adds $13,250. Total duty: $15,476. But you are not done — the Merchandise Processing Fee (MPF) tacks on $183.50, and the Harbor Maintenance Fee (HMF) at 0.125% adds $66.25. All in, you owe $15,725.75 before the machine leaves the port. That is roughly 29.7% of the CIF value, and the Section 301 portion alone is more than five times the MFN portion. The 4.2% base rate is almost a rounding error compared to what List 1 adds.</p>
+                <p>What trips people up is the stacking order. Section 301 applies on top of the MFN rate — it is not an alternative to it. If your machine carries a 4.2% MFN rate and falls under List 1, you pay both. Some importers assume the 25% replaces the base rate. It does not. Customs calculates the MFN duty first, then layers the Section 301 duty on top of the same entered value. That is why the combined rate is 29.2%, not just 25%. Add the fees and you are pushing 30% of CIF.</p>
+                <p>Air freight changes the fee structure slightly — HMF only applies to ocean cargo, so air shipments skip that line item. But air freight for heavy machinery is prohibitively expensive, and the MPF still applies regardless of transport mode. In practice, nearly all Chinese machinery arrives by sea, so you should budget for both MPF and HMF on every shipment.</p>
+                <p>Also worth knowing: the dutiable value is based on CIF (Cost, Insurance, Freight), not the ex-works price. If you buy a machine for $30,000 EXW Shanghai and pay $4,000 in freight and $200 in marine insurance, your entered value is $34,200 — and duty is calculated on that full amount. Many first-time importers calculate duty against the factory price alone and come up short when the customs bill arrives. The shipping line does not care about your math — CBP will hold the container until the full amount clears.</p>
+
+                <h2>Why List 1 Hits Machinery So Hard</h2>
+                <p>List 1 was the opening shot of the 2018 trade action, announced in July of that year covering $34 billion in Chinese imports across 818 HTS tariff lines at 25%. The target was explicit: the "Made in China 2025" industrial policy sectors — industrial robots, CNC equipment, aerospace parts, medical devices, and high-end machine tools. The USTR drafted List 1 to hit capital goods, not consumer goods. The idea was to apply maximum pressure on the sectors Beijing had identified for state-backed expansion.</p>
+                <p>Here is the part that catches importers off guard: Lists 3 and 4A eventually got cut to 7.5% under the Phase One trade deal in early 2020, but List 1 has never been reduced. Not once. It has sat at 25% for more than seven years with no meaningful political movement toward cutting it. If your machine falls under a List 1 HTS code, you are paying the full 25% on top of MFN, and there is no indication that is changing. For the full breakdown of how the lists work and which products fall where, see our <a href="/section-301-china-tariffs-guide">Section 301 China Tariffs Guide</a>.</p>
+                <p>Part of what makes List 1 durable is political symbolism. It was the first list — the one that started the trade war — and neither administration has wanted to be seen as the one that "folded" by reducing it. Reducing Lists 3 and 4A was politically easier because they came later and covered consumer goods where US retailers were screaming about costs. List 1 covers capital equipment, and factory owners have less political pull than Walmart and Target. The result: machinery importers have been eating the full 25% for years, and they should plan on eating it for the foreseeable future.</p>
+                <p>There is a secondary effect that does not get talked about enough: List 1 distorts the machinery market itself. A Chinese CNC lathe that would cost $45,000 at the factory gate lands in the US at roughly $58,000 after duty and fees. A comparable Taiwanese machine at $52,000 EXW lands at roughly $55,000 after its much lower duty rate. The Chinese machine, which was cheaper to manufacture, becomes more expensive to import. That is exactly what List 1 was designed to do — make Chinese capital goods uncompetitive — and on that metric, it has worked. For the full machinery-duty picture across every origin country — List 1, anti-dumping on bearings, and origin rules — our <a href="/machinery-import-duty">Machinery Import Duty</a> overview lays it out in one place.</p>
+
+                <h3>How to Check If Your Machine Is on List 1</h3>
+                <p>The fastest way: look up your product's HTS code in Chapter 99 of the HTS. Find subheading 9903.88.01 — that is where the List 1 annotations live. If your 8-digit HTS code maps to a Chapter 99 entry that says 25%, that is your Section 301 layer. A customs broker can pull this for you in about thirty seconds. If you want to check it yourself, search the USTR Federal Register notice for List 1 (83 Fed. Reg. 28710, June 20, 2018). The list is public, specific to 8-digit codes, and has been amended several times to add or remove individual exclusions. Do not guess — a wrong assumption here is the difference between a 4.2% entry and a 29.2% one.</p>
+                <p>One practical tip: if your machinery has a primary function that could fall under two different HTS codes, you want the one that is not on List 1 — provided the classification is defensible. Customs brokers see this all the time with multi-function machines. A machine that both mills and drills might classify under 8459 (milling) or 8461 (drilling), and one might carry Section 301 while the other does not. This is not about gaming the system; it is about applying the General Rules of Interpretation correctly. If the machine's principal function is drilling, classify it as a drilling machine. Get a binding ruling from CBP if the distinction is worth serious money.</p>
+
+                <h2>De Minimis — $800 Doesn't Help for Machinery</h2>
+                <p>Section 321 of the Tariff Act lets shipments valued under $800 enter duty-free — the de minimis threshold. That number works fine for e-commerce parcels: a T-shirt from Shein, a phone case from AliExpress. It does not work for industrial machinery. What piece of production equipment costs under $800? Even a replacement pump from a Chinese foundry runs $1,500 to $3,000. A spare gearbox or a rebuilt hydraulic cylinder will land well north of that threshold. For anybody importing actual machinery, de minimis is irrelevant — you should plan on paying full formal entry duties on every shipment you receive.</p>
+                <p>There is one narrow exception: samples. If a Chinese factory sends you a small demo component — a single bearing race, a machined sample part, a test piece — and the commercial invoice values it under $800, de minimis applies. But the moment you are buying production quantities or finished equipment, you are over the threshold. Do not structure your import planning around de minimis for machinery. It is not a strategy; it is a rounding error.</p>
+                <p>A side note worth knowing about: the De Minimis Reciprocity Act is a bill that has been kicking around Congress that would strip de minimis access for Chinese-origin goods entirely, regardless of value. It has not passed as of this writing, but it has bipartisan sponsorship and could move fast if trade policy ramps up again. For background on how the threshold works and when it applies, check our <a href="/de-minimis-value-guide">De Minimis Value Guide</a>.</p>
+
+                <h3>Spare Parts and Replacement Components — Same Rules Apply</h3>
+                <p>There is a persistent myth that replacement parts get treated differently from complete machines. They do not. Bearings, seals, gears, shafts, couplings — if they classify under Chapters 84 or 85, they get the exact same MFN + Section 301 treatment as the full machine they go into. A $200 bearing at 4.2% MFN plus 25% Section 301 equals a 29.2% effective rate, same as a $200,000 production line. Over a year of maintenance orders — a few dozen bearings, a couple of gear sets, some replacement seals — the duty adds up fast. Budget for it.</p>
+                <p>There is no "parts exemption" and no lower rate for components versus complete machines. The HTS does not care whether the item is going into a running machine or sitting on a shelf as a spare. If the classification lands in a List 1 chapter, the 25% applies. Some importers try to classify parts under a different, lower-tariff heading, but CBP auditors are trained to catch this — if the part is clearly designed for a machine tool, it belongs in the parts provision for that machine tool, not in a general hardware bucket.</p>
+
+                <h2>Key HTS Chapters for Chinese Machinery</h2>
+                <p>If you import machinery, these are the HTS chapter ranges you will live in. Know your code before the shipment hits the water:</p>
+                <ul>
+                    <li><strong>Chapters 8456–8466:</strong> Machine tools for working metal, wood, stone, and other hard materials — lathes, milling machines, grinding machines, presses, drills, saws, and their parts and accessories. This is the biggest category for most machinery importers and the one most heavily hit by List 1. A typical CNC turning center falls under 8458; a vertical machining center under 8459. Both carry List 1 exposure.</li>
+                    <li><strong>Chapter 8479:</strong> Special-purpose machinery with individual functions not covered elsewhere — industrial robots, automated assembly lines, hydraulic and pneumatic systems, and process-specific manufacturing equipment. This chapter catches automation equipment that does not fit neatly into the machine-tool headings. If your equipment performs a function not described in 8456–8466, it probably lands here.</li>
+                    <li><strong>Chapters 8480–8483:</strong> Transmission shafts, gears, ball and roller bearings, gaskets, and similar mechanical power-transmission components. These are the consumables of the machinery world — you will order them repeatedly, and the duty is part of your recurring cost. Bearings under 8482 are especially scrutinized because of the long-standing AD orders on top of Section 301.</li>
+                    <li><strong>Chapters 8501–8504:</strong> Electric motors, generators, transformers, and static converters — the electrical heart of most industrial machinery. Motors and drives from Chinese manufacturers like Wolong and WEG-China fall here, and many carry Section 301. A 50HP motor for a pump or compressor will attract the full combined rate.</li>
+                    <li><strong>Chapter 8543:</strong> Miscellaneous electrical machines and apparatus — a catch-all that covers a surprising amount of specialty industrial electrical equipment, from induction heaters to electrostatic precipitators. When in doubt about whether something fits in 8543, get a ruling.</li>
+                </ul>
+
+                <h2>Incoterms Matter — Use CIF, Not EXW, for Duty Estimates</h2>
+                <p>A common mistake among first-time machinery importers is budgeting duty against the factory price alone. CBP calculates duty on the transaction value of the goods plus packing costs, selling commissions, assists, and — critically — the international freight and insurance. If you negotiate a machine at $20,000 EXW (Ex Works) and separately arrange $2,500 in ocean freight and $150 in insurance, your entered value is $22,650, and both MFN and Section 301 duties apply to that full amount. At 29.2% combined, the difference between calculating against $20,000 ($5,840) and $22,650 ($6,614) is $774 — not insignificant on a single machine, and substantial across a year of purchases.</p>
+                <p>If you are comparing landed costs across suppliers, always convert everything to CIF-equivalent: factory price + inland freight to the Chinese port + ocean or air freight + insurance. That is the number CBP will use, and that is the number you should plug into the calculator at the top of this page. FOB is a decent approximation if you have a freight quote to add to it. EXW is misleading on its own because it excludes both Chinese inland transport and international freight, both of which are dutiable.</p>
+                <p>One more nuance: "assists" — tooling, molds, engineering work, or components that you, the US buyer, provide to the Chinese factory for free or at reduced cost — must be added to the transaction value. If you send a $15,000 injection mold to a Chinese factory so they can produce your parts, CBP expects that $15,000 to be declared as part of the entered value of the finished goods, spread across the production run. Many machinery importers miss this line item entirely, and it is a routine audit trigger.</p>
+
+                <h2>Customs Bonds for Machinery Entries</h2>
+                <p>Every formal entry for machinery requires a customs bond — a financial guarantee that CBP will get paid. For one-off shipments, a single-entry bond (SEB) covers that entry alone and typically costs 0.5% to 0.7% of the bond amount, which must equal at least the total entered value plus duties, taxes, and fees. For the $53,000 CNC lathe example above, the bond amount would be roughly $68,725 (CIF + total duties and fees), and a single-entry bond would run $345 to $480.</p>
+                <p>If you import machinery regularly — more than two or three shipments per year — a continuous bond makes more sense. A continuous bond costs roughly $250 to $600 per year (depending on your broker and volume) and covers all entries during its 12-month term. The bond amount is set at 10% of your estimated annual duties, taxes, and fees, with a $50,000 minimum. For a machinery importer paying $100,000 in duties annually, the continuous bond amount would be $10,000, but the minimum kicks it to $50,000 anyway. The bond premium is a fraction of the bond amount — typically 1% to 3% — so you are looking at roughly $500 to $1,500 per year for a $50,000 continuous bond.</p>
+
+                <h2>Anti-Dumping Duties on Chinese Machinery Components</h2>
+                <p>Section 301 is not the only extra charge on the table. Several categories of Chinese machinery components also carry anti-dumping (AD) and countervailing (CVD) duty orders, which stack on top of MFN and Section 301. The most relevant ones for machinery importers:</p>
+                <ul>
+                    <li><strong>Ball bearings and tapered roller bearings:</strong> AD orders dating back to the late 1980s and early 2000s, with dumping margins ranging from 0% to over 90% depending on the specific Chinese producer. Bearings from SKF-China or Timken-China may carry a lower rate than bearings from an unaffiliated Chinese factory, but the AD order applies regardless.</li>
+                    <li><strong>Cold-rolled steel and stainless steel sheet/strip:</strong> If your machinery incorporates significant Chinese-origin flat-rolled steel (structural frames, panels, housings), and that steel is separately identifiable, it may carry its own AD/CVD liability.</li>
+                    <li><strong>Certain fabricated structural steel:</strong> Large machinery frames and bases from China may trigger AD orders on fabricated structural steel if they enter as separate components.</li>
+                </ul>
+                <p>These AD/CVD orders are separate proceedings at the Commerce Department and ITC, entirely independent of USTR's Section 301 lists. Your customs broker needs to screen every HTS code against both the Section 301 lists and the active AD/CVD order list. An entry that correctly pays Section 301 but misses an AD deposit will generate a bill from CBP months or years later — with interest. The AD rate is a cash deposit at entry; the final rate is determined in an administrative review that can take two to three years, at which point you either get a refund (with interest) or a bill for the difference (with interest).</p>
+
+                <h2>Freight Logistics for Chinese Machinery Imports</h2>
+                <p>Machinery is heavy, bulky, and oddly shaped — three things ocean carriers price against. A standard 40-foot container can hold most individual machine tools up to about 25 metric tons, but larger machines (stamping presses, large CNC boring mills, injection molding machines above 500 tons) need flat-rack containers, open-top containers, or breakbulk shipment. Each of these costs more than a standard dry container, and each has its own loading, lashing, and insurance requirements.</p>
+                <p>As a rough benchmark, ocean freight from Shanghai or Ningbo to Los Angeles/Long Beach for a 40-foot container runs $2,000 to $4,500 depending on the shipping line and the spot market. To the East Coast (New York/Newark, Savannah, Charleston), expect $4,000 to $7,500 because the transit is longer and involves either the Panama Canal or an intermodal rail leg from a West Coast port. These numbers can double during peak season (August through October) or during any supply chain disruption — the post-COVID rate spikes of $15,000+ per container are not ancient history.</p>
+                <p>Flat-rack and open-top containers add a 20% to 50% premium over standard box rates. Breakbulk — where the machine is loaded directly onto the vessel without a container — is priced per cubic meter or per metric ton and requires a freight forwarder who specializes in project cargo. Breakbulk also means the machine is exposed to the elements during transit, so you need serious weatherproofing and marine insurance with full all-risk coverage.</p>
+                <p>Marine insurance is cheap relative to what it covers: roughly 0.3% to 0.5% of the CIF value for all-risk coverage. On a $50,000 machine, that is $150 to $250. Skip it at your peril — a container lost overboard in heavy seas, a crane drop during unloading, or water damage from a leaky hatch cover are all real risks, and the ocean carrier's liability is capped at $500 per package under COGSA unless you declare a higher value and pay the ad valorem rate.</p>
+
+                <h2>Country of Origin Marking — Get It Right or Get Fined</h2>
+                <p>Every article of foreign origin entering the US must be marked with its country of origin in a conspicuous, legible, and permanent manner (19 USC 1304). For machinery, that typically means a metal plate, etched marking, or permanent adhesive label attached to the machine itself — not just the packaging. The marking must be visible without disassembling the machine and must survive to the ultimate purchaser (the end user, not the distributor).</p>
+                <p>The requirement sounds trivial, but it trips up machinery importers regularly. A machine that arrives without proper origin marking gets flagged by CBP, stamped "not legally marked," and held at the port until the marking is applied — under CBP supervision, at your expense. If the marking cannot be applied at the port, the shipment may be exported back to China. The marking duty (an additional 10% ad valorem that applies on top of all other duties) can be assessed if the goods are released without proper marking and the error is discovered later.</p>
+                <p>For machinery, the marking should read "Made in China" or "Product of China" — "China" alone is insufficient. If the machine has multiple major components from different countries and undergoes substantial transformation in China, "Made in China" is correct. If the machine is assembled in China from mostly German or Japanese components, you may have a more complex origin determination, and a NAFTA-style marking may not apply. Consult your broker; get it right before the container ships.</p>
+
+                <h2>Practical Steps Before You Import</h2>
+                <p>Do not wait until the shipment is on the water to figure out what you owe. Work through these six steps before you cut the purchase order:</p>
+                <ol>
+                    <li><strong>Confirm the exact HTS code and List 1 status.</strong> Get a binding ruling from CBP if there is any ambiguity. A 10-digit code can mean the difference between 4.2% and 29.2%. The ruling process takes 30–60 days, so start early. A binding ruling is legally binding on CBP at all ports — it is the single best insurance policy you can buy against a classification dispute.</li>
+                    <li><strong>Run the full math.</strong> MFN + Section 301 + MPF (0.3464% of entered value, $31.67 minimum, $614.35 maximum) + HMF (0.125% on ocean freight). Do not just multiply the invoice price by 4.2% and call it done. Also factor in customs broker fees — typically $75 to $250 per entry for a standard formal entry — and any customs bond costs if your continuous bond is not sufficient.</li>
+                    <li><strong>Screen for AD/CVD orders.</strong> Have your broker check every HTS code against active anti-dumping and countervailing duty orders. This is a separate check from Section 301 and it is easy to miss. A bearing that clears Section 301 but has a 60% AD rate is a very expensive mistake. The AD cash deposit rate varies by producer, so you need to know exactly which Chinese factory is making your parts.</li>
+                    <li><strong>Check the USTR exclusion portal.</strong> Some machinery HTS codes have been granted product-specific exclusions — typically where there is no viable non-Chinese manufacturing alternative. If an exclusion exists for your code, any importer can use it, not just the original applicant. Exclusions are retroactive to the date listed in the Federal Register notice, so if one was granted six months ago and you paid the 25% on entries during that period, your broker can file for a refund via a Post-Summary Correction or protest.</li>
+                    <li><strong>Compare total landed cost against non-China origins.</strong> Once you factor in the 25% List 1 hit, machinery from Taiwan, South Korea, Germany, or Japan can become cost-competitive — sometimes cheaper — even if the unit price is higher. Run the comparison with real freight quotes and real duty rates for the alternative country of origin. A German CNC lathe at $62,000 with 4.2% MFN and zero Section 301 can easily beat a Chinese one at $50,000 with 29.2% combined duty once you do the math. Include freight — shipping from Germany costs more than shipping from Shanghai, but the duty savings usually more than offset it.</li>
+                    <li><strong>Do not misclassify to dodge List 1.</strong> Customs and Border Protection has a five-year lookback period for customs fraud. If you classify a CNC lathe as a general-purpose machine to avoid Section 301, you will get caught, and the penalties plus back duties plus interest will make the 25% look cheap. CBP's Centers of Excellence and Expertise (CEEs) have industry-specific auditors who know machinery classifications inside out. The Machinery CEE, based in Laredo, Texas, handles classification and valuation issues for Chapters 84 and 85 nationwide.</li>
+                </ol>
+
+                <h2>Frequently Asked Questions</h2>
+                <dl>
+                    <dt>What is the actual duty rate for Chinese machinery entering the US?</dt>
+                    <dd>For List 1 machinery: 4.2% MFN + 25% Section 301 = 29.2% total in tariff. Add MPF at 0.3464% and HMF at 0.125% for ocean shipments, and the effective all-in government-charge rate lands around 29.7% of CIF value. For non-List 1 machinery, the base MFN rate applies on its own, but most industrial equipment categories are on List 1. Always verify your specific HTS code — do not assume anything.</dd>
+
+                    <dt>Can I avoid Section 301 on machinery by shipping through a third country?</dt>
+                    <dd>No. The country of origin — where the machine was manufactured — determines the applicable duty rate, not the shipping route. A Chinese-made CNC mill shipped through Vietnam, transloaded in Singapore, and containerized in Malaysia still carries Section 301 because the origin is China. Transshipment specifically structured to evade Section 301 duties is customs fraud. CBP has gotten very good at detecting it — supply chain documentation, factory markings, and country-of-origin certificates all get scrutinized. Penalties for origin fraud include seizure of the goods, civil penalties up to the domestic value of the merchandise, and criminal referral in egregious cases.</dd>
+
+                    <dt>Are there any exclusions for Chinese machinery?</dt>
+                    <dd>Yes, but they are narrow. USTR has granted product-specific exclusions for certain machinery HTS codes, mostly where US buyers demonstrated that no non-Chinese manufacturing alternative exists and that the tariffs were causing disproportionate economic harm. Check the USTR exclusion portal for your specific HTS code. If an exclusion is in effect, any importer can claim it — you do not need to be the original applicant. Be aware that exclusions are temporary and get reviewed on a cycle; an exclusion that was active last year may not be active today. Mark the renewal dates on your calendar.</dd>
+
+                    <dt>Does the $800 de minimis threshold help with machinery imports?</dt>
+                    <dd>Not meaningfully. Individual machinery items, replacement parts, and components almost always exceed $800 in commercial value. Even small spares from a Chinese supplier typically invoice at $1,500 and up. Plan on full formal entry — classification, valuation, duty payment, and CBP documentation — for every machinery shipment. The de minimis threshold is designed for small consumer parcels, not industrial equipment. The one partial exception is factory samples valued under $800, which can enter under Section 321 if documented correctly.</dd>
+
+                    <dt>Is used machinery treated differently than new?</dt>
+                    <dd>The HTS classification and duty rates are identical — used machinery pays the same MFN and Section 301 rates as new machinery. What changes is the valuation process. CBP scrutinizes declared value on used equipment more closely because there is no clean factory invoice to reference. Bring solid documentation: the original purchase invoice, a third-party machinery appraisal, and detailed photos showing condition. The duty rate does not change, but a valuation dispute can hold your shipment at the port for weeks. If you are importing used Chinese machinery, also check whether it meets current OSHA and NFPA 79 standards — older Chinese machines frequently lack the guarding and electrical certifications US workplaces require.</dd>
+
+                    <dt>What documentation do I need for a smooth machinery entry?</dt>
+                    <dd>At minimum: a detailed commercial invoice showing seller, buyer, full product description, HTS code (verified by your broker), unit price, and total value; a packing list with weights and dimensions; the ocean bill of lading or air waybill; and your continuous customs bond or single-entry bond. If the machine has electrical components, have the NRTL certification (UL, ETL, CSA, or TUV) ready — CBP may ask for it at clearance. If you are claiming an exclusion, have the Federal Register notice citation. Your broker handles the CBP 7501 entry summary, but you need to provide the underlying data.</dd>
+
+                    <dt>How do I handle a CBP audit or request for information on a machinery entry?</dt>
+                    <dd>CBP issues CF-28 (Request for Information) and CF-29 (Notice of Action) forms as part of its audit and enforcement process. If you receive one, do not ignore it — the clock is ticking from the date on the form. Pull together the entry packet: commercial invoice, packing list, bill of lading, the CBP 7501 entry summary, proof of payment, and any product literature or specs that support your HTS classification. Your customs broker should handle the response, but you need to provide the documentation. If CBP proposes a rate advance (reclassification) on a CF-29, you have the right to file a protest within 180 days. For machinery, the most common audit triggers are undervaluation, misclassification to avoid Section 301, and failure to declare assists (tooling, molds, engineering provided by the US buyer to the Chinese factory).</dd>
+
+                    <dt>What is the one thing machinery importers get wrong most often?</dt>
+                    <dd>Underestimating the total. They see the 4.2% MFN rate, multiply their invoice total by it, and think that is the number. They miss Section 301 entirely, or they assume it was a temporary thing that went away. They forget MPF and HMF. They calculate duty against EXW instead of CIF. They do not screen for AD/CVD. And then the CBP bill arrives and it is three to four times what they budgeted. Read this guide, run the numbers the right way, and you will not be that importer.</dd>
+
+                    <dt>Can I get a refund if I overpaid Section 301 duties?</dt>
+                    <dd>Potentially, yes. If a product-specific exclusion is granted retroactively for your HTS code, your customs broker can file a Post-Summary Correction (PSC) or protest (CBP Form 19) to recover duties paid during the exclusion's effective period. Protests must be filed within 180 days of the date of liquidation — not the date of entry. Liquidations can happen months after entry, so you have more time than you might think. If your entries are still unliquidated (common for entries with Section 301, which CBP sometimes holds pending policy clarity), you can file a PSC at any time before liquidation. Ask your broker whether your entries are liquidated or open — that determines which mechanism you use.</dd>
+                </dl>
+
+                <p>Importing machinery from China is not rocket science, but it is detail work. The framework — MFN rate, Section 301 list check, MPF, HMF, CIF valuation — is straightforward once you learn it. The traps are in the details: the HTS code that is one digit off, the AD order you did not know about, the exclusion that expired last month, the freight cost you forgot to include in the dutiable value. Get a good customs broker. Double-check their work — brokers process thousands of entries and yours is one line item in their queue. Know your HTS code and your List 1 status before the broker asks. And run the calculator at the top of this page with real numbers before you wire the deposit to the Chinese factory. The math does not lie, and it is a lot cheaper to run it on a web page than to find out at the port.</p>
+
+                <p>For the full breakdown — Section 301 List 1 (25%), anti-dumping on bearings and components, and the complete layer cake for every Chinese industrial category — see the <a href="/china-to-us-tariff-panorama">2026 China–US Tariff Panorama</a>.</p>
+                <p style="margin-top: 30px;"><a href="/">&larr; Back to All Calculators</a></p>
+            </article>
+        </div>
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/china-to-mexico-maquila">IMMEX Nearshoring</a></li>
+                    <li><a href="/china-to-germany-customs">EU ATLAS Hub</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data—not affiliated with any official government customs agency.</p>
+        </div>
+    </footer>
+    <script src="rate-data.js"></script>
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

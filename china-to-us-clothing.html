@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>China to US Apparel Duty? (Free &amp; Instant Calculator)</title>
+    <meta name="description" content="Calculate import duty on clothing shipped from China to the US. 16.5% average tariff, $800 Section 321 de minimis, Section 301 rules — free instant estimator.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="canonical" href="https://www.dutycalc.online/china-to-us-clothing">
+    <meta property="og:title" content="China to US Apparel Duty Calculator — Free Instant Estimator">
+    <meta property="og:description" content="Calculate import duty on clothing shipped from China to the US. 16.5% average tariff, $800 Section 321 de minimis, Section 301 rules.">
+    <meta property="og:url" content="https://www.dutycalc.online/china-to-us-clothing">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="China to US Apparel Duty Calculator — Free Instant Estimator">
+    <meta name="twitter:description" content="Calculate import duty on clothing shipped from China to the US. 16.5% average tariff, $800 Section 321 de minimis, Section 301 rules.">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+
+        <header>
+            <h1>China to US Apparel Duty Calculator</h1>
+            <p>Free instant estimator for clothing, textiles, and fashion imports from China — duty, landed cost, and all the fine print in one place</p>
+        </header>
+
+        <!-- ═══ 广告位 1: 计算器上方 ═══ -->
+        <div class="trade-tip"><span class="tip-label">This lane is under active review</span><br><strong>Section 301 exclusions for Chinese apparel are up for renewal.</strong> USTR is accepting public comments through July 15, 2026. If your product line depends on a specific exclusion, now is the time to file. <a href="/section-301-china-tariffs-guide">Read the full Section 301 breakdown 鈫?/a></div>
+
+        <!-- ═══ 嵌入式计算器 ═══ -->
+        <div class="calculator-card" data-duty-rate="16.5" data-vat-rate="0" data-deminimis="800">
+            <h3>China → US Apparel Duty Estimator</h3>
+            <p class="card-desc">Enter your shipment's commercial value and shipping cost. The calculator applies the 16.5% composite duty rate and checks the $800 Section 321 de minimis threshold automatically.</p>
+            <div class="input-group">
+                <label>Garment Shipment Commercial Value (USD)</label>
+                <input type="number" class="item-value unit-input" value="1200" min="0" max="99999999" aria-label="Garment shipment commercial value in USD">
+            </div>
+            <div class="input-group">
+                <label>Shipping &amp; Insurance Cost (USD)</label>
+                <input type="number" class="shipping-cost unit-input" value="150" min="0" max="99999999" aria-label="Shipping and insurance cost in USD">
+            </div>
+            <button class="btn-calc" aria-label="Calculate China to US Apparel Duty">Calculate Landed Cost</button>
+            <div class="result-display result-hidden" aria-live="polite" aria-atomic="true">
+                <h4>Customs Clearing Summary:</h4>
+                <ul>
+                    <li>Import Tariff (16.5%): <span class="res-duty">--</span></li>
+                    <li>Import VAT / Sales Tax: <span class="res-vat">--</span></li>
+                    <li>Total Government Taxes: <span class="res-total-tax">--</span></li>
+                    <li>Total Estimated Landed Cost: <span class="res-landed">--</span></li>
+                </ul>
+            </div>
+            <a href="/china-to-us-clothing" class="detail-link" style="display:none;">View Full Country Guide &rarr;</a>
+        </div>
+
+        <!-- ═══ 广告位 2: 计算器与文章之间 ═══ -->
+        <div class="trade-tip"><span class="tip-label">Rate check</span><br>The 16.5% composite rate includes both MFN (base) and Section 301 (additional). Some knit cotton tops have had exclusions reinstated 鈥?check your specific 10-digit HTS code. Compare with <a href="/vietnam-to-us-textiles">Vietnam at 14.5% MFN (no Section 301) 鈫?/a></div>
+
+        <!-- ═══ SEO 长文区块 ═══ -->
+        <div>
+            <article class="seo-section">
+
+                <h2>How to Calculate Import Duty on Clothing Shipped from China to the US</h2>
+                <p>If you're importing t-shirts, dresses, activewear, or any kind of apparel from China, start with your <strong>CIF value</strong> — Cost of the goods plus Insurance and Freight to the US port. CBP uses CIF as the dutiable base, not the factory invoice. First-timers forget this all the time and under-budget by hundreds per shipment.</p>
+                <p>The MFN (Most-Favored-Nation) duty rate for Chinese apparel ranges from 12% to 32%, depending on garment type, fiber content, and how it's constructed. Our calculator uses 16.5% — a realistic composite for most knit and woven garments: t-shirts, polo shirts, hoodies, sweatshirts, trousers, dresses, jackets, activewear. But the exact 10-digit HTS code matters. A cotton knit pullover and a polyester woven jacket can land 5–10 percentage points apart. If you're importing at volume, check your code against the USITC tariff schedule before you quote a landed cost.</p>
+                <p>On top of the base rate, you've got <strong>Section 301</strong>. Since 2018, USTR has piled additional duties on a ton of Chinese goods — apparel included. Some categories got exclusions over the years; plenty didn't. If your HTS code still has an active Section 301 order, you're looking at an extra 7.5% to 25% on the same CIF base. The USTR review cycle never really stops — the current round covering Chapters 61, 62, and 63 accepts public comments through July 15, 2026. If you're placing a big order, pull up the latest USTR Federal Register notice first. Exclusion lists change between seasons. For the complete breakdown of which Section 301 list applies, how exclusions work, and how the rates have changed since 2018, read our <a href="/section-301-china-tariffs-guide">Section 301 China Tariffs guide</a>.</p>
+
+                <h2>The CIF Duty Formula — How Customs Actually Does the Math</h2>
+                <p>US Customs calculates on CIF. Here's the formula broken down:</p>
+                <ol class="content-list">
+                    <li><strong>CIF Value</strong> = Goods Value &plus; Shipping &plus; Insurance</li>
+                    <li><strong>Customs Duty</strong> = CIF Value &times; Duty Rate (16.5% for most Chinese apparel)</li>
+                    <li><strong>Total Landed Cost</strong> = CIF Value &plus; Customs Duty</li>
+                </ol>
+                <p>The US doesn't have a federal VAT, so the math stops after duty. That makes it simpler than shipping into the UK or EU, where VAT compounds on the duty-paid value. Simpler doesn't mean cheap: a $5,000 shipment with $500 freight lands at $5,500 CIF, and 16.5% duty comes to <strong>$907.50</strong>. That's nearly a grand in customs alone. If Section 301 applies on top, double it.</p>
+                <p>People screw this up by calculating on factory price only. CBP doesn't care what your FOB invoice says — they want CIF. A $3,000 FOB shipment with a $400 freight bill has a dutiable value of $3,400. Add shipping into your estimates from day one, not as an afterthought.</p>
+
+                <h3>Section 321 De Minimis — Orders Under $800 Pay Nothing</h3>
+                <p>Section 321 of the Tariff Act (19 U.S.C. § 1321) is why DTC apparel brands ship individual orders from Chinese fulfillment centers straight to US customers without customs charges. Shipments worth <strong>$800 or less</strong> per person, per day enter duty-free and tax-free. They clear under a simplified Type 86 (T86) electronic filing — no bond, no broker, no duty.</p>
+                <p>The $800 threshold applies to the <strong>goods value only</strong> — shipping and insurance don't count toward the cap. A $750 garment with $50 shipping stays under. A $801 garment with $1 shipping doesn't. It's a hard cliff, not a sliding scale.</p>
+                <p>But here's the catch: the $800 limit is per-person-per-day. If your supplier ships three boxes to the same address on the same day, CBP can aggregate them. Splitting a $2,000 order into smaller boxes to dance under the threshold is called structuring — and CBP treats it as fraud. Penalties for structured transactions hurt a lot more than just paying the duty.</p>
+                <p>Also: CBP has tightened Type 86 scrutiny at West Coast ports in 2026, particularly LAX/LGB. Average clearance time for T86 entries has stretched from 4 hours to 8–12 hours at peak. The threshold hasn't moved, but the queue has. Even de minimis shipments can sit. Compare thresholds across 10+ countries in our <a href="/de-minimis-value-guide">De Minimis Value Guide</a>.</p>
+
+                <h3>Which HS Chapters Apply to Apparel Imports</h3>
+                <p>US Customs sorts apparel into three HS chapters. Your chapter is the starting point for your duty rate, before any Section 301 or other trade remedies get added:</p>
+                <ul class="content-list">
+                    <li><strong>Chapter 61 (HTS 6101–6117):</strong> Knitted and crocheted garments — this covers t-shirts, sweaters, hoodies, activewear, polo shirts, socks, underwear, and any garment where the fabric is constructed by interlooping yarns. Knits generally carry slightly higher MFN rates than wovens because the US textile industry has historically sought more protection for knit categories. Typical rates: 14% to 32%.</li>
+                    <li><strong>Chapter 62 (HTS 6201–6217):</strong> Woven (non-knit) garments — dress shirts, blouses, suits, blazers, trousers, jeans, skirts, outerwear, and anything sewn from woven fabric. Woven classifications are more granular than knits; a men's cotton woven shirt (6205.20) carries a different rate than a women's cotton woven blouse (6206.30). Typical rates: 12% to 27%.</li>
+                    <li><strong>Chapter 63 (HTS 6301–6310):</strong> Made-up textile articles — blankets, bed linens, curtains, towels, tablecloths, tarpaulins, and other finished textile goods that aren't worn as clothing. These generally fall into the 3% to 12% range, lower than garments, but Section 301 may still apply depending on the specific subheading.</li>
+                </ul>
+                <p>Each of these chapters drills down to the 10-digit HTS level. The first six digits are harmonized globally; digits seven through ten are US-specific and define the exact duty rate. A cotton men's knitted t-shirt is 6109.10.00.04; a polyester women's woven dress is 6204.43.40.30. If you're importing at scale, you should know your HTS codes cold — misclassification is the single most common reason CBP issues penalty notices.</p>
+                <p>For specific trade lanes: see our <a href="/china-to-us-electronics">China to US Electronics</a>, <a href="/china-to-us-furniture">China to US Furniture</a>, and <a href="/china-to-us-machinery">China to US Machinery</a> calculators for category-specific duty breakdowns. For the product-wide picture across every origin country, our <a href="/apparel-import-duty">Apparel Import Duty</a> overview lays it out in one place.</p>
+
+                <h3>Knit vs. Woven — Why Fabric Construction Changes Your Duty Rate</h3>
+                <p>Knitted (Chapter 61) and woven (Chapter 62) garments aren't the same category, and the rate difference can be several points. A cotton knit t-shirt (6109.10) and a cotton woven button-down (6205.20) go into completely different HTS buckets — same fiber, different duty. Knits often land 2–4 points higher. The domestic knit industry lobbies harder on trade remedies, and it shows in the tariff schedule.</p>
+                <p>Not sure which is which? Knit fabric stretches — hold it up and you'll see interlocking loops. Woven fabric has perpendicular threads (warp and weft) and no give unless spandex is blended in. Check the seam: knit seams look like tiny chains; woven seams are straight stitched lines. CBP officers use the same test.</p>
+
+                <h3>Fabric Content — Cotton, Synthetics, Wool, and Silk All Get Different Rates</h3>
+                <p>The fiber that makes up the garment's outer shell determines the rate bucket. A 100% cotton hoodie and a 100% polyester hoodie can be 3–5 points apart. For Chinese apparel:</p>
+                <ul class="content-list">
+                    <li><strong>Cotton:</strong> Generally the highest rates. US cotton growers and textile mills have been effective at securing tariff protection, so cotton garments consistently land at the upper end of the Chapter 61/62 rate range. Expect 15% to 32% depending on the garment type.</li>
+                    <li><strong>Man-made fibers (polyester, nylon, acrylic):</strong> Rates tend to run 2-4 points lower than cotton equivalents. Synthetics don't compete with US agricultural interests, so they face slightly less protection. Typical range: 12% to 28%.</li>
+                    <li><strong>Wool:</strong> A mixed bag. Fine wool suiting and knitwear can carry premium rates (up to 25%), while coarser wool fabrics sometimes qualify for lower brackets. Wool's relatively small share of total Chinese apparel imports means it gets less political attention.</li>
+                    <li><strong>Silk:</strong> Often the lowest rates in the apparel category — sometimes as low as 2.5% to 6.5%. Silk is a niche import with no domestic US industry to protect, so it flies under the radar.</li>
+                </ul>
+                <p>For blended-fabric garments, CBP applies the <strong>essential character</strong> test: whichever fiber predominates by weight determines the classification. A 60% cotton / 40% polyester sweatshirt goes under the cotton subheading. If the blend is 50/50, things get complicated — hire a customs broker who specializes in textiles.</p>
+
+                <h3>Section 301 Tariffs on Chinese Apparel — The Stacking Effect</h3>
+                <p>Section 301 of the Trade Act of 1974 lets USTR tack extra tariffs onto goods from countries engaged in unfair trade practices. Chinese apparel has been in the crosshairs since 2018, and the exclusion list changes every few months — granted, expired, renewed, repeat.</p>
+                <p>The stacking part: if your garment has a 16.5% MFN base rate and falls under an active Section 301 order at 7.5%, your actual rate is <strong>24%</strong>. Not 16.5%. Both are assessed on the same CIF base and added together. For categories at the 25% Section 301 tier, you're above 40% combined. That's not a rounding error — that's a business model problem.</p>
+                <p>The current USTR exclusion review for Chapters 61, 62, and 63 accepts public comments through <strong>July 15, 2026</strong>. If your HTS code is excluded, you only pay the MFN rate. If it's not, you eat the surcharge. Exclusion lists shift — a category that's clear today might not be in six months. Check the latest USTR Federal Register notice before locking in a P.O.</p>
+                <p>Some importers work around this by shifting fabric types. A cotton knit pullover might be under Section 301 while a merino wool one in the same style isn't. Won't work for every product, but worth checking before you commit to a fabric.</p>
+
+                <h3>Samples, Prototypes, and Pattern Pieces — Do They Pay Duty?</h3>
+                <p>Fabric swatches, fit samples, prototypes, and pattern pieces technically fall under the same HTS classification rules as commercial shipments. However, CBP will usually clear low-value samples informally — especially if they're clearly marked "SAMPLE — NOT FOR RESALE" and have negligible commercial value. The $800 Section 321 threshold still applies: individual samples valued under $800 generally breeze through without formal entry or duty payment.</p>
+                <p>If you're shipping a full set of pre-production samples worth several thousand dollars, though, expect to pay duty. CBP doesn't care that they're "just samples" — the value is what matters, not the intended use. For high-value sample shipments, have your broker file a formal entry and pay the applicable MFN rate.</p>
+
+                <h3>Commercial vs. Personal Shipments — Different Rules</h3>
+                <p>CBP draws a line between commercial and personal shipments, and it matters more than you'd expect. Anything imported for resale or business use is commercial — yes, even if you're a one-person Etsy shop. Personal means you bought it for yourself.</p>
+                <p>The practical difference: personal shipments between $800 and $2,500 can clear as informal entries with minimal paperwork. Commercial shipments above $800 almost always need a formal entry plus a customs bond — more forms, higher broker fees, and a real chance of CBP opening your boxes. Same $800 de minimis either way, but above it, commercial importers carry a heavier procedural load.</p>
+                <p>Watch out for shipments labeled "personal" that are obviously inventory. CBP opens a box of 50 identical t-shirts with tags headed to your apartment, they'll reclassify it as commercial on the spot. The importer of record owns the classification — not the Chinese shipper who wrote "gift" on the waybill.</p>
+
+                <h3>How to Fill Out Customs Paperwork for Apparel Shipments</h3>
+                <p>Getting the paperwork right is half the battle. Every apparel shipment entering the US needs at minimum a <strong>commercial invoice</strong> and a <strong>CBP Form 3461</strong> (Entry/Immediate Delivery) or the electronic equivalent filed through ACE (Automated Commercial Environment). For formal entries (above $2,500 or any commercial shipment above $800), you'll also need a <strong>customs bond</strong> — either a single-entry bond for that shipment or a continuous bond if you import regularly.</p>
+                <p>The commercial invoice must show, in English: seller and buyer names and addresses, a detailed description of each garment (including fiber content, knit/woven construction, and gender), quantity, unit value, total value, and the country of origin. Vague descriptions like "clothing" or "garments" are a red flag — CBP will hold the shipment until you provide a proper description. Write "100% cotton men's knitted t-shirts" not "shirts."</p>
+                <p>For the HTS classification, you need the full 10-digit code. If you're unsure, hire a licensed customs broker — the broker's fee ($75-$200 per entry) is almost always cheaper than the penalty for a misclassification audit. Brokers also know which categories are under Section 301, which have active anti-dumping orders, and which qualify for special programs like the Generalized System of Preferences (though China is not a GSP beneficiary).</p>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>What is the duty rate for clothing shipped from China to the US?</h3>
+                <p>For most common garments the composite rate is around <strong>16.5%</strong>, but the actual MFN range is wide — 12% to 32% depending on the garment type, fiber, and construction.</p>
+                <p>Knits (Chapter 61) generally run higher than wovens (Chapter 62). Cotton gets hit harder than polyester. Silk is surprisingly cheap — sometimes as low as 2.5%. And these are all base MFN numbers. If Section 301 applies to your HTS code, add another 7.5% to 25% on top.</p>
+                <p>Everything is calculated on the CIF value (goods + freight + insurance), not just the factory invoice. Look up your exact 10-digit HTS code against USITC before quoting.</p>
+
+                <h3>Do I have to pay duty on clothing shipments from China under $800?</h3>
+                <p>No. Shipments with a goods value of <strong>$800 or less</strong> per person per day enter duty-free under Section 321. They clear via a simplified Type 86 electronic filing — no duty, no tax, no bond.</p>
+                <p>The $800 cap applies to goods value only, not shipping. $750 in garments + $50 shipping = under. $801 in garments + $1 shipping = over, and the full CIF becomes dutiable. No sliding scale — it's a cliff.</p>
+                <p>Per-person-per-day means CBP can aggregate multiple boxes to the same address from the same supplier on the same day. Breaking a bigger order into sub-$800 chunks is structuring — don't do it.</p>
+
+                <h3>How do Section 301 tariffs affect my clothing imports from China?</h3>
+                <p>Section 301 tariffs are an <strong>extra layer</strong> on top of the standard MFN rate, applied to Chinese-origin goods specifically. For apparel the surcharge is usually 7.5% to 25%, assessed on the same CIF base.</p>
+                <p>A garment with 16.5% MFN + 7.5% Section 301 = <strong>24% effective rate</strong>. At the 25% Section 301 tier, you're above 40%. The combined rate applies to the full CIF value.</p>
+                <p>USTR reviews exclusions periodically. The current round for textile Chapters 61–63 is open through July 15, 2026. If your HTS code has an exclusion, you skip the Section 301 layer entirely. If it doesn't, you pay both. Exclusion lists are not permanent — a category that's excluded today might not be in six months. Check before placing large orders.</p>
+
+                <h3>Should I source apparel from China or Vietnam for the US market?</h3>
+                <p>Vietnam has become the world's second-largest apparel exporter and offers one key advantage: no Section 301 tariffs. Chinese apparel at 16.5% MFN + 7.5% Section 301 = 24% combined. Vietnamese apparel at 14.5% MFN + 0% Section 301 = 14.5%. That's a 9.5 percentage-point difference. But Vietnam's per-unit manufacturing costs run higher on some categories. The break-even depends on the specific garment. Run both calculators — <a href="/china-to-us-clothing">China</a> and <a href="/vietnam-to-us-textiles">Vietnam</a> — with your actual numbers. And check our <a href="/section-301-china-tariffs-guide">Section 301 guide</a> to understand exactly what that extra 7.5% covers.</p>
+
+                <p>For the full breakdown of Section 301 List 3 (7.5%), MFN rates, anti-dumping orders, and the de minimis cliff across every Chinese product category, see the <a href="/china-to-us-tariff-panorama">2026 China–US Tariff Panorama</a>.</p>
+                <p style="margin-top: 30px;"><a href="/">&larr; Back to All Calculators</a></p>
+            </article>
+        </div>
+
+        <!-- ═══ 广告位 3: 页脚上方 ═══ -->
+        
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/china-to-mexico-maquila">IMMEX Nearshoring</a></li>
+                    <li><a href="/china-to-germany-customs">EU ATLAS Hub</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data—not affiliated with any official government customs agency.</p>
+        </div>
+    </footer>
+
+    <!-- 挂载计算引擎与税率数据库 -->
+    <script src="rate-data.js"></script>
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

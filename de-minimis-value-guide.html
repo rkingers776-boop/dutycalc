@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>De Minimis Value Checker — DutyCalc Online</title>
+    <meta name="description" content="Quick evaluation tool to cross-examine global tax-free import limits. Compare de minimis thresholds across trade corridors and understand when duties and VAT kick in.">
+    <meta property="og:title" content="De Minimis Value Checker — DutyCalc Online">
+    <meta property="og:description" content="Quick evaluation tool to cross-examine global tax-free import limits. Compare de minimis thresholds across trade corridors and understand when duties and VAT kick in.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.dutycalc.online/de-minimis-value-guide">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="De Minimis Value Checker — DutyCalc Online">
+    <meta name="twitter:description" content="Quick evaluation tool to cross-examine global tax-free import limits. Compare de minimis thresholds across trade corridors and understand when duties and VAT kick in.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+    <link rel="canonical" href="https://www.dutycalc.online/de-minimis-value-guide">
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+        <header>
+            <h1>De Minimis Value Checker Guide</h1>
+            <p>Understanding tax-free import thresholds around the world — and why they matter more than the duty rate itself</p>
+        </header>
+
+        <div>
+            <section class="seo-section">
+                <h2>What Is a De Minimis Threshold?</h2>
+                <p>The de minimis threshold is the maximum value of goods that can enter a country <strong>duty-free and tax-free</strong>. Ship below it and you pay nothing — no customs duty, no VAT, no processing fees. Cross above it by even one dollar (or euro, or pound), and the full tax bill applies. It is hands-down the most important number in cross-border e-commerce logistics, yet it's the one first-time importers almost always overlook.</p>
+
+                <h3>Why We Built This Checker</h3>
+                <p>Not every trade lane has a meaningful de minimis. Some corridors — like the hypothetical zero-threshold baseline — tax <em>everything</em> from the first unit of currency. Our <strong>De Minimis Value Checker</strong> uses a <strong>0.0% duty rate, 0% VAT, and a $0 de minimis</strong> to show you the extreme: a scenario where nothing is taxed because the rates themselves are zero, regardless of order size. Use it as a reference point to cross-examine what a real de minimis does on other calculators — drop the same numbers into different trade-lane tools and see how the tax bill changes.</p>
+
+                <h3>Global De Minimis Comparison</h3>
+                <p>Here's how the world stacks up on tax-free import limits:</p>
+                <ul class="content-list">
+                    <li><strong>United States — USD $800:</strong> Section 321 of the Tariff Act. The most generous de minimis in the developed world. Goods valued at $800 or less per person per day enter duty-free. This is why DTC brands ship from China to US customers without customs friction.</li>
+                    <li><strong>European Union — €22 to €150:</strong> The EU scrapped its €22 VAT exemption in July 2021. Now every euro of import attracts VAT (via the IOSS scheme), but duty only kicks in above €150. It's a split threshold — VAT from €1, duty from €150.</li>
+                    <li><strong>United Kingdom — £15 to £135:</strong> Post-Brexit, the UK removed the £15 VAT exemption. Consignments under £135 now have VAT collected at the point of sale by the seller. Goods over £135 pay VAT and duty at the border. It's complicated, and that's exactly why the de minimis matters.</li>
+                    <li><strong>Canada — CAD $20 to $150:</strong> CAD $20 for duty exemption; CAD $40 for GST on gifts; CAD $150 for goods under the Courier Imports Remission. The layering means you need to check which threshold applies to your specific shipment type.</li>
+                    <li><strong>Australia — AUD $1,000:</strong> One of the higher thresholds globally, based on the FOB goods value. Once you cross AUD $1,000, full duty and GST apply on the CIF total.</li>
+                    <li><strong>Mexico — MXN $50:</strong> On the other end of the spectrum. Almost anything commercial triggers the full duty and IVA treatment.</li>
+                </ul>
+
+                <p>The US $800 de minimis is the most generous in the developed world. But there's a catch — Section 301 tariffs on Chinese goods apply once you're above $800, adding 7.5-25% on top of MFN rates. Our <a href="/section-301-china-tariffs-guide">Section 301 guide</a> explains what happens after you cross the de minimis threshold.</p>
+
+                <p><strong>July 2026 update:</strong> The $800 exemption is under active legislative and administrative pressure. CBP has tightened Type 86 enforcement, and the De Minimis Reciprocity Act (H.R. 1452) could eliminate de minimis for Chinese goods entirely. We've published a detailed breakdown of the reform proposals, the CBP enforcement changes already in effect, and what the numbers look like under each scenario: <a href="/section-321-de-minimis-reform-2026">Section 321 De Minimis Reform 2026 — the full analysis</a>.</p>
+
+                <h3>De Minimis vs. Formal Entry</h3>
+                <p>Staying under the de minimis doesn't just dodge taxes — it also skips the formal customs entry process. Formal entry means filing a detailed customs declaration, paying brokerage fees, and potentially waiting days for clearance. Informal entry (below the threshold) is lighter, faster, and cheaper. For e-commerce, the difference between informal and formal entry can mean the difference between a profitable sale and a margin-killer.</p>
+
+                <h3>How to Use This Checker Alongside Other Tools</h3>
+                <p>Enter the same cargo value and shipping cost into multiple calculators on this site — the De Minimis Value Checker (0% duty, 0% VAT, $0 threshold) gives you the <strong>base CIF landed cost with zero tax</strong>. Then plug the same numbers into a real trade lane like China to US Apparel (16.5% duty, $800 de minimis) or China to Germany (4.2% duty, 19% VAT, €150 de minimis). The difference between the two results is what taxes, thresholds, and trade policy actually cost you. That's the insight this tool is built to surface.</p>
+
+                <p>De minimis tells you IF you pay. The HTS code tells you HOW MUCH. Our <a href="/hscode-duty-estimator">HS Code Duty Estimator</a> uses a 5.5% standard baseline to estimate what you'll owe once you cross the threshold.</p>
+
+                <h3>Which de minimis threshold matters most for my business?</h3>
+                <p>It depends on your trade lane and average order value. If you ship from China to US consumers and your AOV is under $800: Section 321 de minimis is your best friend — zero duty, zero formal entry. If you ship from China to UK consumers: the old £15 duty de minimis (scrapped in 2021) was almost useless for anything beyond a phone case, but the £135 consignment rule's VAT mechanism is what you actually need to understand. If you ship from China to EU consumers: the €150 IOSS threshold is the key number — stay under it and use IOSS for a clean customer experience. Run your numbers through our country-specific calculators — <a href="/">start here</a> and pick your trade route.</p>
+
+                <p><a href="/">&larr; Back to All Calculators</a></p>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/china-to-mexico-maquila">IMMEX Nearshoring</a></li>
+                    <li><a href="/china-to-germany-customs">EU ATLAS Hub</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data&mdash;not affiliated with any official government customs agency.</p>
+        </div>
+    </footer>
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

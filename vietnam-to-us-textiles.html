@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>Vietnam to US Apparel Duty? (Free &amp; Instant Calculator)</title>
+    <meta name="description" content="Calculate US import duties on Vietnamese apparel — 14.5% average MFN tariff, no Section 301, $800 de minimis. Instant landed cost estimates for Southeast Asian garment supply chains.">
+    <link rel="canonical" href="https://www.dutycalc.online/vietnam-to-us-textiles">
+    <meta property="og:title" content="Vietnam to US Apparel Duty? (Free &amp; Instant Calculator)">
+    <meta property="og:description" content="Calculate US import duties on Vietnamese apparel — 14.5% average MFN tariff, no Section 301, $800 de minimis.">
+    <meta property="og:url" content="https://www.dutycalc.online/vietnam-to-us-textiles">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vietnam to US Apparel Duty? (Free &amp; Instant Calculator)">
+    <meta name="twitter:description" content="Calculate US import duties on Vietnamese apparel — 14.5% average MFN tariff, no Section 301, $800 de minimis.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+
+        <header>
+            <h1>Vietnam to US Apparel Duty Calculator</h1>
+            <p>Vietnam is now the world's second-largest garment exporter, and US brands have poured billions into shifting production there. The average MFN duty on Vietnamese apparel is <strong>14.5%</strong> — no Section 301 surcharge, just the base Most Favored Nation rate. Section 321 de minimis ($800 per person per day) applies here too, making small DTC shipments duty-free.</p>
+            <p>Below we break down the math, the origin rules, the transshipment risks, and why the China-to-Vietnam pivot is reshaping the industry. Whether you are a DTC brand evaluating your first Vietnamese factory or an established importer comparing landed costs across countries, the numbers below will anchor your sourcing decisions.</p>
+        </header>
+
+        <!-- ═══ 广告位 1: 计算器上方 ═══ -->
+        <div class="trade-tip"><span class="tip-label">Vietnam is not a tariff-free China replacement</span><br><strong>14.5% MFN still bites.</strong> Yes, it is lower than China's Section 301-loaded 16.5%, but it is not zero. And Vietnam has its own origin verification problems 鈥?US CBP is watching for transshipment through Vietnam to dodge China tariffs. <a href="/china-to-us-clothing">See the China鈫扷S apparel breakdown 鈫?/a></div>
+
+        <!-- ═══ 嵌入式计算器 ═══ -->
+        <section class="calculator-section" data-duty-rate="14.5" data-vat-rate="0" data-deminimis="800">
+            <div class="calculator-card">
+                <h3>Vietnam &rarr; US Apparel Duty Estimator</h3>
+                <p class="card-desc">Enter your shipment's commercial value and shipping cost. The calculator applies the 14.5% composite duty rate and checks the $800 Section 321 de minimis threshold automatically.</p>
+                <div class="input-group">
+                    <label>Apparel Shipment Value (USD)</label>
+                    <input type="number" id="calc-value" class="item-value unit-input" value="5000" min="0" max="99999999" aria-label="Apparel shipment value in USD">
+                </div>
+                <div class="input-group">
+                    <label>Shipping &amp; Insurance Cost (USD)</label>
+                    <input type="number" id="calc-shipping" class="shipping-cost unit-input" value="300" min="0" max="99999999" aria-label="Shipping and insurance cost in USD">
+                </div>
+                <button type="button" id="calc-button" class="btn-calc" aria-label="Calculate Vietnam to US Apparel Duty">Calculate Landed Cost</button>
+                <div class="result-display result-hidden" id="calc-results" aria-live="polite" aria-atomic="true">
+                    <h4>Customs Clearing Summary:</h4>
+                    <ul>
+                        <li>Import Tariff (14.5% MFN): <span class="res-duty" id="result-duty">--</span></li>
+                        <li>Import VAT / Sales Tax: <span class="res-vat" id="result-vat">--</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ 广告位 2: 计算器与文章之间 ═══ -->
+        <div class="trade-tip"><span class="tip-label">Origin rules are everything</span><br>If your fabric is Chinese but cut-and-sewn in Vietnam, does it qualify as Vietnamese origin? The answer depends on the specific HTS rule of origin 鈥?and CBP has gotten very good at asking this question. <a href="/eu-to-uk-tca-origin-rules">How origin rules work (EU-UK example) 鈫?/a></div>
+
+        <!-- ═══ SEO 长文区块 ═══ -->
+        <div>
+            <article class="seo-section">
+
+                <h2>US Customs Duty on Vietnamese Apparel — How the Math Works</h2>
+                <p>Vietnam is the world's second-largest apparel exporter after China. US brands have shifted billions in sourcing there over the past decade, and the trend has only accelerated as Section 301 tariffs on Chinese goods have made Vietnam the default alternative for many importers. In 2025, Vietnam shipped over $18 billion in textiles and apparel to the US market — up from roughly $9 billion a decade earlier, a doubling that mirrors the decline in China's apparel export share over the same period.</p>
+                <p>The MFN rate for Vietnamese garments averages <strong>14.5%</strong> — that blended number covers knit and woven tops, bottoms, outerwear, and activewear across Chapters 61 and 62. No Section 301 applies to Vietnamese origin goods, and that is the key structural advantage over China. US Customs calculates duty on the <strong>CIF value</strong> — Cost of the goods plus Insurance and Freight to the US port. Budget on the factory invoice alone and you leave hundreds of dollars per shipment unaccounted for.</p>
+                <p>To see how this plays out on a real shipment, take $5,000 worth of jackets sourced from a factory in Ho Chi Minh City. Add $300 in ocean freight and insurance, and your CIF value comes to $5,300. Duty at 14.5% lands at <strong>$768.50</strong>. There is no VAT or sales tax on US imports — the math stops after duty plus ancillary fees.</p>
+                <p>The Merchandise Processing Fee (MPF) — a flat 0.3464% of the entered value with a $27.75 minimum and $538.40 maximum — adds <strong>$18.36</strong> on this shipment. The Harbor Maintenance Fee (HMF), at 0.125% of cargo value, tacks on <strong>$6.63</strong>. Total government charges come to <strong>$793.49</strong>, and your landed cost sits at <strong>$6,093.49</strong>.</p>
+                <p>Now run the same numbers through the China lane. China's MFN for the same category is 16.5%, and Section 301 layers on another 7.5% for a combined 24%. That shipment incurs <strong>$1,272</strong> in duty alone — $479 more on one order. Across a 40-foot container with a declared value of $80,000, the gap widens to over $7,600. That differential is why "shift to Vietnam" is a spreadsheet decision, not a slogan.</p>
+                <p>For importers running four to six containers per year, the annual duty savings from using Vietnam over China can exceed $30,000 — enough to fund a dedicated sourcing agent in Ho Chi Minh City, annual factory audits, and compliance documentation with money left over.</p>
+                <p>One more comparison: a $15,000 shipment of activewear from Vietnam at 14.5% pays $2,175 in duty. The same shipment from China at 24% pays $3,600. That $1,425 difference covers a round-trip flight to Ho Chi Minh City for a factory visit. The math favors Vietnam for nearly every apparel category where Section 301 applies to the Chinese equivalent.</p>
+                <p>For importers running mixed-country supply chains, the CIF calculation gets more nuanced. If you ship fabric from China to Vietnam for cut-and-sew and then export the finished garment from Vietnam, the country of origin is Vietnam — the CIF basis includes the Chinese fabric cost embedded in the ex-factory price, but the duty rate stays at 14.5% because the origin changed. That hybrid model captures both China's fabric pricing advantage and Vietnam's duty-rate advantage in a single supply chain. For the full apparel-duty picture across every origin, our <a href="/apparel-import-duty">Apparel Import Duty</a> overview lays it out in one place.</p>
+
+                <h2>The CIF Duty Formula — How Customs Does the Math</h2>
+                <p>US Customs calculates on CIF. Here's the formula broken down step by step:</p>
+                <ol class="content-list">
+                    <li><strong>CIF Value</strong> = Goods Value &plus; Shipping &plus; Insurance</li>
+                    <li><strong>Customs Duty</strong> = CIF Value &times; Duty Rate (14.5% for most Vietnamese apparel)</li>
+                    <li><strong>Merchandise Processing Fee (MPF)</strong> = 0.3464% of entered value (min $27.75, max $538.40)</li>
+                    <li><strong>Harbor Maintenance Fee (HMF)</strong> = 0.125% of cargo value (ocean shipments only)</li>
+                    <li><strong>Total Landed Cost</strong> = CIF Value &plus; Customs Duty &plus; MPF &plus; HMF</li>
+                </ol>
+                <p>The US doesn't have a federal VAT, so the math stops after duty and fees. That makes it simpler than shipping into the UK or EU, where VAT compounds on the duty-paid value. Simpler doesn't mean cheap: a $10,000 shipment with $600 freight lands at $10,600 CIF, and 14.5% duty comes to <strong>$1,537</strong>. Add MPF and HMF and you're at roughly $1,575 in customs costs.</p>
+                <p>Compare that to the EU: the same $10,600 CIF shipment entering Germany would pay roughly 12% duty ($1,272), then 19% VAT on top of the duty-paid value ($2,255), for a total government bite of $3,527 — more than double the US figure. The absence of VAT is one of the most overlooked advantages of importing into the US market, and it applies equally regardless of whether your goods come from Vietnam, China, or anywhere else.</p>
+                <p>People get this wrong by calculating on factory price only. CBP does not care what your FOB invoice says — they want CIF. A $3,000 FOB shipment with a $400 freight bill has a dutiable value of $3,400. Add shipping into your estimates from day one, not as an afterthought.</p>
+                <p>Note that the HMF applies only to ocean freight. Air shipments skip the HMF entirely, which saves a small fraction but is usually dwarfed by the higher air freight cost. The MPF applies to all formal entries regardless of transport mode — if your goods clear through a formal entry, you pay the MPF. Informal entries (under $2,500) carry a lower flat MPF of $2.00 to $9.00 per entry depending on whether it is manual or electronic.</p>
+
+                <h2>Why Vietnam Instead of China — The Numbers</h2>
+                <p>Three structural advantages tilt the scale. First, <strong>no Section 301 tariffs</strong> — Vietnamese goods pay only the base MFN rate, saving 7.5 percentage points or more versus China on most apparel categories. That single line item can erase a mid-single-digit margin in retail, so it matters enormously at scale.</p>
+                <p>Second, <strong>competitive and stable labor costs</strong>. Vietnam's garment workers earn roughly half of what their Chinese counterparts do, and that gap has widened as Chinese coastal wages have climbed past $500 per month while Vietnamese wages hold in the $250–$300 range. Vietnam's minimum wage varies by region — Zone 1 (Ho Chi Minh City and Hanoi) sits at roughly $200/month, while Zone 4 (rural areas) is closer to $140/month. Even with overtime and social insurance factored in, the all-in labor cost per garment is materially lower than China.</p>
+                <p>Third, <strong>improving trade access</strong> — Vietnam belongs to the CPTPP and holds an EU Free Trade Agreement, though it has no bilateral FTA with the United States. That last point deserves emphasis: Vietnam pays full MFN rates to the US, so the savings come entirely from dodging Section 301, not from a preferential rate. The 2000 US-Vietnam Bilateral Trade Agreement granted Vietnam PNTR status, entitling it to MFN rates — but MFN is still a taxed rate.</p>
+                <p>The catch: for certain fabric and industrial textile categories where China's MFN is actually lower than Vietnam's, China can still come out cheaper even after Section 301. Some Chinese technical textiles carry 0% MFN; Vietnam's equivalents are often 8–14%. Always run the numbers per product — use our <a href="/china-to-us-clothing">China-to-US clothing calculator</a> and our <a href="/section-301-china-tariffs-guide">Section 301 guide</a> to compare side by side.</p>
+                <p>One more nuance: Vietnam's CPTPP membership reduces duties on exports to Canada, Japan, Mexico, and Australia — but not to the US. If you are shipping the same garment to multiple markets from a single Vietnamese factory, you will pay 14.5% MFN into the US while getting preferential (often zero) rates into CPTPP member countries. For brands that sell globally, Vietnam's multi-market duty profile can be a strategic advantage even though the US leg remains fully taxed.</p>
+
+                <h2>The $800 De Minimis — Same Rules, Same Game</h2>
+                <p>Section 321 applies equally to Vietnam and China — shipments valued under $800 per person per day enter the United States duty-free. For DTC brands that dropship single garments from Vietnamese factories directly to US customers, most orders slide through with zero customs, exactly like the China-to-US lane.</p>
+                <p>Vietnamese fulfillment centers in Ho Chi Minh City and Hanoi have built substantial DTC infrastructure in recent years — pick-and-pack warehouses, API-integrated order management, and last-mile handoff to US-bound carriers. Most major Chinese 3PLs now operate Vietnamese facilities as a hedge against Section 301 exposure. The operational experience gap between Vietnamese and Chinese fulfillment has narrowed significantly since 2023.</p>
+                <p>The de minimis threshold turns on goods value only, not shipping. A $750 garment with $50 in freight stays under. A $801 garment with $1 in freight goes over — and the full CIF value becomes dutiable. It is a hard cliff, not a sliding scale. If you are shipping ten $60 t-shirts to ten different US addresses in one day, each of those is a separate Section 321 entry and each qualifies independently.</p>
+                <p>However, if you ship $900 of goods to one address, the full value is dutiable — not just the $100 over the threshold. Splitting a larger order into sub-$800 boxes to avoid duty is called structuring, and CBP treats it as fraud. CBP has tightened Type 86 scrutiny at both East and West Coast ports in 2026, and average clearance times for de minimis entries have stretched from 4 hours to 8–12 hours at peak. The threshold hasn't moved, but the queue has. Read the full breakdown in our <a href="/de-minimis-value-guide">de minimis value guide</a>.</p>
+
+                <h2>Rules of Origin — What Counts as "Made in Vietnam"</h2>
+                <p>To claim Vietnamese origin and secure the 14.5% MFN rate instead of China's 24% Section-301-inclusive rate, the garment must undergo <strong>substantial transformation</strong> in Vietnam. Cutting fabric and sewing it into a finished garment qualifies — the Harmonized System chapter changes from fabric (Chapter 52, 54, 55, or 60) to garment (Chapter 61 or 62). That chapter jump is the legal test CBP applies.</p>
+                <p>Simply re-packaging or re-labeling Chinese-made clothes in a Vietnamese warehouse does <em>not</em> change origin under any circumstance. CBP is increasingly scrutinizing transshipment through Vietnam, and their enforcement posture has sharpened since 2023. If the fabric came from China but the cut-and-sew happened in Vietnam, that is legitimate Vietnamese origin — the manufacturing step happened there. The fabric origin does not automatically disqualify the garment.</p>
+                <p>But the reverse does not hold. If the finished garment came from China and was merely re-labeled or re-tagged in a Vietnamese facility, that is customs fraud. CBP defines substantial transformation as "a new and different article of commerce with a name, character, and use distinct from the original material." Cutting and sewing meets that standard. Unpacking, ironing, and re-tagging does not.</p>
+                <p>Note that for preferential trade agreements (like the CPTPP or EU-Vietnam FTA), the origin rules are stricter than the CBP substantial transformation test. Those agreements often require "yarn-forward" origin — meaning the yarn itself must be spun in Vietnam, not just the fabric cut and sewn there. For US imports under MFN, the yarn-forward rule does <em>not</em> apply. The fabric can come from anywhere, including China, as long as Vietnam does the substantive manufacturing.</p>
+                <p>Keep your factory production records, fabric purchase receipts, and cut-and-sew documentation for every PO. CBP can audit origin claims retroactively for <strong>five years</strong> from the date of entry, and a single finding of fraud can cascade into penalties across every shipment under that same claim. Documentation built before your first shipment is always cheaper than documentation scrambled together after a CF-28 arrives.</p>
+
+                <h2>Key HS Chapters for Vietnamese Apparel</h2>
+                <p>US Customs sorts apparel into four main HS chapters. Your chapter is the starting point for your duty rate, before any trade remedies or special program claims get applied:</p>
+                <ul class="content-list">
+                    <li><strong>Chapter 61:</strong> Knitted and crocheted garments — t-shirts (6109), sweaters (6110), polo shirts, hoodies, activewear, socks, and underwear. Vietnam's knitwear belt around Ho Chi Minh City and Binh Duong province is world-class, with factories running advanced circular and flat-bed knitting machines for high-gauge performance fabrics. Knits generally carry 14% to 32% MFN, with cotton knits at the high end.</li>
+                    <li><strong>Chapter 62:</strong> Woven garments — dress shirts (6205), trousers (6203/6204), dresses (6204), blazers, skirts, and outerwear. Northern Vietnam (Hanoi, Hai Phong, Hai Duong) specializes in woven production with deep experience in complex construction like tailored jackets and lined trousers. Wovens range from 12% to 27% MFN, with cotton wovens typically 2–4 points lower than knit equivalents.</li>
+                    <li><strong>Chapter 63:</strong> Made-up textile articles — blankets, curtains, bed linens, towels, and home textiles. A growing segment as Vietnamese factories move up the value chain beyond basic cut-and-sew. Generally 3% to 12% MFN, lower than garments. For Vietnamese origin it is straight MFN with no Section 301.</li>
+                    <li><strong>Chapter 64:</strong> Footwear — separate from apparel but Vietnam is a major footwear exporter and many importers run mixed containers. MFN rates range from 6% to 37.5% depending on type. Athletic shoes, leather dress shoes, and sandals each have distinct HTS subheadings. Nike, Adidas, and Puma all run substantial production out of southern Vietnam.</li>
+                </ul>
+                <p>Each chapter drills down to the 10-digit HTS level. The first six digits are harmonized globally; digits seven through ten are US-specific and define the exact duty rate. A cotton men's knitted t-shirt is 6109.10.00.04; a polyester women's woven dress is 6204.43.40.30. If you import at volume, know your 10-digit HTS codes cold — misclassification is the single most common reason CBP issues penalty notices.</p>
+                <p>For blended-fabric garments — common in Vietnamese activewear where polyester-spandex and cotton-polyester blends are standard — CBP applies the <strong>essential character</strong> test. Whichever fiber predominates by weight determines the classification. A 60% cotton / 40% polyester sweatshirt goes under the cotton subheading. If the blend is 50/50, the tiebreaker is the fiber that appears first in the HTS enumeration, which generally favors the higher-rate classification. Get a fiber-content lab test if there is any ambiguity.</p>
+
+                <h2>Transshipment Risk — What CBP Is Looking For</h2>
+                <p>CBP's Textile Enforcement Branch has flagged Vietnam as a high-risk transshipment country, and enforcement actions have increased measurably since 2023. Red flags include: Chinese-language care labels inside "Made in Vietnam" garments, shipping documents showing a Chinese port of loading paired with a Vietnamese certificate of origin, and factory addresses that don't match known Vietnamese industrial zones.</p>
+                <p>CBP also watches for sudden Vietnam origin claims from companies that previously exported the same product under the same HTS code from China. They cross-reference Vietnamese export data with US import data, and discrepancies trigger audits. A quick Google Earth check can sink a claim before any physical inspection — CBP uses satellite imagery to verify that a claimed factory address is actually a garment factory and not a residential villa.</p>
+                <p>CBP has also begun using chemical isotope testing on fabric samples to verify country of origin. Cotton grown in China has a different isotopic fingerprint than cotton grown in Vietnam or India. While this technique is not yet widely deployed for every shipment, it has been used in high-profile transshipment cases and is expected to become more common. If your fabric truly originated in Vietnam, the test confirms it. If it came from China and was re-labeled, the test exposes it.</p>
+                <p>If CBP suspects transshipment, they detain the goods and issue a <strong>CF-28 Request for Information</strong>. You need to prove the Vietnamese manufacturing process with factory floor records, utility bills, raw material purchase invoices, and labor records. You have 30 days to respond, with one 30-day extension available if requested before the deadline.</p>
+                <p>If you cannot produce the documentation, the goods are reclassified as Chinese origin and assessed at the full China rate — MFN plus Section 301 — plus monetary penalties up to the total entered value. Repeat offenders face enhanced penalties and possible debarment. The burden of proof sits on the importer: CBP does not need to prove transshipment; you need to disprove it.</p>
+
+                <h2>Vietnam's Apparel Production Regions — Why It Matters for Sourcing</h2>
+                <p><strong>Southern Vietnam</strong> (Ho Chi Minh City, Binh Duong, Dong Nai, Long An) is the center for knitwear, sportswear, and activewear. These factories are often Korean- or Taiwanese-owned, running advanced equipment with strong QC systems. The southern cluster handles the highest volumes in the country. Minimum order quantities run 3,000 to 5,000 pieces per style per color, with lead times of 60–90 days from PO to ex-factory, longer during peak season (June–September for holiday production).</p>
+                <p><strong>Northern Vietnam</strong> (Hanoi, Hai Phong, Hai Duong, Hung Yen, Nam Dinh) handles woven production — dress shirts, trousers, and outerwear — with a deep labor pool skilled in complex garment construction. Northern factories often accept smaller MOQs of 1,000 to 2,000 pieces, making them a better fit for mid-market brands testing new styles. Lead times run 45–75 days, but fabric availability can be a bottleneck. Many woven fabrics are still sourced from China, and transit time from Chinese mills to northern factories adds 7–10 days.</p>
+                <p><strong>Central Vietnam</strong> (Da Nang, Quang Nam) is a smaller but growing production zone, with specialized silk and high-end production clusters emerging around Hoi An. Lead times run 60–120 days, and MOQs tend to be flexible as factories are hungry for new business. Labor costs are lower than both north and south, but infrastructure — roads, ports, power — is less developed, adding transit time and unpredictability.</p>
+                <p>Port choice matters as much as factory location. Most southern production exports through Cai Mep–Thi Vai, the deep-water port complex near Vung Tau that handles the largest vessels. Northern production typically routes through Hai Phong, which has shallower drafts and requires feeder vessels to connect to transshipment hubs in Hong Kong or Singapore. Central Vietnam uses Da Nang and Quy Nhon, both smaller ports with limited direct sailings to the US West Coast. Factoring in port transit time — 2–3 days from the south, 3–5 days from the north — can mean the difference between making or missing a retail delivery window.</p>
+                <p>A garment spec that works in a Ho Chi Minh knit factory may not translate to a Hanoi woven factory — different machinery, different labor skills, and different fabric supply chains. Match your product to the right region before you send out RFQs. The most common sourcing mistake we see is sending a knit sample to a woven factory and wondering why the quote comes back at double the expected price.</p>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>What's the duty rate for Vietnamese apparel entering the US?</h3>
+                <p>The average MFN rate is 14.5% — no Section 301 applies. But "average" masks real variation at the HTS line level. Cotton t-shirts (6109.10) run around 16.5%. Cotton sweaters (6110.20) range from 16% to 32% depending on fiber content and construction — a basic crewneck falls at the low end, a cable-knit at the high end. Women's woven cotton trousers (6204.62) sit between 13% and 17%.</p>
+                <p>Man-made fiber garments generally track close to their cotton equivalents but can vary by 2–5 points either way depending on the specific fiber and construction method. Footwear (Chapter 64) is a separate category entirely, with rates from 6% to 37.5%. Always check your specific 10-digit HTS code with your customs broker before committing to landed-cost projections — a one-digit error can swing your duty bill by thousands per container.</p>
+
+                <h3>Is Vietnam subject to Section 301 tariffs?</h3>
+                <p>No. Section 301 China tariffs apply only to goods of Chinese origin. Goods legitimately manufactured in Vietnam — meaning substantial transformation occurred there — pay only the MFN rate. This is the primary cost advantage of shifting production from China to Vietnam, representing a 7.5 to 25 percentage point savings depending on the Section 301 tranche that would apply to the Chinese equivalent.</p>
+                <p>Note that Section 301 is administered by USTR through the Trade Act of 1974 and is entirely separate from the MFN tariff schedule administered by CBP. The Section 301 lists are product-specific, not country-blanket — they target Chinese origin specifically, which is why Vietnam avoids them entirely. Section 301 exclusions granted for certain Chinese products do not extend to Vietnamese goods because Vietnamese goods were never subject to Section 301 in the first place.</p>
+                <p>Goods transshipped through Vietnam without substantial transformation are, upon CBP determination, reassigned Chinese origin and Section 301 tariffs are applied retroactively to every entry under that claim. The burden of proof sits with the importer of record — if you claim Vietnam origin, you need the documentation to back it up. This is not a theoretical risk: CBP's Textile Enforcement Branch has issued over $50 million in transshipment-related penalties since 2018, with Vietnam-related cases accounting for a growing share.</p>
+
+                <h3>How do I prove my goods are genuinely made in Vietnam?</h3>
+                <p>Build a documentation package before your first shipment, not after CBP asks. At minimum keep: factory production records tied to each PO, fabric and trim purchase invoices showing Vietnamese or non-Chinese origin, cut-and-sew process documentation with dated work orders, and factory audit reports from your own QA team or a third-party inspection firm.</p>
+                <p>CBP accepts a manufacturer's affidavit plus supporting production documentation, but an affidavit alone without corroborating records will not survive scrutiny. Photographs of the production line with date stamps, shipping records from the fabric mill to the factory, and payment records in Vietnamese dong are all highly persuasive. Your customs broker can advise on the specific documentation package needed for your product category and entry type.</p>
+                <p>The cost of proper documentation is a rounding error compared to the penalty for getting caught without it. A typical documentation audit package costs $500–$1,500 to compile if done proactively. A single CF-28 response prepared under deadline pressure with a customs attorney involved can easily exceed $10,000. Build the package before the shipment, not after the detention notice.</p>
+
+                <h3>Are Vietnamese textiles cheaper than Chinese after duties?</h3>
+                <p>Usually yes, but it depends on the specific product and HTS code. For a cotton t-shirt (6109.10), Vietnam at 16.5% MFN beats China at 16.5% MFN plus 7.5% Section 301 — Vietnam wins by 7.5 percentage points on the duty line. For a polyester jacket where China's MFN is higher and Section 301 adds another 25%, the gap is even wider.</p>
+                <p>But for products where China enjoys a 0% MFN rate — certain industrial textiles and ITA-covered goods — Vietnam's 14.5% baseline makes China cheaper despite Section 301. The correct approach is to run the total landed cost — ex-factory price plus ocean freight plus insurance plus duty plus MPF plus HMF plus brokerage fees — for each product and each country separately. Cross-country averages mislead; per-product line-item math drives sourcing decisions.</p>
+                <p>Also factor in non-duty costs that differ by country. Vietnam's port infrastructure at Cai Mep and Hai Phong is improving but still handles lower container volumes than Shanghai or Shenzhen, which can mean longer dwell times and less frequent sailings. Vietnamese customs clearance is generally faster than Chinese customs, but document requirements are stricter — Vietnam requires a fumigation certificate for wooden pallets that many first-time importers forget. These operational friction points do not appear in the duty calculation but affect total landed cost and delivery reliability.</p>
+
+                <p style="margin-top: 30px;"><a href="/">&larr; Back to All Calculators</a></p>
+            </article>
+        </div>
+
+        <!-- ═══ 广告位 3: 页脚上方 ═══ -->
+        
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/china-to-mexico-maquila">IMMEX Nearshoring</a></li>
+                    <li><a href="/china-to-germany-customs">EU ATLAS Hub</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data&mdash;not affiliated with any official government customs agency.</p>
+        </div>
+    </footer>
+
+    <script src="rate-data.js"></script>
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

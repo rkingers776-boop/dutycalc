@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>US to Australia E-Commerce Duty? (Free &amp; Instant Calculator)</title>
+    <meta name="description" content="Calculate import duty and GST on US e-commerce goods shipped to Australia. 0% under AUSFTA, 10% GST, AUD $1,000 de minimis — free instant estimator.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="canonical" href="https://www.dutycalc.online/us-to-australia-commerce">
+    <meta property="og:title" content="US to Australia E-Commerce Duty? (Free &amp; Instant Calculator)">
+    <meta property="og:description" content="Calculate import duty and GST on US e-commerce goods shipped to Australia. 0% under AUSFTA, 10% GST, AUD $1,000 de minimis.">
+    <meta property="og:url" content="https://www.dutycalc.online/us-to-australia-commerce">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="US to Australia E-Commerce Duty? (Free &amp; Instant Calculator)">
+    <meta name="twitter:description" content="Calculate import duty and GST on US e-commerce goods shipped to Australia. 0% under AUSFTA, 10% GST, AUD $1,000 de minimis.">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+
+        <header>
+            <h1>US to Australia E-Commerce Duty Calculator</h1>
+            <p>Free instant estimator for US brands and retailers shipping to Australia — 0% duty under AUSFTA for qualifying goods, 5% MFN fallback, 10% GST, AUD $1,000 de minimis</p>
+        </header>
+
+        <!-- ═══ 广告位 1: 计算器上方 ═══ -->
+        <div class="trade-tip"><span class="tip-label">AUSFTA: zero duty, just fill out the form</span><br><strong>The US-Australia FTA is one of the most comprehensive in existence.</strong> Virtually all US goods enter duty-free. 10% GST applies above AUD $1,000 but the duty is zero. <a href="/china-to-australia-duty">China鈫扐ustralia comparison 鈫?/a></div>
+
+        <!-- ═══ 嵌入式计算器 ═══ -->
+        <div class="calculator-card" data-duty-rate="0.0" data-vat-rate="10" data-deminimis="1000">
+            <h3>US &rarr; Australia Duty &amp; GST Estimator</h3>
+            <p class="card-desc">Enter your e-commerce shipment's commercial value and shipping cost in Australian dollars. The calculator applies the 5% MFN fallback duty rate, 10% GST, and checks the AUD $1,000 de minimis threshold. Most US-origin goods qualify for 0% duty under AUSFTA — see the guide below for details on claiming the preference.</p>
+            <div class="input-group">
+                <label>E-Commerce Shipment Value (AUD)</label>
+                <input type="number" class="item-value unit-input" value="1200" min="0" max="99999999" aria-label="E-commerce shipment value in AUD">
+            </div>
+            <div class="input-group">
+                <label>Shipping &amp; Insurance Cost (AUD)</label>
+                <input type="number" class="shipping-cost unit-input" value="150" min="0" max="99999999" aria-label="Shipping and insurance cost in AUD">
+            </div>
+            <button class="btn-calc" aria-label="Calculate US to Australia Import Duty">Calculate Landed Cost</button>
+            <div class="result-display result-hidden" aria-live="polite" aria-atomic="true">
+                <h4>Customs Clearing Summary:</h4>
+                <ul>
+                    <li>Import Tariff (0.0%): <span class="res-duty">--</span></li>
+                    <li>GST (10%): <span class="res-vat">--</span></li>
+                    <li>Total Government Taxes: <span class="res-total-tax">--</span></li>
+                    <li>Total Estimated Landed Cost: <span class="res-landed">--</span></li>
+                </ul>
+            </div>
+            <a href="/us-to-australia-commerce" class="detail-link" style="display:none;">View Full Country Guide &rarr;</a>
+        </div>
+
+        <!-- ═══ 广告位 2: 计算器与文章之间 ═══ -->
+        <div class="trade-tip"><span class="tip-label">GST registration for US sellers</span><br>If you sell into Australia regularly above the AUD $75,000 annual threshold, you need to register for Australian GST. Below that, GST is collected from the buyer at import. <a href="/uk-to-australia-retail">UK鈫扐ustralia under the new FTA 鈫?/a></div>
+
+        <!-- ═══ SEO 长文区块 ═══ -->
+        <div>
+            <article class="seo-section">
+
+                <h2>Australia Import Duty on US E-Commerce Goods — AUSFTA Means 0% for Most Products</h2>
+                <p>The <strong>Australia-United States Free Trade Agreement (AUSFTA)</strong>, effective January 1, 2005, eliminates tariffs on virtually all US manufactured goods, consumer products, electronics, and most agricultural items. For qualifying US-origin e-commerce goods, the duty rate is <strong>0%</strong>. Our calculator defaults to <strong>0% under AUSFTA</strong>: the preferential rate when US-origin goods qualify and the importer claims the preference at the border. The MFN fallback for non-qualifying goods is 5%.</p>
+                <p>AUSFTA was signed on May 18, 2004, ratified by both the US Congress and the Australian Parliament later that year, and entered into force on January 1, 2005. It has been operational for over two decades. The agreement covers manufactured goods, consumer products, electronics, machinery, chemicals, vehicles and parts, textiles and apparel, and most agricultural products. Tariff elimination was immediate for the vast majority of categories upon entry into force — there was no phase-in period for industrial goods. The small number of exclusions are concentrated in a handful of agricultural tariff lines and do not affect typical e-commerce categories. For US e-commerce brands, the practical upshot is simple: if your product is made in America, you pay 0% Australian customs duty.</p>
+                <p>To claim the AUSFTA zero rate, the importer <strong>self-certifies origin on the commercial invoice</strong>. No formal government-issued certificate is required — a signed statement from the exporter or importer confirming the goods meet AUSFTA origin criteria is sufficient. The goods must satisfy one of these origin tests:</p>
+                <ul class="content-list">
+                    <li><strong>Wholly obtained or produced</strong> in the United States — minerals extracted, agricultural goods grown and harvested, or goods manufactured entirely from US-origin materials.</li>
+                    <li><strong>Substantial transformation</strong> — the good undergoes a change in tariff classification at the 4-digit or 6-digit HS level as a result of production in the US. This is the most common test for manufactured consumer goods.</li>
+                    <li><strong>Regional value content (RVC)</strong> of at least 35% under the build-down method (value of non-originating materials cannot exceed 65% of the adjusted value) or 45% under the build-up method (value of originating materials must reach 45%).</li>
+                </ul>
+                <p>In practice, the self-certification is straightforward. The exporter or importer adds a statement to the commercial invoice — something like: "The goods covered by this invoice qualify as originating goods under the Australia-United States Free Trade Agreement (AUSFTA)." No prescribed wording is mandated; any clear statement of origin is accepted. Keep a copy of the invoice with the origin statement and any supporting documentation (bills of materials, manufacturing records) in your records for five years. ABF may request verification during a compliance audit, but pre-approval is not required for each shipment.</p>
+                <p>A critical distinction: drop-shipping Chinese-made goods from a US warehouse does <strong>not</strong> satisfy these criteria. The product must be manufactured or substantially transformed in the United States. Australian Border Force (ABF) does audit origin claims — retain supporting documentation (bills of materials, manufacturing records, supplier declarations) for at least five years from the date of import.</p>
+                <p>Let's run the numbers with a real example. You ship AUD $1,200 worth of US-made apparel to a customer in Sydney, with $150 in freight and insurance — CIF value $1,350. <strong>Under AUSFTA (qualifying goods):</strong> customs duty is $0. GST at 10% applies to the CIF value: $135.00. Total government charges: $135.00. Final landed cost: <strong>$1,485.00</strong>. <strong>Under the MFN fallback (non-qualifying goods):</strong> duty at 5% on $1,350 = $67.50. GST at 10% on the duty-paid value of $1,417.50 = $141.75. Total taxes: $209.25. Landed cost: <strong>$1,559.25</strong>. The AUSFTA claim saves $74.25 on this single $1,200 shipment. For a brand shipping 500 orders a month to Australia, that's over $37,000 a year in duty alone. Confirm your goods qualify, and self-certify.</p>
+
+                <h2>The AUD $1,000 De Minimis and the US Competition Gap</h2>
+                <p>Australia's de minimis threshold of <strong>AUD $1,000</strong> is based on the FOB value of the goods — freight and insurance are excluded from the de minimis test. Shipments with a goods value of AUD $1,000 or below enter Australia <strong>duty-free with no formal import declaration required</strong>, regardless of origin. The goods clear through a simplified Self-Assessed Clearance (SAC) declaration in the Integrated Cargo System — no customs broker, no ABF processing fee, no tariff.</p>
+                <p>For US direct-to-consumer e-commerce brands, the de minimis creates an important strategic dynamic:</p>
+                <ul class="content-list">
+                    <li><strong>Average order value (AOV) under $1,000:</strong> the de minimis eliminates the FTA question entirely. Your customer pays zero duty regardless of origin documentation. Your goods compete on a level playing field with UK brands (0% under A-UKFTA) and Chinese brands (0% under ChAFTA for most categories).</li>
+                    <li><strong>AOV over $1,000:</strong> the FTA landscape matters. AUSFTA-qualifying US goods at 0% remain fully competitive. But non-qualifying US goods face 5% MFN while UK and Chinese competitors pay 0% — a meaningful price disadvantage in competitive e-commerce categories like apparel, beauty, and electronics.</li>
+                </ul>
+                <p>The key advantage for US brands: Australia's $1,000 de minimis is one of the highest in the developed world — more generous than the EU's €150 duty threshold, the UK's £135 consignment limit, and Canada's CA$20 de minimis. Only the US's own $800 Section 321 threshold comes close. For US brands with sub-$1,000 AOVs, Australian market entry has no tariff barrier at all. This is a particularly important competitive fact for US DTC brands evaluating international expansion: the Australian market is one of the few developed economies where small e-commerce parcels enter duty-free and with simplified clearance paperwork. For more on how thresholds work across trade lanes, see our <a href="/de-minimis-value-guide">de minimis value guide</a>. For competitor context, see our <a href="/uk-to-australia-retail">UK to Australia retail guide</a> and <a href="/china-to-australia-duty">China to Australia duty calculator</a>.</p>
+
+                <h2>Australia's Low-Value Goods GST — The US Seller Collection Obligation</h2>
+                <p>GST at 10% applies to all imported goods, including those under the AUD $1,000 de minimis. Since <strong>July 1, 2018</strong>, Australia has collected GST on low-value imports through a seller-registration model rather than at the border. Here is what US e-commerce sellers need to know:</p>
+                <ul class="content-list">
+                    <li><strong>Registration threshold:</strong> AUD $75,000 in annual turnover from sales to Australian consumers. This is based on gross sales, not profit, and the ATO calculates it across a rolling 12-month period.</li>
+                    <li><strong>Collection obligation:</strong> Once registered, you must charge 10% GST at the point of sale on all orders shipped to Australian consumers — from the first dollar, with no minimum order value exemption.</li>
+                    <li><strong>Remittance:</strong> GST is remitted to the ATO quarterly via a simplified BAS (Business Activity Statement). The process is fully electronic and can be managed from outside Australia.</li>
+                    <li><strong>Marketplace rule:</strong> If you sell through Amazon.com.au, eBay.com.au, or similar platforms, the platform acts as the deemed supplier and handles GST collection and remittance. You do not need to register separately for those sales — but sales through your own independent website count toward your $75,000 threshold and require separate registration.</li>
+                    <li><strong>Over $1,000 shipments:</strong> GST on shipments over AUD $1,000 is collected at the border through the standard import declaration — not at the point of sale. The $1,000 line determines which collection mechanism applies, but the 10% rate is the same either way.</li>
+                </ul>
+                <p>ATO enforcement has tightened significantly since the regime launched. The ATO cross-references ABF import data against GST registration records. Unregistered sellers shipping into Australia below the $1,000 threshold face goods held at the border until GST is accounted for, and penalties can reach <strong>75% of the unpaid GST amount</strong>. If your US brand is selling to Australian consumers and approaching the $75,000 threshold, register proactively — the compliance cost is modest, and the alternative is border delays and penalty exposure.</p>
+                <p>For Australian business buyers importing US goods for resale: GST paid at the border (on shipments over $1,000) is generally recoverable as an <strong>input tax credit</strong> on your next Business Activity Statement. The ABF customs entry serves as your tax invoice. This means GST on imports is a cash-flow issue, not a permanent cost — you pay it upfront and claim it back, typically within one to three months depending on your BAS lodgement cycle. Combined with 0% duty under AUSFTA, the effective tax burden for Australian businesses importing qualifying US goods is essentially zero.</p>
+
+                <h2>Key US Export Categories to Australia — Tariff Rates and AUSFTA Coverage</h2>
+                <p>Australia uses 8-digit tariff codes under the Customs Tariff Act 1995. The first six digits follow the global Harmonized System; digits seven and eight are Australia-specific. Below are the major e-commerce categories for US exports, with the MFN rate range and AUSFTA status for each. In every category below, goods meeting AUSFTA origin rules enter at 0% — the MFN rates shown are the fallback for non-qualifying goods. For most US-manufactured products in these categories, the effective rate is zero.</p>
+                <ul class="content-list">
+                    <li><strong>Consumer electronics (Chapter 85):</strong> 0–5% MFN. Smartphones, laptops, audio equipment, and components manufactured in the US qualify for 0% under AUSFTA. ITA-covered products (semiconductors, computers, telecommunications equipment) enter at 0% regardless of origin. For electronics assembled in China but designed in California: country of origin depends on the "substantial transformation" test — the location of final assembly typically governs.</li>
+                    <li><strong>Apparel and fashion (Chapters 61–62):</strong> 5–10% MFN. US-made denim, activewear, streetwear, and accessories generally qualify for 0% under AUSFTA. Cut-and-sew operations performed in the US satisfy the tariff-shift origin test. Note: fabric sourced from a third country and cut-and-sewn in the US qualifies — substantial transformation occurs at the manufacturing stage, not the raw material stage.</li>
+                    <li><strong>Cosmetics and beauty (Chapter 33):</strong> 0–5% MFN. Skincare, makeup, fragrance, and personal care products from US indie and prestige brands. Most qualify for AUSFTA zero rates. Australia's NICNAS/AICIS chemical import regulations apply separately — ensure product notifications are filed before shipping.</li>
+                    <li><strong>Supplements and health products (Chapters 21, 29, 30):</strong> 0–5% MFN. Vitamins, protein powders, herbal supplements, and wellness products. AUSFTA coverage is broad. Australian Therapeutic Goods Administration (TGA) regulations may require product listing or registration depending on the claims made. Biosecurity inspection applies to products containing animal-derived or plant-based ingredients.</li>
+                    <li><strong>Books and printed media (Chapter 49):</strong> 0% MFN across the board. Printed books, newspapers, manuscripts, and music scores enter Australia duty-free from all origins, no FTA required.</li>
+                </ul>
+
+                <h2>Shipping US to Australia — The LAX-SYD Corridor and Fulfillment Strategy</h2>
+                <p>For US e-commerce brands, the logistics question breaks into two distinct approaches: cross-border fulfillment (ship each order individually from the US to the Australian customer) versus in-market fulfillment (bulk-ship inventory to an Australian 3PL and fulfill domestically). The right answer depends on your order volume, AOV, and customer delivery expectations.</p>
+                <p>US-Australia e-commerce logistics runs predominantly through the <strong>LAX-SYD/MEL air freight corridor</strong> — the busiest transpacific cargo lane outside of Asia-North America. Key benchmarks for US brands planning Australian fulfillment:</p>
+                <ul class="content-list">
+                    <li><strong>Express air (DHL, FedEx, UPS):</strong> 2–4 days door-to-door from major US metros. Rates: approximately $8–18/kg depending on volume and contract. Includes in-house customs brokerage — the carrier clears the shipment through ABF as part of the service.</li>
+                    <li><strong>Standard postal and e-packet:</strong> 5–10 days. Rates: $5–10/kg. USPS e-packet hands off to Australia Post at the border; Australia Post handles customs clearance for parcels under $1,000 via SAC.</li>
+                    <li><strong>Ocean freight (LA/Long Beach to Sydney):</strong> 18–22 days port-to-port, plus 3–5 days for LCL consolidation and deconsolidation at each end. Practical for bulk inventory replenishment to an Australian 3PL; too slow for direct-to-consumer.</li>
+                </ul>
+                <p>Most US-to-Australia e-commerce moves by air — the value density of consumer goods and customer expectations for sub-10-day delivery make ocean impractical for DTC. But for brands serious about the Australian market, the smarter play is <strong>Australian third-party logistics (3PL)</strong>. Warehouse inventory in Sydney or Melbourne — received via consolidated air freight or ocean LCL — and fulfill domestically. Delivery times to Australian customers drop from 5–10 days (cross-border air) to 1–2 days (domestic ground). The 3PL receives the bulk shipment, files the AUSFTA origin claim at the border, pays any GST due, and dispatches individual orders from local stock. The landed cost on the bulk import is identical; the customer experience and conversion rate improve materially. Australian 3PL providers in Sydney and Melbourne are widely available and competitive — expect fulfillment fees in the AUD $3–7 per order range for standard pick-and-pack.</p>
+                <p>On the Australian side, the four primary entry points for US goods are <strong>Sydney (Port Botany and Kingsford Smith Airport), Melbourne (Port of Melbourne and Tullamarine Airport), Brisbane, and Fremantle (Perth)</strong>. Sydney and Melbourne handle the largest share of US air freight and offer the fastest customs clearance for standard cargo — both ABF and DAFF have the deepest staffing and processing capacity at these ports. Brisbane and Perth have lower volumes but fewer brokers and longer turnaround for complex entries. If you have routing flexibility, entering through Sydney or Melbourne typically yields the fastest overall clearance for US e-commerce shipments. For time-sensitive air freight, Sydney Kingsford Smith is the primary gateway for US-origin express cargo, with Melbourne Tullamarine handling the second-largest share. DAFF biosecurity inspection capacity is more constrained at Brisbane and Perth airports — if your shipment is flagged for biosecurity, expect an extra 1–2 business days compared to Sydney or Melbourne.</p>
+
+                <h2>ABF Clearance Documentation — What Your Commercial Invoice Must Show</h2>
+                <p>Whether your shipment clears via SAC (under $1,000) or formal entry (over $1,000), ABF expects a detailed commercial invoice. A bare invoice that says "clothing" with a lump-sum value will get your shipment held. The invoice must include, in English:</p>
+                <ul class="content-list">
+                    <li>Seller's and buyer's full legal names and physical addresses.</li>
+                    <li>Line-by-line description of each item, including material composition, intended use, and country of origin.</li>
+                    <li>Quantity and unit value for each line item, with the total invoice value stated in AUD or the foreign currency equivalent with the exchange rate used.</li>
+                    <li>Incoterms (FOB, CIF, DDP, etc.) clearly stated.</li>
+                    <li>Freight and insurance charges itemized separately from the goods value.</li>
+                    <li>For AUSFTA claims: a signed origin statement from the exporter or importer confirming the goods meet the agreement's origin criteria. The statement can be on the invoice itself or on a separate document.</li>
+                </ul>
+                <p>For shipments over AUD $1,000 requiring formal entry, you will also need a <strong>licensed customs broker</strong> to lodge the Import Declaration (N10) through the Integrated Cargo System. Broker fees typically run AUD $100–250 per entry. The ABF import declaration processing charge (AUD $50–90 depending on lodgement channel) is usually a separate line item. If you are importing regularly, establish a relationship with a broker who knows your product categories — correct classification from day one avoids costly amendments and audit exposure.</p>
+                <p>You will also need an identifier on file with ABF. For businesses, this means an <strong>Australian Business Number (ABN)</strong> registered for GST. US companies without an Australian entity can apply for an ABN as a non-resident business — the process is straightforward through the Australian Business Register online. For individuals importing occasionally, an <strong>Importer Reference Number</strong> is free to obtain from ABF and valid indefinitely. Either way, ABF needs to know who is responsible for the goods before they will release them.</p>
+
+                <h2>Biosecurity and Quarantine — Don't Overlook the DAFF Inspection</h2>
+                <p>Australia's biosecurity regime is among the strictest in the world, and US shipments are not exempt. The <strong>Department of Agriculture, Fisheries and Forestry (DAFF)</strong> inspects imports at the importer's expense. The most common trigger for US e-commerce shipments is <strong>wood packaging</strong>: pallets, crates, and dunnage must meet ISPM 15 standards — heat-treated and stamped with the IPPC mark. Unmarked wood gets quarantined on arrival, and you pay for treatment, destruction, or re-export at your cost.</p>
+                <p>Other risk categories for US goods include: food products (supplements, protein powders, pet treats — may require import permits depending on ingredients); animal-derived materials (leather goods, wool throws, down-filled jackets — subject to inspection and possible treatment); and used equipment or machinery (may require steam-cleaning certificates). Most US consumer goods — apparel, electronics, cosmetics, books — clear biosecurity without issue. But if your product contains organic materials, plant fibers, or animal products, factor in potential DAFF inspection fees of AUD $75–200 and allow an extra 1–3 business days for biosecurity clearance.</p>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>What is the duty rate for US goods entering Australia?</h3>
+                <p><strong>0% for AUSFTA-qualifying goods.</strong> The Australia-United States Free Trade Agreement, effective since January 1, 2005, eliminates tariffs on virtually all US manufactured goods and consumer products. The 5% MFN rate is the fallback for goods that do not satisfy AUSFTA origin rules — for example, goods substantially manufactured in China and only transshipped through a US warehouse, or goods where the importer has not claimed the preference. To claim the zero rate: self-certify origin on the commercial invoice. No formal certificate of origin is required.</p>
+
+                <h3>Wait — does the US actually have an FTA with Australia or not?</h3>
+                <p><strong>Yes, absolutely.</strong> The Australia-United States Free Trade Agreement (AUSFTA) was signed in 2004, ratified by both countries, and entered into force on January 1, 2005. It has been operational for over 20 years and eliminates tariffs on most US manufactured goods, consumer products, electronics, and agricultural items. Some online guides incorrectly state that the US-Australia FTA was never concluded or is limited in scope — that is wrong. AUSFTA is in full effect and covers the vast majority of goods traded between the two countries. The origin rules require genuine US manufacturing or substantial transformation; goods merely transshipped through a US warehouse do not qualify. Self-certification by the exporter or importer on the commercial invoice is all the documentation required — no government-issued certificate is needed.</p>
+
+                <h3>Why does the calculator use 5% if AUSFTA means 0%?</h3>
+                <p>The calculator's 5% rate is the <strong>MFN fallback</strong> — a conservative estimate that covers the scenarios where AUSFTA does not apply: goods substantially manufactured in a third country and only transshipped through the US; goods in the small number of product categories excluded from AUSFTA tariff elimination; and cases where the importer has not claimed the preference at the border. For most US e-commerce goods that genuinely qualify under AUSFTA origin rules, your effective duty rate is <strong>0%</strong>. Use the calculator's 5% output as a worst-case ceiling, not the expected rate. If your goods satisfy AUSFTA origin requirements, substitute 0% for the duty line and recalculate — the GST will apply to CIF alone, and your landed cost will be lower.</p>
+
+                <h3>Does US e-commerce under $1,000 pay Australian GST?</h3>
+                <p><strong>Yes.</strong> Australia's low-value goods GST at 10% applies from AUD $1 — there is no GST de minimis threshold corresponding to the AUD $1,000 duty de minimis. US retailers with over AUD $75,000 in annual sales to Australian consumers must register for Australian GST, charge 10% at the point of sale, and remit quarterly to the ATO. Marketplace platforms (Amazon.com.au, eBay.com.au) handle GST for their sellers. For shipments over AUD $1,000, GST shifts from seller-collection to border-collection through the standard import declaration — the 10% rate is the same, only the collection mechanism changes. As for customs duty: it is zero under the $1,000 de minimis threshold, AND zero under AUSFTA for qualifying goods above $1,000. For a US brand shipping AUSFTA-qualifying apparel to Australia, the duty question is essentially settled at 0% across the board — GST is the only tax to plan for.</p>
+
+                <h3>Does a US seller need an Australian Business Number (ABN) or customs broker?</h3>
+                <p><strong>It depends on shipment value and volume.</strong> For shipments under AUD $1,000: no broker is required — the goods clear through Self-Assessed Clearance (SAC) with minimal paperwork. You need either an ABN (if registered for Australian GST) or an Importer Reference Number, which any individual or business can obtain free from ABF. For shipments over AUD $1,000: a <strong>licensed customs broker</strong> is required in practice to lodge the formal Import Declaration (N10). The broker classifies your goods under the correct 8-digit tariff code, files the AUSFTA preference claim, calculates and pays duty and GST on your behalf, and handles any DAFF biosecurity referrals. Broker fees: approximately AUD $100–250 per formal entry. For US brands doing recurring shipments, a standing broker relationship pays for itself in faster clearance and correct classification. US companies can apply for an ABN as a non-resident entity through the Australian Business Register — the process is online and typically takes 2–4 weeks for non-resident applications.</p>
+
+                <p style="margin-top: 30px;">The US-Australia e-commerce trade lane is among the most favorable for US brands of any international route. AUSFTA eliminates duty. The $1,000 de minimis eliminates clearance complexity for small parcels. And the GST obligation, while real, is manageable with proper registration. For US DTC brands looking beyond North America, Australia should be near the top of the expansion shortlist.</p>
+                <p><a href="/">&larr; Back to All Calculators</a></p>
+            </article>
+        </div>
+
+        <!-- ═══ 广告位 3: 页脚上方 ═══ -->
+        
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/china-to-mexico-maquila">IMMEX Nearshoring</a></li>
+                    <li><a href="/china-to-germany-customs">EU ATLAS Hub</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data—not affiliated with any official government customs agency.</p>
+        </div>
+    </footer>
+
+    <!-- 挂载计算引擎与税率数据库 -->
+    <script src="rate-data.js"></script>
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

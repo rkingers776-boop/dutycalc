@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>EU to UK Post-Brexit Duty? (Free &amp; Instant Calculator)</title>
+    <meta name="description" content="Calculate post-Brexit import duty and VAT on goods shipped from the EU to the UK. 2% average tariff, £135 consignment rule, TCA rules of origin — free tool.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="canonical" href="https://www.dutycalc.online/eu-to-uk-post-brexit">
+    <meta property="og:title" content="EU to UK Post-Brexit Duty Calculator — Free Instant Estimator">
+    <meta property="og:description" content="Calculate post-Brexit import duty and VAT on goods shipped from the EU to the UK. 2% average tariff, £135 consignment rule, TCA rules of origin.">
+    <meta property="og:url" content="https://www.dutycalc.online/eu-to-uk-post-brexit">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EU to UK Post-Brexit Duty Calculator — Free Instant Estimator">
+    <meta name="twitter:description" content="Calculate post-Brexit import duty and VAT on goods shipped from the EU to the UK. 2% average tariff, £135 consignment rule, TCA rules of origin.">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+
+        <header>
+            <h1>EU to UK Post-Brexit Duty Calculator</h1>
+            <p>Free instant estimator for EU goods entering Great Britain — TCA tariff preferences, the £135 consignment mechanism, 20% VAT, and post-Brexit customs rules</p>
+        </header>
+
+        <div class="trade-tip"><span class="tip-label">Zero tariff 鈥?but only if you prove origin</span><br><strong>TCA zero rates are not automatic.</strong> You need to demonstrate that your goods meet the rules of origin. "Shipped from France" is not enough if the goods were originally manufactured in China. <a href="/eu-to-uk-tca-origin-rules">How TCA origin rules work 鈫?/a></div>
+
+        <!-- ═══ 嵌入式计算器 ═══ -->
+        <div class="calculator-card" data-duty-rate="2.0" data-vat-rate="20" data-deminimis="135">
+            <h3>EU → UK Post-Brexit Duty &amp; VAT Estimator</h3>
+            <p class="card-desc">Enter shipment value and shipping cost in GBP. The calculator applies the 2.0% non-preferential duty rate, 20% VAT on duty-paid CIF, and the £135 de minimis threshold.</p>
+            <div class="input-group">
+                <label>Shipment Commercial Value (GBP)</label>
+                <input type="number" class="item-value unit-input" value="700" min="0" max="99999999" aria-label="Shipment commercial value in GBP">
+            </div>
+            <div class="input-group">
+                <label>Shipping &amp; Insurance Cost (GBP)</label>
+                <input type="number" class="shipping-cost unit-input" value="50" min="0" max="99999999" aria-label="Shipping and insurance cost in GBP">
+            </div>
+            <button class="btn-calc" aria-label="Calculate EU to UK Post-Brexit Duty">Calculate Landed Cost</button>
+            <div class="result-display result-hidden" aria-live="polite" aria-atomic="true">
+                <h4>Customs Clearing Summary:</h4>
+                <ul>
+                    <li>Import Tariff (2.0%): <span class="res-duty">--</span></li>
+                    <li>Standard Import VAT (20%): <span class="res-vat">--</span></li>
+                    <li>Total Government Taxes: <span class="res-total-tax">--</span></li>
+                    <li>Total Estimated Landed Cost: <span class="res-landed">--</span></li>
+                </ul>
+            </div>
+            <a href="/eu-to-uk-post-brexit" class="detail-link" style="display:none;">View Full Country Guide &rarr;</a>
+        </div>
+
+        <div class="trade-tip"><span class="tip-label">拢135 is the magic number for B2C</span><br>Consignments under 拢135: seller charges UK VAT at point of sale. Over 拢135: buyer pays VAT + duty at import. Getting this wrong means your customer gets a surprise bill 鈥?and an angry email. <a href="/eu-to-uk-135-consignment-rule">The 拢135 rule explained 鈫?/a></div>
+
+        <div>
+            <article class="seo-section">
+
+                <h2>How to Calculate Post-Brexit Import Duty on Goods Shipped from the EU to the UK</h2>
+                <p>Before January 2021, goods moved between the EU and the UK without customs declarations, without duty, and without VAT at the border. That's over. Under the UK-EU Trade and Cooperation Agreement (TCA), EU goods <em>can</em> still enter the UK tariff-free — but only if they meet the TCA's rules of origin and you claim preference on the customs declaration. Goods that don't qualify (or where the paperwork isn't filed) default to the UK Global Tariff rate, which averages around <strong>2.0%</strong> for most categories. Our calculator uses this 2.0% non-preferential baseline.</p>
+                <p>VAT is separate. The UK charges 20% import VAT on the CIF + duty total regardless of TCA status. And the £135 consignment threshold changes not just the duty calculation but the entire mechanism for who collects VAT and when. This is the part that trips people up the most.</p>
+
+                <h2>The Post-Brexit Duty + VAT Formula for EU-UK Shipments</h2>
+                <p>For consignments over £135 (or under £135 where TCA preference isn't claimed), HMRC calculates in two steps:</p>
+                <ol class="content-list">
+                    <li><strong>CIF Value</strong> = Goods Value &plus; Shipping &plus; Insurance</li>
+                    <li><strong>Customs Duty</strong> = CIF Value &times; Duty Rate (0% if TCA preference claimed and origin rules met; 2.0% UKGT default if not)</li>
+                    <li><strong>Import VAT</strong> = (CIF Value &plus; Customs Duty) &times; 20%</li>
+                    <li><strong>Total Landed Cost</strong> = CIF Value &plus; Customs Duty &plus; Import VAT</li>
+                </ol>
+                <p>Example: a £600 shipment of French cosmetics with £40 shipping. CIF is £640. With TCA preference claimed and granted: duty = £0, VAT = £128 (20% of £640), landed = £768. Without TCA preference: duty = £12.80 (2% of £640), VAT = £130.56 (20% of £652.80), landed = £783.36. The TCA saves £15.36 on this shipment. Not huge, but scale it across a year of shipments and it matters.</p>
+
+                <h3>The £135 Consignment Rule — The Single Most Misunderstood Part of Post-Brexit Trade</h3>
+                <p>The £135 threshold does two different things for duty and VAT, and people mix them up constantly.</p>
+                <p><strong>For customs duty:</strong> consignments valued at £135 or below (goods value only, not shipping) enter duty-free. Period. Doesn't matter if the goods are TCA-qualifying or not — customs duty is waived below £135. Above £135, the applicable duty rate applies (0% TCA or 2% UKGT default).</p>
+                <p><strong>For VAT:</strong> this is where it gets weirder. Consignments at £135 or below are supposed to have VAT collected by the <strong>EU seller at the point of sale</strong>, not at the border. The seller registers for UK VAT, charges 20% at checkout, and remits quarterly to HMRC. The goods then clear customs without additional VAT assessment. Above £135, the traditional import VAT process applies — the customer (or their broker) pays VAT at customs on entry.</p>
+                <p>Two completely different rules, both keyed to the same £135 number. One governs whether duty is owed. The other governs who collects the VAT and where. A £200 shipment falls above both thresholds: duty applies (at 0% TCA or 2% UKGT) and VAT is collected at the border. A £100 shipment falls below both: duty is zero regardless of origin, and VAT should have been collected by the seller at checkout — if it wasn't, HMRC may come looking.</p>
+                <p>The UK's £135 split-threshold system is unique — no other major economy splits duty and VAT collection at the same value like this. Our <a href="/de-minimis-value-guide">De Minimis Value Guide</a> compares the UK's approach to the US ($800), EU (€150), Canada (CAD $20), and Australia (AUD $1,000) so you can see where the UK sits.</p>
+
+                <h3>TCA Rules of Origin — How to Get the Zero Rate</h3>
+                <p>The TCA eliminates tariffs on goods that are "wholly obtained" or "sufficiently processed" within the EU or UK. The zero rate is not automatic — you must claim it on the customs declaration. Here's what that means in practice:</p>
+                <ul class="content-list">
+                    <li><strong>Wholly obtained:</strong> Goods entirely grown, mined, or manufactured within the EU using only EU-origin materials. French wine from French grapes, German machinery made from German steel — these qualify outright. Straightforward.</li>
+                    <li><strong>Sufficiently processed:</strong> Goods that incorporate non-EU inputs but underwent a manufacturing step inside the EU that changed the product's HS code at the 4-digit level. An Italian jacket sewn from Chinese fabric qualifies because the fabric-to-garment step (Chapter 50/51/52/54/55 → Chapter 62) is a 4-digit chapter change. Simply repackaging, relabeling, or minor finishing doesn't count.</li>
+                </ul>
+                <p>For B2C shipments under £1,000, a statement on the invoice from the exporter usually works: "The exporter of the products covered by this document declares that these products are of EU preferential origin under the UK-EU Trade and Cooperation Agreement." Above £1,000, you may need a supplier's declaration or more detailed origin proof on file. No claim on the declaration = customs defaults to the UKGT rate. HMRC doesn't ask if you'd prefer the zero rate; you have to claim it.</p>
+                <p>HMRC can audit origin claims retroactively — up to three years back. If they determine a claim was invalid, they'll bill the unpaid duty plus interest. For EU businesses shipping into the UK, keep your origin documentation organized. A spreadsheet of supplier declarations by product SKU is fine; just have it ready if they ask.</p>
+
+                <h3>VAT Registration for EU Sellers — The Sub-£135 Burden</h3>
+                <p>EU businesses selling B2C to UK customers for consignments of £135 or below face a real compliance burden:</p>
+                <ul class="content-list">
+                    <li>Must register for UK VAT — no turnover threshold, mandatory from the first sale</li>
+                    <li>Charge 20% UK VAT at checkout (not the customer's local EU VAT rate)</li>
+                    <li>File quarterly VAT returns through HMRC's online portal</li>
+                    <li>Keep records for six years</li>
+                </ul>
+                <p>This caught a lot of small EU e-commerce shops off guard after Brexit. Previously they just shipped packages; now they're supposed to be UK VAT collectors. Some EU businesses stopped selling to UK customers entirely rather than deal with the compliance cost. Others use a UK-based fiscal representative to handle registration and filing — fees vary, typically £500–£1,500 per year.</p>
+                <p>If you sell through Amazon, eBay, or similar platforms for sub-£135 consignments, the marketplace itself is responsible for VAT — not you. The platform collects and remits. For sales through your own website, you carry the VAT obligation directly. Above £135, standard import VAT applies and the customer pays at the border — no seller registration or UK VAT number needed.</p>
+
+                <h3>Northern Ireland Has Different Rules — This Guide Covers Great Britain Only</h3>
+                <p>Under the <strong>Windsor Framework</strong> (which replaced the Northern Ireland Protocol), Northern Ireland operates under a fundamentally different customs arrangement than England, Scotland, and Wales. Parcels from the EU to NI generally move without customs declarations under the "not at risk" scheme for goods staying within the UK internal market. Northern Ireland effectively remains within the EU single market for goods purposes while being part of the UK customs territory — it's a hybrid neither fully in nor fully out.</p>
+                <p>Goods from the EU to Great Britain (England, Scotland, Wales) go through the full post-Brexit customs process described on this page. If your shipment is addressed to Belfast rather than Birmingham, different rules apply. Check the latest Windsor Framework guidance on GOV.UK — the arrangements are still evolving.</p>
+
+                <h3>Common Commodity Codes for EU-UK Trade</h3>
+                <p>The UK commodity code system mirrors the EU's TARIC for the first six digits, then diverges with UK-specific suffixes. Major categories for EU-UK trade:</p>
+                <ul class="content-list">
+                    <li><strong>Chapters 84–85:</strong> Machinery, mechanical appliances, electrical equipment — Germany and Italy are the big EU exporters here</li>
+                    <li><strong>Chapter 22:</strong> Wine, beer, spirits — excise duty applies on top of customs duty for alcohol. French wine into the UK carries both customs and excise charges; excise is a separate calculation entirely</li>
+                    <li><strong>Chapter 04:</strong> Dairy, cheese, butter — some lines have tariff-rate quotas limiting how much can enter at reduced rates</li>
+                    <li><strong>Chapters 61–62:</strong> Apparel and clothing accessories — Italian and French fashion brands are heavy users of these chapters</li>
+                    <li><strong>Chapter 94:</strong> Furniture, bedding — IKEA's Poland-to-UK supply chain runs through this chapter</li>
+                    <li><strong>Chapter 87:</strong> Vehicles and automotive parts — complex rules of origin, especially for assembled vehicles with multi-country supply chains</li>
+                </ul>
+                <p>The UK Trade Tariff tool on GOV.UK lets you look up the exact rate for any commodity code. Free to use, updated whenever the UKGT changes. If you're shipping a regular product line from the EU to the UK, bookmark your commodity code page and check it before each season's orders.</p>
+
+                <h3>Customs Paperwork for EU-UK Shipments</h3>
+                <p>Every commercial shipment from the EU to Great Britain now needs a customs declaration filed through the UK's CDS (Customs Declaration Service). Your freight forwarder or broker handles the filing, but you need to provide:</p>
+                <ul class="content-list">
+                    <li>A commercial invoice with seller and buyer details, product description, quantity, unit value, total value, country of origin, and commodity code</li>
+                    <li>A GB EORI number for the importer (free from HMRC, takes about a week)</li>
+                    <li>For TCA preference: the origin statement on the invoice or a separate declaration</li>
+                    <li>For goods over £135: the VAT is settled at the border through the declaration — your broker pays HMRC and bills you or your customer</li>
+                </ul>
+                <p>Couriers (DHL, FedEx, UPS) handle this for smaller shipments as part of their brokerage service. For palletized or container freight, a dedicated customs broker is usual. If you're shipping from the EU to UK business customers, check whose EORI is on the entry — some B2B buyers prefer to act as importer of record and use their own deferment account for duty and VAT. Others want you to handle everything DDP.</p>
+
+                <h3>Excise Goods — Alcohol, Tobacco, and Fuel Are a Different Ballgame</h3>
+                <p>If you're shipping wine, spirits, beer, tobacco products, or fuel from the EU to the UK, customs duty is only part of the picture. Excise duty applies on top — and excise rates are steep. A bottle of French wine might carry £0 in customs duty (TCA preference) but £2.67 in excise duty plus 20% VAT on the whole amount. Excise is calculated by volume and alcohol content, not by value, so a cheap bottle of wine and an expensive one carry the same excise charge.</p>
+                <p>Excise goods also need different customs procedures — the Excise Movement and Control System (EMCS) for duty-suspended movements, or an excise entry for duty-paid goods. Your broker needs to know which regime applies. Don't try to clear excise goods as regular merchandise; the penalties are aggressive and HMRC's excise enforcement team does not mess around.</p>
+
+                <h2>In-Depth Guides — Dive Deeper into Post-Brexit EU→UK Trade</h2>
+                <p>Each guide below covers a specific topic in far more detail, with worked examples, edge cases, HMRC guidance references, and the same embedded calculator so you can run numbers while you read:</p>
+                <ul class="content-list">
+                    <li><strong><a href="/eu-to-uk-tca-origin-rules">TCA Rules of Origin — The Complete Guide</a></strong> — Wholly-obtained vs sufficiently-processed, the 4-digit HS heading change test, origin statement wording, supplier declarations, and the five most common mistakes that trigger HMRC audits. If you claim TCA preference, read this first.</li>
+                    <li><strong><a href="/eu-to-uk-135-consignment-rule">The £135 Consignment Rule — Full Explainer</a></strong> — How one number creates two completely different regimes: duty-free entry below £135 vs seller-collected VAT. Covers B2C, B2B, marketplace sales, multi-package orders, gifts, and currency fluctuation edge cases.</li>
+                    <li><strong><a href="/eu-to-uk-vat-registration">UK VAT Registration for EU Sellers — Step-by-Step</a></strong> — Who must register, the full HMRC application process, quarterly filing walkthrough, fiscal representative costs, marketplace exemptions, and what happens if you don't register. Mandatory reading for any EU business selling B2C to UK customers.</li>
+                    <li><strong><a href="/eu-to-uk-customs-clearance">Customs Clearance &amp; Paperwork Guide</a></strong> — The four documents every shipment needs, GB EORI numbers, CDS declarations explained, DDP vs DAP Incoterms, courier vs freight broker processes, and what triggers a customs inspection. Your paperwork checklist before any EU→UK shipment.</li>
+                    <li><strong><a href="/eu-to-uk-commodity-codes">Commodity Codes Directory for EU→UK Trade</a></strong> — HS code reference covering the major EU→UK export chapters: machinery (84-85), beverages (22), apparel (61-62), furniture (94), vehicles (87), and dairy (04). Includes UKGT rates and TCA preference notes for each chapter.</li>
+                </ul>
+
+                <p>This page covers the overall post-Brexit duty framework. For deeper dives into specific topics, see our guides on <a href="/eu-to-uk-tca-origin-rules">TCA Rules of Origin</a>, <a href="/eu-to-uk-135-consignment-rule">The £135 Consignment Rule</a>, <a href="/eu-to-uk-vat-registration">UK VAT Registration for EU Sellers</a>, <a href="/eu-to-uk-customs-clearance">Customs Clearance Procedures</a>, and <a href="/eu-to-uk-commodity-codes">UK Commodity Codes</a>.</p>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>Do EU goods shipped to the UK pay import duty after Brexit?</h3>
+                <p>EU goods can enter the UK at <strong>0% duty</strong> under the TCA — but only if they meet the rules of origin (wholly obtained or sufficiently processed in the EU) and the preference is claimed on the customs declaration. No claim = UKGT default rate applies, averaging around 2% for most goods.</p>
+                <p>Consignments valued at £135 or below enter duty-free regardless of origin — both the TCA zero rate and the UKGT default rate are moot below that threshold. Duty is simply waived. Above £135, the rate depends on origin and whether you filed the preference claim.</p>
+
+                <h3>How does the £135 consignment rule work for EU-to-UK shipments?</h3>
+                <p>Two different rules share the same number. For <strong>duty:</strong> consignments £135 or below pay zero duty. Above £135, the applicable rate applies (0% TCA or 2% UKGT).</p>
+                <p>For <strong>VAT:</strong> consignments £135 or below should have VAT collected by the seller at point of sale (meaning the seller must register for UK VAT). Above £135, VAT is collected at the border through the normal import process. The seller doesn't need UK VAT registration for above-£135 sales — the customer handles import VAT on delivery.</p>
+                <p>These are separate rules using the same number. Don't confuse them — a lot of EU sellers get the VAT collection side wrong and end up with HMRC compliance letters.</p>
+
+                <h3>Do I need to register for UK VAT as an EU business selling to UK customers?</h3>
+                <p>If you sell B2C and your consignments are <strong>£135 or below</strong>: yes, you must register for UK VAT, charge 20% at checkout, and file quarterly returns. No turnover minimum — applies from sale #1. If you sell through a marketplace (Amazon, eBay), the platform handles VAT — you don't need to register.</p>
+                <p>If your consignments are <strong>above £135</strong>: no UK VAT registration needed. Your customer pays import VAT at the border. You ship DDU (Delivered Duty Unpaid) and the customer handles VAT on entry. This is the simpler path for EU businesses that don't want the compliance burden — but it means your UK customers get a surprise tax bill on delivery, which isn't great for conversion rates.</p>
+
+                <h3>How does post-Brexit EU-to-UK compare to China-to-UK for importers?</h3>
+                <p>The rates are different, and so is the paperwork. EU goods under the TCA: 0% duty if origin rules are met, 2% UKGT if not. Chinese goods: 2.5-12% UKGT, no preferential route. But the customs declaration requirement is the same for both — post-Brexit, every commercial shipment from the EU needs a full CDS declaration, same as China. The difference is that EU goods have a viable path to zero duty through TCA preference; Chinese goods don't. Compare the math: our <a href="/eu-to-uk-post-brexit">EU to UK</a> calculator and our <a href="/china-to-uk-electronics">China to UK Electronics</a> calculator use the same UK VAT and duty formula — the rate changes, not the mechanism.</p>
+
+                <p style="margin-top: 30px;"><a href="/">&larr; Back to All Calculators</a></p>
+            </article>
+        </div>
+
+        
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/china-to-mexico-maquila">IMMEX Nearshoring</a></li>
+                    <li><a href="/china-to-germany-customs">EU ATLAS Hub</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data—not affiliated with any official government customs agency.</p>
+        </div>
+    </footer>
+
+    <script src="rate-data.js"></script>
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

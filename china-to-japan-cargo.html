@@ -1,0 +1,319 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>China to Japan General Cargo Duty? (Free &amp; Instant Calculator)</title>
+    <meta name="description" content="Calculate Japanese customs duty at 3.5% MFN plus 10% JCT consumption tax on general cargo from China. Japan Customs clearance, de minimis rules, and NACCS explained.">
+    <link rel="canonical" href="https://www.dutycalc.online/china-to-japan-cargo">
+    <meta property="og:title" content="China to Japan General Cargo Duty Calculator">
+    <meta property="og:description" content="Free calculator: 3.5% MFN tariff + 10% JCT on Chinese general cargo entering Japan. Instant landed-cost breakdown.">
+    <meta property="og:url" content="https://www.dutycalc.online/china-to-japan-cargo">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="China to Japan General Cargo Duty Calculator">
+    <meta name="twitter:description" content="Free calculator: 3.5% MFN tariff + 10% JCT on Chinese general cargo entering Japan.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+        <header>
+            <h1>China to Japan General Cargo Duty Calculator</h1>
+            <p>
+                Chinese goods entering Japan face a 3.5% MFN duty rate on most general cargo categories,
+                plus a 10% JCT consumption tax. Whether you are shipping electronics, machinery, home
+                goods, textiles, or e-commerce parcels from Shenzhen, Shanghai, or Guangzhou to Tokyo or
+                Osaka, you will encounter Japan Customs — Zeikan — at the border. Use the calculator
+                below for an instant landed-cost breakdown; it applies the standard MFN rate, the 10%
+                JCT, and the JPY 10,000 de minimis threshold automatically.
+            </p>
+        </header>
+
+        <div>
+            <div class="calculator" data-duty-rate="3.5" data-vat-rate="10" data-deminimis="10000" data-currency="JPY" data-vat-deminimis="10000">
+                <div class="calc-field">
+                    <label for="goodsValue">Cargo Commercial Value (JPY)</label>
+                    <input type="number" id="goodsValue" value="15000" min="0" step="1">
+                </div>
+                <div class="calc-field">
+                    <label for="shippingCost">Shipping &amp; Insurance (JPY)</label>
+                    <input type="number" id="shippingCost" value="2000" min="0" step="1">
+                </div>
+                <button id="calcBtn" class="calc-btn">Calculate Landed Cost</button>
+                <div class="calc-results" id="calcResults" style="display:none;">
+                    <p><strong>Import Tariff (3.5%):</strong> <span id="dutyResult"></span></p>
+                    <p><strong>Consumption Tax / JCT (10%):</strong> <span id="jctResult"></span></p>
+                    <p><strong>Total Landed Cost:</strong> <span id="landedResult"></span></p>
+                </div>
+            </div>
+
+            <div class="trade-tip"><span class="tip-label">RCEP is not just a piece of paper</span><br><strong>Year 4 of the China-Japan tariff phase-down is now in effect.</strong> More industrial goods 鈥?machinery, chemicals, plastics 鈥?are dropping to reduced or zero rates. If you haven't checked your HS codes against the 2026 schedule, you might be overpaying. <a href="/china-to-australia-duty">Australia's FTA is even more generous 鈫?/a></div>
+
+            <article class="seo-section">
+            <h2>How Japan Customs Calculates Duty and Consumption Tax on Chinese Imports</h2>
+            <p>
+                Japan Customs — Zeikan — values every import on a CIF basis. Cost, insurance, and
+                freight together form the statutory valuation basis under Japan's Customs Tariff Law.
+                For general cargo from China, the MFN rate is 3.5% across most categories: consumer
+                electronics, industrial components, tools, plastics, furniture, and household goods.
+            </p>
+            <p>
+                Duty is calculated first, then added to CIF to form the consumption tax base. Japan's
+                Shohizei — JCT for short — is a flat 10% on the CIF-plus-duty subtotal; a prefectural
+                local tax of 2.2% brings the effective combined rate to roughly 10%. Consider a real
+                shipment: ¥150,000 in goods plus ¥20,000 shipping and insurance yields a CIF of
+                ¥170,000. Duty at 3.5% is ¥5,950. Taxable base: ¥175,950. JCT at 10%: ¥17,595.
+                Total border charges: ¥23,545 on a landed cost of ¥193,545.
+            </p>
+
+            <h2>The JPY 10,000 De Minimis — Automatic Clearance Below This</h2>
+            <p>
+                Japan exempts shipments at JPY 10,000 or below from <em>both</em> customs duty and
+                consumption tax. At current rates, ¥10,000 equals roughly USD $65–70, covering many
+                single-item e-commerce orders from AliExpress, Temu, and Taobao. The threshold is per
+                shipment — three ¥4,000 items in one box total ¥12,000 and trigger full assessment.
+            </p>
+            <p>
+                Between ¥10,000 and ¥200,000, a simplified declaration is available. Above ¥200,000, a
+                formal declaration on Form C-5020 is mandatory. For context: Canada's de minimis is
+                CAD $20 (¥1,500); the US enjoys USD $800. Japan's ¥10,000 sits in the middle —
+                generous for small parcels, but any commercial shipment triggers the full process.
+                <a href="/de-minimis-value-guide">Read our full de minimis guide.</a>
+            </p>
+
+            <h2>Japan's NACCS — One of the World's Most Efficient Customs Systems</h2>
+            <p>
+                The Nippon Automated Cargo and Port Consolidated System — NACCS — has processed every
+                Japanese import declaration electronically since the late 1970s. Sea freight NACCS and
+                Air NACCS run as separate modules, reflecting the different documentation workflows
+                and risk profiles of ocean versus air cargo.
+            </p>
+            <p>
+                Speed is NACCS's calling card. Air express clears same-day through Narita, Haneda, or
+                Kansai; sea freight at Tokyo, Yokohama, Osaka, and Kobe clears within one to two
+                business days of arrival. Japan's investment in automation means only a minority of
+                shipments face physical inspection. One requirement: NACCS needs a Japan-domiciled
+                importer of record or a licensed customs broker (tsuukangyou) to file.
+                <a href="/japan-to-us-auto-parts">See our Japan-to-US auto parts calculator.</a>
+            </p>
+
+            <h2>Key HS Chapters for Chinese General Cargo into Japan</h2>
+            <p>
+                Japan classifies imports under 9-digit HS codes. Chapter 85 (electronics) ranges from
+                0% for ITA-covered semiconductors and computers to 3.5% for consumer accessories.
+                Chapter 84 (machinery, engines, industrial equipment) runs 0–3.5%, with many lines
+                already at zero under RCEP or the WTO ITA.
+            </p>
+            <p>
+                Chapters 61 and 62 — apparel, knitted and non-knitted — are steeper: Japan's textile
+                tariffs span 5.3% to 12.8%, reflecting a policy choice to protect domestic producers.
+                Chapter 95 (toys, sports equipment) sits at 0–3.9%; Chapter 94 (furniture, bedding)
+                runs 0–3.8%. Japan has EPAs with ASEAN, the EU, the UK, Australia, and Switzerland,
+                but no bilateral EPA with China — Chinese goods pay full MFN rates across the board.
+            </p>
+
+            <h2 id="rcep-timeline">RCEP Tariff Elimination — The Category-by-Category Timeline</h2>
+            <p>
+                Japan and China have never signed a bilateral free trade agreement. For decades, East
+                Asia's two largest economies traded purely on WTO MFN terms. That changed in January
+                2022 when RCEP — the Regional Comprehensive Economic Partnership — entered into force,
+                bringing both nations into the same free trade area alongside South Korea, Australia,
+                New Zealand, and the ten ASEAN member states. RCEP is not a single-rate agreement. Each
+                member published its own tariff elimination schedule, and Japan's schedule for Chinese
+                goods is one of the most complex: 1,300+ tariff lines spread across 16 elimination
+                categories, from immediate zero to 21-year phase-outs.
+            </p>
+            <p>
+                Japan's RCEP schedule classifies every tariff line into a category code that determines
+                how fast the rate drops. Here's what each category means for Chinese imports as of June
+                2026 (year 5 of the agreement):
+            </p>
+            <ul class="content-list">
+                <li><strong>Category A (Immediate elimination):</strong> Dropped to zero on January 1,
+                2022, the day RCEP took effect for Japan. Covers approximately 8% of Japan's tariff
+                lines on Chinese goods — mostly industrial inputs where Japan had no domestic producer
+                to protect: certain chemicals, mineral products, and raw metal ingots. These goods
+                now enter at 0% regardless of origin. If your product is in this category, you've
+                been paying zero duty since 2022.</li>
+                <li><strong>Category B5 (5-year linear reduction):</strong> The MFN rate phases down in
+                equal annual increments to zero by year 5. As of 2026, these lines should be at or
+                near zero. Covers select machinery parts, automotive components (certain engine parts
+                under 8409, transmission components under 8483), and some plastic resins. This is
+                the category most relevant to Chinese industrial exporters — it's the fastest path
+                to duty-free status for non-ITA goods.</li>
+                <li><strong>Category B10 (10-year linear reduction):</strong> The MFN rate drops in
+                equal annual steps, reaching zero in 2032. As of year 5 (2026), these lines are
+                approximately halfway to zero. Covers a broad swath of industrial goods: pumps,
+                valves, bearings, electric motors, certain steel products, and most machinery under
+                Chapter 84. For a product with a 3.5% MFN rate in this category, the RCEP rate
+                in 2026 would be roughly 1.75% — a meaningful reduction from the 3.5% baseline.</li>
+                <li><strong>Category B15 (15-year linear reduction):</strong> Reaches zero in 2037.
+                Covers a larger range of manufactured goods: consumer electronics accessories, optical
+                instruments, measuring devices, and select automotive parts. At year 5, approximately
+                one-third of the MFN rate has been eliminated. For a 3.5% MFN product, the RCEP rate
+                in 2026 is roughly 2.3%.</li>
+                <li><strong>Category B21 (21-year linear reduction):</strong> The longest phase-out.
+                Reaches zero in 2043. Covers politically sensitive categories where Japan maintains
+                domestic production: certain textiles, apparel items, footwear, leather goods, and
+                some food products. At year 5, the reduction is small — roughly 24% of the original
+                MFN rate — so a 10% textile tariff might be 7.6% under RCEP in 2026. These
+                categories are where the "RCEP hasn't helped yet" complaint comes from.</li>
+                <li><strong>Category X (Excluded from elimination):</strong> Japan permanently
+                excluded certain agricultural products, rice, some fishery products, and specific
+                processed foods from any RCEP reduction. These goods continue to pay full MFN rates
+                indefinitely. If your product is in Category X, RCEP gives you nothing — budget
+                the full MFN rate for the life of the agreement.</li>
+            </ul>
+            <p>
+                The practical takeaway for a Chinese exporter in 2026: RCEP is already delivering
+                real duty savings on industrial machinery and components (Categories B5 and B10).
+                Consumer goods and textiles will take years longer (B15 and B21). The only way to
+                know your exact RCEP rate is to look up your 9-digit HS code in Japan Customs' annual
+                RCEP tariff schedule, published in English at customs.go.jp. Don't assume
+                RCEP applies to your product — it might, at a partial rate, or it might not at all.
+                And remember: RCEP rates are preferential rates that require a valid RCEP Certificate
+                of Origin from the Chinese exporter. If you don't present the cert at clearance, Japan
+                Customs defaults to the MFN rate regardless of what the schedule says. See also our
+                <a href="/china-to-australia-duty">China-to-Australia</a> and <a href="/china-to-canada-freight">China-to-Canada</a> calculators for FTA comparisons.
+            </p>
+
+            <h2>Japanese Product Compliance and Labeling</h2>
+            <p>
+                Tariffs are only half the equation. Japan enforces extensive product safety and labeling
+                rules. For electronics, the PSE mark — Product Safety of Electrical Appliance &amp;
+                Materials — is mandatory for devices from power adapters to LED lighting. METI, the
+                Ministry of Economy, Trade and Industry, enforces strictly: non-compliant goods face
+                denial of entry, tariff paid or not.
+            </p>
+            <p>
+                The JIS (Japanese Industrial Standards) system provides voluntary specs, but compliance
+                is a de facto market-access requirement — Japanese buyers will not purchase uncertified
+                goods. The Household Goods Quality Labeling Act mandates Japanese-language labeling on
+                all consumer products. For food-contact materials — kitchenware, food containers — the
+                Food Sanitation Act requires MHLW third-party testing and certification before customs
+                will release the shipment. Testing alone can add weeks to clearance.
+            </p>
+
+            <div class="trade-tip"><span class="tip-label">PSE certification 鈥?do not skip it</span><br>Japan requires PSE (Product Safety of Electrical) certification for many electronics and appliances. This is separate from customs clearance. Ship without it and your goods get held 鈥?duty payment or not. <a href="/china-to-us-electronics">US electronics import is simpler 鈫?/a></div>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <h3>What is the actual duty rate for Chinese goods shipped to Japan?</h3>
+            <p>
+                The average MFN rate on general cargo from China is 3.5%, covering consumer electronics
+                accessories, household goods, tools, plastics, furniture, and industrial components.
+                Electronics often enter at 0% under the WTO Information Technology Agreement, zeroing
+                out semiconductors, computers, and telecom equipment. Apparel and textiles run higher,
+                typically 5% to 12% by garment type. Check your 9-digit HS code — Japan Customs
+                publishes its tariff schedule online with English-language search.
+            </p>
+
+            <h3>Do Chinese shipments under JPY 10,000 pay any tax in Japan?</h3>
+            <p>
+                No. Shipments at JPY 10,000 or below are exempt from both customs duty and the 10%
+                consumption tax. This combined duty-and-tax threshold is written into Japan's Customs
+                Law — non-discretionary, no application needed. Above ¥10,001, both charges apply to
+                the full CIF amount, not just the excess. Sellers keeping shipments under ¥10,000 per
+                package legally avoid all border charges — a common strategy for low-value e-commerce
+                from Chinese warehouses to Japanese consumers.
+            </p>
+
+            <h3>How does RCEP affect Chinese imports to Japan?</h3>
+            <p>
+                RCEP is reducing tariffs on Chinese goods through a 16-category elimination schedule
+                with timelines ranging from immediate (Category A, already at zero since 2022) to
+                21-year phase-outs (Category B21, reaching zero in 2043). As of June 2026 (year 5),
+                industrial machinery and components in Categories B5 and B10 are seeing meaningful
+                reductions — many B5 lines are near zero, B10 lines roughly halfway there. Consumer
+                goods and textiles in B15 and B21 are moving slowly; Category X products (agriculture,
+                rice, certain processed foods) are permanently excluded. See the detailed category-by-
+                category breakdown in the <a href="#rcep-timeline">RCEP Tariff Elimination section above</a> for exact reduction
+                rates and timelines. Always check your 9-digit HS code against Japan Customs' annual
+                RCEP schedule — and remember that RCEP preferential rates require a valid RCEP
+                Certificate of Origin presented at clearance.
+            </p>
+
+            <h3>Do I need a Japanese importer of record?</h3>
+            <p>
+                Yes. Non-resident entities must engage either a Japan-domiciled importer of record
+                (IOR) or a licensed customs broker — a tsuukangyou — acting as the IOR. The IOR is
+                legally responsible for the accuracy of the declaration and for remitting all duties
+                and taxes. For Amazon FBA Japan, this is absolute: the platform rejects inbound
+                inventory without a Japanese IOR on file. Many sellers work with Japan IOR service
+                providers who handle clearance, JCT remittance, and compliance for a per-shipment or
+                monthly fee.
+            </p>
+            </article>
+        </div>
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/china-to-mexico-maquila">IMMEX Nearshoring</a></li>
+                    <li><a href="/china-to-germany-customs">EU ATLAS Hub</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data&mdash;not affiliated with any official government customs agency.</p>
+        </div>
+    </footer>
+
+    <script src="rate-data.js"></script>
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

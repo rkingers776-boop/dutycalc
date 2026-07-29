@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>China to US Plastics Duty? (Free &amp; Instant Calculator)</title>
+    <meta name="description" content="Calculate import duty on plastics shipped from China to the US. 6.5% average MFN rate, Section 301 List 2 adds 25%, $800 de minimis — free instant estimator.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="canonical" href="https://www.dutycalc.online/china-to-us-plastics">
+    <meta property="og:title" content="China to US Plastics Duty Calculator — Free Instant Estimator">
+    <meta property="og:description" content="Calculate import duty on plastics shipped from China to the US. 6.5% MFN, Section 301 List 2 at 25%, $800 de minimis.">
+    <meta property="og:url" content="https://www.dutycalc.online/china-to-us-plastics">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="China to US Plastics Duty Calculator — Free Instant Estimator">
+    <meta name="twitter:description" content="Calculate import duty on plastics shipped from China to the US. 6.5% MFN, Section 301 List 2 at 25%, $800 de minimis.">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+        <header>
+            <h1>China to US Plastics Duty Calculator</h1>
+            <p>Free instant estimator for plastic resins, films, sheets, molded articles, and packaging from China — MFN rates, Section 301 List 2 at 25%, and real landed cost</p>
+        </header>
+        <div class="trade-tip"><span class="tip-label">Compliance trap for toys</span><br><strong>CPSIA certificates are mandatory for all children's products.</strong> CBP will detain a shipment at the port 鈥?even if the duty is paid correctly 鈥?if the testing paperwork isn't in order. <a href="/us-import-customs-guide">Read the US import clearance guide 鈫?/a></div>
+        <div class="calculator-card" data-duty-rate="6.5" data-vat-rate="0" data-deminimis="800">
+            <h3>China → US Plastics Duty Estimator</h3>
+            <p class="card-desc">Enter shipment value and shipping cost in USD. Calculator applies 6.5% MFN duty and the $800 Section 321 de minimis. Section 301 List 2 adds 25% on top — see the guide below for the full combined calculation.</p>
+            <div class="input-group">
+                <label>Plastics Shipment Commercial Value (USD)</label>
+                <input type="number" class="item-value unit-input" value="8000" min="0" max="99999999">
+            </div>
+            <div class="input-group">
+                <label>Shipping &amp; Insurance Cost (USD)</label>
+                <input type="number" class="shipping-cost unit-input" value="600" min="0" max="99999999">
+            </div>
+            <button class="btn-calc">Calculate Landed Cost</button>
+            <div class="result-display result-hidden" aria-live="polite" aria-atomic="true">
+                <h4>Customs Clearing Summary:</h4>
+                <ul>
+                    <li>Import Tariff (6.5% MFN): <span class="res-duty">--</span></li>
+                    <li>Import VAT / Sales Tax: <span class="res-vat">--</span></li>
+                    <li>Total Government Taxes: <span class="res-total-tax">--</span></li>
+                    <li>Total Estimated Landed Cost: <span class="res-landed">--</span></li>
+                </ul>
+            </div>
+            <a href="/china-to-us-plastics" class="detail-link" style="display:none;">View Full Country Guide &rarr;</a>
+        </div>
+        <div class="trade-tip"><span class="tip-label">Classification hack</span><br>Plastic parts vs. plastic toys: two completely different HTS chapters (39 vs. 95). The duty rate, the testing requirements, and the Section 301 treatment all change. Describe your product precisely on the commercial invoice. <a href="/china-to-us-furniture">See how furniture classification works 鈫?/a></div>
+        <div>
+            <article class="seo-section">
+                <h2>Chinese Plastics Under US Tariffs — MFN + Section 301 List 2 = 31.5%</h2>
+                <p>The US imports massive volumes of plastic raw materials from China every year — billions of dollars' worth of polyethylene, polypropylene, PVC, acrylic, and polystyrene flowing into ports from Long Beach to Savannah. If you're importing any of it, you need to understand the math, because it's not just one rate. It's two stacked on top of each other, and the second one is where the real money is.</p>
+                <p>Base MFN (Most Favored Nation) rates on plastics under HTS Chapter 39 average <strong>6.5%</strong>. That's the standard WTO rate the US applies to countries it has normal trade relations with. By itself, 6.5% is manageable — on a $10,000 shipment you're paying $650 in duty, which most importers can absorb into their landed cost model without too much pain.</p>
+                <p>But plastics from China don't stop at MFN. Section 301 List 2 — imposed on August 23, 2018, covering $16 billion worth of Chinese goods across 279 HTS subheadings — adds <strong>25% on top</strong> of the MFN rate. These two rates stack; they don't replace each other. Combined, you're at <strong>31.5%</strong> on polyethylene resins, PVC, polypropylene, polystyrene, acrylic sheets, films, molded components, and essentially everything else in Chapter 39.</p>
+                <p>Here's how the stacking works mechanically on a CBP entry summary. Your plastic goods get classified under their normal Chapter 39 HTS subheading — say 3920.10.0000 for polyethylene film. That subheading carries the MFN rate (6.5% in this case). Then CBP applies a second HTS classification under Chapter 99 — specifically 9903.88.03 — which imposes the 25% additional duty on List 2 goods from China. The two rates are calculated separately on the same CIF value and summed. It's not 25% of 6.5%. It's 6.5% of CIF plus 25% of CIF. That's the detail that catches people.</p>
+                <p>Let's run a real example so the numbers are concrete. Say you import $8,000 worth of polyethylene film from a supplier in Ningbo. Ocean freight and insurance runs you $600. Your CIF (Cost, Insurance, Freight) value — which is what Customs actually assesses duty against — comes to <strong>$8,600</strong>.</p>
+                <p>MFN duty at 6.5% on $8,600 = <strong>$559.00</strong>. Section 301 List 2 at 25% on $8,600 = <strong>$2,150.00</strong>. Merchandise Processing Fee (MPF) = <strong>$29.80</strong> (the statutory 0.3464% with a $29.80 minimum for formal entries). Harbor Maintenance Fee (HMF) = <strong>$10.75</strong> (0.125% assessed on the value of the ocean freight portion). Total government charges at the port: <strong>$2,749.55</strong>. That's 32% of your CIF value. Without Section 301, you'd be paying roughly $600 total. Section 301 alone accounts for 78% of the entire duty bill. The difference between a viable import and one that bleeds cash comes down to that one line item.</p>
+
+                <h2>List 2 — The Industrial Inputs List</h2>
+                <p>Section 301 has four lists, and they're not created equal. List 1 targeted machinery, electronics, and industrial equipment — electric motors, pumps, machine tools. List 3 and List 4A went after consumer-facing goods: furniture, apparel, footwear, luggage, toys, electronics accessories. Under the Phase One trade deal and subsequent negotiations, List 4A was cut to 7.5% and List 3 was later reduced to 7.5%. List 1 stayed at 25% but with significant exclusion programs that chipped away at its effective coverage.</p>
+                <p>List 2 is different on two counts. First, it specifically targeted <strong>industrial intermediate inputs</strong> — plastics, chemicals, iron and steel, aluminum, and other raw and semi-finished materials that US manufacturers buy to make other things. The policy logic was straightforward: hit Chinese industrial inputs hard enough that US and global manufacturers would shift sourcing to non-China suppliers. Make the feedstock expensive, and the downstream products become uncompetitive if they depend on Chinese materials.</p>
+                <p>Second, unlike Lists 3 and 4A, List 2 has <strong>never been reduced</strong>. It went to 25% on August 23, 2018, and hasn't budged. No Phase One reduction. No trade-war cooling-off adjustment. No broad exclusion program. The political calculus on industrial inputs is fundamentally different from consumer goods — there's no constituency of voters complaining about the price of polyethylene resin the way there is about the price of furniture or shoes.</p>
+                <p>Practically speaking, if you're importing any plastic material from China — raw resin, compound, masterbatch, film, sheet, pipe, molded article, or packaging — you are on List 2 at 25%. Chapter 39 in its entirety, with extremely narrow exceptions, carries the 9903.88.03 Chapter 99 subheading. For the full breakdown of how all four Section 301 lists work and which HTS chapters fall under which list, see our <a href="/section-301-china-tariffs-guide">Section 301 China Tariffs Guide</a>.</p>
+
+                <h3>Critical Distinction — Plastic Articles vs Plastic Raw Materials</h3>
+                <p>HTS Chapter 39 covers two fundamentally different types of plastic goods, and the distinction matters for classification even though the tariff outcome is the same. The first category is <strong>plastics in primary forms</strong> (HTS 3901 through 3914): resins, polymer granules, pellets, flakes, solutions, and dispersions — the raw feedstock that injection molders, extruders, blow molders, thermoformers, and compounders buy. The second is <strong>articles of plastics</strong> (HTS 3916 through 3926): monofilament, tubes, pipes, hoses, floor coverings, self-adhesive sheets, plates, film, builders' ware, packaging containers, household articles, and consumer goods — the stuff that results from processing the raw material.</p>
+                <p>Different 8-digit HTS codes within Chapter 39 carry different MFN rates. Some subheadings are free at 0%, some are 3.5%, and most cluster between 5.3% and 6.5%. But here's the critical takeaway: <strong>all Chinese-origin plastics in Chapter 39 carry the 25% List 2 additional duty</strong>, regardless of the base MFN rate. A plastic article under a 0% MFN subheading still pays the full 25% Section 301 if country of origin is China. The only real exception has been certain medical-grade plastics and PPE-related products that received temporary COVID-era exclusions — and most of those have expired as of 2025-2026. A small number have been extended but don't count on it. Check the USTR exclusion portal for your specific HTS code before placing orders.</p>
+                <p>One more nuance: country of origin for plastics follows the substantial transformation test. Resin polymerized in China from Chinese monomers is clearly Chinese-origin. But what about a plastic sheet extruded in China from South Korean resin? Under CBP's substantial transformation standard, extrusion of resin into sheet generally does not change country of origin — the sheet remains Korean-origin and is not subject to Section 301. However, if the Chinese factory further processes that sheet into finished articles (thermoforming, die-cutting, fabrication), the origin shifts to China. This is a complex area of customs law. If you're sourcing semi-finished plastics from a Chinese factory using non-Chinese raw materials, get a binding origin ruling from CBP before you assume the goods escape Section 301.</p>
+
+                <h2>De Minimis — $800 Helps Small Orders, Not Industrial Volumes</h2>
+                <p>Section 321 of the Tariff Act, commonly called the de minimis rule, lets shipments valued at $800 or less (per person, per day) enter the US duty-free and with minimal customs paperwork. No MFN duty, no Section 301, no MPF, no HMF. The shipment clears under informal entry and CBP processes it with minimal documentation — no formal entry summary (CBP Form 7501) is required.</p>
+                <p>The "per person per day" qualifier matters in practice. If you're a business, CBP considers the consignee the "person" — if you receive multiple shipments from different Chinese suppliers on the same day whose combined goods value exceeds $800, CBP can aggregate them. This is rarely enforced for unrelated shipments from different suppliers, but it's on the books. If you're structuring your importing around de minimis, keep arrivals on separate days where possible.</p>
+                <p>For certain plastic imports, this is genuinely useful. A handful of custom CNC-machined plastic prototypes from a Shenzhen shop. A small batch of specialty acrylic lenses for a low-volume product. A sample run of 50 injection-molded housings to test fit before committing to a production order. In all these cases, de minimis works beautifully — you pay nothing at the border.</p>
+                <p>But for anyone importing plastics at commercial volumes, de minimis is mostly academic. A 40-foot container of polyethylene resin pellets holds $30,000 to $60,000 worth of material. A pallet of injection-molded plastic components destined for a US assembly line runs $5,000 to $15,000 easily. A Gaylord box of plastic regrind or recycled flake — $1,500 minimum. You're over $800 every time, often by an order of magnitude. De minimis is worth knowing about, but if you're moving container loads, it doesn't apply to you. For the complete breakdown, read our <a href="/de-minimis-value-guide">De Minimis Value Guide</a>.</p>
+
+                <h3>Sample Shipments and Packaging Costs — Watch the CIF Calculation</h3>
+                <p>Plastic goods are notoriously bulky relative to their value — low density, high cube. A $500 order of plastic containers or PET preforms might cost $300 to ship because freight is driven by volume, not weight or value. Add those together and your all-in cost hits $800 — right on the de minimis line. So does CIF push you over and trigger formal entry with full duties?</p>
+                <p>No — and this is the subtlety that trips up a surprising number of importers. CBP uses the <strong>transaction value of the merchandise itself</strong>, not the total CIF value, to determine de minimis eligibility. Your $500 plastic container order stays under de minimis even if shipping pushes the total landed cost above $800. The $800 Section 321 threshold is measured against the entered value of the goods alone. Freight, insurance, and port charges don't count toward the de minimis limit. This distinction matters enormously for bulky, low-value plastic items where shipping can easily be 40-60% of the total cost. A customs broker who doesn't know this can cost you real money by filing a formal entry when an informal one would have sufficed.</p>
+
+                <h2>Key HTS Chapters and Codes for Plastics</h2>
+                <p>If you're sourcing plastics from China, you need to know exactly where your product sits in the HTS. Guessing wrong is expensive in ways that compound — CBP will catch a misclassification on audit and hit you with back duties going back up to five years, plus interest, plus potential civil penalties of 20% for negligence or 40% for gross negligence.</p>
+                <p>It's worth noting that even within the sub-ranges below, specific 8-digit codes can have significantly different rates. For example, within the polyethylene range (3901), polyethylene with a specific gravity under 0.94 (3901.10) may carry a different rate than polyethylene with a specific gravity of 0.94 or above (3901.20). Within PVC (3904), paste-grade resin and suspension-grade resin land in different subheadings. These distinctions aren't academic — they determine whether you pay 0%, 5.3%, or 6.5% MFN on top of the 25% Section 301. A competent customs broker will ask you for technical specifications, not just product names.</p>
+                <p>Here are the main ranges within Chapter 39:</p>
+                <ul class="content-list">
+                    <li><strong>3901-3914: Plastics in Primary Forms.</strong> Your raw material range. Polyethylene (3901) — the workhorse resin for films, bags, and bottles. Polypropylene (3902) — automotive parts, containers, fibers. Polystyrene (3903) — packaging foam, disposable cups, insulation. PVC (3904) — pipes, fittings, siding, flooring. Acrylic polymers (3906) — signage, displays, lighting panels. PET (3907) — beverage bottles, food packaging, polyester fiber. Polyamides/nylons (3908) — engineered parts, textiles, industrial components. If you're a US compounder, molder, or extruder buying resin from Sinopec, PetroChina, or Wanhua, your HTS code lives here.</li>
+                    <li><strong>3916-3921: Semi-Manufactures.</strong> Monofilament (3916), tubes/pipes/hoses (3917), floor coverings (3918), self-adhesive plates/sheets/film (3919), and — the biggest category — other plates, sheets, film, foil and strip (3920-3921). This is where most plastic packaging materials land. Polyethylene film for bags and wrap, PVC sheet for signage, acrylic panels for retail displays, polycarbonate sheet for glazing and machine guards.</li>
+                    <li><strong>3923: Articles for the Conveyance or Packing of Goods.</strong> The one everyone asks about. Boxes, cases, crates, bottles, flasks, jars, caps, lids, stoppers, and — yes — plastic bags and sacks of all kinds. If it's packaging made of plastic and it's coming from China, it's 3923. Combined rate: 6.5% MFN + 25% Section 301. There is no packaging exemption under any Section 301 list.</li>
+                    <li><strong>3924: Household and Toilet Articles.</strong> Tableware, kitchenware, bath accessories, toilet articles, and other household goods of plastics. Cups, plates, cutlery, dish racks, soap dishes, toothbrush holders, storage bins, trash cans, laundry baskets. These are the products big-box retailers and e-commerce sellers import by the container-load.</li>
+                    <li><strong>3926: Other Articles of Plastics.</strong> The catch-all at the end of Chapter 39. Office supplies, garment hangers, plastic hardware (screws, bolts, washers), figurines and ornamental articles, display stands, conveyor belts, automotive body trim, protective cases for tools. This heading gets heavy CBP scrutiny because importers sometimes try to classify higher-rate plastic articles here hoping for a lower rate. CBP commodity specialists know this heading cold and challenge dubious classifications regularly.</li>
+                </ul>
+
+                <h2>Common Plastic Import Scenarios — What They Actually Cost</h2>
+                <p>Here are three real-world scenarios to give you a concrete sense of how the duty math plays out at different shipment sizes and product types.</p>
+                <p><strong>Scenario 1 — Small E-Commerce Order:</strong> You buy 200 custom-printed polypropylene phone cases from Alibaba. Goods value: $400. Air freight via express courier: $120. Entered value ($400) is under $800 de minimis, so the shipment clears duty-free under Section 321. Total duty: $0. This is the model that makes small-batch plastic goods viable from China.</p>
+                <p><strong>Scenario 2 — Pallet of Packaging Materials:</strong> You import a pallet of polyethylene shrink film for your US packaging operation. Goods value: $6,500. Ocean freight + insurance: $850. CIF: $7,350. Combined duty at 31.5%: $2,315.25. MPF: $29.80. HMF: $9.19. Total government charges: $2,354.24 — nearly 36% on top of the goods value alone. You'd need a serious cost advantage on the Chinese film for this to beat domestic or alternate-origin sourcing.</p>
+                <p><strong>Scenario 3 — Container Load of PET Resin:</strong> You import a 40-foot container of PET bottle-grade resin. Goods value: $38,000. Ocean freight: $3,200. CIF: $41,200. Combined duty at 31.5%: $12,978. MPF: $538 (capped at the formal entry maximum). HMF: $51.50. Total: $13,567.55. At these volumes, even a 3-4% unit price difference from a non-China source can swing the sourcing decision by thousands of dollars.</p>
+                <p><strong>Scenario 4 — Specialty Engineering Resin, Low Volume:</strong> You import 500 kg of a custom-formulated glass-filled nylon compound for a US medical device manufacturing line. Goods value: $4,200. Air freight: $380. CIF: $4,580. Combined duty at 31.5%: $1,442.70. MPF: $29.80. No HMF (air freight). Total: $1,472.50. That's a 35% premium over the goods value. But the only alternative supplier for this specific compound is a German producer quoting $9,800 for the same quantity. Even with $1,472 in duties, the Chinese material lands at $5,672 — 42% less than the German alternative. This is the scenario where Section 301 is just a line item, not a dealbreaker.</p>
+
+                <h2>Why People Still Import Chinese Plastics Despite 31.5% Duties</h2>
+                <p>With a combined rate that high, you'd think Chinese plastics imports would have evaporated. They haven't. China is still the world's largest plastic producer — roughly 30% of global polymer production — and in many categories nobody else can match the combination of price, volume, and availability. China's coal-based PVC and methanol-based olefins (polyethylene, polypropylene) benefit from feedstock cost structures that gas-based producers in the US and Middle East don't always beat.</p>
+                <p>Specialty polymers tell an even starker story. Engineering resins like PEEK, polycarbonate compounds, certain nylon grades, and high-temperature thermoplastics have limited production outside of China, Japan, and Western Europe. If you need 20 tons of a specific glass-filled nylon 66 compound, you might have exactly three suppliers globally — and two of them are in China. A 31.5% duty on a material with no practical alternative isn't a trade barrier; it's a cost of doing business.</p>
+                <p>Then there's the compounding and masterbatch sector. Chinese compounders offer color matching, additive loading, and custom formulations with turnaround times and minimum order quantities that Western compounders struggle to match for smaller buyers. Even after 31.5% duty, the delivered cost of a custom-color ABS compound from a Chinese compounder often undercuts a domestic or European alternative — especially for orders under 10 metric tons. Chinese plastics manufacturing isn't just about cheap resin anymore. It's about an integrated supply chain that delivers a specific material to a specific specification on a specific timeline. That's worth paying a tariff for, in a lot of cases. The calculation isn't "how do I avoid 31.5%?" — it's "at 31.5%, is the landed Chinese price still my best option?" For many buyers, the answer is still yes.</p>
+
+                <h2>Practical Advice for Plastics Importers</h2>
+                <p>Importing plastics from China isn't impossible — plenty of companies do it profitably every day, and Chinese polymer production has scale advantages that are hard to replicate elsewhere. But you need to go in with accurate numbers and a clear view of the tariff landscape. Here's what actually matters when you're placing orders:</p>
+                <ol class="content-list">
+                    <li><strong>Verify your HTS code down to the 8-digit level before you commit to the PO.</strong> MFN rates within Chapter 39 range from 0% to 6.5%. The difference between a 0% subheading and a 6.5% subheading on a $50,000 resin shipment is $3,250 in MFN duty alone. Ask your Chinese supplier for the exact 8-digit HTS code they use on their export declaration, then verify it yourself against the official US HTS. Customs brokers can help with classification, but you are the importer of record and you're the one CBP holds responsible if it's wrong.</li>
+                    <li><strong>Budget for 31.5%, not 6.5%.</strong> The most common mistake: an importer gets a quote from a Chinese plastics factory, multiplies by 1.065 to account for "the tariff," and builds their margin model around that. Then the entry summary comes back at 31.5% and the shipment is underwater. The Section 301 additional duty is 25% of the CIF value — same base as MFN, not a surcharge on the MFN amount. Build your model around the combined number.</li>
+                    <li><strong>Run the alternate-origin math before every large order.</strong> Southeast Asian PET and PVC capacity has expanded dramatically since 2020. Thailand's Indorama Ventures runs massive PET plants. Vietnam's plastics sector has grown on the back of Chinese investment relocating to dodge tariffs. Malaysia and Indonesia both have significant polymer production. Get a quote from a Vietnamese or Thai supplier, add MFN-only duty (typically 6.5% or less, no Section 301), and compare the total landed cost against the Chinese quote plus 31.5%. A 10-15% higher unit price frequently beats the combined Chinese tariff burden.</li>
+                    <li><strong>Check the USTR exclusion portal for your specific HTS code before every large import.</strong> Section 301 exclusions are product-specific, not company-specific. If a competitor or an industry association successfully petitioned for an exclusion on your HTS code, you can use it too. The USTR portal lists both active exclusions (claim them immediately on your entry summary) and pending requests (which give you a heads-up on what might be coming).</li>
+                    <li><strong>Don't play classification games with plastic articles.</strong> The temptation is real: "this plastic housing is part of a machine, maybe I'll classify it under Chapter 84." Or "this plastic film has a textile backing, so maybe it's a textile article under Section XI." CBP commodity specialists review thousands of plastic imports every week and know the Chapter 39 headings cold. If they determine your article was misclassified to dodge Section 301, you face back duties to the date of entry (up to five years), interest, and civil penalties. A 20% negligence penalty on top of 31.5% duty turns a bad deal into a disaster.</li>
+                    <li><strong>Check for antidumping and countervailing duty (AD/CVD) orders on your specific plastic product.</strong> Some plastic products from China face AD/CVD orders on top of MFN and Section 301. PET resin has been subject to AD/CVD investigations involving multiple countries including China. If your product is covered, cash deposit rates can add 50-200%+ beyond the 31.5%. Check the ITA active AD/CVD order list before importing. This is separate from Section 301 and not captured by the calculator above.</li>
+                </ol>
+
+                <h2>Duty Drawback — Getting Your Money Back on Re-Exports</h2>
+                <p>There's an important provision that many plastics importers overlook: if you import plastic materials from China, pay the full 31.5% duty, use those materials to manufacture a product in the US, and then export that finished product, you may be eligible to recover up to 99% of the duties you paid through the CBP duty drawback program (Section 313 of the Tariff Act).</p>
+                <p>This is especially relevant for plastics because so many imported resins and films become components of exported goods. A US molder who imports Chinese polypropylene resin, molds it into automotive connectors, and ships those connectors to a Mexican assembly plant can claim drawback on the original resin import. A packaging converter who imports Chinese polyethylene film, prints and converts it into retail bags, and exports the finished bags to Canada can do the same. The key requirements: you need to track the imported material through your manufacturing process (substitution drawback lets you use commercially interchangeable domestic material, which simplifies things), maintain records for three years, and file drawback claims within five years of import.</p>
+                <p>At a 31.5% combined duty rate, drawback recovery can be the difference between profit and loss on a plastics manufacturing operation. If you're paying six figures in Section 301 duties annually and exporting even a portion of your finished output, drawback is worth investigating. Talk to a customs attorney or a licensed drawback specialist — the paperwork is non-trivial but the refunds are real.</p>
+
+                <h2>Frequently Asked Questions</h2>
+                <dl>
+                    <dt><strong>What's the duty rate for plastics from China?</strong></dt>
+                    <dd>6.5% MFN plus 25% Section 301 List 2, for a combined 31.5% on most plastic materials and articles under Chapter 39. Some specific HTS subheadings carry lower MFN rates — a handful are duty-free at 0% — but the 25% List 2 additional duty applies to essentially all Chinese-origin goods in Chapter 39 regardless of the base rate. The floor is 25% (for 0% MFN subheadings) and the ceiling is 31.5% (for 6.5% MFN subheadings). Either way, Section 301 dominates the bill.</dd>
+
+                    <dt><strong>Are plastic bags and packaging from China subject to Section 301?</strong></dt>
+                    <dd>Yes. Plastic bags, sacks, shrink wrap, bubble wrap, PET bottles, HDPE jugs, caps, lids, containers, crates, and pallets — anything classified under HTS 3923 — carries 6.5% MFN plus 25% Section 301 List 2. Even the poly bags your supplier uses as inner packaging get dutied if separately itemized on the commercial invoice. Combined rate: 31.5%. There is no packaging exemption under any Section 301 list.</dd>
+
+                    <dt><strong>Can I avoid the 25% by importing plastic raw material and molding it in the US?</strong></dt>
+                    <dd>No. The raw resin, pellets, compound, or masterbatch you import from China to feed your US molding or extrusion operation still carries 25% Section 301 when it clears customs. Domestic molding avoids tariff on the finished article, but the incoming material gets no relief. To eliminate Section 301 entirely on the material input, source resin from a non-China origin — Southeast Asia, the Middle East (Saudi Arabia, UAE, Qatar have massive polymer capacities), South Korea, or domestic US Gulf Coast production.</dd>
+
+                    <dt><strong>Are there any exclusions for Chinese plastics?</strong></dt>
+                    <dd>Some COVID-era exclusions covered medical-grade plastics, PPE materials, and certain healthcare-related polymer products (face shield components, ventilator parts). Most of these expired during 2025-2026, though a small number have been extended on a case-by-case basis. Check the current USTR exclusion list for your specific HTS code before every import. If an active exclusion exists, claim it by reporting the exclusion-specific Chapter 99 HTS subheading on your entry summary instead of the standard List 2 subheading (9903.88.03).</dd>
+
+                    <dt><strong>Does the $800 de minimis threshold use CIF value or goods value?</strong></dt>
+                    <dd>Goods value only. CBP measures the $800 Section 321 threshold against the transaction value of the merchandise — what you paid the supplier for the plastic goods themselves. Freight, insurance, and other charges that push the landed cost above $800 don't affect de minimis eligibility. A $490 order of plastic parts with $400 in shipping (total landed: $890) still qualifies for Section 321 informal entry. This distinction matters enormously for bulky plastic goods with high freight-to-value ratios where shipping can be 40-60% of the total cost.</dd>
+
+                    <dt><strong>What about plastic scrap, regrind, or recycled material from China?</strong></dt>
+                    <dd>Plastic waste, parings, and scrap fall under HTS 3915 and are subject to Section 301 List 2 at 25%. Additionally, China severely restricted exports of plastic scrap in 2018 under its National Sword policy — most post-consumer plastic scrap can no longer be legally exported from China at all. Industrial plastic scrap (regrind, purgings, off-spec resin) can still be exported but faces the full combined duty rate plus potentially additional EPA and CBP documentation requirements for waste imports. Verify the material is industrial scrap, not post-consumer waste, before committing to a purchase.</dd>
+
+                    <dt><strong>What's the difference between Section 301 List 2 and the tariffs on Lists 3 and 4A?</strong></dt>
+                    <dd>List 2 covers industrial intermediate inputs — plastics, chemicals, metals, and other raw/semi-finished materials. Lists 3 and 4A cover consumer goods — furniture, apparel, footwear, toys, electronics. Lists 3 and 4A were reduced to 7.5% through trade negotiations. List 2 has stayed at 25% since August 23, 2018, with no reduction. List 2 also has far fewer product exclusions than Lists 1 and 3 because industrial inputs don't generate the consumer-price sensitivity that drives political pressure for exclusion programs. If you're importing plastics from China, you're on List 2 at the full 25%.</dd>
+
+                    <dt><strong>When do I actually pay the duty — at time of shipment or at time of entry?</strong></dt>
+                    <dd>Duty is assessed and payable at the time of entry — when the goods arrive at a US port and CBP accepts the entry summary (CBP Form 7501). For ocean freight, your customs broker typically files the entry summary within 10 working days after arrival and requires payment before releasing the goods. For express courier shipments (DHL, FedEx, UPS), the carrier acts as the broker and will bill you for duties after clearance — sometimes weeks after delivery. Plan your cash flow accordingly: you don't pay at the factory gate, but you will pay before or shortly after your goods are in your hands.</dd>
+
+                    <dt><strong>Are plastic molds and tooling from China subject to Section 301?</strong></dt>
+                    <dd>It depends on the material and classification. Plastic injection molds made predominantly of steel are classified under Chapter 84 (HTS 8480) and may fall under Section 301 List 1 (machinery) at 25%, not List 2. However, plastic tooling components, jigs, and fixtures made primarily of plastic could fall under Chapter 39 and carry List 2 at 25% plus MFN. The classification turns on the material that gives the article its essential character. If you're importing molds from China, work with your customs broker to confirm the correct HTS chapter — the List 1 vs. List 2 distinction could affect whether an exclusion is available, since List 1 has a broader exclusion program than List 2.</dd>
+
+                    <dt><strong>What happens if Section 301 tariffs are repealed — do I get a refund?</strong></dt>
+                    <dd>Generally, no. Tariff rates apply based on the date of entry. If your plastic shipment clears customs while Section 301 is in effect, you pay the 25% at that time. If Section 301 is later reduced or repealed, the new rate applies to future entries — not retroactively to entries that have already liquidated (become final, typically 314 days after entry). There is a narrow window to protest a liquidation if rates change during the 180-day protest period, but this is rare. Practically, once CBP liquidates your entry at 31.5%, that duty is gone. Don't hold shipments waiting for a rate change that may never come; if you need the material, pay the duty and factor it into your pricing.</dd>
+                </dl>
+
+                <p>A final note on CIF calculation: Customs assesses duty on the total CIF value, not just the ex-works price. Make sure your commercial invoice accurately reflects freight and insurance charges. Undervaluing freight to reduce the dutiable base is a form of customs fraud — and CBP's investigative arms have gotten very good at spotting freight undervaluation on Chinese imports.</p>
+                <p>The 31.5% combined rate on Chinese plastics is one of the highest duty burdens in US customs practice outside of antidumping orders. It's not going anywhere — List 2 has survived two administrations and multiple trade negotiations without a single reduction. But that doesn't mean importing plastics from China is always the wrong call. Chinese polymer production has genuine scale advantages, and for many specialty grades and compounds, China remains the only viable source. The key is going in with accurate numbers, the right HTS code, and a sourcing strategy that compares the true landed cost — duties included — against every alternative. Run the calculator above with your actual shipment values. Check the USTR portal. Talk to your broker. And don't let a 31.5% surprise blow up your margin.</p>
+
+                <hr>
+                <p>For the full breakdown — Section 301 List 2 (25%), Section 232 steel/aluminum overlay, and how each tariff layer stacks across all Chinese product categories — see the <a href="/china-to-us-tariff-panorama">2026 China–US Tariff Panorama</a>.</p>
+                <p style="margin-top: 30px;"><a href="/">&larr; Back to All Calculators</a></p>
+            </article>
+        </div>
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/china-to-mexico-maquila">IMMEX Nearshoring</a></li>
+                    <li><a href="/china-to-germany-customs">EU ATLAS Hub</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data—not affiliated with any official government customs agency.</p>
+        </div>
+    </footer>
+    <script src="rate-data.js"></script>
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

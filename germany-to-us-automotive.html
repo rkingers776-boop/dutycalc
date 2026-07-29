@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>Germany to US Automotive Duty? (Free &amp; Instant Calculator)</title>
+    <meta name="description" content="Calculate import duty on German automotive parts and vehicles shipped to the US. 2.5% passenger car tariff, 2.5% parts MFN rate, $800 de minimis — free instant estimator.">
+    <link rel="canonical" href="https://www.dutycalc.online/germany-to-us-automotive">
+    <meta property="og:title" content="Germany to US Automotive Duty? (Free &amp; Instant Calculator)">
+    <meta property="og:description" content="Calculate import duty on German automotive parts and vehicles shipped to the US. 2.5% passenger car tariff, 2.5% parts MFN rate, $800 de minimis.">
+    <meta property="og:url" content="https://www.dutycalc.online/germany-to-us-automotive">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Germany to US Automotive Duty? (Free &amp; Instant Calculator)">
+    <meta name="twitter:description" content="Calculate import duty on German automotive parts and vehicles shipped to the US. 2.5% passenger car tariff, $800 de minimis.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header>
+            <h1>Germany to US Automotive Duty Calculator</h1>
+            <p>German cars and parts entering the US face a <strong>2.5% vehicle tariff</strong> and <strong>2.5% parts MFN rate</strong> — among the lowest auto tariffs in the developed world.
+            No Section 301 applies to German goods. No Airbus-Boeing tariffs are currently in effect. Shipments under <strong>$800</strong> qualify for de minimis duty-free entry under Section 321.
+            Use the calculator below to get your landed cost instantly.</p>
+        </header>
+
+        <div>
+            <div class="trade-tip"><span class="tip-label">Engine blocks, transmissions, ECUs 鈥?each has its own HTS</span><br><strong>Do not lump them under one code on your invoice.</strong> CBP expects automotive parts to be itemized by 10-digit HTS subheading. A consolidated "auto parts" line will get your shipment flagged for manual review. <a href="/japan-to-us-auto-parts">Japan auto parts use different HTS codes 鈫?/a></div>
+
+            <section class="calculator-section">
+                <div class="calculator" data-duty-rate="2.5" data-vat-rate="0" data-deminimis="800">
+                    <div class="calc-input">
+                        <label for="goods-value">Automotive Shipment Value (USD)</label>
+                        <input type="number" id="goods-value" value="15000" min="0" step="0.01">
+                    </div>
+                    <div class="calc-input">
+                        <label for="shipping-cost">Shipping / Freight (USD)</label>
+                        <input type="number" id="shipping-cost" value="1500" min="0" step="0.01">
+                    </div>
+                    <button type="button" id="calc-btn">Calculate Landed Cost</button>
+                    <div class="calc-result" id="calc-result" style="display:none;">
+                        <p><strong>Import Tariff (2.5%):</strong> <span id="result-duty"></span></p>
+                        <p><strong>Import VAT / Sales Tax:</strong> <span id="result-vat"></span></p>
+                        <p><strong>Merchandise Processing Fee:</strong> <span id="result-mpf"></span></p>
+                        <p><strong>Total Landed Cost:</strong> <span id="result-total"></span></p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="trade-tip"><span class="tip-label">The 2021 US-EU auto truce is holding</span><br>The threatened 25% tariff on European auto exports never materialized. The truce has held for five years. But it is a truce, not a treaty 鈥?it could change with any new administration. <a href="/eu-to-us-duty">General EU鈫扷S rates 鈫?/a></div>
+
+            <section class="seo-section">
+                <h2>US Import Duty on German Vehicles and Parts — 2.5% on Cars, 25% on Trucks</h2>
+                <p>Passenger cars from Germany (HTS 8703) enter the US at a <strong>2.5% MFN rate</strong>. BMW, Mercedes-Benz, Audi, Porsche, and Volkswagen — every German passenger vehicle pays the same 2.5%. It is one of the lowest auto tariffs in the developed world and has been stable for decades. Compare with the EU's 10% tariff on US passenger car imports and the asymmetry is stark: German cars enter the US at a quarter of the rate American cars face going the other way. This imbalance has been a recurring point of friction in US-EU trade negotiations, though no administration has moved to raise the US rate to match. Light trucks (HTS 8704) are a different story entirely: <strong>25%</strong> under the "chicken tax" — a 1963 retaliatory tariff still in full effect. This single rate differential explains decades of German automotive manufacturing decisions. Mercedes builds the Sprinter van in South Carolina specifically to avoid the 25% truck tariff. VW's Amarok pickup never came to the US because the tariff math made it commercially unviable.</p>
+                <p>For auto parts (HTS 8708): the average MFN rate is <strong>2.5%</strong>. Here is a real-world example from a typical vehicle import: a $40,000 BMW shipped from Munich plus $1,500 container shipping gives a $41,500 CIF value. Duty at 2.5% = $1,037.50. Add the Merchandise Processing Fee at 0.3464% ($143.80) and the Harbor Maintenance Fee for RoRo shipping ($51.88). Total government charges: $1,233.18. Landed cost: $42,733.18. By contrast, the 25% truck tariff on a $50,000 Mercedes Sprinter would be $12,500 — which is exactly why US-built Sprinters exist.</p>
+                <p>Now a parts shipment example — more relevant to most importers: <strong>$15,000 of Bosch and Continental engine management components from Stuttgart, air freight at $1,500 = $16,500 CIF.</strong> Duty at 2.5% = $412.50. MPF at 0.3464% = $57.16. No HMF (air freight is exempt from the Harbor Maintenance Fee). Total customs cost: $469.66 on $16,500 in goods and freight. That is an effective rate of 2.85% — and that is the whole story for German auto parts. No Section 301. No punitive add-ons. No trade-war surcharges.</p>
+                <p>The $800 de minimis rule under Section 321 matters for smaller orders: a single Bosch ECU, a set of Continental brake pads, or a ZF transmission control module shipped directly from a German supplier to a US repair shop or enthusiast often falls under the $800 threshold and clears with zero customs cost — no duty, no MPF, no HMF. Larger commercial orders over $800 pay the full 2.5% on the entire CIF value, not just the amount exceeding $800. The de minimis applies per person per day, so a repair shop ordering from three different German suppliers on the same day could receive three separate duty-free shipments if each stays under $800. This is not a loophole — it is how Section 321 is written — but CBP is increasing scrutiny on structured transactions designed solely to avoid exceeding the threshold.</p>
+
+                <h2>German Auto Parts — The Aftermarket and OEM Reality</h2>
+                <p>German auto parts (Chapter 8708) enter the US at a <strong>2.5% average MFN rate</strong>. Bosch, Continental, ZF Friedrichshafen, Mahle, and Hella are the dominant German parts exporters, supplying both German-brand US assembly plants (BMW Spartanburg in South Carolina, Mercedes Tuscaloosa in Alabama, VW Chattanooga in Tennessee) and the independent aftermarket. Parts shipped to US assembly plants pay 2.5% on every shipment. Parts shipped to US dealerships and parts distributors pay the same 2.5%. There is no difference between OEM and aftermarket in US customs treatment — CBP classifies parts by what they <em>are</em>, not who made them or who ordered them. A Bosch OEM brake caliper and an aftermarket equivalent go under the same HTS subheading at the same rate.</p>
+                <p>Quality certifications, IATF 16949 compliance, and OEM branding are commercial considerations that affect the invoice value — not the duty line on your CBP Form 7501. German parts suppliers ship billions of dollars annually into the US aftermarket: everything from individual sensors and gaskets to complete transmission assemblies. The parts trade is remarkably balanced: German-made parts flow into the US to support German-brand vehicles sold here, while US-made parts flow to Germany to support American-brand vehicles sold in Europe. Both directions pay the importing country's MFN rate. One practical note: some German OEM parts carry a premium over aftermarket equivalents on the commercial invoice — that premium increases the duty paid in absolute dollars but not the rate. A $500 Bosch OEM alternator and a $200 aftermarket alternator both pay 2.5%, but the OEM unit generates $12.50 in duty versus $5.00. See also our <a href="/japan-to-us-auto-parts">Japan to US auto parts guide</a> for comparison across the Pacific supply chain.</p>
+                <p>For importers sourcing from multiple German suppliers: consolidating shipments at a freight forwarder in Bremerhaven or Hamburg before containerizing for US transit is standard practice. A consolidated container of mixed German auto parts — brake components from ATE, sensors from Bosch, filters from Mahle — enters under multiple HTS lines on the same CBP Form 7501. Each line item carries its own classification and rate, but the 2.5% average holds across most Chapter 8708 subheadings. Your customs broker will need a detailed packing list with HTS codes assigned per SKU. German suppliers are generally excellent with documentation, but confirm that every line item on the commercial invoice has a harmonized description — "auto parts" is not sufficient for CBP.</p>
+
+                <h2>Key HTS Classifications for German Automotive Imports</h2>
+                <p>Knowing the right HTS heading saves time at entry and prevents costly post-entry amendments. Here are the major codes for German automotive imports:</p>
+                <ul class="content-list">
+                    <li><strong>8703:</strong> Passenger vehicles — <strong>2.5%</strong>. The big one for BMW, Mercedes, Audi, and Porsche imports. Covers sedans, coupes, wagons, and SUVs classified as passenger vehicles. Subheading depends on engine displacement and vehicle type. Most German luxury sedans fall under 8703.23 or 8703.24 depending on engine size.</li>
+                    <li><strong>8704:</strong> Trucks — <strong>25%</strong> (chicken tax). Mercedes Sprinter, VW Crafter, and any light truck configuration. US production avoids this entirely. Also covers cargo vans and certain commercial vehicle configurations that cross the passenger/truck boundary. GVWR thresholds also affect the subheading within 8704.</li>
+                    <li><strong>8708:</strong> Parts and accessories for motor vehicles — <strong>2.5%</strong>. Bosch, Continental, ZF components. The workhorse chapter for the German auto parts trade. Subheadings cover body panels (8708.10), brakes (8708.30), suspension (8708.80), radiators (8708.91), and exhaust systems (8708.92).</li>
+                    <li><strong>8408/8409:</strong> Engines and engine parts — <strong>2.5%</strong>. Complete engines, cylinder blocks, pistons, fuel injection components from German suppliers. Covers both gasoline and diesel engines and their component parts. German diesel engine parts are a major export category.</li>
+                    <li><strong>8708.30:</strong> Brakes and servo-brakes — <strong>2.5%</strong>. Brake pads, calipers, rotors, master cylinders, ABS modules from ATE, Bosch, and Continental. One of the highest-volume German parts categories by shipment count.</li>
+                    <li><strong>8708.80:</strong> Suspension systems and parts — <strong>2.5%</strong>. Shock absorbers, struts, control arms from Bilstein, Sachs (ZF), and KW. Includes both passive and electronic/adaptive suspension components.</li>
+                    <li><strong>8511:</strong> Electrical ignition and starting equipment — <strong>2.5%</strong>. Spark plugs, ignition coils, starters, alternators from Bosch. German electrical components dominate the European supply of this chapter.</li>
+                    <li><strong>8421:</strong> Filters — oil, air, and fuel — <strong>0% to 2.5%</strong> depending on subheading. Mahle, Mann+Hummel, and Hengst are the major German filter exporters to the US aftermarket. Oil filters often qualify for 0% under certain subheadings.</li>
+                </ul>
+
+                <h2>The Chicken Tax — Why It Still Matters 60+ Years Later</h2>
+                <p>In 1963, Europe — led by Germany and France — imposed tariffs on US chicken imports. The Johnson administration retaliated with Presidential Proclamation 3564, imposing a <strong>25% tariff</strong> on light trucks, potato starch, dextrin, and brandy. The other tariffs eventually came off. The truck tariff stayed. Six decades later, the chicken tax remains the defining structural feature of the global light truck market. Every non-US-brand pickup sold in America — Toyota Tacoma (built in Texas), Nissan Frontier (Tennessee), Honda Ridgeline (Alabama) — is built in North America specifically to avoid this tariff.</p>
+                <p>For German automotive importers, the chicken tax creates a critical pre-import classification question: is your vehicle classified as a passenger car (8703, 2.5%) or a light truck (8704, 25%)? The distinction depends on vehicle characteristics — cargo capacity, seating configuration, gross vehicle weight, and the presence or absence of a permanently affixed cargo area — not the manufacturer's marketing label. A Mercedes-Benz G-Class, for example, is classified as a passenger vehicle despite its truck-like appearance, because it is designed primarily for passenger transport. A Mercedes Sprinter cargo van with no rear seats and a flat load floor is a light truck. The gray area: passenger vans with removable rear seats. CBP has issued extensive rulings on this boundary, and a formal ruling request before import is the only safe path when classification is ambiguous.</p>
+                <p>The chicken tax has also shaped German manufacturing strategy in ways beyond the Sprinter. Volkswagen's decision to build the ID. Buzz electric van for the US market at the Chattanooga plant — rather than importing it from Hanover — was driven partly by chicken tax classification risk. Even when a vehicle arguably qualifies as a passenger vehicle under 8703, the cost of being wrong is so large that domestic production becomes the safer bet. For importers, the lesson is clear: if your vehicle has a flat load floor, a cargo area, or removable rear seats, get a binding CBP classification ruling before you book the RoRo slot. The ruling process takes 30-90 days and costs nothing beyond your time (or your customs attorney's time). See our <a href="/us-to-canada-duty">US to Canada duty guide</a> for North American automotive trade lanes.</p>
+
+                <h2>Shipping German Vehicles to the US — RoRo, Container, and Port Realities</h2>
+                <p>Most German vehicles enter the US through Roll-on/Roll-off (RoRo) shipping. The major German export ports are Bremerhaven (the largest vehicle-handling port in Europe) and Hamburg, with Emden handling significant VW Group volume. US destination ports: Baltimore (the busiest US auto import port), Jacksonville, Brunswick (Georgia), and Los Angeles/Long Beach for West Coast deliveries. A RoRo slot from Bremerhaven to Baltimore typically costs $1,200 to $1,800 per vehicle depending on spot rates and vehicle dimensions — larger SUVs like the BMW X7 or Mercedes GLS occupy more deck space and cost more. Transit time is roughly 14-18 days port-to-port, plus 3-5 business days for customs clearance and release at the US destination port before the vehicle can be picked up or trucked to its final destination. Container shipping a vehicle is possible but uncommon for standard passenger cars — it is more often used for high-value collectibles, prototype vehicles, or when RoRo schedules don't align with delivery timelines. A single 40-foot container can hold two vehicles with proper racking, but the cost is typically higher than two RoRo slots.</p>
+                <p>The Harbor Maintenance Fee (HMF) applies to ocean imports at 0.125% of the entered value. For a $40,000 vehicle it adds $50. On a $150,000 Porsche 911 Turbo S, it is $187.50. The Merchandise Processing Fee (MPF) at 0.3464% (minimum $29.66, maximum $575.35 for formal entries) applies on top. These fees are line items on your CBP Form 7501 entry summary, and they add up. A $150,000 Porsche from Stuttgart via Bremerhaven to Baltimore with $2,000 RoRo shipping owes: duty (2.5% on $152,000 CIF) = $3,800, MPF (0.3464% on $152,000) = $526.53, HMF (0.125%) = $190. Total customs cost: $4,516.53. Landed cost: $156,516.53. That is a fully loaded 3.0% effective rate — 2.5% duty plus roughly 0.5% in fees.</p>
+                <p>For parts shipments, air freight is the dominant mode for time-critical orders. Lufthansa Cargo and other carriers run daily freighters from Frankfurt (FRA) to major US hubs including JFK, ORD, and LAX. Air freight costs $3 to $6 per kilogram for consolidated German auto parts shipments, and transit time from a German supplier's dock to a US repair shop can be as little as 48 hours. Air freight shipments are exempt from the Harbor Maintenance Fee (HMF applies only to ocean cargo), but the Merchandise Processing Fee still applies at the same 0.3464% rate regardless of transport mode. Sea freight from Bremerhaven to US East Coast ports takes 12-16 days transit plus 2-4 days for customs clearance and last-mile delivery. LCL consolidation for smaller parts shipments (under 15 cubic meters) is cost-effective for orders that aren't time-critical.</p>
+
+                <h2>Documentation for German Auto Parts — What Your Customs Broker Needs</h2>
+                <p>Getting your paperwork right before the shipment leaves Germany avoids storage fees, CBP holds, and costly post-entry amendments. For a standard German auto parts entry, you or your customs broker will need:</p>
+                <ul class="content-list">
+                    <li><strong>Commercial Invoice</strong> — Itemized with part numbers, quantities, unit values, and country of origin (Germany). German suppliers typically produce excellent invoices with precise part numbers and harmonized descriptions. Make sure the invoice lists the correct US importer of record and includes INCOTERMS (typically FOB Bremerhaven or CIF Baltimore for ocean freight, FCA Frankfurt for air freight).</li>
+                    <li><strong>Packing List</strong> — Box-by-box breakdown with weights and dimensions. Essential for consolidated air freight shipments where multiple part numbers share a single airway bill. German freight forwarders are meticulous with packing lists; request one in both German and English if your broker needs it.</li>
+                    <li><strong>Bill of Lading (ocean) or Airway Bill (air)</strong> — The transport document issued by the carrier. Most German parts move via air freight from Frankfurt (FRA) or sea freight from Bremerhaven/Hamburg. LCL (less-than-container-load) consolidation is common for smaller parts shipments; the house bill of lading from your forwarder will reference the master bill from the ocean carrier.</li>
+                    <li><strong>CBP Form 7501</strong> — Entry summary filed by your licensed US customs broker. Your broker needs accurate 10-digit HTS codes; providing them upfront — rather than letting the broker guess — prevents post-entry amendments, CBP Form 28 requests for information, and potential penalties. The broker files this electronically through ACE (Automated Commercial Environment).</li>
+                    <li><strong>Importer Security Filing (ISF-10)</strong> — Required for ocean shipments only. Must be filed at least 24 hours before vessel loading at the German port. Your freight forwarder or broker handles the filing, but you supply the underlying commercial data: seller name, buyer name, manufacturer name, ship-to party, country of origin, and HTS code at the 6-digit level.</li>
+                </ul>
+                <p>For vehicle imports, EPA Form 3520-1 and DOT Form HS-7 are required in addition to the standard entry documents. CBP will not release a non-conforming vehicle without the proper exemption or compliance documentation. Most customs brokers who handle vehicle imports are familiar with these forms, but confirming their experience with German vehicle entries specifically — as opposed to Canadian or Japanese vehicle imports — is worth a phone call before you commit. German vehicle VINs, emissions labels, and certification documentation follow EU formats that differ from US formats, and a broker unfamiliar with the differences may flag issues that do not exist or miss issues that do. The VIN mismatch is a common source of delay: European VINs use a different character set and structure than US VINs, and CBP's system may not auto-validate an EU-format VIN against manufacturer databases. A broker who knows to expect this will handle it as a routine data entry issue rather than escalating it as a compliance concern.</p>
+<｜｜DSML｜｜parameter name="replace_all" string="false">false
+
+                <h2>Choosing a Customs Broker for German Automotive Imports</h2>
+                <p>Not all customs brokers handle automotive imports regularly, and fewer still specialize in the Germany-to-US lane. When selecting a broker, look for specific experience with Chapter 87 (vehicles) and Chapter 84 (engines and engine parts) entries. A broker who primarily handles general consumer goods may not be familiar with the EPA/DOT forms, the chicken tax classification boundary, or the specific documentation quirks of German vehicle VINs and emissions labels. Ask directly: "How many German passenger vehicle entries did you process last month?" A broker handling 20+ German vehicle entries per month is operating in a different league from one who sees one every few months.</p>
+                <p>For parts importers, broker selection is simpler — any licensed customs broker can handle Chapter 8708 parts entries — but one who knows the difference between a brake caliper (8708.30) and a suspension control arm (8708.80) will classify your goods correctly on the first try, avoiding post-entry amendments. German suppliers' commercial invoices often use German-language or internal part number descriptions that do not obviously map to HTS subheadings. A broker who knows that "Bremsattel" means brake caliper and "Querlenker" means control arm saves you the back-and-forth of translating part descriptions into harmonized HTS language.</p>
+
+                <h2>Emissions, Safety, and the 25-Year Rule for German Vehicle Imports</h2>
+                <p>German vehicles imported for on-road use in the US must meet <strong>EPA emissions standards</strong> and <strong>NHTSA safety standards</strong>. Vehicles under 25 years old must comply fully — no exceptions for European specification, even if the European version meets equivalent or higher standards in certain areas. Vehicles over 25 years old are exempt from both EPA and NHTSA requirements under the "25-year rule," which is why 1990s German performance cars — E36 M3s, W124 E500s, Porsche 993s — have become highly collectible and actively imported into the US market. Additional exemptions exist: the "Show and Display" provision allows limited imports (capped at 500 miles of annual road use) for vehicles of historical or technological significance, such as the Porsche 959 and Mercedes CLK GTR during their ineligible years. Racing vehicles may enter for off-road use only and cannot be registered for street operation under any circumstances.</p>
+                <p>Documentation is critical. EPA Form 3520-1 and DOT Form HS-7 must accompany every German vehicle entry. CBP will not release a non-conforming vehicle without the proper exemption documentation filed and accepted. For vehicles that require modification to meet US standards, the work must be performed by a DOT-registered importer (RI) before the vehicle can be released for on-road use. The RI process adds significant cost and time — budget $5,000 to $15,000 for common German vehicle compliance modifications depending on the model, model year, and what needs to be changed. Common modifications include: US-spec lighting (headlights, taillights, side markers), instrument cluster conversion (km/h to mph primary display), emissions system recalibration or hardware changes, and door reinforcement beams that meet FMVSS 214 side-impact standards. German manufacturers sometimes offer US-spec parts kits for popular models being imported — check with the manufacturer's classic division before committing to custom fabrication.</p>
+
+                <h2>BMW Spartanburg — The Largest US Auto Exporter by Value</h2>
+                <p>A note on scale that surprises many importers: BMW's Spartanburg, South Carolina plant is the <strong>largest US vehicle exporter by value</strong>, producing X3, X4, X5, X6, X7, and XM SUVs for global markets. Mercedes-Benz operates a major plant in Tuscaloosa, Alabama (GLE, GLS, GLE Coupe), and Volkswagen runs a plant in Chattanooga, Tennessee (Atlas, Atlas Cross Sport, ID.4). These US-built German-brand vehicles ship to customers worldwide through export clearance — not import — so they pay zero US customs on the way out. For German-made vehicles entering the US, the 2.5% passenger car rate applies. For US-built German-brand vehicles exported from the US, there is no US customs obligation. The distinction is purely based on country of origin — where the last substantial transformation occurred — not the brand name on the hood.</p>
+                <p>The volume is staggering: BMW Spartanburg alone exported over $10 billion in vehicles in 2025, making it a larger US exporter than any Detroit-brand plant. This two-way flow — German-made vehicles coming in, US-made German-brand vehicles going out — is one of the most balanced and mature automotive trade relationships in the world. For importers, the key takeaway is that parts shipped to these US assembly plants for production use face the same 2.5% duty as parts shipped to a dealership parts counter. The destination makes no difference — a ZF transmission going into a BMW built in Spartanburg and a ZF transmission going to an independent repair shop in Chicago both enter under the same HTS code at the same rate. The CBP entry process is identical; the only difference is the consignee name on the commercial invoice and the delivery address after customs release. The US has no "manufacturing drawback" or duty-relief program for parts that are incorporated into vehicles subsequently exported — the 2.5% paid on the inbound part is a sunk cost whether the finished vehicle stays in the US or ships to a customer in Dubai.</p>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>What's the duty rate for German cars imported to the US?</h3>
+                <p><strong>2.5% for passenger cars</strong> classified under HTS 8703 — this covers sedans, coupes, wagons, and SUVs from BMW, Mercedes, Audi, Porsche, and VW. <strong>25% for light trucks</strong> under HTS 8704 — the chicken tax rate that has been in effect since 1963. The classification distinction depends on vehicle characteristics, not marketing categories. When in doubt, request a binding CBP ruling before import. A post-entry reclassification from 8703 to 8704 means the duty jumps tenfold.</p>
+
+                <h3>Do German auto parts have the same duty as complete vehicles?</h3>
+                <p>Auto parts under Chapter 8708 average <strong>2.5% MFN</strong> — the same rate as passenger cars. Engine parts (8409), transmission components (8483), brakes (8708.30), suspension parts (8708.80), and electrical components (8511) all cluster around 2.5%. There is no separate or elevated rate for parts versus complete vehicles — the rate is determined by the HTS classification of the specific article, not whether it is installed in a vehicle at the time of import. A loose brake caliper in a box and a brake caliper bolted to a car both fall under 8708.30 at 2.5%.</p>
+
+                <h3>Are German cars subject to any extra tariffs besides the 2.5%?</h3>
+                <p><strong>Currently no.</strong> The Airbus-Boeing retaliatory tariffs — which at their peak added 10% to large-aircraft-related goods and 25% to a broader set of European products, including certain automotive lines — are fully suspended and have been since mid-2021. No Section 301 applies to German goods (that trade action targeted China specifically). However, steel and aluminum automotive parts — stamped body panels, structural components, bare steel subframes — may face Section 232 national-security duties (25% on steel, 10% on aluminum) depending on tariff-rate quota status. Finished assemblies and most Chapter 8708 parts are unaffected because they are classified as parts, not raw steel or aluminum articles. Verify your specific HTS code against the current Section 232 product exclusion lists if your shipment includes substantial bare metal content.</p>
+
+                <h3>How do I import a classic German car over 25 years old?</h3>
+                <p>Vehicles over 25 years old are <strong>exempt from EPA and NHTSA compliance</strong> requirements. File EPA Form 3520-1 with exemption code "E" (vehicle over 21 years old) and DOT Form HS-7 with Box 1 checked (vehicle over 25 years old). Customs duty still applies at 2.5% for passenger cars — though vehicles manufactured before 1963 may qualify for a special reduced rate under certain antique vehicle provisions. Standard CBP entry and Importer Security Filing (ISF) are required for ocean shipments. The vehicle will be released once the exemption documentation is accepted and duty is paid. No DOT-registered importer (RI) is needed for 25-year exempt vehicles — the exemption itself substitutes for RI certification. Shipping is typically arranged via RoRo from Bremerhaven or Hamburg to a US East Coast port, with door-to-port or port-to-port service available from specialized classic car logistics companies that handle the export-side paperwork and port coordination in Germany.</p>
+
+                <h3>Does the US-EU trade relationship affect German auto duties?</h3>
+                <p><strong>Not currently, but it could.</strong> There is no US-EU free trade agreement, so German automotive imports pay standard MFN rates. The Transatlantic Trade and Investment Partnership (TTIP) negotiations — which would have eliminated or reduced auto tariffs — were suspended in 2016 and have not resumed. The current 2.5% US passenger car rate and the corresponding 10% EU rate on US car imports have been stable for decades, but they remain topics in any US-EU trade dialogue. For importers, the practical advice is straightforward: budget for the 2.5% rate on passenger cars and parts, confirm vehicle classification before shipping (especially for anything that could arguably be a light truck), and stay current on Section 232 steel and aluminum tariff-rate quota status if your imports include bare metal components. The rate environment is stable, but trade policy can shift — a customs broker who monitors US-EU trade developments is worth their fee.</p>
+
+                <p>For duty rates on auto parts from all origins — Japan, China, Korea, Mexico — and the full HTS chapter map with NHTSA/DOT/EPA compliance, see the <a href="/auto-parts-import-duty">Auto Parts Import Duty Hub</a>.</p>
+                <p><a href="/">&larr; Back to All Calculators</a></p>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/china-to-mexico-maquila">IMMEX Nearshoring</a></li>
+                    <li><a href="/china-to-germany-customs">EU ATLAS Hub</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data—not affiliated with any official government customs agency.</p>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        var calcBtn = document.getElementById('calc-btn');
+        var resultDiv = document.getElementById('calc-result');
+        if (!calcBtn || !resultDiv) return;
+
+        calcBtn.addEventListener('click', function() {
+            var goodsVal = parseFloat(document.getElementById('goods-value').value) || 0;
+            var shipVal = parseFloat(document.getElementById('shipping-cost').value) || 0;
+            var cif = goodsVal + shipVal;
+            var dutyRate = 0.025;
+            var vatRate = 0;
+            var deminimis = 800;
+
+            var duty = cif <= deminimis ? 0 : cif * dutyRate;
+            var vat = cif <= deminimis ? 0 : cif * vatRate;
+            var mpf = cif <= deminimis ? 0 : Math.min(538.40, Math.max(29.66, cif * 0.003464));
+            var total = cif + duty + vat + mpf;
+
+            document.getElementById('result-duty').textContent = '$' + duty.toFixed(2);
+            document.getElementById('result-vat').textContent = '$' + vat.toFixed(2);
+            document.getElementById('result-mpf').textContent = '$' + mpf.toFixed(2);
+            document.getElementById('result-total').textContent = '$' + total.toFixed(2);
+            resultDiv.style.display = 'block';
+        });
+    })();
+    </script>
+    <script src="rate-data.js"></script>
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

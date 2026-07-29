@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>Global HS Code Duty Estimator — DutyCalc Online</title>
+    <meta name="description" content="Standard global harmonization baseline calculator for generic tariff lines. Estimate import duties, VAT, and landed costs using the HS code framework across major trade corridors.">
+    <meta property="og:title" content="Global HS Code Duty Estimator — DutyCalc Online">
+    <meta property="og:description" content="Standard global harmonization baseline calculator for generic tariff lines. Estimate import duties, VAT, and landed costs using the HS code framework across major trade corridors.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.dutycalc.online/hscode-duty-estimator">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Global HS Code Duty Estimator — DutyCalc Online">
+    <meta name="twitter:description" content="Standard global harmonization baseline calculator for generic tariff lines. Estimate import duties, VAT, and landed costs using the HS code framework across major trade corridors.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+    <link rel="canonical" href="https://www.dutycalc.online/hscode-duty-estimator">
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+        <header>
+            <h1>Global HS Code Duty Estimator Guide</h1>
+            <p>How the Harmonized System (HS) framework sets tariff rates worldwide — and how to estimate what you'll actually pay</p>
+        </header>
+
+        <div>
+            <section class="seo-section">
+                <h2>What Is the HS Code Duty Estimator?</h2>
+                <p>The Harmonized System (HS) is the universal language of international trade — a 6-digit commodity classification used by more than 200 countries. Every product that crosses a border gets an HS code, and that code determines the tariff rate. Our <strong>Global HS Code Duty Estimator</strong> uses a standardized baseline of <strong>5.5% duty and 15% VAT</strong> to give you a realistic, mid-range estimate that applies to most generic tariff lines across major economies.</p>
+
+                <h3>How the HS Code System Works</h3>
+                <p>The HS code structure is hierarchical: the first 2 digits identify the chapter (broad product category), the next 2 narrow it to a heading, and the final 2 pin it to a subheading. For example, <strong>Chapter 61</strong> covers knitted apparel, while <strong>Chapter 85</strong> covers electrical machinery. Each country then adds its own digits beyond the 6-digit base to create 8-, 10-, or even 12-digit national tariff lines with specific duty rates.</p>
+
+                <h3>Why a 5.5% Baseline?</h3>
+                <p>Across the World Trade Organization's 166 member countries, the average Most-Favored-Nation (MFN) applied tariff on non-agricultural goods hovers around 5%–6%. We use <strong>5.5%</strong> as a conservative baseline that reflects what you'd encounter on generic manufactured goods — electronics, tools, plastics, and general industrial components — entering most developed markets. It won't match every commodity (textiles and agriculture often run higher; IT goods under the ITA run at zero), but it's the right starting point for a first-pass landed cost check.</p>
+
+                <p>The HS code determines your base MFN rate. But for Chinese goods, Section 301 adds another layer on top — and that layer depends on which USTR list your product falls on, not your HS code. Our <a href="/section-301-china-tariffs-guide">Section 301 China Tariffs guide</a> explains the list system and how it stacks on whatever MFN rate your HS code gives you.</p>
+
+                <h3>The 15% VAT Component</h3>
+                <p>A <strong>15% value-added tax</strong> is a common mid-point across global VAT and GST regimes. The EU averages around 21%, the UK sits at 20%, Australia and New Zealand run 10%–15% GST, and many developing economies apply 12%–18%. Our 15% figure gives a balanced estimate that's close enough for most non-EU, non-US corridors. Remember: VAT is calculated on the CIF value <em>plus</em> any customs duty already applied — so the effective tax base is always larger than the invoice price alone.</p>
+
+                <h3>De Minimis Threshold — USD $50</h3>
+                <p>Our estimator uses a <strong>USD $50 de minimis</strong> threshold, which reflects the lower end of global duty-free allowances. While the US offers a generous $800 Section 321 exemption, many countries are far stricter: the EU has a €22–€150 range depending on the tax type, Canada sits at CAD $20 for duty (though higher for GST), and some Southeast Asian nations have no de minimis at all. A $50 threshold means most commercial shipments will trigger duties — which is the safer assumption when you're planning.</p>
+
+                <p>The duty rate from your HS code only matters once you're above the de minimis threshold. Our <a href="/de-minimis-value-guide">De Minimis Value Guide</a> shows the thresholds for every major destination — if your shipment value stays under the threshold, the HS code rate is academic.</p>
+
+                <h3>How to Use This Estimator</h3>
+                <p>Enter the <strong>commercial value</strong> of your goods (what you paid the supplier or the arms-length transaction price) and your <strong>shipping and insurance</strong> costs. The tool combines them into the CIF (Cost + Insurance + Freight) basis that customs uses. If your goods value exceeds the $50 threshold, the tool applies 5.5% duty to the full CIF amount, then 15% VAT on top of that duty-paid total. If you're under $50, both duty and VAT are zero. This is the standard customs math used by virtually every revenue authority on the planet.</p>
+
+                <h3>When to Look Up the Exact HS Code</h3>
+                <p>This estimator gives you a fast, directional number — perfect for comparing trade lanes or doing a quick sanity check before you commit to a supplier. But once you're past the quoting stage and ready to ship, you need the <em>exact</em> 10-digit HTS (US) or 8-digit TARIC (EU) code for your product. One digit wrong and your duty rate could swing by 5, 10, or even 20 percentage points. Use your country's official tariff schedule — the USITC HTS search, the EU TARIC database, or your local customs authority's online tool — to confirm the binding rate before you file entry paperwork.</p>
+
+                <h3>What if my product's exact HS code gives a different rate than 5.5%?</h3>
+                <p>The 5.5% is a baseline for quick estimates. If you have the exact 10-digit HTS code, use one of our country-specific calculators instead — they let you plug in the real rate. Start from the <a href="/">homepage matrix</a> and pick the trade lane that matches your supply chain. The HS Code Estimator is for first-pass planning; the country calculators are for actual landed cost math.</p>
+
+                <p><a href="/">&larr; Back to All Calculators</a></p>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/china-to-mexico-maquila">IMMEX Nearshoring</a></li>
+                    <li><a href="/china-to-germany-customs">EU ATLAS Hub</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data&mdash;not affiliated with any official government customs agency.</p>
+        </div>
+    </footer>
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

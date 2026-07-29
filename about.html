@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>About DutyCalc — Who Built This, How We Verify Rates, and What the Calculators Do and Don't Cover</title>
+    <meta name="description" content="DutyCalc is a free, browser-based suite of customs duty and landed cost calculators maintained by cross-border logistics practitioners. Rates sourced from primary government tariff schedules, verified on a published schedule, with every change logged publicly.">
+    <link rel="canonical" href="https://www.dutycalc.online/about">
+    <meta property="og:title" content="About DutyCalc — Who's Behind It, How Rates Are Verified">
+    <meta property="og:description" content="Free customs duty and landed cost calculators maintained by cross-border logistics practitioners. Primary-source rates, published verification schedule, public change log.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.dutycalc.online/about">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About DutyCalc — Who's Behind It, How Rates Are Verified">
+    <meta name="twitter:description" content="Free customs duty and landed cost calculators. Primary-source rates, published verification schedule, public change log.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "DutyCalc",
+      "url": "https://www.dutycalc.online",
+      "description": "Free, browser-based customs duty, VAT, and landed cost calculators for international trade corridors. Rates sourced from primary government tariff schedules.",
+      "email": "admin@dutycalc.online",
+      "foundingDate": "2026-06",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "admin@dutycalc.online",
+        "contactType": "corrections and feedback"
+      }
+    }
+    </script>
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header>
+            <h1>About DutyCalc</h1>
+            <p class="header-meta">Who built this, how the rates are verified, and what the calculators actually model</p>
+        </header>
+
+        <article class="seo-section">
+
+            <h2>Who's Behind This</h2>
+
+            <p>DutyCalc is maintained by two people who work in cross-border logistics. We've spent years on the importer side — quoting landed costs on purchase orders from factories in Shenzhen, staring at customs entry summaries trying to figure out why the broker's duty line doesn't match the spreadsheet, and occasionally watching a shipment sit at the border because someone classified a commodity code two digits off.</p>
+
+            <p>We built this site because the tools we wanted didn't exist in one place. Every trade professional keeps a mental list of "things someone should just build and leave free." A duty calculator that applies the de minimis threshold automatically. A corridor picker that shows you the currency symbol for the destination country. A single page that tells you whether your product has an active anti-dumping order before you commit to a purchase order. This site is that list, shipped.</p>
+
+            <p>DutyCalc is <strong>not</strong> affiliated with any customs broker, freight forwarder, government agency, or trade compliance software company. There is no parent organization, no sponsor, and no commercial relationship that affects which rates we display or which corridors we prioritize. The site carries no ads and sells no data. All computation runs in your browser — your shipment values, quantities, and HTS codes never leave your device.</p>
+
+            <p>If a rate is wrong, we want to know before you do. Corrections go to <a href="mailto:admin@dutycalc.online">admin@dutycalc.online</a>. If you can point us to the official source (tariff schedule, Federal Register notice, CSMS message, customs bulletin), we'll verify and fix within 48 hours. Every correction is logged publicly on the <a href="/rate-updates">Rate Change History</a> page so you can see what changed, when, and why.</p>
+
+            <h2>How Rates Are Verified</h2>
+
+            <p>Every duty rate, VAT percentage, and de minimis threshold on this site is sourced from <strong>primary government publications</strong> — the actual tariff schedules, customs notices, and legislative instruments. We don't scrape aggregators and we don't rely on anyone else's interpretation of what a rate should be.</p>
+
+            <p>Sources by jurisdiction:</p>
+            <ul class="content-list">
+                <li><strong>United States:</strong> USITC Harmonized Tariff Schedule (HTS) online database, USTR Federal Register notices for Section 301 exclusions and reviews, CBP Cargo Systems Messaging Service (CSMS) for operational changes, and Title 19 CFR for customs procedures.</li>
+                <li><strong>European Union:</strong> TARIC database (DG TAXUD), Official Journal of the European Union for legislative amendments, and member state customs authority publications for national VAT rates.</li>
+                <li><strong>United Kingdom:</strong> UK Global Tariff (HMRC / Department for Business and Trade), HMRC Customs Information Papers, and the Trade Tariff service.</li>
+                <li><strong>Canada:</strong> Canada Customs Tariff (CBSA), D-Memoranda series, and CARM portal updates.</li>
+                <li><strong>Australia:</strong> Customs Tariff Act 1995 (as amended), Australian Border Force notices, and ATO publications for GST on low-value imported goods.</li>
+                <li><strong>Japan:</strong> Japan Customs Tariff Schedule, RCEP implementation schedules, Ministry of Finance customs notices, and NACCS documentation.</li>
+                <li><strong>Mexico:</strong> TIGIE (Secretaría de Economía), SAT administrative rules, IMMEX/PROSEC regulations, and Diario Oficial de la Federación for tariff amendments and anti-dumping determinations.</li>
+                <li><strong>Cross-reference:</strong> WTO Tariff Profiles, UNCTAD TRAINS, and ITC Market Access Map — as secondary checks only. The primary national tariff schedule always has the final say.</li>
+            </ul>
+
+            <h3>Verification Cadence</h3>
+            <p>Not every corridor changes at the same pace. Our verification schedule reflects real-world volatility:</p>
+            <ul class="content-list">
+                <li><strong>High-volatility corridors</strong> (China→US, China→Mexico, EU→UK): verified monthly, or within 48 hours of a major policy announcement — whichever comes first.</li>
+                <li><strong>Medium-volatility corridors</strong> (FTA-governed lanes, stable MFN routes): verified quarterly.</li>
+                <li><strong>Low-volatility corridors</strong> (long-standing zero-rate or locked-in bilateral agreements): verified semi-annually.</li>
+            </ul>
+
+            <p>Every calculator card displays a freshness indicator — a status dot (green ≤30 days, yellow 31–90 days, red >90 days) plus the date of last verification and a link to that corridor's rate change history. You always know how current the numbers are. The <a href="/rate-updates">Rate Change History</a> page logs every verified change with source, date, and affected corridor.</p>
+
+            <h2>What the Calculators Model — and What They Don't</h2>
+
+            <p>DutyCalc models the standard customs duty and VAT/GST treatment for a given corridor under normal import conditions. It applies the MFN duty rate to the CIF value, checks the de minimis threshold, compounds VAT/GST on the duty-paid subtotal where applicable, and outputs a landed cost estimate. This covers the vast majority of routine commercial shipments.</p>
+
+            <p>The calculators do <strong>not</strong> model:</p>
+            <ul class="content-list">
+                <li><strong>Anti-dumping or countervailing duties.</strong> AD/CVD rates are factory-specific — you need the Commerce Department case number and your supplier's company-specific rate to calculate them. See our <a href="/anti-dumping-duties-guide">AD/CVD guide</a> to check whether your product is covered and how to find your factory's rate.</li>
+                <li><strong>Section 232 tariffs</strong> on steel, aluminum, and autos — which apply to specific HTS subheadings and origins.</li>
+                <li><strong>Tariff-rate quotas</strong> — which depend on fill status at the time of entry.</li>
+                <li><strong>Excise taxes</strong> on alcohol, tobacco, and fuel products.</li>
+                <li><strong>Customs broker fees, port charges, warehouse exam costs, and inland drayage.</strong></li>
+            </ul>
+            <p>For shipments subject to any of these, treat the DutyCalc estimate as the <em>floor</em> — the minimum you will pay at the border — and layer the additional charges on top based on your specific commodity and entry circumstances.</p>
+
+            <h2>Corrections and How to Reach Us</h2>
+
+            <p>This site covers 36+ trade corridors across 10 jurisdictions, each with tariff schedules that can run thousands of pages. Rates change — sometimes by executive order with 24 hours' notice, sometimes by a Federal Register entry that nobody notices until a broker flags it on next entry.</p>
+
+            <p>If you find a rate that doesn't match what your broker or the official tariff schedule says, email <a href="mailto:admin@dutycalc.online">admin@dutycalc.online</a> with a link to the official source. We verify and correct within 48 hours. Every correction is logged publicly on the <a href="/rate-updates">Rate Change History</a> page — date, corridor, old rate, new rate, and source. No silent edits.</p>
+
+            <p>For questions about a specific shipment's classification, valuation, or compliance, <strong>talk to a licensed customs broker in the destination country</strong>. We can't give binding advice — the calculators give you an estimate you can budget against, not a ruling you can file with.</p>
+
+            <hr>
+
+            <p style="margin-top: 28px;"><a href="/">&larr; Back to All Calculators</a></p>
+
+        </article>
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/china-to-mexico-maquila">IMMEX Nearshoring</a></li>
+                    <li><a href="/china-to-germany-customs">EU ATLAS Hub</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                    <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc. All computation runs in your browser — your data never leaves your device. Not affiliated with any government customs agency.</p>
+        </div>
+    </footer>
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

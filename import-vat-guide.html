@@ -1,0 +1,717 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>How Import VAT & GST Work — the Taxable Base, the Threshold Trap, and 7 Markets Compared</title>
+    <meta name="description" content="Everyone compares VAT rates. No one talks about what actually gets taxed — CIF vs FOB, duty-on-tax compounding, and the split between customs-duty de minimis and VAT de minimis. 7-market comparison with real numbers.">
+    <meta property="og:title" content="How Import VAT & GST Work — the Taxable Base, the Threshold Trap, and 7 Markets Compared">
+    <meta property="og:description" content="Everyone compares VAT rates. No one talks about what actually gets taxed — CIF vs FOB, duty-on-tax compounding, and the split between customs-duty de minimis and VAT de minimis. 7-market comparison with real numbers.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.dutycalc.online/import-vat-guide">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How Import VAT & GST Work — the Taxable Base, the Threshold Trap, and 7 Markets Compared">
+    <meta name="twitter:description" content="Everyone compares VAT rates. No one talks about what actually gets taxed — CIF vs FOB, duty-on-tax compounding, and the split between customs-duty de minimis and VAT de minimis. 7-market comparison with real numbers.">
+    <link rel="canonical" href="https://www.dutycalc.online/import-vat-guide">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+
+    <!-- Structured Data: Article + FAQ + Breadcrumb -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How Import VAT & GST Work — the Taxable Base, the Threshold Trap, and 7 Markets Compared",
+      "description": "Everyone compares VAT rates but nobody talks about the taxable base, the duty-on-tax compounding effect, and the split between customs-duty de minimis and VAT de minimis thresholds. 7-market comparison with real numbers.",
+      "datePublished": "2026-07-05",
+      "dateModified": "2026-07-05",
+      "author": {"@type": "Organization", "name": "DutyCalc Research"},
+      "publisher": {"@type": "Organization", "name": "DutyCalc Research", "url": "https://www.dutycalc.online"},
+      "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.dutycalc.online/import-vat-guide"}
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How is import VAT calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The formula every country uses: VAT = (CIF value + customs duty) × VAT rate. CIF is the goods cost plus freight plus insurance. Customs duty is added to CIF before VAT is applied — this means VAT is calculated on the duty-paid value, which makes it a tax on a tax. For example: $10,000 CIF + $500 duty = $10,500 taxable base. At 20% VAT, that's $2,100 in tax. The United States is the only G7 country that does not charge a federal VAT or GST on imports."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I pay VAT on the customs duty itself?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Every country that charges VAT or GST at import calculates it on CIF + duty — not CIF alone. Customs duty becomes part of the taxable base. This means VAT compounds on top of duty: a 20% VAT rate on a shipment carrying 10% duty produces an effective VAT burden of 22% of the original CIF, not 20%. A $10,000 CIF shipment at 10% duty pays $1,000 in duty, then 20% VAT on $11,000 = $2,200. Total border charges: $3,200 — 32% of CIF. The duty line alone understates the real cost by nearly half."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between customs duty de minimis and VAT de minimis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Customs duty de minimis is the shipment value below which no customs duty is charged. VAT de minimis is the value below which no VAT is charged. These are different numbers in most markets. The EU has a €150 de minimis for customs duty but no VAT de minimis at all — VAT applies from the first euro. The UK exempts duty under £135 but VAT from £1. Australia exempts duty under AUD $1,000 but GST from AUD $1. Assuming a shipment clears tax-free because it's under the customs de minimis is the single most common mistake first-time importers make. The duty line and the VAT line are checked separately."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which country charges the lowest import VAT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The United States — it charges no federal VAT or GST at the border. The next lowest is Canada at 5% federal GST, though provinces with harmonized sales tax charge 13-15%. Australia charges 10% GST. Japan charges 10% JCT (with a combined duty-and-tax de minimis of ¥10,000). Mexico charges 16% IVA. The UK charges 20% VAT. EU member states range from 19% (Germany) to 22% (Italy). Canada's 5% is the lowest non-zero rate among G7 countries, but its CAD $20 de minimis is so low that virtually every commercial shipment pays it — making Canada's effective tax friction higher than the rate suggests."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I reclaim import VAT if I'm registered for VAT in the importing country?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you're VAT-registered in the importing country: usually yes. Import VAT is typically recoverable as input tax on your next VAT return. You pay it at the border, then deduct it from the VAT you owe on your sales. The net cash-flow impact is the float between payment and recovery — typically 1-3 months. If you're not VAT-registered locally: no, you cannot reclaim it. The import VAT becomes a permanent cost in your landed cost calculation. For B2B importers, VAT is a cash-flow item. For DTC sellers shipping from abroad without local registration, VAT is a hard cost."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why doesn't the United States charge VAT on imports?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The US has no federal value-added tax system — it's the only G7 economy without one. US customs assesses duty on CIF, then stops. State sales taxes are collected on the domestic sale, not at the border. This structural difference means importing into the US is cheaper at the border than importing into any other developed market: a $10,000 CIF shipment pays duty only (typically 2-5%), while the same shipment into Germany pays duty plus 19% EUSt on the duty-paid CIF — often 3-4× the total border cost. The absence of a federal VAT layer is the single largest cost advantage of the US as an import market."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "DutyCalc Online", "item": "https://www.dutycalc.online/"},
+        {"@type": "ListItem", "position": 2, "name": "Import VAT & GST Guide", "item": "https://www.dutycalc.online/import-vat-guide"}
+      ]
+    }
+    </script>
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/#lanes">Corridors</a>
+                <div class="nav-dropdown">
+                    <span>Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span>De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <style>
+            /* ── VAT Guide Article — Component Styles ── */
+            .tldr-box {
+                background: #f0fdf4;
+                border: 1px solid #bbf7d0;
+                border-left: 4px solid var(--offshore-green);
+                border-radius: var(--radius-sharp);
+                padding: 22px 28px;
+                margin: 28px 0 32px;
+                font-size: 0.88rem;
+                line-height: 1.65;
+                color: var(--text-secondary);
+            }
+            .tldr-box strong { color: var(--steel-black); }
+            .tldr-box ul { margin: 8px 0 0 0; padding-left: 18px; list-style: none; }
+            .tldr-box ul li { margin-bottom: 5px; }
+            .tldr-box ul li::before { content: '▸ '; color: var(--offshore-green); font-weight: 700; }
+            .tldr-label {
+                font-family: var(--font-terminal);
+                font-size: 0.7rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                color: var(--offshore-green);
+                margin-bottom: 10px;
+            }
+            .tldr-box.warn {
+                background: #fffbeb;
+                border-color: #fde68a;
+                border-left-color: #f59e0b;
+            }
+            .tldr-box.warn .tldr-label { color: #b45309; }
+
+            .key-takes {
+                background: var(--bg-terminal);
+                border: 1px solid var(--border-light);
+                border-radius: var(--radius-sharp);
+                padding: 18px 24px;
+                margin: 0 0 24px;
+                font-size: 0.84rem;
+                line-height: 1.6;
+            }
+            .key-takes .kt-label {
+                font-family: var(--font-terminal);
+                font-size: 0.68rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.8px;
+                color: var(--steel-black);
+                margin-bottom: 6px;
+            }
+            .key-takes ul { margin: 0; padding-left: 18px; list-style: none; }
+            .key-takes ul li { margin-bottom: 3px; }
+            .key-takes ul li::before { content: '• '; color: var(--offshore-green); font-weight: 700; }
+
+            .fee-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 0.82rem;
+                margin: 16px 0 24px;
+                background: var(--bg-surface);
+            }
+            .fee-table thead th {
+                background: var(--bg-terminal);
+                font-family: var(--font-terminal);
+                font-size: 0.7rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                padding: 10px 14px;
+                text-align: left;
+                border-bottom: 2px solid var(--border-light);
+                color: var(--text-primary);
+            }
+            .fee-table tbody td {
+                padding: 10px 14px;
+                border-bottom: 1px solid var(--border-light);
+                line-height: 1.5;
+            }
+            .fee-table .fee-num {
+                font-family: var(--font-terminal);
+                font-weight: 700;
+                text-align: right;
+                color: var(--steel-black);
+                white-space: nowrap;
+            }
+            .fee-table tbody tr:last-child td { border-bottom: none; }
+
+            .vs-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 0.82rem;
+                margin: 22px 0 28px;
+                background: var(--bg-surface);
+                border: 1px solid var(--border-light);
+                border-radius: var(--radius-sharp);
+                overflow: hidden;
+            }
+            .vs-table thead th {
+                background: var(--steel-dark);
+                color: #FFFFFF;
+                font-family: var(--font-terminal);
+                font-size: 0.7rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                padding: 12px 16px;
+                text-align: left;
+                border-bottom: 2px solid var(--offshore-green);
+            }
+            .vs-table thead th:first-child { width: 22%; }
+            .vs-table tbody td {
+                padding: 12px 16px;
+                border-bottom: 1px solid var(--border-light);
+                vertical-align: top;
+                line-height: 1.5;
+            }
+            .vs-table tbody td:first-child {
+                font-weight: 700;
+                color: var(--steel-black);
+                font-family: var(--font-terminal);
+                font-size: 0.78rem;
+            }
+            .vs-table tbody tr:last-child td { border-bottom: none; }
+            .vs-table .vs-green { background: #f0fdf4; }
+            .vs-table .vs-red { background: #fefafa; }
+            .vs-table .vs-highlight { font-weight: 700; }
+
+            .dp-callout {
+                background: var(--steel-dark);
+                border-left: 4px solid var(--offshore-green);
+                border-radius: var(--radius-sharp);
+                padding: 18px 24px;
+                margin: 16px 0;
+                font-size: 0.84rem;
+                color: rgba(255,255,255,0.85);
+                line-height: 1.6;
+            }
+            .dp-callout a {
+                color: var(--offshore-green);
+                font-weight: 700;
+                font-family: var(--font-terminal);
+                font-size: 0.8rem;
+            }
+            .dp-callout .dp-arrow { color: var(--offshore-green); font-weight: 700; }
+
+            .formula-box {
+                background: var(--steel-dark);
+                border: 1px solid #1E293B;
+                border-radius: var(--radius-sharp);
+                padding: 20px 28px;
+                margin: 20px 0;
+                font-family: var(--font-terminal);
+                font-size: 0.9rem;
+                color: #e2e8f0;
+                text-align: center;
+                letter-spacing: 0.3px;
+            }
+            .formula-box .green { color: var(--offshore-green); font-weight: 700; }
+            .formula-box .amber { color: #fbbf24; }
+
+            @media (max-width: 640px) {
+                .tldr-box { padding: 18px 16px; }
+                .vs-table, .fee-table { font-size: 0.74rem; }
+                .vs-table thead th, .vs-table tbody td,
+                .fee-table thead th, .fee-table tbody td { padding: 8px 10px; }
+            }
+        </style>
+
+        <header>
+            <h1>Import VAT & GST — the Taxable Base, the Threshold Trap, and 7 Markets Compared</h1>
+            <p>Customs duty is a percentage. VAT is a percentage of a percentage — calculated on a number that already includes freight, insurance, and the duty itself. The rate is the headline. The base is where the money leaks. This guide covers the formula customs applies, the three traps that catch first-time importers, and a market-by-market breakdown of who taxes what, from what starting point, and above what threshold.</p>
+        </header>
+
+        <!-- ═══ TL;DR ═══ -->
+        <div class="tldr-box">
+            <div class="tldr-label">▌ TL;DR — The 30-Second Import VAT Map</div>
+            <ul>
+                <li><strong>The formula never changes:</strong> VAT = (CIF + Duty) × Rate. Every country. Every time.</li>
+                <li><strong>Duty de minimis ≠ VAT de minimis.</strong> The EU waives duty under €150. It charges VAT from euro one. These are separate thresholds — assuming a shipment clears tax-free because it's under the customs line is the most common import costing mistake.</li>
+                <li><strong>VAT compounds on duty.</strong> 10% duty + 20% VAT = 22% effective VAT on CIF, not 20%. The duty becomes part of the taxable base. This is a tax on a tax, by design.</li>
+                <li><strong>The US has no VAT.</strong> It's the only G7 country without a border-level consumption tax. Importing into the US is structurally cheaper than importing into any other developed market — often by 15–22% of CIF.</li>
+                <li><strong>Run your numbers:</strong> <a href="/vat-calculator" style="font-weight:700;">VAT / GST Calculator</a> → then <a href="/landed-cost-calculator" style="font-weight:700;">Landed Cost Calculator</a> for the full picture.</li>
+            </ul>
+        </div>
+
+        <!-- ═══ PART 1: THE FORMULA ═══ -->
+        <section class="seo-section" style="max-width:none;">
+            <h2>The Formula Customs Uses — and Why the Base Matters More Than the Rate</h2>
+
+            <div class="key-takes">
+                <div class="kt-label">Key Points</div>
+                <ul>
+                    <li>VAT is always calculated on CIF + duty — never FOB, never CIF alone, never the invoice subtotal.</li>
+                    <li>A 20% VAT rate produces a different effective burden depending on how much duty was paid first.</li>
+                    <li>The rate gets the attention. The taxable base — what gets multiplied by that rate — accounts for most of the variance between markets.</li>
+                </ul>
+            </div>
+
+            <div class="formula-box">
+                <span class="green">VAT</span> = ( <span class="amber">CIF</span> + <span class="amber">Duty</span> ) × <span class="green">VAT Rate</span>
+            </div>
+
+            <p>Every customs authority on earth that charges VAT or GST uses this formula. There are no exceptions. There are no deductions. The freight you paid to the carrier, the insurance premium on the cargo, and the customs duty itself — all of it enters the taxable base before the VAT rate is applied.</p>
+
+            <p>People fixate on the rate — "Germany is 19%, France is 20%, the Netherlands is 21%." But the rate difference between 19% and 21% on a $10,000 CIF shipment with $500 in duty is about $210. The difference between "VAT on CIF alone" and "VAT on CIF + duty" is $105 — before you even compare countries. The base drives the variance. The rate is the multiplier. Get the base wrong and the rate accuracy doesn't matter.</p>
+
+            <h3>Why the Duty Compounding Effect Adds Up Fast</h3>
+            <p>Take a $10,000 CIF shipment landing in the UK. MFN duty on the product is 10%, so $1,000 in duty. Now the VAT calculation: 20% × ($10,000 + $1,000) = $2,200. Total border charges: $1,000 duty + $2,200 VAT = $3,200. That's 32% of CIF — but the duty rate was only 10%.</p>
+
+            <p>Now take the same shipment entering the US. MFN duty at 10% = $1,000. No VAT. Total: $1,000 — 10% of CIF.</p>
+
+            <p>The product is identical. The MFN rate is identical. The difference is entirely the VAT layer — and specifically, the fact that VAT is calculated on the duty-paid CIF, not the pre-duty CIF. The UK shipment costs $2,200 more at the border — 22% of CIF, just from the VAT-on-duty compounding effect. Over a year of monthly shipments, that's $26,400 in additional costs, same goods, same supplier, same freight. The VAT structure alone makes the US a cheaper import market by a wide margin — before any tariff differences, before any FTA preferences, before any logistics optimization. Just the tax architecture.</p>
+        </section>
+
+        <!-- ═══ PART 2: THE THREE TRAPS ═══ -->
+        <section class="seo-section" style="max-width:none;">
+            <h2>Three Things That Trip Up Every First-Time Importer</h2>
+
+            <h3>Trap 1: VAT De Minimis Is Not the Same Number as Duty De Minimis</h3>
+            <p>Every major market publishes a de minimis figure. Most importers assume one number covers everything — that below the threshold, the shipment clears free of all charges. That assumption is wrong in almost every jurisdiction outside the US and Japan.</p>
+
+            <p>The EU is the starkest example. The €150 de minimis for customs duty is well-publicized. But the EU abolished its €22 VAT de minimis in July 2021. A €30 shipment from China to Germany pays zero customs duty (under the €150 line) but 19% EUSt on the CIF value — because VAT applies from the first euro. No floor. The seller either registered for IOSS and collected the VAT at checkout, or the carrier collects it at delivery plus a €10–20 handling fee. Either way, the tax gets paid.</p>
+
+            <p>The UK has a similar split: £135 for customs duty, but VAT from the first pound on commercial imports. Australia: AUD $1,000 FOB for customs duty, but GST from AUD $1 on low-value imported goods, collected at the point of sale by the seller or marketplace. Only Japan bundles both under one combined threshold (¥10,000), and the US has no VAT at all to split. Every other market — you check two numbers, not one.</p>
+
+            <p>The practical implication: if you're pricing a product for international DTC, budget the VAT on every shipment into every market except the US. The duty might be zero. The VAT won't be — not in the EU, not in the UK, not in Australia, not in Canada (above CAD $20). The only question is who collects it and when.</p>
+
+            <h3>Trap 2: The Invoice Currency vs the Customs Currency</h3>
+            <p>You invoice a customer in USD. The goods enter the UK. HMRC converts the declared CIF value from USD to GBP at the monthly HMRC exchange rate — not the spot rate you got from your bank, not the rate on your commercial invoice, not the rate your payment processor used. The HMRC monthly rate is published on the first Tuesday of each month and applies to all entries in the following calendar month.</p>
+
+            <p>If the pound moved 2% against the dollar between your pricing date and the customs entry date, your VAT calculation moves 2% with it — in sterling terms. On a £10,000 taxable base at 20% VAT, a 2% exchange rate swing is £40 in additional tax. Not enough to break a business, but enough to make your margin model wrong if you're doing it in Excel at a fixed rate and not checking the customs-published rate monthly.</p>
+
+            <p>Every country with VAT uses its own official exchange rate for customs valuation. They're all slightly different from each other and from the spot market. The European Central Bank publishes the rates used by EU member states. The Bank of Canada publishes CBSA rates. The ATO publishes Australian rates. If you're running tight margins on cross-border DTC, check the official rate — not the mid-market rate Google shows. The <a href="/vat-calculator">VAT Calculator</a> uses mid-market rates for directional estimates. For binding entry calculations, your broker uses the official customs rate for the entry date.</p>
+
+            <h3>Trap 3: Border-Paid vs Seller-Collected — Same Tax, Different Customer Experience</h3>
+            <p>The amount of VAT owed on a shipment is the same whether it's collected at the border or at the point of sale. The customer experience is completely different.</p>
+
+            <p>Border-paid VAT: the carrier pays customs on the importer's behalf, then bills the consignee before delivery — the VAT amount plus a disbursement fee (£8–15 in the UK, €10–20 in the EU, CAD $10–20 in Canada). The customer gets an unexpected invoice from DHL three days after placing what they thought was a straightforward online order. They're confused, they're annoyed, and a meaningful percentage of them dispute the charge or refuse delivery.</p>
+
+            <p>Seller-collected VAT: the merchant registers for the destination country's VAT system (IOSS in the EU, the UK VAT scheme for goods under £135, Australian GST for low-value imports), collects the tax at checkout, remits it to the tax authority periodically, and ships the goods as "tax paid." The package clears customs with no additional charges. The customer sees one price at checkout and never hears about customs again.</p>
+
+            <p>The tax amount is identical. The friction is not. For a DTC brand doing volume into the EU, UK, or Australia, registering for seller-collection is not a tax optimization strategy — it's a customer experience strategy. The alternative is a surprise invoice at delivery, and surprise invoices destroy repeat purchase rates. The registration burden is real — quarterly filings, local VAT number, bank account in the destination country in some cases — but the customer experience cost of not registering is larger for any brand that cares about retention.</p>
+
+            <p>If you sell through a marketplace (Amazon, eBay, Etsy), the marketplace is typically the deemed supplier for VAT purposes and handles collection and remittance. This is one of the few structural advantages of marketplace selling over DTC for international orders — the VAT compliance burden shifts to the platform. For DTC through your own Shopify store, it's on you. The <a href="/eu-to-uk-vat-registration">EU to UK VAT Registration guide</a> walks through the UK-specific rules. For EU-wide IOSS, consult a VAT specialist — the registration is straightforward but the ongoing compliance is not something to guess at.</p>
+        </section>
+
+        <!-- ═══ PART 3: 7-MARKET TABLE ═══ -->
+        <section class="seo-section" style="max-width:none;">
+            <h2>Seven Markets, Seven VAT Regimes — the Comparison Table</h2>
+            <p>The table below is not averages. It's the actual rules each customs authority applies as of mid-2026. The rates are the standard rates — reduced rates exist for specific product categories (children's clothing, books, food, medical supplies) in most markets, but the standard rate is the safe planning number.</p>
+
+            <table class="vs-table">
+                <thead>
+                    <tr>
+                        <th>Market</th>
+                        <th>VAT/GST Name</th>
+                        <th>Standard Rate</th>
+                        <th>Taxable Base</th>
+                        <th>VAT De Minimis</th>
+                        <th>Duty De Minimis</th>
+                        <th>Collection Point</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🇺🇸 United States</td>
+                        <td>No federal VAT</td>
+                        <td class="fee-num" style="color:#166534;">0%</td>
+                        <td>N/A</td>
+                        <td style="color:#166534;">N/A (no tax)</td>
+                        <td>$800 goods value</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr class="vs-red">
+                        <td>🇪🇺 European Union</td>
+                        <td>VAT (EUSt / TVA / IVA)</td>
+                        <td class="fee-num" style="color:#991b1b;">19–22%</td>
+                        <td>CIF + Duty</td>
+                        <td style="color:#991b1b;font-weight:700;">None — VAT from €0.01</td>
+                        <td>€150 goods value</td>
+                        <td>IOSS (seller) or border (carrier)</td>
+                    </tr>
+                    <tr class="vs-red">
+                        <td>🇬🇧 United Kingdom</td>
+                        <td>VAT</td>
+                        <td class="fee-num" style="color:#991b1b;">20%</td>
+                        <td>CIF + Duty</td>
+                        <td style="color:#991b1b;font-weight:700;">None — VAT from £1</td>
+                        <td>£135 consignment</td>
+                        <td>Under £135: seller. Over: border.</td>
+                    </tr>
+                    <tr>
+                        <td>🇨🇦 Canada</td>
+                        <td>GST / HST</td>
+                        <td class="fee-num" style="color:#b45309;">5–15%</td>
+                        <td>CIF + Duty</td>
+                        <td>CAD $20</td>
+                        <td>CAD $20</td>
+                        <td>Border (carrier or broker)</td>
+                    </tr>
+                    <tr>
+                        <td>🇦🇺 Australia</td>
+                        <td>GST</td>
+                        <td class="fee-num">10%</td>
+                        <td>CIF + Duty</td>
+                        <td style="color:#b45309;">$0 (low-value imports)<br>AUD $1,000+ border paid</td>
+                        <td>AUD $1,000 FOB</td>
+                        <td>Under $1,000: seller. Over: border.</td>
+                    </tr>
+                    <tr class="vs-red">
+                        <td>🇲🇽 Mexico</td>
+                        <td>IVA</td>
+                        <td class="fee-num" style="color:#991b1b;">16%</td>
+                        <td>CIF + Duty</td>
+                        <td>MXN $50 (~$2.50)</td>
+                        <td>MXN $50</td>
+                        <td>Border (agente aduanal)</td>
+                    </tr>
+                    <tr class="vs-green">
+                        <td>🇯🇵 Japan</td>
+                        <td>JCT (Consumption Tax)</td>
+                        <td class="fee-num">10%</td>
+                        <td>CIF + Duty</td>
+                        <td>¥10,000 (combined)</td>
+                        <td>¥10,000 (combined)</td>
+                        <td>Border (NACCS)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>The column that matters most is the second-to-last one: the VAT de minimis. The EU, UK, and Australia all have no meaningful VAT floor — tax applies from effectively zero. Canada's CAD $20 floor is so low it catches every commercial shipment. Japan's ¥10,000 combined threshold is the only genuinely generous de minimis outside the US, and it covers both duty and consumption tax in one test. Mexico's MXN $50 is symbolic. The US has no tax to threshold. Three markets charge VAT from dollar one; two have thresholds so low they're effectively the same; one bundles it with duty at a generous level; one doesn't charge it at all. That's the landscape.</p>
+
+            <p>Run your shipment through each market's actual math: <a href="/vat-calculator" style="font-weight:700;">VAT / GST Calculator →</a> — enter your CIF and duty, see the tax line in all 7 markets side by side.</p>
+        </section>
+
+        <!-- ═══ PART 4: MARKET DEEP DIVES ═══ -->
+        <section class="seo-section" style="max-width:none;">
+            <h2>The Markets That Work Differently — Beyond the Formula</h2>
+
+            <h3>🇪🇺 European Union — 27 Countries, One Customs Union, and No VAT Floor</h3>
+            <p>The EU applies a uniform external customs tariff (the TARIC) and a single set of customs rules across all 27 member states. But VAT rates are set nationally — 19% in Germany, 20% in France, 21% in the Netherlands, 22% in Italy. The rate you pay is the rate of the member state where the goods enter free circulation. If your goods clear through Rotterdam (Netherlands) but are destined for a warehouse in Frankfurt (Germany), Dutch BTW at 21% applies at the border — unless you use a bonded warehouse or customs suspension procedure to defer the tax to the destination country. Most importers don't, because bonded warehousing adds administrative cost that only makes sense at volume.</p>
+
+            <p>Since July 2021, the €22 VAT exemption has been gone. Every commercial import — every single one — pays VAT from the first euro of CIF. The €150 customs duty de minimis still exists: goods under €150 FOB pay no customs duty but pay VAT. Goods over €150 pay customs duty plus VAT. The split catches a lot of importers who read "€150 de minimis" and stop reading before the VAT paragraph.</p>
+
+            <p>The IOSS (Import One-Stop Shop) system is the EU's answer to DTC e-commerce. Non-EU sellers register in one EU member state, collect VAT at the applicable rate for the customer's country at checkout, and remit quarterly through a single portal. Shipments with IOSS-registered VAT IDs clear customs as tax-paid — no carrier fees, no surprise invoice. Without IOSS: the carrier collects VAT at delivery plus a €10–20 brokerage fee, the customer pays before receiving the package, and the customer is unhappy. The registration itself is straightforward — an online application through any EU member state's IOSS portal. The ongoing compliance — 27 different VAT rates, quarterly filings, transaction records — is what costs. Most small DTC brands use a VAT intermediary (Avalara, TaxJar, SimplyVAT) to handle the filings rather than doing it manually.</p>
+
+            <p>For the detailed customs clearance process per EU member state, see <a href="/china-to-germany-customs">China→Germany</a> (ATLAS), <a href="/china-to-france-customs">China→France</a> (DELTA), and <a href="/china-to-netherlands-hub">China→Netherlands</a> (Rotterdam hub).</p>
+
+            <h3>🇬🇧 United Kingdom — the £135 Split That Redefines Who Pays</h3>
+            <p>The UK's post-Brexit VAT regime is unique because it shifts the <em>obligation</em> to collect VAT, not just the liability. Under £135 consignment value (goods + shipping paid by the buyer), the overseas seller must be UK VAT-registered and collect 20% VAT at the point of sale. No customs duty applies. The shipment enters the UK with VAT already paid — no border charges, no carrier fees. Over £135: UK Global Tariff duty applies on CIF, and 20% VAT is collected at the border on the duty-paid CIF by the carrier, who adds a handling charge.</p>
+
+            <p>The trap is the consignment value definition. It's not the goods value on the commercial invoice. It's the total value of the consignment including shipping paid by the buyer and any other charges incidental to the sale. £128 goods + £10 shipping = £138 — over the line. Customs duty applies. VAT shifts from point-of-sale to border-collected. The entire cost structure changes, for an £8 difference in shipping cost.</p>
+
+            <p>This is also why a lot of China-to-UK DTC sellers misprice their shipping — or misdeclare it. The incentive to under-declare shipping costs to stay under £135 is real, and HMRC knows it. The penalties for under-declaration include the unpaid VAT plus a penalty of up to 100% of the unpaid tax. If you're selling into the UK from outside, price your products so the £135 line doesn't matter — or get your UK VAT registration sorted so you collect at point of sale regardless. The middle ground — trying to game the consignment value — is not a strategy, it's a liability.</p>
+
+            <p>For the full UK import picture, see <a href="/china-to-uk-electronics">China→UK Electronics</a>, <a href="/china-to-uk-apparel">China→UK Apparel</a>, and the <a href="/eu-to-uk-post-brexit">Post-Brexit EU→UK Trade Guide</a>.</p>
+
+            <h3>🇦🇺 Australia — Duty-Free at $1,000, but GST from the First Dollar</h3>
+            <p>Australia has the most asymmetric split in the developed world. Customs duty is exempt below AUD $1,000 FOB — one of the highest thresholds globally, and it tests against FOB (excluding freight), which makes it even more generous. But since July 2018, 10% GST applies to all low-value imported goods (AUD $1,000 or below), collected by the seller or marketplace at the point of sale. Above AUD $1,000: GST is calculated on CIF + duty at the border, as normal. But under AUD $1,000: the seller must be registered with the ATO, collect 10% GST at checkout, and remit it to the ATO. If the seller isn't registered, the Australian Border Force holds the shipment.</p>
+
+            <p>This creates a strange economic dynamic. A $900 FOB shipment pays zero customs duty (under the $1,000 FOB test), but the seller still owes 10% GST — collected at checkout, not at the border. Duty-free does not mean GST-free. The customer pays the GST at the time of purchase and never sees a separate charge. From the seller's perspective, the GST is a cost of doing business in Australia — you collect it, you hold it, you remit it. The margin impact is zero if you're pricing GST-inclusive; the administrative burden is the cost.</p>
+
+            <p>For shipments above AUD $1,000: GST moves to the border. The full formula applies — (CIF + Duty) × 10%. The Australian Border Force assesses the GST at entry, and the carrier or broker collects it before delivery. This is the traditional model. The AUD $1,000 line determines which GST regime applies — seller-collected below, border-collected above. <a href="/china-to-australia-duty">China→Australia Duty</a> has the step-by-step ATO compliance walkthrough.</p>
+
+            <h3>🇯🇵 Japan — the ¥10,000 Combined Cliff</h3>
+            <p>Japan's system is the simplest of the seven markets. Customs duty and the 10% consumption tax (JCT) share a single ¥10,000 CIF threshold. Under ¥10,000: both are zero. Over: both apply on the full CIF amount. No separate duty/VAT checks. No split thresholds. No seller-collection regime for low-value imports. One test, one answer.</p>
+
+            <p>The threshold tests against CIF inclusive of freight — a ¥9,500 item with ¥600 shipping = ¥10,100 CIF, over the line. Duty and JCT both apply on the full ¥10,100. A ¥9,900 shipment (all-in) crosses at ¥0. A ¥10,100 shipment pays roughly ¥350 in duty (at 3.5%) + ¥1,045 in JCT = ~¥1,400 in combined border charges. A ¥200 gap in CIF creates a ¥1,400 gap in cost. The cliff is real and steep — arguably the steepest in any developed market because both charges trigger at once.</p>
+
+            <p>NACCS, Japan's electronic customs system, processes most low-to-mid-value entries within hours. Between ¥10,000 and ¥200,000, a simplified declaration works. Above ¥200,000, a formal C-5020 filing is required. The paperwork escalates, but the tax math stays the same at every tier. <a href="/china-to-japan-cargo">China→Japan Cargo</a> details the NACCS workflow.</p>
+
+            <h3>🇲🇽 Mexico — Everybody Pays</h3>
+            <p>MXN $50 de minimis — about USD $2.50 at mid-2026 rates. Every commercial shipment triggers the full tax machinery: 16% IVA on the duty-paid CIF, plus the agente aduanal's filing fee (MXN $1,500–3,500, roughly USD $75–175). The IVA is straightforward — flat 16%, same formula, no weird splits. The broker fee is the real friction on low-value shipments: a $500 shipment pays $80 in IVA and $100+ in broker fees. The broker costs more than the tax.</p>
+
+            <p>The only structural relief is IMMEX — the maquiladora program that allows duty and IVA deferral for goods processed in Mexico and re-exported. For domestic sales into the Mexican market, there's no shortcut. Every shipment pays. Budget the IVA and the broker in your landed cost from the start. <a href="/china-to-mexico-maquila">China→Mexico IMMEX</a> explains which goods qualify and how the deferral accounting works.</p>
+
+            <div class="dp-callout">
+                <strong>VAT is a cost input, not a line item.</strong> If you're comparing import markets for profitability, run each one through the full duty + VAT stack — not just the duty headline. A market with 4% MFN + 21% VAT can cost more at the border than a market with 8% MFN + 5% GST. The rate comparison alone misleads. Run the full formula: <a href="/vat-calculator">VAT / GST Calculator</a> <span class="dp-arrow">→</span> enter CIF + duty, toggle all 7 markets.
+            </div>
+        </section>
+
+        <!-- ═══ PART 5: THE US ANOMALY ═══ -->
+        <section class="seo-section" style="max-width:none;">
+            <h2>The United States — Why No VAT Changes the Arithmetic of Market Entry</h2>
+
+            <div class="key-takes">
+                <div class="kt-label">Key Points</div>
+                <ul>
+                    <li>The US is the only G7 economy without a federal VAT or GST at the border.</li>
+                    <li>The import tax equation stops at CIF × MFN rate. No compounding. No VAT-on-duty. No secondary tax layer.</li>
+                    <li>State sales tax is a domestic transaction between the seller and the buyer — it is not assessed at import.</li>
+                </ul>
+            </div>
+
+            <p>The US customs bill is two lines: MFN duty on CIF, plus the Merchandise Processing Fee (0.3464% of entered value, $31.67–$614.35). That's it. No VAT. No GST. No consumption tax at the border. The absence of a federal VAT is not a loophole or a policy quirk — it's a structural feature of the US tax system that predates the modern VAT era. The US never adopted a value-added tax — instead, it relies on income taxes at the federal level and sales taxes at the state level, neither of which are collected at the port of entry.</p>
+
+            <p>This has a concrete dollar impact on import cost comparisons:</p>
+
+            <table class="fee-table">
+                <thead>
+                    <tr>
+                        <th>Line Item</th>
+                        <th style="text-align:right;">🇺🇸 United States</th>
+                        <th style="text-align:right;">🇬🇧 United Kingdom</th>
+                        <th style="text-align:right;">🇩🇪 Germany</th>
+                        <th style="text-align:right;">🇦🇺 Australia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>FOB value</strong></td>
+                        <td class="fee-num">$5,000</td>
+                        <td class="fee-num">$5,000</td>
+                        <td class="fee-num">$5,000</td>
+                        <td class="fee-num">$5,000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Freight + insurance</strong></td>
+                        <td class="fee-num">$920</td>
+                        <td class="fee-num">$920</td>
+                        <td class="fee-num">$920</td>
+                        <td class="fee-num">$920</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CIF value</strong></td>
+                        <td class="fee-num">$5,920</td>
+                        <td class="fee-num">$5,920</td>
+                        <td class="fee-num">$5,920</td>
+                        <td class="fee-num">$5,920</td>
+                    </tr>
+                    <tr>
+                        <td><strong>MFN duty at 4%</strong></td>
+                        <td class="fee-num">$237</td>
+                        <td class="fee-num">$237</td>
+                        <td class="fee-num">$237</td>
+                        <td class="fee-num">$237</td>
+                    </tr>
+                    <tr>
+                        <td style="color:#991b1b;"><strong>VAT / GST</strong></td>
+                        <td class="fee-num" style="color:#166534;"><strong>$0</strong></td>
+                        <td class="fee-num" style="color:#991b1b;"><strong>$1,231</strong></td>
+                        <td class="fee-num" style="color:#991b1b;"><strong>$1,170</strong></td>
+                        <td class="fee-num"><strong>$616</strong></td>
+                    </tr>
+                    <tr style="border-top:2px solid var(--steel-black);">
+                        <td><strong>Total border charges</strong></td>
+                        <td class="fee-num" style="font-size:1rem;color:#166534;"><strong>$237</strong></td>
+                        <td class="fee-num" style="font-size:1rem;color:#991b1b;"><strong>$1,468</strong></td>
+                        <td class="fee-num" style="font-size:1rem;color:#991b1b;"><strong>$1,407</strong></td>
+                        <td class="fee-num" style="font-size:1rem;"><strong>$853</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>% of CIF</strong></td>
+                        <td class="fee-num" style="color:#166534;">4.0%</td>
+                        <td class="fee-num" style="color:#991b1b;">24.8%</td>
+                        <td class="fee-num" style="color:#991b1b;">23.8%</td>
+                        <td class="fee-num">14.4%</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="font-size:0.8rem;color:var(--text-muted);margin-top:-12px;">Assumes $5,000 FOB, 4% MFN, UK 20% VAT, Germany 19% EUSt, Australia 10% GST. Broker fees and MPF excluded. Exchange rates at mid-2026 levels. Run your actual numbers with the <a href="/landed-cost-calculator">Landed Cost Calculator</a>.</p>
+
+            <p>The same goods, the same supplier, the same freight, the same MFN rate. The US costs $237 at the border. The UK costs $1,468 — more than 6× as much. Germany: $1,407. Australia, with the lowest non-US VAT rate in the sample at 10%: $853. The gap is entirely VAT.</p>
+
+            <p>If you're a non-US brand deciding which market to enter first, the customs math points hard toward the US. The absence of VAT means your landed cost is materially lower than in any comparable market — often 15–22% lower, depending on the MFN rate. That's a structural advantage no logistics optimization can close. Run the comparison: <a href="/landed-cost-calculator" style="font-weight:700;">Landed Cost Calculator →</a> toggle US + your target markets, same inputs, see the gap yourself.</p>
+        </section>
+
+        <!-- ═══ PART 6: FAQ ═══ -->
+        <section class="seo-section" style="max-width:none;">
+            <h2>Import VAT — Quick Answers to the Questions People Actually Search</h2>
+
+            <h3>How is import VAT calculated?</h3>
+            <p>The formula every country uses: <strong>VAT = (CIF value + customs duty) × VAT rate.</strong> CIF is the goods cost plus freight plus insurance. Customs duty is added to CIF before VAT is applied — this means VAT is calculated on the duty-paid value, which makes it a tax on a tax. For example: $10,000 CIF + $500 duty = $10,500 taxable base. At 20% VAT, that's $2,100 in tax. The United States is the only G7 country that does not charge a federal VAT or GST on imports. Use the <a href="/vat-calculator">VAT Calculator</a> to run your numbers across all 7 markets.</p>
+
+            <h3>Do I pay VAT on the customs duty itself?</h3>
+            <p>Yes. Every country that charges VAT or GST at import calculates it on CIF + duty — not CIF alone. Customs duty becomes part of the taxable base. A 20% VAT rate on a shipment carrying 10% duty produces an effective VAT burden of 22% of the original CIF, not 20%. $10,000 CIF at 10% duty = $1,000 duty. Then 20% VAT on $11,000 = $2,200. Total border charges: $3,200 — 32% of CIF. The duty line alone understates the real cost by nearly half. This is not a quirk or a loophole — it's the explicit design of import VAT in every jurisdiction that charges it. Customs authorities define the taxable value as CIF plus all duties paid, including the customs duty.</p>
+
+            <h3>What's the difference between customs duty de minimis and VAT de minimis?</h3>
+            <p>Customs duty de minimis is the shipment value below which no customs duty is charged. VAT de minimis is the value below which no VAT is charged. These are separate thresholds in most markets — and the VAT threshold is almost always lower, often zero. The EU waives customs duty under €150 but charges VAT from the first euro. The UK exempts duty under £135 but VAT from the first pound. Australia exempts duty under AUD $1,000 but GST from AUD $1. Assuming a shipment clears tax-free because it's under the customs de minimis is the single most common import costing mistake. The duty line and the VAT line are checked independently. Check the <a href="/de-minimis-checker">De Minimis Cliff Detector</a> to see both thresholds for each market on your shipment value.</p>
+
+            <h3>Which country charges the lowest import VAT?</h3>
+            <p>The United States — it doesn't charge VAT at the border. Among countries that do: Canada at 5% federal GST has the lowest standard rate, but its CAD $20 de minimis means virtually every commercial shipment pays it. Australia's 10% GST is the next lowest. Japan's 10% JCT comes with a combined ¥10,000 de minimis that exempts many smaller shipments entirely. Mexico charges 16% IVA with no meaningful de minimis. The UK charges 20% VAT from the first pound. EU rates range from 19% (Germany) to 22% (Italy), with no VAT de minimis since July 2021. Comparing rates alone is misleading — a 5% rate with no de minimis exemption produces more tax friction than a 10% rate with a generous threshold. The effective burden depends on your shipment value and the threshold, not just the rate. Run it through the <a href="/vat-calculator">VAT Calculator</a> to see the actual dollar amount per market.</p>
+
+            <h3>Can I reclaim import VAT?</h3>
+            <p>If you're VAT-registered in the importing country: usually yes. Import VAT is recoverable as input tax on your next VAT return. You pay it at the border, then deduct it from the VAT you owe on your sales. The cash-flow impact is the float between payment and recovery — typically 1–3 months. If you're not VAT-registered in the importing country: no, you cannot reclaim it. The import VAT becomes a permanent cost. This distinction is important: for B2B importers with local VAT registration, VAT is a cash-flow item. For DTC sellers shipping from abroad without local registration, VAT is a hard cost embedded in the landed cost calculation. If you're doing volume into a market, registering for VAT/GST is worth it both for recovery and for the ability to ship tax-paid. The recovery alone often justifies the compliance cost at surprisingly low volumes — a monthly duty-paid CIF of $20,000 into the UK at 20% VAT generates $4,000 in recoverable VAT per month. A VAT accountant costs $1,000–2,000/year.</p>
+
+            <h3>Why doesn't the United States charge VAT on imports?</h3>
+            <p>The US has no federal value-added tax system — the only G7 economy without one. US customs assesses duty on CIF, then stops. The government collects revenue through federal income tax and state-level sales taxes, neither of which are assessed at the port of entry. State sales tax is a transaction between the seller and the buyer's state — customs has no involvement. This structural feature makes the US the cheapest major economy to import into: a shipment that pays $1,468 in combined duty and VAT to enter the UK pays $237 to enter the US for the same goods at the same CIF. No tax policy change, no FTA negotiation, no logistics optimization can close a gap that large. The US's lack of VAT is a permanent structural advantage for importers.</p>
+
+            <h3>What happens if the seller doesn't collect VAT when they should?</h3>
+            <p>If the seller should have collected VAT at the point of sale (under the UK's £135 rule, the EU's IOSS regime, or Australia's low-value GST system) and didn't: the carrier collects the VAT at the border plus a handling fee, and the customer pays before delivery. The customer experience is a surprise invoice of £20–50 on an order they thought was paid in full. Some customers refuse delivery, dispute the charge, or return the goods — and the seller eats the return shipping. If a pattern of non-collection is identified, the tax authority can assess back taxes plus penalties. HMRC, the EU tax authorities, and the ATO have all increased enforcement on overseas seller VAT compliance since 2021. The cost of compliance is the cost of registration and quarterly filing. The cost of non-compliance is angry customers today and a tax bill with penalties tomorrow. Neither is zero — but one is predictable.</p>
+
+            <h3>Does the carrier's handling fee count as part of the VAT calculation?</h3>
+            <p>No. The carrier's disbursement fee — the £8–15 DHL charges for advancing the VAT payment at the border — is a separate service charge, not part of the taxable value. You pay VAT on the CIF + duty. You pay the carrier fee on top of that. The fee is not subject to VAT itself in most cases (it's a financial service). But it's a real cost: on a £50 VAT amount, a £12 handling charge is effectively a 24% surcharge on the tax — a surcharge that disappears entirely if the seller collects VAT at the point of sale and ships tax-paid. This is the hidden cost of border-collected VAT that rate comparisons never capture.</p>
+        </section>
+
+        <!-- ═══ DECISION PATH ═══ -->
+        <section class="seo-section" style="max-width:none;">
+            <h2>Which Tool You Need — Depends on What You're Trying to Calculate</h2>
+
+            <div style="margin:28px 0;display:flex;flex-direction:column;gap:14px;">
+
+                <div class="dp-callout">
+                    <strong>🧮 "I have my CIF and my duty amount. How much VAT will I pay in each market?"</strong><br>
+                    → <a href="/vat-calculator">VAT / GST Calculator</a>. Enter CIF, enter duty, toggle your target markets. See the VAT line, the effective rate over CIF, and the total (CIF + duty + VAT) — side by side. VAT rate fields are editable if your product qualifies for a reduced rate.
+                </div>
+
+                <div class="dp-callout">
+                    <strong>📦 "I have an FOB quote from a supplier. What's my total import cost — duty, VAT, everything?"</strong><br>
+                    → <a href="/landed-cost-calculator">Landed Cost Calculator</a>. This runs the full stack: FOB → CIF → Duty → VAT → Landed. All three layers in one view. Compare up to 7 markets simultaneously. This is the tool you use when the supplier quote is in hand and you need a landed cost to price against.
+                </div>
+
+                <div class="dp-callout">
+                    <strong>🔍 "I need to figure out the duty amount first, before I can calculate VAT."</strong><br>
+                    → <a href="/import-duty-calculator">Import Duty Calculator</a>. Pick an HS chapter, enter goods value, set origin and destination. Returns the MFN duty rate and amount — pure duty, no VAT, no freight. This is step 1 of the tool chain. Then take that duty number to the VAT Calculator (step 2), then to Landed Cost (step 3).
+                </div>
+
+                <div class="dp-callout">
+                    <strong>📏 "My shipment value is near a de minimis line. Am I safe or should I adjust?"</strong><br>
+                    → <a href="/de-minimis-checker">De Minimis Cliff Detector</a>. Enter your goods value. It checks both the duty threshold and the VAT threshold for all 7 markets. Know before you ship — one dollar over means full charges on the whole CIF, not just the excess.
+                </div>
+
+                <div class="dp-callout">
+                    <strong>🇪🇺 "I want the country-specific breakdown — Germany vs France vs Netherlands."</strong><br>
+                    → Use the corridor pages: <a href="/china-to-germany-customs">China→Germany</a> (ATLAS, 19% EUSt) · <a href="/china-to-france-customs">China→France</a> (DELTA, 20% TVA) · <a href="/china-to-netherlands-hub">China→Netherlands</a> (Rotterdam, 21% BTW) · <a href="/china-to-uk-apparel">China→UK</a> (20% VAT, £135 rule). Each page breaks down the country-specific VAT logic, the clearance system, and the compliance requirements.
+                </div>
+
+                <div class="dp-callout">
+                    <strong>🌍 "I'm comparing US vs EU vs UK for market entry. Which costs less at the border?"</strong><br>
+                    → <a href="/landed-cost-calculator">Landed Cost Calculator</a>. Toggle US, EU, and UK. Same FOB, same freight. The calculator runs all three through their respective duty + VAT formulas. The US almost always wins on import cost — the landed cost column shows you the exact dollar gap for your specific shipment. Then you decide if the EU/UK market size is worth the extra border cost.
+                </div>
+
+            </div>
+        </section>
+
+        <p style="margin-top:32px;">
+            <a href="/vat-calculator">VAT / GST Calculator →</a> &nbsp;|&nbsp;
+            <a href="/landed-cost-calculator">Landed Cost Calculator</a> &nbsp;|&nbsp;
+            <a href="/import-duty-calculator">Import Duty Calculator</a> &nbsp;|&nbsp;
+            <a href="/import-cost-workflow">Import Cost Workflow</a> &nbsp;|&nbsp;
+            <a href="/">← Back to Home</a>
+        </p>
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>⚙️ DutyCalc Online</h2>
+                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Core Data Panels</h4>
+                <ul>
+                    <li><a href="/vat-calculator">VAT / GST Calculator</a></li>
+                    <li><a href="/landed-cost-calculator">Landed Cost Calculator</a></li>
+                    <li><a href="/import-duty-calculator">Import Duty Calculator</a></li>
+                    <li><a href="/tariff-calculator">Tariff Rate Lookup</a></li>
+                    <li><a href="/import-cost-workflow">Import Cost Workflow</a></li>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal &amp; Protocols</h4>
+                <ul>
+                    <li><a href="/about">About System</a></li>
+                    <li><a href="/privacy">Data Privacy Protocol</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent trade metrology data — not affiliated with any official government customs agency. VAT rates and thresholds are as of July 2026 and subject to change. Always verify with a licensed customs broker or VAT specialist for binding calculations.</p>
+        </div>
+    </footer>
+
+    <script src="main.js?v=v20260717-000432-309922"></script>
+</body>
+</html>

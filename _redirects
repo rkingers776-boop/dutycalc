@@ -1,0 +1,93 @@
+# Cloudflare Pages redirects — enforce canonical extensionless URLs
+# All .html requests → 301 redirect to clean URL
+
+/about.html               /about               301
+/contact.html             /contact             301
+/privacy.html             /privacy             301
+/newsletter.html          /newsletter          301
+/rate-updates.html        /rate-updates        301
+
+# Core calculators
+/landed-cost-calculator.html    /landed-cost-calculator    301
+/import-duty-calculator.html    /import-duty-calculator    301
+/vat-calculator.html            /vat-calculator            301
+/tariff-calculator.html         /tariff-calculator         301
+
+# De minimis tools
+/de-minimis-checker.html               /de-minimis-checker               301
+/de-minimis-value-guide.html           /de-minimis-value-guide           301
+/section-321-de-minimis-reform-2026.html /section-321-de-minimis-reform-2026 301
+
+# Reference guides
+/us-import-customs-guide.html          /us-import-customs-guide          301
+/import-cost-workflow.html             /import-cost-workflow             301
+/import-vat-guide.html                 /import-vat-guide                 301
+/section-301-china-tariffs-guide.html  /section-301-china-tariffs-guide  301
+/hscode-duty-estimator.html            /hscode-duty-estimator            301
+
+# Product-category hubs
+/electronics-import-duty.html   /electronics-import-duty   301
+/apparel-import-duty.html       /apparel-import-duty       301
+/furniture-import-duty.html     /furniture-import-duty     301
+/machinery-import-duty.html     /machinery-import-duty     301
+
+# China origin corridors
+/china-to-us-clothing.html       /china-to-us-clothing       301
+/china-to-us-electronics.html    /china-to-us-electronics    301
+/china-to-us-furniture.html      /china-to-us-furniture      301
+/china-to-us-machinery.html      /china-to-us-machinery      301
+/china-to-us-plastics.html       /china-to-us-plastics       301
+/china-to-uk-apparel.html        /china-to-uk-apparel        301
+/china-to-uk-electronics.html    /china-to-uk-electronics    301
+/china-to-uk-homeware.html       /china-to-uk-homeware       301
+/china-to-germany-customs.html   /china-to-germany-customs   301
+/china-to-france-customs.html    /china-to-france-customs    301
+/china-to-netherlands-hub.html   /china-to-netherlands-hub   301
+/china-to-italy-textiles.html    /china-to-italy-textiles    301
+/china-to-australia-duty.html    /china-to-australia-duty    301
+/china-to-canada-freight.html    /china-to-canada-freight    301
+/china-to-japan-cargo.html       /china-to-japan-cargo       301
+/china-to-mexico-maquila.html    /china-to-mexico-maquila    301
+
+# US origin corridors
+/us-to-canada-duty.html              /us-to-canada-duty              301
+/us-to-uk-duty.html                  /us-to-uk-duty                  301
+/us-to-germany-machinery.html        /us-to-germany-machinery        301
+/us-to-australia-commerce.html       /us-to-australia-commerce       301
+
+# Other origin corridors
+/uk-to-us-duty.html                /uk-to-us-duty                301
+/uk-to-australia-retail.html       /uk-to-australia-retail       301
+/eu-to-us-duty.html                /eu-to-us-duty                301
+/germany-to-us-automotive.html     /germany-to-us-automotive     301
+/france-to-us-luxury.html          /france-to-us-luxury          301
+/italy-to-us-machinery.html        /italy-to-us-machinery        301
+/japan-to-us-auto-parts.html       /japan-to-us-auto-parts       301
+/korea-to-us-electronics.html      /korea-to-us-electronics      301
+/india-to-us-jewelry.html          /india-to-us-jewelry          301
+/vietnam-to-us-textiles.html       /vietnam-to-us-textiles       301
+
+# EU to UK series
+/eu-to-uk-post-brexit.html              /eu-to-uk-post-brexit              301
+/eu-to-uk-tca-origin-rules.html         /eu-to-uk-tca-origin-rules         301
+/eu-to-uk-135-consignment-rule.html     /eu-to-uk-135-consignment-rule     301
+/eu-to-uk-vat-registration.html         /eu-to-uk-vat-registration         301
+/eu-to-uk-customs-clearance.html        /eu-to-uk-customs-clearance        301
+/eu-to-uk-commodity-codes.html          /eu-to-uk-commodity-codes          301
+
+# Incoterms guide
+/incoterms-guide.html              /incoterms-guide              301
+
+# Deep-dive analysis
+/china-to-us-tariff-panorama.html  /china-to-us-tariff-panorama  301
+/anti-dumping-duties-guide.html    /anti-dumping-duties-guide    301
+/section-122-tariffs-guide.html    /section-122-tariffs-guide    301
+/us-import-duty-layers-guide.html  /us-import-duty-layers-guide  301
+
+# New corridors (July 2026)
+/canada-to-us-duty.html               /canada-to-us-duty               301
+/mexico-to-us-duty.html               /mexico-to-us-duty               301
+/taiwan-to-us-semiconductors.html      /taiwan-to-us-semiconductors    301
+
+# Product-category hubs (continued)
+/auto-parts-import-duty.html       /auto-parts-import-duty       301
