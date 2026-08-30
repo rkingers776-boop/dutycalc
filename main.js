@@ -19,6 +19,9 @@
         if (card.hasAttribute('data-vat-deminimis')) {
             vatDeMinimis = parseFloat(card.getAttribute('data-vat-deminimis')) || 0;
         }
+        // Threshold base: 'fob' (default, goods value only) or 'cif' (goods + shipping,
+        // required for UK £135 consignment rule and Japan ¥10,000 CIF rule)
+        var thresholdBase = card.getAttribute('data-threshold-base') || 'fob';
 
         var itemValue    = parseFloat(card.querySelector('.item-value').value);
         var shippingCost = parseFloat(card.querySelector('.shipping-cost').value) || 0;
@@ -39,11 +42,13 @@
         var totalCIF       = itemValue + shippingCost;
         var calculatedDuty = 0;
         var calculatedVAT  = 0;
+        // De minimis is tested against the correct base: UK/Japan compare CIF (incl. freight)
+        var dmBase = thresholdBase === 'cif' ? totalCIF : itemValue;
 
-        if (itemValue > deMinimis) {
+        if (dmBase > deMinimis) {
             calculatedDuty = totalCIF * (dutyRate / 100);
         }
-        if (itemValue > vatDeMinimis) {
+        if (dmBase > vatDeMinimis) {
             calculatedVAT = (totalCIF + calculatedDuty) * (vatRate / 100);
         }
 
@@ -52,10 +57,19 @@
 
         var sym = getCurrencySymbol(card);
         var resultBox = card.querySelector('.result-display');
-        card.querySelector('.res-duty').innerText      = sym + calculatedDuty.toFixed(2);
-        card.querySelector('.res-vat').innerText       = sym + calculatedVAT.toFixed(2);
-        card.querySelector('.res-total-tax').innerText = sym + totalTax.toFixed(2);
-        card.querySelector('.res-landed').innerText    = sym + finalLandedCost.toFixed(2);
+        if (resultBox && !resultBox.hasAttribute('role')) {
+            resultBox.setAttribute('role', 'status');
+            resultBox.setAttribute('aria-live', 'polite');
+        }
+        // Null-safe result fill — some corridor cards expose only a subset of fields
+        function setRes(sel, val) {
+            var el = card.querySelector(sel);
+            if (el) el.innerText = val;
+        }
+        setRes('.res-duty',      sym + calculatedDuty.toFixed(2));
+        setRes('.res-vat',       sym + calculatedVAT.toFixed(2));
+        setRes('.res-total-tax', sym + totalTax.toFixed(2));
+        setRes('.res-landed',    sym + finalLandedCost.toFixed(2));
 
         resultBox.classList.remove('result-hidden');
 
@@ -103,6 +117,7 @@
         var deMinimis = parseFloat(root.getAttribute('data-deminimis')) || 0;
         var vatDeMin  = parseFloat(root.getAttribute('data-vat-deminimis'));
         if (isNaN(vatDeMin)) vatDeMin = 0;
+        var thresholdBase = root.getAttribute('data-threshold-base') || 'fob';
 
         var currency = root.getAttribute('data-currency') || 'USD';
         var sym = LEGACY_SYMBOLS[currency] || '$';
@@ -119,8 +134,9 @@
         }
 
         var cif = goods + (isNaN(ship) ? 0 : ship);
-        var duty = goods > deMinimis ? cif * (dutyRate / 100) : 0;
-        var vat  = (goods > vatDeMin && vatRate > 0) ? (cif + duty) * (vatRate / 100) : 0;
+        var dmBase = thresholdBase === 'cif' ? cif : goods;
+        var duty = dmBase > deMinimis ? cif * (dutyRate / 100) : 0;
+        var vat  = (dmBase > vatDeMin && vatRate > 0) ? (cif + duty) * (vatRate / 100) : 0;
         var total = cif + duty + vat;
 
         function fill(span, val) {
@@ -135,7 +151,8 @@
 
         var mpfSpan = legacyFirst(root, ['#result-mpf', '#mpfResult']);
         if (mpfSpan) {
-            var mpf = goods > deMinimis ? Math.min(575.35, Math.max(29.66, cif * 0.003464)) : 0;
+            var mpfCfg = window.MPF_RATES || { rate: 0.003464, min: 31.67, max: 614.35 };
+            var mpf = dmBase > deMinimis ? Math.min(mpfCfg.max, Math.max(mpfCfg.min, cif * mpfCfg.rate)) : 0;
             fill(mpfSpan, mpf);
         }
     }
@@ -308,7 +325,8 @@
             var confirmEl = document.getElementById('newsletter-confirm');
             if (emailInput && emailInput.value && confirmEl) {
                 // Client-side only — stores email intent locally.
-                // In production, wire this to ConvertKit / Mailchimp / Buttondown.
+                // Delivery service (ConvertKit / Mailchimp / Buttondown) is wired up
+                // before launch; the UI now states the briefing is coming soon.
                 try {
                     var subs = JSON.parse(localStorage.getItem('dc_newsletter_subs') || '[]');
                     if (subs.indexOf(emailInput.value) === -1) {
@@ -332,13 +350,7 @@
         return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
     }
 
-    // ── UTILITY: Days since date ──────────────────────────
-    function getFreshnessTier(lastVerified) {
-        var days = Math.floor((Date.now() - new Date(lastVerified).getTime()) / 86400000);
-        if (days <= 30) return 'fresh';
-        if (days <= 90) return 'stale';
-        return 'expired';
-    }
+    // (getFreshnessTier is defined once in rate-data.js — single source of truth)
 
     // ── BOOTSTRAP: Bind buttons + render meta for all cards
     function initAll() {
@@ -375,6 +387,11 @@
         if (metaDot && metaDot.getAttribute('data-last-verified')) {
             var tier = getFreshnessTier(metaDot.getAttribute('data-last-verified'));
             metaDot.className = 'meta-dot ' + tier;
+        }
+
+        // Register service worker for offline / PWA support (best effort)
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js').catch(function () {});
         }
     }
 

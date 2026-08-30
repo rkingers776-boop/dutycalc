@@ -24,7 +24,7 @@
     /* Text */
     --text-primary: #1E293B;
     --text-secondary: #475569;
-    --text-muted: #94A3B8;
+    --text-muted: #64748B;          /* was #94A3B8 — raised for WCAG AA contrast on light bg */
 
     /* Borders */
     --border-steel: #1E293B;
@@ -133,6 +133,9 @@ h3 { font-size: 1.1rem; line-height: 1.35; }
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 }
 .nav-dropdown:hover .nav-drop-menu { display: block; }
+/* Keyboard accessibility: open dropdown when the trigger span is focused */
+.nav-dropdown:focus-within .nav-drop-menu { display: block; }
+.nav-dropdown > span:focus { outline: 2px solid var(--offshore-green); outline-offset: 2px; border-radius: 4px; }
 .nav-drop-menu a {
     display: block; padding: 10px 20px; font-size: 0.85rem !important;
     font-weight: 500 !important; color: var(--text-secondary) !important;
