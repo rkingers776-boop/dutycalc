@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>Container Loading Calculator: 20GP, 40GP &amp; 40HQ Capacity</title>
+    <meta name="description" content="Work out how many cartons fit in a 20GP, 40GP or 40HQ container — theoretical CBM, realistic loading at 85%, and how many containers your order needs.">
+    <link rel="canonical" href="https://www.dutycalc.online/container-loading-calculator">
+    <meta property="og:title" content="Container Loading Calculator: 20GP, 40GP &amp; 40HQ Capacity">
+    <meta property="og:description" content="Cartons to containers: theoretical CBM, realistic loading at 85%, and how many 20GP/40GP/40HQ units your order actually needs.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.dutycalc.online/container-loading-calculator">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Container Loading Calculator: 20GP, 40GP &amp; 40HQ Capacity">
+    <meta name="twitter:description" content="How many cartons fit in a 20GP, 40GP or 40HQ container — theoretical CBM vs realistic loading, and the container count for your order.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=1742362">
+<meta property="og:image" content="https://www.dutycalc.online/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Container Loading Calculator: 20GP, 40GP & 40HQ Capacity","url":"https://www.dutycalc.online/container-loading-calculator","description":"Work out how many cartons fit in a 20GP, 40GP or 40HQ container — theoretical CBM, realistic loading, and how many containers an order needs.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"applicationCategory":"BusinessApplication","operatingSystem":"Any"}
+</script>
+    <style>
+        .cl-panel { background: var(--steel-dark); border: 1px solid #1E293B; border-left: 4px solid var(--offshore-green); border-radius: var(--radius-sharp); padding: 36px 44px; margin-bottom: 22px; }
+        .cl-panel h3 { color: var(--offshore-green); font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 22px; }
+        .cl-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+        .cl-field { flex: 1; min-width: 130px; }
+        .cl-field label { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: rgba(255,255,255,0.6); margin-bottom: 6px; }
+        .cl-field input, .cl-field select { width: 100%; padding: 12px 14px; font-size: 1rem; font-weight: 500; color: #fff; background: #1a1f2e; border: 2px solid #1E293B; border-radius: var(--radius-sharp); outline: none; }
+        .cl-field select { appearance: none; }
+        .cl-field input:focus, .cl-field select:focus { border-color: var(--offshore-green); }
+        .cl-field .unit { font-size: 0.7rem; color: var(--text-muted); margin-top: 4px; }
+        .cl-calc-btn { display: inline-block; padding: 13px 30px; font-size: 0.9rem; font-weight: 600; color: #fff; background: var(--accent); border: none; border-radius: var(--radius-sharp); cursor: pointer; margin-top: 8px; }
+        .cl-calc-btn:hover { background: #EA580C; }
+        .cl-results { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 24px; }
+        .cl-card { background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-sharp); padding: 22px 20px; text-align: center; }
+        .cl-card .lbl { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 8px; }
+        .cl-card .val { font-size: 1.5rem; font-weight: 800; color: var(--steel-black); }
+        .cl-card .sub { font-size: 0.78rem; color: var(--text-muted); margin-top: 6px; }
+        .cl-card.highlight { border: 2px solid var(--offshore-green); background: #F0F9FF; }
+        .cl-note { font-size: 0.82rem; color: var(--text-muted); margin-top: 14px; line-height: 1.6; }
+        @media (max-width: 768px) { .cl-panel { padding: 24px 20px; } }
+    </style>
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/corridors">Corridors</a>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                        <a href="/customs-bond-calculator">Customs Bond</a>
+                        <a href="/sourcing-comparison">Sourcing Compare</a>
+                        <a href="/volume-weight-calculator">Volume Weight</a>
+                        <a href="/ddp-pricing-calculator">DDP Pricing</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Guides</span>
+                    <div class="nav-drop-menu">
+                        <a href="/trade-terms-glossary">Terms Glossary</a>
+                        <a href="/uflpa-forced-labor-compliance">UFLPA Guide</a>
+                        <a href="/anti-dumping-duties-guide">AD/CVD Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+
+        <header>
+            <h1>Container Loading Calculator</h1>
+            <p>Every forwarder quotes a container by its theoretical CBM — 33 for a 20GP, 76 for a 40HQ — and every importer who loaded a real container knows the theoretical number lies. Cartons don't tessellate perfectly, pallets waste footprint, and the door is smaller than the box. This calculator starts from your carton size and works out what a container actually takes, not what the brochure says.</p>
+        </header>
+
+        <section class="cl-panel">
+            <h3>Carton &amp; Container</h3>
+            <div class="cl-row">
+                <div class="cl-field"><label for="cl-len">Carton length</label><input id="cl-len" type="number" value="60" min="0" step="1" aria-label="Carton length in centimeters"><div class="unit">cm</div></div>
+                <div class="cl-field"><label for="cl-wid">Carton width</label><input id="cl-wid" type="number" value="40" min="0" step="1" aria-label="Carton width in centimeters"><div class="unit">cm</div></div>
+                <div class="cl-field"><label for="cl-hei">Carton height</label><input id="cl-hei" type="number" value="35" min="0" step="1" aria-label="Carton height in centimeters"><div class="unit">cm</div></div>
+                <div class="cl-field"><label for="cl-qty">Cartons in this order</label><input id="cl-qty" type="number" value="500" min="1" step="1" aria-label="Number of cartons in the order"><div class="unit">pieces</div></div>
+                <div class="cl-field"><label for="cl-type">Container type</label><select id="cl-type" aria-label="Container type">
+                    <option value="20">20GP — 33 CBM</option>
+                    <option value="40" selected>40GP — 67 CBM</option>
+                    <option value="hq">40HQ — 76 CBM</option>
+                </select><div class="unit">internal capacity</div></div>
+            </div>
+            <button type="button" class="cl-calc-btn" id="cl-calc">Calculate</button>
+            <div class="cl-results" id="cl-results" role="status" aria-live="polite" style="display:none;">
+                <div class="cl-card"><div class="lbl">Carton Volume</div><div class="val" id="cl-vol">—</div><div class="sub">CBM per carton</div></div>
+                <div class="cl-card"><div class="lbl">Total Order Volume</div><div class="val" id="cl-total">—</div><div class="sub">CBM, cartons × volume</div></div>
+                <div class="cl-card"><div class="lbl">Theoretical Fit</div><div class="val" id="cl-theory">—</div><div class="sub">cartons at 100% of capacity</div></div>
+                <div class="cl-card highlight"><div class="lbl">Realistic Fit</div><div class="val" id="cl-real">—</div><div class="sub" id="cl-real-note">cartons at 85% utilization</div></div>
+                <div class="cl-card"><div class="lbl">Containers Needed</div><div class="val" id="cl-need">—</div><div class="sub" id="cl-need-note">at realistic utilization</div></div>
+            </div>
+            <p class="cl-note">Capacities are the standard interior-volume figures (20GP ≈ 33 CBM, 40GP ≈ 67 CBM, 40HQ ≈ 76 CBM). The realistic column applies the 85% utilization that real loading achieves with homogeneous cartons; mixed cartons, pallets, or overlong cartons can push it below 75%. Weight limits bind separately — see below.</p>
+        </section>
+
+        <div>
+            <article class="seo-section">
+
+                <h2>Why the 33 CBM container won't take 33 CBM of your boxes</h2>
+                <p>The brochure number is pure interior volume: length times width times height of the empty steel box. Your cartons are not a liquid. Every gap between boxes, every carton that doesn't perfectly tile the floor, every inch lost to the door frame and the corrugation, is volume you paid for and can't use. With uniform cartons and a competent loader, the realistic number lands around 85% of capacity; with mixed box sizes, palletized cargo, or a carton dimension that fights the container's width, it drifts lower. The forwarder quoting "we always get 33 in a 20GP" is quoting the math of a perfectly packed box of identical cubes — which is a theory, not a shipment.</p>
+                <p>The floor is the most common fight. A 20GP's interior is roughly 5.9 m long and 2.35 m wide. Your carton at 60×40 cm tiles that width cleanly; a 65 cm carton leaves a 40 cm dead strip down the whole length — roughly 17% of the floor that no carton arrangement can use. The <a href="/volume-weight-calculator">volume weight calculator</a> handles the air-freight side of the same problem; this page is the ocean half.</p>
+
+                <h2>Which container, when: the weight rule most importers skip</h2>
+                <p>Volume is only half the decision; the other half is the payload limit, and it decides the container choice more often than volume does. A 20GP carries about 28 tonnes of payload, a 40GP and 40HQ about 26.5 — and a 40-foot container of dense cargo (steel parts, bearings, bottled goods, most building materials) hits its weight limit long before it fills. A 20GP that's "only 60% full" by volume but at the weight limit is a properly loaded container; a 40HQ would be a heavier bill for the same cargo at the same weight limit. The rule that saves money: <strong>heavy goods belong in a 20GP, light goods belong in a 40GP or 40HQ</strong>, and the crossover is roughly 10 tonnes per 20-foot-equivalent of cargo — above that, you're buying volume you can't use.</p>
+                <p>The unit economics follow. A 40HQ typically costs 1.6–1.9× a 20GP on the same lane, for 2.3× the volume — which is why light, bulky cargo (furniture, homeware, inflatables) almost always prices out cheaper per CBM in a 40HQ, and why a forwarder pushing you into two 20GPs for light cargo is selling you a 40HQ's worth of space at a 20GP price, twice.</p>
+
+                <h2>Pallets change the arithmetic</h2>
+                <p>If your cartons ride on pallets, stop using the carton math and use the pallet math. Standard pallets are 1200×1000 mm in North America and most of Asia, 1200×800 mm in much of Europe. A 20GP takes 10–11 GMA pallets on the floor, a 40GP about 21–25, and a 40HQ the same floor count with a taller stack — the <em>floor</em>, not the height, is the constraint for palletized cargo, and palletized loading typically runs 75–80% of theoretical capacity rather than 85%. If your buyer's destination uses the other pallet standard, your pallet count changes too, which is a conversation worth having before the factory picks the pallets, not after the container is staged.</p>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>How many cartons fit in a 20GP container?</h3>
+                <p>Divide 33 CBM by your carton's volume for the theoretical number, then apply ~85% for the realistic one. A 60×40×35 cm carton is 0.084 CBM: theory says 392 cartons in a 20GP, reality says roughly 333. The calculator does this for your actual carton in both container sizes.</p>
+
+                <h3>What's the difference between 40GP and 40HQ?</h3>
+                <p>Height. Both are the same length and width; the HQ is about 30 cm taller inside (2.70 m vs 2.39 m), lifting capacity from ~67 to ~76 CBM. The HQ costs more per container but usually less per CBM — for cargo that stacks, it is the volume play. For cargo that can't stack above a height limit (some machinery, oversize furniture), the extra height is wasted and the GP is the better deal.</p>
+
+                <h3>Why does my shipment need more containers than the calculator says?</h3>
+                <p>Three usual reasons: your cartons are mixed sizes (utilization drops toward 75%), your cargo is palletized (floor grid limits stacking), or you're over the weight limit (the box has room, the road doesn't). Any of the three means the realistic column is the number to quote, not the theoretical one.</p>
+
+                <h3>Does container loading affect the duty bill?</h3>
+                <p>No. Duty is assessed on the CIF value of the goods — the <a href="/landed-cost-calculator">landed cost calculator</a> runs that side — and freight is part of CIF, so the container bill feeds the duty base, but how tightly you pack the container doesn't change the rate. Packing efficiency changes your freight line; the rate table is indifferent to it.</p>
+
+                <p style="margin-top: 30px;"><a href="/">&larr; Back to All Calculators</a></p>
+            </article>
+        </div>
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>DutyCalc Online</h2>
+                <p>Customs duty, VAT, and landed cost calculators for international trade. Independent trade metrology — not affiliated with any government customs agency.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <ul>
+                    <li><a href="/landed-cost-calculator">Landed Cost Calculator</a></li>
+                    <li><a href="/import-duty-calculator">Import Duty Calculator</a></li>
+                    <li><a href="/vat-calculator">VAT / GST Calculator</a></li>
+                    <li><a href="/tariff-calculator">Tariff Rate Lookup</a></li>
+                    <li><a href="/volume-weight-calculator">Volume Weight Calculator</a></li>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/hscode-duty-estimator">HS Code Estimator</a></li>
+                    <li><a href="/customs-bond-calculator">Customs Bond Calculator</a></li>
+                    <li><a href="/sourcing-comparison">Sourcing Comparison</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Info</h4>
+                <ul>
+                    <li><a href="/import-cost-workflow">Import Workflow Guide</a></li>
+                    <li><a href="/fba-import-guide">FBA Import Guide</a></li>
+                    <li><a href="/import-vat-guide">Import VAT Explained</a></li>
+                    <li><a href="/de-minimis-value-guide">De Minimis Guide</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                    <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+                    <li><a href="/rate-updates">Rate Update History</a></li>
+                    <li><a href="/trade-terms-glossary">Trade Terms Glossary</a></li>
+                    <li><a href="/uflpa-forced-labor-compliance">UFLPA Compliance Guide</a></li>
+                    <li><a href="/about">About This Platform</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent trade data — not affiliated with any government customs agency.</p>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/dutycalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            'use strict';
+            var CAP = { '20': 33, '40': 67, 'hq': 76 };
+            function calc() {
+                var len = parseFloat(document.getElementById('cl-len').value) || 0;
+                var wid = parseFloat(document.getElementById('cl-wid').value) || 0;
+                var hei = parseFloat(document.getElementById('cl-hei').value) || 0;
+                var qty = parseFloat(document.getElementById('cl-qty').value) || 0;
+                var type = document.getElementById('cl-type').value;
+                if (len <= 0 || wid <= 0 || hei <= 0 || qty <= 0) {
+                    document.getElementById('cl-results').style.display = 'none';
+                    return;
+                }
+                var cap = CAP[type];
+                var volPer = len * wid * hei / 1000000;          // CBM per carton
+                var totalVol = volPer * qty;
+                var theory = Math.floor(cap / volPer);
+                var realistic = Math.floor(cap * 0.85 / volPer);
+                var need = Math.max(1, Math.ceil(totalVol / (cap * 0.85)));
+                var typeName = { '20': '20GP', '40': '40GP', 'hq': '40HQ' }[type];
+                document.getElementById('cl-vol').textContent = volPer.toFixed(3);
+                document.getElementById('cl-total').textContent = totalVol.toFixed(1) + ' CBM';
+                document.getElementById('cl-theory').textContent = theory.toLocaleString() + ' cartons';
+                document.getElementById('cl-real').textContent = realistic.toLocaleString() + ' cartons';
+                document.getElementById('cl-real-note').textContent = 'per ' + typeName + ' at 85% utilization';
+                document.getElementById('cl-need').textContent = need + (need > 1 ? ' × ' + typeName : ' × ' + typeName);
+                var note = 'Total order volume ' + totalVol.toFixed(1) + ' CBM vs ' + cap + ' CBM ' + typeName + ' — ';
+                note += totalVol > cap * 0.85 ? 'overflows a single unit at realistic loading.' : 'fits one ' + typeName + ' with room to spare.';
+                document.getElementById('cl-need-note').textContent = note;
+                document.getElementById('cl-results').style.display = 'grid';
+            }
+            document.getElementById('cl-calc').addEventListener('click', calc);
+            ['cl-len','cl-wid','cl-hei','cl-qty','cl-type'].forEach(function (id) {
+                document.getElementById(id).addEventListener('input', calc);
+            });
+            calc();
+        })();
+    </script>
+    <script src="sw-register.js"></script>
+</body>
+</html>

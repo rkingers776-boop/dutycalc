@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>CBM &amp; Volumetric Weight Calculator (Air, Sea, Courier)</title>
+    <meta name="description" content="Calculate CBM for sea freight and volumetric (dim) weight for air and courier shipments — with the chargeable-weight comparison carriers actually bill on.">
+    <link rel="canonical" href="https://www.dutycalc.online/volume-weight-calculator">
+    <meta property="og:title" content="CBM &amp; Volumetric Weight Calculator (Air, Sea, Courier)">
+    <meta property="og:description" content="Calculate CBM for sea freight and volumetric (dim) weight for air and courier shipments — with the chargeable-weight comparison carriers actually bill on.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.dutycalc.online/volume-weight-calculator">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CBM &amp; Volumetric Weight Calculator (Air, Sea, Courier)">
+    <meta name="twitter:description" content="CBM for sea freight and volumetric (dim) weight for air and courier — with the chargeable weight carriers actually bill on.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=1742362">
+<meta property="og:image" content="https://www.dutycalc.online/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"CBM & Volumetric Weight Calculator (Air, Sea, Courier)","url":"https://www.dutycalc.online/volume-weight-calculator","description":"Calculate CBM for sea freight and volumetric (dim) weight for air and courier shipments, with the chargeable-weight comparison carriers bill on.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"applicationCategory":"BusinessApplication","operatingSystem":"Any"}
+</script>
+    <style>
+        .vw-panel { background: var(--steel-dark); border: 1px solid #1E293B; border-left: 4px solid var(--offshore-green); border-radius: var(--radius-sharp); padding: 36px 44px; margin-bottom: 22px; }
+        .vw-panel h3 { color: var(--offshore-green); font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 22px; }
+        .vw-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+        .vw-field { flex: 1; min-width: 130px; }
+        .vw-field label { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: rgba(255,255,255,0.6); margin-bottom: 6px; }
+        .vw-field input { width: 100%; padding: 12px 14px; font-size: 1rem; font-weight: 500; color: #fff; background: #1a1f2e; border: 2px solid #1E293B; border-radius: var(--radius-sharp); outline: none; }
+        .vw-field input:focus { border-color: var(--offshore-green); }
+        .vw-field .unit { font-size: 0.7rem; color: var(--text-muted); margin-top: 4px; }
+        .vw-calc-btn { display: inline-block; padding: 13px 30px; font-size: 0.9rem; font-weight: 600; color: #fff; background: var(--accent); border: none; border-radius: var(--radius-sharp); cursor: pointer; margin-top: 8px; }
+        .vw-calc-btn:hover { background: #EA580C; }
+        .vw-results { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 24px; }
+        .vw-card { background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-sharp); padding: 22px 20px; text-align: center; }
+        .vw-card .lbl { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 8px; }
+        .vw-card .val { font-size: 1.7rem; font-weight: 800; color: var(--steel-black); }
+        .vw-card .sub { font-size: 0.78rem; color: var(--text-muted); margin-top: 6px; }
+        .vw-card.highlight { border: 2px solid var(--offshore-green); background: #F0F9FF; }
+        .vw-note { font-size: 0.82rem; color: var(--text-muted); margin-top: 14px; line-height: 1.6; }
+        @media (max-width: 768px) { .vw-panel { padding: 24px 20px; } }
+    </style>
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/corridors">Corridors</a>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                        <a href="/customs-bond-calculator">Customs Bond</a>
+                        <a href="/sourcing-comparison">Sourcing Compare</a>
+                        <a href="/volume-weight-calculator">Volume Weight</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Guides</span>
+                    <div class="nav-drop-menu">
+                        <a href="/trade-terms-glossary">Terms Glossary</a>
+                        <a href="/uflpa-forced-labor-compliance">UFLPA Guide</a>
+                        <a href="/anti-dumping-duties-guide">AD/CVD Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+
+        <header>
+            <h1>CBM &amp; Volumetric Weight Calculator</h1>
+            <p>Air freight and courier services bill on the heavier of two numbers: the actual weight of your boxes or their volumetric (dim) weight — how much space they take up in the hold. Sea freight bills by cubic meter (CBM). This calculator works out both, shows you the chargeable weight, and gives a quick freight estimate if you know your rate.</p>
+        </header>
+
+        <section class="vw-panel">
+            <h3>Shipment Dimensions</h3>
+            <div class="vw-row">
+                <div class="vw-field"><label for="vw-len">Length</label><input id="vw-len" type="number" value="60" min="0" step="1" aria-label="Length in centimeters"><div class="unit">cm</div></div>
+                <div class="vw-field"><label for="vw-wid">Width</label><input id="vw-wid" type="number" value="40" min="0" step="1" aria-label="Width in centimeters"><div class="unit">cm</div></div>
+                <div class="vw-field"><label for="vw-hei">Height</label><input id="vw-hei" type="number" value="35" min="0" step="1" aria-label="Height in centimeters"><div class="unit">cm</div></div>
+                <div class="vw-field"><label for="vw-qty">Number of boxes</label><input id="vw-qty" type="number" value="10" min="1" step="1" aria-label="Number of boxes"><div class="unit">pieces</div></div>
+                <div class="vw-field"><label for="vw-act">Actual total weight <span style="text-transform:none;">(optional)</span></label><input id="vw-act" type="number" placeholder="e.g. 120" min="0" step="0.1" aria-label="Actual total weight in kilograms"><div class="unit">kg</div></div>
+            </div>
+            <button type="button" class="vw-calc-btn" id="vw-calc">Calculate</button>
+            <div class="vw-results" id="vw-results" role="status" aria-live="polite" style="display:none;">
+                <div class="vw-card"><div class="lbl">Total CBM (Sea)</div><div class="val" id="vw-cbm">—</div><div class="sub">cubic meters billed by ocean carriers</div></div>
+                <div class="vw-card"><div class="lbl">Dim Weight — Courier</div><div class="val" id="vw-dim5000">—</div><div class="sub">÷ 5000 (DHL / UPS / FedEx intl.)</div></div>
+                <div class="vw-card"><div class="lbl">Dim Weight — Air</div><div class="val" id="vw-dim6000">—</div><div class="sub">÷ 6000 (IATA air freight)</div></div>
+                <div class="vw-card highlight"><div class="lbl">Chargeable Weight</div><div class="val" id="vw-charge">—</div><div class="sub" id="vw-charge-note">max(actual, dim)</div></div>
+            </div>
+            <div class="vw-note" id="vw-freight-note"></div>
+            <p class="vw-note">Carrier divisors vary: most international couriers use 5,000, most air-freight forwarders use 6,000, and some services use 6,000 for air and 7,000 for consolidated parcels. Your forwarder's rate sheet is the authority — the calculator uses the industry defaults so you can sanity-check their invoice.</p>
+        </section>
+
+        <div>
+            <article class="seo-section">
+
+                <h2>Why the invoice says 16.8 kg when your scale says 4</h2>
+                <p>A 60×40×35 cm carton of phone cases weighs four kilos on the warehouse floor scale. The courier invoice says 16.8. Neither of you is lying — the courier charges by <em>volumetric weight</em>: length × width × height in centimeters divided by 5,000, which converts the box's volume into a notional weight. One cubic meter divided by 5,000 equals 200 kg, which is how much payload space that box would consume on a plane full of actual 200 kg drums. Space is the scarce resource, so space is what you buy.</p>
+                <p>The logic stops feeling like a rip-off once you watch it from the carrier's side. A pallet of feather pillows and a pallet of cast iron take the same hold space; billing pillows by their 4 kg actual weight would make every flight carrying them a money-loser. So the industry bills whichever is larger — actual or volumetric — and calls it the <strong>chargeable weight</strong>. Your job is to know which side you're on before the quote arrives, not after.</p>
+
+                <h2>Reading a freight quote without getting played</h2>
+                <p>Every air and courier quote carries a divisor, and it decides the bill. DHL, UPS, and FedEx international services mostly divide by <strong>5,000</strong>; classic IATA air freight divides by <strong>6,000</strong> (so one CBM equals 167 kg); some consolidated parcel services divide by 7,000. The difference between 5,000 and 6,000 is 20% of the chargeable weight on the same box, which is why the divisor should be printed on the quote. If it isn't, ask — a forwarder who can't tell you the divisor on their own rate sheet is not the forwarder for a light, bulky product.</p>
+                <p>Two unit traps follow every quote. First, the formula only works in centimeters and kilograms — a quote in inches or pounds is a different calculation, and nobody converts for you at invoicing time. Second, LCL sea freight uses a different yardstick entirely: carriers compare CBM against weight in tonnes (roughly 1 CBM ≈ 1 tonne) and bill whichever is greater. A dense pallet of steel fasteners is a weight story at sea; a pallet of inflatable kayaks is a volume story. Run the CBM from this calculator against your forwarder's "per CBM / per tonne" rate to see which side binds.</p>
+
+                <h2>The packing moves that actually cut the chargeable weight</h2>
+                <p>You cannot negotiate the formula, but you can change the inputs, and that is where real money sits. Dim weight is set by the <em>outer</em> dimensions of the carton, so everything that makes a box bigger than its contents is pure tax. The moves that work, in order of return:</p>
+                <p>Vacuum-bag soft goods. A 100-piece order of compression-packed jackets can lose 60–70% of its volume, and the vac-packing costs pennies per bag. This is the single biggest win for apparel sellers and it costs almost nothing.</p>
+                <p>Right-size the carton. Suppliers habitually ship in one "standard" box size for everything, and a 20% oversize carton is a 20% oversize bill on every box, every shipment, forever. A carton spec change is a one-time design cost that pays on every subsequent order — and if you sell on Amazon, it pays twice, because FBA storage and placement fees are dimension-driven too. The <a href="/fba-import-guide">FBA import guide</a> shows how the same packaging decision hits both the freight line and Amazon's fee schedule.</p>
+                <p>Know when dim weight doesn't apply. Dense cargo — books, bearings, metal parts — bills on actual weight, and no amount of packaging optimization changes that. If your product is genuinely heavy for its size, skip the box redesign and negotiate the per-kg rate instead. Half the packing advice on the internet is written for light goods; heavy goods have a different playbook.</p>
+
+                <h2>How the freight bill and the duty bill split apart</h2>
+                <p>One confusion persists across every corridor: freight and duty are unrelated calculations that happen to land on the same invoice. Freight pays for space — actual or volumetric, whichever is larger. Duty pays for the goods — assessed on the CIF value (goods plus freight plus insurance), not on the weight at all. A light, bulky shipment can carry a brutal freight bill and a tiny duty bill; a dense one, the reverse. The <a href="/landed-cost-calculator">landed cost calculator</a> handles the duty half; this one handles the freight half. Between them, the two numbers are the whole bill.</p>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>Why is my chargeable weight higher than my actual weight?</h3>
+                <p>Because your cargo is "light for its size" — the volumetric weight exceeds the actual weight. Carriers charge for the space the shipment occupies, so the bigger the box relative to its contents, the bigger the chargeable weight. It is not an error; it is the entire premise of the system.</p>
+
+                <h3>What's the difference between 5000, 6000 and 7000 in a quote?</h3>
+                <p>The divisor. A smaller divisor means a bigger volumetric weight: the same 1 CBM box bills at 200 kg under ÷5000, 167 kg under ÷6000, and 143 kg under ÷7000. Courier express mostly uses 5,000, IATA air freight uses 6,000, some consolidated parcel services use 7,000. The divisor on your quote is the one that counts.</p>
+
+                <h3>Do customs duties depend on volumetric weight?</h3>
+                <p>No. Duty is calculated on the CIF value of the goods, and freight is part of that value — but the chargeable weight itself is irrelevant to the duty math. A shipment billed at 300 kg dim weight pays duty on its CIF value, not on its weight. Use this calculator for the freight line, and the <a href="/landed-cost-calculator">landed cost calculator</a> for the duty line.</p>
+
+                <p style="margin-top: 30px;"><a href="/">&larr; Back to All Calculators</a></p>
+            </article>
+        </div>
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>DutyCalc Online</h2>
+                <p>Customs duty, VAT, and landed cost calculators for international trade. Independent trade metrology — not affiliated with any government customs agency.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <ul>
+                    <li><a href="/landed-cost-calculator">Landed Cost Calculator</a></li>
+                    <li><a href="/import-duty-calculator">Import Duty Calculator</a></li>
+                    <li><a href="/vat-calculator">VAT / GST Calculator</a></li>
+                    <li><a href="/tariff-calculator">Tariff Rate Lookup</a></li>
+                    <li><a href="/volume-weight-calculator">Volume Weight Calculator</a></li>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/hscode-duty-estimator">HS Code Estimator</a></li>
+                    <li><a href="/customs-bond-calculator">Customs Bond Calculator</a></li>
+                    <li><a href="/sourcing-comparison">Sourcing Comparison</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Info</h4>
+                <ul>
+                    <li><a href="/import-cost-workflow">Import Workflow Guide</a></li>
+                    <li><a href="/fba-import-guide">FBA Import Guide</a></li>
+                    <li><a href="/import-vat-guide">Import VAT Explained</a></li>
+                    <li><a href="/de-minimis-value-guide">De Minimis Guide</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                    <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+                    <li><a href="/rate-updates">Rate Update History</a></li>
+                    <li><a href="/trade-terms-glossary">Trade Terms Glossary</a></li>
+                    <li><a href="/uflpa-forced-labor-compliance">UFLPA Compliance Guide</a></li>
+                    <li><a href="/about">About This Platform</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent trade data — not affiliated with any government customs agency.</p>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/dutycalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            'use strict';
+            function calc() {
+                var len = parseFloat(document.getElementById('vw-len').value) || 0;
+                var wid = parseFloat(document.getElementById('vw-wid').value) || 0;
+                var hei = parseFloat(document.getElementById('vw-hei').value) || 0;
+                var qty = parseFloat(document.getElementById('vw-qty').value) || 1;
+                var act = parseFloat(document.getElementById('vw-act').value) || 0;
+                if (len <= 0 || wid <= 0 || hei <= 0) {
+                    document.getElementById('vw-results').style.display = 'none';
+                    return;
+                }
+                var vol = len * wid * hei * qty;                 // cm3
+                var cbm = vol / 1000000;
+                var dim5000 = vol / 5000;                        // kg
+                var dim6000 = vol / 6000;                        // kg
+                var charge = Math.max(act, dim5000);             // courier default
+                var chargeNote = '';
+                if (act > 0 && dim5000 > act) {
+                    chargeNote = 'max(actual, dim) — dim weight wins: your boxes are light for their size';
+                } else if (act > 0) {
+                    chargeNote = 'max(actual, dim) — actual weight is the binding side';
+                } else {
+                    chargeNote = 'enter actual weight to compare — courier dim weight shown as the default chargeable';
+                }
+                document.getElementById('vw-cbm').textContent = cbm.toFixed(3);
+                document.getElementById('vw-dim5000').textContent = dim5000.toFixed(1) + ' kg';
+                document.getElementById('vw-dim6000').textContent = dim6000.toFixed(1) + ' kg';
+                document.getElementById('vw-charge').textContent = (charge > 0 ? charge.toFixed(1) : dim5000.toFixed(1)) + ' kg';
+                document.getElementById('vw-charge-note').textContent = chargeNote;
+                document.getElementById('vw-results').style.display = 'grid';
+            }
+            document.getElementById('vw-calc').addEventListener('click', calc);
+            ['vw-len','vw-wid','vw-hei','vw-qty','vw-act'].forEach(function (id) {
+                document.getElementById(id).addEventListener('input', calc);
+            });
+            calc();
+        })();
+    </script>
+    <script src="sw-register.js"></script>
+</body>
+</html>

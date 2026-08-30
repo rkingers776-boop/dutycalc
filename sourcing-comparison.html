@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>Side-by-Side Sourcing Comparison</title>
+    <meta name="description" content="Compare landed cost from two origins side by side. China vs Vietnam, China vs India, China vs Mexico — see duty rates, FTA benefits, shipping cost…">
+    <link rel="canonical" href="https://www.dutycalc.online/sourcing-comparison">
+    <meta property="og:title" content="Side-by-Side Sourcing Comparison — China vs Vietnam, India, Mexico Duty & Landed Cost">
+    <meta property="og:description" content="Compare landed cost from two origins side by side. See duty rates, FTA benefits, shipping estimates, and the true cost difference between sourcing countries.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.dutycalc.online/sourcing-comparison">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Side-by-Side Sourcing Comparison — Duty & Landed Cost">
+    <meta name="twitter:description" content="Compare landed cost from two origins. China vs Vietnam, India, Mexico — duty rates, FTA benefits, and real cost difference.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=1742362">
+    <style>
+        .sc-panel {
+            background: var(--steel-dark);
+            border: 1px solid #1E293B;
+            border-left: 4px solid var(--offshore-green);
+            border-radius: var(--radius-sharp);
+            padding: 36px 40px;
+            margin-bottom: 24px;
+        }
+        .sc-panel h3 {
+            color: var(--offshore-green);
+            font-family: var(--font-terminal);
+            font-size: 0.8rem; font-weight: 700;
+            letter-spacing: 1px; margin-bottom: 20px; text-transform: uppercase;
+        }
+        .sc-compare-grid {
+            display: grid; grid-template-columns: 1fr 80px 1fr; gap: 16px; align-items: start;
+        }
+        .sc-col { }
+        .sc-col h4 {
+            font-size: 0.85rem; font-weight: 700; color: #fff; margin-bottom: 14px;
+            padding-bottom: 8px; border-bottom: 2px solid rgba(255,255,255,0.1);
+        }
+        .sc-col.vs-center {
+            display: flex; align-items: center; justify-content: center;
+            padding-top: 40px;
+        }
+        .sc-vs {
+            width: 48px; height: 48px; border-radius: 50%;
+            background: var(--offshore-green); color: #fff;
+            font-weight: 700; font-size: 0.85rem;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .sc-field { margin-bottom: 14px; }
+        .sc-field label {
+            display: block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.5px; color: rgba(255,255,255,0.5); margin-bottom: 4px;
+        }
+        .sc-field select, .sc-field input {
+            width: 100%; padding: 10px 12px; font-size: 0.92rem;
+            font-family: var(--font-terminal); font-weight: 500;
+            color: #FFFFFF; background: #1a1f2e; border: 2px solid #1E293B;
+            border-radius: var(--radius-sharp); outline: none;
+        }
+        .sc-field select:focus, .sc-field input:focus { border-color: var(--offshore-green); }
+
+        .sc-results { display: grid; grid-template-columns: 1fr 40px 1fr; gap: 20px; margin:96px 0 28px; }
+        .sc-result-card {
+            background: var(--bg-surface); border: 1px solid var(--border-light);
+            border-radius: var(--radius-sharp); padding: 24px;
+        }
+        .sc-result-card.winner { border-color: var(--success); border-width: 2px; }
+        .sc-result-card h4 { font-size: 1rem; color: var(--steel-black); margin-bottom: 14px; }
+        .sc-line { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid var(--border-light); font-size: 0.88rem; }
+        .sc-line .lbl { color: var(--text-secondary); }
+        .sc-line .val { color: var(--steel-black); font-weight: 600; }
+        .sc-line.total { border-top: 2px solid var(--steel-black); margin-top: 8px; padding-top: 10px; font-size: 1.05rem; font-weight: 700; }
+        .sc-line.total .val { color: var(--steel-black); font-size: 1.1rem; }
+        .sc-delta {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            font-size: 0.82rem; color: var(--text-muted); text-align: center; gap: 8px;
+        }
+        .sc-delta .diff { font-size: 1.2rem; font-weight: 700; }
+        .sc-delta .diff.cheaper { color: var(--success); }
+        .sc-delta .diff.more { color: var(--accent); }
+
+        .sc-insight {
+            background: rgba(14,165,233,0.05); border: 1px solid rgba(14,165,233,0.15);
+            border-radius: var(--radius-sharp); padding: 20px 24px; margin-top: 20px;
+        }
+        .sc-insight h4 { color: var(--offshore-green); margin-bottom: 8px; font-size: 0.9rem; }
+        .sc-insight p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; }
+
+        .common-compare {
+            display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;
+        }
+        .common-compare button {
+            font-size: 0.78rem; font-weight: 600; padding: 8px 16px;
+            border: 1px solid var(--border-light); border-radius: var(--radius-sharp);
+            background: var(--bg-surface); color: var(--text-secondary); cursor: pointer;
+            transition: all 0.15s;
+        }
+        .common-compare button:hover { border-color: var(--offshore-green); color: var(--offshore-green); }
+        .common-compare button.active { background: var(--offshore-green); color: #fff; border-color: var(--offshore-green); }
+
+        @media (max-width: 768px) {
+            .sc-compare-grid, .sc-results { grid-template-columns: 1fr; margin-top: 40px; }
+            .sc-col.vs-center { padding-top: 0; }
+            .sc-panel { padding: 24px 20px; }
+        }
+    </style>
+<meta property="og:image" content="https://www.dutycalc.online/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Side-by-Side Sourcing Comparison — China vs Vietnam, India, Mexico Duty & Landed Cost","url":"https://www.dutycalc.online/sourcing-comparison","description":"Compare landed cost from two origins side by side. China vs Vietnam, China vs India, China vs Mexico — see duty rates, FTA benefits, shipping cost estimates, and final landed cost difference in one view.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"applicationCategory":"BusinessApplication","operatingSystem":"Any"}
+</script>
+</head>
+<body>
+
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/corridors">Corridors</a>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                        <a href="/customs-bond-calculator">Customs Bond</a>
+                        <a href="/sourcing-comparison">Sourcing Compare</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Guides</span>
+                    <div class="nav-drop-menu">
+                        <a href="/trade-terms-glossary">Terms Glossary</a>
+                        <a href="/uflpa-forced-labor-compliance">UFLPA Guide</a>
+                        <a href="/anti-dumping-duties-guide">AD/CVD Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header>
+            <h1>Side-by-Side Sourcing Comparison</h1>
+            <p class="header-meta">Compare landed cost from two origins to the same destination. The #1 question importers ask: "What if I source from Vietnam instead of China?" — this answers it with real numbers.</p>
+        </header>
+
+        <!-- Quick presets -->
+        <div class="common-compare" id="preset-buttons">
+            <button data-a="cn-us-apparel" data-b="vn-us-textiles">China vs Vietnam → US (Apparel)</button>
+            <button data-a="cn-us-electronics" data-b="kr-us-electronics">China vs Korea → US (Electronics)</button>
+            <button data-a="cn-us-furniture" data-b="vn-us-textiles">China vs Vietnam → US (Furniture/Textiles)</button>
+            <button data-a="cn-us-machinery" data-b="mx-us">China vs Mexico → US (Machinery)</button>
+            <button data-a="cn-us-apparel" data-b="in-us-jewelry">China vs India → US (Apparel/Jewelry)</button>
+            <button data-a="cn-de" data-b="vn-us-textiles">China → Germany vs Vietnam → US</button>
+        </div>
+
+        <!-- ═══ INPUT PANEL ═══ -->
+        <section class="sc-panel" aria-label="Sourcing Comparison Inputs">
+            <h3>Compare Two Sourcing Origins</h3>
+            <div class="sc-compare-grid">
+                <!-- Origin A -->
+                <div class="sc-col">
+                    <h4>Origin A</h4>
+                    <div class="sc-field">
+                        <label>Trade Corridor</label>
+                        <select id="corridor-a">
+                            <option value="">— Select corridor —</option>
+                        </select>
+                    </div>
+                    <div class="sc-field">
+                        <label>Goods Value (FOB)</label>
+                        <input type="number" id="goods-a" value="10000" min="0" max="99999999" step="100">
+                    </div>
+                    <div class="sc-field">
+                        <label>Shipping & Insurance Cost</label>
+                        <input type="number" id="ship-a" value="1200" min="0" max="99999999" step="50">
+                    </div>
+                </div>
+
+                <div class="sc-col vs-center"><div class="sc-vs">VS</div></div>
+
+                <!-- Origin B -->
+                <div class="sc-col">
+                    <h4>Origin B</h4>
+                    <div class="sc-field">
+                        <label>Trade Corridor</label>
+                        <select id="corridor-b">
+                            <option value="">— Select corridor —</option>
+                        </select>
+                    </div>
+                    <div class="sc-field">
+                        <label>Goods Value (FOB)</label>
+                        <input type="number" id="goods-b" value="10000" min="0" max="99999999" step="100">
+                    </div>
+                    <div class="sc-field">
+                        <label>Shipping & Insurance Cost</label>
+                        <input type="number" id="ship-b" value="1400" min="0" max="99999999" step="50">
+                    </div>
+                </div>
+            </div>
+            <button id="compare-btn" class="btn-action" style="margin-top:16px;">Compare Landed Costs</button>
+        </section>
+
+        <!-- ═══ RESULTS ═══ -->
+        <div class="sc-results" id="sc-results" style="display:none;" aria-live="polite">
+            <div class="sc-result-card" id="card-a"><h4 id="title-a">Origin A</h4><div id="lines-a"></div></div>
+            <div class="sc-delta" id="delta-col"></div>
+            <div class="sc-result-card" id="card-b"><h4 id="title-b">Origin B</h4><div id="lines-b"></div></div>
+        </div>
+
+        <div class="sc-insight" id="sc-insight" style="display:none;">
+            <h4>Analysis</h4>
+            <p id="insight-text"></p>
+        </div>
+
+        <div id="sc-error" role="alert" style="display:none; margin:14px 0; padding:12px 16px; border:1px solid #F87171; border-left:4px solid #F87171; border-radius:var(--radius-sharp); background:#FEF2F2; color:#B91C1C; font-size:0.9rem;"></div>
+
+        <!-- ═══ EXPLAINER ═══ -->
+        <article class="seo-section">
+            <h2>Why Sourcing Comparison Matters in 2026</h2>
+
+            <h3>The China+1 Reality</h3>
+            <p>Tariff risk has replaced labor cost as the #1 factor in sourcing decisions. The question isn't "is Vietnam cheaper than China?" — it's "<strong>does the duty savings from switching origins outweigh the higher unit cost and longer lead times?</strong>" This calculator answers that question with your numbers, not averages.</p>
+
+            <h3>What This Tool Compares</h3>
+            <ul class="content-list">
+                <li><strong>Duty rate:</strong> MFN rate for each origin, including Section 301 surcharges on Chinese goods and FTA preferences (KORUS, USMCA, ChAFTA, etc.) where applicable.</li>
+                <li><strong>VAT/GST:</strong> Destination-country import tax on the duty-paid CIF value — some destinations tax imports from all origins equally; others have origin-based exemptions.</li>
+                <li><strong>De minimis threshold:</strong> Whether your shipment value falls under the duty-free threshold for that corridor. Chinese goods face a collapsing de minimis in the US market.</li>
+                <li><strong>Shipping cost:</strong> You control this input — enter the actual freight quote for each origin. China→US ocean freight is typically $2,000-$4,000/container; Vietnam→US $3,000-$5,000; Mexico→US overland $1,500-$3,000.</li>
+                <li><strong>Total landed cost:</strong> CIF + duty + VAT — the number that actually matters for your P&L.</li>
+            </ul>
+
+            <h3>Common Scenarios</h3>
+
+            <h4>China → US vs. Vietnam → US (Apparel)</h4>
+            <p>Chinese apparel faces 16.5% duty (MFN + Section 301). Vietnamese apparel at 14.5% MFN — only a 2-point difference. But Vietnam has no Section 301 risk, no AD/CVD on most categories, and expanding GSP-eligible product lines. The duty gap may narrow further if USTR grants new Vietnam trade preferences. The real calculus: Vietnamese factory prices are typically 8-15% higher than Chinese, but duty savings of 2% + elimination of Section 301 tail risk + shorter lead times vs. 2021 levels = net positive for many categories.</p>
+
+            <h4>China → US vs. Korea → US (Electronics)</h4>
+            <p>This one's not close. Chinese electronics face 2.5% MFN + Section 301 tail risk. Korean electronics under KORUS FTA: <strong>zero duty on virtually everything</strong>. If your Korean supplier's unit price is within 3-5% of your Chinese supplier's, you come out ahead on landed cost alone — before considering the Section 301 risk premium. For high-value electronics ($50K+ shipments), the duty savings alone can exceed $1,250 per container.</p>
+
+            <h4>China → US vs. Mexico → US (Machinery / Auto Parts)</h4>
+            <p>USMCA zero-duty beats Chinese 4.2% MFN + Section 301 stacking. But the real advantage is logistics: 3-5 day overland transit vs. 25-35 day ocean + 3-5 day rail from US West Coast. Inventory carrying cost savings often dwarf the duty savings. The catch: Mexican factories face their own input tariffs on Chinese components, and CBP is aggressively auditing nearshoring origin claims.</p>
+
+            <h4>China → Germany vs. Any Alternative → Germany</h4>
+            <p>EU TARIC MFN rates on Chinese goods are generally moderate (3-5%), but the EU is debating lowering the €150 de minimis to €50. For DTC e-commerce, this could add 19-22% VAT to shipments that currently slip through untaxed. Alternative origins (Turkey, Morocco, Eastern Europe) may benefit from EU FTA preferences or shorter supply chains — but at higher unit costs. This calculator lets you model the exact trade-off.</p>
+
+            <h3>What This Tool Doesn't Model</h3>
+            <ul class="content-list">
+                <li><strong>Anti-dumping / countervailing duties</strong> — product-specific and factory-specific. If your product has an AD/CVD order, layer those rates on top of the MFN rate manually.</li>
+                <li><strong>Lead time differences</strong> — Vietnam→US ocean is ~5-7 days longer than China→US. Mexico→US is 20-30 days faster than either. Inventory carrying cost is real but not modeled here.</li>
+                <li><strong>Quality differentials and defect rates</strong> — these vary by factory, not by country.</li>
+                <li><strong>Non-tariff barriers</strong> — forced labor compliance (UFLPA), FDA registration, CPSC testing requirements, and other agency holds that disproportionately affect certain origins.</li>
+            </ul>
+
+            <hr>
+            <p style="margin-top:28px;"><a href="/landed-cost-calculator">Next: Landed Cost Calculator →</a> &nbsp;|&nbsp; <a href="/">&larr; Back to All Tools</a></p>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>DutyCalc Online</h2>
+                <p>Customs duty, VAT, and landed cost calculators for international trade. Independent trade metrology — not affiliated with any government customs agency.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <ul>
+                    <li><a href="/landed-cost-calculator">Landed Cost Calculator</a></li>
+                    <li><a href="/import-duty-calculator">Import Duty Calculator</a></li>
+                    <li><a href="/vat-calculator">VAT / GST Calculator</a></li>
+                    <li><a href="/tariff-calculator">Tariff Rate Lookup</a></li>
+                    <li><a href="/customs-bond-calculator">Customs Bond Calculator</a></li>
+                    <li><a href="/sourcing-comparison">Sourcing Comparison</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Info</h4>
+                <ul>
+                    <li><a href="/about">About This Platform</a></li>
+                    <li><a href="/trade-terms-glossary">Trade Terms Glossary</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent trade data — not affiliated with any government customs agency.</p>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/dutycalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+        </div>
+    </footer>
+
+    <script src="rate-data.js"></script>
+    <script>
+    (function(){
+        'use strict';
+        var SYM = { USD:'$', GBP:'£', EUR:'€', CAD:'CA$', AUD:'A$', MXN:'MX$', JPY:'¥' };
+
+        // Populate corridor dropdowns
+        var selA = document.getElementById('corridor-a');
+        var selB = document.getElementById('corridor-b');
+
+        function populateSelects() {
+            if (typeof RATE_DATABASE === 'undefined') return;
+            var ids = Object.keys(RATE_DATABASE).sort();
+            var opts = ids.map(function(id) {
+                var d = RATE_DATABASE[id];
+                return '<option value="' + id + '">' + d.origin + ' → ' + d.destination + ' · ' + d.category + '</option>';
+            }).join('');
+            selA.innerHTML = '<option value="">— Select corridor —</option>' + opts;
+            selB.innerHTML = '<option value="">— Select corridor —</option>' + opts;
+            // Defaults
+            if (RATE_DATABASE['cn-us-apparel']) selA.value = 'cn-us-apparel';
+            if (RATE_DATABASE['vn-us-textiles']) selB.value = 'vn-us-textiles';
+        }
+        populateSelects();
+
+        function fmt(n, sym) { return sym + n.toFixed(2); }
+        function pct(n) { return n.toFixed(1) + '%'; }
+
+        function calcCorridor(id, goods, ship) {
+            var d = RATE_DATABASE[id];
+            if (!d) return null;
+            var cif = goods + ship;
+            var duty = goods > d.deMinimis ? cif * (d.dutyRate / 100) : 0;
+            var vatDeMin = d.vatDeMinimis !== undefined ? d.vatDeMinimis : 0;
+            var vat = (goods > vatDeMin && d.vatRate > 0) ? (cif + duty) * (d.vatRate / 100) : 0;
+            var landed = cif + duty + vat;
+            var sym = SYM[d.currency] || '$';
+            return {
+                id: id, origin: d.origin, destination: d.destination,
+                category: d.category, goods: goods, ship: ship, cif: cif,
+                duty: duty, dutyRate: d.dutyRate, vat: vat, vatRate: d.vatRate,
+                deMinimis: d.deMinimis, landed: landed, currency: d.currency,
+                sym: sym, detailPage: d.detailPage, riskNote: d.riskNote
+            };
+        }
+
+        function compare() {
+            var idA = selA.value;
+            var idB = selB.value;
+            function showError(msg) {
+                document.getElementById('sc-error').textContent = msg;
+                document.getElementById('sc-error').style.display = 'block';
+                document.getElementById('sc-results').style.display = 'none';
+            }
+            function clearError() {
+                document.getElementById('sc-error').style.display = 'none';
+            }
+            clearError();
+            if (!idA || !idB) { showError('Please select both corridors to compare.'); return; }
+
+            var gA = parseFloat(document.getElementById('goods-a').value) || 0;
+            var sA = parseFloat(document.getElementById('ship-a').value) || 0;
+            var gB = parseFloat(document.getElementById('goods-b').value) || 0;
+            var sB = parseFloat(document.getElementById('ship-b').value) || 0;
+
+            var rA = calcCorridor(idA, gA, sA);
+            var rB = calcCorridor(idB, gB, sB);
+            if (!rA || !rB) { showError('Invalid corridor data — please re-select both corridors.'); return; }
+
+            // Warn if comparing across different destinations (currencies differ)
+            if (rA.destination !== rB.destination) {
+                document.getElementById('insight-text').textContent =
+                    'Note: You are comparing shipments to different destinations (' +
+                    rA.destination + ' vs ' + rB.destination +
+                    '). Currencies and tax regimes differ. The cost comparison is valid but ensure you are comparing the right end-markets for your business.';
+                document.getElementById('sc-insight').style.display = 'block';
+            }
+
+            // Render
+            document.getElementById('title-a').textContent = rA.origin + ' → ' + rA.destination;
+            document.getElementById('title-b').textContent = rB.origin + ' → ' + rB.destination;
+
+            var linesA = document.getElementById('lines-a');
+            var linesB = document.getElementById('lines-b');
+
+            function makeLines(r) {
+                return '<div class="sc-line"><span class="lbl">Goods Value (FOB)</span><span class="val">' + fmt(r.goods, r.sym) + '</span></div>' +
+                    '<div class="sc-line"><span class="lbl">Shipping & Insurance</span><span class="val">' + fmt(r.ship, r.sym) + '</span></div>' +
+                    '<div class="sc-line"><span class="lbl">CIF Value</span><span class="val">' + fmt(r.cif, r.sym) + '</span></div>' +
+                    '<div class="sc-line"><span class="lbl">Duty Rate</span><span class="val">' + pct(r.dutyRate) + '</span></div>' +
+                    '<div class="sc-line"><span class="lbl">Customs Duty</span><span class="val">' + fmt(r.duty, r.sym) + '</span></div>' +
+                    (r.vatRate > 0 ? '<div class="sc-line"><span class="lbl">VAT/GST (' + pct(r.vatRate) + ')</span><span class="val">' + fmt(r.vat, r.sym) + '</span></div>' : '') +
+                    '<div class="sc-line"><span class="lbl">De Minimis</span><span class="val">' + fmt(r.deMinimis, r.sym) + (r.goods <= r.deMinimis ? ' ✓ under' : ' ✗ over') + '</span></div>' +
+                    '<div class="sc-line total"><span class="lbl">TOTAL LANDED COST</span><span class="val">' + fmt(r.landed, r.sym) + '</span></div>' +
+                    '<div style="margin-top:12px;"><a href="' + r.detailPage + '" style="font-size:0.8rem;color:var(--offshore-green);font-weight:600;">Full corridor details →</a></div>';
+            }
+
+            linesA.innerHTML = makeLines(rA);
+            linesB.innerHTML = makeLines(rB);
+
+            // Winner
+            var cardA = document.getElementById('card-a');
+            var cardB = document.getElementById('card-b');
+            cardA.classList.remove('winner'); cardB.classList.remove('winner');
+
+            // Delta
+            var deltaEl = document.getElementById('delta-col');
+            var diff = Math.abs(rA.landed - rB.landed);
+            var pctDiff = Math.round(diff / Math.max(rA.landed, rB.landed) * 100);
+
+            if (rA.landed < rB.landed) {
+                cardA.classList.add('winner');
+                deltaEl.innerHTML = '<div class="diff cheaper">' + fmt(diff, rA.sym) + '</div><div>' + pctDiff + '% cheaper</div><div style="font-size:0.78rem;">' + rA.origin + ' wins</div>';
+            } else if (rB.landed < rA.landed) {
+                cardB.classList.add('winner');
+                deltaEl.innerHTML = '<div class="diff cheaper">' + fmt(diff, rB.sym) + '</div><div>' + pctDiff + '% cheaper</div><div style="font-size:0.78rem;">' + rB.origin + ' wins</div>';
+            } else {
+                deltaEl.innerHTML = '<div class="diff">Tie</div><div>Same cost</div>';
+            }
+
+            // Insight
+            var cheaper = rA.landed <= rB.landed ? rA : rB;
+            var expensive = rA.landed > rB.landed ? rA : rB;
+            var insightParts = [];
+            insightParts.push(cheaper.origin + ' → ' + cheaper.destination + ' delivers a landed cost of ' + fmt(cheaper.landed, cheaper.sym) + ' — ' + pctDiff + '% lower than ' + expensive.origin + ' → ' + expensive.destination + ' at ' + fmt(expensive.landed, expensive.sym) + '.');
+            if (cheaper.riskNote) insightParts.push('Risk note for ' + cheaper.origin + ': ' + cheaper.riskNote);
+            if (expensive.riskNote) insightParts.push('Risk note for ' + expensive.origin + ': ' + expensive.riskNote);
+            document.getElementById('insight-text').textContent = insightParts.join(' ');
+
+            document.getElementById('sc-results').style.display = 'grid';
+            document.getElementById('sc-insight').style.display = 'block';
+        }
+
+        document.getElementById('compare-btn').addEventListener('click', compare);
+
+        // Preset buttons
+        document.getElementById('preset-buttons').addEventListener('click', function(e) {
+            var btn = e.target.closest('button');
+            if (!btn || !btn.dataset.a) return;
+            selA.value = btn.dataset.a;
+            selB.value = btn.dataset.b;
+            // Mark active
+            var buttons = document.querySelectorAll('#preset-buttons button');
+            for (var i = 0; i < buttons.length; i++) buttons[i].classList.remove('active');
+            btn.classList.add('active');
+            compare();
+        });
+
+        // Auto-compare on load
+        if (selA.value && selB.value) compare();
+    })();
+    </script>
+
+    <script src="sw-register.js"></script>
+</body>
+</html>

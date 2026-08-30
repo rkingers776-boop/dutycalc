@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>DDP Pricing Calculator: Landed Cost to Selling Price</title>
+    <meta name="description" content="Seller-side pricing: purchase cost, freight and duty rates to landed cost, suggested price and margin — the reverse of a landed cost calculator.">
+    <link rel="canonical" href="https://www.dutycalc.online/ddp-pricing-calculator">
+    <meta property="og:title" content="DDP Pricing Calculator: Landed Cost to Selling Price">
+    <meta property="og:description" content="Seller-side pricing: purchase cost, freight and duty rates to landed cost, suggested price and margin — the reverse of a landed cost calculator.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.dutycalc.online/ddp-pricing-calculator">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DDP Pricing Calculator: Landed Cost to Selling Price">
+    <meta name="twitter:description" content="Purchase cost, freight and duty rates to landed cost, suggested price and margin — seller-side pricing in one screen.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=1742362">
+<meta property="og:image" content="https://www.dutycalc.online/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"DDP Pricing Calculator: Landed Cost to Selling Price","url":"https://www.dutycalc.online/ddp-pricing-calculator","description":"Seller-side pricing tool: purchase cost, freight and duty rates to landed cost, suggested price and margin.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"applicationCategory":"BusinessApplication","operatingSystem":"Any"}
+</script>
+    <style>
+        .ddp-panel { background: var(--steel-dark); border: 1px solid #1E293B; border-left: 4px solid var(--offshore-green); border-radius: var(--radius-sharp); padding: 36px 44px; margin-bottom: 22px; }
+        .ddp-panel h3 { color: var(--offshore-green); font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 22px; }
+        .ddp-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+        .ddp-field { flex: 1; min-width: 150px; }
+        .ddp-field label { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: rgba(255,255,255,0.6); margin-bottom: 6px; }
+        .ddp-field input { width: 100%; padding: 12px 14px; font-size: 1rem; font-weight: 500; color: #fff; background: #1a1f2e; border: 2px solid #1E293B; border-radius: var(--radius-sharp); outline: none; }
+        .ddp-field input:focus { border-color: var(--offshore-green); }
+        .ddp-field .unit { font-size: 0.7rem; color: var(--text-muted); margin-top: 4px; }
+        .ddp-btn { display: inline-block; padding: 13px 30px; font-size: 0.9rem; font-weight: 600; color: #fff; background: var(--accent); border: none; border-radius: var(--radius-sharp); cursor: pointer; margin-top: 8px; }
+        .ddp-btn:hover { background: #EA580C; }
+        .ddp-results { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-top: 24px; }
+        .ddp-card { background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-sharp); padding: 20px 18px; text-align: center; }
+        .ddp-card .lbl { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 8px; }
+        .ddp-card .val { font-size: 1.5rem; font-weight: 800; color: var(--steel-black); }
+        .ddp-card .sub { font-size: 0.74rem; color: var(--text-muted); margin-top: 5px; }
+        .ddp-card.highlight { border: 2px solid var(--offshore-green); background: #F0F9FF; }
+        .ddp-note { font-size: 0.82rem; color: var(--text-muted); margin-top: 14px; line-height: 1.6; }
+        @media (max-width: 768px) { .ddp-panel { padding: 24px 20px; } }
+    </style>
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/corridors">Corridors</a>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                        <a href="/customs-bond-calculator">Customs Bond</a>
+                        <a href="/sourcing-comparison">Sourcing Compare</a>
+                        <a href="/volume-weight-calculator">Volume Weight</a>
+                        <a href="/ddp-pricing-calculator">DDP Pricing</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Guides</span>
+                    <div class="nav-drop-menu">
+                        <a href="/trade-terms-glossary">Terms Glossary</a>
+                        <a href="/uflpa-forced-labor-compliance">UFLPA Guide</a>
+                        <a href="/anti-dumping-duties-guide">AD/CVD Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+
+        <header>
+            <h1>DDP Pricing Calculator</h1>
+            <p>The site's landed cost calculator tells you what a shipment costs to bring in. This one runs the math the other way, the way a seller actually has to: given what you pay for the goods, the freight, the duty rate, and the destination's sales tax — what is your true per-unit cost, and what do you charge to hit the margin you planned on? If you sell things you don't manufacture, this is the pricing screen you've been doing on scrap paper.</p>
+        </header>
+
+        <section class="ddp-panel">
+            <h3>Per-Unit Cost &amp; Rate Inputs</h3>
+            <div class="ddp-row">
+                <div class="ddp-field"><label for="ddp-cost">Purchase cost</label><input id="ddp-cost" type="number" value="3.50" min="0" step="0.01" aria-label="Purchase cost per unit"><div class="unit">per unit, ex-works</div></div>
+                <div class="ddp-field"><label for="ddp-freight">Freight + insurance</label><input id="ddp-freight" type="number" value="1.20" min="0" step="0.01" aria-label="Freight and insurance per unit"><div class="unit">per unit, to destination</div></div>
+                <div class="ddp-field"><label for="ddp-duty">Import duty rate</label><input id="ddp-duty" type="number" value="6.5" min="0" step="0.1" aria-label="Import duty rate in percent"><div class="unit">% of CIF — check your HTS line</div></div>
+                <div class="ddp-field"><label for="ddp-vat">Sales tax / VAT</label><input id="ddp-vat" type="number" value="0" min="0" step="0.1" aria-label="Sales tax or VAT rate in percent"><div class="unit">% — 0 for US, 20 UK, 19–22 EU</div></div>
+                <div class="ddp-field"><label for="ddp-margin">Target margin</label><input id="ddp-margin" type="number" value="40" min="0" max="95" step="1" aria-label="Target profit margin in percent"><div class="unit">% of selling price</div></div>
+            </div>
+            <button type="button" class="ddp-btn" id="ddp-calc">Calculate</button>
+            <div class="ddp-results" id="ddp-results" role="status" aria-live="polite" style="display:none;">
+                <div class="ddp-card"><div class="lbl">CIF per Unit</div><div class="val" id="ddp-cif">—</div><div class="sub">cost + freight + insurance</div></div>
+                <div class="ddp-card"><div class="lbl">Duty per Unit</div><div class="val" id="ddp-duty-amt">—</div><div class="sub">CIF × duty rate</div></div>
+                <div class="ddp-card"><div class="lbl">Sales Tax / VAT</div><div class="val" id="ddp-vat-amt">—</div><div class="sub">on duty-paid CIF</div></div>
+                <div class="ddp-card"><div class="lbl">Landed Cost</div><div class="val" id="ddp-landed">—</div><div class="sub">everything to the door</div></div>
+                <div class="ddp-card highlight"><div class="lbl">Suggested Price</div><div class="val" id="ddp-price">—</div><div class="sub" id="ddp-price-note">landed ÷ (1 − margin)</div></div>
+                <div class="ddp-card"><div class="lbl">Profit per Unit</div><div class="val" id="ddp-profit">—</div><div class="sub">price − landed cost</div></div>
+            </div>
+            <p class="ddp-note" id="ddp-note"></p>
+        </section>
+
+        <div>
+            <article class="seo-section">
+
+                <h2>The 3x rule works until it doesn't</h2>
+                <p>Take a $3.50 silicone pet-feeding mat from Yiwu. The standard advice is to triple it, list at $10.50, call it a day. Then the real numbers show up: $1.20 freight to the buyer's country, 6.5% duty on the CIF value, and if the buyer is in the UK, 20% VAT on top of the duty-paid figure. The actual cost to land one mat is about $5.36 — so at $10.50 you're keeping $5.14, which is a 49% margin, not the 66% that "triple the cost" implies. The rule of thumb didn't lie exactly; it just never counted the tax you never see on your own invoice.</p>
+                <p>That's what this calculator replaces. It walks the chain the way the money actually moves: CIF (cost plus freight and insurance), duty on CIF, sales tax on the duty-paid value, and the landed cost that is your real floor. The suggested price is then one division — <strong>landed cost ÷ (1 − margin)</strong> — and the profit is what's left. The whole point of doing it on one screen is that the assumptions stop hiding from you.</p>
+
+                <h2>Which number to put in each box</h2>
+                <p>The purchase cost is what you actually pay to get the goods to the shipping point. If you dropship, that's the supplier's dropship price, not the wholesale price — the difference is real, and it's your margin. Freight plus insurance is the per-unit share of your shipping bill; if you move consolidated containers, divide the total freight by the units in the container, don't guess. The duty rate is the one number worth looking up instead of estimating: it's set by the product's 10-digit HTS line in the destination country, and the <a href="/tariff-calculator">tariff lookup</a> gives you the MFN figure. For goods from China, add the Section 301 surcharge to that MFN rate — the <a href="/section-301-china-tariffs-guide">301 guide</a> shows which list applies. If your parcels clear under a de minimis threshold, the duty box is simply zero; the <a href="/de-minimis-value-guide">threshold map</a> tells you where that holds, and the <a href="/dropshipping-duty-guide">dropshipping duty guide</a> explains who actually ends up paying when the parcel lands.</p>
+                <p>The sales-tax box is where the country changes the answer. The US charges no VAT at the border, so zero is right. The UK applies 20% from the first pound on commercial imports; EU member states run 19–22%. When you sell DDP to consumers, that tax is collected at checkout — by the marketplace, or by you as the registered seller — so it's not a cost you eat, but it is part of the price the customer sees, and that's exactly why it belongs in the pricing formula. The <a href="/vat-calculator">VAT calculator</a> has the per-market rates.</p>
+
+                <h2>Margin is a slice of the price, not a markup on cost</h2>
+                <p>The difference matters more than it sounds. Marking up a $5.36 landed cost by 40% gives you $7.50 — a 28.5% margin. Dividing by 0.6 to land a true 40% margin gives you $8.93. On 1,000 units a year, the gap between those two interpretations is $1,430 of profit that existed or didn't depending on how you did the arithmetic. Every pricing webinar says "40% margin"; almost none of them specify that the margin is 40% of the selling price. This calculator uses the conservative version, the one that survives a spreadsheet audit.</p>
+                <p>What it doesn't include is just as important as what it does. Marketplace referral fees — 15% on Amazon — payment processing, advertising, returns, failed deliveries: none of that is in the formula. On a $14.95 price, Amazon's referral fee alone is $2.24, which is more than the duty on most consumer goods. The reliable sequence is to run this screen for the floor, then stack the platform fees on top before you call a number final. Sellers who skip that second step are the ones who discover, at the first settlement statement, that the margin was a mirage.</p>
+                <p>One check before you trust the output: the margin is a target, not a promise. If the suggested price lands above what the market will bear, the calculator hasn't made a mistake — it has told you the product doesn't work at that margin. Lower the target or drop the product; don't talk yourself into the wrong math.</p>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>What's the difference between this and the landed cost calculator?</h3>
+                <p>Direction. The <a href="/landed-cost-calculator">landed cost calculator</a> compares one shipment across destination markets to see what importing costs. This one takes a single per-unit cost and works forward to a suggested selling price and margin — the calculation a seller does when pricing a listing, not when comparing trade lanes.</p>
+
+                <h3>Should I include VAT in my selling price?</h3>
+                <p>Yes. On DDP sales to consumers, the customer pays one price and you remit the tax from it. Whether you show the VAT as a line item or absorb it, the customer's willingness to pay is a single number, so the tax belongs inside the price you test. This calculator puts it in the landed cost, which is the honest way to model it.</p>
+
+                <h3>My orders are under the de minimis — what do I enter for duty?</h3>
+                <p>Zero. If the destination waives duty below its threshold (US $800, UK £135, EU €150) and your per-parcel value stays under it, no duty is due — though the sales-tax box is a separate question, and in the UK and Australia the seller may still have a VAT registration obligation even at zero duty. The <a href="/dropshipping-duty-guide">dropshipping duty guide</a> walks each destination, because "under the threshold" is not the same as "no tax anywhere."</p>
+
+                <p style="margin-top: 30px;"><a href="/">&larr; Back to All Calculators</a></p>
+            </article>
+        </div>
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>DutyCalc Online</h2>
+                <p>Customs duty, VAT, and landed cost calculators for international trade. Independent trade metrology — not affiliated with any government customs agency.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <ul>
+                    <li><a href="/landed-cost-calculator">Landed Cost Calculator</a></li>
+                    <li><a href="/ddp-pricing-calculator">DDP Pricing Calculator</a></li>
+                    <li><a href="/import-duty-calculator">Import Duty Calculator</a></li>
+                    <li><a href="/vat-calculator">VAT / GST Calculator</a></li>
+                    <li><a href="/tariff-calculator">Tariff Rate Lookup</a></li>
+                    <li><a href="/volume-weight-calculator">Volume Weight Calculator</a></li>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/hscode-duty-estimator">HS Code Estimator</a></li>
+                    <li><a href="/customs-bond-calculator">Customs Bond Calculator</a></li>
+                    <li><a href="/sourcing-comparison">Sourcing Comparison</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Info</h4>
+                <ul>
+                    <li><a href="/import-cost-workflow">Import Workflow Guide</a></li>
+                    <li><a href="/fba-import-guide">FBA Import Guide</a></li>
+                    <li><a href="/dropshipping-duty-guide">Dropshipping Duty Guide</a></li>
+                    <li><a href="/import-vat-guide">Import VAT Explained</a></li>
+                    <li><a href="/de-minimis-value-guide">De Minimis Guide</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                    <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+                    <li><a href="/rate-updates">Rate Update History</a></li>
+                    <li><a href="/trade-terms-glossary">Trade Terms Glossary</a></li>
+                    <li><a href="/uflpa-forced-labor-compliance">UFLPA Compliance Guide</a></li>
+                    <li><a href="/about">About This Platform</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent trade data — not affiliated with any government customs agency.</p>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/dutycalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            'use strict';
+            function fmt(n) { return (isFinite(n) ? n.toFixed(2) : '—'); }
+            function calc() {
+                var cost = parseFloat(document.getElementById('ddp-cost').value) || 0;
+                var freight = parseFloat(document.getElementById('ddp-freight').value) || 0;
+                var dutyRate = parseFloat(document.getElementById('ddp-duty').value) || 0;
+                var vatRate = parseFloat(document.getElementById('ddp-vat').value) || 0;
+                var margin = parseFloat(document.getElementById('ddp-margin').value) || 0;
+                if (cost <= 0) { document.getElementById('ddp-results').style.display = 'none'; return; }
+                var cif = cost + freight;
+                var duty = cif * (dutyRate / 100);
+                var vat = (cif + duty) * (vatRate / 100);
+                var landed = cif + duty + vat;
+                var price = margin >= 100 ? 0 : landed / (1 - margin / 100);
+                var profit = price - landed;
+                var note = '';
+                if (margin >= 100) { note = 'Margin cannot be 100% or more — lower the target.'; }
+                else if (dutyRate === 0 && vatRate === 0) { note = 'No duty or sales tax applied — price is pure cost-plus. Verify your product is genuinely duty-free (e.g. under de minimis or ITA-covered).'; }
+                document.getElementById('ddp-cif').textContent = fmt(cif);
+                document.getElementById('ddp-duty-amt').textContent = fmt(duty);
+                document.getElementById('ddp-vat-amt').textContent = fmt(vat);
+                document.getElementById('ddp-landed').textContent = fmt(landed);
+                document.getElementById('ddp-price').textContent = fmt(price);
+                document.getElementById('ddp-price-note').textContent = margin >= 100 ? '—' : 'landed ÷ (1 − ' + margin + '%)';
+                document.getElementById('ddp-profit').textContent = fmt(profit);
+                document.getElementById('ddp-note').textContent = note;
+                document.getElementById('ddp-results').style.display = 'grid';
+            }
+            document.getElementById('ddp-calc').addEventListener('click', calc);
+            ['ddp-cost','ddp-freight','ddp-duty','ddp-vat','ddp-margin'].forEach(function (id) {
+                document.getElementById(id).addEventListener('input', calc);
+            });
+            calc();
+        })();
+    </script>
+    <script src="sw-register.js"></script>
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>US Customs Bond Calculator</title>
+    <meta name="description" content="Calculate your required US customs bond amount. Compare single-entry vs continuous bond costs.">
+    <link rel="canonical" href="https://www.dutycalc.online/customs-bond-calculator">
+    <meta property="og:title" content="US Customs Bond Calculator — Single Entry vs Continuous Bond Cost Comparison">
+    <meta property="og:description" content="Calculate your required US customs bond amount. Compare single-entry vs continuous bond costs. Minimum bond requirements, bond riders, annual expense — all in one calculator.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.dutycalc.online/customs-bond-calculator">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="US Customs Bond Calculator — Single Entry vs Continuous Bond">
+    <meta name="twitter:description" content="Calculate your required US customs bond. Single entry vs continuous bond comparison with full cost breakdown.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=1742362">
+    <style>
+        .bond-panel {
+            background: var(--steel-dark);
+            border: 1px solid #1E293B;
+            border-left: 4px solid var(--offshore-green);
+            border-radius: var(--radius-sharp);
+            padding: 40px 48px;
+            margin-bottom: 20px;
+        }
+        .bond-panel h3 {
+            color: var(--offshore-green);
+            font-family: var(--font-terminal);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+        .bond-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+        .bond-field { flex: 1; min-width: 180px; }
+        .bond-field label {
+            display: block; font-family: var(--font-terminal); font-size: 0.72rem;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+            color: rgba(255,255,255,0.6); margin-bottom: 6px;
+        }
+        .bond-field input, .bond-field select {
+            width: 100%; padding: 12px 14px; font-size: 1rem;
+            font-family: var(--font-terminal); font-weight: 500;
+            color: #FFFFFF; background: #1a1f2e; border: 2px solid #1E293B;
+            border-radius: var(--radius-sharp); outline: none;
+        }
+        .bond-field input:focus, .bond-field select:focus { border-color: var(--offshore-green); }
+        .bond-field .hint { font-size: 0.7rem; color: var(--text-muted); margin-top: 4px; }
+
+        .bond-results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px; }
+        .bond-card {
+            background: var(--bg-surface); border: 1px solid var(--border-light);
+            border-radius: var(--radius-sharp); padding: 28px 24px;
+            text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+        .bond-card.recommended { border-color: var(--offshore-green); border-width: 2px; position: relative; }
+        .bond-card.recommended::before {
+            content: 'RECOMMENDED'; position: absolute; top: -10px; left: 50%;
+            transform: translateX(-50%); background: var(--offshore-green); color: #fff;
+            font-size: 0.65rem; font-weight: 700; padding: 3px 12px;
+            border-radius: 999px; letter-spacing: 0.5px;
+        }
+        .bond-card h4 { font-size: 0.95rem; color: var(--steel-black); margin-bottom: 6px; }
+        .bond-card .price { font-size: 2rem; font-weight: 700; color: var(--steel-black); margin: 12px 0 4px; }
+        .bond-card .price span { font-size: 0.9rem; color: var(--text-muted); font-weight: 400; }
+        .bond-card .detail { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+        .bond-card .bond-min { font-size: 0.85rem; color: var(--steel-black); font-weight: 600; margin: 8px 0; }
+
+        .bond-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.88rem; }
+        .bond-table th { text-align: left; padding: 10px 14px; background: var(--steel-black); color: #fff; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .bond-table td { padding: 12px 14px; border-bottom: 1px solid var(--border-light); color: var(--text-secondary); }
+        .bond-table tr:nth-child(even) td { background: var(--bg-terminal); }
+        .bond-table .highlight { color: var(--steel-black); font-weight: 600; }
+
+        .break-even-callout {
+            background: rgba(14,165,233,0.06); border: 1px solid rgba(14,165,233,0.2);
+            border-radius: var(--radius-sharp); padding: 20px 24px; margin: 20px 0;
+        }
+        .break-even-callout strong { color: var(--offshore-green); }
+
+        @media (max-width: 768px) {
+            .bond-results { grid-template-columns: 1fr; }
+            .bond-panel { padding: 24px 20px; }
+        }
+    </style>
+<meta property="og:image" content="https://www.dutycalc.online/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"US Customs Bond Calculator — Single Entry vs Continuous Bond Cost Comparison","url":"https://www.dutycalc.online/customs-bond-calculator","description":"Calculate your required US customs bond amount. Compare single-entry vs continuous bond costs. See minimum bond requirements, bond rider needs, and total annual bond expense in seconds.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"applicationCategory":"BusinessApplication","operatingSystem":"Any"}
+</script>
+</head>
+<body>
+
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/corridors">Corridors</a>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                        <a href="/customs-bond-calculator">Customs Bond</a>
+                        <a href="/sourcing-comparison">Sourcing Compare</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Guides</span>
+                    <div class="nav-drop-menu">
+                        <a href="/trade-terms-glossary">Terms Glossary</a>
+                        <a href="/uflpa-forced-labor-compliance">UFLPA Guide</a>
+                        <a href="/anti-dumping-duties-guide">AD/CVD Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header>
+            <h1>US Customs Bond Calculator</h1>
+            <p class="header-meta">Every US importer must post a bond. This calculator shows you the minimum bond required, what a single-entry bond costs vs. a continuous bond, and where the break-even point is.</p>
+        </header>
+
+        <!-- ═══ CALCULATOR ═══ -->
+        <section class="bond-panel" aria-label="Bond Calculator Inputs">
+            <h3>Enter Your Annual Import Profile</h3>
+            <div class="bond-row">
+                <div class="bond-field">
+                    <label for="annual-duties">Estimated Annual Duties & Fees (USD)</label>
+                    <input type="number" id="annual-duties" value="25000" min="0" max="99999999" step="100">
+                    <span class="hint">Total customs duty + MPF + HMF you expect to pay in a year</span>
+                </div>
+                <div class="bond-field">
+                    <label for="annual-entries">Number of Entries Per Year</label>
+                    <input type="number" id="annual-entries" value="24" min="1" max="9999" step="1">
+                    <span class="hint">How many separate customs entries you file annually</span>
+                </div>
+                <div class="bond-field">
+                    <label for="bond-type">Bond Activity Type</label>
+                    <select id="bond-type">
+                        <option value="1">Activity Code 1 — Basic Importation</option>
+                        <option value="2">Activity Code 2 — Basic + Custody</option>
+                        <option value="3">Activity Code 3 — Basic + Custody + Cartage/Lighterage</option>
+                    </select>
+                    <span class="hint">Activity 1 covers most importers. 2/3 add bonded warehousing and transport.</span>
+                </div>
+            </div>
+            <button id="bond-calc-btn" class="btn-action" style="margin-top:8px;">Calculate Bond Requirements</button>
+        </section>
+
+        <!-- ═══ RESULTS ═══ -->
+        <div class="bond-results" id="bond-results" aria-live="polite">
+            <div class="bond-card">
+                <h4>Single-Entry Bond</h4>
+                <div class="price" id="se-price">—</div>
+                <div class="detail">Per entry. Bond amount = CIF value + duties. Broker arranges per shipment.</div>
+            </div>
+            <div class="bond-card recommended">
+                <h4>Continuous Bond</h4>
+                <div class="price" id="cb-price">—</div>
+                <div class="bond-min" id="cb-min">Minimum bond: —</div>
+                <div class="detail">Annual premium. Covers unlimited entries for 12 months. Includes bond rider if needed.</div>
+            </div>
+            <div class="bond-card">
+                <h4>Annual Savings</h4>
+                <div class="price" id="annual-savings">—</div>
+                <div class="detail" id="savings-note">Continuous vs. single-entry comparison over 12 months</div>
+            </div>
+        </div>
+
+        <!-- ═══ DETAIL TABLE ═══ -->
+        <div id="bond-detail-table" style="display:none;">
+            <h2>Cost Breakdown</h2>
+            <table class="bond-table">
+                <thead>
+                    <tr><th>Line Item</th><th>Single Entry (per shipment)</th><th>Continuous (annual)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Minimum bond amount</td><td class="highlight" id="dt-se-bond">—</td><td class="highlight" id="dt-cb-bond">—</td></tr>
+                    <tr><td>Bond premium / cost</td><td class="highlight" id="dt-se-premium">—</td><td class="highlight" id="dt-cb-premium">—</td></tr>
+                    <tr><td>Bond rider (if required)</td><td id="dt-se-rider">—</td><td id="dt-cb-rider">—</td></tr>
+                    <tr><td>Annual total (all entries)</td><td class="highlight" id="dt-se-total">—</td><td class="highlight" id="dt-cb-total">—</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ═══ BREAK-EVEN ═══ -->
+        <div class="break-even-callout" id="break-even-box" style="display:none;">
+            <strong>Break-Even Analysis:</strong> <span id="break-even-text"></span>
+        </div>
+
+        <!-- ═══ EXPLAINER ═══ -->
+        <article class="seo-section">
+            <h2>How US Customs Bonds Work</h2>
+
+            <h3>What Is a Customs Bond?</h3>
+            <p>A customs bond is a <strong>financial guarantee between the importer, a surety company, and US Customs and Border Protection (CBP)</strong>. It guarantees that CBP will be paid the duties, taxes, and fees owed on your imports — even if your business fails or you vanish. It is not insurance for you. It is insurance for the government. The bond does not cover the value of lost or damaged goods, and it does not reduce your duty liability.</p>
+
+            <p>Under 19 CFR Part 113, every commercial importation into the United States valued over $2,500 — or any shipment subject to other agency requirements (FDA, EPA, DOT, etc.) — <strong>requires a customs bond</strong>. Informal entries under $2,500 may not require a bond, but commercial shipments virtually always do.</p>
+
+            <h3>Single-Entry Bond (SEB)</h3>
+            <p>A single-entry bond covers <strong>one customs entry at one port</strong>. The bond amount must equal at least the total entered value of the goods (CIF) plus all duties, taxes, and fees. If the shipment value is $10,000 and duties are $800, your bond must be at least $10,800. SEB premiums are typically <strong>0.5% to 1.5% of the bond amount</strong>, with a minimum premium floor of around $50-$75 per entry. The surety writes a new bond for each shipment.</p>
+
+            <p><strong>When SEB makes sense:</strong> You import fewer than 4-6 times per year, your per-shipment values are low, and you don't need a continuous bond for other CBP programs (C-TPAT, bonded warehousing, etc.).</p>
+
+            <h3>Continuous Bond (CB)</h3>
+            <p>A continuous bond covers <strong>unlimited entries at all US ports for 12 months</strong>. The minimum bond amount is set by CBP regulation: <strong>10% of the total duties, taxes, and fees paid in the previous 12 months</strong>, or $50,000 — whichever is greater. If your estimated annual duties are $25,000, your minimum bond is $50,000 (the floor). If annual duties are $600,000, your minimum bond is $60,000 (10%).</p>
+
+            <p>Continuous bond premiums are typically <strong>$250-$500 per year for the minimum $50,000 bond</strong>, scaling up with the bond amount. A $100,000 bond might cost $800-$1,200/year. The continuous bond also satisfies bond requirements for C-TPAT, bonded warehouses, FTZ operations, and drawback claims — one bond covers everything.</p>
+
+            <h3>Bond Riders</h3>
+            <p>If your imports grow mid-year and your continuous bond is no longer sufficient (annual duties will exceed 10× the bond amount), CBP will require a <strong>bond rider</strong> — a supplemental bond that increases your coverage. Riders cost proportionally less than a new bond, typically $100-$300, and keep you compliant without replacing the whole bond.</p>
+
+            <h3>The Break-Even Point</h3>
+            <p>The rough rule: if you import <strong>more than 5-6 times per year</strong>, a continuous bond is almost always cheaper. At $75 per single-entry bond × 6 entries = $450 — about what a continuous bond costs. Above 6 entries, the continuous bond wins by an increasing margin. Below 4, single-entry bonds are usually the better deal.</p>
+
+            <h3>Who Needs This Calculator?</h3>
+            <ul class="content-list">
+                <li><strong>First-time importers</strong> who've never posted a bond and don't know where to start.</li>
+                <li><strong>E-commerce brands</strong> scaling from sporadic air freight to regular container shipments.</li>
+                <li><strong>DTC brands</strong> currently using Type 86 (Section 321) entry who are modeling what happens if de minimis is eliminated — formal entry requires a bond.</li>
+                <li><strong>3PLs and fulfillment providers</strong> advising clients on bond requirements.</li>
+                <li><strong>Anyone switching from a customs broker's bond</strong> to their own continuous bond — broker bonds often carry a per-use markup that disappears once you have your own.</li>
+            </ul>
+
+            <h3>Limitations</h3>
+            <p>This calculator provides <strong>general estimates based on standard surety market rates</strong>. Actual bond premiums vary by surety company, your credit profile, the commodity type, and whether you have an existing relationship with the surety. Bond amounts are set by CBP regulation (19 CFR 113.13). Always confirm your specific bond requirement with a licensed customs broker or surety agent. This calculator does not constitute a bond quote or offer.</p>
+
+            <hr>
+            <p style="margin-top:28px;"><a href="/landed-cost-calculator">Next: Landed Cost Calculator →</a> &nbsp;|&nbsp; <a href="/">&larr; Back to All Tools</a></p>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>DutyCalc Online</h2>
+                <p>Customs duty, VAT, and landed cost calculators for international trade. Independent trade metrology — not affiliated with any government customs agency.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <ul>
+                    <li><a href="/landed-cost-calculator">Landed Cost Calculator</a></li>
+                    <li><a href="/import-duty-calculator">Import Duty Calculator</a></li>
+                    <li><a href="/vat-calculator">VAT / GST Calculator</a></li>
+                    <li><a href="/tariff-calculator">Tariff Rate Lookup</a></li>
+                    <li><a href="/customs-bond-calculator">Customs Bond Calculator</a></li>
+                    <li><a href="/sourcing-comparison">Sourcing Comparison</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Info</h4>
+                <ul>
+                    <li><a href="/about">About This Platform</a></li>
+                    <li><a href="/trade-terms-glossary">Trade Terms Glossary</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent trade data — not affiliated with any government customs agency.</p>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/dutycalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+        </div>
+    </footer>
+
+    <script>
+    (function(){
+        'use strict';
+
+        var sePriceEl = document.getElementById('se-price');
+        var cbPriceEl = document.getElementById('cb-price');
+        var cbMinEl = document.getElementById('cb-min');
+        var savingsEl = document.getElementById('annual-savings');
+        var savingsNoteEl = document.getElementById('savings-note');
+        var breakEvenBox = document.getElementById('break-even-box');
+        var breakEvenText = document.getElementById('break-even-text');
+        var detailTable = document.getElementById('bond-detail-table');
+
+        function fmt(n) { return '$' + n.toFixed(2); }
+        function fmtInt(n) { return '$' + n.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0}); }
+
+        function calc() {
+            var annualDuties = parseFloat(document.getElementById('annual-duties').value) || 0;
+            var annualEntries = parseInt(document.getElementById('annual-entries').value) || 1;
+
+            // Minimum continuous bond: greater of $50,000 or 10% of annual duties
+            var cbBondAmount = Math.max(50000, annualDuties * 0.10);
+            cbBondAmount = Math.round(cbBondAmount / 1000) * 1000; // Round to nearest $1,000
+
+            // Continuous bond premium: roughly $5-$10 per $1,000 of bond amount, min ~$250
+            var cbPremium = Math.max(250, cbBondAmount * 0.005);
+            cbPremium = Math.round(cbPremium);
+
+            // Rider may be needed if duties grow beyond what the current bond covers.
+            // CBP requires a rider when annual duties exceed 10× the bond amount.
+            // Project a 30% growth buffer: if projected duties at 1.3× exceed 10× bond, flag a rider.
+            var projectedDuties = annualDuties * 1.3;
+            var riderNeeded = (projectedDuties > cbBondAmount * 10);
+            var riderCost = riderNeeded ? Math.max(100, Math.round((projectedDuties * 0.10 - cbBondAmount) * 0.004)) : 0;
+            var cbTotalAnnual = cbPremium + riderCost;
+
+            // Single-entry bond premium: assume average 0.8% of bond amount per entry
+            // Typical per-entry avg value ~ annualDuties/avgDutyRate (assume 8% avg duty)
+            var avgEntryValue = annualDuties / 0.08;
+            var seBondPerEntry = avgEntryValue + (annualDuties / annualEntries);
+            var sePremiumPerEntry = Math.max(65, seBondPerEntry * 0.008); // Min ~$65 per SEB
+            sePremiumPerEntry = Math.round(sePremiumPerEntry);
+            var seTotalAnnual = sePremiumPerEntry * annualEntries;
+
+            // Update UI
+            sePriceEl.innerHTML = fmt(sePremiumPerEntry) + ' <span>/ entry</span>';
+            cbPriceEl.innerHTML = fmt(cbPremium) + ' <span>/ year</span>';
+            cbMinEl.textContent = 'Minimum bond: ' + fmtInt(cbBondAmount);
+
+            var diff = seTotalAnnual - cbTotalAnnual;
+            if (diff > 0) {
+                savingsEl.innerHTML = '<span style="color:var(--success);">' + fmt(diff) + '</span>';
+                savingsNoteEl.textContent = 'You save this much per year with a continuous bond';
+            } else if (diff < 0) {
+                savingsEl.innerHTML = '<span style="color:var(--accent);">-' + fmt(Math.abs(diff)) + '</span>';
+                savingsNoteEl.textContent = 'Single-entry bonds are cheaper at your volume';
+            } else {
+                savingsEl.innerHTML = fmt(0);
+                savingsNoteEl.textContent = 'Costs are approximately equal';
+            }
+
+            // Detail table
+            document.getElementById('dt-se-bond').textContent = fmtInt(seBondPerEntry) + ' per entry';
+            document.getElementById('dt-cb-bond').textContent = fmtInt(cbBondAmount) + ' (annual minimum)';
+            document.getElementById('dt-se-premium').textContent = fmt(sePremiumPerEntry) + ' × ' + annualEntries + ' entries';
+            document.getElementById('dt-cb-premium').textContent = fmt(cbPremium) + ' / year';
+            document.getElementById('dt-se-rider').textContent = 'Not applicable';
+            document.getElementById('dt-cb-rider').textContent = riderNeeded ? fmt(riderCost) + ' rider (bond may be undersized)' : 'Not needed';
+            document.getElementById('dt-se-total').textContent = fmt(seTotalAnnual) + ' / year';
+            document.getElementById('dt-cb-total').textContent = fmt(cbTotalAnnual) + ' / year';
+
+            detailTable.style.display = 'block';
+
+            // Break-even
+            breakEvenBox.style.display = 'block';
+            if (annualEntries <= 4) {
+                breakEvenText.textContent = 'At ' + annualEntries + ' entries per year, single-entry bonds are likely cheaper. The break-even is typically around 5-6 entries. If your import volume increases, switch to a continuous bond.';
+            } else if (annualEntries <= 6) {
+                breakEvenText.textContent = 'At ' + annualEntries + ' entries per year, you\'re near the break-even point. A continuous bond costs roughly ' + fmt(cbTotalAnnual) + '/year vs. ' + fmt(seTotalAnnual) + '/year for single-entry bonds. The convenience of unlimited entries may tip the scales toward continuous.';
+            } else {
+                breakEvenText.textContent = 'At ' + annualEntries + ' entries per year, a continuous bond is clearly the better deal — saving you approximately ' + fmt(Math.abs(diff)) + ' per year vs. buying single-entry bonds for every shipment. Plus you get coverage for C-TPAT, FTZ, and bonded warehousing at no extra bond cost.';
+            }
+        }
+
+        document.getElementById('bond-calc-btn').addEventListener('click', calc);
+
+        // Run on load
+        calc();
+    })();
+    </script>
+
+    <script src="sw-register.js"></script>
+</body>
+</html>

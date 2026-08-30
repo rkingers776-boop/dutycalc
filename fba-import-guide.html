@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>FBA Import Duty: The Full Tariff Bill from China to Amazon (2026)</title>
+    <meta name="description" content="What Amazon sellers actually pay importing from China into FBA: HS codes, MFN + Section 301, CIF, MPF/HMF, customs bond, and a worked landed-cost example.">
+    <link rel="canonical" href="https://www.dutycalc.online/fba-import-guide">
+    <meta property="og:title" content="FBA Import Duty: The Full Tariff Bill from China to Amazon (2026)">
+    <meta property="og:description" content="What Amazon sellers actually pay importing from China into FBA: HS codes, MFN + Section 301, CIF, MPF/HMF, customs bond, and a worked landed-cost example.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.dutycalc.online/fba-import-guide">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FBA Import Duty: The Full Tariff Bill from China to Amazon (2026)">
+    <meta name="twitter:description" content="What Amazon sellers actually pay importing from China into FBA: HS codes, MFN + Section 301, CIF, MPF/HMF, customs bond, and a worked landed-cost example.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=1742362">
+<meta property="og:image" content="https://www.dutycalc.online/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","name":"FBA Import Duty: The Full Tariff Bill from China to Amazon (2026)","url":"https://www.dutycalc.online/fba-import-guide","description":"What Amazon sellers actually pay importing from China into FBA: HS codes, MFN + Section 301, CIF, MPF/HMF, customs bond, and a worked landed-cost example.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"isPartOf":{"@type":"WebSite","name":"DutyCalc Online","url":"https://www.dutycalc.online/"}}
+</script>
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/corridors">Corridors</a>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                        <a href="/customs-bond-calculator">Customs Bond</a>
+                        <a href="/sourcing-comparison">Sourcing Compare</a>
+                        <a href="/volume-weight-calculator">Volume Weight</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Guides</span>
+                    <div class="nav-drop-menu">
+                        <a href="/trade-terms-glossary">Terms Glossary</a>
+                        <a href="/uflpa-forced-labor-compliance">UFLPA Guide</a>
+                        <a href="/anti-dumping-duties-guide">AD/CVD Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+
+        <header>
+            <h1>FBA Import Duty: What You Actually Pay Shipping China to Amazon</h1>
+            <p>The supplier's price is not your cost. A $10,000 purchase from Shenzhen becomes roughly $13,000 by the time it clears customs and lands in an Amazon fulfillment center — and most of that gap is tariff, not freight. This guide walks the exact bill an FBA seller pays, in the order the money actually leaves your account, and ends with a worked example you can run your own numbers through.</p>
+            <p style="font-size:0.85rem;color:#94A3B8;">Verified against HTSUS 2026 · August 2026</p>
+        </header>
+
+        <div class="trade-tip"><span class="tip-label">The FBA-specific truth first</span><br>Amazon FBA shipments are <strong>commercial imports</strong> — they never touch the $800 de minimis. The Section 321 exemption is for low-value parcels to an individual; a container of 1,200 phone cases to an Amazon warehouse is a formal entry, full stop. No one "ships FBA duty-free." Anyone promising that is describing smuggling.</div>
+
+        <div>
+            <article class="seo-section">
+
+                <h2>What happens between the factory gate and the FBA dock</h2>
+                <p>Every FBA import runs the same six gauntlets, and only one of them is the tariff everyone talks about. First you classify the goods — each SKU gets a 10-digit HTS code, and this single decision sets the rate everything else is built on, so it is the step worth paying the most attention to. Our <a href="/how-to-find-hs-code">HS code guide</a> walks the whole process, and the <a href="/tariff-calculator">tariff lookup</a> turns the code into a number.</p>
+                <p>Then comes the value customs actually taxes. US duty is assessed on CIF — the goods cost plus freight plus insurance — not on the factory invoice. A $2.88/unit factory price on a $2,880 purchase becomes a $3,500 dutiable value once the $620 freight lands in the number, and this is the gap where first-time sellers' estimates quietly go wrong. From there the rate applies: MFN plus, for Chinese goods, the Section 301 surcharge. The fees follow — MPF at 0.3464% (min $31.67, max $614.35) and HMF at 0.125% on ocean cargo — and then the customs bond every formal entry requires. The bill clears through your broker before the goods release, Amazon never sees it, and you, as the importer of record, own the whole thing.</p>
+
+                <h2>The one number that decides the whole bill</h2>
+                <p>On almost every consumer product from China, Section 301 is the bigger half of the duty. A silicone phone case sits at 3.4% MFN on its HTS line; the 25% List 3 surcharge makes the real number 28.4%. An LED light at 3.9% MFN becomes 28.9%. The exceptions — ITA-covered electronics, some plastics — are rare enough that planning for 25% on top of MFN is the safe default for any Chinese-origin FBA SKU. The <a href="/section-301-china-tariffs-guide">Section 301 guide</a> maps which list your product falls on, and the <a href="/china-to-us-tariff-panorama">China tariff panorama</a> shows the full stack per category. If your product carries an anti-dumping order on top of that — a real risk for furniture, steel, and certain textiles — the rate stops being a percentage and becomes a specific per-unit number; the <a href="/anti-dumping-duties-guide">AD/CVD guide</a> explains how to check before you quote.</p>
+                <p>Category-level rates across the site tell the same story: <a href="/china-to-us-electronics">electronics</a> mostly 2.5% MFN plus 301, <a href="/china-to-us-furniture">furniture</a> 8% MFN plus 301, <a href="/china-to-us-clothing">apparel</a> a 16.5% composite, <a href="/china-to-us-plastics">plastics and toys</a> 6.5% MFN plus 301. The common thread: your tariff bill is dominated by the surcharge, not the schedule.</p>
+
+                <h2>A worked example: 1,200 phone cases</h2>
+                <p>Run a representative order and the shape of the bill becomes concrete. 1,200 silicone phone cases from Shenzhen: factory cost $2.40 each, so $2,880 FOB. Add $620 freight and insurance, and the CIF value is $3,500. On HTS 3926.90 — plastic articles — MFN is 3.4%, and Section 301 List 3 adds 25%, so duty lands at 28.4% of CIF: <strong>$994</strong>. MPF computes to $12.12 but the $31.67 minimum applies, and HMF on the ocean leg adds $4.38. Total customs bill: <strong>$1,030.05</strong>. Landed cost at the port: $4,530.05 — 57% above the factory price.</p>
+                <p>That 57% is the number your margin model needs, not the $2.88/unit quote. And it is not the last line of the bill: the freight leg that carried this order was billed on dim weight, and if the carton spec was oversized — the way supplier defaults usually are — the freight line carries a second, hidden surcharge of its own. The <a href="/volume-weight-calculator">volume weight calculator</a> shows the gap between what you think you ship and what you pay to ship it, and it matters twice for FBA sellers: once for the freight, once for Amazon's dimension-driven storage and placement fees.</p>
+
+                <h2>The bond, the broker, and who is actually on the hook</h2>
+                <p>Every formal entry needs a customs bond — a surety that the duties get paid. One-off shippers buy single-entry bonds at roughly 0.5% of the value with a $100 floor; anyone importing more than a handful of times a year should hold a continuous bond at $500–600/year, and the <a href="/customs-bond-calculator">bond calculator</a> finds the crossover (it lands around five formal entries a year). Your broker files the entry and usually holds the bond, but the importer of record is you — the name on the entry is the one responsible for classification, valuation, and documentation if customs ever comes looking.</p>
+                <p>That is not a legal abstraction. An HS code that underpaid duty comes back to you with interest and possible penalties, and the "reasonable care" standard means the classification reasoning should be on file before the first shipment, not reconstructed after a CF-28 request arrives. If a forwarder offers to "be the importer" for you, get that in writing with their EIN — and understand you have handed them your compliance fate. Two documents gate the whole process: the ISF (10+2) filed before the vessel departs, and the entry (CBP Form 7501) at arrival. Both are routine for any licensed broker, and both are reasons to have your HS codes settled before you book freight, not after the ship sails.</p>
+
+                <h2>The FBA traps the tariff tables don't show you</h2>
+                <p>Four mistakes recur across FBA sellers, and none of them appear in the rate schedule. The first is mixing duty rates in one shipment: a consolidated carton of several SKUs gets filed as one entry, but each SKU keeps its own HTS line and its own rate, and the dominant-code shortcut is the most common reclassification trigger we see. Keep the SKU-to-HTS mapping in your system of record.</p>
+                <p>The second is UFLPA exposure on inputs. The Forced Labor Prevention Act applies to goods made anywhere with Xinjiang inputs — including goods assembled in Vietnam, Malaysia, or Mexico from Chinese fabric or components. If your FBA supply chain touches Chinese raw materials, the documentation burden travels with it, and the <a href="/uflpa-forced-labor-compliance">UFLPA guide</a> lists what CBP wants before detention, not after.</p>
+                <p>The third is treating the broker's estimate as final. Forwarders quote landed cost with "approx" duty rates to win the booking, and the real rate often lands higher once the actual 10-digit line is filed. Get the broker to commit to the code and the rate <em>before</em> you book; a three-point swing on a $30,000 container is $900 you can price into the listing or eat in margin.</p>
+                <p>The fourth is the packaging echo. FBA storage and placement fees are dimension-driven, so the same oversized-carton waste that inflates your freight bill inflates Amazon's fees too. Fix the carton spec once and it pays on both lines — the <a href="/volume-weight-calculator">volume weight calculator</a> is the tool to run before you approve the packaging, not after the first invoice.</p>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>Do I have to pay import duty on FBA shipments from China?</h3>
+                <p>Yes, on every formal entry — which is every FBA shipment. There is no duty-free lane for commercial imports to a business address, and the $800 de minimis does not apply to goods you sell. The only question is the rate: MFN plus 25% Section 301 on most consumer goods, which is why FBA sellers from China consistently see 25–35% total tariff loads.</p>
+
+                <h3>Can I use the $800 de minimis to avoid FBA duties?</h3>
+                <p>No. Section 321 is for low-value shipments to an individual; your FBA shipment goes to a fulfillment center, is commercial, and is declared by you as the importer. Splitting a container into sub-$800 parcels to dodge duty is structuring, and CBP treats it as fraud, not optimization.</p>
+
+                <h3>Who pays the duty — me or Amazon?</h3>
+                <p>You. Amazon receives goods into FBA on a "seller of record" basis and collects no customs duties; the importer of record on the entry pays. If your forwarder "handles it," they are passing the bill through to you — budget the duty into your landed cost before setting your Amazon price, or the margin disappears at the first container.</p>
+
+                <h3>What's the difference between the freight and the duty on my bill?</h3>
+                <p>Freight pays for the space — billed on actual or volumetric weight, whichever is larger — while duty pays for the goods, assessed on CIF value. They are separate lines with separate rules, and sellers who conflate them usually underestimate one: the duty. The <a href="/volume-weight-calculator">volume weight calculator</a> handles the freight half, the <a href="/landed-cost-calculator">landed cost calculator</a> the duty half.</p>
+
+                <p style="margin-top: 30px;"><a href="/">&larr; Back to All Calculators</a></p>
+            </article>
+        </div>
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>DutyCalc Online</h2>
+                <p>Customs duty, VAT, and landed cost calculators for international trade. Independent trade metrology — not affiliated with any government customs agency.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <ul>
+                    <li><a href="/landed-cost-calculator">Landed Cost Calculator</a></li>
+                    <li><a href="/import-duty-calculator">Import Duty Calculator</a></li>
+                    <li><a href="/vat-calculator">VAT / GST Calculator</a></li>
+                    <li><a href="/tariff-calculator">Tariff Rate Lookup</a></li>
+                    <li><a href="/volume-weight-calculator">Volume Weight Calculator</a></li>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/hscode-duty-estimator">HS Code Estimator</a></li>
+                    <li><a href="/customs-bond-calculator">Customs Bond Calculator</a></li>
+                    <li><a href="/sourcing-comparison">Sourcing Comparison</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Info</h4>
+                <ul>
+                    <li><a href="/import-cost-workflow">Import Workflow Guide</a></li>
+                    <li><a href="/fba-import-guide">FBA Import Guide</a></li>
+                    <li><a href="/import-vat-guide">Import VAT Explained</a></li>
+                    <li><a href="/de-minimis-value-guide">De Minimis Guide</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                    <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+                    <li><a href="/rate-updates">Rate Update History</a></li>
+                    <li><a href="/trade-terms-glossary">Trade Terms Glossary</a></li>
+                    <li><a href="/uflpa-forced-labor-compliance">UFLPA Compliance Guide</a></li>
+                    <li><a href="/about">About This Platform</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent trade data — not affiliated with any government customs agency.</p>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/dutycalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+        </div>
+    </footer>
+
+    <script src="rate-data.js"></script>
+    <script src="main.js?v=1742362"></script>
+    <script src="sw-register.js"></script>
+</body>
+</html>

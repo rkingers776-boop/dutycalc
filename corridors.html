@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>Trade Corridor Directory: All Duty Rates &amp; De Minimis by Lane</title>
+    <meta name="description" content="Every trade corridor on DutyCalc in one index — duty rate, VAT, and de minimis threshold per lane, from China→US apparel to Taiwan→US semiconductors.">
+    <link rel="canonical" href="https://www.dutycalc.online/corridors">
+    <meta property="og:title" content="Trade Corridor Directory: All Duty Rates &amp; De Minimis by Lane">
+    <meta property="og:description" content="Every trade corridor on DutyCalc in one index — duty rate, VAT, and de minimis threshold per lane.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.dutycalc.online/corridors">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Trade Corridor Directory: All Duty Rates &amp; De Minimis by Lane">
+    <meta name="twitter:description" content="The full corridor index — duty rate, VAT, and de minimis threshold for every lane on DutyCalc.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=1742362">
+<meta property="og:image" content="https://www.dutycalc.online/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Trade Corridor Directory: All Duty Rates & De Minimis by Lane","url":"https://www.dutycalc.online/corridors","description":"Every trade corridor on DutyCalc in one index — duty rate, VAT, and de minimis threshold per lane.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"mainEntity":{"@type":"ItemList","numberOfItems":36}}
+</script>
+    <style>
+        .cd-table-wrap { overflow-x: auto; margin: 28px 0 10px; }
+        .cd-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; min-width: 560px; }
+        .cd-table th { text-align: left; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); padding: 10px 12px; border-bottom: 2px solid var(--border-light); }
+        .cd-table td { padding: 11px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+        .cd-table tr:hover td { background: #F8FAFC; }
+        .cd-table a { font-weight: 600; }
+        .cd-rate { white-space: nowrap; font-weight: 600; }
+        .cd-group h2 { margin-top: 40px; padding-bottom: 8px; border-bottom: 1px solid var(--border-light); }
+        .cd-foot { font-size: 0.82rem; color: var(--text-muted); margin-top: 26px; line-height: 1.7; }
+        .cd-dm { font-size: 0.85rem; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/corridors">Corridors</a>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                        <a href="/customs-bond-calculator">Customs Bond</a>
+                        <a href="/sourcing-comparison">Sourcing Compare</a>
+                        <a href="/volume-weight-calculator">Volume Weight</a>
+                        <a href="/ddp-pricing-calculator">DDP Pricing</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Guides</span>
+                    <div class="nav-drop-menu">
+                        <a href="/trade-terms-glossary">Terms Glossary</a>
+                        <a href="/uflpa-forced-labor-compliance">UFLPA Guide</a>
+                        <a href="/anti-dumping-duties-guide">AD/CVD Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+
+        <header>
+            <h1>Trade Corridor Directory</h1>
+            <p>The homepage's corridor section shows the fourteen most-trafficked lanes. This page is the full index — every corridor on the site in one place, with the headline duty rate, the destination VAT, and the de minimis threshold that decides whether small parcels clear free. Each row opens the lane's own page, where the rate is unpacked, the compliance points are listed, and a calculator runs the real landed cost.</p>
+            <p>Rates are MFN base rates unless an FTA is noted; Section 301 and other additional duties are covered on each lane's page. De minimis thresholds are shown for the destination country, with the threshold base (goods value vs. goods-plus-freight) noted where it differs from the US-style goods-value rule — see the <a href="/de-minimis-value-guide">de minimis guide</a> for how that changes the math.</p>
+        </header>
+
+        <div class="cd-group">
+            <h2>China → United States</h2>
+            <div class="cd-table-wrap">
+                <table class="cd-table">
+                    <thead><tr><th>Corridor</th><th>Duty</th><th>VAT / Sales Tax</th><th>De Minimis</th></tr></thead>
+                    <tbody>
+                        <tr><td><a href="/china-to-us-clothing">China → US · Apparel &amp; Textiles</a></td><td class="cd-rate">16.5%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
+                        <tr><td><a href="/china-to-us-electronics">China → US · Electronics &amp; Gadgets</a></td><td class="cd-rate">2.5%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
+                        <tr><td><a href="/china-to-us-furniture">China → US · Furniture &amp; Home Goods</a></td><td class="cd-rate">8%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
+                        <tr><td><a href="/china-to-us-machinery">China → US · Industrial Machinery</a></td><td class="cd-rate">4.2%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
+                        <tr><td><a href="/china-to-us-plastics">China → US · Plastics &amp; Toys</a></td><td class="cd-rate">6.5%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
+                        <tr><td><a href="/china-to-us-tariff-panorama">China → US · Full Tariff Panorama</a></td><td class="cd-rate">—</td><td>—</td><td class="cd-dm">multi-category reference</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="cd-group">
+            <h2>United Kingdom</h2>
+            <div class="cd-table-wrap">
+                <table class="cd-table">
+                    <thead><tr><th>Corridor</th><th>Duty</th><th>VAT</th><th>De Minimis</th></tr></thead>
+                    <tbody>
+                        <tr><td><a href="/china-to-uk-electronics">China → UK · Electronics</a></td><td class="cd-rate">2.5%</td><td>20%</td><td class="cd-dm">£135 (incl. freight)</td></tr>
+                        <tr><td><a href="/china-to-uk-apparel">China → UK · Apparel &amp; Fashion</a></td><td class="cd-rate">12%</td><td>20%</td><td class="cd-dm">£135 (incl. freight)</td></tr>
+                        <tr><td><a href="/china-to-uk-homeware">China → UK · Homeware &amp; Decor</a></td><td class="cd-rate">6%</td><td>20%</td><td class="cd-dm">£135 (incl. freight)</td></tr>
+                        <tr><td><a href="/us-to-uk-duty">US → UK · General Trade</a></td><td class="cd-rate">4.5%</td><td>20%</td><td class="cd-dm">£135 (incl. freight)</td></tr>
+                        <tr><td><a href="/eu-to-uk-post-brexit">EU → UK · Post-Brexit</a></td><td class="cd-rate">2%</td><td>20%</td><td class="cd-dm">£135 (incl. freight)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="cd-group">
+            <h2>European Union</h2>
+            <div class="cd-table-wrap">
+                <table class="cd-table">
+                    <thead><tr><th>Corridor</th><th>Duty</th><th>VAT</th><th>De Minimis</th></tr></thead>
+                    <tbody>
+                        <tr><td><a href="/china-to-germany-customs">China → Germany · Industrial &amp; Automation</a></td><td class="cd-rate">4.2%</td><td>19%</td><td class="cd-dm">€150 (goods value)</td></tr>
+                        <tr><td><a href="/china-to-france-customs">China → France · E-Commerce Cargo</a></td><td class="cd-rate">4.5%</td><td>20%</td><td class="cd-dm">€150 (goods value)</td></tr>
+                        <tr><td><a href="/china-to-italy-textiles">China → Italy · Textiles &amp; Leather</a></td><td class="cd-rate">12%</td><td>22%</td><td class="cd-dm">€150 (goods value)</td></tr>
+                        <tr><td><a href="/china-to-netherlands-hub">China → Netherlands · Rotterdam Hub</a></td><td class="cd-rate">3.5%</td><td>21%</td><td class="cd-dm">€150 (goods value)</td></tr>
+                        <tr><td><a href="/us-to-germany-machinery">US → Germany · Machinery</a></td><td class="cd-rate">1.7%</td><td>19%</td><td class="cd-dm">€150 (goods value)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="cd-group">
+            <h2>Europe &amp; Asia → United States</h2>
+            <div class="cd-table-wrap">
+                <table class="cd-table">
+                    <thead><tr><th>Corridor</th><th>Duty</th><th>VAT / Sales Tax</th><th>De Minimis</th></tr></thead>
+                    <tbody>
+                        <tr><td><a href="/uk-to-us-duty">UK → US · General Trade</a></td><td class="cd-rate">3.5%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
+                        <tr><td><a href="/eu-to-us-duty">EU → US · General Cargo</a></td><td class="cd-rate">4%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
+                        <tr><td><a href="/germany-to-us-automotive">Germany → US · Automotive Parts</a></td><td class="cd-rate">2.5%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
+                        <tr><td><a href="/france-to-us-luxury">France → US · Cosmetics &amp; Luxury</a></td><td class="cd-rate">5.2%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
+                        <tr><td><a href="/italy-to-us-machinery">Italy → US · Industrial Hardware</a></td><td class="cd-rate">3.8%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
+                        <tr><td><a href="/japan-to-us-auto-parts">Japan → US · Auto Parts</a></td><td class="cd-rate">2.5%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
+                        <tr><td><a href="/korea-to-us-electronics">Korea → US · Electronics (KORUS)</a></td><td class="cd-rate">0% FTA</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
+                        <tr><td><a href="/taiwan-to-us-semiconductors">Taiwan → US · Semiconductors (ITA)</a></td><td class="cd-rate">0–1.5%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
+                        <tr><td><a href="/india-to-us-jewelry">India → US · Gems &amp; Jewelry</a></td><td class="cd-rate">6%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
+                        <tr><td><a href="/vietnam-to-us-textiles">Vietnam → US · Apparel &amp; Textiles</a></td><td class="cd-rate">14.5%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
+                        <tr><td><a href="/southeast-asia-to-us-duty">Thailand / Indonesia / Malaysia → US</a></td><td class="cd-rate">3.5–6.5%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="cd-group">
+            <h2>Americas</h2>
+            <div class="cd-table-wrap">
+                <table class="cd-table">
+                    <thead><tr><th>Corridor</th><th>Duty</th><th>VAT / Sales Tax</th><th>De Minimis</th></tr></thead>
+                    <tbody>
+                        <tr><td><a href="/canada-to-us-duty">Canada → US · USMCA</a></td><td class="cd-rate">0% FTA</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
+                        <tr><td><a href="/mexico-to-us-duty">Mexico → US · USMCA</a></td><td class="cd-rate">0% FTA</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
+                        <tr><td><a href="/us-to-canada-duty">US → Canada · General Cargo</a></td><td class="cd-rate">5%</td><td>GST 5%</td><td class="cd-dm">CAD $20 (goods value)</td></tr>
+                        <tr><td><a href="/china-to-canada-freight">China → Canada · General Freight</a></td><td class="cd-rate">6.5%</td><td>GST 5%</td><td class="cd-dm">CAD $20 (goods value)</td></tr>
+                        <tr><td><a href="/china-to-mexico-maquila">China → Mexico · Maquila</a></td><td class="cd-rate">15%</td><td>IVA 16%</td><td class="cd-dm">$50 (goods value)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="cd-group">
+            <h2>Asia-Pacific</h2>
+            <div class="cd-table-wrap">
+                <table class="cd-table">
+                    <thead><tr><th>Corridor</th><th>Duty</th><th>VAT / GST</th><th>De Minimis</th></tr></thead>
+                    <tbody>
+                        <tr><td><a href="/china-to-australia-duty">China → Australia · General Cargo</a></td><td class="cd-rate">5%</td><td>GST 10%</td><td class="cd-dm">AUD $1,000 (goods value)</td></tr>
+                        <tr><td><a href="/us-to-australia-commerce">US → Australia · FTA</a></td><td class="cd-rate">0% FTA</td><td>GST 10%</td><td class="cd-dm">AUD $1,000 (goods value)</td></tr>
+                        <tr><td><a href="/uk-to-australia-retail">UK → Australia · Retail &amp; Consumer</a></td><td class="cd-rate">5%</td><td>GST 10%</td><td class="cd-dm">AUD $1,000 (goods value)</td></tr>
+                        <tr><td><a href="/china-to-japan-cargo">China → Japan · E-Commerce</a></td><td class="cd-rate">3.5%</td><td>JCT 10%</td><td class="cd-dm">¥10,000 (incl. freight)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="cd-group">
+            <h2>EU → UK · The Post-Brexit Set</h2>
+            <div class="cd-table-wrap">
+                <table class="cd-table">
+                    <thead><tr><th>Guide</th><th>Covers</th></tr></thead>
+                    <tbody>
+                        <tr><td><a href="/eu-to-uk-135-consignment-rule">The £135 Consignment Rule</a></td><td>How the value line is measured — goods plus freight</td></tr>
+                        <tr><td><a href="/eu-to-uk-commodity-codes">Commodity Codes for EU→UK</a></td><td>Getting the 8-digit code right for UK imports</td></tr>
+                        <tr><td><a href="/eu-to-uk-customs-clearance">Customs Clearance Basics</a></td><td>What has to be filed and who files it</td></tr>
+                        <tr><td><a href="/eu-to-uk-tca-origin-rules">TCA Rules of Origin</a></td><td>When EU origin actually earns the 0% rate</td></tr>
+                        <tr><td><a href="/eu-to-uk-vat-registration">VAT Registration for EU Sellers</a></td><td>The UK VAT registration trigger for EU businesses</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <p class="cd-foot">Rates shown are the headline MFN / FTA figure for each lane's typical cargo; actual rates vary by HS code, and Section 301, AD/CVD, and other additional duties are detailed on each lane page. The de minimis column shows the destination threshold with its measurement base — "goods value" thresholds are assessed on the value of the merchandise only, "incl. freight" thresholds on the goods-plus-freight consignment value, which is the UK and Japan rule. Every lane page embeds its own calculator using the <a href="/landed-cost-calculator">same landed cost model</a>; the <a href="/tariff-calculator">tariff lookup</a> covers codes not listed here.</p>
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>DutyCalc Online</h2>
+                <p>Customs duty, VAT, and landed cost calculators for international trade. Independent trade metrology — not affiliated with any government customs agency.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <ul>
+                    <li><a href="/landed-cost-calculator">Landed Cost Calculator</a></li>
+                    <li><a href="/import-duty-calculator">Import Duty Calculator</a></li>
+                    <li><a href="/vat-calculator">VAT / GST Calculator</a></li>
+                    <li><a href="/tariff-calculator">Tariff Rate Lookup</a></li>
+                    <li><a href="/volume-weight-calculator">Volume Weight Calculator</a></li>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/hscode-duty-estimator">HS Code Estimator</a></li>
+                    <li><a href="/customs-bond-calculator">Customs Bond Calculator</a></li>
+                    <li><a href="/sourcing-comparison">Sourcing Comparison</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Info</h4>
+                <ul>
+                    <li><a href="/import-cost-workflow">Import Workflow Guide</a></li>
+                    <li><a href="/fba-import-guide">FBA Import Guide</a></li>
+                    <li><a href="/import-vat-guide">Import VAT Explained</a></li>
+                    <li><a href="/de-minimis-value-guide">De Minimis Guide</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                    <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+                    <li><a href="/rate-updates">Rate Update History</a></li>
+                    <li><a href="/trade-terms-glossary">Trade Terms Glossary</a></li>
+                    <li><a href="/uflpa-forced-labor-compliance">UFLPA Compliance Guide</a></li>
+                    <li><a href="/about">About This Platform</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent trade data — not affiliated with any government customs agency.</p>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/dutycalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+        </div>
+    </footer>
+
+    <script src="sw-register.js"></script>
+</body>
+</html>
