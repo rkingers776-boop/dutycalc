@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
-    <title>About DutyCalc — Who Built This, How We Verify Rates, and What the Calculators Do and Don't Cover</title>
-    <meta name="description" content="DutyCalc is a free, browser-based suite of customs duty and landed cost calculators maintained by cross-border logistics practitioners. Rates sourced from primary government tariff schedules, verified on a published schedule, with every change logged publicly.">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>About DutyCalc</title>
+    <meta name="description" content="DutyCalc is a free, browser-based suite of customs duty and landed cost calculators maintained by cross-border logistics practitioners.">
     <link rel="canonical" href="https://www.dutycalc.online/about">
     <meta property="og:title" content="About DutyCalc — Who's Behind It, How Rates Are Verified">
     <meta property="og:description" content="Free customs duty and landed cost calculators maintained by cross-border logistics practitioners. Primary-source rates, published verification schedule, public change log.">
@@ -16,7 +16,7 @@
     <meta name="twitter:description" content="Free customs duty and landed cost calculators. Primary-source rates, published verification schedule, public change log.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+    <link rel="stylesheet" href="style.css?v=1742362">
 
     <script type="application/ld+json">
     {
@@ -34,6 +34,10 @@
       }
     }
     </script>
+<meta property="og:image" content="https://www.dutycalc.online/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
 </head>
 <body>
 
@@ -43,9 +47,9 @@
             <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
             <div class="nav-links">
                 <a href="/about">About</a>
-                <a href="/#lanes">Corridors</a>
+                <a href="/corridors">Corridors</a>
                 <div class="nav-dropdown">
-                    <span>Tools</span>
+                    <span tabindex="0" role="button">Tools</span>
                     <div class="nav-drop-menu">
                         <a href="/landed-cost-calculator">Landed Cost</a>
                         <a href="/import-duty-calculator">Import Duty</a>
@@ -55,7 +59,7 @@
                 </div>
                 <a href="/import-cost-workflow">Workflow</a>
                 <div class="nav-dropdown">
-                    <span>De Minimis</span>
+                    <span tabindex="0" role="button">De Minimis</span>
                     <div class="nav-drop-menu">
                         <a href="/de-minimis-checker">Cliff Detector</a>
                         <a href="/de-minimis-value-guide">Threshold Guide</a>
@@ -171,6 +175,7 @@
             <p class="footer-github"><a href="https://github.com/rkingers776-boop/dutycalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
         </div>
     </footer>
-    <script src="main.js?v=v20260717-000432-309922"></script>
+    <script src="main.js?v=1742362"></script>
+    <script src="sw-register.js"></script>
 </body>
 </html>

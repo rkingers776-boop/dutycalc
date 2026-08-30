@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
-    <title>Landed Cost Calculator — CIF, Customs Duty, VAT, and Total Import Cost Compared</title>
-    <meta name="description" content="Run your FOB, freight, and insurance through the actual customs formula for up to 7 destination markets at once. Shows CIF, duty, VAT/GST, and total landed cost side by side. The math border authorities use, not an estimate.">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>Landed Cost Calculator</title>
+    <meta name="description" content="Run your FOB, freight, and insurance through the actual customs formula for up to 7 destination markets at once.">
     <link rel="canonical" href="https://www.dutycalc.online/landed-cost-calculator">
     <meta property="og:title" content="Landed Cost Calculator — CIF, Customs Duty, VAT, and Total Import Cost Compared">
     <meta property="og:description" content="Run your FOB, freight, and insurance through the actual customs formula for up to 7 destination markets at once. Shows CIF, duty, VAT/GST, and total landed cost side by side.">
@@ -16,7 +16,7 @@
     <meta name="twitter:description" content="FOB + freight + insurance through the real customs formula. 7 markets, side by side.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+    <link rel="stylesheet" href="style.css?v=1742362">
     <style>
         /* ── Landed Cost Calculator — Component Styles ── */
         .lc-input-panel {
@@ -233,6 +233,13 @@
             .lc-table thead th, .lc-table tbody td { padding: 10px 8px; }
         }
     </style>
+<meta property="og:image" content="https://www.dutycalc.online/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Landed Cost Calculator — CIF, Customs Duty, VAT, and Total Import Cost Compared","url":"https://www.dutycalc.online/landed-cost-calculator","description":"Run your FOB, freight, and insurance through the actual customs formula for up to 7 destination markets at once. Shows CIF, duty, VAT/GST, and total landed cost side by side. The math border authorities use, not an estimate.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"applicationCategory":"BusinessApplication","operatingSystem":"Any"}
+</script>
 </head>
 <body>
 
@@ -242,9 +249,9 @@
             <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
             <div class="nav-links">
                 <a href="/about">About</a>
-                <a href="/#lanes">Corridors</a>
+                <a href="/corridors">Corridors</a>
                 <div class="nav-dropdown">
-                    <span>Tools</span>
+                    <span tabindex="0" role="button">Tools</span>
                     <div class="nav-drop-menu">
                         <a href="/landed-cost-calculator">Landed Cost</a>
                         <a href="/import-duty-calculator">Import Duty</a>
@@ -254,7 +261,7 @@
                 </div>
                 <a href="/import-cost-workflow">Workflow</a>
                 <div class="nav-dropdown">
-                    <span>De Minimis</span>
+                    <span tabindex="0" role="button">De Minimis</span>
                     <div class="nav-drop-menu">
                         <a href="/de-minimis-checker">Cliff Detector</a>
                         <a href="/de-minimis-value-guide">Threshold Guide</a>
@@ -336,8 +343,9 @@
                         <th>Total Landed</th>
                     </tr>
                 </thead>
-                <tbody id="lc-tbody"></tbody>
+                <tbody id="lc-tbody" role="status" aria-live="polite"></tbody>
             </table>
+            <p style="font-size:0.78rem;color:#64748B;margin-top:10px;">估算说明：汇率为 2026 年 6 月市场中间价快照；关税/增值税率为各市场 MFN 平均估值，可按 HS 编码手动调整。De minimis 判定：英国按含运费货件价值（£135）、日本按含运费 CIF（¥10,000），其余市场按货物价值。实际费用以海关核定为准。</p>
         </div>
 
         <!-- ═══ HOW EACH MARKET CALCULATES ═══ -->
@@ -418,7 +426,7 @@
             <p>No — because that's a documentation question, not a calculation question. If your goods qualify for a free trade agreement (USMCA, RCEP, CPTPP, a bilateral FTA), the preferential rate replaces the MFN rate in the formula. Type the FTA rate into the editable rate field and the math works exactly the same. The calculation doesn't care whether the number is MFN or preferential — it just multiplies. What matters is whether you can produce a valid certificate of origin if customs audits the entry. If your broker has confirmed your goods qualify, use the FTA rate. If you're not sure, use the MFN rate — that's the worst-case number that customs will assess if your origin claim gets challenged.</p>
         </section>
 
-        <p style="margin-top:32px;"><a href="/">← Back to Home</a> &nbsp;|&nbsp; <a href="/de-minimis-checker">De Minimis Cliff Detector</a> &nbsp;|&nbsp; <a href="/#lanes">All Trade Corridors</a> &nbsp;|&nbsp; <a href="/de-minimis-value-guide">Global De Minimis Guide</a></p>
+        <p style="margin-top:32px;"><a href="/">← Back to Home</a> &nbsp;|&nbsp; <a href="/de-minimis-checker">De Minimis Cliff Detector</a> &nbsp;|&nbsp; <a href="/corridors">All Trade Corridors</a> &nbsp;|&nbsp; <a href="/de-minimis-value-guide">Global De Minimis Guide</a></p>
     </main>
 
     <!-- Semantic Footer -->
@@ -469,6 +477,7 @@
                 id: 'us', name: 'United States', flag: '🇺🇸',
                 currency: 'USD', defaultDutyRate: 3.5,
                 deMinimis: 800, vatDeMinimis: 800,
+                thresholdBase: 'fob',   // §321 tests goods value only
                 vatRate: 0, dutyOn: 'cif', vatLabel: 'No federal VAT',
                 corridorLink: '/china-to-us-electronics', corridorLabel: 'China→US Electronics'
             },
@@ -476,6 +485,7 @@
                 id: 'eu', name: 'European Union', flag: '🇪🇺',
                 currency: 'EUR', defaultDutyRate: 4.5,
                 deMinimis: 150, vatDeMinimis: 0,
+                thresholdBase: 'fob',   // €150 tests goods value only
                 vatRate: 21, dutyOn: 'cif', vatLabel: 'VAT 21%',
                 corridorLink: '/china-to-germany-customs', corridorLabel: 'China→Germany'
             },
@@ -483,6 +493,7 @@
                 id: 'uk', name: 'United Kingdom', flag: '🇬🇧',
                 currency: 'GBP', defaultDutyRate: 4.0,
                 deMinimis: 135, vatDeMinimis: 0,
+                thresholdBase: 'cif',   // £135 = consignment value incl. freight
                 vatRate: 20, dutyOn: 'cif', vatLabel: 'VAT 20%',
                 corridorLink: '/china-to-uk-apparel', corridorLabel: 'China→UK Apparel'
             },
@@ -490,6 +501,7 @@
                 id: 'ca', name: 'Canada', flag: '🇨🇦',
                 currency: 'CAD', defaultDutyRate: 6.5,
                 deMinimis: 20, vatDeMinimis: 20,
+                thresholdBase: 'fob',   // CAD $20 tests goods value only
                 vatRate: 5, dutyOn: 'cif', vatLabel: 'GST 5%',
                 corridorLink: '/china-to-canada-freight', corridorLabel: 'China→Canada'
             },
@@ -497,6 +509,7 @@
                 id: 'au', name: 'Australia', flag: '🇦🇺',
                 currency: 'AUD', defaultDutyRate: 5.0,
                 deMinimis: 1000, vatDeMinimis: 0,
+                thresholdBase: 'fob',   // A$1,000 tests FOB (excl. freight)
                 vatRate: 10, dutyOn: 'fob', vatLabel: 'GST 10%',
                 corridorLink: '/china-to-australia-duty', corridorLabel: 'China→Australia'
             },
@@ -504,6 +517,7 @@
                 id: 'mx', name: 'Mexico', flag: '🇲🇽',
                 currency: 'MXN', defaultDutyRate: 15.0,
                 deMinimis: 50, vatDeMinimis: 50,
+                thresholdBase: 'fob',   // MXN $50 postal threshold, goods value
                 vatRate: 16, dutyOn: 'cif', vatLabel: 'IVA 16%',
                 corridorLink: '/china-to-mexico-maquila', corridorLabel: 'China→Mexico'
             },
@@ -511,6 +525,7 @@
                 id: 'jp', name: 'Japan', flag: '🇯🇵',
                 currency: 'JPY', defaultDutyRate: 3.5,
                 deMinimis: 10000, vatDeMinimis: 10000,
+                thresholdBase: 'cif',   // ¥10,000 tests CIF incl. freight
                 vatRate: 10, dutyOn: 'cif', vatLabel: 'JCT 10%',
                 corridorLink: '/china-to-japan-cargo', corridorLabel: 'China→Japan'
             }
@@ -595,12 +610,13 @@
                     if (!isNaN(v) && v >= 0) dutyRate = v;
                 }
 
-                // De minimis check
-                var underDM = fobLocal <= mk.deMinimis;
+                // De minimis check — UK/Japan compare CIF (incl. freight), others goods value
+                var dmBase = (mk.thresholdBase === 'cif') ? cifLocal : fobLocal;
+                var underDM = dmBase <= mk.deMinimis;
                 var dutyAmount = underDM ? 0 : dutyBase * (dutyRate / 100);
 
                 // VAT check
-                var underVatDM = mk.vatDeMinimis > 0 && fobLocal <= mk.vatDeMinimis;
+                var underVatDM = mk.vatDeMinimis > 0 && dmBase <= mk.vatDeMinimis;
                 var vatAmount = 0;
                 if (mk.vatRate > 0 && !underVatDM) {
                     vatAmount = (cifLocal + dutyAmount) * (mk.vatRate / 100);
@@ -685,6 +701,7 @@
     })();
     </script>
 
-    <script src="main.js?v=v20260717-000432-309922"></script>
+    <script src="main.js?v=1742362"></script>
+    <script src="sw-register.js"></script>
 </body>
 </html>

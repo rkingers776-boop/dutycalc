@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
-    <title>£135 Consignment Rule for EU→UK? (Free &amp; Instant Calculator)</title>
-    <meta name="description" content="The £135 consignment rule explained: how it splits duty (waived below £135) from VAT collection (seller collects below £135, buyer pays at border above). Free calculator included.">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>£135 Consignment Rule for EU→UK?</title>
+    <meta name="description" content="The £135 consignment rule explained: how it splits duty (waived below £135) from VAT collection (seller collects below £135, buyer pays at border…">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
     <link rel="canonical" href="https://www.dutycalc.online/eu-to-uk-135-consignment-rule">
@@ -16,7 +16,14 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="£135 Consignment Rule: EU→UK Duty &amp; VAT Explained">
     <meta name="twitter:description" content="The £135 consignment rule splits duty and VAT into two different collection regimes. Get it wrong and HMRC compliance letters follow. Free calculator included.">
-    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+    <link rel="stylesheet" href="style.css?v=1742362">
+<meta property="og:image" content="https://www.dutycalc.online/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","name":"£135 Consignment Rule for EU→UK? (Free & Instant Calculator)","url":"https://www.dutycalc.online/eu-to-uk-135-consignment-rule","description":"The £135 consignment rule explained: how it splits duty (waived below £135) from VAT collection (seller collects below £135, buyer pays at border above). Free calculator included.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"isPartOf":{"@type":"WebSite","name":"DutyCalc Online","url":"https://www.dutycalc.online/"}}
+</script>
 </head>
 <body>
 
@@ -26,9 +33,9 @@
             <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
             <div class="nav-links">
                 <a href="/about">About</a>
-                <a href="/#lanes">Corridors</a>
+                <a href="/corridors">Corridors</a>
                 <div class="nav-dropdown">
-                    <span>Tools</span>
+                    <span tabindex="0" role="button">Tools</span>
                     <div class="nav-drop-menu">
                         <a href="/landed-cost-calculator">Landed Cost</a>
                         <a href="/import-duty-calculator">Import Duty</a>
@@ -38,7 +45,7 @@
                 </div>
                 <a href="/import-cost-workflow">Workflow</a>
                 <div class="nav-dropdown">
-                    <span>De Minimis</span>
+                    <span tabindex="0" role="button">De Minimis</span>
                     <div class="nav-drop-menu">
                         <a href="/de-minimis-checker">Cliff Detector</a>
                         <a href="/de-minimis-value-guide">Threshold Guide</a>
@@ -58,7 +65,7 @@
         <div class="trade-tip"><span class="tip-label">Per consignment, not per item</span><br><strong>The 拢135 threshold applies to the total consignment value, not each item.</strong> Three 拢50 items in one box = 拢150 consignment 鈫?over the threshold. Three separate shipments of 拢50 each = three sub-拢135 consignments 鈫?under the threshold. <a href="/eu-to-uk-vat-registration">UK VAT registration requirements 鈫?/a></div>
 
         <!-- ═══ 嵌入式计算器 ═══ -->
-        <div class="calculator-card" data-duty-rate="2.0" data-vat-rate="20" data-deminimis="135">
+        <div class="calculator-card" data-duty-rate="2.0" data-vat-rate="20" data-deminimis="135" data-threshold-base="cif">
             <h3>EU → UK Post-Brexit Duty &amp; VAT Estimator</h3>
             <p class="card-desc">Enter shipment value and shipping cost in GBP. The calculator applies the 2.0% duty rate (waived for consignments £135 and below) and 20% VAT on the duty-paid CIF value.</p>
             <div class="input-group">
@@ -210,6 +217,7 @@
     </footer>
 
     <script src="rate-data.js"></script>
-    <script src="main.js?v=v20260717-000432-309922"></script>
+    <script src="main.js?v=1742362"></script>
+    <script src="sw-register.js"></script>
 </body>
 </html>

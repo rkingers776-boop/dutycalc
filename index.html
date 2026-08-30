@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self';">
     <title>DutyCalc Online — Global Customs Duty & Landed Cost Platform</title>
-    <meta name="description" content="Free customs duty, VAT, and landed cost calculators for international trade. Pick a trade lane, enter your numbers, see true landed cost instantly — all in your browser.">
+    <meta name="description" content="Free customs duty, VAT, and landed cost calculators for international trade.">
     <meta property="og:title" content="DutyCalc Online — Know your true landed cost before you ship">
     <meta property="og:description" content="Customs duty, VAT, and landed cost calculators across 39+ sourcing corridors. Browser-local, no accounts, rates verified 2026.">
     <meta property="og:type" content="website">
@@ -14,10 +14,10 @@
     <meta name="twitter:title" content="DutyCalc Online — Know your true landed cost before you ship">
     <meta name="twitter:description" content="Customs duty, VAT, and landed cost calculators across 39+ sourcing corridors. Browser-local, no accounts, rates verified 2026.">
     <link rel="canonical" href="https://www.dutycalc.online/">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='8' fill='%231E293B'/><text x='32' y='44' text-anchor='middle' font-family='sans-serif' font-size='32' font-weight='bold' fill='%230EA5E9'>$</text></svg>">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='24' fill='%231E293B'/><text x='96' y='132' text-anchor='middle' font-family='system-ui,sans-serif' font-size='108' font-weight='bold' fill='%230EA5E9'>$</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%231E293B'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='sans-serif' font-size='32' font-weight='bold' fill='%230EA5E9'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='24' fill='%231E293B'/%3E%3Ctext x='96' y='132' text-anchor='middle' font-family='system-ui,sans-serif' font-size='108' font-weight='bold' fill='%230EA5E9'%3E$%3C/text%3E%3C/svg%3E">
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+    <link rel="stylesheet" href="style.css?v=1742362">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -81,6 +81,10 @@
 
         /* Stats band */
         .hp-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+
+        /* Override global 4-col tools grid to 3-col for 6 cards */
+        .tools-grid { grid-template-columns: repeat(3, 1fr); }
+        @media (max-width: 768px) { .tools-grid { grid-template-columns: 1fr; } }
         .hp-stat .num { font-size: 2.1rem; font-weight: 700; color: var(--steel-black); line-height: 1.1; }
         .hp-stat .num span { color: var(--offshore-green); }
         .hp-stat .lbl { font-size: 0.86rem; color: var(--text-muted); margin-top: 6px; }
@@ -133,6 +137,10 @@
             .hp-section { padding: 52px 0; }
         }
     </style>
+<meta property="og:image" content="https://www.dutycalc.online/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
 </head>
 <body>
 
@@ -144,21 +152,34 @@
                 <a href="/about">About</a>
                 <a href="#lanes">Corridors</a>
                 <div class="nav-dropdown">
-                    <span>Tools</span>
+                    <span tabindex="0" role="button">Tools</span>
                     <div class="nav-drop-menu">
                         <a href="/landed-cost-calculator">Landed Cost</a>
                         <a href="/import-duty-calculator">Import Duty</a>
                         <a href="/vat-calculator">VAT / GST</a>
                         <a href="/tariff-calculator">Tariff Rates</a>
+                        <a href="/customs-bond-calculator">Customs Bond</a>
+                        <a href="/sourcing-comparison">Sourcing Compare</a>
+                        <a href="/volume-weight-calculator">Volume Weight</a>
+                        <a href="/ddp-pricing-calculator">DDP Pricing</a>
+                        <a href="/container-loading-calculator">Container Loading</a>
                     </div>
                 </div>
                 <a href="/import-cost-workflow">Workflow</a>
                 <div class="nav-dropdown">
-                    <span>De Minimis</span>
+                    <span tabindex="0" role="button">De Minimis</span>
                     <div class="nav-drop-menu">
                         <a href="/de-minimis-checker">Cliff Detector</a>
                         <a href="/de-minimis-value-guide">Threshold Guide</a>
                         <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Guides</span>
+                    <div class="nav-drop-menu">
+                        <a href="/trade-terms-glossary">Terms Glossary</a>
+                        <a href="/uflpa-forced-labor-compliance">UFLPA Guide</a>
+                        <a href="/anti-dumping-duties-guide">AD/CVD Guide</a>
                     </div>
                 </div>
             </div>
@@ -178,9 +199,9 @@
                         <a href="#lanes" class="btn-link">Browse Trade Corridors</a>
                     </div>
                     <div class="hp-trust">
-                        <span><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> 100% client-side</span>
-                        <span><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> No data leaves your browser</span>
-                        <span><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Always free</span>
+                        <span><svg aria-hidden="true" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> 100% client-side</span>
+                        <span><svg aria-hidden="true" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> No data leaves your browser</span>
+                        <span><svg aria-hidden="true" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Always free</span>
                     </div>
                 </div>
 
@@ -201,7 +222,7 @@
                             <input id="mini-ship" class="unit-input" type="number" value="60" min="0" step="10">
                         </div>
                         <button id="mini-calc-btn" class="btn-calc" type="button">Calculate</button>
-                        <div id="mini-result" class="result-display result-hidden">
+                        <div id="mini-result" class="result-display result-hidden" role="status" aria-live="polite">
                             <h4>Estimated Landed Cost</h4>
                             <ul>
                                 <li>CIF (goods + shipping) <span id="mini-cif">—</span></li>
@@ -221,7 +242,7 @@
     <section class="hp-section" style="padding-top:48px;padding-bottom:48px;">
         <div class="container">
             <div class="hp-stats">
-                <div class="hp-stat"><div class="num">39<span>+</span></div><div class="lbl">Trade corridors covered</div></div>
+                <div class="hp-stat"><div class="num">42<span>+</span></div><div class="lbl">Trade corridors covered</div></div>
                 <div class="hp-stat"><div class="num">100<span>%</span></div><div class="lbl">Runs in your browser</div></div>
                 <div class="hp-stat"><div class="num">0</div><div class="lbl">Accounts or tracking</div></div>
                 <div class="hp-stat"><div class="num">7</div><div class="lbl">Destination VAT regimes</div></div>
@@ -233,34 +254,64 @@
     <section class="hp-section alt">
         <div class="container">
             <div class="hp-head">
-                <span class="hp-eyebrow">Four calculators, one workflow</span>
+                <span class="hp-eyebrow">Nine tools, zero accounts</span>
                 <h2>Everything you need to price an import</h2>
                 <p>Each tool covers a different piece of the puzzle. Start wherever you are in the process.</p>
             </div>
             <div class="tools-grid">
                 <a href="/landed-cost-calculator" class="tool-card">
-                    <span class="hp-ico"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span>
+                    <span class="hp-ico"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span>
                     <h3>Landed Cost</h3>
                     <p>FOB + freight + insurance → CIF → duty → VAT → total. Seven destination markets compared side by side.</p>
                     <span class="tool-cta">Calculate now →</span>
                 </a>
                 <a href="/import-duty-calculator" class="tool-card">
-                    <span class="hp-ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></span>
+                    <span class="hp-ico"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></span>
                     <h3>Import Duty</h3>
                     <p>Pick an HS chapter, enter the goods value, set origin and destination. Returns the MFN rate and amount.</p>
                     <span class="tool-cta">Calculate now →</span>
                 </a>
                 <a href="/vat-calculator" class="tool-card">
-                    <span class="hp-ico"><svg viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="16" y2="11"/></svg></span>
+                    <span class="hp-ico"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1z"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="16" y2="11"/></svg></span>
                     <h3>VAT / GST</h3>
                     <p>Enter CIF + duty and see the tax hit in every major market. Rates from 0% to 22% — the middle link in the chain.</p>
                     <span class="tool-cta">Calculate now →</span>
                 </a>
                 <a href="/tariff-calculator" class="tool-card">
-                    <span class="hp-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+                    <span class="hp-ico"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
                     <h3>Tariff Rate Lookup</h3>
                     <p>Type an HS code. Get the actual rate — MFN base + Section 301 surcharges − FTA preferences. Shows the reasoning.</p>
                     <span class="tool-cta">Look up a rate →</span>
+                </a>
+                <a href="/customs-bond-calculator" class="tool-card">
+                    <span class="hp-ico"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 2v4"/><path d="M16 2v4"/><rect x="2" y="9" width="20" height="2"/></svg></span>
+                    <h3>Customs Bond</h3>
+                    <p>Single-entry vs continuous bond. Minimum bond required, annual premium, break-even analysis.</p>
+                    <span class="tool-cta">Calculate bond cost →</span>
+                </a>
+                <a href="/sourcing-comparison" class="tool-card">
+                    <span class="hp-ico"><svg aria-hidden="true" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>
+                    <h3>Sourcing Comparison</h3>
+                    <p>Compare landed costs from two origins. China vs Vietnam, China vs Mexico — side by side with real numbers.</p>
+                    <span class="tool-cta">Compare origins →</span>
+                </a>
+                <a href="/volume-weight-calculator" class="tool-card">
+                    <span class="hp-ico"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span>
+                    <h3>Volume Weight</h3>
+                    <p>CBM for sea freight, dim weight for air and courier — and the chargeable weight carriers actually bill on. Packaging sanity check in seconds.</p>
+                    <span class="tool-cta">Check freight weight →</span>
+                </a>
+                <a href="/ddp-pricing-calculator" class="tool-card">
+                    <span class="hp-ico"><svg aria-hidden="true" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                    <h3>DDP Pricing</h3>
+                    <p>Seller-side pricing: purchase cost, freight and duty rates into landed cost, suggested selling price and margin. The reverse of landed cost.</p>
+                    <span class="tool-cta">Price your product →</span>
+                </a>
+                <a href="/container-loading-calculator" class="tool-card">
+                    <span class="hp-ico"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="10" rx="1"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="7" y1="7" x2="7" y2="17"/><line x1="12" y1="7" x2="12" y2="17"/><line x1="17" y1="7" x2="17" y2="17"/></svg></span>
+                    <h3>Container Loading</h3>
+                    <p>How many cartons fit in a 20GP, 40GP or 40HQ — theoretical CBM vs realistic loading, and how many containers your order needs.</p>
+                    <span class="tool-cta">Load the container →</span>
                 </a>
             </div>
         </div>
@@ -336,6 +387,9 @@
                     <p>Chips and ICs enter duty-free under WTO ITA. No FTA needed. Non-ITA electronics 0–5% MFN.</p>
                 </a>
             </div>
+            <p class="hp-viewall" style="text-align:center; margin-top:26px;">
+                <a href="/corridors" style="display:inline-block; padding:12px 28px; font-size:0.9rem; font-weight:600; color:#fff; background:var(--accent); border-radius:var(--radius-sharp);">View all 36 corridors →</a>
+            </p>
         </div>
     </section>
 
@@ -377,19 +431,19 @@
             </div>
             <div class="hp-benefits">
                 <div class="hp-benefit">
-                    <span class="hp-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+                    <span class="hp-ico"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
                     <div><h3>Private by design</h3><p>Every calculation runs in your browser. No accounts, no cookies tracking your shipments, nothing uploaded.</p></div>
                 </div>
                 <div class="hp-benefit">
-                    <span class="hp-ico"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+                    <span class="hp-ico"><svg aria-hidden="true" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
                     <div><h3>Fast, no friction</h3><p>No login wall, no multi-step wizard. Open a calculator, type two numbers, get the answer.</p></div>
                 </div>
                 <div class="hp-benefit">
-                    <span class="hp-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+                    <span class="hp-ico"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
                     <div><h3>39+ corridors</h3><p>From China→US apparel to Canada→US energy to Taiwan→US semiconductors. One consistent model across every lane.</p></div>
                 </div>
                 <div class="hp-benefit">
-                    <span class="hp-ico"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+                    <span class="hp-ico"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
                     <div><h3>Verified rates</h3><p>Each corridor carries a last-verified date and source. Freshness is shown, not hidden.</p></div>
                 </div>
             </div>
@@ -419,14 +473,21 @@
                     <li><a href="/import-duty-calculator">Import Duty Calculator</a></li>
                     <li><a href="/vat-calculator">VAT / GST Calculator</a></li>
                     <li><a href="/tariff-calculator">Tariff Rate Lookup</a></li>
+                    <li><a href="/volume-weight-calculator">Volume Weight Calculator</a></li>
+                    <li><a href="/ddp-pricing-calculator">DDP Pricing Calculator</a></li>
+                    <li><a href="/container-loading-calculator">Container Loading Calculator</a></li>
                     <li><a href="/de-minimis-checker">Cliff Detector</a></li>
                     <li><a href="/hscode-duty-estimator">HS Code Estimator</a></li>
+                    <li><a href="/customs-bond-calculator">Customs Bond Calculator</a></li>
+                    <li><a href="/sourcing-comparison">Sourcing Comparison</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Info</h4>
                 <ul>
                     <li><a href="/import-cost-workflow">Import Workflow Guide</a></li>
+                    <li><a href="/ioss-eu-vat-guide">EU IOSS Guide</a></li>
+                    <li><a href="/corridors">Corridor Directory</a></li>
                     <li><a href="/import-vat-guide">Import VAT Explained</a></li>
                     <li><a href="/de-minimis-value-guide">De Minimis Guide</a></li>
                     <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
@@ -434,6 +495,8 @@
                         <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
 
                     <li><a href="/rate-updates">Rate Update History</a></li>
+                    <li><a href="/trade-terms-glossary">Trade Terms Glossary</a></li>
+                    <li><a href="/uflpa-forced-labor-compliance">UFLPA Compliance Guide</a></li>
                     <li><a href="/about">About This Platform</a></li>
                     <li><a href="/privacy">Privacy Policy</a></li>
                 </ul>
@@ -469,7 +532,10 @@
                 var g = parseFloat(document.getElementById('mini-goods').value) || 0;
                 var s = parseFloat(document.getElementById('mini-ship').value) || 0;
                 var cif = g + s;
-                var duty = g > d.deMinimis ? cif * (d.dutyRate / 100) : 0;
+                // UK (£135) and Japan (¥10,000) test the threshold against the
+                // freight-inclusive value; other markets use goods value only.
+                var dmBase = d.thresholdBase === 'cif' ? cif : g;
+                var duty = dmBase > d.deMinimis ? cif * (d.dutyRate / 100) : 0;
                 var vat = (cif + duty) * (d.vatRate / 100);
                 var landed = cif + duty + vat;
                 var sym = SYM[d.currency] || '$';
@@ -479,7 +545,7 @@
                 document.getElementById('mini-landed').textContent = fmt(landed, sym);
                 var note = 'Duty ' + d.dutyRate + '%' + (d.vatRate ? ' · VAT ' + d.vatRate + '%' : '') +
                            ' · de minimis ' + sym + d.deMinimis.toLocaleString();
-                if (g <= d.deMinimis) note += ' — under the de-minimis threshold, duty is waived.';
+                if (dmBase <= d.deMinimis) note += ' — under the de-minimis threshold, duty is waived.';
                 document.getElementById('mini-note').textContent = note;
                 document.getElementById('mini-result').classList.remove('result-hidden');
             }
@@ -491,5 +557,6 @@
             calc();
         })();
     </script>
+    <script src="sw-register.js"></script>
 </body>
 </html>

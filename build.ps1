@@ -7,16 +7,6 @@
       HTML files, guaranteeing global CDN edge nodes serve the latest assets
       after every deployment. One SHA256 hash, two files busted in lockstep.
 
-    PURPOSE:
-      Refreshes the style.css version query string across all HTML files,
-      guaranteeing global CDN edge nodes serve the latest stylesheet after
-      every deployment. Eliminates stale-cache layout breakage for returning
-      visitors.
-
-      When -Hash is used, the version is a SHA256 digest of style.css content.
-      Identical stylesheets produce identical versions → zero unnecessary cache
-      invalidations. When style.css changes, the hash changes → automatic bust.
-
     USAGE:
       .\build.ps1                    # SHA256 content hash (recommended for prod)
       .\build.ps1 -Timestamp         # Fallback: timestamp-based version

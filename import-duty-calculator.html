@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
-    <title>Import Duty Calculator — Estimate Customs Duty by HS Chapter (No VAT, Pure Duty)</title>
-    <meta name="description" content="Pure customs duty calculator. Pick your HS chapter, enter the goods value, select origin and destination — get the estimated MFN duty rate and amount before VAT is layered on. Covers US, EU, UK, CA, AU, MX, JP.">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>Import Duty Calculator</title>
+    <meta name="description" content="Pure customs duty calculator. Pick your HS chapter, enter the goods value, select origin and destination — get the estimated MFN duty rate and amount…">
     <link rel="canonical" href="https://www.dutycalc.online/import-duty-calculator">
     <meta property="og:title" content="Import Duty Calculator — Estimate Customs Duty by HS Chapter (No VAT, Pure Duty)">
     <meta property="og:description" content="Pure customs duty calculator. Pick your HS chapter, enter the goods value, select origin and destination — get the estimated MFN duty rate and amount.">
@@ -16,7 +16,7 @@
     <meta name="twitter:description" content="Pick HS chapter, enter value, get the MFN duty rate and amount across 7 markets.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+    <link rel="stylesheet" href="style.css?v=1742362">
     <style>
         /* ── Import Duty Calculator — Distinct Layout ── */
         .id-layout {
@@ -298,6 +298,13 @@
             .id-result-header { flex-direction: column; align-items: flex-start; }
         }
     </style>
+<meta property="og:image" content="https://www.dutycalc.online/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Import Duty Calculator — Estimate Customs Duty by HS Chapter (No VAT, Pure Duty)","url":"https://www.dutycalc.online/import-duty-calculator","description":"Pure customs duty calculator. Pick your HS chapter, enter the goods value, select origin and destination — get the estimated MFN duty rate and amount before VAT is layered on. Covers US, EU, UK, CA, AU, MX, JP.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"applicationCategory":"BusinessApplication","operatingSystem":"Any"}
+</script>
 </head>
 <body>
 
@@ -307,9 +314,9 @@
             <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
             <div class="nav-links">
                 <a href="/about">About</a>
-                <a href="/#lanes">Corridors</a>
+                <a href="/corridors">Corridors</a>
                 <div class="nav-dropdown">
-                    <span>Tools</span>
+                    <span tabindex="0" role="button">Tools</span>
                     <div class="nav-drop-menu">
                         <a href="/landed-cost-calculator">Landed Cost</a>
                         <a href="/import-duty-calculator">Import Duty</a>
@@ -319,7 +326,7 @@
                 </div>
                 <a href="/import-cost-workflow">Workflow</a>
                 <div class="nav-dropdown">
-                    <span>De Minimis</span>
+                    <span tabindex="0" role="button">De Minimis</span>
                     <div class="nav-drop-menu">
                         <a href="/de-minimis-checker">Cliff Detector</a>
                         <a href="/de-minimis-value-guide">Threshold Guide</a>
@@ -412,7 +419,7 @@
                     <button class="id-calc-btn" id="id-calc-btn">CALCULATE_DUTY ►</button>
 
                     <!-- Result -->
-                    <div class="id-result-card" id="id-result">
+                    <div class="id-result-card" id="id-result" role="status" aria-live="polite">
                         <div class="id-result-header">
                             <h4>∥ DUTY ESTIMATE</h4>
                             <span class="id-chapter-badge" id="id-chapter-badge">Chapter 84</span>
@@ -527,7 +534,7 @@
             <p>Japan has some of the lowest MFN rates in the developed world — 0% on most machinery and electronics (Chapters 84-85), 3.5% on consumer goods, with higher rates only on protected agricultural products. The ¥10,000 de minimis threshold covers both duty and the 10% consumption tax (JCT) combined — under ¥10,000 CIF, the shipment clears with zero charges. Over ¥10,000, both duty and JCT apply on the full CIF. Japan does not impose additional country-specific tariffs on Chinese goods comparable to Section 301, making it one of the lowest-friction developed markets for direct China-to-consumer e-commerce — at least from a tariff perspective. The challenge is product compliance (PSE, METI, food sanitation), not customs duty. <a href="/china-to-japan-cargo">China→Japan Cargo</a> covers NACCS processing and compliance requirements.</p>
         </section>
 
-        <p style="margin-top:32px;"><a href="/landed-cost-calculator">Next: Landed Cost Calculator →</a> &nbsp;|&nbsp; <a href="/">← Back to Home</a> &nbsp;|&nbsp; <a href="/de-minimis-checker">Cliff Detector</a> &nbsp;|&nbsp; <a href="/#lanes">All Trade Corridors</a></p>
+        <p style="margin-top:32px;"><a href="/landed-cost-calculator">Next: Landed Cost Calculator →</a> &nbsp;|&nbsp; <a href="/">← Back to Home</a> &nbsp;|&nbsp; <a href="/de-minimis-checker">Cliff Detector</a> &nbsp;|&nbsp; <a href="/corridors">All Trade Corridors</a></p>
     </main>
 
     <!-- Semantic Footer -->
@@ -822,6 +829,7 @@
     })();
     </script>
 
-    <script src="main.js?v=v20260717-000432-309922"></script>
+    <script src="main.js?v=1742362"></script>
+    <script src="sw-register.js"></script>
 </body>
 </html>

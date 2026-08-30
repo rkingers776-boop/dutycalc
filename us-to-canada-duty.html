@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
     <title>US to Canada Customs Duty Calculator (2026 Rates)</title>
     <meta name="description" content="Calculate cross-border duty and GST on goods shipped from the US to Canada. USMCA zero-tariff rules, CBSA de minimis tiers, provincial tax breakdown.">
     <link rel="manifest" href="/manifest.json">
@@ -16,7 +16,14 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="US to Canada Customs Duty Calculator — 2026 Duty Estimator">
     <meta name="twitter:description" content="Calculate cross-border duty and GST on goods shipped from the US to Canada. USMCA zero-tariff rules, CBSA de minimis tiers, provincial tax breakdown.">
-    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+    <link rel="stylesheet" href="style.css?v=1742362">
+<meta property="og:image" content="https://www.dutycalc.online/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","name":"US to Canada Customs Duty Calculator (2026 Rates)","url":"https://www.dutycalc.online/us-to-canada-duty","description":"Calculate cross-border duty and GST on goods shipped from the US to Canada. USMCA zero-tariff rules, CBSA de minimis tiers, provincial tax breakdown.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"isPartOf":{"@type":"WebSite","name":"DutyCalc Online","url":"https://www.dutycalc.online/"}}
+</script>
 </head>
 <body>
 
@@ -26,9 +33,9 @@
             <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
             <div class="nav-links">
                 <a href="/about">About</a>
-                <a href="/#lanes">Corridors</a>
+                <a href="/corridors">Corridors</a>
                 <div class="nav-dropdown">
-                    <span>Tools</span>
+                    <span tabindex="0" role="button">Tools</span>
                     <div class="nav-drop-menu">
                         <a href="/landed-cost-calculator">Landed Cost</a>
                         <a href="/import-duty-calculator">Import Duty</a>
@@ -38,7 +45,7 @@
                 </div>
                 <a href="/import-cost-workflow">Workflow</a>
                 <div class="nav-dropdown">
-                    <span>De Minimis</span>
+                    <span tabindex="0" role="button">De Minimis</span>
                     <div class="nav-drop-menu">
                         <a href="/de-minimis-checker">Cliff Detector</a>
                         <a href="/de-minimis-value-guide">Threshold Guide</a>
@@ -210,6 +217,7 @@
     </footer>
 
     <script src="rate-data.js"></script>
-    <script src="main.js?v=v20260717-000432-309922"></script>
+    <script src="main.js?v=1742362"></script>
+    <script src="sw-register.js"></script>
 </body>
 </html>

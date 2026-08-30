@@ -3,20 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
     <title>Global HS Code Duty Estimator — DutyCalc Online</title>
-    <meta name="description" content="Standard global harmonization baseline calculator for generic tariff lines. Estimate import duties, VAT, and landed costs using the HS code framework across major trade corridors.">
+    <meta name="description" content="Estimate import duty and VAT on any HS chapter with a 5.5% duty / 15% VAT baseline — enter goods value and freight for an instant CIF landed-cost figure.">
     <meta property="og:title" content="Global HS Code Duty Estimator — DutyCalc Online">
-    <meta property="og:description" content="Standard global harmonization baseline calculator for generic tariff lines. Estimate import duties, VAT, and landed costs using the HS code framework across major trade corridors.">
+    <meta property="og:description" content="Estimate import duty and VAT on any HS chapter with a 5.5% duty / 15% VAT baseline — enter goods value and freight for an instant CIF landed-cost figure.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.dutycalc.online/hscode-duty-estimator">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Global HS Code Duty Estimator — DutyCalc Online">
-    <meta name="twitter:description" content="Standard global harmonization baseline calculator for generic tariff lines. Estimate import duties, VAT, and landed costs using the HS code framework across major trade corridors.">
+    <meta name="twitter:description" content="Estimate import duty and VAT on any HS chapter with a 5.5% duty / 15% VAT baseline — instant CIF landed-cost figure.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+    <link rel="stylesheet" href="style.css?v=1742362">
     <link rel="canonical" href="https://www.dutycalc.online/hscode-duty-estimator">
+<meta property="og:image" content="https://www.dutycalc.online/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Global HS Code Duty Estimator — DutyCalc Online","url":"https://www.dutycalc.online/hscode-duty-estimator","description":"Standard global harmonization baseline calculator for generic tariff lines. Estimate import duties, VAT, and landed costs using the HS code framework across major trade corridors.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"applicationCategory":"BusinessApplication","operatingSystem":"Any"}
+</script>
 </head>
 <body>
 
@@ -26,22 +33,36 @@
             <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
             <div class="nav-links">
                 <a href="/about">About</a>
-                <a href="/#lanes">Corridors</a>
+                <a href="/corridors">Corridors</a>
                 <div class="nav-dropdown">
-                    <span>Tools</span>
+                    <span tabindex="0" role="button">Tools</span>
                     <div class="nav-drop-menu">
                         <a href="/landed-cost-calculator">Landed Cost</a>
                         <a href="/import-duty-calculator">Import Duty</a>
                         <a href="/vat-calculator">VAT / GST</a>
                         <a href="/tariff-calculator">Tariff Rates</a>
+                        <a href="/customs-bond-calculator">Customs Bond</a>
+                        <a href="/sourcing-comparison">Sourcing Compare</a>
+                        <a href="/volume-weight-calculator">Volume Weight</a>
+                        <a href="/ddp-pricing-calculator">DDP Pricing</a>
+                        <a href="/container-loading-calculator">Container Loading</a>
                     </div>
                 </div>
                 <a href="/import-cost-workflow">Workflow</a>
                 <div class="nav-dropdown">
-                    <span>De Minimis</span>
+                    <span tabindex="0" role="button">De Minimis</span>
                     <div class="nav-drop-menu">
                         <a href="/de-minimis-checker">Cliff Detector</a>
                         <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Guides</span>
+                    <div class="nav-drop-menu">
+                        <a href="/trade-terms-glossary">Terms Glossary</a>
+                        <a href="/uflpa-forced-labor-compliance">UFLPA Guide</a>
+                        <a href="/anti-dumping-duties-guide">AD/CVD Guide</a>
                     </div>
                 </div>
             </div>
@@ -52,6 +73,43 @@
             <h1>Global HS Code Duty Estimator Guide</h1>
             <p>How the Harmonized System (HS) framework sets tariff rates worldwide — and how to estimate what you'll actually pay</p>
         </header>
+
+        <style>
+            .hs-panel { background: var(--steel-dark); border: 1px solid #1E293B; border-left: 4px solid var(--offshore-green); border-radius: var(--radius-sharp); padding: 36px 44px; margin-bottom: 22px; }
+            .hs-panel h3 { color: var(--offshore-green); font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 22px; }
+            .hs-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+            .hs-field { flex: 1; min-width: 200px; }
+            .hs-field label { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: rgba(255,255,255,0.6); margin-bottom: 6px; }
+            .hs-field input { width: 100%; padding: 12px 14px; font-size: 1rem; font-weight: 500; color: #fff; background: #1a1f2e; border: 2px solid #1E293B; border-radius: var(--radius-sharp); outline: none; }
+            .hs-field input:focus { border-color: var(--offshore-green); }
+            .hs-field .unit { font-size: 0.7rem; color: var(--text-muted); margin-top: 4px; }
+            .hs-calc-btn { display: inline-block; padding: 13px 30px; font-size: 0.9rem; font-weight: 600; color: #fff; background: var(--accent); border: none; border-radius: var(--radius-sharp); cursor: pointer; margin-top: 8px; }
+            .hs-calc-btn:hover { background: #EA580C; }
+            .hs-results { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; margin-top: 24px; }
+            .hs-card { background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-sharp); padding: 20px 18px; text-align: center; }
+            .hs-card .lbl { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 8px; }
+            .hs-card .val { font-size: 1.5rem; font-weight: 800; color: var(--steel-black); }
+            .hs-card .sub { font-size: 0.75rem; color: var(--text-muted); margin-top: 6px; }
+            .hs-card.highlight { border: 2px solid var(--offshore-green); background: #F0F9FF; }
+            .hs-note { font-size: 0.82rem; color: var(--text-muted); margin-top: 14px; line-height: 1.6; }
+            @media (max-width: 768px) { .hs-panel { padding: 24px 20px; } }
+        </style>
+
+        <section class="hs-panel">
+            <h3>Baseline Duty &amp; VAT Estimator</h3>
+            <div class="hs-row">
+                <div class="hs-field"><label for="hs-goods">Goods value</label><input id="hs-goods" type="number" value="1000" min="0" step="0.01" aria-label="Goods value in USD"><div class="unit">USD — what you paid the supplier</div></div>
+                <div class="hs-field"><label for="hs-ship">Shipping &amp; insurance</label><input id="hs-ship" type="number" value="200" min="0" step="0.01" aria-label="Shipping and insurance in USD"><div class="unit">USD — freight and insurance</div></div>
+            </div>
+            <button type="button" class="hs-calc-btn" id="hs-calc">Estimate</button>
+            <div class="hs-results" id="hs-results" role="status" aria-live="polite">
+                <div class="hs-card"><div class="lbl">CIF Value</div><div class="val" id="hs-cif">—</div><div class="sub">goods + shipping</div></div>
+                <div class="hs-card"><div class="lbl">Duty (5.5%)</div><div class="val" id="hs-duty">—</div><div class="sub" id="hs-duty-note">waived under $50</div></div>
+                <div class="hs-card"><div class="lbl">VAT (15%)</div><div class="val" id="hs-vat">—</div><div class="sub">on CIF + duty</div></div>
+                <div class="hs-card highlight"><div class="lbl">Landed Cost</div><div class="val" id="hs-landed">—</div><div class="sub" id="hs-landed-note">CIF + duty + VAT</div></div>
+            </div>
+            <p class="hs-note">Baseline of 5.5% MFN duty and 15% VAT with a $50 de minimis — a mid-range estimate for generic manufactured goods. Your exact 10-digit HS code will vary; use the <a href="/tariff-calculator">tariff lookup</a> for a code-specific rate.</p>
+        </section>
 
         <div>
             <section class="seo-section">
@@ -82,6 +140,7 @@
 
                 <h3>What if my product's exact HS code gives a different rate than 5.5%?</h3>
                 <p>The 5.5% is a baseline for quick estimates. If you have the exact 10-digit HTS code, use one of our country-specific calculators instead — they let you plug in the real rate. Start from the <a href="/">homepage matrix</a> and pick the trade lane that matches your supply chain. The HS Code Estimator is for first-pass planning; the country calculators are for actual landed cost math.</p>
+                <p>If you're not sure how to find the exact code in the first place, our <a href="/how-to-find-hs-code">step-by-step HS code guide</a> walks through the 6/8/10-digit system, where to search it free, and the classification mistakes that cost importers real money.</p>
 
                 <p><a href="/">&larr; Back to All Calculators</a></p>
             </section>
@@ -93,35 +152,77 @@
     <footer class="site-footer">
         <div class="footer-grid">
             <div class="footer-brand">
-                <h2>⚙️ DutyCalc Online</h2>
-                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+                <h2>DutyCalc Online</h2>
+                <p>Customs duty, VAT, and landed cost calculators for international trade. Independent trade metrology — not affiliated with any government customs agency.</p>
             </div>
             <div class="footer-col">
-                <h4>Core Data Panels</h4>
+                <h4>Calculators</h4>
                 <ul>
+                    <li><a href="/landed-cost-calculator">Landed Cost Calculator</a></li>
+                    <li><a href="/import-duty-calculator">Import Duty Calculator</a></li>
+                    <li><a href="/vat-calculator">VAT / GST Calculator</a></li>
+                    <li><a href="/tariff-calculator">Tariff Rate Lookup</a></li>
+                    <li><a href="/volume-weight-calculator">Volume Weight Calculator</a></li>
+                    <li><a href="/container-loading-calculator">Container Loading Calculator</a></li>
+                    <li><a href="/ddp-pricing-calculator">DDP Pricing Calculator</a></li>
                     <li><a href="/de-minimis-checker">Cliff Detector</a></li>
-                    <li><a href="/china-to-mexico-maquila">IMMEX Nearshoring</a></li>
-                    <li><a href="/china-to-germany-customs">EU ATLAS Hub</a></li>
-                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
-                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
-                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
-                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
-
+                    <li><a href="/hscode-duty-estimator">HS Code Estimator</a></li>
+                    <li><a href="/customs-bond-calculator">Customs Bond Calculator</a></li>
+                    <li><a href="/sourcing-comparison">Sourcing Comparison</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Legal &amp; Protocols</h4>
+                <h4>Info</h4>
                 <ul>
-                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/import-cost-workflow">Import Workflow Guide</a></li>
+                    <li><a href="/fba-import-guide">FBA Import Guide</a></li>
+                    <li><a href="/ioss-eu-vat-guide">EU IOSS Guide</a></li>
+                    <li><a href="/corridors">Corridor Directory</a></li>
+                    <li><a href="/import-vat-guide">Import VAT Explained</a></li>
+                    <li><a href="/de-minimis-value-guide">De Minimis Guide</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                    <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+                    <li><a href="/rate-updates">Rate Update History</a></li>
+                    <li><a href="/trade-terms-glossary">Trade Terms Glossary</a></li>
+                    <li><a href="/uflpa-forced-labor-compliance">UFLPA Compliance Guide</a></li>
+                    <li><a href="/about">About This Platform</a></li>
                     <li><a href="/privacy">Privacy Policy</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data&mdash;not affiliated with any official government customs agency.</p>
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent trade data — not affiliated with any government customs agency.</p>
             <p class="footer-github"><a href="https://github.com/rkingers776-boop/dutycalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
         </div>
     </footer>
-    <script src="main.js?v=v20260717-000432-309922"></script>
+    <script src="main.js?v=1742362"></script>
+    <script>
+        (function () {
+            'use strict';
+            function fmt(n) { return '$' + n.toFixed(2); }
+            function calc() {
+                var g = parseFloat(document.getElementById('hs-goods').value) || 0;
+                var s = parseFloat(document.getElementById('hs-ship').value) || 0;
+                var cif = g + s;
+                var over = g > 50;
+                var duty = over ? cif * 0.055 : 0;
+                var vat = over ? (cif + duty) * 0.15 : 0;
+                var landed = cif + duty + vat;
+                document.getElementById('hs-cif').textContent = fmt(cif);
+                document.getElementById('hs-duty').textContent = fmt(duty);
+                document.getElementById('hs-duty-note').textContent = over ? '5.5% of CIF' : 'waived — under $50';
+                document.getElementById('hs-vat').textContent = fmt(vat);
+                document.getElementById('hs-landed').textContent = fmt(landed);
+                document.getElementById('hs-landed-note').textContent = over ? 'CIF + duty + VAT' : 'under de minimis — duty & VAT waived';
+            }
+            document.getElementById('hs-calc').addEventListener('click', calc);
+            ['hs-goods','hs-ship'].forEach(function (id) {
+                document.getElementById(id).addEventListener('input', calc);
+            });
+            calc();
+        })();
+    </script>
+    <script src="sw-register.js"></script>
 </body>
 </html>

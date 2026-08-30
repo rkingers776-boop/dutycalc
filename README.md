@@ -29,6 +29,8 @@ Rates are verified against 2026 tariff schedules (HTSUS, TARIC, UK Global Tariff
 | [VAT & GST Calculator](vat-calculator.html) | Import tax on duty-paid CIF across 7 markets |
 | [HS Code Duty Estimator](hscode-duty-estimator.html) | Global HS code lookup with duty rate estimation |
 | [De Minimis Checker](de-minimis-checker.html) | Which countries tax your shipment at your declared value? |
+| [Customs Bond Calculator](customs-bond-calculator.html) | Single-entry vs continuous bond — required bond amount and annual cost |
+| [Sourcing Comparison](sourcing-comparison.html) | Side-by-side landed cost comparison between two origins |
 
 ### 📘 US Import Guides
 
@@ -44,6 +46,7 @@ Rates are verified against 2026 tariff schedules (HTSUS, TARIC, UK Global Tariff
 | [Import Cost Workflow](import-cost-workflow.html) | Complete 4-step process with real numbers |
 | [Import VAT Guide](import-vat-guide.html) | Taxable base, threshold trap, 7 markets compared |
 | [De Minimis Value Guide](de-minimis-value-guide.html) | Thresholds by country, what triggers tax |
+| [UFLPA Compliance Guide](uflpa-forced-labor-compliance.html) | Forced labor compliance, CBP detention rules, supply chain proof |
 
 ### 🇨🇳 China → World (16 corridors)
 
@@ -124,6 +127,7 @@ Rates are verified against 2026 tariff schedules (HTSUS, TARIC, UK Global Tariff
 | [Newsletter](newsletter.html) | Weekly tariff briefing |
 | [About](about.html) | Methodology, rate sources, what we cover |
 | [Contact](contact.html) | Get in touch |
+| [Trade Terms Glossary](trade-terms-glossary.html) | 80+ customs, shipping & tariff terms defined |
 | [Privacy](privacy.html) | No tracking policy |
 
 ---
@@ -133,9 +137,9 @@ Rates are verified against 2026 tariff schedules (HTSUS, TARIC, UK Global Tariff
 - **Pure static HTML/CSS/JS** — zero build step, zero dependencies
 - **Browser-local computation** — no server, no database, no API calls
 - **Single shared stylesheet** (`style.css`) — design tokens, component library
-- **Two JS files** — `rate-data.js` (verified 2026 tariff schedules) + `main.js` (interactive calculator logic)
-- **PWA-ready** — manifest.json, SVG favicon, responsive design
-- **Structured data** — JSON-LD WebSite schema, Open Graph, Twitter Cards on all pages
+- **Three JS files** — `rate-data.js` (verified 2026 tariff schedules + MPF constants) + `main.js` (interactive calculator logic) + `sw-register.js` (PWA/offline + nav helpers)
+- **PWA** — manifest.json, real PNG icons (192/512, incl. maskable), Service Worker (`sw.js`) with offline-first caching of core assets
+- **Structured data** — JSON-LD (Article / WebApplication / AboutPage) on all pages, Open Graph + Twitter Cards incl. og:image on all pages
 - **Hosted on Cloudflare** — HTTPS, CDN, custom domain `dutycalc.online`
 
 ```
@@ -143,12 +147,16 @@ dutycalc/
 ├── index.html              # Homepage with mini corridor calculator
 ├── style.css               # Global styles, design tokens, components
 ├── main.js                 # Interactive calculator engine
-├── rate-data.js            # 2026 tariff rate data
-├── manifest.json           # PWA manifest
+├── rate-data.js            # 2026 tariff rate data + MPF single source of truth
+├── sw.js                   # Service worker (offline-first caching)
+├── sw-register.js          # SW registration + nav dropdown helpers
+├── manifest.json           # PWA manifest (PNG icons)
+├── og-image.png            # Social share image (1200x630)
+├── icon-192.png / icon-512.png / *-maskable.png
 ├── robots.txt / sitemap.xml
 ├── _redirects              # Cloudflare Pages routing rules
-├── *.html                  # 67 tool/guide pages
-└── build.ps1               # Deployment script
+├── *.html                  # 71 tool/guide pages
+└── build.ps1               # Deployment script (cache-busting)
 ```
 
 ## Design Principles
@@ -157,7 +165,7 @@ dutycalc/
 - **Instant results** — no loading spinners, no server round-trips
 - **Real numbers** — rates verified against official 2026 tariff schedules
 - **Transparent methodology** — every assumption documented on the About page
-- **Offline-capable** — works without internet once loaded
+- **Offline-capable** — core assets and visited pages are cached by the Service Worker once loaded
 
 ## Disclaimer
 

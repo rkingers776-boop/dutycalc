@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
     <title>China to UK Apparel Duty? (Free &amp; Instant Calculator)</title>
     <meta name="description" content="Calculate import duty and VAT on clothing shipped from China to the UK. 12% average tariff, 20% VAT, UKGT rates, £135 de minimis — free instant estimate.">
     <link rel="manifest" href="/manifest.json">
@@ -16,7 +16,14 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="China to UK Apparel Duty Calculator — Free Instant Estimator">
     <meta name="twitter:description" content="Calculate import duty and VAT on clothing shipped from China to the UK. 12% average tariff, 20% VAT, UKGT rates, £135 de minimis.">
-    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+    <link rel="stylesheet" href="style.css?v=1742362">
+<meta property="og:image" content="https://www.dutycalc.online/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","name":"China to UK Apparel Duty? (Free & Instant Calculator)","url":"https://www.dutycalc.online/china-to-uk-apparel","description":"Calculate import duty and VAT on clothing shipped from China to the UK. 12% average tariff, 20% VAT, UKGT rates, £135 de minimis — free instant estimate.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"isPartOf":{"@type":"WebSite","name":"DutyCalc Online","url":"https://www.dutycalc.online/"}}
+</script>
 </head>
 <body>
 
@@ -26,9 +33,9 @@
             <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
             <div class="nav-links">
                 <a href="/about">About</a>
-                <a href="/#lanes">Corridors</a>
+                <a href="/corridors">Corridors</a>
                 <div class="nav-dropdown">
-                    <span>Tools</span>
+                    <span tabindex="0" role="button">Tools</span>
                     <div class="nav-drop-menu">
                         <a href="/landed-cost-calculator">Landed Cost</a>
                         <a href="/import-duty-calculator">Import Duty</a>
@@ -38,7 +45,7 @@
                 </div>
                 <a href="/import-cost-workflow">Workflow</a>
                 <div class="nav-dropdown">
-                    <span>De Minimis</span>
+                    <span tabindex="0" role="button">De Minimis</span>
                     <div class="nav-drop-menu">
                         <a href="/de-minimis-checker">Cliff Detector</a>
                         <a href="/de-minimis-value-guide">Threshold Guide</a>
@@ -58,7 +65,7 @@
         <div class="trade-tip"><span class="tip-label">High-rate warning</span><br><strong>Clothing is one of the UK's highest-duty categories at 12%.</strong> That is before the 20% VAT stacks on top. A 拢1,000 CIF shipment ends up costing about 拢1,344 landed 鈥?a 34% markup. <a href="/landed-cost-calculator">Run the full calculation 鈫?/a></div>
 
         <!-- ═══ 嵌入式计算器 ═══ -->
-        <div class="calculator-card" data-duty-rate="12.0" data-vat-rate="20" data-deminimis="135">
+        <div class="calculator-card" data-duty-rate="12.0" data-vat-rate="20" data-deminimis="135" data-threshold-base="cif">
             <h3>China → UK Apparel Duty &amp; VAT Estimator</h3>
             <p class="card-desc">Enter shipment value and shipping cost in GBP. The calculator applies the 12% average duty rate, 20% VAT on duty-paid CIF, and the £135 de minimis for customs duty.</p>
             <div class="input-group">
@@ -225,6 +232,7 @@
     </footer>
 
     <script src="rate-data.js"></script>
-    <script src="main.js?v=v20260717-000432-309922"></script>
+    <script src="main.js?v=1742362"></script>
+    <script src="sw-register.js"></script>
 </body>
 </html>

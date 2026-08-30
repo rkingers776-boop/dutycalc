@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
     <title>Vietnam to US Apparel Duty? (Free &amp; Instant Calculator)</title>
-    <meta name="description" content="Calculate US import duties on Vietnamese apparel — 14.5% average MFN tariff, no Section 301, $800 de minimis. Instant landed cost estimates for Southeast Asian garment supply chains.">
+    <meta name="description" content="Calculate US import duties on Vietnamese apparel — 14.5% average MFN tariff, no Section 301, $800 de minimis.">
     <link rel="canonical" href="https://www.dutycalc.online/vietnam-to-us-textiles">
     <meta property="og:title" content="Vietnam to US Apparel Duty? (Free &amp; Instant Calculator)">
     <meta property="og:description" content="Calculate US import duties on Vietnamese apparel — 14.5% average MFN tariff, no Section 301, $800 de minimis.">
@@ -16,7 +16,14 @@
     <meta name="twitter:description" content="Calculate US import duties on Vietnamese apparel — 14.5% average MFN tariff, no Section 301, $800 de minimis.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=v20260717-000432-309922">
+    <link rel="stylesheet" href="style.css?v=1742362">
+<meta property="og:image" content="https://www.dutycalc.online/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","name":"Vietnam to US Apparel Duty? (Free & Instant Calculator)","url":"https://www.dutycalc.online/vietnam-to-us-textiles","description":"Calculate US import duties on Vietnamese apparel — 14.5% average MFN tariff, no Section 301, $800 de minimis. Instant landed cost estimates for Southeast Asian garment supply chains.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"isPartOf":{"@type":"WebSite","name":"DutyCalc Online","url":"https://www.dutycalc.online/"}}
+</script>
 </head>
 <body>
 
@@ -26,9 +33,9 @@
             <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
             <div class="nav-links">
                 <a href="/about">About</a>
-                <a href="/#lanes">Corridors</a>
+                <a href="/corridors">Corridors</a>
                 <div class="nav-dropdown">
-                    <span>Tools</span>
+                    <span tabindex="0" role="button">Tools</span>
                     <div class="nav-drop-menu">
                         <a href="/landed-cost-calculator">Landed Cost</a>
                         <a href="/import-duty-calculator">Import Duty</a>
@@ -38,7 +45,7 @@
                 </div>
                 <a href="/import-cost-workflow">Workflow</a>
                 <div class="nav-dropdown">
-                    <span>De Minimis</span>
+                    <span tabindex="0" role="button">De Minimis</span>
                     <div class="nav-drop-menu">
                         <a href="/de-minimis-checker">Cliff Detector</a>
                         <a href="/de-minimis-value-guide">Threshold Guide</a>
@@ -78,6 +85,8 @@
                     <ul>
                         <li>Import Tariff (14.5% MFN): <span class="res-duty" id="result-duty">--</span></li>
                         <li>Import VAT / Sales Tax: <span class="res-vat" id="result-vat">--</span></li>
+                        <li>Total Government Taxes: <span class="res-total-tax">--</span></li>
+                        <li>Total Estimated Landed Cost: <span class="res-landed">--</span></li>
                     </ul>
                 </div>
             </div>
@@ -94,7 +103,7 @@
                 <p>Vietnam is the world's second-largest apparel exporter after China. US brands have shifted billions in sourcing there over the past decade, and the trend has only accelerated as Section 301 tariffs on Chinese goods have made Vietnam the default alternative for many importers. In 2025, Vietnam shipped over $18 billion in textiles and apparel to the US market — up from roughly $9 billion a decade earlier, a doubling that mirrors the decline in China's apparel export share over the same period.</p>
                 <p>The MFN rate for Vietnamese garments averages <strong>14.5%</strong> — that blended number covers knit and woven tops, bottoms, outerwear, and activewear across Chapters 61 and 62. No Section 301 applies to Vietnamese origin goods, and that is the key structural advantage over China. US Customs calculates duty on the <strong>CIF value</strong> — Cost of the goods plus Insurance and Freight to the US port. Budget on the factory invoice alone and you leave hundreds of dollars per shipment unaccounted for.</p>
                 <p>To see how this plays out on a real shipment, take $5,000 worth of jackets sourced from a factory in Ho Chi Minh City. Add $300 in ocean freight and insurance, and your CIF value comes to $5,300. Duty at 14.5% lands at <strong>$768.50</strong>. There is no VAT or sales tax on US imports — the math stops after duty plus ancillary fees.</p>
-                <p>The Merchandise Processing Fee (MPF) — a flat 0.3464% of the entered value with a $27.75 minimum and $538.40 maximum — adds <strong>$18.36</strong> on this shipment. The Harbor Maintenance Fee (HMF), at 0.125% of cargo value, tacks on <strong>$6.63</strong>. Total government charges come to <strong>$793.49</strong>, and your landed cost sits at <strong>$6,093.49</strong>.</p>
+                <p>The Merchandise Processing Fee (MPF) — a flat 0.3464% of the entered value with a $31.67 minimum and $614.35 maximum — adds <strong>$31.67</strong> on this shipment (the statutory minimum applies). The Harbor Maintenance Fee (HMF), at 0.125% of cargo value, tacks on <strong>$6.63</strong>. Total government charges come to <strong>$806.80</strong>, and your landed cost sits at <strong>$6,106.80</strong>.</p>
                 <p>Now run the same numbers through the China lane. China's MFN for the same category is 16.5%, and Section 301 layers on another 7.5% for a combined 24%. That shipment incurs <strong>$1,272</strong> in duty alone — $479 more on one order. Across a 40-foot container with a declared value of $80,000, the gap widens to over $7,600. That differential is why "shift to Vietnam" is a spreadsheet decision, not a slogan.</p>
                 <p>For importers running four to six containers per year, the annual duty savings from using Vietnam over China can exceed $30,000 — enough to fund a dedicated sourcing agent in Ho Chi Minh City, annual factory audits, and compliance documentation with money left over.</p>
                 <p>One more comparison: a $15,000 shipment of activewear from Vietnam at 14.5% pays $2,175 in duty. The same shipment from China at 24% pays $3,600. That $1,425 difference covers a round-trip flight to Ho Chi Minh City for a factory visit. The math favors Vietnam for nearly every apparel category where Section 301 applies to the Chinese equivalent.</p>
@@ -105,7 +114,7 @@
                 <ol class="content-list">
                     <li><strong>CIF Value</strong> = Goods Value &plus; Shipping &plus; Insurance</li>
                     <li><strong>Customs Duty</strong> = CIF Value &times; Duty Rate (14.5% for most Vietnamese apparel)</li>
-                    <li><strong>Merchandise Processing Fee (MPF)</strong> = 0.3464% of entered value (min $27.75, max $538.40)</li>
+                    <li><strong>Merchandise Processing Fee (MPF)</strong> = 0.3464% of entered value (min $31.67, max $614.35)</li>
                     <li><strong>Harbor Maintenance Fee (HMF)</strong> = 0.125% of cargo value (ocean shipments only)</li>
                     <li><strong>Total Landed Cost</strong> = CIF Value &plus; Customs Duty &plus; MPF &plus; HMF</li>
                 </ol>
@@ -180,6 +189,8 @@
                 <p>But for products where China enjoys a 0% MFN rate — certain industrial textiles and ITA-covered goods — Vietnam's 14.5% baseline makes China cheaper despite Section 301. The correct approach is to run the total landed cost — ex-factory price plus ocean freight plus insurance plus duty plus MPF plus HMF plus brokerage fees — for each product and each country separately. Cross-country averages mislead; per-product line-item math drives sourcing decisions.</p>
                 <p>Also factor in non-duty costs that differ by country. Vietnam's port infrastructure at Cai Mep and Hai Phong is improving but still handles lower container volumes than Shanghai or Shenzhen, which can mean longer dwell times and less frequent sailings. Vietnamese customs clearance is generally faster than Chinese customs, but document requirements are stricter — Vietnam requires a fumigation certificate for wooden pallets that many first-time importers forget. These operational friction points do not appear in the duty calculation but affect total landed cost and delivery reliability.</p>
 
+                <div class="trade-tip"><span class="tip-label">Southeast Asia beyond Vietnam</span><br>Comparing origins across ASEAN? See the <a href="/southeast-asia-to-us-duty">Thailand, Indonesia &amp; Malaysia &rarr; US duty breakdown</a> — MFN rates by product, ITA electronics, and the China+1 math.</div>
+
                 <p style="margin-top: 30px;"><a href="/">&larr; Back to All Calculators</a></p>
             </article>
         </div>
@@ -224,6 +235,7 @@
     </footer>
 
     <script src="rate-data.js"></script>
-    <script src="main.js?v=v20260717-000432-309922"></script>
+    <script src="main.js?v=1742362"></script>
+    <script src="sw-register.js"></script>
 </body>
 </html>
