@@ -89,7 +89,7 @@
     // Several corridor pages ship their own markup (unique input/result ids) and
     // previously had no wiring, leaving the Calculate button dead. This generic
     // handler reads the data-* attributes + known element ids and fills results.
-    var LEGACY_SYMBOLS = { USD:'$', GBP:'£', EUR:'€', CAD:'CA$', AUD:'A$', MXN:'MX$', JPY:'¥' };
+    var LEGACY_SYMBOLS = { USD:'$', GBP:'£', EUR:'€', CAD:'CA$', AUD:'A$', MXN:'MX$', JPY:'¥', AED:'AED ', SAR:'SR ' };
 
     function legacyFirst(root, candidates) {
         for (var i = 0; i < candidates.length; i++) {

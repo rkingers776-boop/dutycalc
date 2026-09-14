@@ -665,6 +665,43 @@ var RATE_DATABASE = {
       { date: '2026-07-26', dutyRate: 1.5, note: 'Verified. ITA zero rates on chips/ICs/PCBs unchanged. 1.5% blended default for non-ITA electronics.' },
       { date: '2025-03-01', dutyRate: 1.5, note: 'ITA-II expansion products confirmed at zero. Taiwan steel AD orders unchanged.' }
     ]
+  },
+
+  // ── CHINA → GULF (GCC) ──────────────────────────────────────
+  'cn-sa': {
+    id: 'cn-sa',
+    origin: 'China', destination: 'Saudi Arabia',
+    category: 'General Cargo & E-Commerce',
+    dutyRate: 5, vatRate: 15, deMinimis: 1000,
+    currency: 'SAR',
+    thresholdBase: 'cif',
+    detailPage: '/china-to-gcc-duty',
+    lastVerified: '2026-09-14',
+    rateStatus: 'stable',
+    rateSource: 'GCC Common External Tariff, ZATCA (Saudi VAT & Customs)',
+    riskNote: '5% GCC duty on most goods, but Saudi adds 12-20% protective duty on goods competing with local manufacturing. Mandatory SABER/SASO conformity certificates for apparel, electronics and toys before arrival. 15% VAT (highest in the GCC) applies from the first riyal even under the SAR 1,000 duty-free threshold.',
+    rateHistory: [
+      { date: '2026-09-14', dutyRate: 5, note: 'Verified. GCC 5% tariff and 15% VAT unchanged. SABER requirement confirmed for consumer goods.' },
+      { date: '2025-07-01', dutyRate: 5, note: 'Saudi VAT stable at 15% since July 2020 increase.' }
+    ]
+  },
+
+  'cn-ae': {
+    id: 'cn-ae',
+    origin: 'China', destination: 'United Arab Emirates',
+    category: 'General Cargo & E-Commerce',
+    dutyRate: 5, vatRate: 5, deMinimis: 980,
+    currency: 'AED',
+    thresholdBase: 'cif',
+    detailPage: '/china-to-gcc-duty',
+    lastVerified: '2026-09-14',
+    rateStatus: 'stable',
+    rateSource: 'GCC Common External Tariff, UAE Federal Tax Authority',
+    riskNote: '5% GCC duty plus 5% VAT — the lowest combined tax load for a major Gulf market. Jebel Ali (JAFZA) free zone allows duty-free entry for re-export. Goods merely shipped via a free zone without genuine GCC origin do not qualify for intra-GCC duty exemption.',
+    rateHistory: [
+      { date: '2026-09-14', dutyRate: 5, note: 'Verified. 5% duty and 5% VAT unchanged. AED 980 de minimis confirmed.' },
+      { date: '2023-03-01', dutyRate: 5, note: 'De minimis reverted to GCC-wide AED 980 after the brief AED 300 period.' }
+    ]
   }
 
 };
