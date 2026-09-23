@@ -389,10 +389,9 @@
             metaDot.className = 'meta-dot ' + tier;
         }
 
-        // Register service worker for offline / PWA support (best effort)
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js').catch(function () {});
-        }
+        // NOTE: Service Worker registration deliberately lives in sw-register.js only.
+        // Every page that loads main.js also loads sw-register.js, and registering the
+        // same script twice is a harmless no-op but a confusing duplicate — one owner.
     }
 
     // Initialize on DOM ready

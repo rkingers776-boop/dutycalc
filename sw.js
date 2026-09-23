@@ -1,12 +1,16 @@
-/* DutyCalc.online — Service Worker v1
+/* DutyCalc.online — Service Worker v2
  * Offline-first caching for core assets, network-first for HTML pages.
- * Version bump this constant (or the file) to invalidate old caches. */
-var CACHE = 'dutycalc-v1';
+ * Version bump this constant (or the file) to invalidate old caches.
+ *
+ * v2: the CACHE string was never bumped past v1, and CORE listed style.css /
+ * main.js / rate-data.js WITHOUT the "?v=" query they are actually requested
+ * with, so those three precache entries could never be matched — dead weight
+ * that also let a stale copy of an unversioned asset sit in the cache forever.
+ * Asset caching is handled at fetch time by the cache-first branch below; the
+ * bump here clears the old cache. */
+var CACHE = 'dutycalc-v2';
 var CORE = [
   '/',
-  '/style.css',
-  '/main.js',
-  '/rate-data.js',
   '/manifest.json',
   '/404.html',
   '/landed-cost-calculator',

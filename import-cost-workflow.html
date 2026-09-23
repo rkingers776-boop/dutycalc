@@ -16,7 +16,7 @@
     <link rel="canonical" href="https://www.dutycalc.online/import-cost-workflow">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=a6dae6d">
+    <link rel="stylesheet" href="style.css?v=6216f28">
     <style>
         .article-body { margin: 0 auto; }
         .article-lede { font-size: 1.15rem; color: var(--text-primary); line-height: 1.75; margin: 0 0 36px; font-weight: 500; border-left: 3px solid var(--offshore-green); padding-left: 24px; }
@@ -114,9 +114,11 @@
 </head>
 <body>
 
-    <nav class="site-nav" aria-label="Terminal Navigation">
+            <nav class="site-nav" aria-label="Main Navigation">
         <div class="nav-inner">
             <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open main navigation">
+            <label for="nav-toggle" class="nav-toggle-btn" aria-hidden="true"><span></span><span></span><span></span></label>
             <div class="nav-links">
                 <a href="/about">About</a>
                 <a href="/corridors">Corridors</a>
@@ -127,6 +129,11 @@
                         <a href="/import-duty-calculator">Import Duty</a>
                         <a href="/vat-calculator">VAT / GST</a>
                         <a href="/tariff-calculator">Tariff Rates</a>
+                        <a href="/customs-bond-calculator">Customs Bond</a>
+                        <a href="/sourcing-comparison">Sourcing Compare</a>
+                        <a href="/volume-weight-calculator">Volume Weight</a>
+                        <a href="/ddp-pricing-calculator">DDP Pricing</a>
+                        <a href="/container-loading-calculator">Container Loading</a>
                     </div>
                 </div>
                 <a href="/import-cost-workflow">Workflow</a>
@@ -135,6 +142,15 @@
                     <div class="nav-drop-menu">
                         <a href="/de-minimis-checker">Cliff Detector</a>
                         <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Guides</span>
+                    <div class="nav-drop-menu">
+                        <a href="/trade-terms-glossary">Terms Glossary</a>
+                        <a href="/uflpa-forced-labor-compliance">UFLPA Guide</a>
+                        <a href="/anti-dumping-duties-guide">AD/CVD Guide</a>
                     </div>
                 </div>
             </div>
@@ -305,7 +321,8 @@
                 <p>If the electronics are of Chinese origin, Section 301 adds 25% on most Chapter 85 subheadings. The effective rate goes to 2.5% MFN + 25% Section 301 = 27.5%. That changes the economics of the entire shipment.</p>
                 <p class="snap-line">Which side of the Section 301 line your product falls on is a $1,628 question.</p>
                 <div class="mkt-example">
-                    <table>
+                    <div class="table-scroll">
+                        <table>
                         <tr><td>FOB goods value</td><td>$5,000.00</td></tr>
                         <tr><td>+ Ocean freight</td><td>$800.00</td></tr>
                         <tr><td>+ Marine insurance</td><td>$120.00</td></tr>
@@ -318,6 +335,7 @@
                         <tr class="total-row"><td>Total import cost (MFN only, no 301)</td><td>$6,099.67</td></tr>
                         <tr class="total-row"><td>Total import cost (MFN + Section 301)</td><td>$7,579.67</td></tr>
                     </table>
+                    </div>
                 </div>
                 <p style="font-size:0.85rem;color:var(--text-muted);">The difference between these two numbers — $1,480 — is the Section 301 overlay. Whether it applies depends on your exact 10-digit HTS code. Check our <a href="/section-301-china-tariffs-guide">Section 301 Guide</a> for the current exclusion lists, or run your HS code through the <a href="/tariff-calculator">Tariff Rate Lookup</a>. For product-specific US import walkthroughs: <a href="/us-import-customs-guide">US Import Customs Guide</a>, <a href="/china-to-us-electronics">China→US Electronics</a>, <a href="/china-to-us-clothing">China→US Apparel</a>, <a href="/china-to-us-furniture">China→US Furniture</a>.</p>
             </div>
@@ -331,7 +349,8 @@
                 <p>This surprises many first-time importers: the EU's IOSS system is voluntary. If you register, you collect VAT at checkout and remit to one EU member state. If you don't, your customer pays at delivery. Most customers who get a surprise VAT bill at the door don't order from you again.</p>
                 <p>We'll use Germany as the destination (19% VAT).</p>
                 <div class="mkt-example">
-                    <table>
+                    <div class="table-scroll">
+                        <table>
                         <tr><td>FOB goods value</td><td>€4,587 (≈$5,000 at 1.09 EUR/USD)</td></tr>
                         <tr><td>+ Ocean freight</td><td>€734</td></tr>
                         <tr><td>+ Marine insurance</td><td>€110</td></tr>
@@ -342,6 +361,7 @@
                         <tr><td>German VAT (19% on duty-paid CIF)</td><td>€1,057.69</td></tr>
                         <tr class="total-row"><td>Total import cost (CIF + duty + VAT)</td><td>€6,624.47 (≈$7,221)</td></tr>
                     </table>
+                    </div>
                 </div>
                 <p style="font-size:0.85rem;color:var(--text-muted);">The EU total is about $1,100 higher than the US (MFN-only scenario), almost entirely from 19% VAT. For full EU customs filing details: <a href="/china-to-germany-customs">China→Germany (ATLAS Hub)</a>, <a href="/china-to-france-customs">China→France (DELTA/IOSS)</a>.</p>
             </div>
@@ -353,7 +373,8 @@
                 <p>In January 2021, a UK Etsy seller bought a £130 ceramic vase from a small workshop in Portugal. Shipping was £12. The total consignment value was £142 — £7 over the £135 threshold. HMRC assessed full UK Global Tariff duty on the CIF value plus 20% VAT, and the carrier added an £8 handling fee. The seller paid £34 in charges on a £130 item because of £12 in shipping that pushed the consignment over the line. The £135 threshold includes shipping paid by the buyer. A £130 item with £15 shipping is a £145 consignment and crosses the line. This distinction generated more chargebacks in 2021 than any other single post-Brexit customs change.</p>
                 <p>Under £135: no customs duty, but the seller must be UK VAT-registered and collect 20% VAT at checkout. Over £135: full duty and VAT at the border.</p>
                 <div class="mkt-example">
-                    <table>
+                    <div class="table-scroll">
+                        <table>
                         <tr><td>FOB goods value</td><td>£3,906 (≈$5,000 at 1.28 GBP/USD)</td></tr>
                         <tr><td>+ Ocean freight</td><td>£625</td></tr>
                         <tr><td>+ Marine insurance</td><td>£94</td></tr>
@@ -364,6 +385,7 @@
                         <tr><td>VAT (20% on duty-paid CIF)</td><td>£943.50</td></tr>
                         <tr class="total-row"><td>Total import cost (CIF + duty + VAT)</td><td>£5,661.00 (≈$7,246)</td></tr>
                     </table>
+                    </div>
                 </div>
                 <p style="font-size:0.85rem;color:var(--text-muted);">UK import costs are broadly similar to the EU — the 20% VAT is the main driver. For UK-specific product guidance: <a href="/china-to-uk-apparel">China→UK Apparel</a>, <a href="/china-to-uk-electronics">China→UK Electronics</a>, <a href="/eu-to-uk-post-brexit">Post-Brexit Trade Guide</a>.</p>
             </div>
@@ -376,7 +398,8 @@
                 <p class="snap-line">Every commercial shipment triggers a full customs entry. Every single one.</p>
                 <p>There's a separate CAD $150 threshold under the Courier Imports Remission Order for courier shipments specifically, but palletized freight and containers get no such relief. Province-level taxes (7% PST in BC, 9.975% QST in Quebec) add 7–10 percentage points on top of the federal 5% GST shown below.</p>
                 <div class="mkt-example">
-                    <table>
+                    <div class="table-scroll">
+                        <table>
                         <tr><td>FOB goods value</td><td>CA$6,850 (≈$5,000 at 1.37 CAD/USD)</td></tr>
                         <tr><td>+ Ocean freight</td><td>CA$1,096</td></tr>
                         <tr><td>+ Marine insurance</td><td>CA$164</td></tr>
@@ -386,6 +409,7 @@
                         <tr><td>GST (5% on duty-paid CIF)</td><td>CA$413.61</td></tr>
                         <tr class="total-row"><td>Total import cost (federal only)</td><td>CA$8,685.81 (≈$6,340)</td></tr>
                     </table>
+                    </div>
                 </div>
                 <p style="font-size:0.85rem;color:var(--text-muted);">Cheapest destination on this list for our electronics shipment — low duty plus low GST. But no low-value channel exists. <a href="/china-to-canada-freight">China→Canada Freight</a> covers CBSA's CARM system.</p>
             </div>
@@ -399,7 +423,8 @@
                 <p class="snap-line">Duty-free does not mean tax-free in Australia.</p>
                 <p>The AUD $1,000 FOB threshold for duty is generous. But since July 2018, 10% GST applies to all low-value imported goods from $1, collected by the seller or marketplace at checkout. If you're not ATO-registered, your shipments get held. Marketplace sellers who assume "under $1,000 = zero charges" discover their customers are being asked to pay GST at delivery — and that conversation doesn't end well for repeat business.</p>
                 <div class="mkt-example">
-                    <table>
+                    <div class="table-scroll">
+                        <table>
                         <tr><td>FOB goods value</td><td>AU$7,500 (≈$5,000 at 1.50 AUD/USD)</td></tr>
                         <tr><td>+ Ocean freight</td><td>AU$1,200</td></tr>
                         <tr><td>+ Marine insurance</td><td>AU$180</td></tr>
@@ -409,6 +434,7 @@
                         <tr><td>GST (10% on CIF + duty)</td><td>AU$903.00</td></tr>
                         <tr class="total-row"><td>Total import cost</td><td>AU$9,933.00 (≈$6,622)</td></tr>
                     </table>
+                    </div>
                 </div>
                 <p style="font-size:0.85rem;color:var(--text-muted);">The duty is only AU$150 — 2% on AU$7,500 FOB, not on AU$8,880 CIF. FOB-based duty saves AU$27.60 on this one shipment. Across a container with 200 similar-value cartons: AU$5,520 in duty Australia doesn't charge. <a href="/china-to-australia-duty">China→Australia Duty</a> explains ATO registration and ChAFTA rates.</p>
             </div>
@@ -421,7 +447,8 @@
                 <p>A licensed agente aduanal files the pedimento — you cannot self-clear in Mexico. The broker examines your commercial invoice and classification. They charge MXN $1,500–3,500 regardless of whether your shipment is worth $500 or $50,000. Then customs assesses duty — 8% MFN on electronics, higher on most consumer goods. Then SAT applies 16% IVA on the duty-paid CIF. Three charges. Three separate payees. None optional.</p>
                 <p>Mexico's tariff schedule was negotiated during the import-substitution era and was never liberalized to the degree of the US or EU schedules. Rates of 15–22% on consumer goods are normal. The only structural relief is IMMEX — if your goods are processed in Mexico and re-exported, duty and IVA are deferred. For goods sold into the domestic market, IMMEX doesn't help.</p>
                 <div class="mkt-example">
-                    <table>
+                    <div class="table-scroll">
+                        <table>
                         <tr><td>FOB goods value</td><td>MX$87,500 (≈$5,000 at 17.50 MXN/USD)</td></tr>
                         <tr><td>+ Ocean freight</td><td>MX$14,000</td></tr>
                         <tr><td>+ Marine insurance</td><td>MX$2,100</td></tr>
@@ -432,6 +459,7 @@
                         <tr style="color:var(--text-muted);"><td>Broker fee (pedimento, estimated)</td><td>MX$2,500</td></tr>
                         <tr class="total-row"><td>Total import cost (CIF + duty + IVA + broker)</td><td>MX$132,290 (≈$7,559)</td></tr>
                     </table>
+                    </div>
                 </div>
                 <p style="font-size:0.85rem;color:var(--text-muted);">The highest total on this list — nearly $7,600 — driven by 8% MFN on electronics (vs 2–2.5% elsewhere) and the mandatory broker fee. <a href="/china-to-mexico-maquila">China→Mexico IMMEX</a> explains the deferral rules.</p>
             </div>
@@ -447,7 +475,8 @@
                     <li><strong>Simplified declarations work up to ¥200,000.</strong> No broker needed, no formal C-5020 filing. NACCS processes it electronically. For shipments above ¥200,000, you need a formal entry.</li>
                 </ul>
                 <div class="mkt-example">
-                    <table>
+                    <div class="table-scroll">
+                        <table>
                         <tr><td>FOB goods value</td><td>¥725,000 (≈$5,000 at 145 JPY/USD)</td></tr>
                         <tr><td>+ Ocean freight</td><td>¥116,000</td></tr>
                         <tr><td>+ Marine insurance</td><td>¥17,400</td></tr>
@@ -457,6 +486,7 @@
                         <tr><td>JCT (10% on CIF)</td><td>¥85,840</td></tr>
                         <tr class="total-row"><td>Total import cost</td><td>¥944,240 (≈$6,512)</td></tr>
                     </table>
+                    </div>
                 </div>
                 <p style="font-size:0.85rem;color:var(--text-muted);">Second-cheapest destination after Canada. A ¥9,800 shipment costs ¥9,800 at the border. A ¥10,100 shipment costs roughly ¥11,200. Japanese consumers split orders to stay under ¥10,000 because the cliff is real and the math is predictable. <a href="/china-to-japan-cargo">China→Japan Cargo</a> covers NACCS and the simplified declaration process.</p>
             </div>
@@ -666,43 +696,71 @@
         </p>
     </main>
 
-    <footer class="site-footer">
+            <footer class="site-footer">
         <div class="footer-grid">
             <div class="footer-brand">
-                <h2>⚙️ DutyCalc Online</h2>
-                <p>High-precision logistics calculators and trade compliance briefings for global e-commerce supply chain managers.</p>
+                <h2>DutyCalc Online</h2>
+                <p>Customs duty, VAT, and landed cost calculators for international trade. Independent trade metrology &mdash; not affiliated with any government customs agency.</p>
             </div>
             <div class="footer-col">
-                <h4>Core Data Panels</h4>
+                <h4>Calculators</h4>
                 <ul>
-                    <li><a href="/import-cost-workflow">Import Cost Workflow</a></li>
-                    <li><a href="/tariff-calculator">Tariff Rate Lookup</a></li>
                     <li><a href="/landed-cost-calculator">Landed Cost Calculator</a></li>
                     <li><a href="/import-duty-calculator">Import Duty Calculator</a></li>
                     <li><a href="/vat-calculator">VAT / GST Calculator</a></li>
+                    <li><a href="/tariff-calculator">Tariff Rate Lookup</a></li>
                     <li><a href="/de-minimis-checker">Cliff Detector</a></li>
-                    <li><a href="/de-minimis-value-guide">Global De Minimis</a></li>
-                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
-                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
-                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
-
+                    <li><a href="/hscode-duty-estimator">HS Code Estimator</a></li>
+                    <li><a href="/customs-bond-calculator">Customs Bond Calculator</a></li>
+                    <li><a href="/sourcing-comparison">Sourcing Comparison</a></li>
+                    <li><a href="/volume-weight-calculator">Volume Weight Calculator</a></li>
+                    <li><a href="/ddp-pricing-calculator">DDP Pricing Calculator</a></li>
+                    <li><a href="/container-loading-calculator">Container Loading Calculator</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Legal &amp; Protocols</h4>
+                <h4>Guides &amp; Reference</h4>
                 <ul>
-                    <li><a href="/about">About Us</a></li>
-                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/import-cost-workflow">Import Workflow Guide</a></li>
+                    <li><a href="/how-to-find-hs-code">How to Find Your HS Code</a></li>
+                    <li><a href="/fba-import-guide">FBA Import Guide</a></li>
+                    <li><a href="/importer-of-record-guide">Importer of Record Guide</a></li>
+                    <li><a href="/customs-hold-guide">Customs Hold Guide</a></li>
+                    <li><a href="/dropshipping-duty-guide">Dropshipping Duty Guide</a></li>
+                    <li><a href="/ioss-eu-vat-guide">EU IOSS Guide</a></li>
+                    <li><a href="/import-vat-guide">Import VAT Explained</a></li>
+                    <li><a href="/de-minimis-value-guide">De Minimis Threshold Guide</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                    <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+                    <li><a href="/trade-terms-glossary">Trade Terms Glossary</a></li>
+                    <li><a href="/incoterms-guide">Incoterms Explained</a></li>
+                    <li><a href="/uflpa-forced-labor-compliance">UFLPA Compliance Guide</a></li>
+                    <li><a href="/rate-updates">Rate Update History</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Corridors &amp; Hubs</h4>
+                <ul>
+                    <li><a href="/corridors">Corridor Directory</a></li>
+                    <li><a href="/southeast-asia-to-us-duty">Southeast Asia &rarr; US Duty</a></li>
+                    <li><a href="/gcc-ecommerce-market-guide">Selling into the Gulf</a></li>
+                    <li><a href="/electronics-import-duty">Electronics Duty</a></li>
+                    <li><a href="/apparel-import-duty">Apparel Duty</a></li>
+                    <li><a href="/furniture-import-duty">Furniture Duty</a></li>
+                    <li><a href="/machinery-import-duty">Machinery Duty</a></li>
+                    <li><a href="/auto-parts-import-duty">Auto Parts Duty</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent metrology data — not affiliated with any official government customs agency. The cost calculations on this page are estimates based on published MFN tariff schedules and VAT rates as of July 2026. Actual import costs vary based on full HTS classification, FTA eligibility, antidumping/countervailing duty orders, tariff-rate quota status, broker fees, and port-specific charges. Always verify with a licensed customs broker before entering a commercial shipment.</p>
-            <p class="footer-github"><a href="https://github.com/rkingers776-boop/dutycalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent trade data &mdash; not affiliated with any government customs agency.</p>
+            <p class="footer-legal"><a href="/about">About</a> <a href="/contact">Contact</a> <a href="/privacy">Privacy</a> <a href="/sitemap.xml">Sitemap</a></p>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/dutycalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">&#128194; View on GitHub</a></p>
         </div>
     </footer>
 
-    <script src="main.js?v=a6dae6d"></script>
-    <script src="sw-register.js"></script>
+    <script src="main.js?v=6216f28"></script>
+    <script src="sw-register.js?v=6216f28"></script>
 </body>
 </html>

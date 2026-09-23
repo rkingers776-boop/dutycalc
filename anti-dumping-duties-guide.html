@@ -16,7 +16,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Anti-Dumping &amp; Countervailing Duties (AD/CVD): A 2026 US Importer's Field Guide">
     <meta name="twitter:description" content="What AD/CVD duties really cost, China's NME treatment, how to check if your product is on an order, and how they stack with MFN and Section 301.">
-    <link rel="stylesheet" href="style.css?v=a6dae6d">
+    <link rel="stylesheet" href="style.css?v=6216f28">
 <meta property="og:image" content="https://www.dutycalc.online/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -25,9 +25,11 @@
 <body>
 
     <!-- ── Header Navigation ── -->
-    <nav class="site-nav" aria-label="Main Navigation">
+            <nav class="site-nav" aria-label="Main Navigation">
         <div class="nav-inner">
             <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open main navigation">
+            <label for="nav-toggle" class="nav-toggle-btn" aria-hidden="true"><span></span><span></span><span></span></label>
             <div class="nav-links">
                 <a href="/about">About</a>
                 <a href="/corridors">Corridors</a>
@@ -38,6 +40,11 @@
                         <a href="/import-duty-calculator">Import Duty</a>
                         <a href="/vat-calculator">VAT / GST</a>
                         <a href="/tariff-calculator">Tariff Rates</a>
+                        <a href="/customs-bond-calculator">Customs Bond</a>
+                        <a href="/sourcing-comparison">Sourcing Compare</a>
+                        <a href="/volume-weight-calculator">Volume Weight</a>
+                        <a href="/ddp-pricing-calculator">DDP Pricing</a>
+                        <a href="/container-loading-calculator">Container Loading</a>
                     </div>
                 </div>
                 <a href="/import-cost-workflow">Workflow</a>
@@ -47,6 +54,14 @@
                         <a href="/de-minimis-checker">Cliff Detector</a>
                         <a href="/de-minimis-value-guide">Threshold Guide</a>
                         <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Guides</span>
+                    <div class="nav-drop-menu">
+                        <a href="/trade-terms-glossary">Terms Glossary</a>
+                        <a href="/uflpa-forced-labor-compliance">UFLPA Guide</a>
+                        <a href="/anti-dumping-duties-guide">AD/CVD Guide</a>
                     </div>
                 </div>
             </div>
@@ -78,7 +93,8 @@
 
             <h2>The orders that actually sink shipments</h2>
             <p>Dozens of AD and CVD orders are live at any moment. A few Chinese ones are so large and so old that they function as permanent features of certain supply chains:</p>
-            <table class="cmp-table">
+            <div class="table-scroll">
+                <table class="cmp-table">
                 <thead>
                     <tr><th>Order</th><th>Coverage</th><th>Deposit range</th><th>Status</th></tr>
                 </thead>
@@ -90,11 +106,13 @@
                     <tr><td>Steel &amp; aluminum downstream</td><td>pipes, plate, wire &amp; more</td><td>varies, plus <a href="/section-301-china-tariffs-guide">Section 232</a></td><td>Live across the metals web</td></tr>
                 </tbody>
             </table>
+            </div>
             <p>China is the epicenter, but not the only target. The US maintains live orders on Vietnamese shrimp and steel, Indian shrimp and paper, Italian fabrics, Spanish olives, and plenty more. The lesson isn't "avoid China." It's "check the country of origin" — the real one, where the goods were substantially transformed, not just where they shipped from.</p>
 
             <h2>What it does to your landed cost</h2>
             <p>Here's the same furniture container, worked properly. Assume a $10,000 CIF shipment from a factory stuck at the 216% China-wide rate:</p>
-            <table class="cmp-table">
+            <div class="table-scroll">
+                <table class="cmp-table">
                 <thead>
                     <tr><th>Duty layer</th><th>Rate</th><th>On $10,000 CIF</th></tr>
                 </thead>
@@ -107,6 +125,7 @@
                     <tr><td><strong>Total government charges</strong></td><td>—</td><td><strong>$22,397.14</strong></td></tr>
                 </tbody>
             </table>
+            </div>
             <p>Strip the anti-dumping order and the bill drops to about $797. The AD layer is 96% of the total. That's the scale we're talking about, and it's why "is my product on an order?" should be the first question you ask — before you negotiate a single factory price, not after the goods sail.</p>
             <p>And no, the 2026 suspension of the $800 de minimis exemption doesn't help here. Small shipments are no longer automatically duty-free, and trade-remedy duties apply to the full entered value of a formal entry no matter the size. There is no "ship it in $799 chunks" escape hatch for AD/CVD. Read the <a href="/de-minimis-value-guide">de minimis threshold guide</a> or the <a href="/section-321-de-minimis-reform-2026">2026 reform explainer</a> for the mechanics.</p>
 
@@ -139,11 +158,11 @@
     </main>
 
     <!-- ═══ FOOTER (matches site) ═══ -->
-    <footer class="site-footer">
+            <footer class="site-footer">
         <div class="footer-grid">
             <div class="footer-brand">
                 <h2>DutyCalc Online</h2>
-                <p>Customs duty, VAT, and landed cost calculators for international trade. Independent trade metrology — not affiliated with any government customs agency.</p>
+                <p>Customs duty, VAT, and landed cost calculators for international trade. Independent trade metrology &mdash; not affiliated with any government customs agency.</p>
             </div>
             <div class="footer-col">
                 <h4>Calculators</h4>
@@ -154,28 +173,52 @@
                     <li><a href="/tariff-calculator">Tariff Rate Lookup</a></li>
                     <li><a href="/de-minimis-checker">Cliff Detector</a></li>
                     <li><a href="/hscode-duty-estimator">HS Code Estimator</a></li>
+                    <li><a href="/customs-bond-calculator">Customs Bond Calculator</a></li>
+                    <li><a href="/sourcing-comparison">Sourcing Comparison</a></li>
+                    <li><a href="/volume-weight-calculator">Volume Weight Calculator</a></li>
+                    <li><a href="/ddp-pricing-calculator">DDP Pricing Calculator</a></li>
+                    <li><a href="/container-loading-calculator">Container Loading Calculator</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Info</h4>
+                <h4>Guides &amp; Reference</h4>
                 <ul>
                     <li><a href="/import-cost-workflow">Import Workflow Guide</a></li>
+                    <li><a href="/how-to-find-hs-code">How to Find Your HS Code</a></li>
+                    <li><a href="/fba-import-guide">FBA Import Guide</a></li>
+                    <li><a href="/importer-of-record-guide">Importer of Record Guide</a></li>
+                    <li><a href="/customs-hold-guide">Customs Hold Guide</a></li>
+                    <li><a href="/dropshipping-duty-guide">Dropshipping Duty Guide</a></li>
+                    <li><a href="/ioss-eu-vat-guide">EU IOSS Guide</a></li>
                     <li><a href="/import-vat-guide">Import VAT Explained</a></li>
-                    <li><a href="/de-minimis-value-guide">De Minimis Guide</a></li>
+                    <li><a href="/de-minimis-value-guide">De Minimis Threshold Guide</a></li>
                     <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
                     <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
-                        <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
-
-                    <li><a href="/section-301-china-tariffs-guide">Section 301 China Tariffs</a></li>
+                    <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+                    <li><a href="/trade-terms-glossary">Trade Terms Glossary</a></li>
+                    <li><a href="/incoterms-guide">Incoterms Explained</a></li>
+                    <li><a href="/uflpa-forced-labor-compliance">UFLPA Compliance Guide</a></li>
                     <li><a href="/rate-updates">Rate Update History</a></li>
-                    <li><a href="/about">About This Platform</a></li>
-                    <li><a href="/privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Corridors &amp; Hubs</h4>
+                <ul>
+                    <li><a href="/corridors">Corridor Directory</a></li>
+                    <li><a href="/southeast-asia-to-us-duty">Southeast Asia &rarr; US Duty</a></li>
+                    <li><a href="/gcc-ecommerce-market-guide">Selling into the Gulf</a></li>
+                    <li><a href="/electronics-import-duty">Electronics Duty</a></li>
+                    <li><a href="/apparel-import-duty">Apparel Duty</a></li>
+                    <li><a href="/furniture-import-duty">Furniture Duty</a></li>
+                    <li><a href="/machinery-import-duty">Machinery Duty</a></li>
+                    <li><a href="/auto-parts-import-duty">Auto Parts Duty</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent trade data — not affiliated with any government customs agency.</p>
-            <p class="footer-github"><a href="https://github.com/rkingers776-boop/dutycalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent trade data &mdash; not affiliated with any government customs agency.</p>
+            <p class="footer-legal"><a href="/about">About</a> <a href="/contact">Contact</a> <a href="/privacy">Privacy</a> <a href="/sitemap.xml">Sitemap</a></p>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/dutycalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">&#128194; View on GitHub</a></p>
         </div>
     </footer>
 
@@ -220,6 +263,6 @@
     }
     </script>
 
-    <script src="sw-register.js"></script>
+    <script src="sw-register.js?v=6216f28"></script>
 </body>
 </html>
