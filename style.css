@@ -1031,6 +1031,17 @@ h3 { font-size: 1.1rem; line-height: 1.35; }
     border-bottom: none;
 }
 
+/* Rate verification log — scroll wrapper for the wide register tables,
+   and markers for rates that moved between checks */
+.table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 24px 0 32px;
+}
+.table-scroll > .rate-history-table { margin: 0; }
+.rate-change-up { color: #DC2626; font-weight: 600; }
+.rate-change-down { color: #059669; font-weight: 600; }
+
 /* Reusable icon / section helpers — same tokens as the homepage redesign */
 .hp-ico {
     display: inline-flex; width: 52px; height: 52px; border-radius: 13px;

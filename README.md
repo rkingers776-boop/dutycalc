@@ -1,6 +1,6 @@
 # DutyCalc Online — Global Customs Duty & Landed Cost Platform
 
-**Know your true landed cost before you ship.** Free, browser-local customs duty, VAT, and landed cost calculators covering 39+ international trade corridors. No accounts, no tracking — all computation runs in your browser.
+**Know your true landed cost before you ship.** Free, browser-local customs duty, VAT, and landed cost calculators covering 36 international trade corridors. No accounts, no tracking — all computation runs in your browser.
 
 🌐 **Live site:** [dutycalc.online](https://www.dutycalc.online/)  
 📦 **GitHub Pages mirror:** [rkingers776-boop.github.io/dutycalc](https://rkingers776-boop.github.io/dutycalc/)
@@ -9,7 +9,7 @@
 
 ## What This Is
 
-DutyCalc is a suite of **70+ static HTML tools** that answer the single hardest question in international trade: *"What will this actually cost me, door-to-door, after all duties, taxes, and fees?"*
+DutyCalc is a suite of **80+ static HTML pages** that answer the single hardest question in international trade: *"What will this actually cost me, door-to-door, after all duties, taxes, and fees?"*
 
 Each tool targets a specific trade lane or product category. Pick your lane, enter your numbers, see the real landed cost instantly — no spreadsheets, no customs broker quotes, no government portal logins.
 
@@ -48,7 +48,7 @@ Rates are verified against 2026 tariff schedules (HTSUS, TARIC, UK Global Tariff
 | [De Minimis Value Guide](de-minimis-value-guide.html) | Thresholds by country, what triggers tax |
 | [UFLPA Compliance Guide](uflpa-forced-labor-compliance.html) | Forced labor compliance, CBP detention rules, supply chain proof |
 
-### 🇨🇳 China → World (16 corridors)
+### 🇨🇳 China → World (18 corridors)
 
 | Destination | Product Focus |
 |-------------|---------------|
@@ -69,6 +69,7 @@ Rates are verified against 2026 tariff schedules (HTSUS, TARIC, UK Global Tariff
 | [China → Japan Cargo](china-to-japan-cargo.html) | Japan customs duty & consumption tax |
 | [China → Mexico Maquila](china-to-mexico-maquila.html) | Manufacturing inputs, IMMEX |
 | [China → Netherlands Hub](china-to-netherlands-hub.html) | EU distribution hub, Article 23 |
+| [China → Saudi Arabia & UAE](china-to-gcc-duty.html) | GCC 5% common tariff, 15%/5% VAT, SABER certification |
 
 ### 🇪🇺 EU → UK (Post-Brexit)
 
@@ -123,7 +124,7 @@ Rates are verified against 2026 tariff schedules (HTSUS, TARIC, UK Global Tariff
 
 | Page | Purpose |
 |------|---------|
-| [Rate Updates](rate-updates.html) | Tariff rate change history across all corridors |
+| [Rate Updates](rate-updates.html) | Every lane's rate, primary source and last-verified date |
 | [Newsletter](newsletter.html) | Weekly tariff briefing |
 | [About](about.html) | Methodology, rate sources, what we cover |
 | [Contact](contact.html) | Get in touch |
@@ -134,12 +135,14 @@ Rates are verified against 2026 tariff schedules (HTSUS, TARIC, UK Global Tariff
 
 ## Technical Architecture
 
-- **Pure static HTML/CSS/JS** — zero build step, zero dependencies
+- **Pure static HTML/CSS/JS** — no bundler, no framework, no runtime dependencies
 - **Browser-local computation** — no server, no database, no API calls
 - **Single shared stylesheet** (`style.css`) — design tokens, component library
 - **Three JS files** — `rate-data.js` (verified 2026 tariff schedules + MPF constants) + `main.js` (interactive calculator logic) + `sw-register.js` (PWA/offline + nav helpers)
+- **Rate log is pre-rendered** — the tables in `rate-updates.html` are generated from `rate-data.js` at build time, so every date and source is crawlable; regenerate the page after any rate change (see the comment at the top of the file)
 - **PWA** — manifest.json, real PNG icons (192/512, incl. maskable), Service Worker (`sw.js`) with offline-first caching of core assets
 - **Structured data** — JSON-LD (Article / WebApplication / AboutPage) on all pages, Open Graph + Twitter Cards incl. og:image on all pages
+- **Cache-busting** — `build.ps1` derives one version string from the combined SHA256 of `style.css` and `main.js`, then stamps it across every HTML file
 - **Hosted on Cloudflare** — HTTPS, CDN, custom domain `dutycalc.online`
 
 ```
@@ -155,8 +158,8 @@ dutycalc/
 ├── icon-192.png / icon-512.png / *-maskable.png
 ├── robots.txt / sitemap.xml
 ├── _redirects              # Cloudflare Pages routing rules
-├── *.html                  # 71 tool/guide pages
-└── build.ps1               # Deployment script (cache-busting)
+├── *.html                  # 84 tool / guide / corridor pages
+└── build.ps1               # Cache-busting: combined SHA256 of style.css + main.js
 ```
 
 ## Design Principles

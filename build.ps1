@@ -1,23 +1,33 @@
 <#
     DutyCalc.online — Build & Cache-Busting Script
-    v2.0 — Dual-file SHA256 content-hash versioning
+    v2.1 — Combined SHA256 content hash across style.css AND main.js
 
     PURPOSE:
       Refreshes both style.css and main.js version query strings across all
       HTML files, guaranteeing global CDN edge nodes serve the latest assets
-      after every deployment. One SHA256 hash, two files busted in lockstep.
+      after every deployment.
+
+    WHY THE HASH CHANGED IN v2.1:
+      v2.0 hashed style.css alone and reused that string for main.js. A JS-only
+      fix (currency symbols, MPF rates, threshold basis) therefore produced no
+      version change, and returning visitors kept executing the cached
+      main.js — the P0 calculation fixes never reached them. The version is now
+      derived from both files, so a change to either one busts both.
+
+    WHY THE WRITER CHANGED IN v2.1:
+      Set-Content -Encoding UTF8 under Windows PowerShell 5.1 emits a UTF-8
+      BOM. Running v2.0 on this machine would have prepended a BOM to all 85
+      HTML files. Writing goes through .NET with an explicit no-BOM encoder.
 
     USAGE:
-      .\build.ps1                    # SHA256 content hash (recommended for prod)
+      .\build.ps1                    # Combined SHA256 hash (recommended for prod)
       .\build.ps1 -Timestamp         # Fallback: timestamp-based version
       .\build.ps1 -WhatIf            # Dry-run: preview without writing
       .\build.ps1 -Version "v2.1.0"  # Custom semver string (overrides both)
-      .\build.ps1 -Hash -WhatIf      # Dry-run with SHA256 hash
 #>
 
 param(
     [string]$Version,          # Custom version string (overrides auto-generation)
-    [switch]$Hash,             # Use SHA256 content hash of style.css (default: on)
     [switch]$Timestamp,        # Force timestamp-based version instead of hash
     [switch]$WhatIf            # Preview changes without writing
 )
@@ -27,35 +37,46 @@ $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 Set-Location $scriptDir
 
 # ── Generate version string ──────────────────────────────────
+$hashReport = @()
 if (-not $Version) {
     if ($Timestamp) {
         # Legacy: clock-based version — unique every run
-        $now       = Get-Date -Format 'yyyyMMdd-HHmmss'
-        $entropy   = (Get-Date -Format 'ffffff')
-        $Version   = "v$now-$entropy"
+        $now     = Get-Date -Format 'yyyyMMdd-HHmmss'
+        $entropy = (Get-Date -Format 'ffffff')
+        $Version = "v$now-$entropy"
     }
     else {
-        # Default: SHA256 content hash — changes ONLY when CSS changes
-        $cssPath   = Join-Path $scriptDir 'style.css'
-        if (-not (Test-Path $cssPath)) {
-            Write-Host "  ❌  style.css not found at $cssPath" -ForegroundColor Red
-            exit 1
+        # Default: combined SHA256 of style.css + main.js — changes when EITHER changes
+        $assets = @('style.css', 'main.js')
+        $concat = ''
+        foreach ($asset in $assets) {
+            $path = Join-Path $scriptDir $asset
+            if (-not (Test-Path $path)) {
+                Write-Host "  [X] $asset not found at $path" -ForegroundColor Red
+                exit 1
+            }
+            $h = (Get-FileHash -Path $path -Algorithm SHA256).Hash.ToLower()
+            $hashReport += ('  {0,-10} {1}' -f $asset, $h.Substring(0, 7))
+            $concat += $h
         }
-        $sha256    = (Get-FileHash -Path $cssPath -Algorithm SHA256).Hash
-        $shortHash = $sha256.Substring(0, 7).ToLower()
-        $Version   = $shortHash
+        $bytes   = [System.Text.Encoding]::UTF8.GetBytes($concat)
+        $sha     = [System.Security.Cryptography.SHA256]::Create()
+        $digest  = $sha.ComputeHash($bytes)
+        $Version = -join ($digest[0..3] | ForEach-Object { $_.ToString('x2') })
+        $Version = $Version.Substring(0, 7)
     }
 }
 
-$modeStr = if ($Timestamp) { 'Timestamp' } else { 'SHA256 Hash' }
-if ($Version -and -not ($Timestamp -or $Hash)) { $modeStr = 'Custom' }
+$modeStr = if ($Timestamp) { 'Timestamp' } else { 'Combined SHA256' }
+if ($Version -and -not $Timestamp -and $hashReport.Count -eq 0) { $modeStr = 'Custom' }
 
-Write-Host "═══════════════════════════════════════════" -ForegroundColor Cyan
-Write-Host "  DutyCalc Build — Cache-Busting Pipeline"   -ForegroundColor Cyan
-Write-Host "  Mode   : $modeStr"                         -ForegroundColor Magenta
-Write-Host "  Version: $Version"                          -ForegroundColor Yellow
-Write-Host "  Target : $scriptDir"                        -ForegroundColor DarkGray
-Write-Host "═══════════════════════════════════════════" -ForegroundColor Cyan
+Write-Host "===========================================" -ForegroundColor Cyan
+Write-Host "  DutyCalc Build - Cache-Busting Pipeline"  -ForegroundColor Cyan
+Write-Host "  Mode   : $modeStr"                        -ForegroundColor Magenta
+Write-Host "  Version: $Version"                         -ForegroundColor Yellow
+Write-Host "  Target : $scriptDir"                       -ForegroundColor DarkGray
+foreach ($line in $hashReport) { Write-Host $line -ForegroundColor DarkGray }
+Write-Host "===========================================" -ForegroundColor Cyan
 Write-Host ""
 
 # ── Scan all HTML files ──────────────────────────────────────
@@ -65,7 +86,7 @@ Write-Host "  Found $count HTML files" -ForegroundColor White
 Write-Host ""
 
 if ($count -eq 0) {
-    Write-Host "  ⚠️  No HTML files found. Nothing to do." -ForegroundColor Yellow
+    Write-Host "  [!] No HTML files found. Nothing to do." -ForegroundColor Yellow
     exit 0
 }
 
@@ -79,8 +100,11 @@ $patterns = @(
 )
 $prefixes = @('style.css', 'main.js')
 
+# UTF-8 without BOM — Set-Content -Encoding UTF8 adds a BOM on PowerShell 5.1
+$utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+
 foreach ($file in $htmlFiles) {
-    $content  = Get-Content -Path $file.FullName -Raw -Encoding UTF8
+    $content    = [System.IO.File]::ReadAllText($file.FullName, [System.Text.Encoding]::UTF8)
     $newContent = $content
     $fileChanged = $false
     $changes     = @()
@@ -94,7 +118,7 @@ foreach ($file in $htmlFiles) {
 
         if ($oldTag -eq $newTag) { continue }
 
-        $changes += "$oldTag  →  $newTag"
+        $changes += "$oldTag  ->  $newTag"
         $newContent = $newContent -replace [regex]::Escape($oldTag), $newTag
         $fileChanged = $true
     }
@@ -105,41 +129,54 @@ foreach ($file in $htmlFiles) {
     }
 
     if ($WhatIf) {
-        Write-Host "  🔍 DRY-RUN  $($file.Name)" -ForegroundColor Magenta
-        foreach ($c in $changes) { Write-Host "       $c" -ForegroundColor DarkGray }
+        Write-Host "  [dry] $($file.Name)" -ForegroundColor Magenta
+        foreach ($c in $changes) { Write-Host "        $c" -ForegroundColor DarkGray }
         $updated++
         continue
     }
 
     try {
-        Set-Content -Path $file.FullName -Value $newContent -Encoding UTF8 -NoNewline
-        Write-Host "  ✅  DONE  $($file.Name)" -ForegroundColor Green
-        foreach ($c in $changes) { Write-Host "       $c" -ForegroundColor DarkGray }
+        [System.IO.File]::WriteAllText($file.FullName, $newContent, $utf8NoBom)
+        Write-Host "  [ok]  $($file.Name)" -ForegroundColor Green
+        foreach ($c in $changes) { Write-Host "        $c" -ForegroundColor DarkGray }
         $updated++
     }
     catch {
-        Write-Host "  ❌  FAIL  $($file.Name) — $_" -ForegroundColor Red
+        Write-Host "  [FAIL] $($file.Name) - $_" -ForegroundColor Red
         $errors++
     }
 }
 
-# ── Summary ──────────────────────────────────────────────────
-Write-Host ""
-Write-Host "═══════════════════════════════════════════" -ForegroundColor Cyan
-Write-Host "  BUILD COMPLETE"                            -ForegroundColor Cyan
-Write-Host "  Updated : $updated"                        -ForegroundColor Green
-Write-Host "  Skipped : $skipped"                        -ForegroundColor DarkYellow
-Write-Host "  Errors  : $errors"                         -ForegroundColor $(if ($errors -gt 0) { 'Red' } else { 'DarkGray' })
-Write-Host "  Version : $Version"                        -ForegroundColor Yellow
-
-if ($WhatIf) {
-    Write-Host '  MODE    : DRY-RUN (no files written)'  -ForegroundColor Magenta
+# ── Verify: no BOM crept back in, version uniform ────────────
+$bomCount = 0
+$verSet   = @{}
+foreach ($file in $htmlFiles) {
+    $raw = [System.IO.File]::ReadAllBytes($file.FullName)
+    if ($raw.Length -ge 3 -and $raw[0] -eq 0xEF -and $raw[1] -eq 0xBB -and $raw[2] -eq 0xBF) { $bomCount++ }
+    $txt = [System.Text.Encoding]::UTF8.GetString($raw)
+    foreach ($m in [regex]::Matches($txt, '(?:style\.css|main\.js)\?v=([\w\-.]+)')) {
+        $verSet[$m.Groups[1].Value] = $true
+    }
 }
 
-Write-Host "═══════════════════════════════════════════" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "===========================================" -ForegroundColor Cyan
+Write-Host "  BUILD COMPLETE"                             -ForegroundColor Cyan
+Write-Host "  Updated : $updated"                         -ForegroundColor Green
+Write-Host "  Skipped : $skipped"                         -ForegroundColor DarkYellow
+Write-Host "  Errors  : $errors"                          -ForegroundColor $(if ($errors -gt 0) { 'Red' } else { 'DarkGray' })
+Write-Host "  Version : $Version"                         -ForegroundColor Yellow
+Write-Host "  BOM in HTML files : $bomCount"              -ForegroundColor $(if ($bomCount -gt 0) { 'Red' } else { 'DarkGray' })
+Write-Host "  Versions on page  : $($verSet.Keys -join ', ')" -ForegroundColor DarkGray
+
+if ($WhatIf) {
+    Write-Host '  MODE    : DRY-RUN (no files written)'   -ForegroundColor Magenta
+}
+
+Write-Host "===========================================" -ForegroundColor Cyan
 Write-Host ""
 
-if ($errors -gt 0) {
+if ($errors -gt 0 -or $bomCount -gt 0) {
     exit 1
 }
 exit 0
