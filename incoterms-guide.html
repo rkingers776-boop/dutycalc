@@ -16,7 +16,7 @@
     <meta name="twitter:description" content="Your supplier quoted FOB. Your calculator expects CIF. Here's the gap — and how to close it.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=6216f28">
+    <link rel="stylesheet" href="style.css?v=dd0fe60">
 
     <script type="application/ld+json">
     {
@@ -42,7 +42,7 @@
           "name": "Which Incoterm should I use for my import duty calculation?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Customs authorities worldwide calculate duty on the CIF value — Cost, Insurance, and Freight to the port of entry. If your supplier quotes EXW or FOB, you must add the missing costs (freight, insurance, inland transport) to reach the correct CIF figure before running any duty calculation. Using the supplier's EXW price directly will understate your duty bill, sometimes by thousands of dollars."
+            "text": "Whether customs taxes the CIF value or just the goods value depends on the destination market. The EU, UK, Mexico, and Japan assess duty on CIF — Cost, Insurance, and Freight to the port of entry. The United States, Canada, and Australia assess it on the goods value alone, with international freight and insurance excluded. If your supplier quotes EXW you must add inland transport at origin, export clearance, and any buying commission to reach the correct dutiable figure before running any duty calculation. Using the EXW price directly will understate your duty bill, sometimes by thousands of dollars."
           }
         },
         {
@@ -50,7 +50,7 @@
           "name": "What's the difference between FOB and CIF?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "FOB (Free On Board) means the seller pays all costs until the goods are loaded onto the vessel at the origin port. CIF (Cost, Insurance, Freight) means the seller also pays for ocean freight and marine insurance to the destination port. For a typical China-to-US shipment, the gap between FOB and CIF is roughly 8-15% of the goods value — and since duty is calculated on CIF, using FOB instead of CIF understates your duty bill by that same percentage."
+            "text": "FOB (Free On Board) means the seller pays all costs until the goods are loaded onto the vessel at the origin port. CIF (Cost, Insurance, Freight) means the seller also pays for ocean freight and marine insurance to the destination port. For a typical China-to-US shipment, the gap between FOB and CIF is roughly 8-15% of the goods value. Note that the United States taxes the transaction value rather than CIF, so that gap does not enter the US duty base — but you still pay it, and it does enter the duty base for EU, UK, Japanese, and Mexican entries."
           }
         },
         {
@@ -241,7 +241,7 @@
 </head>
 <body>
 
-                <nav class="site-nav" aria-label="Main Navigation">
+                        <nav class="site-nav" aria-label="Main Navigation">
         <div class="nav-inner">
             <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
             <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open main navigation">
@@ -296,7 +296,7 @@
                 <p class="article-lede">Here's a mistake that costs importers real money: you get a quote from a supplier in Shenzhen — $12,000 for a batch of industrial pump components. You type $12,000 into a duty calculator, add a guess for shipping, and get a landed cost estimate. <strong>The estimate is wrong.</strong> Not because the calculator is bad, but because $12,000 FOB Shenzhen and $12,000 CIF Hamburg are two completely different numbers, and customs charges duty on one of them, not the other. This page explains which one — and how to convert between them before you run the math.</p>
 
                 <h2>The problem in one paragraph</h2>
-                <p>Every customs authority on earth calculates import duty on the <strong>CIF value</strong> — Cost, Insurance, and Freight to the port of entry. But most suppliers quote <strong>FOB</strong> — the price at the factory gate with export clearance done and goods loaded on a vessel at the origin port. The gap between FOB and CIF is ocean freight, marine insurance, and sometimes inland transport at origin. For a typical container shipment, that gap is 8-15% of the goods value. If you skip it, you're under-declaring your dutiable value — and your landed cost calculator is working with the wrong input.</p>
+                <p>Most customs authorities calculate import duty on the <strong>CIF value</strong> — Cost, Insurance, and Freight to the port of entry. The three big exceptions are the United States, Canada, and Australia, which tax the goods value alone. But most suppliers quote <strong>FOB</strong> — the price at the factory gate with export clearance done and goods loaded on a vessel at the origin port. The gap between FOB and CIF is ocean freight, marine insurance, and sometimes inland transport at origin. For a typical container shipment, that gap is 8-15% of the goods value. If you skip it, you're under-declaring your dutiable value — and your landed cost calculator is working with the wrong input.</p>
                 <p>If you already understand how duty and VAT compound on top of CIF, the <a href="/import-cost-workflow">import cost workflow</a> walks through the full 4-step chain. This page is about the number you feed into step one.</p>
 
                 <h2>The four Incoterms that actually matter</h2>
@@ -458,7 +458,7 @@
         </div><!-- .article-body -->
     </main>
 
-                <footer class="site-footer">
+                        <footer class="site-footer">
         <div class="footer-grid">
             <div class="footer-brand">
                 <h2>DutyCalc Online</h2>
@@ -485,6 +485,7 @@
                 <ul>
                     <li><a href="/import-cost-workflow">Import Workflow Guide</a></li>
                     <li><a href="/how-to-find-hs-code">How to Find Your HS Code</a></li>
+                    <li><a href="/customs-valuation-guide">Customs Value Explained</a></li>
                     <li><a href="/fba-import-guide">FBA Import Guide</a></li>
                     <li><a href="/importer-of-record-guide">Importer of Record Guide</a></li>
                     <li><a href="/customs-broker-cost-guide">Customs Broker Cost Guide</a></li>
@@ -523,7 +524,7 @@
         </div>
     </footer>
 
-    <script src="main.js?v=6216f28"></script>
-    <script src="sw-register.js?v=6216f28"></script>
+    <script src="main.js?v=dd0fe60"></script>
+    <script src="sw-register.js?v=dd0fe60"></script>
 </body>
 </html>

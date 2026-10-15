@@ -16,7 +16,7 @@
     <meta name="twitter:description" content="FOB, CIF, AD/CVD, HTS, TARIC, MFN, de minimis, Incoterms — 80+ terms defined for importers.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=6216f28">
+    <link rel="stylesheet" href="style.css?v=dd0fe60">
     <style>
         .glossary-nav {
             display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 32px;
@@ -60,7 +60,7 @@
 </head>
 <body>
 
-                <nav class="site-nav" aria-label="Main Navigation">
+                        <nav class="site-nav" aria-label="Main Navigation">
         <div class="nav-inner">
             <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
             <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open main navigation">
@@ -142,7 +142,7 @@
         <section class="glossary-section" id="C">
             <h2>C</h2>
             <div class="glossary-term"><h3>CBP (US Customs and Border Protection)</h3><p>The federal agency responsible for enforcing US customs laws, collecting duties, and securing the border. CBP processes all imports, inspects cargo, assesses tariffs, and enforces trade regulations (FDA, CPSC, USDA, etc.) at ports of entry.</p></div>
-            <div class="glossary-term"><h3>CIF (Cost, Insurance, Freight)</h3><p>An Incoterm where the seller pays for the goods, insurance, and freight to the destination port. Risk transfers to the buyer once goods are loaded on the vessel, but the seller pays freight and insurance. CIF is the standard customs valuation basis for most countries — duty is calculated on the CIF value, not just the goods value.</p><p class="see-also">See also: <a href="#F">FOB</a>, <a href="#I">Incoterms</a></p></div>
+            <div class="glossary-term"><h3>CIF (Cost, Insurance, Freight)</h3><p>An Incoterm where the seller pays for the goods, insurance, and freight to the destination port. Risk transfers to the buyer once goods are loaded on the vessel, but the seller pays freight and insurance. CIF is the customs valuation basis for the EU, the UK, Japan, Mexico, and most other markets. The United States, Canada, and Australia instead tax the goods value alone, with international freight and insurance excluded.</p><p class="see-also">See also: <a href="#F">FOB</a>, <a href="#I">Incoterms</a></p></div>
             <div class="glossary-term"><h3>Continuous Bond</h3><p>A customs bond that covers all entries at all US ports for 12 months. Minimum bond amount is 10% of total duties/taxes/fees paid in the prior year, with a $50,000 floor. Annual premium typically $250-$1,200 depending on bond amount.</p><p class="see-also">See also: <a href="#B">Bond</a>, <a href="#S">Single-Entry Bond</a></p></div>
             <div class="glossary-term"><h3>CSMS (Cargo Systems Messaging Service)</h3><p>CBP's system for issuing operational updates, system outages, and procedural changes to the trade community. CSMS messages are the primary channel for real-time CBP operational announcements.</p></div>
             <div class="glossary-term"><h3>C-TPAT (Customs-Trade Partnership Against Terrorism)</h3><p>A voluntary CBP program where importers agree to enhanced supply chain security standards in exchange for reduced examination rates and front-of-line processing. Certified C-TPAT members face 3-5× fewer inspections than non-members.</p></div>
@@ -179,7 +179,7 @@
         <section class="glossary-section" id="G">
             <h2>G</h2>
             <div class="glossary-term"><h3>GSP (Generalized System of Preferences)</h3><p>A US program allowing duty-free entry for thousands of products from designated developing countries. GSP periodically expires and must be renewed by Congress — there have been multiple multi-year lapses. Not all developing countries are GSP-eligible, and not all products from eligible countries qualify.</p></div>
-            <div class="glossary-term"><h3>GST (Goods and Services Tax)</h3><p>The consumption tax applied in Canada, Australia, and several other countries — equivalent to VAT. In Canada, GST is 5% federal; provinces may add PST/HST on top. In Australia, GST is 10% and applies to imports above AUD $1,000. In both countries, GST is calculated on CIF + duty.</p><p class="see-also">See also: <a href="#V">VAT</a></p></div>
+            <div class="glossary-term"><h3>GST (Goods and Services Tax)</h3><p>The consumption tax applied in Canada, Australia, and several other countries — equivalent to VAT. In Canada, GST is 5% federal; provinces may add PST/HST on top. In Australia, GST is 10% and applies to imports above AUD $1,000. In Australia, GST is calculated on CIF + duty. In Canada it is calculated on the value for duty plus duty, with international freight excluded.</p><p class="see-also">See also: <a href="#V">VAT</a></p></div>
         </section>
 
         <!-- H -->
@@ -305,7 +305,7 @@
         <p style="margin: 28px 0;"><a href="/sourcing-comparison">Next: Sourcing Comparison Tool →</a> &nbsp;|&nbsp; <a href="/">&larr; Back to All Tools</a></p>
     </main>
 
-                <footer class="site-footer">
+                        <footer class="site-footer">
         <div class="footer-grid">
             <div class="footer-brand">
                 <h2>DutyCalc Online</h2>
@@ -332,6 +332,7 @@
                 <ul>
                     <li><a href="/import-cost-workflow">Import Workflow Guide</a></li>
                     <li><a href="/how-to-find-hs-code">How to Find Your HS Code</a></li>
+                    <li><a href="/customs-valuation-guide">Customs Value Explained</a></li>
                     <li><a href="/fba-import-guide">FBA Import Guide</a></li>
                     <li><a href="/importer-of-record-guide">Importer of Record Guide</a></li>
                     <li><a href="/customs-broker-cost-guide">Customs Broker Cost Guide</a></li>
@@ -370,6 +371,6 @@
         </div>
     </footer>
 
-    <script src="sw-register.js?v=6216f28"></script>
+    <script src="sw-register.js?v=dd0fe60"></script>
 </body>
 </html>

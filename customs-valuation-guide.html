@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <title>Customs Value: What Counts, What Doesn't (2026 Guide)</title>
+    <meta name="description" content="US duty is a percentage of a number nobody explains. What CBP adds, what it strips out, and how first sale still cuts the base legally.">
+    <link rel="canonical" href="https://www.dutycalc.online/customs-valuation-guide">
+    <meta property="og:title" content="Customs Value: What Counts, What Doesn't (2026 Guide)">
+    <meta property="og:description" content="US duty is calculated on transaction value, not the invoice total. The five additions, the exclusions, the FOB/CIF fork, and the first sale math.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.dutycalc.online/customs-valuation-guide">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Customs Value: What Counts, What Doesn't">
+    <meta name="twitter:description" content="Assists, royalties, buying commissions, freight and the FOB/CIF fork. How the number your duty is multiplied against actually gets built.">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=dd0fe60">
+<meta property="og:image" content="https://www.dutycalc.online/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Customs Value: What Counts, What Doesn't",
+      "description": "US customs duty is calculated on transaction value, not the invoice total. The six valuation methods in their legal order, the five additions, what the US strips out that the UK and EU do not, and the first sale math.",
+      "datePublished": "2026-10-15",
+      "dateModified": "2026-10-15",
+      "author": {
+        "@type": "Organization",
+        "name": "DutyCalc Research"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "DutyCalc.online",
+        "url": "https://www.dutycalc.online"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.dutycalc.online/customs-valuation-guide"
+      }
+    }
+    </script>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "DutyCalc Online",
+          "item": "https://www.dutycalc.online/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Customs Valuation Guide",
+          "item": "https://www.dutycalc.online/customs-valuation-guide"
+        }
+      ]
+    }
+    </script>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is customs value the same as the invoice price?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only if you bought on FOB terms and there are no assists, royalties, selling commissions or resale proceeds in the deal. The invoice price is the starting point, not the answer. Packing costs the buyer pays, tools or materials you supplied to the factory, and any royalty the buyer must pay as a condition of the sale are added on top. International freight and insurance are stripped out if they are identified separately."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is US customs duty calculated on CIF or FOB?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FOB, or more precisely the transaction value, which excludes international freight and insurance under 19 U.S.C. 1401a(b)(4)(A). A $10,000 shipment with $800 freight and $120 insurance has a customs value of $10,000, not $10,920. The exclusions apply only if those charges are identified separately from the price, so a CIF or DDP invoice that does not break out freight puts the whole amount into the dutiable base."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I pay duty on freight and insurance into the UK and EU?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The UK, EU member states, Japan and the GCC assess duty on a CIF-type value, which includes the cost of freight and insurance to the point of importation. The same shipment therefore carries a higher dutiable base in Rotterdam than in Los Angeles. At a 10 percent rate, the difference on a $10,000 shipment with $920 of freight and insurance is about $92, or roughly $4,800 a year on weekly shipments."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if I do not declare an assist?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You have underpaid duty, which exposes you to a penalty under 19 U.S.C. 1592 of up to twice the duty lost for negligence, and the duty itself is still owed. There is a second risk: if the value of an assist cannot be established from sufficient information, transaction value fails as a method altogether and CBP moves down to identical or similar merchandise, which usually produces a worse number than the one you were trying to avoid."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is first sale for export still legal in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The Last Sale Valuation Act introduced in the Senate on 11 February 2026 would end it, but it has been referred to the Senate Finance Committee and is not law. First sale rests on Federal Circuit decisions in E.C. McAfee (1988) and Nissho Iwai (1992) and requires a bona fide sale between manufacturer and middleman, at arm's length, with the goods clearly destined for the United States at the time of that sale."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are royalties always dutiable?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. A royalty or licence fee is dutiable only when it relates to the imported merchandise and the buyer is required to pay it, directly or indirectly, as a condition of the sale for export to the United States. A trademark royalty paid for the right to sell the goods in the United States after importation is generally not dutiable. The same payment bundled into the price of the goods is. The distinction turns on the facts, which is why importers with complex licence arrangements ask CBP for a binding ruling before they file."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+
+        <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open main navigation">
+            <label for="nav-toggle" class="nav-toggle-btn" aria-hidden="true"><span></span><span></span><span></span></label>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/corridors">Corridors</a>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                        <a href="/customs-bond-calculator">Customs Bond</a>
+                        <a href="/sourcing-comparison">Sourcing Compare</a>
+                        <a href="/volume-weight-calculator">Volume Weight</a>
+                        <a href="/ddp-pricing-calculator">DDP Pricing</a>
+                        <a href="/container-loading-calculator">Container Loading</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Guides</span>
+                    <div class="nav-drop-menu">
+                        <a href="/trade-terms-glossary">Terms Glossary</a>
+                        <a href="/uflpa-forced-labor-compliance">UFLPA Guide</a>
+                        <a href="/anti-dumping-duties-guide">AD/CVD Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+<main class="container">
+
+<style>
+            /* Summary boxes */
+            .tldr-box {
+                background: #f0fdf4;
+                border: 1px solid #bbf7d0;
+                border-left: 4px solid var(--offshore-green);
+                border-radius: var(--radius-sharp);
+                padding: 22px 28px;
+                margin: 28px 0 32px;
+                font-size: 0.88rem;
+                line-height: 1.65;
+                color: var(--text-secondary);
+            }
+            .tldr-box strong { color: var(--steel-black); }
+            .tldr-box ul { margin: 8px 0 0 0; padding-left: 18px; list-style: none; }
+            .tldr-box ul li { margin-bottom: 5px; }
+            .tldr-box ul li::before { content: '▸ '; color: var(--offshore-green); font-weight: 700; }
+            .tldr-label {
+                font-family: var(--font-terminal);
+                font-size: 0.7rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                color: var(--offshore-green);
+                margin-bottom: 10px;
+            }
+            .tldr-box.warn {
+                background: #fffbeb;
+                border-color: #fde68a;
+                border-left-color: #f59e0b;
+            }
+            .tldr-box.warn .tldr-label { color: #b45309; }
+
+            /* Section key-takeaways */
+            .key-takes {
+                background: var(--bg-terminal);
+                border: 1px solid var(--border-light);
+                border-radius: var(--radius-sharp);
+                padding: 18px 24px;
+                margin: 0 0 24px;
+                font-size: 0.84rem;
+                line-height: 1.6;
+            }
+            .key-takes .kt-label {
+                font-family: var(--font-terminal);
+                font-size: 0.68rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.8px;
+                color: var(--steel-black);
+                margin-bottom: 6px;
+            }
+            .key-takes ul { margin: 0; padding-left: 18px; list-style: none; }
+            .key-takes ul li { margin-bottom: 3px; }
+            .key-takes ul li::before { content: '• '; color: var(--offshore-green); font-weight: 700; }
+
+            /* VS comparison table */
+            .vs-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 0.82rem;
+                margin: 22px 0 28px;
+                background: var(--bg-surface);
+                border: 1px solid var(--border-light);
+                border-radius: var(--radius-sharp);
+                overflow: hidden;
+            }
+            .vs-table thead th {
+                background: var(--steel-dark);
+                color: #FFFFFF;
+                font-family: var(--font-terminal);
+                font-size: 0.7rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                padding: 12px 16px;
+                text-align: left;
+                border-bottom: 2px solid var(--offshore-green);
+            }
+            .vs-table thead th:first-child { width: 30%; }
+            .vs-table tbody td {
+                padding: 12px 16px;
+                border-bottom: 1px solid var(--border-light);
+                vertical-align: top;
+            }
+            .vs-table tbody td:first-child {
+                font-weight: 700;
+                color: var(--steel-black);
+                font-family: var(--font-terminal);
+                font-size: 0.78rem;
+            }
+            .vs-table tbody tr:last-child td { border-bottom: none; }
+            .vs-table .vs-win { background: #f0fdf4; }
+            .vs-table .vs-lose { background: #fefafa; }
+
+            /* Decision-path callout */
+            .dp-callout {
+                background: var(--steel-dark);
+                border-left: 4px solid var(--offshore-green);
+                border-radius: var(--radius-sharp);
+                padding: 18px 24px;
+                margin: 16px 0;
+                font-size: 0.84rem;
+                color: rgba(255,255,255,0.85);
+                line-height: 1.6;
+            }
+            .dp-callout a {
+                color: var(--offshore-green);
+                font-weight: 700;
+                font-family: var(--font-terminal);
+                font-size: 0.8rem;
+            }
+            .dp-callout .dp-arrow { color: var(--offshore-green); font-weight: 700; }
+
+            /* Flow arrow */
+            .flow-row {
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                flex-wrap: wrap;
+                margin: 20px 0;
+                font-family: var(--font-terminal);
+                font-size: 0.82rem;
+            }
+            .flow-box {
+                background: var(--bg-surface);
+                border: 2px solid var(--steel-black);
+                border-radius: var(--radius-sharp);
+                padding: 14px 20px;
+                text-align: center;
+                font-weight: 700;
+                min-width: 140px;
+            }
+            .flow-box.green { border-color: var(--offshore-green); background: #f0fdf4; }
+            .flow-box.red  { border-color: #ef4444; background: #fefafa; }
+            .flow-arrow {
+                font-size: 1.2rem;
+                font-weight: 900;
+                color: var(--steel-black);
+                flex-shrink: 0;
+            }
+            .flow-label {
+                font-family: var(--font-data);
+                font-size: 0.78rem;
+                color: var(--text-muted);
+                font-weight: 400;
+                display: block;
+                margin-top: 4px;
+            }
+
+            /* Fee breakdown mini-table */
+            .fee-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 0.82rem;
+                margin: 16px 0 24px;
+                background: var(--bg-surface);
+            }
+            .fee-table thead th {
+                background: var(--bg-terminal);
+                font-family: var(--font-terminal);
+                font-size: 0.7rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                padding: 10px 14px;
+                text-align: left;
+                border-bottom: 2px solid var(--border-light);
+                color: var(--text-primary);
+            }
+            .fee-table tbody td {
+                padding: 10px 14px;
+                border-bottom: 1px solid var(--border-light);
+            }
+            .fee-table .fee-num {
+                font-family: var(--font-terminal);
+                font-weight: 700;
+                text-align: right;
+                color: var(--steel-black);
+            }
+            .fee-table .fee-note {
+                font-size: 0.75rem;
+                color: var(--text-muted);
+            }
+
+            @media (max-width: 640px) {
+                .tldr-box { padding: 18px 16px; }
+                .vs-table { font-size: 0.74rem; }
+                .vs-table thead th, .vs-table tbody td { padding: 8px 10px; }
+                .flow-row { flex-direction: column; align-items: flex-start; }
+                .flow-arrow { transform: rotate(90deg); }
+            }
+        </style>
+
+        <p class="back-link"><a href="/">&#8592; DutyCalc Online</a></p>
+
+        <h1>Customs Value: The Number Behind Every Duty Calculation</h1>
+
+        <p>Every duty estimate is a multiplication with two inputs. One is a rate. The other is a value. The rate gets all the attention &mdash; Section 301 lists, MFN columns, the de minimis cliff, whichever exclusion expired last quarter &mdash; and it gets looked up carefully. The value field gets whatever number happens to be on the commercial invoice. That is backwards. The rate is assigned to you by a tariff schedule you cannot negotiate. The value is built from a body of law that decides which parts of your paperwork count, and it is the half of the multiplication you actually control.</p>
+
+        <p>US Customs does not tax your profit, your retail price, or what the goods are notionally worth. It taxes a defined figure. The entry forms call it entered value; the law calls it customs value; brokers call it dutiable value. It is the price you paid for the goods, plus a short list of additions, minus a shorter list of exclusions, converted to dollars on a specific date. Get the list right and you pay exactly what the statute says. Get it wrong in either direction and you either overpay quietly for years or find out during an audit, at which point the arithmetic is the least interesting part of the conversation.</p>
+
+        <p>This is how the number gets built: the six valuation methods in the order the law requires, the five additions importers miss, what the United States strips out that the UK and European Union put in, and where the first sale rule still legally cuts the base.</p>
+
+        <div class="tldr-box">
+            <div class="tldr-label">Short version</div>
+            <ul>
+                <li>The US starts from <strong>transaction value</strong>: the price actually paid or payable for goods sold for export to the United States.</li>
+                <li><strong>Five things get added</strong> &mdash; packing, selling commissions, assists, royalties paid as a condition of the sale, and resale proceeds owed back to the seller.</li>
+                <li>The US <strong>strips international freight and insurance out</strong>. The UK, EU, Japan and the GCC put them in. Same invoice, different duty, in both directions.</li>
+                <li><strong>First sale for export is still law</strong>, and a Senate bill introduced on 11 February 2026 would end it.</li>
+                <li>Undervaluation is not a rounding slip. Negligence tops out at <strong>twice the duty lost</strong>, or 20% of dutiable value where no duty was lost.</li>
+            </ul>
+        </div>
+
+        <h2>Six methods, in an order you are not allowed to skip</h2>
+
+        <p>The United States applies the WTO Customs Valuation Agreement, written into law as 19 U.S.C. 1401a. That statute does not offer a choice of methods. It sets a strict hierarchy, and CBP works down it. Method one settles almost every commercial entry; the rest exist for the cases where there is no sale, or the price cannot be trusted, or something in the transaction cannot be valued.</p>
+
+        <div class="table-scroll">
+            <table class="vs-table">
+                <thead>
+                    <tr>
+                        <th>Order</th>
+                        <th>Method</th>
+                        <th>What it uses</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Transaction value</td>
+                        <td>The price actually paid or payable, plus the five additions below</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Identical merchandise</td>
+                        <td>Transaction value of identical goods sold for export to the US at about the same time</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Similar merchandise</td>
+                        <td>The same, for goods alike in materials and function rather than identical</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Deductive value</td>
+                        <td>What the goods sell for in the US, minus post-importation costs and a profit</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Computed value</td>
+                        <td>Cost of production, plus general expenses and profit</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Fallback</td>
+                        <td>Any reasonable method consistent with the agreement, adapted from the above</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>Methods four and five can be swapped if the importer asks for it, which is the only flexibility in the sequence. Everything else is mandatory in order, and the point of the hierarchy is this: every step below transaction value derives the number from something other than your own commercial relationship. That usually means a higher figure, and it always means less control.</p>
+
+        <p>Transaction value fails in five common situations. There is no sale at all &mdash; consignment stock, free samples, or goods supplied on loan. The price depends on a condition whose value cannot be worked out. The buyer and seller are related and the relationship affected the price. How you may use or dispose of the goods is restricted. Or one of the additions cannot be quantified from real information. That last one is the trap. Failing to document a royalty does not make the royalty vanish from the base; it can make the entire transaction value method fail, which pushes the entry to identical or similar merchandise, and from there to a deductive value built out of American selling prices. The gap between the number you were trying to avoid and the number you end up with is generally much wider than the royalty.</p>
+
+        <p>The same reasoning applies to goods you did not pay for. Free of charge does not mean zero value. If there is no sale, there is no transaction value, and CBP values the goods another way.</p>
+
+        <h2>The five additions to the price you paid</h2>
+
+        <p>Transaction value is the price actually paid or payable, increased by exactly five categories of payment and nothing else. The rule is closed: the regulation adds the items listed in 19 CFR 152.103(b)(1)(i) through (v) and no others.</p>
+
+        <div class="table-scroll">
+            <table class="vs-table">
+                <thead>
+                    <tr>
+                        <th>Addition</th>
+                        <th>What it covers</th>
+                        <th>Where it bites</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Packing costs</td>
+                        <td>Packing labour and materials the buyer pays for, including containers</td>
+                        <td>The supplier invoices packing separately and nobody adds it back</td>
+                    </tr>
+                    <tr>
+                        <td>Selling commissions</td>
+                        <td>Commission paid to the seller's agent</td>
+                        <td>Confused with a buying commission, which is not dutiable</td>
+                    </tr>
+                    <tr>
+                        <td>Assists</td>
+                        <td>Anything you supply free or at a discount: materials, tooling, engineering, design</td>
+                        <td>The most commonly missed addition in the statute</td>
+                    </tr>
+                    <tr>
+                        <td>Royalties and licence fees</td>
+                        <td>Payments related to the imported goods that the buyer must make as a condition of the sale</td>
+                        <td>Trademark, patent and process licences</td>
+                    </tr>
+                    <tr>
+                        <td>Proceeds of resale</td>
+                        <td>Any part of a later resale, disposal or use that flows back to the seller</td>
+                        <td>Consignment and revenue-share arrangements</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>Each addition is made only to the extent it is not already inside the price, and only where there is sufficient information to establish the amount. That qualifier does real work. If you cannot produce the figure, you do not get to leave it out &mdash; you lose the method.</p>
+
+        <p>The one payment that looks like an addition and is not is the <strong>buying commission</strong>. A commission paid to your own purchasing agent is not part of customs value. The distinction between a buying agent and a selling agent sounds like bookkeeping, and CBP scrutinises it closely because the two are worth different amounts of duty. The burden of proving a genuine buying agency relationship sits with the importer, and in practice that means three things in the file: a written buying agency agreement, the commission identified as a commission on each vendor invoice, and the amount declared as a non-dutiable charge on each entry. If CBP concludes the agent is really an independent seller or the seller's representative, the commission goes back into the value.</p>
+
+        <h2>Assists are the addition importers forget to declare</h2>
+
+        <p>An assist is anything the buyer supplies, directly or indirectly, free of charge or at a reduced price, that the producer uses to make the imported goods. The statute names four categories:</p>
+
+        <ul>
+            <li>Materials, components, parts and similar items incorporated into the imported goods</li>
+            <li>Tools, dies, moulds and similar items used in their production</li>
+            <li>Materials consumed in the production of the imported goods</li>
+            <li>Engineering, development, artwork, design work, plans and sketches undertaken outside the United States and necessary for production</li>
+        </ul>
+
+        <p>The fourth category has a boundary worth knowing exactly. Engineering and design work performed in the United States and incidental to work done in the United States is not an assist. The same work performed abroad is. A buyer who splits product development between an American and an overseas team is holding a valuation question, not just a project plan.</p>
+
+        <p>Valuing an assist follows its own rules. If you bought it from an unrelated seller, the value is your acquisition cost. If you or a related party produced it, the value is the cost of production, and that includes getting it to the factory. Tooling you already used before shipping it gets its cost adjusted down for prior use. Publicly available material is valued at the cost of obtaining copies. The total is then apportioned across the imported goods under generally accepted accounting principles.</p>
+
+        <div class="dp-callout">
+            <strong>$60,000 of tooling, and the duty nobody budgeted for.</strong> A mould amortised across a 10,000-unit order adds $6.00 to each unit's customs value. At a combined MFN and Section 301 rate of 25%, that is $1.50 of duty per unit &mdash; $15,000 on a single order. Assists are normally declared through an amortisation schedule rather than paid up front, so the paperwork exists either way. What decides the outcome is whether the schedule was built before the entry or after CBP asked.
+        </div>
+
+        <h2>Royalties pass a two-part test, and failing it costs more than paying it</h2>
+
+        <p>A royalty or licence fee enters customs value only when both halves of a test are satisfied. First, it must relate to the imported merchandise. Second, the buyer must be required to pay it, directly or indirectly, as a condition of the sale of the goods for export to the United States. Miss either half and it stays out.</p>
+
+        <p>In practice the second half does most of the work. A royalty paid for the right to use a trademark on goods you sell in the United States after importation is generally a selling expense of the importer, not a dutiable addition. A royalty for a patented process the factory uses to make the goods relates to the imported merchandise and is dutiable. So is a payment that is legally separate but economically inseparable from the sale, where the seller or a related party could refuse to sell without it.</p>
+
+        <p>Size the exposure before deciding how hard to fight. A brand importing $2 million a year and paying a 5% royalty on those goods is looking at $100,000 of potentially dutiable value. At a 20% combined duty rate, getting the treatment wrong is a $20,000 annual question, and it recurs across every entry in the audit window.</p>
+
+        <p>This is exactly the situation the binding ruling programme exists for. A ruling request costs far less than a valuation redetermination spread across three years of entries, and it converts an argument into a document. Complex licence structures, related-party supply chains and multi-tier sourcing are the three cases where asking first is cheaper than explaining later.</p>
+
+        <h2>What comes out, and why the same invoice costs more in Rotterdam</h2>
+
+        <p>Additions get the regulatory attention, but deductions decide whether you were paying duty on freight for years. US customs value excludes international freight, international insurance, costs of construction, assembly, maintenance and technical assistance performed after importation, US duties and federal taxes triggered by the importation, inland freight after arrival, and buying commissions &mdash; each provided it is identified separately from the price actually paid or payable.</p>
+
+        <p>That last clause is the whole game. The exclusions are conditional on separate identification. If your invoice is on CIF or DDP terms and freight is not broken out, the price actually paid includes it, and CBP adds nothing and deducts nothing. The law does not rescue you from an invoice that hides the number.</p>
+
+        <p>The United States is also close to alone among major economies in how it treats those charges. Most customs authorities include freight and insurance in the dutiable base.</p>
+
+        <div class="table-scroll">
+            <table class="vs-table">
+                <thead>
+                    <tr>
+                        <th>Market</th>
+                        <th>Duty base</th>
+                        <th>International freight and insurance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="vs-win">
+                        <td>United States</td>
+                        <td>Transaction value, FOB type</td>
+                        <td>Excluded, if separately identified</td>
+                    </tr>
+                    <tr class="vs-win">
+                        <td>Australia</td>
+                        <td>Customs value, FOB type</td>
+                        <td>Excluded</td>
+                    </tr>
+                    <tr class="vs-lose">
+                        <td>United Kingdom</td>
+                        <td>CIF</td>
+                        <td>Included</td>
+                    </tr>
+                    <tr class="vs-lose">
+                        <td>EU member states</td>
+                        <td>CIF</td>
+                        <td>Included</td>
+                    </tr>
+                    <tr class="vs-lose">
+                        <td>Japan</td>
+                        <td>CIF</td>
+                        <td>Included</td>
+                    </tr>
+                    <tr class="vs-lose">
+                        <td>Saudi Arabia, UAE and the wider GCC</td>
+                        <td>CIF</td>
+                        <td>Included</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>Run the arithmetic on one shipment. Goods of $10,000, ocean freight of $800, marine insurance of $120, an MFN rate of 10%. In the United States the dutiable base is $10,000 and the duty is $1,000. In the United Kingdom or Germany the base is $10,920 and the duty is $1,092. That is $92 on a single shipment, and $4,784 a year at one shipment a week &mdash; a difference created entirely by which charges the customs authority counts.</p>
+
+        <p>The two markets also differ in what the duty then does to the next calculation. VAT and GST are charged on the duty-paid CIF value in most of the world, so duty inflates the tax base on top of everything else. The United States has no federal VAT on imports, which makes the duty line the only federal charge at the border and changes the shape of the landed cost entirely. Our <a href="/import-duty-calculator">import duty calculator</a> handles the two structures separately, and the <a href="/trade-terms-glossary">trade terms glossary</a> defines which Incoterm moves which cost into whose column.</p>
+
+        <h2>First sale for export is still law, and it is under active threat</h2>
+
+        <p>When goods pass through a middleman before reaching you, there are two commercial sales in the chain. CBP presumes the relevant one is the last: the price you paid. The first sale rule lets you elect the earlier sale instead &mdash; the price the factory charged the trading company &mdash; and pay duty on that.</p>
+
+        <p>The rule comes from Federal Circuit decisions in E.C. McAfee (1988) and Nissho Iwai (1992), and it is not a loophole in the sense of being undocumented. It has three conditions, and all three are fact-intensive:</p>
+
+        <ul>
+            <li><strong>A bona fide sale</strong> between the manufacturer and the middleman. Title and risk of loss have to actually pass, real consideration has to be paid, and the arrangement cannot be an agency dressed up as a purchase. Where title moves in the same instant from factory to middleman to importer &mdash; what practitioners call a flash transfer &mdash; CBP looks harder.</li>
+            <li><strong>Arm's length, free of non-market influences.</strong> If the factory and the middleman are related under the statute, you must demonstrate the relationship did not affect the price. This test applies to related parties from every country. The Federal Circuit rejected an attempt to exclude goods from non-market economies in 2022, so there is no separate China rule.</li>
+            <li><strong>Clearly destined for the United States at the time of the first sale.</strong> The destination has to exist at that moment, not be settled later. US-specific labelling, US electrical or nutrition standards, US-bound packaging and a through bill of lading naming an American port are the evidence CBP looks for.</li>
+        </ul>
+
+        <p>Documentation is where first sale claims live or die. CBP has asked for a complete paper trail showing the structure of the entire transaction since it set out its framework in T.D. 96-87: purchase orders and invoices at both tiers, proof of payment at both tiers, the governing contracts, and shipping documents establishing where risk of loss passed. Recent rulings have denied claims on missing upstream documents or untranslated invoices rather than on any doubt about the principle. The importer carries the burden of rebutting CBP's presumption in favour of the last sale, and the entry has to flag that an earlier sale was used as the basis &mdash; a separate obligation from holding the files.</p>
+
+        <div class="dp-callout">
+            <strong>What the gap is worth.</strong> A factory sells to a trading company at $8.00 a unit; the trading company sells to the US importer at $10.00; the order is 100,000 units and the effective duty rate is 27.5% once MFN and Section 301 are stacked. Duty on the last sale is $275,000. Duty on the first sale is $220,000. The difference is $55,000 a year from one SKU. The overhead &mdash; counsel, a written valuation policy, dual documentation on every entry, a five-year retention discipline &mdash; generally only pays for itself above roughly $1 to $2 million of annual imports from a single factory. Below that, plain transaction value is the cheaper answer.
+        </div>
+
+        <p>First sale also has a shelf life. On 11 February 2026, Senators Bill Cassidy and Sheldon Whitehouse introduced the Last Sale Valuation Act, which would amend section 402 of the Tariff Act of 1930 to require that duties be calculated on the last sale before exportation to the United States. That is a one-line change with a large price tag: the new base is the highest price in the sequence. The bill has been referred to the Senate Finance Committee, where both sponsors sit, and no companion has been introduced in the House. It is not law. But this is the second attempt &mdash; CBP tried to end first sale by regulation in 2008 and withdrew after industry opposition &mdash; and in a political environment where both parties are competing to look tough on trade, the arithmetic of an existing qualifying structure is worth doing while the election is still available.</p>
+
+        <h2>Related buyers: the price has to survive a second test</h2>
+
+        <p>If your supplier is a related party, transaction value is still available, but the price has to be acceptable. The regulation at 19 CFR 152.103(l) sets out a circumstances-of-sale test: whether the price was settled in a manner consistent with normal pricing practices in the industry, whether it covered the seller's costs plus a representative profit, and whether the seller prices unrelated buyers the same way. Failing that, you can show the price closely approximates a value that would be produced under one of the other methods.</p>
+
+        <p>What this means practically is that an intra-group transfer price is not automatically the customs value. A transfer pricing study built for tax purposes is not a valuation opinion, and the two can point in opposite directions. A defensible position usually draws on both the accounting file and the customs analysis, and it is much easier to assemble before an entry than during a review of one.</p>
+
+        <h2>Currency: the date of export decides the number</h2>
+
+        <p>Customs value has to be declared in dollars, and the conversion rate is not the one on your invoice date or the one on the day you paid. It is the rate in effect on the date of exportation, under 19 CFR 159.32.</p>
+
+        <p>For more than thirty named currencies, including the renminbi, CBP publishes a certified quarterly rate in the Customs Bulletin, based on a rate first certified by the Federal Reserve Bank of New York for a day in that quarter. That quarterly rate applies to any date of exportation inside the quarter, with two exceptions: a proclaimed Treasury rate applies if it does not vary by 5% or more from the daily rate, and where the certified daily rate for the export date differs from the quarterly rate by 5% or more, the daily rate takes over. Currencies outside the quarterly list use the certified daily rate.</p>
+
+        <p>The practical effect is that a shipment leaving a few days later can carry a different dutiable value for identical goods at an identical price. An invoice of RMB 500,000 is $70,423 at 7.10 and $72,464 at 6.90 &mdash; $2,041 more on the base, and about $510 of extra duty at a 25% combined rate, produced entirely by the exchange rate on the day the goods left. For importers with thin margins and volatile currencies, the export date is a cost decision, not a clerical one.</p>
+
+        <h2>When the number is wrong: the penalty ladder</h2>
+
+        <p>Valuation sits inside 19 U.S.C. 1592, the same provision that covers misclassification and false statements. The penalty depends on culpability, and the ceiling for a negligent error is not small.</p>
+
+        <div class="table-scroll">
+            <table class="vs-table">
+                <thead>
+                    <tr>
+                        <th>Culpability</th>
+                        <th>Maximum penalty</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fraud</td>
+                        <td>The domestic value of the merchandise</td>
+                    </tr>
+                    <tr>
+                        <td>Gross negligence</td>
+                        <td>The lesser of domestic value, or four times the duties, taxes and fees lost &mdash; or 40% of dutiable value where no duty was lost</td>
+                    </tr>
+                    <tr>
+                        <td>Negligence</td>
+                        <td>The lesser of domestic value, or twice the duties lost &mdash; or 20% of dutiable value where no duty was lost</td>
+                    </tr>
+                    <tr>
+                        <td>Prior disclosure, negligence or gross negligence</td>
+                        <td>Interest on the unpaid duties only</td>
+                    </tr>
+                    <tr>
+                        <td>Prior disclosure, fraud</td>
+                        <td>One times the duties lost, or 10% of dutiable value where no duty was lost</td>
+                    </tr>
+                    <tr>
+                        <td>Clerical error or mistake of fact</td>
+                        <td>No violation &mdash; unless it forms part of a pattern of negligent conduct</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>Two features matter more than the scale. First, the penalty is not the whole bill: the lawful duties are still owed separately, so the arithmetic of understating value is the duty you saved multiplied by roughly three. Second, the ladder is built on reasonable care, and reasonable care is a process standard rather than a state of mind. The legislative history of the Customs Modernization Act treats reliance on a binding ruling, a licensed customs broker, an accountant or attorney, or in-house staff with customs experience as evidence of it. An importer who never asked anyone, and cannot show why the declared value was right, has a weaker position than one who documented the reasoning &mdash; even if both got the same number wrong.</p>
+
+        <p>Undervaluation is also an enforcement priority rather than a theoretical risk, which makes it the single worst place on the entry to save money. Our <a href="/customs-broker-cost-guide">customs broker guide</a> covers what a broker will and will not catch on your behalf, and the <a href="/importer-of-record-guide">importer of record guide</a> explains why the liability follows the entry rather than the filing agent.</p>
+
+        <h2>Build the declared value in this order</h2>
+
+        <p>The sequence matters because each step changes the next one. Worked in this order, the number holds up under questioning.</p>
+
+        <ol>
+            <li><strong>Start with the price actually paid or payable</strong> for goods sold for export to the United States, and read the Incoterm to know what is already inside it.</li>
+            <li><strong>Add packing costs</strong> the buyer incurred, including containers the supplier charged for.</li>
+            <li><strong>Add selling commissions</strong> paid to the seller's agent. Leave buying commissions out, and keep the evidence that they qualify.</li>
+            <li><strong>Add the apportioned value of every assist</strong> &mdash; materials, tooling, and engineering or design done outside the United States.</li>
+            <li><strong>Add royalties and licence fees</strong> that relate to the imported goods and are a condition of the sale. Get a ruling where the answer is not obvious.</li>
+            <li><strong>Add proceeds of resale</strong> that accrue back to the seller.</li>
+            <li><strong>Confirm each deduction is separately identified</strong> on the invoice: international freight, international insurance, post-importation work, US duties, inland freight after arrival.</li>
+            <li><strong>Convert on the date of exportation</strong> using the rate CBP has certified for that date.</li>
+            <li><strong>Record the reasoning</strong> in a valuation file, and keep it for five years after the entry. Reasonable care is documented or it is not there.</li>
+        </ol>
+
+        <p>If you are starting from a landed cost rather than an entry, run the base through the <a href="/landed-cost-calculator">landed cost calculator</a> for the full picture, then check the rate against the corridor page for your route. Our <a href="/corridors">corridor library</a> covers 36 trade lanes and flags which of them test value on an FOB basis and which on CIF &mdash; the distinction in the table above, applied to real routes. For the classification half of the multiplication, start with <a href="/how-to-find-hs-code">how to find your HS code</a>, and for products carrying anti-dumping or countervailing exposure read the <a href="/anti-dumping-duties-guide">AD/CVD guide</a> first, because scope rulings can override the valuation question entirely.</p>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Is customs value the same as the invoice price?</h3>
+        <p>Only if you bought on FOB terms and there are no assists, royalties, selling commissions or resale proceeds in the deal. The invoice price is the starting point, not the answer. Packing costs the buyer pays for, tooling or materials you supplied to the factory, and any royalty the buyer must pay as a condition of the sale are added on top. International freight and insurance are stripped out if they are identified separately.</p>
+
+        <h3>Is US customs duty calculated on CIF or FOB?</h3>
+        <p>On the transaction value, which is an FOB-type basis: international freight and insurance are excluded by statute under 19 U.S.C. 1401a(b)(4)(A). A $10,000 shipment with $800 freight and $120 insurance has a customs value of $10,000, not $10,920. The exclusion is conditional on those charges being identified separately from the price. A CIF or DDP invoice that does not break out freight puts the whole amount into the dutiable base, which is why the terms of sale are worth negotiating even when the total price does not change.</p>
+
+        <h3>Do I pay duty on freight and insurance into the UK and EU?</h3>
+        <p>Yes. The UK, EU member states, Japan and the GCC assess duty on a CIF-type value that includes freight and insurance to the point of importation. The same shipment therefore carries a higher dutiable base in Rotterdam than in Los Angeles. At a 10% rate, the difference on a $10,000 shipment with $920 of freight and insurance is $92, or about $4,800 a year on weekly shipments. VAT and GST then compound it, because they are charged on the duty-paid CIF value.</p>
+
+        <h3>What happens if I do not declare an assist?</h3>
+        <p>You have underpaid duty, which exposes you to a penalty of up to twice the duty lost for a negligent violation, with the duty itself still owed. There is a second and less obvious risk. If the value of an assist cannot be established from sufficient information, transaction value fails as a method altogether, and CBP moves down to identical or similar merchandise &mdash; a number built from other people's transactions rather than yours.</p>
+
+        <h3>Is first sale for export still legal in 2026?</h3>
+        <p>Yes. The Last Sale Valuation Act introduced on 11 February 2026 would end it, but the bill has been referred to the Senate Finance Committee and has no House companion, so first sale remains available under current law. It requires a bona fide sale between manufacturer and middleman, at arm's length, with the goods clearly destined for the United States at the time of that sale, and it requires documentation at both tiers of the transaction.</p>
+
+        <h3>Are royalties always dutiable?</h3>
+        <p>No. A royalty enters customs value only when it relates to the imported merchandise and the buyer must pay it as a condition of the sale for export to the United States. A trademark royalty paid for the right to sell the goods in the United States after importation is generally not dutiable, while the same payment bundled into the price of the goods is. Because the answer turns on the specific agreement, importers with complex licence arrangements request a binding ruling from CBP before filing.</p>
+
+    </main>
+
+        <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>DutyCalc Online</h2>
+                <p>Customs duty, VAT, and landed cost calculators for international trade. Independent trade metrology &mdash; not affiliated with any government customs agency.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <ul>
+                    <li><a href="/landed-cost-calculator">Landed Cost Calculator</a></li>
+                    <li><a href="/import-duty-calculator">Import Duty Calculator</a></li>
+                    <li><a href="/vat-calculator">VAT / GST Calculator</a></li>
+                    <li><a href="/tariff-calculator">Tariff Rate Lookup</a></li>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/hscode-duty-estimator">HS Code Estimator</a></li>
+                    <li><a href="/customs-bond-calculator">Customs Bond Calculator</a></li>
+                    <li><a href="/sourcing-comparison">Sourcing Comparison</a></li>
+                    <li><a href="/volume-weight-calculator">Volume Weight Calculator</a></li>
+                    <li><a href="/ddp-pricing-calculator">DDP Pricing Calculator</a></li>
+                    <li><a href="/container-loading-calculator">Container Loading Calculator</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Guides &amp; Reference</h4>
+                <ul>
+                    <li><a href="/import-cost-workflow">Import Workflow Guide</a></li>
+                    <li><a href="/how-to-find-hs-code">How to Find Your HS Code</a></li>
+                    <li><a href="/customs-valuation-guide">Customs Value Explained</a></li>
+                    <li><a href="/fba-import-guide">FBA Import Guide</a></li>
+                    <li><a href="/importer-of-record-guide">Importer of Record Guide</a></li>
+                    <li><a href="/customs-broker-cost-guide">Customs Broker Cost Guide</a></li>
+                    <li><a href="/customs-hold-guide">Customs Hold Guide</a></li>
+                    <li><a href="/dropshipping-duty-guide">Dropshipping Duty Guide</a></li>
+                    <li><a href="/ioss-eu-vat-guide">EU IOSS Guide</a></li>
+                    <li><a href="/import-vat-guide">Import VAT Explained</a></li>
+                    <li><a href="/de-minimis-value-guide">De Minimis Threshold Guide</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                    <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+                    <li><a href="/trade-terms-glossary">Trade Terms Glossary</a></li>
+                    <li><a href="/incoterms-guide">Incoterms Explained</a></li>
+                    <li><a href="/uflpa-forced-labor-compliance">UFLPA Compliance Guide</a></li>
+                    <li><a href="/rate-updates">Rate Update History</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Corridors &amp; Hubs</h4>
+                <ul>
+                    <li><a href="/corridors">Corridor Directory</a></li>
+                    <li><a href="/southeast-asia-to-us-duty">Southeast Asia &rarr; US Duty</a></li>
+                    <li><a href="/gcc-ecommerce-market-guide">Selling into the Gulf</a></li>
+                    <li><a href="/electronics-import-duty">Electronics Duty</a></li>
+                    <li><a href="/apparel-import-duty">Apparel Duty</a></li>
+                    <li><a href="/furniture-import-duty">Furniture Duty</a></li>
+                    <li><a href="/machinery-import-duty">Machinery Duty</a></li>
+                    <li><a href="/auto-parts-import-duty">Auto Parts Duty</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent trade data &mdash; not affiliated with any government customs agency.</p>
+            <p class="footer-legal"><a href="/about">About</a> <a href="/contact">Contact</a> <a href="/privacy">Privacy</a> <a href="/sitemap.xml">Sitemap</a></p>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/dutycalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">&#128194; View on GitHub</a></p>
+        </div>
+    </footer>
+
+    <script src="sw-register.js?v=dd0fe60"></script>
+</body>
+</html>

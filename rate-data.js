@@ -12,6 +12,18 @@
 //   fresh   (≤30 days since lastVerified)   → green
 //   stale   (31–90 days)                     → yellow
 //   expired (>90 days)                       → red
+//
+// VALUATION BASIS (thresholdBase) — drives BOTH the ad valorem duty base and the
+// de minimis test, in main.js and in the index.html mini calculator. It is not a
+// per-card preference: it is a property of the destination market's customs law.
+//   'fob' — duty lands on the goods value; international freight and insurance are
+//           excluded from the base. United States (19 U.S.C. 1401a(b)(4)(A)),
+//           Canada (value for duty at the place of direct shipment), Australia.
+//   'cif' — duty lands on goods + international freight and insurance.
+//           United Kingdom, EU member states, Japan, Saudi Arabia, UAE,
+//           Mexico (Ley Aduanera art. 65 adds international freight and insurance).
+// Changing one of these without checking the destination's valuation rule will
+// silently misprice every result on that corridor.
 
 var MPF_RATES = { rate: 0.003464, min: 31.67, max: 614.35 };  // US Merchandise Processing Fee, 2026 (single source of truth)
 
@@ -328,7 +340,7 @@ var RATE_DATABASE = {
     category: 'Industrial & Automation',
     dutyRate: 4.2, vatRate: 19, deMinimis: 150,
     currency: 'EUR',
-    thresholdBase: 'fob',
+    thresholdBase: 'cif',
     detailPage: '/china-to-germany-customs',
     lastVerified: '2026-07-15',
     rateStatus: 'stable',
@@ -346,7 +358,7 @@ var RATE_DATABASE = {
     category: 'General E-Commerce Cargo',
     dutyRate: 4.5, vatRate: 20, deMinimis: 150,
     currency: 'EUR',
-    thresholdBase: 'fob',
+    thresholdBase: 'cif',
     detailPage: '/china-to-france-customs',
     lastVerified: '2026-07-15',
     rateStatus: 'stable',
@@ -364,7 +376,7 @@ var RATE_DATABASE = {
     category: 'Industrial Machinery & Parts',
     dutyRate: 1.7, vatRate: 19, deMinimis: 150,
     currency: 'EUR',
-    thresholdBase: 'fob',
+    thresholdBase: 'cif',
     detailPage: '/us-to-germany-machinery',
     lastVerified: '2026-07-15',
     rateStatus: 'stable',
@@ -383,7 +395,7 @@ var RATE_DATABASE = {
     category: 'Rotterdam Hub Bulk Cargo',
     dutyRate: 3.5, vatRate: 21, deMinimis: 150,
     currency: 'EUR',
-    thresholdBase: 'fob',
+    thresholdBase: 'cif',
     detailPage: '/china-to-netherlands-hub',
     lastVerified: '2026-07-15',
     rateStatus: 'stable',
@@ -401,7 +413,7 @@ var RATE_DATABASE = {
     category: 'Textiles & Leather',
     dutyRate: 12.0, vatRate: 22, deMinimis: 150,
     currency: 'EUR',
-    thresholdBase: 'fob',
+    thresholdBase: 'cif',
     detailPage: '/china-to-italy-textiles',
     lastVerified: '2026-07-15',
     rateStatus: 'stable',
@@ -509,7 +521,7 @@ var RATE_DATABASE = {
     category: 'Manufacturing & Maquila',
     dutyRate: 15.0, vatRate: 16, deMinimis: 50, vatDeMinimis: 50,
     currency: 'MXN',
-    thresholdBase: 'fob',
+    thresholdBase: 'cif',
     detailPage: '/china-to-mexico-maquila',
     lastVerified: '2026-07-15',
     rateStatus: 'under-review',

@@ -12,16 +12,28 @@
         var card = buttonElement.closest('.calculator-card');
         if (!card) return;
 
-        var dutyRate   = parseFloat(card.getAttribute('data-duty-rate')) || 0;
-        var vatRate    = parseFloat(card.getAttribute('data-vat-rate')) || 0;
-        var deMinimis  = parseFloat(card.getAttribute('data-deminimis')) || 0;
-        var vatDeMinimis = 0;
-        if (card.hasAttribute('data-vat-deminimis')) {
-            vatDeMinimis = parseFloat(card.getAttribute('data-vat-deminimis')) || 0;
+        // Rate config sits on the card on most pages, but a few older pages put it
+        // on a wrapping .calculator-section. Walk up to the nearest element that
+        // actually carries data-duty-rate, so both layouts calculate.
+        var cfg = card;
+        while (cfg && !cfg.hasAttribute('data-duty-rate') && cfg.parentElement) {
+            cfg = cfg.parentElement;
         }
-        // Threshold base: 'fob' (default, goods value only) or 'cif' (goods + shipping,
-        // required for UK £135 consignment rule and Japan ¥10,000 CIF rule)
-        var thresholdBase = card.getAttribute('data-threshold-base') || 'fob';
+        if (!cfg || !cfg.hasAttribute('data-duty-rate')) cfg = card;
+
+        var dutyRate   = parseFloat(cfg.getAttribute('data-duty-rate')) || 0;
+        var vatRate    = parseFloat(cfg.getAttribute('data-vat-rate')) || 0;
+        var deMinimis  = parseFloat(cfg.getAttribute('data-deminimis')) || 0;
+        var vatDeMinimis = 0;
+        if (cfg.hasAttribute('data-vat-deminimis')) {
+            vatDeMinimis = parseFloat(cfg.getAttribute('data-vat-deminimis')) || 0;
+        }
+        // Valuation basis: 'fob' (goods value only — United States, Canada,
+        // Australia) or 'cif' (goods plus international freight and insurance —
+        // UK, EU, Japan, Saudi Arabia, UAE, Mexico). Drives the ad valorem base
+        // and the de minimis test alike, because a market that adds freight to
+        // its duty base also adds it to whatever threshold it applies.
+        var thresholdBase = cfg.getAttribute('data-threshold-base') || 'fob';
 
         var itemValue    = parseFloat(card.querySelector('.item-value').value);
         var shippingCost = parseFloat(card.querySelector('.shipping-cost').value) || 0;
@@ -42,13 +54,15 @@
         var totalCIF       = itemValue + shippingCost;
         var calculatedDuty = 0;
         var calculatedVAT  = 0;
-        // De minimis is tested against the correct base: UK/Japan compare CIF (incl. freight)
-        var dmBase = thresholdBase === 'cif' ? totalCIF : itemValue;
+        // The dutiable base, which is not the same number as the landed cost.
+        // On an FOB market the rate lands on the goods value and the freight rides
+        // along in the landed cost without attracting duty.
+        var valueBase = thresholdBase === 'cif' ? totalCIF : itemValue;
 
-        if (dmBase > deMinimis) {
-            calculatedDuty = totalCIF * (dutyRate / 100);
+        if (valueBase > deMinimis) {
+            calculatedDuty = valueBase * (dutyRate / 100);
         }
-        if (dmBase > vatDeMinimis) {
+        if (valueBase > vatDeMinimis) {
             calculatedVAT = (totalCIF + calculatedDuty) * (vatRate / 100);
         }
 
@@ -134,9 +148,11 @@
         }
 
         var cif = goods + (isNaN(ship) ? 0 : ship);
-        var dmBase = thresholdBase === 'cif' ? cif : goods;
-        var duty = dmBase > deMinimis ? cif * (dutyRate / 100) : 0;
-        var vat  = (dmBase > vatDeMin && vatRate > 0) ? (cif + duty) * (vatRate / 100) : 0;
+        // Same rule as the main path: the rate lands on the dutiable base, which
+        // excludes international freight and insurance on an FOB market.
+        var valueBase = thresholdBase === 'cif' ? cif : goods;
+        var duty = valueBase > deMinimis ? valueBase * (dutyRate / 100) : 0;
+        var vat  = (valueBase > vatDeMin && vatRate > 0) ? (cif + duty) * (vatRate / 100) : 0;
         var total = cif + duty + vat;
 
         function fill(span, val) {
@@ -152,7 +168,7 @@
         var mpfSpan = legacyFirst(root, ['#result-mpf', '#mpfResult']);
         if (mpfSpan) {
             var mpfCfg = window.MPF_RATES || { rate: 0.003464, min: 31.67, max: 614.35 };
-            var mpf = dmBase > deMinimis ? Math.min(mpfCfg.max, Math.max(mpfCfg.min, cif * mpfCfg.rate)) : 0;
+            var mpf = valueBase > deMinimis ? Math.min(mpfCfg.max, Math.max(mpfCfg.min, valueBase * mpfCfg.rate)) : 0;
             fill(mpfSpan, mpf);
         }
     }

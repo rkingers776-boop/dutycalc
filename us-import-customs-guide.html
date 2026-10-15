@@ -16,7 +16,7 @@
     <link rel="canonical" href="https://www.dutycalc.online/us-import-customs-guide">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=6216f28">
+    <link rel="stylesheet" href="style.css?v=dd0fe60">
 <meta property="og:image" content="https://www.dutycalc.online/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -25,7 +25,7 @@
 <body>
 
     <!-- ── Header Navigation ── -->
-                <nav class="site-nav" aria-label="Main Navigation">
+                        <nav class="site-nav" aria-label="Main Navigation">
         <div class="nav-inner">
             <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
             <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open main navigation">
@@ -408,7 +408,7 @@
             <div class="key-takes">
                 <div class="kt-label">Key Points</div>
                 <ul>
-                    <li>Duty is calculated on CIF, not FOB. Freight and insurance expand the taxable base.</li>
+                    <li>Duty is calculated on the transaction value, not on CIF. Freight and insurance stay outside the duty base as long as your invoice lists them as separate line items.</li>
                     <li>If the goods are from China, Section 301 adds 7.5% or 25% on top of the MFN rate — the effective rate is the sum, not a replacement.</li>
                     <li>MPF is small per entry but adds up fast on split shipments. Consolidate when you can.</li>
                 </ul>
@@ -489,7 +489,7 @@
             <h3>Layer 1: MFN — the baseline rate</h3>
             <p>Every product imported into the US has an MFN (Most Favored Nation) duty rate assigned by its 10-digit HTSUS code. This is the rate the US applies to imports from all WTO members in the absence of a specific trade agreement or penalty. MFN rates on industrial goods average around 2–5%. Consumer electronics: typically 0–2.5%. Apparel: 10–16%, depending on fiber content and construction. Footwear: up to 37.5% on certain rubber-soled shoes. The rates are not political — they're the product of decades of WTO tariff bindings, and they're published in the Harmonized Tariff Schedule of the United States, a 4,000-page document updated annually.</p>
 
-            <p>The duty is calculated on the CIF value: what you paid the supplier plus what you paid the carrier plus what you paid the insurer. Not FOB. CIF. If your invoice says $10,000 FOB and the freight was $800, CBP assesses duty on $10,800. The rate is applied to the full CIF amount, not the amount above any threshold. A $5,000 shipment at 5% pays $250 in MFN duty. A $50,000 shipment at 5% pays $2,500. Linear, predictable, mechanical.</p>
+            <p>The duty is calculated on the transaction value of the goods: what you paid the supplier, plus packing, any selling commission, the value of tooling or materials you supplied to the factory, and royalties paid as a condition of the sale. International freight and insurance come out, provided your invoice identifies them separately. If your invoice says $10,000 FOB and the freight was $800, CBP assesses duty on $10,000 — not $10,800. The rate is applied to the whole customs value, not the amount above any threshold. A $5,000 shipment at 5% pays $250 in MFN duty. A $50,000 shipment at 5% pays $2,500. Linear, predictable, mechanical.</p>
 
             <p>If you don't know your HTSUS code, look it up or pay a broker to classify it. Guessing wrong has consequences: underpaying by misclassifying goods into a lower-rate chapter generates a duty demand plus interest going back five years if CBP finds a pattern. Overpaying because you guessed conservatively is less legally risky but still expensive. Classification is the single highest-value task a customs broker performs on a standard entry. Our <a href="/hscode-duty-estimator">HS Code Duty Estimator</a> can give you a directional starting point, but for binding certainty, a broker's classification on a formal entry or a CBP binding ruling is what you need.</p>
 
@@ -669,10 +669,10 @@
             <p>$800 per person per day, based on the goods value only — freight and insurance are not included in the threshold test. Shipments at or below $800 clear through Section 321 / Type 86 electronic entry with zero customs duty, zero Merchandise Processing Fee, no bond, and no broker required. This is the highest de minimis of any G7 economy. The threshold is per person per day, not per shipment — CBP can aggregate multiple packages to the same consignee arriving on the same day. For exact cliff detection on your shipment value, use the <a href="/de-minimis-checker">De Minimis Cliff Detector</a>.</p>
 
             <h3>How is US customs duty calculated?</h3>
-            <p>Duty is calculated on the <strong>CIF value</strong> (goods cost + freight + insurance), not the FOB value. The formula is: CIF × MFN duty rate = customs duty. The MFN rate is assigned by the 10-digit HTSUS code for your product — rates range from 0% (electronics, pharmaceuticals) to 37.5% (certain footwear). If the goods are from China, Section 301 duties of 7.5% or 25% stack on top of the MFN rate. There is no federal VAT or GST on US imports — the duty line plus the MPF are the only federal charges. Run your numbers: <a href="/landed-cost-calculator">Landed Cost Calculator</a>.</p>
+            <p>Duty is calculated on the <strong>transaction value</strong> of the goods — the price actually paid or payable, plus packing, selling commissions, the value of any assist, and royalties paid as a condition of the sale. International freight and insurance are excluded when they are identified separately, which makes the US an FOB-type market rather than a CIF one. The formula is: customs value × MFN duty rate = customs duty. The MFN rate is assigned by the 10-digit HTSUS code for your product — rates range from 0% (electronics, pharmaceuticals) to 37.5% (certain footwear). If the goods are from China, Section 301 duties of 7.5% or 25% stack on top of the MFN rate. There is no federal VAT or GST on US imports — the duty line plus the MPF are the only federal charges. Run your numbers: <a href="/landed-cost-calculator">Landed Cost Calculator</a>.</p>
 
             <h3>What is the difference between Section 321 and formal entry?</h3>
-            <p>Section 321 (≤ $800 goods value): Type 86 electronic entry — no duty, no MPF, no bond, no broker, clears in seconds. Formal consumption entry (> $800): CBP Form 3461/7501 filed by a broker in ACE — MFN duty on CIF, MPF of 0.3464% (min $31.67, max $614.35), customs bond required. The administrative cost of switching from Section 321 to formal entry is often larger than the duty itself on shipments between $800 and $2,500. Above $2,500, formal entry is mandatory. The $800–$2,500 informal range exists but still requires broker filing and MPF.</p>
+            <p>Section 321 (≤ $800 goods value): Type 86 electronic entry — no duty, no MPF, no bond, no broker, clears in seconds. Formal consumption entry (> $800): CBP Form 3461/7501 filed by a broker in ACE — MFN duty on the goods value, MPF of 0.3464% (min $31.67, max $614.35), customs bond required. The administrative cost of switching from Section 321 to formal entry is often larger than the duty itself on shipments between $800 and $2,500. Above $2,500, formal entry is mandatory. The $800–$2,500 informal range exists but still requires broker filing and MPF.</p>
 
             <h3>What is the Merchandise Processing Fee (MPF) on US imports?</h3>
             <p>The MPF is 0.3464% of the entered value, with a $31.67 minimum and a $614.35 maximum per formal entry. It applies to every formal consumption entry — Section 321 shipments are exempt. The MPF is not a customs duty and is not waived by free trade agreements (except USMCA, KORUS, and a few others that specifically waive it). Section 301 duties do not affect the MPF calculation — it's based on the entered value, not the duty amount.</p>
@@ -736,7 +736,7 @@
     </main>
 
     <!-- Semantic Footer -->
-                <footer class="site-footer">
+                        <footer class="site-footer">
         <div class="footer-grid">
             <div class="footer-brand">
                 <h2>DutyCalc Online</h2>
@@ -763,6 +763,7 @@
                 <ul>
                     <li><a href="/import-cost-workflow">Import Workflow Guide</a></li>
                     <li><a href="/how-to-find-hs-code">How to Find Your HS Code</a></li>
+                    <li><a href="/customs-valuation-guide">Customs Value Explained</a></li>
                     <li><a href="/fba-import-guide">FBA Import Guide</a></li>
                     <li><a href="/importer-of-record-guide">Importer of Record Guide</a></li>
                     <li><a href="/customs-broker-cost-guide">Customs Broker Cost Guide</a></li>
@@ -801,7 +802,7 @@
         </div>
     </footer>
 
-    <script src="main.js?v=6216f28"></script>
+    <script src="main.js?v=dd0fe60"></script>
 
     <!-- ═══ STRUCTURED DATA ═══ -->
     <script type="application/ld+json">
@@ -867,7 +868,7 @@
           "name": "How is US customs duty calculated?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Duty is calculated on the CIF value (goods cost + freight + insurance), not the FOB value. The formula: CIF × MFN duty rate = customs duty. The MFN rate is assigned by the 10-digit HTSUS code — rates range from 0% (electronics, pharmaceuticals) to 37.5% (certain footwear). If goods are from China, Section 301 duties of 7.5% or 25% stack on top of the MFN rate. There is no federal VAT or GST on US imports."
+            "text": "Duty is calculated on the transaction value of the goods — the price actually paid or payable, plus packing, selling commissions, the value of any assist, and royalties paid as a condition of the sale. International freight and insurance are excluded when separately identified, so the US uses an FOB-type base rather than the CIF base used by the UK, EU and Japan. The formula: customs value × MFN duty rate = customs duty. The MFN rate is assigned by the 10-digit HTSUS code — rates range from 0% (electronics, pharmaceuticals) to 37.5% (certain footwear). If goods are from China, Section 301 duties of 7.5% or 25% stack on top of the MFN rate. There is no federal VAT or GST on US imports."
           }
         },
         {
@@ -875,7 +876,7 @@
           "name": "What is the difference between Section 321 and formal entry?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Section 321 (≤ $800 goods value): Type 86 electronic entry — no duty, no MPF, no bond, no broker, clears in seconds. Formal consumption entry (> $800): CBP Form 3461/7501 filed by a broker in ACE — MFN duty on CIF, MPF of 0.3464% (min $31.67, max $614.35), customs bond required. The administrative cost of switching from Section 321 to formal entry is often larger than the duty itself on shipments between $800 and $2,500."
+            "text": "Section 321 (≤ $800 goods value): Type 86 electronic entry — no duty, no MPF, no bond, no broker, clears in seconds. Formal consumption entry (> $800): CBP Form 3461/7501 filed by a broker in ACE — MFN duty on the goods value, MPF of 0.3464% (min $31.67, max $614.35), customs bond required. The administrative cost of switching from Section 321 to formal entry is often larger than the duty itself on shipments between $800 and $2,500."
           }
         },
         {
@@ -922,6 +923,6 @@
     }
     </script>
 
-    <script src="sw-register.js?v=6216f28"></script>
+    <script src="sw-register.js?v=dd0fe60"></script>
 </body>
 </html>

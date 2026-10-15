@@ -195,6 +195,36 @@ if ($WhatIf) {
 Write-Host "===========================================" -ForegroundColor Cyan
 Write-Host ""
 
+# ── GATE 4: duty-basis consistency across all three layers ──────────────────
+# The site states the dutiable basis (goods value vs CIF) in rate-data.js, in the
+# calculator config nodes, and in landed-cost-calculator.html's MARKETS table. They
+# drifted apart once and shipped a US/Canada "duty is calculated on CIF" error to
+# production. This gate makes that class of drift a build failure instead of a
+# slow-burn editorial problem.
+$basisScript = Join-Path (Split-Path $PSScriptRoot -Parent) '.workbuddy\assert_basis_consistency.py'
+$pyExe       = 'C:\Users\Administrator\.workbuddy\binaries\python\versions\3.13.12\python.exe'
+
+if ((Test-Path $basisScript) -and (Test-Path $pyExe)) {
+    Write-Host "  Duty basis assertion:" -ForegroundColor Cyan
+    & $pyExe $basisScript
+    $basisCode = $LASTEXITCODE
+    if ($basisCode -ne 0) {
+        Write-Host ""
+        Write-Host "  BUILD FAILED - duty basis mismatch (see mismatches above)." -ForegroundColor Red
+        Write-Host "===========================================" -ForegroundColor Cyan
+        exit 1
+    }
+}
+else
+{
+    Write-Host "  Duty basis assertion SKIPPED (python or script not found)" -ForegroundColor Yellow
+    Write-Host "    expected script: $basisScript" -ForegroundColor DarkGray
+    Write-Host "    expected python: $pyExe"         -ForegroundColor DarkGray
+}
+
+Write-Host "===========================================" -ForegroundColor Cyan
+Write-Host ""
+
 if ($errors -gt 0 -or $bomCount -gt 0 -or $bareCount -gt 0) {
     exit 1
 }

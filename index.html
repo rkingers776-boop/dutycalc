@@ -17,7 +17,7 @@
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%231E293B'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='sans-serif' font-size='32' font-weight='bold' fill='%230EA5E9'%3E$%3C/text%3E%3C/svg%3E">
     <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='24' fill='%231E293B'/%3E%3Ctext x='96' y='132' text-anchor='middle' font-family='system-ui,sans-serif' font-size='108' font-weight='bold' fill='%230EA5E9'%3E$%3C/text%3E%3C/svg%3E">
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="style.css?v=6216f28">
+    <link rel="stylesheet" href="style.css?v=dd0fe60">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -145,7 +145,7 @@
 <body>
 
     <!-- ═══ NAVIGATION (matches site) ═══ -->
-                <nav class="site-nav" aria-label="Main Navigation">
+                        <nav class="site-nav" aria-label="Main Navigation">
         <div class="nav-inner">
             <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
             <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open main navigation">
@@ -462,7 +462,7 @@
     </section>
 
     <!-- ═══ FOOTER (matches site) ═══ -->
-                <footer class="site-footer">
+                        <footer class="site-footer">
         <div class="footer-grid">
             <div class="footer-brand">
                 <h2>DutyCalc Online</h2>
@@ -489,6 +489,7 @@
                 <ul>
                     <li><a href="/import-cost-workflow">Import Workflow Guide</a></li>
                     <li><a href="/how-to-find-hs-code">How to Find Your HS Code</a></li>
+                    <li><a href="/customs-valuation-guide">Customs Value Explained</a></li>
                     <li><a href="/fba-import-guide">FBA Import Guide</a></li>
                     <li><a href="/importer-of-record-guide">Importer of Record Guide</a></li>
                     <li><a href="/customs-broker-cost-guide">Customs Broker Cost Guide</a></li>
@@ -527,7 +528,7 @@
         </div>
     </footer>
 
-    <script src="rate-data.js?v=6216f28"></script>
+    <script src="rate-data.js?v=dd0fe60"></script>
     <script>
         (function () {
             var sel = document.getElementById('mini-corridor');
@@ -553,8 +554,11 @@
                 var cif = g + s;
                 // UK (£135) and Japan (¥10,000) test the threshold against the
                 // freight-inclusive value; other markets use goods value only.
-                var dmBase = d.thresholdBase === 'cif' ? cif : g;
-                var duty = dmBase > d.deMinimis ? cif * (d.dutyRate / 100) : 0;
+                // The dutiable base and the threshold base are the same number:
+                // an FOB market rates the goods value and lets freight ride in the
+                // landed cost; a CIF market rates goods plus freight and insurance.
+                var valueBase = d.thresholdBase === 'cif' ? cif : g;
+                var duty = valueBase > d.deMinimis ? valueBase * (d.dutyRate / 100) : 0;
                 var vat = (cif + duty) * (d.vatRate / 100);
                 var landed = cif + duty + vat;
                 var sym = SYM[d.currency] || '$';
@@ -564,7 +568,7 @@
                 document.getElementById('mini-landed').textContent = fmt(landed, sym);
                 var note = 'Duty ' + d.dutyRate + '%' + (d.vatRate ? ' · VAT ' + d.vatRate + '%' : '') +
                            ' · de minimis ' + sym + d.deMinimis.toLocaleString();
-                if (dmBase <= d.deMinimis) note += ' — under the de-minimis threshold, duty is waived.';
+                if (valueBase <= d.deMinimis) note += ' — under the de-minimis threshold, duty is waived.';
                 document.getElementById('mini-note').textContent = note;
                 document.getElementById('mini-result').classList.remove('result-hidden');
             }
@@ -576,6 +580,6 @@
             calc();
         })();
     </script>
-    <script src="sw-register.js?v=6216f28"></script>
+    <script src="sw-register.js?v=dd0fe60"></script>
 </body>
 </html>

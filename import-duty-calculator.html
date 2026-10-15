@@ -16,7 +16,7 @@
     <meta name="twitter:description" content="Pick HS chapter, enter value, get the MFN duty rate and amount across 7 markets.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=6216f28">
+    <link rel="stylesheet" href="style.css?v=dd0fe60">
     <style>
         /* ── Import Duty Calculator — Distinct Layout ── */
         .id-layout {
@@ -314,7 +314,7 @@
 <body>
 
     <!-- ── Header Navigation ── -->
-                <nav class="site-nav" aria-label="Main Navigation">
+                        <nav class="site-nav" aria-label="Main Navigation">
         <div class="nav-inner">
             <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
             <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open main navigation">
@@ -545,8 +545,8 @@
         <section class="seo-section" style="max-width:none;">
             <h2>How Each Market Calculates Duty — The Structural Differences</h2>
 
-            <h3>United States — CIF-based, Section 301 overlay, no VAT</h3>
-            <p>US customs duty is calculated on the CIF value of the goods. The US is unusual among major economies in having no federal VAT or GST at the border — the duty line is the only federal import charge. But for goods of Chinese origin, Section 301 duties stack on top of the MFN rate: 7.5% on most consumer goods (List 4A), 25% on industrial inputs (Lists 1-3), and 100% on electric vehicles (Section 301 investigation concluded May 2024). The effective duty rate on a Chapter 85 product from China can easily reach 27.5% — 2.5% MFN + 25% Section 301. This calculator shows the MFN rate only; the alert flag warns when Section 301 may apply. The US also has a Merchandise Processing Fee (0.3464% of CIF, min $31.67, max $614.35) on formal entries — not a duty, but functionally equivalent to one. <a href="/china-to-us-electronics">China→US Electronics</a> walks through a full CBP entry with the fee structure included.</p>
+            <h3>United States — FOB-based, Section 301 overlay, no VAT</h3>
+            <p>US customs duty is calculated on the transaction value of the goods, an FOB-type figure: international freight and insurance are excluded, provided they are identified separately from the price. The US is unusual among major economies in having no federal VAT or GST at the border — the duty line is the only federal import charge. But for goods of Chinese origin, Section 301 duties stack on top of the MFN rate: 7.5% on most consumer goods (List 4A), 25% on industrial inputs (Lists 1-3), and 100% on electric vehicles (Section 301 investigation concluded May 2024). The effective duty rate on a Chapter 85 product from China can easily reach 27.5% — 2.5% MFN + 25% Section 301. This calculator shows the MFN rate only; the alert flag warns when Section 301 may apply. The US also has a Merchandise Processing Fee (0.3464% of CIF, min $31.67, max $614.35) on formal entries — not a duty, but functionally equivalent to one. <a href="/china-to-us-electronics">China→US Electronics</a> walks through a full CBP entry with the fee structure included.</p>
 
             <h3>European Union — TARIC rates, €150 duty cliff, universal VAT</h3>
             <p>The EU applies the Common Customs Tariff (TARIC) uniformly across all 27 member states. The duty rate you get in Rotterdam is the same as in Hamburg or Le Havre. The €150 de minimis exempts goods from duty — but not from VAT, which applies from €1. For goods over €150, duty is assessed on the full CIF value. The EU's duty rates are generally moderate (2-5% on most industrial goods), but there are sharp spikes on agricultural products, textiles, and footwear — the same protectionist pattern as most developed economies. Unlike the US, the EU has no additional country-specific tariffs on Chinese goods comparable to Section 301 — but it does impose antidumping duties on specific products (steel, aluminum, solar panels, ceramic tiles, bicycles) that effectively function the same way. <a href="/china-to-germany-customs">China→Germany Customs</a> covers ATLAS filing and the IOSS VAT system.</p>
@@ -559,7 +559,7 @@
     </main>
 
     <!-- Semantic Footer -->
-                <footer class="site-footer">
+                        <footer class="site-footer">
         <div class="footer-grid">
             <div class="footer-brand">
                 <h2>DutyCalc Online</h2>
@@ -586,6 +586,7 @@
                 <ul>
                     <li><a href="/import-cost-workflow">Import Workflow Guide</a></li>
                     <li><a href="/how-to-find-hs-code">How to Find Your HS Code</a></li>
+                    <li><a href="/customs-valuation-guide">Customs Value Explained</a></li>
                     <li><a href="/fba-import-guide">FBA Import Guide</a></li>
                     <li><a href="/importer-of-record-guide">Importer of Record Guide</a></li>
                     <li><a href="/customs-broker-cost-guide">Customs Broker Cost Guide</a></li>
@@ -879,7 +880,7 @@
     })();
     </script>
 
-    <script src="main.js?v=6216f28"></script>
-    <script src="sw-register.js?v=6216f28"></script>
+    <script src="main.js?v=dd0fe60"></script>
+    <script src="sw-register.js?v=dd0fe60"></script>
 </body>
 </html>

@@ -16,7 +16,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="China to US Electronics Duty Calculator — Free Instant Estimator">
     <meta name="twitter:description" content="Calculate import duty on electronics shipped from China to the US. 2.5% base tariff, $800 Section 321 de minimis, Section 301 exclusions.">
-    <link rel="stylesheet" href="style.css?v=6216f28">
+    <link rel="stylesheet" href="style.css?v=dd0fe60">
 <meta property="og:image" content="https://www.dutycalc.online/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -28,7 +28,7 @@
 <body>
 
     <!-- ── Header Navigation ── -->
-                <nav class="site-nav" aria-label="Main Navigation">
+                        <nav class="site-nav" aria-label="Main Navigation">
         <div class="nav-inner">
             <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
             <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open main navigation">
@@ -112,17 +112,17 @@
                 <h2>How to Calculate Import Duty on Electronics Shipped from China to the US</h2>
                 <p>Electronics from China get some of the lowest duty rates in the tariff book. Most consumer devices — phones, laptops, tablets, PCBs, chargers, accessories — land between <strong>0% and 3.5%</strong> in the HTS. Our calculator uses <strong>2.5%</strong>, which covers the majority of consumer electronics, smart gadgets, and assemblies. Compare that to apparel (16.5%) or furniture (8%) — electronics are cheap to import, duty-wise.</p>
                 <p>But duty isn't the only cost that matters. Compliance paperwork, Section 301 tariff exposure, and lithium battery shipping rules can all bite if you don't know what to expect. Here's how it all works.</p>
-                <p>Start with your <strong>CIF value</strong> — the factory cost of the goods plus freight and insurance to the US port of entry. CBP uses CIF, not the FOB factory invoice. For electronics shipped by air from Shenzhen, freight is usually light per unit; sea freight for bulk orders is even cheaper per unit. Either way, add it in. CBP adds it in.</p>
+                <p>Start with your <strong>transaction value</strong> — the factory price you actually paid for the goods, sold for export to the United States. CBP excludes international freight and insurance from the dutiable base, provided your invoice identifies them separately. For electronics shipped by air from Shenzhen, freight is light per unit; sea freight for bulk orders is cheaper still. Either way it stays out of the customs value — but it stays in your landed cost, which is the number you are actually budgeting. <a href="/customs-valuation-guide">The valuation guide</a> covers what CBP adds to the base instead.</p>
                 <p>One thing that trips people up: CBP doesn't care what currency you paid the factory in. If your supplier invoice is in RMB, you convert to USD at the exchange rate on the date of export. Not the date you wired the money, not the date the goods arrived — the date they left China. Get the rate wrong and you've either overpaid or under-declared. Neither is great.</p>
 
-                <h2>The CIF Duty Formula for Chinese Electronics</h2>
+                <h2>The US Duty Formula for Chinese Electronics</h2>
                 <p>The math US Customs uses is straightforward. No federal VAT in the US, so the calculation ends after duty:</p>
                 <ol class="content-list">
-                    <li><strong>CIF Value</strong> = Goods Value &plus; Shipping &plus; Insurance</li>
-                    <li><strong>Customs Duty</strong> = CIF Value &times; Duty Rate (2.5% for most Chinese electronics)</li>
-                    <li><strong>Total Landed Cost</strong> = CIF Value &plus; Customs Duty</li>
+                    <li><strong>Customs Value</strong> = Goods Value (freight and insurance excluded when separately stated)</li>
+                    <li><strong>Customs Duty</strong> = Customs Value &times; Duty Rate (2.5% for most Chinese electronics)</li>
+                    <li><strong>Total Landed Cost</strong> = Goods &plus; Freight &plus; Insurance &plus; Customs Duty</li>
                 </ol>
-                <p>Run the numbers: a $4,000 shipment of Bluetooth speakers with $300 air freight lands at $4,300 CIF. At 2.5%, duty is $107.50. Total landed cost: $4,407.50. The duty line is under 3% of the shipment value — electronics are cheap. But forget the freight in your CIF calc and you've under-declared. CBP will catch it on audit.</p>
+                <p>Run the numbers: a $4,000 shipment of Bluetooth speakers with $300 air freight billed separately on the invoice. Duty at 2.5% applies to the $4,000 — <strong>$100.00</strong>. Total landed cost: <strong>$4,400.00</strong>. The duty line is under 3% of the shipment value, and electronics clear cheaply. The trap runs the other way: put a single $4,300 lump sum on the invoice with no freight line and you have just made the freight dutiable, costing yourself $7.50 on this shipment and a great deal more on a container.</p>
                 <p>Insurance counts toward CIF even if you didn't buy separate cargo insurance. If your freight forwarder charges a flat rate that bundles insurance, you need to split it out for the customs declaration. Most forwarders' standard rates include a small insurance component — typically 0.3% to 0.5% of the cargo value. It's not much, but CBP wants it declared. Leaving it out is technically under-valuation, and electronics shipments get audited plenty.</p>
 
                 <h3>Section 321 — $800 and Under Pays Zero</h3>
@@ -240,7 +240,7 @@
     </main>
 
     <!-- Semantic Footer -->
-                <footer class="site-footer">
+                        <footer class="site-footer">
         <div class="footer-grid">
             <div class="footer-brand">
                 <h2>DutyCalc Online</h2>
@@ -267,6 +267,7 @@
                 <ul>
                     <li><a href="/import-cost-workflow">Import Workflow Guide</a></li>
                     <li><a href="/how-to-find-hs-code">How to Find Your HS Code</a></li>
+                    <li><a href="/customs-valuation-guide">Customs Value Explained</a></li>
                     <li><a href="/fba-import-guide">FBA Import Guide</a></li>
                     <li><a href="/importer-of-record-guide">Importer of Record Guide</a></li>
                     <li><a href="/customs-broker-cost-guide">Customs Broker Cost Guide</a></li>
@@ -305,8 +306,8 @@
         </div>
     </footer>
 
-    <script src="rate-data.js?v=6216f28"></script>
-    <script src="main.js?v=6216f28"></script>
-    <script src="sw-register.js?v=6216f28"></script>
+    <script src="rate-data.js?v=dd0fe60"></script>
+    <script src="main.js?v=dd0fe60"></script>
+    <script src="sw-register.js?v=dd0fe60"></script>
 </body>
 </html>
