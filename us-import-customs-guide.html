@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
-    <title>US Import Duty & Customs Guide</title>
-    <meta name="description" content="How US customs duty works in practice: Section 321 de minimis ($800 rule), Type 86 vs formal entry, MFN + Section 301 stacking, MPF fees, bonds…">
-    <meta property="og:title" content="US Import Duty &amp; Customs Guide: Section 321, Type 86, MFN + 301 Tariffs">
-    <meta property="og:description" content="How US customs duty works in practice: Section 321 de minimis ($800 rule), Type 86 vs formal entry, MFN + Section 301 stacking, MPF fees, bonds, brokers, and port choices.">
+    <title>US Import Duty &amp; Customs Guide — Section 321 Is Suspended</title>
+    <meta name="description" content="US customs duty in practice: Section 321 was suspended on 29 August 2025, so duty now runs from the first dollar. MFN and Section 301 stack on top.">
+    <meta property="og:title" content="US Import Duty &amp; Customs Guide — Section 321 Is Suspended">
+    <meta property="og:description" content="How US customs duty works now that Section 321 is suspended: duty from the first dollar, MFN + Section 301 stacking, MPF, bonds, brokers, and port choices.">
     <meta property="og:url" content="https://www.dutycalc.online/us-import-customs-guide">
     <meta property="og:type" content="article">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="US Import Duty &amp; Customs Guide: Section 321, Type 86, MFN + 301 Tariffs">
-    <meta name="twitter:description" content="How US customs duty works in practice: Section 321 de minimis, Type 86 vs formal entry, MFN + Section 301 stacking, MPF fees, bonds, brokers. Real numbers.">
+    <meta name="twitter:title" content="US Import Duty &amp; Customs Guide — Section 321 Is Suspended">
+    <meta name="twitter:description" content="US customs duty in practice: Section 321 was suspended on 29 August 2025, so duty runs from the first dollar. MFN + Section 301 stacking, MPF, bonds, brokers.">
     <link rel="canonical" href="https://www.dutycalc.online/us-import-customs-guide">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=dd0fe60">
+    <link rel="stylesheet" href="style.css?v=338eca8">
 <meta property="og:image" content="https://www.dutycalc.online/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -263,31 +263,50 @@
 
         <header>
             <h1>Importing Into the United States — a Guide for People Who Actually Ship Things</h1>
-            <p>No other developed economy makes it this easy to bring goods across the border — and no other developed economy punishes mistakes this expensively. The US has the highest de minimis in the G7, no federal VAT, and an electronic clearance system that processes parcels in seconds. It also has Section 301 tariffs layered on top of MFN rates, a Merchandise Processing Fee that tacks hundreds of dollars onto every formal entry, and a Customs agency that can seize your goods if the paperwork is wrong. This guide covers the structure, not the exceptions.</p>
+            <p>No other developed economy makes it this cheap to move goods across the border — and no other developed
+            economy punishes mistakes this expensively. The US charges no federal VAT at the border, and electronic
+            filing clears parcels in hours rather than days. What it no longer offers is a de minimis allowance: the
+            Section 321 exemption that let shipments under $800 enter free of duty was suspended on 29 August 2025, so
+            duty now runs from the first dollar. On top of that sit Section 301 tariffs layered over MFN rates, a
+            Merchandise Processing Fee that tacks fixed costs onto every formal entry, and a Customs agency that can
+            seize your goods if the paperwork is wrong. This guide covers the structure, not the exceptions.</p>
         </header>
 
         <!-- ═══ TL;DR ═══ -->
         <div class="tldr-box">
             <div class="tldr-label">▌ TL;DR — The 30-Second US Import Map</div>
             <ul>
-                <li><strong>Shipment under $800 goods value?</strong> → Section 321. Type 86 e-entry. No duty, no MPF, no bond, no broker. Moves in seconds.</li>
-                <li><strong>Shipment over $800?</strong> → Formal entry. CBP Form 3461/7501. Bond required. Broker strongly recommended. MPF of 0.3464% (min $31.67, max $614.35) applies.</li>
-                <li><strong>Goods from China?</strong> → MFN duty + Section 301 surcharge (7.5% or 25% depending on the product List). Effective rate often 10–30%.</li>
-                <li><strong>Goods from Vietnam / India / elsewhere?</strong> → MFN only. No Section 301. Duty typically 0–8% for most consumer and industrial goods.</li>
-                <li><strong>Need a quick estimate?</strong> → <a href="/landed-cost-calculator" style="font-weight:700;">Landed Cost Calculator</a>. Near the $800 line? → <a href="/de-minimis-checker" style="font-weight:700;">Cliff Detector</a>.</li>
+                <li><strong>Shipment under $800 goods value?</strong> → That lane closed on 29 August 2025. Section
+                321 is suspended for every origin, so duty is due from the first dollar. The $800 line no longer buys
+                you anything.</li>
+                <li><strong>More than $2,500 of goods?</strong> → Formal entry, mandatory. CBP Form 3461/7501. Bond
+                required. Broker strongly recommended. MPF of 0.3464% (min $31.67, max $614.35) applies.</li>
+                <li><strong>Goods from China?</strong> → MFN duty + Section 301 (7.5% or 25% by List) + the 12.5%
+                forced-labour layer that took effect 24 July 2026. Stacked, that is commonly 30–42%.</li>
+                <li><strong>Goods from Vietnam / India / elsewhere?</strong> → No China-specific Section 301 — but the
+                July 2026 forced-labour action reaches 60 economies. Vietnam adds 12.5%, India adds 10%, the EU and
+                Taiwan, China fill to a 10% floor, Japan and Korea to 12.5%.</li>
+                <li><strong>Need a quick estimate?</strong> →
+                <a href="/landed-cost-calculator" style="font-weight:700;">Landed Cost Calculator</a>. Not sure which
+                thresholds still stand? → <a href="/de-minimis-checker" style="font-weight:700;">De Minimis
+                Checker</a>.</li>
             </ul>
         </div>
 
         <!-- ═══ THE TWO PATHS ═══ -->
         <section class="seo-section" style="max-width:none;">
-            <h2>Section 321 vs Formal Entry — Which Lane Does Your Shipment Take?</h2>
+            <h2>Section 321 Is Gone — What Every Shipment Pays Now</h2>
 
             <div class="key-takes">
                 <div class="kt-label">Key Points</div>
                 <ul>
-                    <li>$800 is the line. Under it: no customs charges. Over it: the full formal entry machinery kicks in.</li>
-                    <li>The $800 test is against goods value only — freight and insurance don't count for the threshold.</li>
-                    <li>Crossing the line changes the process, not just the cost. Bond, broker, MPF, and CBP paperwork enter the picture.</li>
+                    <li>There is no $800 line any more. Section 321 was suspended on 29 August 2025, for every origin,
+                    so duty starts at the first dollar.</li>
+                    <li>Valuation still matters even without a threshold: international freight and insurance come out
+                    of the duty base when your invoice lists them separately.</li>
+                    <li>Entry type no longer decides whether you pay duty — only what it costs to lodge the shipment.
+                    Informal entry carries a small fixed MPF and no bond; formal entry carries 0.3464% MPF and a
+                    bond.</li>
                 </ul>
             </div>
 
@@ -295,51 +314,67 @@
                 <table class="vs-table">
                 <thead>
                     <tr>
-                        <th>What's Different</th>
-                        <th>Section 321 (≤ $800)</th>
-                        <th>Formal Entry (> $800)</th>
+                        <th>What’s Different</th>
+                        <th>The Section 321 lane (suspended 29 Aug
+                        2025)</th>
+                        <th>What applies now</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Entry type</td>
-                        <td class="vs-win">Type 86 — electronic, automated, seconds</td>
-                        <td class="vs-lose">CBP Form 3461 + 7501 — broker files in ACE</td>
+                        <td class="vs-lose">Type 86 — electronic, no
+                        bond, seconds</td>
+                        <td class="vs-win">Informal entry at low values;
+                        CBP Form 3461 + 7501 filed by a broker above the informal ceiling ($2,500)</td>
                     </tr>
                     <tr>
                         <td>Customs duty</td>
-                        <td class="vs-win">$0</td>
-                        <td class="vs-lose">MFN rate × CIF value (+ Section 301 if China origin)</td>
+                        <td class="vs-lose">$0</td>
+                  
+                             <td class="vs-win">MFN rate × goods value, from the first dollar — plus Section 301 and
+                        the 2026 forced-labour layer where they apply</td>
                     </tr>
                     <tr>
                         <td>Merchandise Processing Fee</td>
-                        <td class="vs-win">$0</td>
-                        <td class="vs-lose">0.3464% of entered value, $31.67–$614.35</td>
+                        <td class="vs-lose">$0</td>
+    
+                                           <td class="vs-win">Formal entry: 0.3464% of entered value, $31.67–$614.35.
+                        Informal entry: a small fixed MPF instead.</td>
                     </tr>
                     <tr>
                         <td>Customs bond</td>
-                        <td class="vs-win">Not required</td>
-                        <td class="vs-lose">Required — single-entry (~$100+) or continuous (~$250–500/yr)</td>
+                        <td class="vs-lose">Not required</td>
+        
+                                       <td class="vs-win">Required for formal entry — single-entry (~$100+) or
+                        continuous (~$250–500/yr). Informal entry needs none.</td>
                     </tr>
                     <tr>
                         <td>Customs broker</td>
-                        <td class="vs-win">Not required (carrier files Type 86)</td>
-                        <td class="vs-lose">Technically optional; practically everyone uses one ($75–200/entry)</td>
+                        <td class="vs-lose">Not required (carrier
+                        filed Type 86)</td>
+                        <td class="vs-win">Not required for informal
+                        entry; practically everyone uses one for formal ($75–200/entry)</td>
                     </tr>
                     <tr>
                         <td>Clearance speed</td>
-                        <td class="vs-win">Seconds — no CBP review unless flagged</td>
-                        <td class="vs-lose">Hours to days — CBP may review, exam, or hold</td>
+                        <td class="vs-lose">Seconds — no CBP review
+                        unless flagged</td>
+                        <td class="vs-win">Informal parcels still clear
+                        fast; formal entries run hours to days and CBP may review, exam, or hold</td>
                     </tr>
                     <tr>
-                        <td>CBP can aggregate packages?</td>
-                        <td class="vs-lose">Yes — multiple packages to same person same day = combined value</td>
-                        <td class="vs-win">N/A — already in formal track</td>
+                        <td>What is still exempt</td>
+                        <td class="vs-lose">Everything under
+                        $800</td>
+                        <td class="vs-win">Only bona fide gifts and personal
+                        accompanied items at $100 or less</td>
                     </tr>
                     <tr>
                         <td>Record retention</td>
-                        <td>Carrier maintains Type 86 data</td>
-                        <td class="vs-lose">Importer must keep all docs 5 years</td>
+                        <td>Carrier held the Type 86 data</td>
+   
+                                            <td class="vs-lose">Importer must keep all docs 5 years</td>
                     </tr>
                 </tbody>
             </table>
@@ -353,52 +388,94 @@
                 </div>
                 <span class="flow-arrow">→</span>
                 <div class="flow-box green">
-                    ≤ $800
-                    <span class="flow-label">Section 321 / Type 86</span>
+                                        Any value
+                    <span class="flow-label">No de minimis line
+                    since 29 Aug 2025</span>
                 </div>
                 <span class="flow-arrow">→</span>
                 <div class="flow-box green">
-                    Clears in seconds
-                    <span class="flow-label">$0 duty · $0 MPF · no broker</span>
+                                        Duty from $1
+                    <span class="flow-label">MFN × goods value +
+                    301 layers</span>
                 </div>
             </div>
             <div class="flow-row" style="margin-top:0;">
                 <div class="flow-box" style="visibility:hidden;">Placeholder</div>
                 <span class="flow-arrow" style="visibility:hidden;">→</span>
                 <div class="flow-box red">
-                    &gt; $800
-                    <span class="flow-label">Formal Consumption Entry</span>
+                                        &gt; $2,500
+                    <span class="flow-label">Formal entry is
+                    mandatory</span>
                 </div>
                 <span class="flow-arrow">→</span>
                 <div class="flow-box red">
-                    Bond + Broker + MPF
-                    <span class="flow-label">MFN duty on full CIF</span>
+                                        Bond + Broker + MPF
+                    <span class="flow-label">MFN duty on
+                    the goods value</span>
                 </div>
             </div>
 
-            <h3>Section 321 — the $800 lane</h3>
-            <p>Shipments valued at $800 or below per person per day enter the United States under Section 321 of the Tariff Act of 1930 — an exemption originally written for tourist souvenirs that now powers most of cross-border e-commerce. The mechanics: CBP processes the shipment through a Type 86 electronic entry. No duty. No Merchandise Processing Fee. No customs bond. No broker. The entry clears in seconds, and the package moves from the plane to the last-mile carrier with zero customs friction.</p>
+            <h3>What replaced Section 321 — duty from the first dollar</h3>
+            <p>Section 321 of the Tariff Act of 1930 was the provision that let shipments valued at $800 or below per
+            person per day enter the United States free of duty — an exemption written for tourist souvenirs that
+            ended up carrying most of cross-border e-commerce. CBP cleared those shipments on a Type 86 electronic
+            entry: no duty, no Merchandise Processing Fee, no bond, no broker, seconds on the clock. That description
+            has been dead since 29 August 2025. The exemption was suspended by executive action, for every country of
+            origin rather than the single-country list the 2024–2025 proposals had argued about, and the Supreme
+            Court’s February 2026 decision against the IEEPA tariff authority did not bring it back. Duty is now due
+            from the first dollar — on a $12 phone case and a $42 hoodie alike.</p>
 
-            <p>The $800 test is against the <strong>goods value only</strong> — freight and insurance are excluded from the threshold calculation. A $750 item with $200 shipping is under the line and clears Section 321. A $801 item with free shipping is over. The distinction matters because crossing the line doesn't just add a small duty charge — it changes the entire clearance mechanism. Your shipment goes from a frictionless Type 86 e-entry to a formal consumption entry requiring a bond, a broker, and the MPF. The administrative cost of switching tracks is often larger than the duty itself on low-to-mid-value shipments.</p>
+            <p>The old threshold tested against <strong>goods value only</strong>, and that valuation rule still governs
+            what you pay. US customs assesses duty on the transaction value of the goods, not on CIF: international
+            freight and insurance come out of the duty base when your invoice identifies them separately. A $6,000
+            consignment with $1,200 freight and $180 insurance therefore carries a dutiable value of $6,000, not
+            $7,380. Getting that split onto the commercial invoice is worth real money on every shipment, and it is
+            the one piece of the old Section 321 conversation that still has teeth. The rest of it — the
+            per-person-per-day arithmetic, the speed of a Type 86 entry, the question of whether a $750 parcel or an
+            $801 parcel crosses a line — describes a regime that ended in August 2025.</p>
 
-            <p>CBP can aggregate multiple packages from the same shipper to the same consignee arriving on the same day. If you ship three $500 boxes to the same address and they all land on the same flight, CBP treats it as a $1,500 shipment — over the line, formal entry required. This is not a theoretical enforcement posture. CBP's Automated Targeting System flags consolidation patterns, and the agency has dedicated Section 321 enforcement teams at major express consignment hubs (JFK, LAX, ORD, MEM). Deliberately breaking up shipments to stay under $800 is structuring — a civil violation with penalties up to the domestic value of the merchandise. Don't do it.</p>
+            <p>Splitting an order into $500 parcels to slide under a threshold is pointless now — there is no threshold
+            to slide under. What CBP’s Automated Targeting System looks for instead is the opposite behaviour:
+            invoices that understate what was actually paid. Declared values are matched against industry averages for
+            the HTSUS code, the country of origin, and the shipper’s history, and a mismatch triggers a hold at the
+            express consignment hubs where the volume is highest (JFK, LAX, ORD, MEM). Understating value was always a
+            violation; with the exemption gone there is not even a plausible reason for the number to be wrong.
+            Penalties run to the unpaid duty plus a civil penalty at least equal to the revenue loss, and a knowing
+            understatement can cost you the merchandise outright.</p>
 
-            <p>The $800 threshold is per person per day, not per shipment. A single importer can receive multiple Section 321 packages in a single day as long as each individual package is valued at $800 or below — but only if those packages represent genuinely separate transactions. If CBP determines the packages are artificially split from a single order, the aggregation rule applies. The distinction between "three genuine separate orders" and "one order split three ways" comes down to commercial reality: separate invoices, separate payments, separate shipment dates. If it looks like one transaction split for customs purposes, it is.</p>
+            <p>One narrow exemption survives: genuine <strong>bona fide gifts</strong> and personal accompanied items
+            valued at $100 or less. Everything else is dutiable, and there is no per-person or per-day element left,
+            because there is no threshold for it to be per person per day against. If a carrier or a filing agent
+            tells you a low-value parcel still clears free of duty, ask which provision they are relying on — the
+            answer will be a historic one. The current position, and the full list of what still stands in other
+            markets, is on the <a href="/section-321-de-minimis-reform-2026">Section 321 reform page</a>.</p>
 
             <div class="rate-meta" style="margin:28px 0;">
                 <span class="verified-dot fresh"></span>
-                <span class="verified-label">Section 321 at a glance:</span>
-                <span style="font-weight:500;color:var(--text-secondary);">$800 goods value · per person per day · Type 86 e-entry · no duty · no MPF · no bond · no broker</span>
+                <span class="verified-label">US de minimis at a glance:</span>
+               
+                <span style="font-weight:500;color:var(--text-secondary);">suspended 29 August 2025 · all origins ·
+                duty from the first dollar · only bona fide gifts and accompanied items at $100 or less remain
+                exempt</span>
             </div>
 
-            <h3>Formal consumption entry — when you're over $800</h3>
-            <p>Above $800, or for any commercial shipment where the importer chooses not to use Section 321, the default is a formal consumption entry (CBP Form 3461 for entry, Form 7501 for entry summary). This is the standard customs process: a licensed customs broker files the entry in ACE (Automated Commercial Environment), CBP assesses duty and fees, the entry is released, and the entry summary is filed within 10 working days.</p>
+            <h3>Formal consumption entry — when it is mandatory</h3>
+            <p>Above $2,500 of goods value, formal entry is mandatory. It is also the normal choice for any commercial
+            shipment below that ceiling, since the informal track still requires a filing and still charges duty. The
+            mechanism is a formal consumption entry (CBP Form 3461 for entry, Form 7501 for entry summary). A licensed
+            customs broker files the entry in ACE (Automated Commercial Environment), CBP assesses duty and fees, the
+            entry is released, and the entry summary is filed within 10 working days.</p>
 
             <p>A formal entry requires a customs bond — either a single-entry bond covering one shipment (typically 0.5–0.7% of the entered value, $100 minimum at most surety companies) or a continuous bond covering all entries for a year ($50,000 minimum bond amount, annual premium around $250–500 depending on volume). For anyone importing more than two or three times a year, the continuous bond pays for itself on the third entry. The bond is not insurance — it's a guarantee to CBP that duties, taxes, and fees will be paid. If they aren't, the surety company pays CBP and comes after you for reimbursement.</p>
 
             <p>The Merchandise Processing Fee applies to every formal entry. It's 0.3464% of the entered value, with a minimum of $31.67 and a maximum of $614.35 per entry. On a $10,000 shipment, the MPF is $34.64. On a $200,000 shipment, the MPF is $614.35. On a $5 million shipment, the MPF is still $614.35 — it caps. The MPF is not a duty and is not waived by free trade agreements. Every formal entry pays it, no exceptions except for goods from certain FTA partners where the agreement specifically waives the MPF (USMCA, KORUS, and a few others).</p>
 
-            <p>There's also an informal entry track for shipments between $800 and $2,500 — less paperwork, no bond required, but a simplified CBP Form 368 or 7501 must still be filed. Above $2,500, formal entry is mandatory regardless of other factors. The $800–$2,500 informal range is useful for low-value commercial samples, warranty replacements, and one-off personal imports, but it's not a practical lane for regular commercial shipments — the broker still needs to file, and the MPF still applies.</p>
+            <p>There is also an informal entry track, available for shipments up to $2,500 — less paperwork, no bond
+            required, and a small fixed MPF instead of the ad valorem one, but a simplified CBP Form 368 or 7501 must
+            still be filed. Above $2,500, formal entry is mandatory regardless of any other factor. The informal range
+            is useful for low-value commercial samples, warranty replacements, and one-off personal imports, but it is
+            not a practical lane for regular commercial shipments — the broker still needs to file, and duty is owed
+            either way.</p>
         </section>
 
         <!-- ═══ THE DUTY STACK ═══ -->
@@ -415,8 +492,15 @@
             </div>
 
             <!-- China vs Vietnam duty comparison -->
-            <h3>China vs Vietnam — Why Origin Changes the Cost by 25%</h3>
-            <p>The largest controllable variable in US import cost is the country of origin on the commercial invoice. The same product — same HS code, same factory ownership, same shipping route — faces dramatically different duty depending on whether it says "Made in China" or "Made in Vietnam." Here's the math on three common import categories:</p>
+            <h3>China vs Vietnam — the Origin Calculation Changed in July 2026</h3>
+            <p>The largest controllable variable in US import cost is still the country of origin on the commercial
+            invoice — but since 24 July 2026 it is no longer a two-horse race. A Section 301 action
+            <a href="/section-122-tariffs-guide">targeting forced labour</a> took effect that day across 60 economies,
+            replacing the 10% Section 122 surcharge that expired the same day. It stacks on top of the existing China
+            Section 301 lists, and Chinese goods carry the additive 12.5% version. So do Vietnamese goods, which
+            previously faced MFN only. Because both sides of the comparison picked up the same 12.5 points, the
+            China–Vietnam <em>differential</em> is unchanged — but the absolute cost of importing from either has
+            risen. Here is what it does to five common categories:</p>
 
             <div class="table-scroll">
                 <table class="fee-table">
@@ -425,10 +509,13 @@
                         <th>Product</th>
                         <th>HTSUS Chapter</th>
                         <th>MFN Rate</th>
-                        <th>+ Section 301 (China)</th>
-                        <th>Effective Rate — China</th>
-                        <th>Effective Rate — Vietnam</th>
-                        <th>Duty Difference on $10,000 CIF</th>
+                        <th>Section 301 (China)</th>
+                        <th>2026 Forced-Labour Layer</th>
+     
+                                          <th>Effective Rate — China</th>
+                        <th>Effective Rate
+                        — Vietnam</th>
+                        <th>Duty Difference on $10,000 Goods Value</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -436,54 +523,87 @@
                         <td><strong>Knitted cotton T-shirt</strong></td>
                         <td>Ch. 61</td>
                         <td class="fee-num">12%</td>
+                       
                         <td class="fee-num" style="color:#991b1b;">+7.5% (List 4A)</td>
-                        <td class="fee-num" style="color:#991b1b;">19.5%</td>
-                        <td class="fee-num" style="color:#166534;">12%</td>
+                       
+                        <td class="fee-num" style="color:#991b1b;">+12.5%</td>
+                       
+                        <td class="fee-num" style="color:#991b1b;">32%</td>
+                       
+                        <td class="fee-num" style="color:#991b1b;">24.5%</td>
                         <td class="fee-num" style="color:#991b1b;">$750 more</td>
                     </tr>
                     <tr>
                         <td><strong>Plastic injection mold</strong></td>
                         <td>Ch. 84</td>
                         <td class="fee-num">2%</td>
+                       
                         <td class="fee-num" style="color:#991b1b;">+25% (List 1)</td>
-                        <td class="fee-num" style="color:#991b1b;">27%</td>
-                        <td class="fee-num" style="color:#166534;">2%</td>
+                       
+                        <td class="fee-num" style="color:#991b1b;">+12.5%</td>
+                       
+                        <td class="fee-num" style="color:#991b1b;">39.5%</td>
+                       
+                        <td class="fee-num" style="color:#991b1b;">14.5%</td>
                         <td class="fee-num" style="color:#991b1b;">$2,500 more</td>
                     </tr>
                     <tr>
                         <td><strong>Wooden dining chair</strong></td>
                         <td>Ch. 94</td>
                         <td class="fee-num">5%</td>
+                       
                         <td class="fee-num" style="color:#991b1b;">+7.5% (List 4A)</td>
-                        <td class="fee-num" style="color:#991b1b;">12.5%</td>
-                        <td class="fee-num" style="color:#166534;">5%</td>
+                       
+                        <td class="fee-num" style="color:#991b1b;">+12.5%</td>
+                       
+                        <td class="fee-num" style="color:#991b1b;">25%</td>
+                       
+                        <td class="fee-num" style="color:#991b1b;">17.5%</td>
                         <td class="fee-num" style="color:#991b1b;">$750 more</td>
                     </tr>
                     <tr>
                         <td><strong>Smartphone</strong></td>
                         <td>Ch. 85 (8517.12)</td>
                         <td class="fee-num">0% (ITA)</td>
+                       
                         <td class="fee-num" style="color:#991b1b;">+7.5% (List 4A)</td>
-                        <td class="fee-num" style="color:#991b1b;">7.5%</td>
-                        <td class="fee-num" style="color:#166534;">0%</td>
+                       
+                        <td class="fee-num" style="color:#991b1b;">+12.5%</td>
+                       
+                        <td class="fee-num" style="color:#991b1b;">20%</td>
+                       
+                        <td class="fee-num" style="color:#991b1b;">12.5%</td>
                         <td class="fee-num" style="color:#991b1b;">$750 more</td>
                     </tr>
                     <tr>
                         <td><strong>Steel pipe fitting</strong></td>
                         <td>Ch. 73</td>
                         <td class="fee-num">4%</td>
+                       
                         <td class="fee-num" style="color:#991b1b;">+25% (List 1)</td>
-                        <td class="fee-num" style="color:#991b1b;">29%</td>
-                        <td class="fee-num" style="color:#166534;">4%</td>
+                       
+                        <td class="fee-num" style="color:#991b1b;">+12.5%</td>
+                       
+                        <td class="fee-num" style="color:#991b1b;">41.5%</td>
+                       
+                        <td class="fee-num" style="color:#991b1b;">16.5%</td>
                         <td class="fee-num" style="color:#991b1b;">$2,500 more</td>
                     </tr>
                 </tbody>
             </table>
             </div>
-            <p class="fee-note" style="margin-top:-12px;">Rates as of mid-2026. Section 301 List assignments are per the USTR Federal Register notices. Vietnam faces no Section 301 duties on any product category as of this writing. MFN rates apply identically to both origins — the difference is entirely the Section 301 overlay on Chinese-origin goods. <a href="/section-301-china-tariffs-guide">Full Section 301 product list →</a></p>
+            <p class="fee-note" style="margin-top:-12px;">Rates as of 16 October 2026. Section 301 List assignments are per the USTR Federal Register notices. The
+            12.5% column is the forced-labour action effective 24 July 2026 (FR 2026-15181), which applies to
+            Vietnamese origin as well as Chinese and is additive to both. Because both origins carry the same 12.5
+            points, the China–Vietnam differential is unchanged — but the absolute duty on either has risen by 12.5
+            points. MFN rates apply identically to both origins. <a href="/section-301-china-tariffs-guide">Full
+            Section 301 product list →</a></p>
 
             <div class="dp-callout">
-                <strong>If your product is from China and your Section 301 List is 25%:</strong> sourcing production from Vietnam, India, or Bangladesh saves 25% of CIF in duty alone — before any factory cost difference. Run the comparison: <a href="/landed-cost-calculator">Landed Cost Calculator</a> <span class="dp-arrow">→</span> set origin China with MFN + 25%, then run again with origin Vietnam at MFN only.
+                <strong>If your product is from China and your Section 301 List is 25%:</strong> sourcing production
+                from Vietnam, India, or Bangladesh saves 25 percentage points of duty on the goods value alone —
+                before any factory cost difference. Their own 10–12.5% forced-labour layer is already inside those
+                numbers. Run the comparison: <a href="/landed-cost-calculator">Landed Cost Calculator</a> <span class="dp-arrow">→</span> set origin China with MFN + 25%, then run again with origin Vietnam at MFN only.
             </div>
 
             <h3>Layer 1: MFN — the baseline rate</h3>
@@ -505,9 +625,19 @@
                 <li><strong>List 4A (HTSUS 9903.88.15) — 7.5%.</strong> Apparel, footwear, toys, consumer electronics, smartphones, laptops. Imposed September 2019 at 15%, reduced to 7.5% under the January 2020 Phase One agreement. The 7.5% rate has persisted through the Biden and post-Biden administrations with no announced termination date.</li>
             </ul>
 
-            <p>The practical upshot: a knitted cotton shirt from China (HTSUS Chapter 61) pays 12% MFN plus 7.5% Section 301 List 4A = 19.5% total duty before any other charges. A steel valve from China (HTSUS Chapter 84) pays 2% MFN plus 25% Section 301 List 1 = 27% total duty. A smartphone from China (HTSUS 8517.12) pays 0% MFN (ITA duty-free) plus 7.5% Section 301 List 4A = 7.5% total duty. The Section 301 List determines the rate, not the product category or the MFN rate. Our <a href="/section-301-china-tariffs-guide">Section 301 Guide</a> has the full product-by-product breakdown and the current exclusion list.</p>
+            <p>The practical upshot, with the 2026 forced-labour layer included: a knitted cotton shirt from China (HTSUS
+            Chapter 61) pays 12% MFN + 7.5% Section 301 List 4A + 12.5% forced-labour = 32%. A steel valve from China
+            (HTSUS Chapter 84) pays 2% MFN + 25% List 1 + 12.5% = 39.5%. A smartphone from China (HTSUS 8517.12) pays
+            0% MFN (ITA duty-free) + 7.5% List 4A + 12.5% = 20%. The Section 301 List determines the China-specific
+            portion, not the product category or the MFN rate. Our <a href="/section-301-china-tariffs-guide">Section 301 Guide</a> has the full product-by-product breakdown and the current exclusion list.</p>
 
-            <p>Goods from Vietnam, India, Bangladesh, Indonesia, and other non-China origins generally do not face Section 301 duties — just the MFN rate. This is the primary structural reason why supply chains have diversified out of China since 2018: the duty differential alone can be 25% of CIF. If a product's MFN rate is 2% from China and 2% from Vietnam, but the China origin adds 25% Section 301, moving production to Vietnam saves 25% of CIF in duty — a structural cost advantage no factory negotiation can match.</p>
+            <p>Goods from Vietnam, India, Bangladesh, Indonesia, and other non-China origins face no China-specific
+            Section 301 duties — but since 24 July 2026 they are not necessarily at plain MFN either. The
+            forced-labour action reaches 60 economies: Vietnam and Australia at additive 12.5%, India, Indonesia,
+            Bangladesh, Cambodia, Malaysia and Mexico at additive 10%, the EU and Taiwan, China topped up to a 10%
+            floor, Japan, Korea and Switzerland to 12.5%. The China-specific overlay is still the largest single lever
+            — up to 25 percentage points of the goods value — which is why supply chains have kept moving out of China
+            since 2018. It is just no longer the whole story.</p>
 
             <h3>Layer 3: MPF — the tax on the paperwork</h3>
             <p>The Merchandise Processing Fee is 0.3464% of the entered value, with a floor of $31.67 and a ceiling of $614.35 per formal entry. It's charged on every formal entry regardless of the product, the origin, the duty rate, or the free trade agreement status (unless the FTA specifically waives it). For a $10,000 entry, the MPF adds about 0.35% to your total import cost — negligible. For a $2,000 entry, the $31.67 minimum represents 1.6% of the goods value and becomes a meaningful line item. For a $500,000 entry, the $614.35 cap is less than 0.13% and fades into rounding error against the duty and logistics costs.</p>
@@ -522,7 +652,7 @@
             <div class="key-takes">
                 <div class="kt-label">Key Points</div>
                 <ul>
-                    <li>Formal entry = bond required. Section 321 entry = no bond.</li>
+                    <li>Formal entry = bond required. Informal entry = no bond.</li>
                     <li>Single-entry bond: ~$100 minimum. Continuous bond: ~$250–500/year. Break-even at ~3 entries/year.</li>
                     <li>A broker's classification skill is worth more than a low filing fee. The cheapest broker is the one whose entries survive a CBP audit.</li>
                 </ul>
@@ -539,7 +669,9 @@
             <p>The bond amount is not the cost — it's the coverage limit. You pay the premium (a fraction of the bond amount), and the surety company guarantees up to the bond amount. If you underpay duties and CBP issues a bill you don't pay, the surety pays CBP and pursues you for reimbursement. The bond is not a duty payment method — it's a compliance guarantee. You still need to pay the actual duties through your broker or directly through ACE.</p>
 
             <h3>Do you need a customs broker?</h3>
-            <p>For Section 321 shipments under $800: no. Type 86 electronic entries are filed by the carrier (FedEx, UPS, DHL) or by a self-filing importer through ACE, and no broker is required. The entire process is automated.
+            <p>For a low-value shipment filed on an informal entry: not usually. Carriers such as FedEx, UPS and DHL file
+            those entries electronically and nothing is required from you. For anything on a formal entry, a licensed
+            broker is the practical default — technically you can self-file through ACE, but almost nobody does.
 
             <p>For formal entries: technically, an importer can self-file through ACE, but practically, almost everyone uses a licensed customs broker. The broker's job on a standard entry includes: classifying the goods under the correct HTSUS code, determining the applicable duty rate (including Section 301 and any antidumping/countervailing duties), filing the entry and entry summary in ACE, calculating and remitting duties and fees, and maintaining the entry records for five years as required by CBP regulations.</p>
 
@@ -551,7 +683,11 @@
         <!-- ═══ US vs EU ═══ -->
         <section class="seo-section" style="max-width:none;">
             <h2>US vs EU — The Same Product, Two Different Import Bills</h2>
-            <p>People selling into both markets often assume the import cost is similar. It isn't. The US has no VAT at the border and a generous $800 de minimis. The EU has universal VAT from the first euro and a much lower €150 duty de minimis. Here's what happens to the same $2,000 shipment in both markets:</p>
+            <p>People selling into both markets often assume the import cost is similar. It is not — but the assumption
+            used to be wrong for the wrong reason. Both markets have now closed their low-value duty exemptions: the
+            US suspended Section 321 on 29 August 2025, and the EU replaced its €150 duty exemption with a flat €3 per
+            item on 1 July 2026. So this is a comparison between two dutiable markets, one of which charges VAT from
+            the first euro and one of which charges none. Here is what happens to the same $2,000 shipment in both:</p>
 
             <div class="table-scroll">
                 <table class="fee-table">
@@ -583,21 +719,26 @@
                         <td class="fee-num">—</td>
                     </tr>
                     <tr>
-                        <td><strong>De minimis?</strong></td>
-                        <td style="color:#991b1b;font-weight:700;">Over $800 — formal entry</td>
-                        <td style="color:#991b1b;font-weight:700;">Over €150 — full TARIC duty</td>
-                        <td style="font-size:0.78rem;color:var(--text-muted);">US threshold is 5× higher</td>
+                        <td><strong>Low-value relief?</strong></td>
+                        <td style="color:#991b1b;font-weight:700;">Suspended — dutiable from $1</td>
+                
+                               <td style="color:#991b1b;font-weight:700;">€3 flat per item up to €150</td>
+          
+                                     <td style="font-size:0.78rem;color:var(--text-muted);">Both exemptions closed
+                        2025–26</td>
                     </tr>
                     <tr>
-                        <td><strong>Duty (4% MFN assumed)</strong></td>
-                        <td class="fee-num" style="color:#991b1b;">$92.80</td>
+                        <td><strong>Duty (4% MFN, US on goods value / EU on CIF)</strong></td>
+                        <td class="fee-num" style="color:#991b1b;">$80.00</td>
+                       
                         <td class="fee-num" style="color:#991b1b;">$92.80 (€85.38)</td>
-                        <td class="fee-num">Same</td>
+                       
+                        <td class="fee-num">EU pays $12.80 more</td>
                     </tr>
                     <tr>
                         <td><strong>VAT / GST</strong></td>
                         <td class="fee-num" style="color:#166534;">$0 (no federal VAT)</td>
-                        <td class="fee-num" style="color:#991b1b;">$506.21 (21% on duty-paid CIF)</td>
+                        <td class="fee-num" style="color:#991b1b;">$506.69 (21% on duty-paid CIF)</td>
                         <td class="fee-num" style="color:#991b1b;">+$506</td>
                     </tr>
                     <tr>
@@ -608,17 +749,26 @@
                     </tr>
                     <tr style="border-top:2px solid var(--steel-black);">
                         <td><strong>Total import cost</strong></td>
-                        <td class="fee-num" style="font-size:1rem;color:#166534;">~$2,444</td>
-                        <td class="fee-num" style="font-size:1rem;color:#991b1b;">~$2,919</td>
-                        <td class="fee-num" style="font-size:1rem;color:#991b1b;">EU costs $475 more</td>
+                        <td class="fee-num" style="font-size:1rem;color:#166534;">~$2,432</td>
+                      
+                         <td class="fee-num" style="font-size:1rem;color:#991b1b;">~$2,919</td>
+                     
+                          <td class="fee-num" style="font-size:1rem;color:#991b1b;">EU costs $487 more</td>
                     </tr>
                 </tbody>
             </table>
             </div>
-            <p class="fee-note">Assumes $2,000 FOB electronics from China, 4% MFN, 21% EU VAT, €1 = $1.09. The EU's VAT on the duty-paid CIF is the largest single difference — $506 of the $475 gap comes from VAT. The US has no equivalent charge at the federal level.</p>
+            <p class="fee-note">Assumes $2,000 FOB electronics from China, 4% MFN applied to the goods value in the US and to CIF in the
+            EU, 21% EU VAT, €1 = $1.09. Neither market’s 2026 low-value change affects a $2,000 shipment — both sit
+            above the lines that moved. Section 301 and the July 2026 forced-labour layer are not modelled here; add
+            7.5–25% to the China-origin duty line for either market. The EU’s VAT on the duty-paid value is the
+            largest single difference: at $507 it exceeds the entire $487 gap, because the US charges nothing
+            equivalent at the federal level.</p>
 
             <div class="dp-callout">
-                <strong>If you're comparing markets:</strong> the US wins on import cost for almost every product category because of no VAT and a higher de minimis. But the EU's IOSS system simplifies B2C VAT collection — it's an administrative tradeoff, not just a cost tradeoff. Run both markets side by side: <a href="/landed-cost-calculator">Landed Cost Calculator</a> <span class="dp-arrow">→</span> toggle US and EU, same shipment values, see the gap.
+                <strong>If you’re comparing markets:</strong> the US still wins on import cost for almost every
+                product category — it charges no VAT, and it assesses duty on the goods value rather than CIF. The old
+                de minimis advantage is gone; both markets closed those doors in 2025–26. But the EU's IOSS system simplifies B2C VAT collection — it's an administrative tradeoff, not just a cost tradeoff. Run both markets side by side: <a href="/landed-cost-calculator">Landed Cost Calculator</a> <span class="dp-arrow">→</span> toggle US and EU, same shipment values, see the gap.
             </div>
         </section>
 
@@ -654,8 +804,15 @@
             <h3>Misclassifying goods into a lower-rate chapter</h3>
             <p>Classifying a cotton-polyester blend jacket as Chapter 62 (woven, 10% MFN) when it's actually Chapter 61 (knitted, 12% MFN) because the importer looked at the fabric and guessed. Or classifying a smartphone case as Chapter 39 (plastics, 4% MFN) when CBP has ruled that specific design constitutes an article of Chapter 42 (leather accessories, 8% MFN). Misclassification is the most common CBP audit finding, and it generates duty demands going back five years. The standard for a "reasonable care" classification is that the importer used a competent broker, consulted the HTSUS, and applied the relevant CBP rulings and Explanatory Notes. Guessing does not meet the reasonable care standard. A broker's classification does.</p>
 
-            <h3>Assuming Section 321 covers freight and insurance</h3>
-            <p>The $800 de minimis threshold tests against goods value only — not CIF. But some carriers and filing agents incorrectly test against the total consignment value including shipping. If your carrier's Type 86 filing software mistakenly treats your $750 goods + $100 shipping as an $850 consignment and rejects the Section 321 entry, your package gets bumped to a formal entry track with a $31.67 MPF and potential duty. This is a carrier system error, not a CBP rule, but you pay for it anyway. When using Section 321, verify that your carrier or filing agent is testing against the goods value, not the consignment total. A quick email to your account manager can prevent this before it happens.</p>
+            <h3>Filing an invoice that does not separate freight from goods</h3>
+            <p>US customs assesses duty on the transaction value of the goods, and international freight and insurance
+            come out of that base — but only when your invoice identifies them as separate line items. A CIF or DDP
+            invoice that buries $1,200 of freight inside a $7,200 total hands CBP a $7,200 dutiable base instead of a
+            $6,000 one. At a 10% rate that is $120 of avoidable duty on every shipment, and it compounds across a
+            year. This is not a broker error and not something you can argue your way out of afterwards: the valuation
+            statute takes the invoice as written. Issue the commercial invoice FOB, or at minimum split freight and
+            insurance into their own lines. It is a one-time change to a document template that pays for itself on the
+            first container.</p>
 
             <h3>Not maintaining entry records for five years</h3>
             <p>CBP requires importers to retain all entry documentation — commercial invoice, packing list, bill of lading, entry summary (CBP Form 7501), broker's classification notes, and proof of duty payment — for five years from the date of entry. If CBP audits an entry from three years ago and you can't produce the records, the presumption is against you. The records don't need to be physical; digital copies are acceptable. But they need to exist and be retrievable. Most importers rely on their broker to maintain records, and for standard entries the broker usually does. But the legal obligation is on the importer of record, not the broker. If the broker goes out of business or deletes old records, you're still on the hook. Download your entry summaries annually and store them somewhere you control.</p>
@@ -666,19 +823,41 @@
             <h2>US Import Customs — Quick Answers to the Questions People Actually Search</h2>
 
             <h3>What is the US de minimis threshold for imports?</h3>
-            <p>$800 per person per day, based on the goods value only — freight and insurance are not included in the threshold test. Shipments at or below $800 clear through Section 321 / Type 86 electronic entry with zero customs duty, zero Merchandise Processing Fee, no bond, and no broker required. This is the highest de minimis of any G7 economy. The threshold is per person per day, not per shipment — CBP can aggregate multiple packages to the same consignee arriving on the same day. For exact cliff detection on your shipment value, use the <a href="/de-minimis-checker">De Minimis Cliff Detector</a>.</p>
+            <p>There is no US de minimis threshold in effect. The Section 321 exemption, which had allowed shipments of
+            $800 or less per person per day to enter free of duty, was suspended with effect from 29 August 2025 — for
+            every country of origin, not just China. Duty is payable from the first dollar. The Supreme Court’s
+            February 2026 decision against the IEEPA tariff authority did not restore it: the same day, E.O. 14388
+            moved the suspension onto different legal footing, and CBP’s June 2026 rulemaking wrote it up as
+            indefinite. The only surviving relief is for genuine bona fide gifts and personal accompanied items valued
+            at $100 or less. To see which thresholds still stand in other markets, use the
+            <a href="/de-minimis-checker">De Minimis Checker</a>.</p>
 
             <h3>How is US customs duty calculated?</h3>
             <p>Duty is calculated on the <strong>transaction value</strong> of the goods — the price actually paid or payable, plus packing, selling commissions, the value of any assist, and royalties paid as a condition of the sale. International freight and insurance are excluded when they are identified separately, which makes the US an FOB-type market rather than a CIF one. The formula is: customs value × MFN duty rate = customs duty. The MFN rate is assigned by the 10-digit HTSUS code for your product — rates range from 0% (electronics, pharmaceuticals) to 37.5% (certain footwear). If the goods are from China, Section 301 duties of 7.5% or 25% stack on top of the MFN rate. There is no federal VAT or GST on US imports — the duty line plus the MPF are the only federal charges. Run your numbers: <a href="/landed-cost-calculator">Landed Cost Calculator</a>.</p>
 
             <h3>What is the difference between Section 321 and formal entry?</h3>
-            <p>Section 321 (≤ $800 goods value): Type 86 electronic entry — no duty, no MPF, no bond, no broker, clears in seconds. Formal consumption entry (> $800): CBP Form 3461/7501 filed by a broker in ACE — MFN duty on the goods value, MPF of 0.3464% (min $31.67, max $614.35), customs bond required. The administrative cost of switching from Section 321 to formal entry is often larger than the duty itself on shipments between $800 and $2,500. Above $2,500, formal entry is mandatory. The $800–$2,500 informal range exists but still requires broker filing and MPF.</p>
+            <p>The comparison no longer exists. Section 321 was the duty-free lane for shipments under $800, and it was
+            suspended on 29 August 2025 — so there is nothing left for it to be an alternative to. What still matters
+            is entry type. Shipments up to $2,500 may be filed on an informal entry: less paperwork, no customs bond,
+            and a small fixed Merchandise Processing Fee. Above $2,500 formal entry is mandatory — CBP Form 3461 and
+            7501 filed by a broker in ACE, a bond, and the ad valorem MPF of 0.3464% (min $31.67, max $614.35). Duty
+            is owed on both tracks; only the paperwork and the fee structure differ.</p>
 
             <h3>What is the Merchandise Processing Fee (MPF) on US imports?</h3>
-            <p>The MPF is 0.3464% of the entered value, with a $31.67 minimum and a $614.35 maximum per formal entry. It applies to every formal consumption entry — Section 321 shipments are exempt. The MPF is not a customs duty and is not waived by free trade agreements (except USMCA, KORUS, and a few others that specifically waive it). Section 301 duties do not affect the MPF calculation — it's based on the entered value, not the duty amount.</p>
+            <p>The MPF is 0.3464% of the entered value on a formal entry, with a $31.67 minimum and a $614.35 maximum.
+            Informal entries pay a small fixed MPF instead of the ad valorem one. The MPF is not a customs duty and is
+            not waived by free trade agreements (except USMCA, KORUS, and a few others that specifically waive it).
+            Section 301 duties do not affect the MPF calculation — it is based on the entered value, not the duty
+            amount.</p>
 
             <h3>Do I need a customs broker to import into the US?</h3>
-            <p>For Section 321 shipments under $800: no — the carrier files the Type 86 entry electronically. For formal entries over $800: technically the importer can self-file through ACE, but practically almost everyone uses a licensed customs broker. Broker fees run $75–200 per formal entry. The broker classifies goods under the correct HTSUS code, determines applicable duties (including Section 301 and AD/CVD), files the entry and entry summary in ACE, and remits duties. A broker's classification is the single highest-value service on a standard entry — misclassification generates duty demands going back five years.</p>
+            <p>For a low-value shipment filed on an informal entry: not usually — the carrier files the entry
+            electronically. For formal entries: technically the importer can self-file through ACE, but practically
+            almost everyone uses a licensed customs broker. Broker fees run $75–200 per formal entry. The broker
+            classifies goods under the correct HTSUS code, determines applicable duties (including Section 301 and
+            AD/CVD), files the entry and entry summary in ACE, and remits duties. A broker’s classification is the
+            single highest-value service on a standard entry — misclassification generates duty demands going back
+            five years.</p>
 
             <h3>How much is US import duty from China?</h3>
             <p>It depends on the product's HTSUS chapter and which Section 301 List it falls under. The effective rate is MFN + Section 301. Industrial goods (machinery, chemicals, metals — Lists 1-3) face MFN (typically 2–5%) plus 25% Section 301 = 27–30% total. Consumer goods (apparel, footwear, furniture, electronics — List 4A) face MFN (5–16%) plus 7.5% Section 301 = 12.5–23.5% total. Smartphones and laptops qualify for 0% MFN under the ITA but still face 7.5% Section 301 = 7.5% total. Goods from Vietnam, India, and other non-China origins generally pay only the MFN rate with no Section 301 overlay. For a product-by-product breakdown, see the <a href="/section-301-china-tariffs-guide">Section 301 Guide</a>.</p>
@@ -687,7 +866,12 @@
             <p>A customs bond is a financial guarantee to CBP that duties, taxes, and fees will be paid on a formal entry. Two types: single-entry bond (0.5–0.7% of entered value, ~$100 minimum) and continuous bond (covers all entries for a year, $50,000 minimum coverage, ~$250–500 annual premium). The continuous bond breaks even at roughly three formal entries per year. The bond premium is not the coverage amount — you pay a fraction of the bond amount to the surety company. The bond guarantees payment; you still pay the actual duties through your broker.</p>
 
             <h3>What is Type 86 entry?</h3>
-            <p>Type 86 is the electronic entry type used for Section 321 de minimis shipments (goods value $800 or below). It was created by CBP in 2019 to automate low-value clearance. The carrier or a self-filing importer submits shipment data to ACE electronically. CBP processes it automatically — no human review unless the Automated Targeting System flags the shipment. Clearance takes seconds. Type 86 requires no bond, no broker, and no MPF payment. It's the mechanism behind most cross-border e-commerce parcels entering the US from China.</p>
+            <p>Type 86 is the electronic entry type CBP created in 2019 to clear Section 321 de minimis shipments
+            automatically — goods value of $800 or below, carrier or self-filer submits the data to ACE, CBP processes
+            it with no human review unless the Automated Targeting System flags the shipment, and it clears in seconds
+            with no bond, no broker and no MPF. It was the mechanism behind most cross-border e-commerce parcels
+            entering the US from China. With the Section 321 exemption suspended since 29 August 2025, there is no
+            duty-free lane left for it to serve.</p>
         </section>
 
         <!-- ═══ DECISION-PATH TOOLS ═══ -->
@@ -704,8 +888,13 @@
                 </div>
 
                 <div class="dp-callout">
-                    <strong>📏 "My shipment value is $750–$900. Am I safe under Section 321 or should I budget for formal entry?"</strong><br>
-                    → <a href="/de-minimis-checker">De Minimis Cliff Detector</a>. Enter your exact goods value. It checks all 7 major markets — if the US row says CLEAR, you're under $800. If it says CLIFF, you're within 15% of the line and should adjust. One dollar over = full formal entry, not a small surcharge.
+                    <strong>📏 "Is my shipment under any market’s de minimis line, and what does it cost to
+                    cross?"</strong><br>
+                    → <a href="/de-minimis-checker">De Minimis Checker</a>.
+                    Enter your exact goods value. It checks all 7 major markets and shows which thresholds still give
+                    relief and which have closed — the US row reads DUTIABLE at any value now, the EU shows the flat
+                    €3 per item up to €150. Where a line is real, one dollar over makes the whole shipment dutiable,
+                    not a small surcharge.
                 </div>
 
                 <div class="dp-callout">
@@ -720,7 +909,9 @@
 
                 <div class="dp-callout">
                     <strong>🌍 "Should I ship into the US or the EU? Which market costs less at the border?"</strong><br>
-                    → <a href="/landed-cost-calculator">Landed Cost Calculator</a>. Toggle US and EU. Same FOB, same freight. Compare the landed cost columns. The US almost always wins on import cost (no VAT, higher de minimis). The calculator shows you the exact dollar gap for your shipment.
+                    → <a href="/landed-cost-calculator">Landed Cost Calculator</a>. Toggle US and EU. Same FOB, same freight. Compare the landed cost columns. The US usually wins on import cost — no VAT, and duty on the
+                    goods value rather than CIF — though both markets now charge duty from the first dollar. The
+                    calculator shows you the exact dollar gap for your shipment.
                 </div>
 
                 <div class="dp-callout">
@@ -731,7 +922,11 @@
             </div>
         </section>
 
-        <p style="margin-top:32px;"><strong>Updated July 24, 2026.</strong> The <a href="/section-122-tariffs-guide">Section 122 10% global surcharge expires today</a> — its removal and potential Section 301 replacement affect duty calculations for nearly all US imports. <a href="/section-122-tariffs-guide">Read the Section 122 expiration guide</a> for what changes, what stays, and what to model.</p>
+        <p style="margin-top:32px;"><strong>Updated October 16, 2026.</strong> The
+        <a href="/section-122-tariffs-guide">Section 122 10% global surcharge expired on 24 July 2026</a> and was
+        replaced the same day by the <a href="/section-122-tariffs-guide">forced-labour Section 301 action</a>, which
+        now reaches 60 economies. Both the suspension of Section 321 and the new layer are reflected throughout this
+        guide.</p>
         <p style="margin-top:16px;"><a href="/landed-cost-calculator">Landed Cost Calculator →</a> &nbsp;|&nbsp; <a href="/de-minimis-checker">Cliff Detector</a> &nbsp;|&nbsp; <a href="/section-301-china-tariffs-guide">Section 301 Guide</a> &nbsp;|&nbsp; <a href="/">← Back to Home</a></p>
     </main>
 
@@ -802,17 +997,17 @@
         </div>
     </footer>
 
-    <script src="main.js?v=dd0fe60"></script>
+    <script src="main.js?v=338eca8"></script>
 
     <!-- ═══ STRUCTURED DATA ═══ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "US Import Duty & Customs Guide: Section 321, Type 86, MFN + 301 Tariffs",
-      "description": "How US customs duty works in practice: Section 321 de minimis ($800 rule), Type 86 vs formal entry, MFN + Section 301 stacking, MPF fees, bonds, brokers, and port choices.",
+      "headline": "US Import Duty & Customs Guide — Section 321 Is Suspended",
+      "description": "How US customs duty works now that Section 321 is suspended: duty from the first dollar, MFN + Section 301 stacking, MPF, bonds, brokers, and port choices.",
       "datePublished": "2026-06-29",
-      "dateModified": "2026-06-29",
+      "dateModified": "2026-10-16",
       "author": {
         "@type": "Organization",
         "name": "DutyCalc Research"
@@ -860,7 +1055,7 @@
           "name": "What is the US de minimis threshold for imports?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "$800 per person per day, based on the goods value only — freight and insurance are not included in the threshold test. Shipments at or below $800 clear through Section 321 / Type 86 electronic entry with zero customs duty, zero Merchandise Processing Fee, no bond, and no broker required. This is the highest de minimis of any G7 economy."
+            "text": "There is no US de minimis threshold in effect. The Section 321 exemption, which had allowed shipments of $800 or less per person per day to enter free of duty, was suspended with effect from 29 August 2025 — for every country of origin, not just China. Duty is payable from the first dollar. The Supreme Court's February 2026 decision against the IEEPA tariff authority did not restore it; the same day, E.O. 14388 moved the suspension onto different legal footing, and CBP's June 2026 rulemaking wrote it up as indefinite. The only surviving relief is for genuine bona fide gifts and personal accompanied items valued at $100 or less."
           }
         },
         {
@@ -876,7 +1071,7 @@
           "name": "What is the difference between Section 321 and formal entry?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Section 321 (≤ $800 goods value): Type 86 electronic entry — no duty, no MPF, no bond, no broker, clears in seconds. Formal consumption entry (> $800): CBP Form 3461/7501 filed by a broker in ACE — MFN duty on the goods value, MPF of 0.3464% (min $31.67, max $614.35), customs bond required. The administrative cost of switching from Section 321 to formal entry is often larger than the duty itself on shipments between $800 and $2,500."
+            "text": "The comparison no longer exists. Section 321 was the duty-free lane for shipments under $800, and it was suspended on 29 August 2025, so there is nothing left for it to be an alternative to. What still matters is entry type. Shipments up to $2,500 may be filed on an informal entry: less paperwork, no customs bond, and a small fixed Merchandise Processing Fee. Above $2,500 formal entry is mandatory — CBP Form 3461 and 7501 filed by a broker in ACE, a bond, and the ad valorem MPF of 0.3464% (min $31.67, max $614.35). Duty is owed on both tracks; only the paperwork and the fee structure differ."
           }
         },
         {
@@ -884,7 +1079,7 @@
           "name": "What is the Merchandise Processing Fee (MPF) on US imports?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The MPF is 0.3464% of the entered value, with a $31.67 minimum and a $614.35 maximum per formal entry. It applies to every formal consumption entry — Section 321 shipments are exempt. The MPF is not a customs duty and is not waived by free trade agreements except USMCA, KORUS, and a few others that specifically waive it."
+            "text": "The MPF is 0.3464% of the entered value on a formal entry, with a $31.67 minimum and a $614.35 maximum. Informal entries pay a small fixed MPF instead of the ad valorem one. The MPF is not a customs duty and is not waived by free trade agreements except USMCA, KORUS, and a few others that specifically waive it."
           }
         },
         {
@@ -892,7 +1087,7 @@
           "name": "Do I need a customs broker to import into the US?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "For Section 321 shipments under $800: no — the carrier files the Type 86 entry electronically. For formal entries over $800: technically the importer can self-file through ACE, but practically almost everyone uses a licensed customs broker. Broker fees run $75–200 per formal entry. The broker classifies goods under the correct HTSUS code, determines applicable duties, files the entry and entry summary, and remits duties."
+            "text": "For a low-value shipment filed on an informal entry: not usually — the carrier files electronically. For formal entries: technically the importer can self-file through ACE, but practically almost everyone uses a licensed customs broker. Broker fees run $75–200 per formal entry. The broker classifies goods under the correct HTSUS code, determines applicable duties, files the entry and entry summary, and remits duties."
           }
         },
         {
@@ -916,13 +1111,13 @@
           "name": "What is Type 86 entry?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Type 86 is the electronic entry type used for Section 321 de minimis shipments (goods value $800 or below). Created by CBP in 2019, it automates low-value clearance. The carrier submits shipment data to ACE electronically and CBP processes it automatically — no human review unless the Automated Targeting System flags the shipment. Clearance takes seconds. Type 86 requires no bond, no broker, and no MPF payment."
+            "text": "Type 86 is the electronic entry type CBP created in 2019 to clear Section 321 de minimis shipments automatically — goods value of $800 or below, carrier or self-filer submits the data to ACE, CBP processes it with no human review unless the Automated Targeting System flags the shipment, and it clears in seconds with no bond, no broker and no MPF. It was the mechanism behind most cross-border e-commerce parcels entering the US from China. With the Section 321 exemption suspended since 29 August 2025, there is no duty-free lane left for it to serve."
           }
         }
       ]
     }
     </script>
 
-    <script src="sw-register.js?v=dd0fe60"></script>
+    <script src="sw-register.js?v=338eca8"></script>
 </body>
 </html>

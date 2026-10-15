@@ -16,7 +16,7 @@
     <meta name="twitter:description" content="MFN rates product by product for Thai, Indonesian and Malaysian goods entering the US — no Section 301, and where each corridor genuinely wins.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=dd0fe60">
+    <link rel="stylesheet" href="style.css?v=338eca8">
 <meta property="og:image" content="https://www.dutycalc.online/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -80,8 +80,8 @@
 
         <div class="trade-tip"><span class="tip-label">Read this first</span><br>If you are comparing origins, the arithmetic that matters is <em>your</em> product's 10-digit HTS line, not a country average. A Malaysian chip can enter at 0% while an Indonesian sneaker pays 20% — same region, same week, ten times the duty. Use the calculators below for a directional number, then check the exact code in the <a href="/tariff-calculator">tariff rate lookup</a>.</div>
 
-        <!-- ═══ 计算器：泰国 ═══ -->
-        <section class="calculator-section" data-duty-rate="4.5" data-vat-rate="0" data-deminimis="800">
+        <!-- ═══ Calculator: Thailand═══ -->
+        <section class="calculator-section" data-duty-rate="4.5" data-vat-rate="0" data-deminimis="0" data-duty-surcharge="12.5" data-layer-note="Includes the Section 301 forced-labour duty: +12.5% on top of the base rate (in force 24 July 2026).">
             <div class="calculator-card">
                 <h3>Thailand &rarr; US Duty Estimator</h3>
                 <p class="card-desc">Blended MFN for the typical Thai mix — auto parts, electronics, jewelry, rubber goods, food. Auto parts run far below this, footwear far above.</p>
@@ -97,7 +97,7 @@
                 <div class="result-display result-hidden" aria-live="polite" aria-atomic="true">
                     <h4>Customs Clearing Summary:</h4>
                     <ul>
-                        <li>Import Tariff (4.5% MFN blend): <span class="res-duty">--</span></li>
+                        <li>Import Tariff (17.0%): <span class="res-duty">--</span></li>
                         <li>Import VAT / Sales Tax: <span class="res-vat">--</span></li>
                         <li>Total Government Taxes: <span class="res-total-tax">--</span></li>
                         <li>Total Estimated Landed Cost: <span class="res-landed">--</span></li>
@@ -106,8 +106,8 @@
             </div>
         </section>
 
-        <!-- ═══ 计算器：印尼 ═══ -->
-        <section class="calculator-section" data-duty-rate="6.5" data-vat-rate="0" data-deminimis="800">
+        <!-- ═══ Calculator: Indonesia═══ -->
+        <section class="calculator-section" data-duty-rate="6.5" data-vat-rate="0" data-deminimis="0" data-duty-surcharge="10" data-layer-note="Includes the Section 301 forced-labour duty: +10% on top of the base rate (in force 24 July 2026).">
             <div class="calculator-card">
                 <h3>Indonesia &rarr; US Duty Estimator</h3>
                 <p class="card-desc">Blended MFN for the Indonesian mix — footwear, furniture, apparel, processed food. If your line is sneakers or leather shoes, expect well above this.</p>
@@ -123,7 +123,7 @@
                 <div class="result-display result-hidden" aria-live="polite" aria-atomic="true">
                     <h4>Customs Clearing Summary:</h4>
                     <ul>
-                        <li>Import Tariff (6.5% MFN blend): <span class="res-duty">--</span></li>
+                        <li>Import Tariff (16.5%): <span class="res-duty">--</span></li>
                         <li>Import VAT / Sales Tax: <span class="res-vat">--</span></li>
                         <li>Total Government Taxes: <span class="res-total-tax">--</span></li>
                         <li>Total Estimated Landed Cost: <span class="res-landed">--</span></li>
@@ -132,8 +132,8 @@
             </div>
         </section>
 
-        <!-- ═══ 计算器：马来西亚 ═══ -->
-        <section class="calculator-section" data-duty-rate="3.5" data-vat-rate="0" data-deminimis="800">
+        <!-- ═══ Calculator: Malaysia═══ -->
+        <section class="calculator-section" data-duty-rate="3.5" data-vat-rate="0" data-deminimis="0" data-duty-surcharge="10" data-layer-note="Includes the Section 301 forced-labour duty: +10% on top of the base rate (in force 24 July 2026).">
             <div class="calculator-card">
                 <h3>Malaysia &rarr; US Duty Estimator</h3>
                 <p class="card-desc">Blended MFN for the Malaysian mix — semiconductors and electronics (mostly ITA zero), rubber gloves, palm-oil products, chemicals.</p>
@@ -149,7 +149,7 @@
                 <div class="result-display result-hidden" aria-live="polite" aria-atomic="true">
                     <h4>Customs Clearing Summary:</h4>
                     <ul>
-                        <li>Import Tariff (3.5% MFN blend): <span class="res-duty">--</span></li>
+                        <li>Import Tariff (13.5%): <span class="res-duty">--</span></li>
                         <li>Import VAT / Sales Tax: <span class="res-vat">--</span></li>
                         <li>Total Government Taxes: <span class="res-total-tax">--</span></li>
                         <li>Total Estimated Landed Cost: <span class="res-landed">--</span></li>
@@ -158,7 +158,7 @@
             </div>
         </section>
 
-        <!-- ═══ 正文 ═══ -->
+        <!-- ═══ Body copy═══ -->
         <div>
             <article class="seo-section">
 
@@ -195,7 +195,11 @@
 
                 <h2>Three traps that show up after the rate quote</h2>
                 <p><strong>Origin integrity.</strong> CBP watches for goods routed through ASEAN to dodge Section 301, and it treats Thailand, Indonesia and Malaysia the same way it treats Vietnam: goods genuinely manufactured there are fine; re-labeled Chinese goods are fraud, with penalties up to the entered value and the burden of proof on the importer. Keep production records for every PO. If a supplier offers to "ship through" a third country, that is the conversation you end.</p>
-                <p><strong>De minimis is the same $800 cliff.</strong> The Section 321 threshold applies to these three origins exactly as it does to China — under $800 in goods value per person per day, nothing; one dollar over, the whole CIF is dutiable. The mechanics are identical and the rules on splitting orders are identical: structuring to dodge the threshold is fraud. The <a href="/de-minimis-value-guide">threshold guide</a> has the full map.</p>
+                <p><strong>De minimis is gone here too.</strong> Section 321's $800 line was suspended on 29 August
+                2025 for every country of origin, so these three origins face duty from the first dollar exactly as
+                China does. There is no threshold left to slip under, and structuring a shipment to under-declare what
+                was bought is still fraud. The <a href="/de-minimis-value-guide">threshold guide</a> has the full
+                map.</p>
                 <p><strong>Q3–Q4 capacity.</strong> The same container crunch that hits every peak season hits these ports harder, because a smaller share of their traffic runs on US mainline services. Laem Chabang and Port Klang are better connected than Tanjung Priok, but all three tighten up from September. Book space early, and don't treat a confirmed booking as a guarantee of a sailing date.</p>
 
                 <h2>Frequently Asked Questions</h2>
@@ -285,8 +289,8 @@
         </div>
     </footer>
 
-    <script src="rate-data.js?v=dd0fe60"></script>
-    <script src="main.js?v=dd0fe60"></script>
-    <script src="sw-register.js?v=dd0fe60"></script>
+    <script src="rate-data.js?v=338eca8"></script>
+    <script src="main.js?v=338eca8"></script>
+    <script src="sw-register.js?v=338eca8"></script>
 </body>
 </html>

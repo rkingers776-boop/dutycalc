@@ -16,7 +16,7 @@
     <meta name="twitter:description" content="CIF + duty in, VAT for 7 markets out. The middle link in the landed cost chain.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=dd0fe60">
+    <link rel="stylesheet" href="style.css?v=338eca8">
     <style>
         /* ── VAT Calculator — Component Styles ── */
         .vc-input-panel {
@@ -407,7 +407,13 @@
             <div class="vc-bd-card">
                 <h4>🇺🇸 United States — The Zero-VAT Outlier</h4>
                 <div class="vc-bd-formula">No federal VAT or GST at the border. Period.</div>
-                <p>The United States is the only G7 economy without a federal value-added tax or goods and services tax collected at the border. CBP assesses customs duty only — no VAT layer. State sales tax is a domestic transaction between you and your customer; it is not charged at import. This structural advantage makes the US the cheapest major market to import into, all else equal. But the $800 Section 321 de minimis for duty is a cliff — cross it and full MFN duty applies on the entire CIF. At least there's no tax on top. See the <a href="/de-minimis-checker">Cliff Detector</a> to check if your shipment stays under.</p>
+                <p>The United States is the only G7 economy without a federal value-added tax or goods and services tax
+                collected at the border. CBP assesses customs duty only — no VAT layer. State sales tax is a domestic
+                transaction between you and your customer; it is not charged at import. This structural advantage
+                makes the US the cheapest major market to import into, all else equal. But the $800 Section 321 de
+                minimis was suspended on 29 August 2025 for every origin, so the old cliff is gone: duty is now due
+                from the first dollar. At least there's no tax on top. The <a href="/de-minimis-checker">Cliff
+                Detector</a> still compares your shipment value against every threshold that is still standing.</p>
             </div>
 
             <div class="vc-bd-card">
@@ -436,8 +442,17 @@
 
             <div class="vc-bd-card">
                 <h4>🇲🇽 Mexico — IVA From the First Peso</h4>
-                <div class="vc-bd-formula">IVA Base = CIF + Duty. Rate: 16%. Threshold: MXN $50 (effectively none).</div>
-                <p>MXN $50 is about USD $2.50. It's symbolic — every commercial import pays 16% IVA on the duty-paid CIF. The formula is straightforward: customs duty (averaging 15% of CIF for Chinese goods, climbing toward 25–35% for textiles and steel since the 2026 tariff increases), then 16% IVA on top of that total. A shipment that incurs $1,000 in duty pays an additional $160 in IVA on the duty alone. Licensed customs brokers (agentes aduanales) charge MXN $1,500–3,500 per entry, independent of shipment value. The only structural relief is IMMEX: goods processed in Mexico and re-exported can defer both duty and IVA. <a href="/china-to-mexico-maquila">China→Mexico IMMEX</a> explains the program.</p>
+                <div class="vc-bd-formula">IVA Base = CIF + Duty. Rate: 16%. Threshold: USD 50 — postal shipments only, plus courier from the US
+                and Canada.</div>
+                <p>The threshold is USD 50, not MXN 50 — about MXN 900 at recent rates — and it covers only postal items
+                plus courier entries from the US or Canada, so for Chinese-origin commercial freight it is effectively
+                nothing. Every commercial import pays 16% IVA on the duty-paid CIF. The formula is straightforward:
+                customs duty (averaging 15% of CIF for Chinese goods, climbing toward 25–35% for textiles and steel
+                since the 2026 tariff increases), then 16% IVA on top of that total. A shipment that incurs $1,000 in
+                duty pays an additional $160 in IVA on the duty alone. Licensed customs brokers (agentes aduanales)
+                charge MXN $1,500–3,500 per entry, independent of shipment value. The only structural relief is IMMEX:
+                goods processed in Mexico and re-exported can defer both duty and IVA.
+                <a href="/china-to-mexico-maquila">China→Mexico IMMEX</a> explains the program.</p>
             </div>
 
             <div class="vc-bd-card">
@@ -786,7 +801,7 @@
 
     })();
     </script>
-    <script src="main.js?v=dd0fe60"></script>
-    <script src="sw-register.js?v=dd0fe60"></script>
+    <script src="main.js?v=338eca8"></script>
+    <script src="sw-register.js?v=338eca8"></script>
 </body>
 </html>

@@ -16,13 +16,13 @@
     <meta name="twitter:description" content="Calculate import duty on goods shipped from the European Union to the United States.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=dd0fe60">
+    <link rel="stylesheet" href="style.css?v=338eca8">
 <meta property="og:image" content="https://www.dutycalc.online/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","name":"EU to US Import Duty? (Free & Instant Calculator)","url":"https://www.dutycalc.online/eu-to-us-duty","description":"Calculate import duty on goods shipped from the European Union to the United States. 4.0% average MFN tariff, $800 Section 321 de minimis, no Section 301 — free instant estimator.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"isPartOf":{"@type":"WebSite","name":"DutyCalc Online","url":"https://www.dutycalc.online/"}}
+{"@context":"https://schema.org","@type":"Article","name":"EU to US Import Duty? (Free & Instant Calculator)","url":"https://www.dutycalc.online/eu-to-us-duty","description":"Calculate import duty on goods shipped from the European Union to the United States. 4.0% base MFN tariff topped up to 10% by the Section 301 forced-labour layer, and no de minimis since 29 August 2025 — free instant estimator.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"isPartOf":{"@type":"WebSite","name":"DutyCalc Online","url":"https://www.dutycalc.online/"}}
 </script>
 </head>
 <body>
@@ -75,16 +75,17 @@
             <h1>EU to US Import Duty Calculator</h1>
             <p>
                 The US and EU run the world's largest bilateral trade relationship — over $1.3 trillion a year in both directions.
-                For EU goods entering the US, the average MFN duty rate is just <strong>4.0%</strong>. There's <strong>no Section
-                301</strong> surcharge hanging over transatlantic shipments, and anything under <strong>$800</strong> sails through
-                duty-free under Section 321 de minimis. Use the calculator below for an instant landed-cost estimate, then read on
+                For EU goods entering the US, the average MFN duty rate is just <strong>4.0%</strong>, and a
+                <strong>2026 Section 301 action</strong> now tops low-rate EU lines up to a 10% floor. The old
+                <strong>$800</strong> short cut is gone too: Section 321 de minimis has been suspended since 29 August
+                2025. EU exporters still pay far less than Chinese ones. Use the calculator below for an instant landed-cost estimate, then read on
                 for everything you need to know about EU-to-US import duty.
             </p>
         </header>
 
         <div>
             <section class="calculator-section">
-                <div class="calculator" data-duty-rate="4.0" data-vat-rate="0" data-deminimis="800" data-currency="USD">
+                <div class="calculator" data-duty-rate="4.0" data-vat-rate="0" data-deminimis="0" data-currency="USD" data-duty-floor="10" data-layer-note="Base rate topped up to 10% by the Section 301 forced-labour duty (in force 24 July 2026).">
                     <div class="calc-row">
                         <label for="goods-value">Shipment Commercial Value (USD)</label>
                         <input type="number" id="goods-value" value="3000" min="0" step="0.01">
@@ -95,13 +96,13 @@
                     </div>
                     <button type="button" id="calc-btn" class="calc-btn">Calculate Landed Cost</button>
                     <div class="calc-results" id="calc-results" style="display:none;">
-                        <p><strong>Import Tariff (4.0% MFN):</strong> <span id="result-duty">$0.00</span></p>
+                        <p><strong>Import Tariff (10.0%):</strong> <span id="result-duty">$0.00</span></p>
                         <p><strong>Import VAT / Sales Tax:</strong> <span id="result-vat">$0.00</span></p>
                     </div>
                 </div>
             </section>
 
-            <div class="trade-tip"><span class="tip-label">Section 232 is the wildcard</span><br><strong>Steel (25%) and aluminum (10%) from the EU still face Section 232 tariffs.</strong> These were imposed in 2018 and never fully lifted. If your product contains steel or aluminum components, check whether Section 232 applies. <a href="/germany-to-us-automotive">German auto parts at 4.0% 鈫?/a></div>
+            <div class="trade-tip"><span class="tip-label">Section 232 is the wildcard</span><br><strong>Steel (25%) and aluminum (10%) from the EU still face Section 232 tariffs.</strong> These were imposed in 2018 and never fully lifted. If your product contains steel or aluminum components, check whether Section 232 applies. <a href="/germany-to-us-automotive">German auto parts at 4.0% →</a></div>
 
             <section class="seo-section">
 
@@ -114,42 +115,57 @@
                     and there's been decades of reciprocal tariff restraint between Washington and Brussels.
                 </p>
                 <p>
-                    Unlike China, there's no Section 301 surcharge on EU goods. That alone saves EU exporters anywhere from 7.5% to
-                    100% in additional duties depending on the product category. Let's put real numbers to a typical transatlantic
-                    shipment: $3,000 of German machinery plus $200 in shipping and insurance gives you $3,200 CIF. Duty at 4.0%
-                    comes to <strong>$128</strong>. The Merchandise Processing Fee (MPF) is $11.09. The Harbor Maintenance Fee (HMF)
-                    adds another $4. Total government charges: $143.09. Landed cost: $3,343.09. The duty line is about 4% of CIF
-                    — in global trade terms, that's practically nothing.
+                    Unlike China, the EU sits on none of the pre-2026 Section 301 lists — no 7.5%, no 25% added to
+                    MFN. That still saves EU exporters anywhere from 7.5% to 100% in additional duties depending on
+                    the product category. What changed in July 2026 is the floor. Run the same numbers on a typical
+                    transatlantic shipment: $3,000 of German machinery plus $200 in shipping and insurance gives you
+                    $3,200 CIF. Duty now lands at the 10% floor rather than the 4.0% MFN rate, so
+                    <strong>$320</strong>. The Merchandise Processing Fee (MPF) is $11.09. The Harbor Maintenance Fee
+                    (HMF) adds another $4. Total government charges: $335.09. Landed cost: $3,535.09 — about 10.5% of
+                    CIF, and still a fraction of what the same machinery from China would carry once the China lists
+                    apply.
                 </p>
 
-                <h2>The $800 De Minimis — Generous and Uncontroversial</h2>
+                <h2>The $800 De Minimis — Suspended for Everyone</h2>
                 <p>
-                    Section 321 exempts EU shipments under <strong>$800</strong> from all duties, taxes, and fees. For EU e-commerce
-                    sellers shipping DTC to US customers, this is a massive advantage that's completely uncontroversial — unlike the
-                    political firestorm around Chinese de minimis entries.
+                    Section 321 used to exempt EU shipments under <strong>$800</strong> from all duties, taxes and
+                    fees. Executive action ended it on 29 August 2025 for all origins, so EU exporters lost the same
+                    short cut Chinese sellers did. What differs is the replacement: Chinese goods carry an additive
+                    12.5% forced-labour layer, while EU goods are topped up to a 10% floor — and because the EU base
+                    rate averages only 4.0%, the top-up costs them a good deal less.
                 </p>
                 <p>
-                    A $750 Italian leather bag? Ships duty-free, no questions asked. A $1,200 one? Pays 4.0% on the full CIF value,
-                    no partial exemption, no sliding scale. The de minimis applies equally regardless of origin — EU goods get the
-                    same treatment as any other country's shipments. CBP scrutiny on EU de minimis entries is markedly lighter than
-                    on Chinese parcels. EU exporters tend to have stronger compliance records, and the political appetite for
-                    targeting EU small parcels simply isn't there. For the full rules and edge cases, check our
+                    A $750 Italian leather bag used to ship duty-free, no questions asked. It no longer does: with
+                    Section 321 suspended, duty applies from the first dollar on every origin, and the 2026 floor
+                    means the line reads 10% rather than the 4.0% MFN rate. A $1,200 bag pays the same way — on the
+                    full entered value, with no partial exemption and no sliding scale. That base is the
+                    transaction value rather than CIF: freight and insurance you itemise separately on the
+                    commercial invoice come out of it, while a bundled CIF or DDP price stays in. What is
+                    still true is that CBP
+                    scrutiny on EU parcels is markedly lighter than on Chinese ones: EU exporters tend to have
+                    stronger compliance records, and the forced-labour and transshipment risk pattern that draws
+                    attention to Chinese traffic is largely absent. For the full rules and edge cases, check our
                     <a href="/de-minimis-value-guide">de minimis value guide</a>.
                 </p>
 
-                <h2>No Section 301 — The Key Difference from China</h2>
+                <h2>Section 301 Now Applies to the EU Too — at a Lower Number</h2>
                 <p>
-                    EU goods are <strong>not</strong> subject to Section 301 tariffs. Those apply only to China, with a few narrow,
-                    product-specific exceptions that don't touch EU manufacturing. Here's what that difference looks like in
-                    practice: an Italian machine tool pays 4.0% MFN. The same machine tool from China would pay 4.0% MFN
-                    <em>plus</em> 25% Section 301 List 1 — a combined 27.5%.
+                    Until 2026 the EU was the notable case of a large trading partner touched only by narrow,
+                    product-specific Section 301 actions that never reached general manufacturing. That ended on 24
+                    July 2026, when a Section 301 action targeting forced labour took effect across 60 economies. For
+                    the EU it is designed as a top-up rather than a surcharge: the combined rate is raised to a
+                    <strong>10% floor</strong> wherever the existing rate sits below it. An Italian machine tool at
+                    4.0% MFN therefore enters at 10%; goods already at or above 10% are unaffected. The same machine
+                    tool from China would pay its MFN rate <em>plus</em> 25% Section 301 List 1 and <em>plus</em> the
+                    additive 12.5% forced-labour layer — 27.5% or more.
                 </p>
                 <p>
-                    For transatlantic trade, the absence of Section 301 isn't just a nice-to-have. It's the single biggest cost
-                    advantage EU exporters hold over their Chinese competitors in the US market. That gap has reshaped sourcing
-                    decisions across entire industries over the past five years. If you're comparing EU vs. China landed costs side
-                    by side, see our <a href="/section-301-china-tariffs-guide">Section 301 China tariffs guide</a> for the complete
-                    rate tables by HTS chapter.
+                    The gap with China survives, and it is still the single biggest cost advantage EU exporters hold
+                    in the US market — but it is now a gap in degree rather than in kind, and it has narrowed from
+                    about 23 points to roughly 17. That shift has already started reshaping sourcing decisions that
+                    were built on a zero-versus-25% comparison. If you're weighing EU against China landed costs side
+                    by side, see our <a href="/section-301-china-tariffs-guide">Section 301 China tariffs guide</a>
+                    for the list rates by HTS chapter.
                 </p>
 
                 <h2>Sector-Specific EU-US Tariff Dynamics</h2>
@@ -245,18 +261,21 @@
 
                 <h3>What's the duty rate for EU goods entering the US?</h3>
                 <p>
-                    The average is 4.0% MFN for manufactured goods, but it varies by category. Industrial machinery runs 0–4.5%.
-                    Luxury handbags go 6–9%. Passenger cars sit at 4.0%. Pharmaceuticals are mostly 0%. No Section 301 applies to
-                    EU goods — it's one of the lowest effective rate schedules for any non-FTA trading partner. The US and EU have
-                    structured their tariff books around high-value manufactured goods that both sides want to keep moving.
+                    The average is 4.0% MFN for manufactured goods, but it varies by category. Industrial machinery
+                    runs 0–4.5%. Luxury handbags go 6–9%. Passenger cars sit at 4.0%. Pharmaceuticals are mostly 0%.
+                    The 2026 Section 301 forced-labour action now sets a 10% floor for EU goods, so every line whose
+                    MFN rate sits below 10% is topped up to that number — which means the effective rate on most EU
+                    manufactured goods is now 10%, not 4.0%. Only categories already at or above 10% escape the
+                    change.
                 </p>
 
-                <h3>Do EU shipments under $800 pay US customs duty?</h3>
+                <h3>Do EU shipments under $800 pay US customs duty now that Section 321 is suspended?</h3>
                 <p>
-                    No. Section 321 de minimis exempts shipments under $800 from all duties. This applies to EU goods the same as
-                    any other origin — no special treatment, no exceptions, no asterisks. If the shipment value is under $800, the
-                    duty line is zero. If it's over $800, duty applies to the full CIF value, not just the amount above the
-                    threshold.
+                    Yes — since 29 August 2025. The Section 321 exemption that used to zero out shipments under $800
+                    is suspended for every origin, so an EU parcel is dutiable from the first dollar. The rate you
+                    actually pay is the lane's MFN average topped up to a 10% floor under the 2026 Section 301 action
+                    wherever the base rate falls below it. Duty is assessed on the full CIF value — goods, freight and
+                    insurance — not merely on the amount above some line.
                 </p>
 
                 <h3>Are there any additional tariffs on EU goods beyond MFN rates?</h3>
@@ -277,7 +296,9 @@
 
             </section>
 
-            <div class="trade-tip"><span class="tip-label">Generally predictable, but verify</span><br>EU goods get straightforward MFN treatment with no Section 301 drama. That said, 4% on a $100,000 shipment is $4,000 鈥?enough to matter in a competitive bid. <a href="/landed-cost-calculator">Calculate your actual landed cost 鈫?/a></div>
+            <div class="trade-tip"><span class="tip-label">Generally predictable, but verify</span><br>EU goods get straightforward MFN treatment, with none of the China-style list tariffs. That said, the 2026
+            Section 301 action tops low-rate EU lines up to a 10% floor, and 4% on a $100,000 shipment is already
+            $4,000 — enough to matter in a competitive bid. <a href="/landed-cost-calculator">Calculate your actual landed cost →</a></div>
 
             <p><a href="/">&larr; Back to All Calculators</a></p>
         </div>
@@ -351,8 +372,8 @@
         </div>
     </footer>
 
-    <script src="rate-data.js?v=dd0fe60"></script>
-    <script src="main.js?v=dd0fe60"></script>
-    <script src="sw-register.js?v=dd0fe60"></script>
+    <script src="rate-data.js?v=338eca8"></script>
+    <script src="main.js?v=338eca8"></script>
+    <script src="sw-register.js?v=338eca8"></script>
 </body>
 </html>

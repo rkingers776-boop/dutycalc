@@ -15,7 +15,7 @@
     <meta name="twitter:description" content="Quick evaluation tool to cross-examine global tax-free import limits.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=dd0fe60">
+    <link rel="stylesheet" href="style.css?v=338eca8">
     <link rel="canonical" href="https://www.dutycalc.online/de-minimis-value-guide">
 <meta property="og:image" content="https://www.dutycalc.online/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -87,28 +87,54 @@
                 <h3>Global De Minimis Comparison</h3>
                 <p>Here's how the world stacks up on tax-free import limits:</p>
                 <ul class="content-list">
-                    <li><strong>United States — USD $800:</strong> Section 321 of the Tariff Act. The most generous de minimis in the developed world. Goods valued at $800 or less per person per day enter duty-free. This is why DTC brands ship from China to US customers without customs friction.</li>
-                    <li><strong>European Union — €22 to €150:</strong> The EU scrapped its €22 VAT exemption in July 2021. Now every euro of import attracts VAT (via the IOSS scheme), but duty only kicks in above €150. It's a split threshold — VAT from €1, duty from €150.</li>
+                    <li><strong>United States — No de minimis:</strong> Section 321 of the Tariff Act set the old $800
+                    line, and until 29 August 2025 it was the most generous de minimis in the developed world. It has
+                    been suspended for every country of origin, so duty now applies from the first dollar. DTC brands
+                    shipping from China to US customers pay duty on every parcel, on top of the 2026 Section 301
+                    forced-labour layer.</li>
+                    <li><strong>European Union — €150 (a flat €3, not free):</strong> VAT has run from the first euro
+                    since July 2021, when the EU scrapped its €22 VAT exemption. The €150 line no longer separates
+                    free from dutiable: on 1 July 2026 Council Regulation (EU) 2026/382 ended the duty exemption, so
+                    consignments at or below €150 now pay a <em>flat €3 per item</em> in duty instead of nothing, and
+                    ordinary TARIC rates apply above it. €150 still bounds the IOSS regime, so it stays the number to
+                    know — but no longer because it is free.</li>
                     <li><strong>United Kingdom — £15 to £135:</strong> Post-Brexit, the UK removed the £15 VAT exemption. Consignments under £135 now have VAT collected at the point of sale by the seller. Goods over £135 pay VAT and duty at the border. It's complicated, and that's exactly why the de minimis matters.</li>
                     <li><strong>Canada — CAD $20 to $150:</strong> CAD $20 for duty exemption; CAD $40 for GST on gifts; CAD $150 for goods under the Courier Imports Remission. The layering means you need to check which threshold applies to your specific shipment type.</li>
                     <li><strong>Australia — AUD $1,000:</strong> One of the higher thresholds globally, based on the FOB goods value. Once you cross AUD $1,000, full duty and GST apply on the CIF total.</li>
-                    <li><strong>Mexico — MXN $50:</strong> On the other end of the spectrum. Almost anything commercial triggers the full duty and IVA treatment.</li>
+                    <li><strong>Mexico — USD 50:</strong> Dollar-denominated, not peso-denominated — the "MXN $50"
+                    figure almost every source quotes is a misreading of a USD threshold worth roughly MXN 900. It
+                    covers postal shipments from any origin and courier entries from the US or Canada only, so
+                    Chinese-origin courier parcels have no de minimis at all. On the other end of the spectrum either
+                    way: almost anything commercial triggers full duty and IVA treatment.</li>
                 </ul>
 
-                <p>The US $800 de minimis is the most generous in the developed world. But there's a catch — Section 301 tariffs on Chinese goods apply once you're above $800, adding 7.5-25% on top of MFN rates. Our <a href="/section-301-china-tariffs-guide">Section 301 guide</a> explains what happens after you cross the de minimis threshold.</p>
+                <p>The US $800 de minimis was the most generous in the developed world, and its suspension in August 2025
+                removed the single biggest structural advantage US-bound e-commerce had. What used to happen only once
+                you crossed $800 now happens on every parcel: Section 301 tariffs on Chinese goods add 7.5-25% on top
+                of MFN rates, and the 2026 forced-labour action adds a further 12.5 percentage points. Our
+                <a href="/section-301-china-tariffs-guide">Section 301 guide</a> breaks down how the layers stack.</p>
 
-                <p><strong>July 2026 update:</strong> The $800 exemption is under active legislative and administrative pressure. CBP has tightened Type 86 enforcement, and the De Minimis Reciprocity Act (H.R. 1452) could eliminate de minimis for Chinese goods entirely. We've published a detailed breakdown of the reform proposals, the CBP enforcement changes already in effect, and what the numbers look like under each scenario: <a href="/section-321-de-minimis-reform-2026">Section 321 De Minimis Reform 2026 — the full analysis</a>.</p>
+                <p><strong>October 2026 update:</strong> The $800 exemption is no longer merely under pressure — it is suspended,
+                for every country of origin, since 29 August 2025. The legislative fight this page used to track was
+                overtaken by executive action, and the suspension was preserved on alternate authority on 20 February
+                2026. We’ve published a detailed breakdown of what replaced it, the CBP rulemaking behind it, and what
+                the numbers look like now: <a href="/section-321-de-minimis-reform-2026">Section 321 De Minimis Reform 2026 — the full analysis</a>.</p>
 
                 <h3>De Minimis vs. Formal Entry</h3>
                 <p>Staying under the de minimis doesn't just dodge taxes — it also skips the formal customs entry process. Formal entry means filing a detailed customs declaration, paying brokerage fees, and potentially waiting days for clearance. Informal entry (below the threshold) is lighter, faster, and cheaper. For e-commerce, the difference between informal and formal entry can mean the difference between a profitable sale and a margin-killer.</p>
 
                 <h3>How to Use This Checker Alongside Other Tools</h3>
-                <p>Enter the same cargo value and shipping cost into multiple calculators on this site — the De Minimis Value Checker (0% duty, 0% VAT, $0 threshold) gives you the <strong>base CIF landed cost with zero tax</strong>. Then plug the same numbers into a real trade lane like China to US Apparel (16.5% duty, $800 de minimis) or China to Germany (4.2% duty, 19% VAT, €150 de minimis). The difference between the two results is what taxes, thresholds, and trade policy actually cost you. That's the insight this tool is built to surface.</p>
+                <p>Enter the same cargo value and shipping cost into multiple calculators on this site — the De Minimis Value Checker (0% duty, 0% VAT, $0 threshold) gives you the <strong>base CIF landed cost with zero tax</strong>. Then plug the same numbers into a real trade lane like China to US Apparel (16.5% duty, no de minimis
+                since 29 August 2025) or China to Germany (4.2% duty, 19% VAT, a flat €3 per item up to €150). The difference between the two results is what taxes, thresholds, and trade policy actually cost you. That's the insight this tool is built to surface.</p>
 
                 <p>De minimis tells you IF you pay. The HTS code tells you HOW MUCH. Our <a href="/hscode-duty-estimator">HS Code Duty Estimator</a> uses a 5.5% standard baseline to estimate what you'll owe once you cross the threshold.</p>
 
                 <h3>Which de minimis threshold matters most for my business?</h3>
-                <p>It depends on your trade lane and average order value. If you ship from China to US consumers and your AOV is under $800: Section 321 de minimis is your best friend — zero duty, zero formal entry. If you ship from China to UK consumers: the old £15 duty de minimis (scrapped in 2021) was almost useless for anything beyond a phone case, but the £135 consignment rule's VAT mechanism is what you actually need to understand. If you ship from China to EU consumers: the €150 IOSS threshold is the key number — stay under it and use IOSS for a clean customer experience. Run your numbers through our country-specific calculators — <a href="/">start here</a> and pick your trade route.</p>
+                <p>It depends on your trade lane and average order value. If you ship from China to US consumers and your AOV is under $800: that used to be the sweet spot — zero duty, zero formal entry — and it is gone. Section 321 was
+                suspended on 29 August 2025, so duty applies from the first dollar and the 2026 forced-labour layer
+                sits on top. If you ship from China to UK consumers: the old £15 duty de minimis (scrapped in 2021) was almost useless for anything beyond a phone case, but the £135 consignment rule's VAT mechanism is what you actually need to understand. If you ship from China to EU consumers: the €150 line is the key number, though its meaning has changed: it is no longer a duty exemption, but
+                it still bounds the IOSS regime, so at or below it you collect VAT at checkout and pay a flat €3 per
+                item in duty instead of ad valorem rates. Run your numbers through our country-specific calculators — <a href="/">start here</a> and pick your trade route.</p>
 
                 <p><a href="/">&larr; Back to All Calculators</a></p>
             </section>
@@ -182,7 +208,7 @@
             <p class="footer-github"><a href="https://github.com/rkingers776-boop/dutycalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">&#128194; View on GitHub</a></p>
         </div>
     </footer>
-    <script src="main.js?v=dd0fe60"></script>
-    <script src="sw-register.js?v=dd0fe60"></script>
+    <script src="main.js?v=338eca8"></script>
+    <script src="sw-register.js?v=338eca8"></script>
 </body>
 </html>

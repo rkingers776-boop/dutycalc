@@ -7,6 +7,31 @@
 
     var MAX_INPUT_VALUE = 99999999;
 
+    // ── POLICY-LAYER LINE ────────────────────────────────
+    // Shared by both calculator paths. The row is created on demand instead of
+    // requiring placeholder markup on every page, and it only ever appears when a
+    // policy layer (Section 301 forced-labour, or the EU low-value flat charge)
+    // actually moved the number. Otherwise the result list is left untouched.
+    function renderLayerNote(root, host, note) {
+        var el = root.querySelector('.res-layer');
+        if (!el) {
+            if (!note || !host) return;
+            var row = document.createElement(host.tagName === 'UL' ? 'li' : 'p');
+            row.className = 'res-layer-row';
+            el = document.createElement('span');
+            el.className = 'res-layer';
+            row.appendChild(el);
+            host.appendChild(row);
+        }
+        var rowEl = el.closest('li') || el.closest('p') || el.parentElement;
+        if (note) {
+            el.innerText = note;
+            if (rowEl) rowEl.style.display = '';
+        } else if (rowEl) {
+            rowEl.style.display = 'none';
+        }
+    }
+
     // ── CORE DUTY CALCULATION ENGINE ─────────────────────
     function globalDutyCalc(buttonElement) {
         var card = buttonElement.closest('.calculator-card');
@@ -28,6 +53,20 @@
         if (cfg.hasAttribute('data-vat-deminimis')) {
             vatDeMinimis = parseFloat(cfg.getAttribute('data-vat-deminimis')) || 0;
         }
+        // Section 301 forced-labour layer (in force 24 July 2026). Two shapes:
+        // 'additive' economies add percentage points on top of the rate,
+        // 'fill-to' economies are topped up to a floor. The rate in data-duty-rate
+        // stays the MFN/composite base so the layer can be shown as its own line.
+        var surcharge  = parseFloat(cfg.getAttribute('data-duty-surcharge')) || 0;
+        var floorRate  = parseFloat(cfg.getAttribute('data-duty-floor')) || 0;
+        // Low-value consignment rule: the EU replaced its €150 duty exemption with a
+        // flat per-item charge (Council Regulation (EU) 2026/382) on 1 July 2026.
+        // Charging the full ad valorem rate on a €40 parcel would overstate it badly.
+        var lowValueFlat    = parseFloat(cfg.getAttribute('data-low-value-flat'));
+        var lowValueCeiling = parseFloat(cfg.getAttribute('data-low-value-ceiling'));
+        if (isNaN(lowValueFlat)) lowValueFlat = 0;
+        if (isNaN(lowValueCeiling)) lowValueCeiling = 0;
+        var layerNote = cfg.getAttribute('data-layer-note') || '';
         // Valuation basis: 'fob' (goods value only — United States, Canada,
         // Australia) or 'cif' (goods plus international freight and insurance —
         // UK, EU, Japan, Saudi Arabia, UAE, Mexico). Drives the ad valorem base
@@ -59,8 +98,21 @@
         // along in the landed cost without attracting duty.
         var valueBase = thresholdBase === 'cif' ? totalCIF : itemValue;
 
-        if (valueBase > deMinimis) {
-            calculatedDuty = valueBase * (dutyRate / 100);
+        // The rate the duty line actually lands on: base rate, plus any additive
+        // Section 301 layer, floored at the fill-to level where one applies.
+        var effectiveRate = dutyRate + surcharge;
+        if (floorRate > 0 && effectiveRate < floorRate) effectiveRate = floorRate;
+
+        var layerApplied = '';
+
+        if (lowValueFlat > 0 && lowValueCeiling > 0 && valueBase <= lowValueCeiling) {
+            // Below the ceiling the flat charge replaces duty outright — it is not
+            // added on top. It is charged per consignment item; one item is assumed here.
+            calculatedDuty = lowValueFlat;
+            layerApplied = layerNote;
+        } else if (valueBase > deMinimis) {
+            calculatedDuty = valueBase * (effectiveRate / 100);
+            if (effectiveRate > dutyRate) layerApplied = layerNote;
         }
         if (valueBase > vatDeMinimis) {
             calculatedVAT = (totalCIF + calculatedDuty) * (vatRate / 100);
@@ -84,6 +136,9 @@
         setRes('.res-vat',       sym + calculatedVAT.toFixed(2));
         setRes('.res-total-tax', sym + totalTax.toFixed(2));
         setRes('.res-landed',    sym + finalLandedCost.toFixed(2));
+
+        // Policy-layer line, created on demand under the result list.
+        renderLayerNote(card, resultBox ? resultBox.querySelector('ul') : null, layerApplied);
 
         resultBox.classList.remove('result-hidden');
 
@@ -133,6 +188,15 @@
         if (isNaN(vatDeMin)) vatDeMin = 0;
         var thresholdBase = root.getAttribute('data-threshold-base') || 'fob';
 
+        // Same two policy layers as the card path — see the comments there.
+        var surcharge  = parseFloat(root.getAttribute('data-duty-surcharge')) || 0;
+        var floorRate  = parseFloat(root.getAttribute('data-duty-floor')) || 0;
+        var lowValueFlat    = parseFloat(root.getAttribute('data-low-value-flat'));
+        var lowValueCeiling = parseFloat(root.getAttribute('data-low-value-ceiling'));
+        if (isNaN(lowValueFlat)) lowValueFlat = 0;
+        if (isNaN(lowValueCeiling)) lowValueCeiling = 0;
+        var layerNote = root.getAttribute('data-layer-note') || '';
+
         var currency = root.getAttribute('data-currency') || 'USD';
         var sym = LEGACY_SYMBOLS[currency] || '$';
 
@@ -151,7 +215,17 @@
         // Same rule as the main path: the rate lands on the dutiable base, which
         // excludes international freight and insurance on an FOB market.
         var valueBase = thresholdBase === 'cif' ? cif : goods;
-        var duty = valueBase > deMinimis ? valueBase * (dutyRate / 100) : 0;
+        var effectiveRate = dutyRate + surcharge;
+        if (floorRate > 0 && effectiveRate < floorRate) effectiveRate = floorRate;
+        var layerApplied = '';
+        var duty;
+        if (lowValueFlat > 0 && lowValueCeiling > 0 && valueBase <= lowValueCeiling) {
+            duty = lowValueFlat;
+            layerApplied = layerNote;
+        } else {
+            duty = valueBase > deMinimis ? valueBase * (effectiveRate / 100) : 0;
+            if (duty > 0 && effectiveRate > dutyRate) layerApplied = layerNote;
+        }
         var vat  = (valueBase > vatDeMin && vatRate > 0) ? (cif + duty) * (vatRate / 100) : 0;
         var total = cif + duty + vat;
 
@@ -165,6 +239,9 @@
         fill(legacyFirst(root, ['#vat-result', '#vatResult', '#result-vat', '#jctResult']), vat);
         fill(legacyFirst(root, ['#total-result', '#landed-result', '#landedResult', '#result-total']), total);
 
+        // Policy-layer line, created on demand inside the legacy results block.
+        renderLayerNote(root, legacyFirst(root, ['#calc-results', '.calc-results', '#results', '#calc-result']), layerApplied);
+
         var mpfSpan = legacyFirst(root, ['#result-mpf', '#mpfResult']);
         if (mpfSpan) {
             var mpfCfg = window.MPF_RATES || { rate: 0.003464, min: 31.67, max: 614.35 };
@@ -174,14 +251,22 @@
     }
 
     function initLegacyCalculators() {
-        var roots = document.querySelectorAll('.calculator');
+        // Most of these blocks are class="calculator"; a handful ship as
+        // .calculator-card with their own element ids and a .calc-btn button.
+        // Accept both, and skip anything already routed through globalDutyCalc
+        // (.btn-calc) so no node binds the handler twice.
+        var roots = document.querySelectorAll('.calculator, .calculator-card');
         for (var i = 0; i < roots.length; i++) {
             var root = roots[i];
             if (!root.hasAttribute('data-duty-rate')) continue;
+            if (root.querySelector('.btn-calc')) continue;
             var btn = root.querySelector('.calc-btn');
             if (!btn) continue;
             (function (r) {
                 btn.addEventListener('click', function () { runLegacyCalc(r); });
+                // A few pages used to print the numbers on load; keep that behaviour
+                // where the page asks for it rather than dropping it silently.
+                if (r.hasAttribute('data-autocalc')) runLegacyCalc(r);
             })(root);
         }
     }

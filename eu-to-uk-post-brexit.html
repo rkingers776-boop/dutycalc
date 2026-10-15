@@ -16,7 +16,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="EU to UK Post-Brexit Duty Calculator — Free Instant Estimator">
     <meta name="twitter:description" content="Calculate post-Brexit import duty and VAT on goods shipped from the EU to the UK. 2% average tariff, £135 consignment rule, TCA rules of origin.">
-    <link rel="stylesheet" href="style.css?v=dd0fe60">
+    <link rel="stylesheet" href="style.css?v=338eca8">
 <meta property="og:image" content="https://www.dutycalc.online/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -77,9 +77,9 @@
             <p>Free instant estimator for EU goods entering Great Britain — TCA tariff preferences, the £135 consignment mechanism, 20% VAT, and post-Brexit customs rules</p>
         </header>
 
-        <div class="trade-tip"><span class="tip-label">Zero tariff 鈥?but only if you prove origin</span><br><strong>TCA zero rates are not automatic.</strong> You need to demonstrate that your goods meet the rules of origin. "Shipped from France" is not enough if the goods were originally manufactured in China. <a href="/eu-to-uk-tca-origin-rules">How TCA origin rules work 鈫?/a></div>
+        <div class="trade-tip"><span class="tip-label">Zero tariff — but only if you prove origin</span><br><strong>TCA zero rates are not automatic.</strong> You need to demonstrate that your goods meet the rules of origin. "Shipped from France" is not enough if the goods were originally manufactured in China. <a href="/eu-to-uk-tca-origin-rules">How TCA origin rules work →</a></div>
 
-        <!-- ═══ 嵌入式计算器 ═══ -->
+        <!-- ═══ Embedded calculator═══ -->
         <div class="calculator-card" data-duty-rate="2.0" data-vat-rate="20" data-deminimis="135" data-threshold-base="cif">
             <h3>EU → UK Post-Brexit Duty &amp; VAT Estimator</h3>
             <p class="card-desc">Enter shipment value and shipping cost in GBP. The calculator applies the 2.0% non-preferential duty rate, 20% VAT on duty-paid CIF, and the £135 de minimis threshold.</p>
@@ -104,7 +104,7 @@
             <a href="/eu-to-uk-post-brexit" class="detail-link" style="display:none;">View Full Country Guide &rarr;</a>
         </div>
 
-        <div class="trade-tip"><span class="tip-label">拢135 is the magic number for B2C</span><br>Consignments under 拢135: seller charges UK VAT at point of sale. Over 拢135: buyer pays VAT + duty at import. Getting this wrong means your customer gets a surprise bill 鈥?and an angry email. <a href="/eu-to-uk-135-consignment-rule">The 拢135 rule explained 鈫?/a></div>
+        <div class="trade-tip"><span class="tip-label">£135 is the magic number for B2C</span><br>Consignments under £135: seller charges UK VAT at point of sale. Over £135: buyer pays VAT + duty at import. Getting this wrong means your customer gets a surprise bill — and an angry email. <a href="/eu-to-uk-135-consignment-rule">The £135 rule explained →</a></div>
 
         <div>
             <article class="seo-section">
@@ -117,8 +117,8 @@
                 <p>For consignments over £135 (or under £135 where TCA preference isn't claimed), HMRC calculates in two steps:</p>
                 <ol class="content-list">
                     <li><strong>CIF Value</strong> = Goods Value &plus; Shipping &plus; Insurance</li>
-                    <li><strong>Customs Duty</strong> = CIF Value &times; Duty Rate (0% if TCA preference claimed and origin rules met; 2.0% UKGT default if not)</li>
-                    <li><strong>Import VAT</strong> = (CIF Value &plus; Customs Duty) &times; 20%</li>
+                    <li><strong>Customs Duty</strong> = CIF Value × Duty Rate (0% if TCA preference claimed and origin rules met; 2.0% UKGT default if not)</li>
+                    <li><strong>Import VAT</strong> = (CIF Value &plus; Customs Duty) × 20%</li>
                     <li><strong>Total Landed Cost</strong> = CIF Value &plus; Customs Duty &plus; Import VAT</li>
                 </ol>
                 <p>Example: a £600 shipment of French cosmetics with £40 shipping. CIF is £640. With TCA preference claimed and granted: duty = £0, VAT = £128 (20% of £640), landed = £768. Without TCA preference: duty = £12.80 (2% of £640), VAT = £130.56 (20% of £652.80), landed = £783.36. The TCA saves £15.36 on this shipment. Not huge, but scale it across a year of shipments and it matters.</p>
@@ -128,7 +128,9 @@
                 <p><strong>For customs duty:</strong> consignments valued at £135 or below (goods value only, not shipping) enter duty-free. Period. Doesn't matter if the goods are TCA-qualifying or not — customs duty is waived below £135. Above £135, the applicable duty rate applies (0% TCA or 2% UKGT default).</p>
                 <p><strong>For VAT:</strong> this is where it gets weirder. Consignments at £135 or below are supposed to have VAT collected by the <strong>EU seller at the point of sale</strong>, not at the border. The seller registers for UK VAT, charges 20% at checkout, and remits quarterly to HMRC. The goods then clear customs without additional VAT assessment. Above £135, the traditional import VAT process applies — the customer (or their broker) pays VAT at customs on entry.</p>
                 <p>Two completely different rules, both keyed to the same £135 number. One governs whether duty is owed. The other governs who collects the VAT and where. A £200 shipment falls above both thresholds: duty applies (at 0% TCA or 2% UKGT) and VAT is collected at the border. A £100 shipment falls below both: duty is zero regardless of origin, and VAT should have been collected by the seller at checkout — if it wasn't, HMRC may come looking.</p>
-                <p>The UK's £135 split-threshold system is unique — no other major economy splits duty and VAT collection at the same value like this. Our <a href="/de-minimis-value-guide">De Minimis Value Guide</a> compares the UK's approach to the US ($800), EU (€150), Canada (CAD $20), and Australia (AUD $1,000) so you can see where the UK sits.</p>
+                <p>The UK's £135 split-threshold system is unique — no other major economy splits duty and VAT collection at the same value like this. Our <a href="/de-minimis-value-guide">De Minimis Value Guide</a> compares the UK's approach to the US
+                (no de minimis since 29 August 2025), the EU (a flat €3 per item up to €150 since 1 July 2026), Canada
+                (CAD $20), and Australia (AUD $1,000) so you can see where the UK sits.</p>
 
                 <h3>TCA Rules of Origin — How to Get the Zero Rate</h3>
                 <p>The TCA eliminates tariffs on goods that are "wholly obtained" or "sufficiently processed" within the EU or UK. The zero rate is not automatic — you must claim it on the customs declaration. Here's what that means in practice:</p>
@@ -285,8 +287,8 @@
         </div>
     </footer>
 
-    <script src="rate-data.js?v=dd0fe60"></script>
-    <script src="main.js?v=dd0fe60"></script>
-    <script src="sw-register.js?v=dd0fe60"></script>
+    <script src="rate-data.js?v=338eca8"></script>
+    <script src="main.js?v=338eca8"></script>
+    <script src="sw-register.js?v=338eca8"></script>
 </body>
 </html>

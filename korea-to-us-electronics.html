@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
     <title>Korea to US Electronics Duty?</title>
-    <meta name="description" content="Calculate import duty on Korean electronics to the US. 0% under KORUS FTA, $800 de minimis. Covers Korean semiconductors and consumer electronics.">
+    <meta name="description" content="Calculate duty on Korean electronics entering the US: 0% under KORUS, topped up to 12.5% by the Section 301 forced-labour layer. Free estimator.">
     <link rel="canonical" href="https://www.dutycalc.online/korea-to-us-electronics">
     <meta property="og:title" content="Korea to US Electronics Duty? (Free & Instant Calculator)">
-    <meta property="og:description" content="Calculate import duty on Korean electronics to the US. 0% under KORUS FTA, $800 de minimis.">
+    <meta property="og:description" content="Calculate import duty on Korean electronics to the US. 0% under KORUS FTA, topped up to 12.5% by the Section 301 forced-labour layer, and no de minimis since 29 August 2025.">
     <meta property="og:url" content="https://www.dutycalc.online/korea-to-us-electronics">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Korea to US Electronics Duty? (Free & Instant Calculator)">
-    <meta name="twitter:description" content="Calculate import duty on Korean electronics to the US. 0% under KORUS FTA, $800 de minimis.">
+    <meta name="twitter:description" content="Calculate import duty on Korean electronics to the US. 0% under KORUS FTA, topped up to 12.5% by the Section 301 forced-labour layer, and no de minimis since 29 August 2025.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=dd0fe60">
+    <link rel="stylesheet" href="style.css?v=338eca8">
 <meta property="og:image" content="https://www.dutycalc.online/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","name":"Korea to US Electronics Duty? (Free & Instant Calculator)","url":"https://www.dutycalc.online/korea-to-us-electronics","description":"Calculate import duty on Korean electronics to the US. 0% under KORUS FTA, $800 de minimis. Covers Korean semiconductors and consumer electronics.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"isPartOf":{"@type":"WebSite","name":"DutyCalc Online","url":"https://www.dutycalc.online/"}}
+{"@context":"https://schema.org","@type":"Article","name":"Korea to US Electronics Duty? (Free & Instant Calculator)","url":"https://www.dutycalc.online/korea-to-us-electronics","description":"Calculate import duty on Korean electronics to the US. 0% under KORUS FTA, topped up to 12.5% by the Section 301 forced-labour layer, and no de minimis since 29 August 2025. Covers Korean semiconductors and consumer electronics.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"isPartOf":{"@type":"WebSite","name":"DutyCalc Online","url":"https://www.dutycalc.online/"}}
 </script>
 </head>
 <body>
@@ -74,12 +74,15 @@
     <main class="container">
         <header>
             <h1>Korea to US Electronics Duty Calculator</h1>
-            <p>South Korean electronics — semiconductors, phones, displays, appliances — enter the US at 0% under the KORUS FTA. $800 de minimis threshold applies under Section 321.</p>
+            <p>South Korean electronics — semiconductors, phones, displays, appliances — enter the US at 0% under the
+            KORUS FTA, but a Section 301 action targeting forced labour tops that base up to a <strong>12.5%</strong>
+            floor. The old $800 de minimis threshold was suspended on 29 August 2025, so duty runs from the first
+            dollar.</p>
         </header>
 
         <div>
             <section class="calculator-section">
-                <div class="calculator" data-duty-rate="0.0" data-vat-rate="0" data-deminimis="800">
+                <div class="calculator" data-duty-rate="0.0" data-vat-rate="0" data-deminimis="0" data-currency="USD" data-duty-floor="12.5" data-layer-note="Base rate topped up to 12.5% by the Section 301 forced-labour duty (in force 24 July 2026)." data-autocalc>
                     <div class="calc-row">
                         <label for="goods-value">Electronics Shipment Value (USD)</label>
                         <input type="number" id="goods-value" value="8000" min="0" step="1">
@@ -88,10 +91,10 @@
                         <label for="shipping-cost">Shipping &amp; Insurance Cost (USD)</label>
                         <input type="number" id="shipping-cost" value="500" min="0" step="1">
                     </div>
-                    <button id="calculate-btn">Calculate Landed Cost</button>
+                    <button class="calc-btn" id="calculate-btn">Calculate Landed Cost</button>
                     <div class="calc-results" id="calc-results">
                         <div class="result-row">
-                            <span class="result-label">Import Tariff (0% under KORUS):</span>
+                            <span class="result-label">Import Tariff (12.5%):</span>
                             <span class="result-value" id="result-duty">$0.00</span>
                         </div>
                         <div class="result-row">
@@ -105,7 +108,7 @@
                     </div>
                 </div>
 
-                <div class="trade-tip"><span class="tip-label">KORUS FTA: actually zero</span><br><strong>Virtually all Korean electronics enter the US duty-free under KORUS.</strong> Semiconductors, displays, phones, home appliances 鈥?zero percent. You just need the origin certificate. <a href="/japan-to-us-auto-parts">Japan's deal is also good but not zero 鈫?/a></div>
+                <div class="trade-tip"><span class="tip-label">KORUS FTA: actually zero</span><br><strong>Virtually all Korean electronics enter the US duty-free under KORUS.</strong> Semiconductors, displays, phones, home appliances — zero percent. You just need the origin certificate. <a href="/japan-to-us-auto-parts">Japan's deal is also good but not zero →</a></div>
             </section>
 
             <section class="seo-section">
@@ -120,8 +123,13 @@
                 <p>On the CBP Form 7501 entry summary, column 34 is where you enter the SPI "KR." Column 35 is where you enter the country of origin "KR." If you file through a customs broker, tell them explicitly: "This is a KORUS-eligible entry — apply SPI KR." Brokers don't automatically apply FTA preference unless instructed. Also, CBP can audit your KORUS claims for up to 5 years after entry, so keep your certifications of origin on file.</p>
                 <p>Beyond the duty rate itself, every formal entry (shipments over $2,500) is also subject to the <strong>Merchandise Processing Fee (MPF)</strong> — 0.3464% of the entered value. For an $8,500 CIF electronics shipment, the MPF is $29.44 (above the $32.71 minimum, so the minimum applies: $32.71). The MPF applies regardless of whether you claim KORUS preference — it's a separate CBP administrative fee, not a duty. The Harmonized System Maintenance Fee (HMF) of 0.125% applies to ocean freight only, not air freight.</p>
 
-                <h2>The $800 De Minimis and Korean DTC Electronics</h2>
-                <p>Section 321 exempts shipments under $800. For Korean electronics this is mostly relevant for B2C: a single smartphone, a tablet, a set of earbuds. Most individual consumer electronics from Korea to US customers fall under the $800 threshold and enter duty-free under Section 321 — KORUS doesn't even need to be claimed. For B2B shipments (pallets of monitors, containers of appliances), the value exceeds $800 and KORUS preference should be claimed to get the 0% rate. <a href="/de-minimis-value-guide">Read our de minimis value guide</a>.</p>
+                <h2>The Suspended De Minimis and Korean DTC Electronics</h2>
+                <p>Section 321 was suspended with effect from 29 August 2025, so nothing enters under it any more. A
+                single smartphone, a tablet, or a set of earbuds used to clear free — now the Section 301
+                forced-labour layer tops the 0% KORUS rate up to a 12.5% floor, so duty is due from the first dollar
+                on B2C and B2B shipments alike. Claim KORUS preference anyway: it keeps the MFN line at zero and it is
+                the correct compliance position, but it no longer means a zero duty bill.
+                <a href="/de-minimis-value-guide">Read our de minimis value guide</a>.</p>
                 <p>For formal entries above $2,500, you'll also need a continuous customs bond (or a single-entry bond). A continuous bond costs roughly $280-$500 per year for a $50,000 bond limit (sufficient for most small to mid-size electronics importers). The bond guarantees payment of duties, taxes, and fees to CBP and is required before your entry can be filed.</p>
 
                 <h2>Key HTS Chapters for Korean Electronics</h2>
@@ -142,7 +150,7 @@
                 <p>For smaller Korean electronics manufacturers: ask for the KORUS certification up front. Don't assume you'll get it after the shipment lands. A typical small Korean OEM might not have a dedicated customs team, and producing a certification of origin after the fact can delay clearance by days. Include the KORUS certification requirement in your purchase order or supply agreement. Specify that the certification must follow the format in CBP's KORUS implementing instructions (19 CFR 10 Subpart R).</p>
                 <p>The practical reality for US importers: if you're buying from Samsung, LG, or SK Hynix directly, your duty exposure is $0 — these companies ship with complete origin documentation and their goods unambiguously qualify. If you're buying from a smaller Korean parts supplier (connectors, PCB assemblies, wiring harnesses), verify that the goods are Korean-origin and that the supplier can provide a certification. Some smaller suppliers source sub-components from China, which can break the KORUS origin chain if the Chinese content is substantial enough to trigger a tariff shift requirement.</p>
 
-                <div class="trade-tip"><span class="tip-label">Origin certificate is worth the paperwork</span><br>The difference between claiming KORUS preference and paying standard MFN on a $50,000 container of electronics is roughly $1,250. Filing the origin certificate takes about 15 minutes. <a href="/china-to-us-electronics">Chinese electronics pay 2.5% MFN + Section 301 risk 鈫?/a></div>
+                <div class="trade-tip"><span class="tip-label">Origin certificate is worth the paperwork</span><br>The difference between claiming KORUS preference and paying standard MFN on a $50,000 container of electronics is roughly $1,250. Filing the origin certificate takes about 15 minutes. <a href="/china-to-us-electronics">Chinese electronics pay 2.5% MFN + Section 301 risk →</a></div>
 
                 <h2>Shipping from Korea — Air Freight, Ocean, and Major Ports</h2>
                 <p>Most Korean electronics exports to the US move through two major gateways: <strong>Incheon International Airport (ICN)</strong> for air freight and <strong>Busan Port</strong> for ocean freight. Air freight from ICN to Los Angeles (LAX) typically takes 12-16 hours flight time, with total transit door-to-door of 2-4 days including customs clearance. Rates for electronics air freight from Korea to US West Coast run roughly $3.50-$5.50/kg depending on volume and season. To the East Coast (JFK), add roughly $1.00-$1.50/kg.</p>
@@ -249,43 +257,9 @@
         </div>
     </footer>
 
-    <script>
-    (function() {
-        var calc = document.querySelector('.calculator');
-        var dutyRate = parseFloat(calc.getAttribute('data-duty-rate')) / 100;
-        var vatRate = parseFloat(calc.getAttribute('data-vat-rate')) / 100;
-        var deminimis = parseFloat(calc.getAttribute('data-deminimis'));
-
-        var goodsInput = document.getElementById('goods-value');
-        var shippingInput = document.getElementById('shipping-cost');
-        var btn = document.getElementById('calculate-btn');
-
-        var dutyEl = document.getElementById('result-duty');
-        var vatEl = document.getElementById('result-vat');
-        var totalEl = document.getElementById('result-total');
-
-        function fmt(n) { return '$' + n.toFixed(2); }
-
-        function calcAll() {
-            var goods = parseFloat(goodsInput.value) || 0;
-            var shipping = parseFloat(shippingInput.value) || 0;
-            var cif = goods + shipping;
-
-            var duty = (goods <= deminimis) ? 0 : cif * dutyRate;
-            var vat = vatRate * cif;
-            var total = cif + duty + vat;
-
-            dutyEl.textContent = fmt(duty);
-            vatEl.textContent = fmt(vat);
-            totalEl.textContent = fmt(total);
-        }
-
-        if (btn) btn.addEventListener('click', calcAll);
-        calcAll();
-    })();
-    </script>
-    <script src="rate-data.js?v=dd0fe60"></script>
-    <script src="main.js?v=dd0fe60"></script>
-    <script src="sw-register.js?v=dd0fe60"></script>
+    <!-- Calculator logic lives in main.js so every lane shares one engine. -->
+    <script src="rate-data.js?v=338eca8"></script>
+    <script src="main.js?v=338eca8"></script>
+    <script src="sw-register.js?v=338eca8"></script>
 </body>
 </html>

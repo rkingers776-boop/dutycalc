@@ -16,7 +16,7 @@
     <meta name="twitter:description" content="CBM for sea freight and volumetric (dim) weight for air and courier — with the chargeable weight carriers actually bill on.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=dd0fe60">
+    <link rel="stylesheet" href="style.css?v=338eca8">
 <meta property="og:image" content="https://www.dutycalc.online/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -146,7 +146,7 @@
                 <p>The divisor. A smaller divisor means a bigger volumetric weight: the same 1 CBM box bills at 200 kg under ÷5000, 167 kg under ÷6000, and 143 kg under ÷7000. Courier express mostly uses 5,000, IATA air freight uses 6,000, some consolidated parcel services use 7,000. The divisor on your quote is the one that counts.</p>
 
                 <h3>Do customs duties depend on volumetric weight?</h3>
-                <p>No. Duty is calculated on the CIF value of the goods, and freight is part of that value — but the chargeable weight itself is irrelevant to the duty math. A shipment billed at 300 kg dim weight pays duty on its CIF value, not on its weight. Use this calculator for the freight line, and the <a href="/landed-cost-calculator">landed cost calculator</a> for the duty line.</p>
+                <p>No. Duty follows the declared customs value of the goods, not how heavy the box is — and whether freight belongs in that value depends on where you clear. The EU, UK, Mexico, Japan and the Gulf states assess on CIF, so freight sits inside the base. The US, Canada and Australia assess on the goods value alone, so international freight and insurance stay outside the base as long as your commercial invoice lists them separately. Either way, a shipment billed at 300 kg dim weight pays duty on its value, not on its weight. Use this calculator for the freight line, and the <a href="/landed-cost-calculator">landed cost calculator</a> for the duty line.</p>
 
                 <p style="margin-top: 30px;"><a href="/">&larr; Back to All Calculators</a></p>
             </article>
@@ -261,6 +261,6 @@
             calc();
         })();
     </script>
-    <script src="sw-register.js?v=dd0fe60"></script>
+    <script src="sw-register.js?v=338eca8"></script>
 </body>
 </html>

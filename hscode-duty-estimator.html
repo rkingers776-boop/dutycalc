@@ -15,7 +15,7 @@
     <meta name="twitter:description" content="Estimate import duty and VAT on any HS chapter with a 5.5% duty / 15% VAT baseline — instant CIF landed-cost figure.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=dd0fe60">
+    <link rel="stylesheet" href="style.css?v=338eca8">
     <link rel="canonical" href="https://www.dutycalc.online/hscode-duty-estimator">
 <meta property="og:image" content="https://www.dutycalc.online/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -130,7 +130,13 @@
                 <p>A <strong>15% value-added tax</strong> is a common mid-point across global VAT and GST regimes. The EU averages around 21%, the UK sits at 20%, Australia and New Zealand run 10%–15% GST, and many developing economies apply 12%–18%. Our 15% figure gives a balanced estimate that's close enough for most non-EU, non-US corridors. Remember: VAT is calculated on the CIF value <em>plus</em> any customs duty already applied — so the effective tax base is always larger than the invoice price alone.</p>
 
                 <h3>De Minimis Threshold — USD $50</h3>
-                <p>Our estimator uses a <strong>USD $50 de minimis</strong> threshold, which reflects the lower end of global duty-free allowances. While the US offers a generous $800 Section 321 exemption, many countries are far stricter: the EU has a €22–€150 range depending on the tax type, Canada sits at CAD $20 for duty (though higher for GST), and some Southeast Asian nations have no de minimis at all. A $50 threshold means most commercial shipments will trigger duties — which is the safer assumption when you're planning.</p>
+                <p>Our estimator uses a <strong>USD $50 de minimis</strong> threshold, which reflects the lower end of
+                global duty-free allowances. The old US benchmark of $800 is gone — Section 321 was suspended on 29
+                August 2025 for every country of origin — and the rest of the field is strict too: the EU now charges
+                a flat €3 per item on consignments at or below €150 rather than exempting them, Canada sits at CAD $20
+                for duty (though higher for GST), and some Southeast Asian nations have no de minimis at all. A $50
+                threshold means most commercial shipments will trigger duties — which is the safer assumption when
+                you're planning.</p>
 
                 <p>The duty rate from your HS code only matters once you're above the de minimis threshold. Our <a href="/de-minimis-value-guide">De Minimis Value Guide</a> shows the thresholds for every major destination — if your shipment value stays under the threshold, the HS code rate is academic.</p>
 
@@ -216,7 +222,7 @@
             <p class="footer-github"><a href="https://github.com/rkingers776-boop/dutycalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">&#128194; View on GitHub</a></p>
         </div>
     </footer>
-    <script src="main.js?v=dd0fe60"></script>
+    <script src="main.js?v=338eca8"></script>
     <script>
         (function () {
             'use strict';
@@ -243,6 +249,6 @@
             calc();
         })();
     </script>
-    <script src="sw-register.js?v=dd0fe60"></script>
+    <script src="sw-register.js?v=338eca8"></script>
 </body>
 </html>

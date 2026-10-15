@@ -16,7 +16,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Section 301 China Tariffs: 2026 Rates &amp; What US Importers Actually Pay">
     <meta name="twitter:description" content="Complete guide to Section 301 tariffs on Chinese imports — current rates, how they stack on MFN duties, the exclusion process, and real cost examples.">
-    <link rel="stylesheet" href="style.css?v=dd0fe60">
+    <link rel="stylesheet" href="style.css?v=338eca8">
 <meta property="og:image" content="https://www.dutycalc.online/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -116,19 +116,27 @@
                     <li><strong>Toys &amp; sporting goods (Chapters 95, parts of 61-64):</strong> MFN 0-12%, Section 301 7.5% (List 4A). Action figures, dolls, puzzles, board games, and bicycles. Most toys are 0% MFN, so the 7.5% Section 301 is the whole duty. Sporting goods like tennis rackets and golf clubs range higher.</li>
                     <li><strong>Auto parts (Chapter 87, select headings):</strong> MFN 0-5.7%, Section 301 7.5% (List 3) for most, 25% (List 1) for certain engines and powertrain components. Brake pads, filters, body panels — 7.5%. Engine blocks and crankshafts — 25%. Know your code.</li>
                 </ul>
-                <p>These are the base additional rates. Exclusions change the math for specific codes — more on that below. But if you haven't applied for an exclusion, these are the numbers CBP will use.</p>
+                <p>These are the China-list rates. Two things sit around them. Exclusions change the math for specific
+                codes — more on that below. And since 24 July 2026 a separate Section 301 action targeting forced
+                labour adds a further 12.5% to Chinese-origin goods, so the combined rate on a Chinese entry is MFN +
+                list rate + 12.5%. That forced-labour layer stacks with the lists above and replaced the 10% Section
+                122 surcharge that expired the same day. If you have not applied for an exclusion, that is the number
+                CBP will use.</p>
 
                 <h2>The Math: How Section 301 Stacks on Regular Duties</h2>
                 <p>CBP doesn't average or blend the rates. They calculate MFN duty first, then calculate Section 301 duty on the same dutiable value, then add them together. The formula:</p>
                 <ol class="content-list">
-                    <li><strong>Dutiable Value</strong> = the CIF (Cost + Insurance + Freight) value of the goods in USD</li>
+                    <li><strong>Dutiable Value</strong> = the transaction value of the goods in USD — the price you
+                    paid, with international freight and insurance excluded when your invoice states them
+                    separately</li>
                     <li><strong>MFN Duty</strong> = Dutiable Value × MFN Rate</li>
                     <li><strong>Section 301 Duty</strong> = Dutiable Value × Section 301 Rate</li>
                     <li><strong>MPF (Merchandise Processing Fee)</strong> = 0.3464% of dutiable value, min $31.67, max $614.35 (for formal entries)</li>
                     <li><strong>HMF (Harbor Maintenance Fee)</strong> = 0.125% of dutiable value (ocean freight only)</li>
                     <li><strong>Total Duties &amp; Fees</strong> = MFN + Section 301 + MPF + HMF</li>
                 </ol>
-                <p>These are all calculated on the same base. A $10,000 CIF shipment of plastic components from China (List 2, MFN 6.5%, Section 301 25%) breaks down like this:</p>
+                <p>These are all calculated on the same base. A $10,000 shipment of plastic components from China
+                (transaction value $10,000, List 2, MFN 6.5%, Section 301 25%) breaks down like this:</p>
                 <ul class="content-list">
                     <li>MFN duty: $10,000 × 6.5% = <strong>$650</strong></li>
                     <li>Section 301 duty: $10,000 × 25% = <strong>$2,500</strong></li>
@@ -146,13 +154,37 @@
                 </ul>
                 <p>Same shipment value, half the Section 301 rate, and the total duty bill drops by nearly two-thirds. That's why knowing your list assignment matters — a lot.</p>
 
-                <h2>Section 301 + De Minimis: The $800 Question</h2>
-                <p>Under Section 321 of the Tariff Act, shipments valued at <strong>$800 or less</strong> per person per day can enter the US duty-free. This is the de minimis threshold — and it applies to Section 301 duties the same way it applies to regular MFN duties. A $600 shipment from China pays zero MFN duty and zero Section 301 duty, regardless of which list the goods fall on.</p>
-                <p>But here's what's changing in 2026.</p>
-                <p>CBP has been steadily tightening enforcement on de minimis entries, especially Type 86 (the electronic manifest entry for Section 321 shipments). The concern — loudly voiced by US domestic manufacturers and a bipartisan group in Congress — is that Chinese e-commerce platforms are breaking bulk shipments into sub-$800 parcels to dodge Section 301 duties. CBP has responded with longer manifest holds, more intensive sampling, and closer scrutiny of "split shipment" patterns where multiple parcels from the same consignor arrive at the same port on the same manifest.</p>
-                <p>What this means for importers: de minimis still works, but you can't bank on it at scale. If you're bringing in 200 individual parcels a day at $750 each from the same Chinese supplier, the odds that CBP eventually flags the pattern are high. When they do, they'll reclassify the shipments as one commercial consignment, assess the full MFN + Section 301 duty retroactively, and potentially levy penalties. CBP has a three-year lookback window for duty assessments and a five-year window for fraud cases.</p>
-                <p>There's also pending legislation — the De Minimis Reciprocity Act, introduced in early 2026 — that would lower or eliminate de minimis eligibility for countries that don't offer reciprocal treatment to US exports. China does not offer the US an $800 de minimis; its threshold is effectively zero for commercial goods. If the bill passes, Chinese e-commerce parcels that currently slide through under Section 321 would face the full duty treatment. The bill has cleared committee but hasn't reached a floor vote as of June 2026. Worth watching if your business model depends on sub-$800 shipments from China.</p>
-                <p>For the complete picture — CBP's enforcement changes, the three reform scenarios with per-SKU cost breakdowns, and the seven concrete steps importers should take now — see our dedicated analysis: <a href="/section-321-de-minimis-reform-2026">Section 321 De Minimis Reform 2026: Is the $800 Duty-Free Loophole Closing?</a></p>
+                <h2>Section 301 + De Minimis: The $800 Lane Was Suspended</h2>
+                <p>Under Section 321 of the Tariff Act, shipments valued at <strong>$800 or less</strong> per person
+                per day used to enter the US free of all duty — MFN and Section 301 alike. That exemption was
+                suspended with effect from 29 August 2025, and the suspension covers every country of origin, not just
+                China. Duty is now payable from the first dollar. A $600 shipment from China pays MFN duty, its
+                Section 301 list rate (7.5% or 25%), and the 12.5% Section 301 forced-labour layer that took effect on
+                24 July 2026.</p>
+                <p>The enforcement story that used to sit on top of the exemption is now aimed at the split-shipment
+                pattern itself.</p>
+                <p>Before the suspension, CBP had been steadily tightening enforcement on de minimis entries,
+                especially Type 86 (the electronic manifest entry built for Section 321 shipments). The concern —
+                loudly voiced by US domestic manufacturers and a bipartisan group in Congress — was that Chinese
+                e-commerce platforms were breaking bulk shipments into sub-$800 parcels to dodge Section 301 duties.
+                The answer CBP gave was longer manifest holds, more intensive sampling, and closer scrutiny of "split
+                shipment" patterns where multiple parcels from the same consignor arrive at the same port on the same
+                manifest. The suspension then removed the exemption those patterns were built around.</p>
+                <p>What this means for importers: there is no low-value lane left to bank on at all. If you're still
+                bringing in 200 individual parcels a day at $750 each from the same Chinese supplier, nothing about
+                that pattern flies under the radar now — every parcel carries duty from the first dollar, and CBP can
+                still collapse the pattern into one commercial consignment, assess the full MFN + Section 301 duty
+                retroactively, and levy penalties. CBP has a three-year lookback window for duty assessments and a
+                five-year window for fraud cases.</p>
+                <p>The legislation that used to be the headline — the De Minimis Reciprocity Act and the
+                country-by-country suspension proposals — was overtaken by executive action. A reciprocity bill would
+                have removed eligibility for countries that do not offer equivalent treatment to US exports, with
+                China the primary target. The suspension that actually took effect in August 2025 went further: it
+                ended the exemption for every origin. A plan built on a $200 floor or a China-only suspension is now
+                the wrong shape — the floor is zero and the scope is global.</p>
+                <p>For how the suspension was written up, what duty applies per shipment now, and which thresholds
+                still stand, see our dedicated analysis: <a href="/section-321-de-minimis-reform-2026">Section 321 De
+                Minimis Suspension: What You Pay Now</a></p>
                 <p>For a broader comparison of de minimis thresholds globally, our <a href="/de-minimis-value-guide">De Minimis Value Guide</a> covers the key numbers by country.</p>
 
                 <h2>Section 301 Exclusions: How They Work — And Why Most Importers Don't Get Them</h2>
@@ -199,7 +231,10 @@
                     <li><strong>Confirm your HTS code and list assignment.</strong> Not "I think it's 9403.20" — actually look it up in the HTS, check the Section 301 Chapter 99 number that applies, and verify with CBP's ruling database or a licensed broker. One wrong digit can cost real money.</li>
                     <li><strong>Run the total duty math before you quote prices.</strong> Use our <a href="/hscode-duty-estimator">HS Code Duty Estimator</a> for a first pass, then plug your numbers into the country-specific calculator for your trade route. MFN + Section 301 + fees = your real cost. Factor it all in.</li>
                     <li><strong>Check whether an exclusion exists for your code.</strong> USTR publishes granted exclusions on its website. Even if you didn't apply, you can use an existing exclusion if it covers your HTS code and product description. Talk to your broker about flagging eligible entries.</li>
-                    <li><strong>Don't try to dodge de minimis at scale.</strong> Breaking commercial shipments into sub-$800 parcels to avoid Section 301 is customs fraud. CBP is actively looking for it. The penalties are not worth it.</li>
+                    <li><strong>Don't build a model on splitting shipments.</strong> Breaking commercial shipments
+                    into parcels to stay under a value line and avoid Section 301 is customs fraud — and since the
+                    $800 exemption was suspended on 29 August 2025, there is no longer a lane to hide in. CBP is
+                    actively looking for the pattern. The penalties are not worth it.</li>
                     <li><strong>Consider whether supply chain diversification is cheaper than the tariff.</strong> For List 1 and 2 goods at 25% additional duty, sourcing from Vietnam, Mexico, India, or other non-China origins may be cost-competitive even with higher unit prices. Run the total landed cost comparison — not just the per-unit price from the supplier.</li>
                 </ol>
 
@@ -208,8 +243,13 @@
                 <h3>What is the Section 301 tariff rate for Chinese goods in 2026?</h3>
                 <p>It depends on which list your product falls on. List 1 and List 2 goods carry <strong>25%</strong> additional duty. List 3 and List 4A goods carry <strong>7.5%</strong>. These rates are on top of the normal MFN duty rate. The combined rate (MFN + Section 301) is what you'll see on your CBP entry summary. Our product-specific calculators on the <a href="/">homepage</a> break this down by trade route and category.</p>
 
-                <h3>Do Section 301 tariffs apply to shipments under $800?</h3>
-                <p>No. Section 321 de minimis exempts shipments valued at $800 or less from <em>all</em> duties, including Section 301. But CBP is tightening enforcement on split-shipment patterns designed to stay under the threshold, and pending legislation may restrict de minimis eligibility for Chinese goods. If your business model counts on the $800 de minimis, track the De Minimis Reciprocity Act. See our <a href="/de-minimis-value-guide">De Minimis Value Guide</a> for the full picture.</p>
+                <h3>Do Section 301 tariffs apply to shipments that used to fall under $800?</h3>
+                <p>No. Section 321 used to exempt shipments valued at $800 or less from <em>all</em> duties, including
+                Section 301 — but that exemption was suspended with effect from 29 August 2025 for every country of
+                origin. A low-value shipment from China now carries MFN duty, its Section 301 list rate, and the 12.5%
+                forced-labour layer that took effect on 24 July 2026. The only thing still outside the suspension is
+                bona fide gifts and personal accompanied items at $100 or less. See our
+                <a href="/de-minimis-value-guide">De Minimis Value Guide</a> for the full picture.</p>
 
                 <h3>Can I get a refund on Section 301 duties I've already paid?</h3>
                 <p>Yes — if USTR grants an exclusion that covers your HTS code and makes it retroactive. You'll need to file a Post-Summary Correction (within 314 days of entry) or a formal protest (within 180 days of liquidation) through your customs broker. If the exclusion window has passed, you generally cannot claim retroactive relief unless you filed a timely protest preserving your claim.</p>
@@ -224,9 +264,20 @@
                 <p>Yes, as of 2020. The executive order removing Hong Kong's separate customs territory status means goods of Hong Kong origin are treated as goods of China for Section 301 purposes. The same additional rates apply. Macau-origin goods remain under a separate determination — check the current USTR guidance if you're sourcing from Macau.</p>
 
                 <h3>Are Section 301 tariffs going to increase in 2026?</h3>
-                <p>No rate increases have been announced as of June 2026. The current administration has signaled an aggressive posture on China trade generally, and tariff policy is under active review. But the Section 301 rates described on this page have been stable since the Phase One reductions in early 2020. Any changes would need to go through the USTR Section 301 review process, which includes public notice and comment periods. We update our calculators within 24 hours of any US tariff rate change — see our <a href="/rate-updates">Rate Updates page</a> for the full changelog.</p>
+                <p>Yes — one already did. The China-list rates described on this page have been stable since the Phase
+                One reductions in early 2020, but a new Section 301 action targeting forced labour took effect on 24
+                July 2026 and adds 10–12.5 percentage points across 60 economies, with Chinese-origin goods carrying
+                the additive 12.5% version on top of the existing lists. Beyond that, no further China-list rate
+                change has been announced. Any increase would go through the USTR Section 301 review process, which
+                includes public notice and comment periods. We update our calculators within 24 hours of any US tariff
+                rate change — see our <a href="/rate-updates">Rate Updates page</a> for the full changelog.</p>
 
-                <p style="margin-top: 30px;"><strong>Watching the Section 122 clock.</strong> Section 301 isn't the only executive tariff that can change on short notice. A separate 10% global import surcharge under <a href="/section-122-tariffs-guide">Section 122 of the Trade Act</a> expires July 24, 2026, and USTR is preparing to replace it with permanent Section 301 tariffs on imports from 60 countries. If you source from both China and non-China origins, both duty architectures matter for your second-half 2026 landed cost models.</p>
+                <p style="margin-top: 30px;"><strong>The Section 122 chapter is closed.</strong> A separate 10% global
+                import surcharge under <a href="/section-122-tariffs-guide">Section 122 of the Trade Act</a> expired
+                on 24 July 2026, and the Section 301 forced-labour action replaced it the same day across 60
+                economies. If you source from both China and non-China origins, both duty architectures still matter
+                for your landed cost models — the China-list rates on this page, plus the 10–12.5% forced-labour layer
+                that now applies by origin.</p>
                 <p style="margin-top: 30px;"><a href="/">&larr; Back to All Calculators</a></p>
             </article>
         </div>
@@ -299,8 +350,8 @@
             <p class="footer-github"><a href="https://github.com/rkingers776-boop/dutycalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">&#128194; View on GitHub</a></p>
         </div>
     </footer>
-    <script src="rate-data.js?v=dd0fe60"></script>
-    <script src="main.js?v=dd0fe60"></script>
-    <script src="sw-register.js?v=dd0fe60"></script>
+    <script src="rate-data.js?v=338eca8"></script>
+    <script src="main.js?v=338eca8"></script>
+    <script src="sw-register.js?v=338eca8"></script>
 </body>
 </html>

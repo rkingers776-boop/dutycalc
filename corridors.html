@@ -16,7 +16,7 @@
     <meta name="twitter:description" content="The full corridor index — duty rate, VAT, and de minimis threshold for every lane on DutyCalc.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=dd0fe60">
+    <link rel="stylesheet" href="style.css?v=338eca8">
 <meta property="og:image" content="https://www.dutycalc.online/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -87,7 +87,11 @@
         <header>
             <h1>Trade Corridor Directory</h1>
             <p>The homepage's corridor section shows the fourteen most-trafficked lanes. This page is the full index — every corridor on the site in one place, with the headline duty rate, the destination VAT, and the de minimis threshold that decides whether small parcels clear free. Each row opens the lane's own page, where the rate is unpacked, the compliance points are listed, and a calculator runs the real landed cost.</p>
-            <p>Rates are MFN base rates unless an FTA is noted; Section 301 and other additional duties are covered on each lane's page. De minimis thresholds are shown for the destination country, with the threshold base (goods value vs. goods-plus-freight) noted where it differs from the US-style goods-value rule — see the <a href="/de-minimis-value-guide">de minimis guide</a> for how that changes the math. Every figure in this index carries a verification date and a named source; the <a href="/rate-updates">rate verification log</a> lists all of them side by side.</p>
+            <p>Rates are MFN base rates unless an FTA is noted; Section 301 and other additional duties are covered on each lane's page. Where a threshold has ceased to give relief it is shown as it now stands: the US Section 321 exemption was
+            suspended on 29 August 2025, and the EU’s €150 duty exemption was replaced by a flat €3 per item on 1 July
+            2026, so this column records what actually happens at the border rather than the historic allowance. The
+            threshold base (goods value vs. goods-plus-freight) is noted where it differs — see the
+            <a href="/de-minimis-value-guide">de minimis guide</a> for how that changes the math. Every figure in this index carries a verification date and a named source; the <a href="/rate-updates">rate verification log</a> lists all of them side by side.</p>
         </header>
 
         <div class="cd-group">
@@ -96,11 +100,11 @@
                 <table class="cd-table">
                     <thead><tr><th>Corridor</th><th>Duty</th><th>VAT / Sales Tax</th><th>De Minimis</th></tr></thead>
                     <tbody>
-                        <tr><td><a href="/china-to-us-clothing">China → US · Apparel &amp; Textiles</a></td><td class="cd-rate">16.5%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
-                        <tr><td><a href="/china-to-us-electronics">China → US · Electronics &amp; Gadgets</a></td><td class="cd-rate">2.5%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
-                        <tr><td><a href="/china-to-us-furniture">China → US · Furniture &amp; Home Goods</a></td><td class="cd-rate">8%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
-                        <tr><td><a href="/china-to-us-machinery">China → US · Industrial Machinery</a></td><td class="cd-rate">4.2%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
-                        <tr><td><a href="/china-to-us-plastics">China → US · Plastics &amp; Toys</a></td><td class="cd-rate">6.5%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
+                        <tr><td><a href="/china-to-us-clothing">China → US · Apparel &amp; Textiles</a></td><td class="cd-rate">16.5%</td><td>None</td><td class="cd-dm">Suspended</td></tr>
+                        <tr><td><a href="/china-to-us-electronics">China → US · Electronics &amp; Gadgets</a></td><td class="cd-rate">2.5%</td><td>None</td><td class="cd-dm">Suspended</td></tr>
+                        <tr><td><a href="/china-to-us-furniture">China → US · Furniture &amp; Home Goods</a></td><td class="cd-rate">8%</td><td>None</td><td class="cd-dm">Suspended</td></tr>
+                        <tr><td><a href="/china-to-us-machinery">China → US · Industrial Machinery</a></td><td class="cd-rate">4.2%</td><td>None</td><td class="cd-dm">Suspended</td></tr>
+                        <tr><td><a href="/china-to-us-plastics">China → US · Plastics &amp; Toys</a></td><td class="cd-rate">6.5%</td><td>None</td><td class="cd-dm">Suspended</td></tr>
                         <tr><td><a href="/china-to-us-tariff-panorama">China → US · Full Tariff Panorama</a></td><td class="cd-rate">—</td><td>—</td><td class="cd-dm">multi-category reference</td></tr>
                     </tbody>
                 </table>
@@ -129,11 +133,11 @@
                 <table class="cd-table">
                     <thead><tr><th>Corridor</th><th>Duty</th><th>VAT</th><th>De Minimis</th></tr></thead>
                     <tbody>
-                        <tr><td><a href="/china-to-germany-customs">China → Germany · Industrial &amp; Automation</a></td><td class="cd-rate">4.2%</td><td>19%</td><td class="cd-dm">€150 (goods value)</td></tr>
-                        <tr><td><a href="/china-to-france-customs">China → France · E-Commerce Cargo</a></td><td class="cd-rate">4.5%</td><td>20%</td><td class="cd-dm">€150 (goods value)</td></tr>
-                        <tr><td><a href="/china-to-italy-textiles">China → Italy · Textiles &amp; Leather</a></td><td class="cd-rate">12%</td><td>22%</td><td class="cd-dm">€150 (goods value)</td></tr>
-                        <tr><td><a href="/china-to-netherlands-hub">China → Netherlands · Rotterdam Hub</a></td><td class="cd-rate">3.5%</td><td>21%</td><td class="cd-dm">€150 (goods value)</td></tr>
-                        <tr><td><a href="/us-to-germany-machinery">US → Germany · Machinery</a></td><td class="cd-rate">1.7%</td><td>19%</td><td class="cd-dm">€150 (goods value)</td></tr>
+                        <tr><td><a href="/china-to-germany-customs">China → Germany · Industrial &amp; Automation</a></td><td class="cd-rate">4.2%</td><td>19%</td><td class="cd-dm">€3/item up to €150</td></tr>
+                        <tr><td><a href="/china-to-france-customs">China → France · E-Commerce Cargo</a></td><td class="cd-rate">4.5%</td><td>20%</td><td class="cd-dm">€3/item up to €150</td></tr>
+                        <tr><td><a href="/china-to-italy-textiles">China → Italy · Textiles &amp; Leather</a></td><td class="cd-rate">12%</td><td>22%</td><td class="cd-dm">€3/item up to €150</td></tr>
+                        <tr><td><a href="/china-to-netherlands-hub">China → Netherlands · Rotterdam Hub</a></td><td class="cd-rate">3.5%</td><td>21%</td><td class="cd-dm">€3/item up to €150</td></tr>
+                        <tr><td><a href="/us-to-germany-machinery">US → Germany · Machinery</a></td><td class="cd-rate">1.7%</td><td>19%</td><td class="cd-dm">€3/item up to €150</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -145,17 +149,17 @@
                 <table class="cd-table">
                     <thead><tr><th>Corridor</th><th>Duty</th><th>VAT / Sales Tax</th><th>De Minimis</th></tr></thead>
                     <tbody>
-                        <tr><td><a href="/uk-to-us-duty">UK → US · General Trade</a></td><td class="cd-rate">3.5%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
-                        <tr><td><a href="/eu-to-us-duty">EU → US · General Cargo</a></td><td class="cd-rate">4%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
-                        <tr><td><a href="/germany-to-us-automotive">Germany → US · Automotive Parts</a></td><td class="cd-rate">2.5%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
-                        <tr><td><a href="/france-to-us-luxury">France → US · Cosmetics &amp; Luxury</a></td><td class="cd-rate">5.2%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
-                        <tr><td><a href="/italy-to-us-machinery">Italy → US · Industrial Hardware</a></td><td class="cd-rate">3.8%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
-                        <tr><td><a href="/japan-to-us-auto-parts">Japan → US · Auto Parts</a></td><td class="cd-rate">2.5%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
-                        <tr><td><a href="/korea-to-us-electronics">Korea → US · Electronics (KORUS)</a></td><td class="cd-rate">0% FTA</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
-                        <tr><td><a href="/taiwan-to-us-semiconductors">Taiwan → US · Semiconductors (ITA)</a></td><td class="cd-rate">0–1.5%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
-                        <tr><td><a href="/india-to-us-jewelry">India → US · Gems &amp; Jewelry</a></td><td class="cd-rate">6%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
-                        <tr><td><a href="/vietnam-to-us-textiles">Vietnam → US · Apparel &amp; Textiles</a></td><td class="cd-rate">14.5%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
-                        <tr><td><a href="/southeast-asia-to-us-duty">Thailand / Indonesia / Malaysia → US</a></td><td class="cd-rate">3.5–6.5%</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
+                        <tr><td><a href="/uk-to-us-duty">UK → US · General Trade</a></td><td class="cd-rate">3.5%</td><td>None</td><td class="cd-dm">Suspended</td></tr>
+                        <tr><td><a href="/eu-to-us-duty">EU → US · General Cargo</a></td><td class="cd-rate">4%</td><td>None</td><td class="cd-dm">Suspended</td></tr>
+                        <tr><td><a href="/germany-to-us-automotive">Germany → US · Automotive Parts</a></td><td class="cd-rate">2.5%</td><td>None</td><td class="cd-dm">Suspended</td></tr>
+                        <tr><td><a href="/france-to-us-luxury">France → US · Cosmetics &amp; Luxury</a></td><td class="cd-rate">5.2%</td><td>None</td><td class="cd-dm">Suspended</td></tr>
+                        <tr><td><a href="/italy-to-us-machinery">Italy → US · Industrial Hardware</a></td><td class="cd-rate">3.8%</td><td>None</td><td class="cd-dm">Suspended</td></tr>
+                        <tr><td><a href="/japan-to-us-auto-parts">Japan → US · Auto Parts</a></td><td class="cd-rate">2.5%</td><td>None</td><td class="cd-dm">Suspended</td></tr>
+                        <tr><td><a href="/korea-to-us-electronics">Korea → US · Electronics (KORUS)</a></td><td class="cd-rate">0% FTA</td><td>None</td><td class="cd-dm">Suspended</td></tr>
+                        <tr><td><a href="/taiwan-to-us-semiconductors">Taiwan → US · Semiconductors (ITA)</a></td><td class="cd-rate">0–1.5%</td><td>None</td><td class="cd-dm">Suspended</td></tr>
+                        <tr><td><a href="/india-to-us-jewelry">India → US · Gems &amp; Jewelry</a></td><td class="cd-rate">6%</td><td>None</td><td class="cd-dm">Suspended</td></tr>
+                        <tr><td><a href="/vietnam-to-us-textiles">Vietnam → US · Apparel &amp; Textiles</a></td><td class="cd-rate">14.5%</td><td>None</td><td class="cd-dm">Suspended</td></tr>
+                        <tr><td><a href="/southeast-asia-to-us-duty">Thailand / Indonesia / Malaysia → US</a></td><td class="cd-rate">3.5–6.5%</td><td>None</td><td class="cd-dm">Suspended</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -167,11 +171,11 @@
                 <table class="cd-table">
                     <thead><tr><th>Corridor</th><th>Duty</th><th>VAT / Sales Tax</th><th>De Minimis</th></tr></thead>
                     <tbody>
-                        <tr><td><a href="/canada-to-us-duty">Canada → US · USMCA</a></td><td class="cd-rate">0% FTA</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
-                        <tr><td><a href="/mexico-to-us-duty">Mexico → US · USMCA</a></td><td class="cd-rate">0% FTA</td><td>None</td><td class="cd-dm">$800 (goods value)</td></tr>
+                        <tr><td><a href="/canada-to-us-duty">Canada → US · USMCA</a></td><td class="cd-rate">0% FTA</td><td>None</td><td class="cd-dm">Suspended</td></tr>
+                        <tr><td><a href="/mexico-to-us-duty">Mexico → US · USMCA</a></td><td class="cd-rate">0% FTA</td><td>None</td><td class="cd-dm">Suspended</td></tr>
                         <tr><td><a href="/us-to-canada-duty">US → Canada · General Cargo</a></td><td class="cd-rate">5%</td><td>GST 5%</td><td class="cd-dm">CAD $20 (goods value)</td></tr>
                         <tr><td><a href="/china-to-canada-freight">China → Canada · General Freight</a></td><td class="cd-rate">6.5%</td><td>GST 5%</td><td class="cd-dm">CAD $20 (goods value)</td></tr>
-                        <tr><td><a href="/china-to-mexico-maquila">China → Mexico · Maquila</a></td><td class="cd-rate">15%</td><td>IVA 16%</td><td class="cd-dm">$50 (goods value)</td></tr>
+                        <tr><td><a href="/china-to-mexico-maquila">China → Mexico · Maquila</a></td><td class="cd-rate">15%</td><td>IVA 16%</td><td class="cd-dm">USD 50 (postal only)</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -292,6 +296,6 @@
         </div>
     </footer>
 
-    <script src="sw-register.js?v=dd0fe60"></script>
+    <script src="sw-register.js?v=338eca8"></script>
 </body>
 </html>

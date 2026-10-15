@@ -16,13 +16,13 @@
     <meta name="twitter:description" content="Calculate import duty and VAT on general cargo shipped from China to Germany.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=dd0fe60">
+    <link rel="stylesheet" href="style.css?v=338eca8">
 <meta property="og:image" content="https://www.dutycalc.online/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","name":"China to Germany Customs Duty? (Free & Instant Calculator)","url":"https://www.dutycalc.online/china-to-germany-customs","description":"Calculate import duty and VAT on general cargo shipped from China to Germany. 4.2% average TARIC tariff, 19% Einfuhrumsatzsteuer, &#x80;22 duty de minimis &#x2014; free instant estimator.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"isPartOf":{"@type":"WebSite","name":"DutyCalc Online","url":"https://www.dutycalc.online/"}}
+{"@context":"https://schema.org","@type":"Article","name":"China to Germany Customs Duty? (Free & Instant Calculator)","url":"https://www.dutycalc.online/china-to-germany-customs","description":"Calculate import duty and VAT on general cargo shipped from China to Germany. 4.2% average TARIC tariff, 19% Einfuhrumsatzsteuer, the flat €3 per item that replaced the €150 duty exemption on 1 July 2026 — free instant estimator.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"isPartOf":{"@type":"WebSite","name":"DutyCalc Online","url":"https://www.dutycalc.online/"}}
 </script>
 </head>
 <body>
@@ -73,11 +73,11 @@
     <main class="container">
         <header>
             <h1>China to Germany Customs Duty Calculator</h1>
-            <p>EU TARIC rates applied in Germany, 19% German VAT (Einfuhrumsatzsteuer), and Zoll clearance &#x2014; instant landed-cost estimate for general cargo from China.</p>
+            <p>EU TARIC rates applied in Germany, 19% German VAT (Einfuhrumsatzsteuer), and Zoll clearance — instant landed-cost estimate for general cargo from China.</p>
         </header>
 
         <div>
-            <div class="calculator-card" data-duty-rate="4.2" data-vat-rate="19" data-deminimis="150" data-threshold-base="cif">
+            <div class="calculator-card" data-duty-rate="4.2" data-vat-rate="19" data-deminimis="0" data-currency="EUR" data-vat-deminimis="0" data-threshold-base="cif" data-low-value-flat="3" data-low-value-ceiling="150" data-layer-note="EU low-value rule from 1 July 2026: a flat €3 per item replaces duty on consignments up to €150. One item assumed." data-autocalc>
                 <div class="calc-row">
                     <label for="cargo-value">Cargo Commercial Value (EUR)</label>
                     <input type="number" id="cargo-value" value="1200" min="0" step="0.01">
@@ -86,76 +86,102 @@
                     <label for="shipping-cost">Shipping, Insurance &amp; Freight to Germany (EUR)</label>
                     <input type="number" id="shipping-cost" value="80" min="0" step="0.01">
                 </div>
-                <button id="calc-btn" class="calc-button">Calculate Landed Cost</button>
+                <button id="calc-btn" class="calc-btn">Calculate Landed Cost</button>
                 <div class="calc-results" id="calc-results">
-                    <div class="result-line"><span>Import Tariff (4.2%):</span> <span id="result-duty">&mdash;</span></div>
-                    <div class="result-line"><span>Einfuhrumsatzsteuer (19%):</span> <span id="result-vat">&mdash;</span></div>
-                    <div class="result-line result-total"><span>Total Landed Cost:</span> <span id="result-total">&mdash;</span></div>
+                    <div class="result-line"><span>Import Tariff (4.2%; €3 flat per item under €150):</span> <span id="result-duty">—</span></div>
+                    <div class="result-line"><span>Einfuhrumsatzsteuer (19%):</span> <span id="result-vat">—</span></div>
+                    <div class="result-line result-total"><span>Total Landed Cost:</span> <span id="result-total">—</span></div>
                 </div>
             </div>
 
-            <div class="trade-tip"><span class="tip-label">Cash flow saver</span><br><strong>Article 23 VAT deferral lets you delay your 19% EUSt payment by 45鈥?0 days.</strong> If you import regularly into Germany, this is not optional 鈥?it is the difference between funding your own working capital and lending money to the tax office. <a href="/china-to-france-customs">France runs IOSS 鈥?a different system 鈫?/a></div>
+            <div class="trade-tip"><span class="tip-label">Cash flow saver</span><br><strong>Article 23 VAT deferral lets you delay your 19% EUSt payment by 45–60 days.</strong> If you import regularly into Germany, this is not optional — it is the difference between funding your own working capital and lending money to the tax office. <a href="/china-to-france-customs">France runs IOSS — a different system →</a></div>
 
             <section class="seo-section">
                 <h2>German Import Duty on Chinese General Cargo</h2>
-                <p>The <strong>EU TARIC</strong> (Tarif Int&#xE9;gr&#xE9; de l&#x2019;Union Europ&#xE9;enne) applies uniformly across Germany &#x2014; there is no separate German tariff schedule for non-EU imports. For general cargo from China &#x2014; consumer electronics, household goods, tools, and industrial components &#x2014; the average duty rate sits at <strong>4.2%</strong>. The German Zoll (customs administration) processes more Chinese imports than any other EU member state, handling millions of declarations annually through its ATLAS system.</p>
-                <p>Here is what the math looks like on a representative shipment: <strong>&#x80;1,200</strong> in goods plus <strong>&#x80;80</strong> in shipping and insurance gives a CIF value of <strong>&#x80;1,280</strong>. Customs duty at 4.2% on the CIF value equals <strong>&#x80;53.76</strong>. Then Einfuhrumsatzsteuer at 19% is applied to the CIF-plus-duty subtotal of &#x80;1,333.76, yielding <strong>&#x80;253.41</strong> in VAT. Total import taxes come to <strong>&#x80;307.17</strong>, and the fully landed cost is <strong>&#x80;1,587.17</strong>. That is real money, and it is why getting the estimate right before you commit to a supplier matters.</p>
+                <p>The <strong>EU TARIC</strong> (Tarif Int&#xE9;gr&#xE9; de l&#x2019;Union Europ&#xE9;enne) applies uniformly across Germany — there is no separate German tariff schedule for non-EU imports. For general cargo from China — consumer electronics, household goods, tools, and industrial components — the average duty rate sits at <strong>4.2%</strong>. The German Zoll (customs administration) processes more Chinese imports than any other EU member state, handling millions of declarations annually through its ATLAS system.</p>
+                <p>Here is what the math looks like on a representative shipment: <strong>€1,200</strong> in goods plus <strong>€80</strong> in shipping and insurance gives a CIF value of <strong>€1,280</strong>. Customs duty at 4.2% on the CIF value equals <strong>€53.76</strong>. Then Einfuhrumsatzsteuer at 19% is applied to the CIF-plus-duty subtotal of €1,333.76, yielding <strong>€253.41</strong> in VAT. Total import taxes come to <strong>€307.17</strong>, and the fully landed cost is <strong>€1,587.17</strong>. That is real money, and it is why getting the estimate right before you commit to a supplier matters.</p>
 
-                <h2>Einfuhrumsatzsteuer at 19% &#x2014; German Import VAT</h2>
-                <p>Germany applies the standard <strong>19% VAT rate</strong> on imports, formally called <strong>Einfuhrumsatzsteuer</strong> (EUSt). A reduced rate of <strong>7%</strong> applies to a narrower set of goods: books, certain foodstuffs, some medical supplies, and a handful of cultural items. The vast majority of Chinese general cargo &#x2014; electronics, tools, household items &#x2014; attracts the full 19%.</p>
-                <p>EUSt is calculated on a base of CIF value plus customs duty plus any applicable excise taxes. For VAT-registered German businesses, import VAT is fully recoverable through the monthly <strong>Umsatzsteuer-Voranmeldung</strong> (UStVA) filed with the Finanzamt. You pay the EUSt at the time of customs clearance, report it as input tax in Box 61 of your UStVA, and deduct it in the same period. The net effect is a <strong>cash-flow impact</strong> &#x2014; you finance the VAT for a few weeks &#x2014; not a permanent cost. Non-registered buyers and consumers bear the VAT as a final cost.</p>
+                <h2>Einfuhrumsatzsteuer at 19% — German Import VAT</h2>
+                <p>Germany applies the standard <strong>19% VAT rate</strong> on imports, formally called <strong>Einfuhrumsatzsteuer</strong> (EUSt). A reduced rate of <strong>7%</strong> applies to a narrower set of goods: books, certain foodstuffs, some medical supplies, and a handful of cultural items. The vast majority of Chinese general cargo — electronics, tools, household items — attracts the full 19%.</p>
+                <p>EUSt is calculated on a base of CIF value plus customs duty plus any applicable excise taxes. For VAT-registered German businesses, import VAT is fully recoverable through the monthly <strong>Umsatzsteuer-Voranmeldung</strong> (UStVA) filed with the Finanzamt. You pay the EUSt at the time of customs clearance, report it as input tax in Box 61 of your UStVA, and deduct it in the same period. The net effect is a <strong>cash-flow impact</strong> — you finance the VAT for a few weeks — not a permanent cost. Non-registered buyers and consumers bear the VAT as a final cost.</p>
 
-                <h2>The &#x80;22/&#x80;150 Split &#x2014; Germany&#x2019;s De Minimis Reality</h2>
-                <p>Before July 2021, goods with a value under &#x80;22 were exempt from both customs duty and VAT. That regime is gone. Under the current rules that Germany enforces as part of the EU Customs Code:</p>
+                <h2>The €150 Line — Germany No Longer Waives Duty</h2>
+                <p>Before July 2021, goods valued under €22 cleared into the EU free of both duty and VAT. That regime
+                has ended — and so has the €150 duty exemption that outlasted it. Two separate charges now apply to
+                low-value shipments, and Germany enforces both under the EU Customs Code:</p>
                 <ul class="content-list">
-                    <li><strong>Customs duty de minimis:</strong> No duty is charged on shipments where the <em>goods value</em> (excluding shipping) is under <strong>&#x80;150</strong>. Above &#x80;150, the applicable TARIC rate kicks in on the full CIF value.</li>
-                    <li><strong>VAT:</strong> No de minimis. Einfuhrumsatzsteuer applies from <strong>&#x80;1</strong> upward, collected either through IOSS at the point of sale or through the carrier and customs at the border.</li>
+                    <li><strong>Customs duty at or below €150:</strong> the €150 duty exemption ended on 1 July 2026.
+                    A flat <strong>€3 per item</strong> replaces ad valorem duty up to that line (Council Regulation
+                    (EU) 2026/382). Above €150, the applicable TARIC rate applies as before, on the full CIF
+                    value.</li>
+                    <li><strong>VAT:</strong> No de minimis. Einfuhrumsatzsteuer applies from <strong>€1</strong> upward, collected either through IOSS at the point of sale or through the carrier and customs at the border.</li>
                 </ul>
-                <p>Germany was one of the heaviest users of the old &#x80;22 exemption because of its high cross-border e-commerce volume from China. The shift to universal VAT collection has been particularly impactful for German DTC brands that relied on sub-&#x80;22 shipments to keep prices low. Read more in our <a href="/de-minimis-value-guide">de minimis value guide</a>.</p>
+                <p>Germany was one of the heaviest users of the old €22 exemption because of its high cross-border e-commerce volume from China. The shift to universal VAT collection has been particularly impactful for German DTC brands that relied on sub-€22 shipments to keep prices low. Read more in our <a href="/de-minimis-value-guide">de minimis value guide</a>.</p>
 
-                <h2>IOSS &#x2014; How German Sellers Handle Sub-&#x80;150 Chinese Imports</h2>
-                <p>The <strong>Import One-Stop Shop</strong> (IOSS) is the EU&#x2019;s mechanism for simplifying VAT on B2C consignments with an intrinsic value under &#x80;150. A seller registers for IOSS in one EU member state &#x2014; Germany works, and registration goes through the <strong>Bundeszentralamt f&#xFC;r Steuern</strong> (BZSt) &#x2014; and then charges German VAT (19% or 7%, depending on the goods) at the point of sale. The seller remits VAT monthly through the IOSS portal. The goods clear customs at the German border without any VAT stop; the customer receives the package with no surprise charges or carrier handling fees.</p>
+                <h2>IOSS — VAT on Sub-€150 Chinese Imports, Now That Duty Is a Flat €3</h2>
+                <p>The <strong>Import One-Stop Shop</strong> (IOSS) is the EU&#x2019;s mechanism for simplifying VAT
+                on B2C consignments with an intrinsic value under €150. A seller registers for IOSS in one EU member
+                state — Germany works, and registration goes through the <strong>Bundeszentralamt f&#xFC;r
+                Steuern</strong> (BZSt) — and then charges German VAT (19% or 7%, depending on the goods) at the point
+                of sale. The seller remits VAT monthly through the IOSS portal. The goods clear customs at the German
+                border without any VAT stop — but IOSS covers VAT only. Since 1 July 2026 a consignment at or below
+                €150 carries a flat €3 per item in duty, charged separately from the VAT you collect at checkout, so
+                the customer can still see a small customs bill on delivery.</p>
                 <p>One important caveat: IOSS is designed for <strong>B2C distance sales</strong>. It does not apply to B2B stock movements. If you are an Amazon FBA seller sending goods from China to German fulfillment centers, those shipments enter under standard import procedures with a full customs declaration. The IOSS exemption does not cover inventory restocking. See also our calculators for <a href="/china-to-france-customs">China to France</a> and <a href="/china-to-netherlands-hub">China to Netherlands hub</a> if you are routing through other EU entry points.</p>
 
-                <h2>German Customs Clearance &#x2014; The ATLAS System</h2>
-                <p>Germany runs customs clearance through <strong>ATLAS</strong> (Automatisiertes Tarif- und Lokales Zoll-Abwicklungssystem), one of the most sophisticated electronic customs platforms in the EU. Clearance moves through major entry points: <strong>Hamburg</strong> for sea freight &#x2014; Europe&#x2019;s third-largest container port by volume &#x2014; <strong>Frankfurt Airport</strong> for air freight, and <strong>Bremerhaven</strong> as a secondary sea gateway. You need an <strong>EORI number</strong> (Economic Operators Registration and Identification) to file declarations. EORI registration is free through the German Zoll-Portal and is typically issued within days.</p>
-                <p>Standard clearance runs <strong>1&#x2013;2 days</strong> for sea freight and often just <strong>hours for express air freight</strong> at Frankfurt. That said, the Zoll does conduct physical inspections more frequently than some other EU customs authorities, particularly on textiles and consumer electronics from China. If your shipment gets flagged for a Warenbeschau (physical examination), add a day or two and a handling fee from your freight forwarder. Keep your paperwork clean and your commodity codes precise.</p>
+                <h2>German Customs Clearance — The ATLAS System</h2>
+                <p>Germany runs customs clearance through <strong>ATLAS</strong> (Automatisiertes Tarif- und Lokales Zoll-Abwicklungssystem), one of the most sophisticated electronic customs platforms in the EU. Clearance moves through major entry points: <strong>Hamburg</strong> for sea freight — Europe&#x2019;s third-largest container port by volume — <strong>Frankfurt Airport</strong> for air freight, and <strong>Bremerhaven</strong> as a secondary sea gateway. You need an <strong>EORI number</strong> (Economic Operators Registration and Identification) to file declarations. EORI registration is free through the German Zoll-Portal and is typically issued within days.</p>
+                <p>Standard clearance runs <strong>1–2 days</strong> for sea freight and often just <strong>hours for express air freight</strong> at Frankfurt. That said, the Zoll does conduct physical inspections more frequently than some other EU customs authorities, particularly on textiles and consumer electronics from China. If your shipment gets flagged for a Warenbeschau (physical examination), add a day or two and a handling fee from your freight forwarder. Keep your paperwork clean and your commodity codes precise.</p>
 
                 <h2>Key German TARIC Classifications for Chinese Goods</h2>
                 <p>Knowing the right tariff chapter before you ship avoids surprises and potential Nacherhebungen (retroactive duty demands). Here are the major chapters that cover Chinese general cargo entering Germany:</p>
                 <ul class="content-list">
-                    <li><strong>Chapter 85:</strong> Electrical machinery and equipment &#x2014; 0% to 4.2%. ITA-covered electronics at 0%, consumer electronics at the upper end.</li>
-                    <li><strong>Chapter 84:</strong> Mechanical appliances and machinery &#x2014; 0% to 2.7%. Industrial equipment, pumps, and machine parts fall here.</li>
-                    <li><strong>Chapters 61&#x2013;62:</strong> Apparel and clothing accessories &#x2014; 5% to 12%. Germany is Europe&#x2019;s largest apparel import market, and these rates bite.</li>
-                    <li><strong>Chapter 94:</strong> Furniture, bedding, and prefabricated buildings &#x2014; 0% to 5.6%.</li>
-                    <li><strong>Chapter 73:</strong> Articles of iron or steel &#x2014; 0% to 3.7%. Fasteners, fittings, and structural components.</li>
+                    <li><strong>Chapter 85:</strong> Electrical machinery and equipment — 0% to 4.2%. ITA-covered electronics at 0%, consumer electronics at the upper end.</li>
+                    <li><strong>Chapter 84:</strong> Mechanical appliances and machinery — 0% to 2.7%. Industrial equipment, pumps, and machine parts fall here.</li>
+                    <li><strong>Chapters 61–62:</strong> Apparel and clothing accessories — 5% to 12%. Germany is Europe&#x2019;s largest apparel import market, and these rates bite.</li>
+                    <li><strong>Chapter 94:</strong> Furniture, bedding, and prefabricated buildings — 0% to 5.6%.</li>
+                    <li><strong>Chapter 73:</strong> Articles of iron or steel — 0% to 3.7%. Fasteners, fittings, and structural components.</li>
                 </ul>
-                <p>German customs is strict on correct classification. The Hauptzollamt can and does issue <strong>Nacherhebungen</strong> &#x2014; retroactive duty bills &#x2014; for misclassified goods going back up to <strong>3 years</strong>. If customs alleges intent or fraud (Steuerhinterziehung), the look-back period extends to <strong>10 years</strong>. Classify correctly the first time.</p>
+                <p>German customs is strict on correct classification. The Hauptzollamt can and does issue <strong>Nacherhebungen</strong> — retroactive duty bills — for misclassified goods going back up to <strong>3 years</strong>. If customs alleges intent or fraud (Steuerhinterziehung), the look-back period extends to <strong>10 years</strong>. Classify correctly the first time.</p>
 
                 <h2>German Product Safety and Compliance</h2>
                 <p>Germany&#x2019;s <strong>Markt&#xFC;berwachung</strong> (market surveillance) regime is among the strictest in the EU. For Chinese goods entering the German market, compliance is not optional:</p>
                 <ul class="content-list">
                     <li><strong>CE Marking:</strong> Required for all products covered by EU harmonisation legislation. You need an EU Declaration of Conformity and technical documentation on file.</li>
-                    <li><strong>ElektroG (Electrical and Electronic Equipment Act):</strong> If you place electronics on the German market, you must register with the <strong>Stiftung EAR</strong> (Stiftung Elektro-Altger&#xE4;te Register) before the first sale. Registration is mandatory and failure to register carries fines up to <strong>&#x80;200,000</strong>.</li>
+                    <li><strong>ElektroG (Electrical and Electronic Equipment Act):</strong> If you place electronics on the German market, you must register with the <strong>Stiftung EAR</strong> (Stiftung Elektro-Altger&#xE4;te Register) before the first sale. Registration is mandatory and failure to register carries fines up to <strong>€200,000</strong>.</li>
                     <li><strong>VerpackG (Packaging Act):</strong> Anyone shipping packaged goods into Germany commercially must register with the <strong>Zentrale Stelle Verpackungsregister</strong> (ZSVR) and license their packaging with a dual system. This applies even if you are a non-German company shipping directly to German consumers.</li>
                 </ul>
-                <p>These requirements are separate from customs clearance &#x2014; you can clear customs and still be in violation of ElektroG or VerpackG. Competitor Abmahnungen (cease-and-desist warnings) are a real risk in Germany; non-compliance is enforced both by authorities and by competitors with standing to sue. See our <a href="/china-to-us-electronics">China to US electronics guide</a> for the American counterpart.</p>
+                <p>These requirements are separate from customs clearance — you can clear customs and still be in violation of ElektroG or VerpackG. Competitor Abmahnungen (cease-and-desist warnings) are a real risk in Germany; non-compliance is enforced both by authorities and by competitors with standing to sue. See our <a href="/china-to-us-electronics">China to US electronics guide</a> for the American counterpart.</p>
 
-                <div class="trade-tip"><span class="tip-label">FBA seller? Read this.</span><br>Amazon FBA stock shipped into German fulfillment centers triggers import VAT immediately. If you haven't set up Article 23 deferral, you're paying 19% on your inventory before you've sold a single unit. <a href="/import-vat-guide">How import VAT works across all markets 鈫?/a></div>
+                <div class="trade-tip"><span class="tip-label">FBA seller? Read this.</span><br>Amazon FBA stock shipped into German fulfillment centers triggers import VAT immediately. If you haven't set up Article 23 deferral, you're paying 19% on your inventory before you've sold a single unit. <a href="/import-vat-guide">How import VAT works across all markets →</a></div>
 
                 <h2>Frequently Asked Questions</h2>
 
                 <h3>What&#x2019;s the duty rate from China to Germany?</h3>
-                <p>The average TARIC rate for general cargo from China is <strong>4.2%</strong>. Information Technology Agreement (ITA) electronics enter at <strong>0%</strong>. Textiles and apparel range from <strong>5% to 12%</strong> depending on the specific commodity code. The 4.2% figure is a safe estimate for electronics, household goods, tools, and general merchandise. Always verify your specific HS code in the TARIC database before shipping &#x2014; a 4-digit chapter guess is not enough for a binding estimate.</p>
+                <p>The average TARIC rate for general cargo from China is <strong>4.2%</strong>. Information Technology Agreement (ITA) electronics enter at <strong>0%</strong>. Textiles and apparel range from <strong>5% to 12%</strong> depending on the specific commodity code. The 4.2% figure is a safe estimate for electronics, household goods, tools, and general merchandise. Always verify your specific HS code in the TARIC database before shipping — a 4-digit chapter guess is not enough for a binding estimate.</p>
 
-                <h3>Do I pay VAT on Chinese imports under &#x80;22?</h3>
-                <p>Since July 2021, <strong>yes</strong> &#x2014; the &#x80;22 VAT exemption no longer exists. Einfuhrumsatzsteuer at 19% (or 7% for reduced-rate goods) applies from the first euro of commercial import value. The only surviving de minimis threshold is for <strong>customs duty</strong>: no duty is charged when the goods value (excluding shipping) is under &#x80;150. VAT has zero de minimis floor. If you sell to German consumers, collect VAT at checkout via IOSS or expect the carrier to collect it at the door with a handling surcharge.</p>
+                <h3>Do I still pay VAT on imports that used to sit under €22?</h3>
+                <p>Since July 2021, <strong>yes</strong> — the €22 VAT exemption no longer exists. Einfuhrumsatzsteuer
+                at 19% (or 7% for reduced-rate goods) applies from the first euro of commercial import value. Duty
+                followed a slower path: the €150 duty exemption survived until 1 July 2026, when Council Regulation
+                (EU) 2026/382 replaced it with a flat <strong>€3 per item</strong> on consignments at or below €150.
+                So nothing clears at zero any more, at any value, and VAT has zero de minimis floor. If you sell to
+                German consumers, collect VAT at checkout via IOSS — and expect the €3 duty to be handled at the
+                border, or by the carrier with a handling surcharge.</p>
 
                 <h3>How does IOSS work for German customers?</h3>
-                <p>For B2C shipments with an intrinsic value under &#x80;150, you register for IOSS in any EU member state. At checkout, you charge <strong>German VAT</strong> (19% standard or 7% reduced) based on the customer&#x2019;s delivery address. You remit the collected VAT monthly through the IOSS portal. The goods clear customs at the German border without a VAT stop &#x2014; the customs declaration references your IOSS number and the shipment is released. The customer receives a clean delivery with no surprise charges, no carrier handling fee, and no delay at the border. For the customer experience alone, IOSS is worth setting up if you do any meaningful volume of B2C sales into Germany.</p>
+                <p>For B2C shipments with an intrinsic value under €150, you register for IOSS in any EU member state.
+                At checkout, you charge <strong>German VAT</strong> (19% standard or 7% reduced) based on the
+                customer&#x2019;s delivery address. You remit the collected VAT monthly through the IOSS portal. The
+                goods clear customs at the German border without a VAT stop — the customs declaration references your
+                IOSS number and the shipment is released. IOSS covers VAT only, though, so since 1 July 2026 the flat
+                €3 per item in duty at or below €150 still applies separately. Even so, the delivery is cleaner than
+                the alternative: no VAT collection at the door, no carrier handling fee, and no delay at the border.
+                For the customer experience alone, IOSS is worth setting up if you do any meaningful volume of B2C
+                sales into Germany.</p>
 
                 <h3>Do I need special registrations to sell Chinese electronics in Germany?</h3>
-                <p><strong>Yes</strong> &#x2014; and they are separate from customs requirements. <strong>ElektroG</strong> registration with the Stiftung EAR is mandatory before placing any electronic or electrical equipment on the German market. <strong>VerpackG</strong> registration with the ZSVR is mandatory if you ship packaged goods into Germany commercially. You also need <strong>CE marking</strong> and an EU Declaration of Conformity for applicable products. These obligations apply regardless of whether you are based in Germany, elsewhere in the EU, or outside the EU entirely. Non-compliance can trigger Abmahnungen from competitors and fines from the authorities. None of these registrations are checked at customs clearance &#x2014; customs releases your goods, and market surveillance catches up with you afterward.</p>
+                <p><strong>Yes</strong> — and they are separate from customs requirements. <strong>ElektroG</strong> registration with the Stiftung EAR is mandatory before placing any electronic or electrical equipment on the German market. <strong>VerpackG</strong> registration with the ZSVR is mandatory if you ship packaged goods into Germany commercially. You also need <strong>CE marking</strong> and an EU Declaration of Conformity for applicable products. These obligations apply regardless of whether you are based in Germany, elsewhere in the EU, or outside the EU entirely. Non-compliance can trigger Abmahnungen from competitors and fines from the authorities. None of these registrations are checked at customs clearance — customs releases your goods, and market surveillance catches up with you afterward.</p>
             </section>
 
             <p class="back-link"><a href="/">&larr; Back to All Calculators</a></p>
@@ -230,51 +256,9 @@
         </div>
     </footer>
 
-    <script>
-    (function() {
-        var card = document.querySelector('.calculator-card');
-        var dutyRate = parseFloat(card.getAttribute('data-duty-rate')) / 100;
-        var vatRate = parseFloat(card.getAttribute('data-vat-rate')) / 100;
-        var deminimis = parseFloat(card.getAttribute('data-deminimis'));
-
-        var cargoInput = document.getElementById('cargo-value');
-        var shippingInput = document.getElementById('shipping-cost');
-        var calcBtn = document.getElementById('calc-btn');
-        var resultDuty = document.getElementById('result-duty');
-        var resultVat = document.getElementById('result-vat');
-        var resultTotal = document.getElementById('result-total');
-
-        function formatEUR(n) {
-            return '€' + n.toFixed(2);
-        }
-
-        function calculate() {
-            var cargo = parseFloat(cargoInput.value) || 0;
-            var shipping = parseFloat(shippingInput.value) || 0;
-            var cif = cargo + shipping;
-
-            var duty = 0;
-            if (cargo > deminimis) {
-                duty = cif * dutyRate;
-            }
-
-            var vatBase = cif + duty;
-            var vat = vatBase * vatRate;
-            var total = cif + duty + vat;
-
-            resultDuty.textContent = formatEUR(duty);
-            resultVat.textContent = formatEUR(vat);
-            resultTotal.textContent = formatEUR(total);
-        }
-
-        calcBtn.addEventListener('click', calculate);
-
-        // Calculate on load
-        calculate();
-    })();
-    </script>
-    <script src="rate-data.js?v=dd0fe60"></script>
-    <script src="main.js?v=dd0fe60"></script>
-    <script src="sw-register.js?v=dd0fe60"></script>
+    <!-- Calculator logic lives in main.js so every lane shares one engine. -->
+    <script src="rate-data.js?v=338eca8"></script>
+    <script src="main.js?v=338eca8"></script>
+    <script src="sw-register.js?v=338eca8"></script>
 </body>
 </html>

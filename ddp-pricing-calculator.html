@@ -16,7 +16,7 @@
     <meta name="twitter:description" content="Purchase cost, freight and duty rates to landed cost, suggested price and margin — seller-side pricing in one screen.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=dd0fe60">
+    <link rel="stylesheet" href="style.css?v=338eca8">
 <meta property="og:image" content="https://www.dutycalc.online/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -123,7 +123,7 @@
 
                 <h2>The 3x rule works until it doesn't</h2>
                 <p>Take a $3.50 silicone pet-feeding mat from Yiwu. The standard advice is to triple it, list at $10.50, call it a day. Then the real numbers show up: $1.20 freight to the buyer's country, 6.5% duty on the CIF value, and if the buyer is in the UK, 20% VAT on top of the duty-paid figure. The actual cost to land one mat is about $5.36 — so at $10.50 you're keeping $5.14, which is a 49% margin, not the 66% that "triple the cost" implies. The rule of thumb didn't lie exactly; it just never counted the tax you never see on your own invoice.</p>
-                <p>That's what this calculator replaces. It walks the chain the way the money actually moves: CIF (cost plus freight and insurance), duty on CIF, sales tax on the duty-paid value, and the landed cost that is your real floor. The suggested price is then one division — <strong>landed cost ÷ (1 − margin)</strong> — and the profit is what's left. The whole point of doing it on one screen is that the assumptions stop hiding from you.</p>
+                <p>That's what this calculator replaces. It walks the chain the way the money actually moves: duty on whichever base that destination uses — CIF in the EU, UK and most other markets, but the goods value alone in the US, Canada and Australia, provided your invoice lists international freight and insurance separately — then sales tax on the duty-paid value, and the landed cost that is your real floor. The suggested price is then one division — <strong>landed cost ÷ (1 − margin)</strong> — and the profit is what's left. The whole point of doing it on one screen is that the assumptions stop hiding from you.</p>
 
                 <h2>Which number to put in each box</h2>
                 <p>The purchase cost is what you actually pay to get the goods to the shipping point. If you dropship, that's the supplier's dropship price, not the wholesale price — the difference is real, and it's your margin. Freight plus insurance is the per-unit share of your shipping bill; if you move consolidated containers, divide the total freight by the units in the container, don't guess. The duty rate is the one number worth looking up instead of estimating: it's set by the product's 10-digit HTS line in the destination country, and the <a href="/tariff-calculator">tariff lookup</a> gives you the MFN figure. For goods from China, add the Section 301 surcharge to that MFN rate — the <a href="/section-301-china-tariffs-guide">301 guide</a> shows which list applies. If your parcels clear under a de minimis threshold, the duty box is simply zero; the <a href="/de-minimis-value-guide">threshold map</a> tells you where that holds, and the <a href="/dropshipping-duty-guide">dropshipping duty guide</a> explains who actually ends up paying when the parcel lands.</p>
@@ -143,7 +143,13 @@
                 <p>Yes. On DDP sales to consumers, the customer pays one price and you remit the tax from it. Whether you show the VAT as a line item or absorb it, the customer's willingness to pay is a single number, so the tax belongs inside the price you test. This calculator puts it in the landed cost, which is the honest way to model it.</p>
 
                 <h3>My orders are under the de minimis — what do I enter for duty?</h3>
-                <p>Zero. If the destination waives duty below its threshold (US $800, UK £135, EU €150) and your per-parcel value stays under it, no duty is due — though the sales-tax box is a separate question, and in the UK and Australia the seller may still have a VAT registration obligation even at zero duty. The <a href="/dropshipping-duty-guide">dropshipping duty guide</a> walks each destination, because "under the threshold" is not the same as "no tax anywhere."</p>
+                <p>Not necessarily zero any more. The US has no de minimis since 29 August 2025 — Section 321 was
+                suspended for every origin — so US-bound parcels pay duty from the first dollar. The UK still waives
+                duty below £135, and the EU still uses a €150 line, but only to switch you to a flat €3 per item
+                rather than to zero. The sales-tax box is a separate question again, and in the UK and Australia the
+                seller may still have a VAT registration obligation even where no duty is owed. The
+                <a href="/dropshipping-duty-guide">dropshipping duty guide</a> walks each destination, because "under
+                the threshold" is not the same as "no tax anywhere."</p>
 
                 <p style="margin-top: 30px;"><a href="/">&larr; Back to All Calculators</a></p>
             </article>
@@ -255,6 +261,6 @@
             calc();
         })();
     </script>
-    <script src="sw-register.js?v=dd0fe60"></script>
+    <script src="sw-register.js?v=338eca8"></script>
 </body>
 </html>

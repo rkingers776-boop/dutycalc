@@ -7,22 +7,22 @@
     <title>China to France Freight Duty?</title>
     <meta name="description" content="Calculate import duty and TVA on e-commerce cargo shipped from China to France.">
     <link rel="canonical" href="https://www.dutycalc.online/china-to-france-customs">
-    <meta property="og:title" content="China to France Freight Duty Calculator &mdash; Free Instant Estimator">
+    <meta property="og:title" content="China to France Freight Duty Calculator — Free Instant Estimator">
     <meta property="og:description" content="Calculate import duty and TVA on e-commerce cargo shipped from China to France. 4.5% TARIC, 20% TVA, IOSS.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.dutycalc.online/china-to-france-customs">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="China to France Freight Duty Calculator &mdash; Free Instant Estimator">
+    <meta name="twitter:title" content="China to France Freight Duty Calculator — Free Instant Estimator">
     <meta name="twitter:description" content="Calculate import duty and TVA on e-commerce cargo shipped from China to France. 4.5% TARIC, 20% TVA, IOSS.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=dd0fe60">
+    <link rel="stylesheet" href="style.css?v=338eca8">
 <meta property="og:image" content="https://www.dutycalc.online/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","name":"China to France Freight Duty? (Free & Instant Calculator)","url":"https://www.dutycalc.online/china-to-france-customs","description":"Calculate import duty and TVA on e-commerce cargo shipped from China to France. 4.5% average TARIC rate, 20% TVA, &#8364;22 duty de minimis, IOSS scheme &mdash; free instant estimator.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"isPartOf":{"@type":"WebSite","name":"DutyCalc Online","url":"https://www.dutycalc.online/"}}
+{"@context":"https://schema.org","@type":"Article","name":"China to France Freight Duty? (Free & Instant Calculator)","url":"https://www.dutycalc.online/china-to-france-customs","description":"Calculate import duty and TVA on e-commerce cargo shipped from China to France. 4.5% average TARIC rate, 20% TVA, the flat €3 per item that replaced the €150 duty exemption on 1 July 2026, IOSS scheme — free instant estimator.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"isPartOf":{"@type":"WebSite","name":"DutyCalc Online","url":"https://www.dutycalc.online/"}}
 </script>
 </head>
 <body>
@@ -73,11 +73,11 @@
     <main class="container">
         <header>
             <h1>China to France Freight Duty Calculator</h1>
-            <p class="subtitle">Estimate TARIC duties, 20% TVA, and Douane clearance charges on e-commerce cargo from China to France &mdash; free, instant, no sign-up.</p>
+            <p class="subtitle">Estimate TARIC duties, 20% TVA, and Douane clearance charges on e-commerce cargo from China to France — free, instant, no sign-up.</p>
         </header>
 
         <div>
-            <div class="calculator-card" data-duty-rate="4.5" data-vat-rate="20" data-deminimis="150" data-threshold-base="cif">
+            <div class="calculator-card" data-duty-rate="4.5" data-vat-rate="20" data-deminimis="0" data-currency="EUR" data-vat-deminimis="0" data-threshold-base="cif" data-low-value-flat="3" data-low-value-ceiling="150" data-layer-note="EU low-value rule from 1 July 2026: a flat €3 per item replaces duty on consignments up to €150. One item assumed.">
                 <div class="calc-row">
                     <label for="goods-value">E-Commerce Shipment Value (EUR)</label>
                     <input type="number" id="goods-value" value="1000" min="0" step="0.01" placeholder="e.g. 1000">
@@ -86,48 +86,64 @@
                     <label for="shipping-cost">Shipping / Freight Cost (EUR)</label>
                     <input type="number" id="shipping-cost" value="100" min="0" step="0.01" placeholder="e.g. 100">
                 </div>
-                <button id="calc-btn" class="calc-button">Calculate Landed Cost</button>
+                <button id="calc-btn" class="calc-btn">Calculate Landed Cost</button>
 
                 <div class="calc-results" id="calc-results" style="display:none;">
                     <div class="result-line">
-                        <span class="result-label">Import Tariff (4.5%):</span>
-                        <span class="result-value" id="result-duty">&mdash;</span>
+                        <span class="result-label">Import Tariff (4.5%; €3 flat per item under €150):</span>
+                        <span class="result-value" id="result-duty">—</span>
                     </div>
                     <div class="result-line">
                         <span class="result-label">TVA (20%):</span>
-                        <span class="result-value" id="result-vat">&mdash;</span>
+                        <span class="result-value" id="result-vat">—</span>
                     </div>
                     <div class="result-line result-total">
                         <span class="result-label">Total Landed Cost:</span>
-                        <span class="result-value" id="result-total">&mdash;</span>
+                        <span class="result-value" id="result-total">—</span>
                     </div>
                 </div>
             </div>
 
-            <div class="trade-tip"><span class="tip-label">IOSS makes sub-鈧?50 B2C viable</span><br><strong>Register once, collect VAT at checkout, skip the border charge.</strong> The EU's Import One-Stop Shop was built for exactly this scenario. Without IOSS, your customer pays VAT + a clearance fee at delivery 鈥?and they will not be happy. <a href="/china-to-germany-customs">Germany has a different system (ATLAS) 鈫?/a></div>
+            <div class="trade-tip"><span class="tip-label">IOSS makes sub-€150 B2C workable</span><br><strong>Register once and collect VAT
+            at checkout instead of at the door.</strong> The EU’s Import One-Stop Shop was built for exactly this
+            scenario. It does not make low-value shipments free — since 1 July 2026 a consignment at or below €150
+            pays a flat €3 per item in duty — but it does stop your customer being handed a VAT bill plus a clearance
+            fee on delivery, which is the part that kills repeat orders. <a href="/china-to-germany-customs">Germany
+            has a different system (ATLAS) →</a></div>
 
             <article class="seo-section">
-                <h2>French Import Duty on Chinese E-Commerce Cargo &mdash; The TARIC System</h2>
-                <p>The EU TARIC schedule applies uniformly across all EU member states including France. For Chinese e-commerce goods &mdash; household items, electronics, apparel, accessories &mdash; the average duty rate is <strong>4.5%</strong>. This is a blended estimate across the most common HS chapters. France's Direction G&eacute;n&eacute;rale des Douanes et Droits Indirects (DGDDI) processes millions of Chinese parcels annually. Here's a real-world example: &euro;1,000 goods + &euro;100 shipping = &euro;1,100 CIF. Duty at 4.5% = &euro;49.50. TVA at 20% on &euro;1,149.50 = &euro;229.90. Total charges: &euro;279.40. Landed cost: <strong>&euro;1,379.40</strong>.</p>
+                <h2>French Import Duty on Chinese E-Commerce Cargo — The TARIC System</h2>
+                <p>The EU TARIC schedule applies uniformly across all EU member states including France. For Chinese e-commerce goods — household items, electronics, apparel, accessories — the average duty rate is <strong>4.5%</strong>. This is a blended estimate across the most common HS chapters. France's Direction G&eacute;n&eacute;rale des Douanes et Droits Indirects (DGDDI) processes millions of Chinese parcels annually. Here's a real-world example: €1,000 goods + €100 shipping = €1,100 CIF. Duty at 4.5% = €49.50. TVA at 20% on €1,149.50 = €229.90. Total charges: €279.40. Landed cost: <strong>€1,379.40</strong>.</p>
 
-                <h2>TVA at 20% &mdash; The Big Line Item</h2>
-                <p>TVA (Taxe sur la Valeur Ajout&eacute;e) is France's VAT. The standard rate is <strong>20%</strong>, calculated on CIF plus duty. In practice, the TVA line is typically 4&ndash;5&times; the duty line &mdash; it's the one that catches first-time importers off guard. For TVA-registered businesses in France, import TVA is recoverable via the monthly CA3 d&eacute;claration &mdash; you pay it at customs, then deduct it next month. For non-EU sellers, IOSS (see below) is the cleaner route.</p>
+                <h2>TVA at 20% — The Big Line Item</h2>
+                <p>TVA (Taxe sur la Valeur Ajout&eacute;e) is France's VAT. The standard rate is <strong>20%</strong>, calculated on CIF plus duty. In practice, the TVA line is typically 4–5× the duty line — it's the one that catches first-time importers off guard. For TVA-registered businesses in France, import TVA is recoverable via the monthly CA3 d&eacute;claration — you pay it at customs, then deduct it next month. For non-EU sellers, IOSS (see below) is the cleaner route.</p>
 
-                <h2>The &euro;22 Duty De Minimis and the &euro;150 IOSS Split</h2>
-                <p>The EU-wide <strong>&euro;22 duty de minimis</strong> threshold applies: no customs duty is owed when the goods value is &euro;22 or below. Above that, the full TARIC rate kicks in. But here's the critical update &mdash; the <strong>TVA de minimis was abolished in July 2021</strong>. Every commercial shipment now attracts 20% TVA from &euro;1 upward. The old franchise de TVA (&euro;22 exemption for both duty and TVA) is gone and isn't coming back.</p>
+                <h2>The €150 Line, the Flat €3, and the Abolished €22</h2>
+                <p>Two lines used to govern low-value parcels into France, and both have moved. The old €22 franchise
+                exempted both duty and TVA; its TVA half was abolished in July 2021, so every commercial shipment now
+                attracts 20% TVA from the first euro. The €150 duty exemption held out longer, but Council Regulation
+                (EU) 2026/382 ended it on 1 July 2026 — a consignment at or below €150 now pays a flat €3 per item
+                instead of duty. Above €150, the full TARIC rate applies as before.</p>
 
-                <h2>IOSS &mdash; Import One-Stop Shop for B2C Under &euro;150</h2>
-                <p>For B2C e-commerce shipments under <strong>&euro;150</strong>, the Import One-Stop Shop is the preferred route. Register in one EU state (France works), charge French TVA at the point of sale, and remit monthly through the IOSS portal. Goods then clear French customs TVA-free. This is a huge customer-experience win &mdash; no surprise TVA bill at delivery, no carrier handling fees, way fewer refused packages. Over &euro;150, standard import procedures apply and TVA is collected at the border. See also our calculators for <a href="/china-to-germany-customs">Germany</a> and <a href="/china-to-netherlands-hub">the Netherlands</a>.</p>
+                <h2>IOSS — Import One-Stop Shop for B2C Under €150</h2>
+                <p>For B2C e-commerce shipments under <strong>€150</strong>, the Import One-Stop Shop is the preferred
+                route. Register in one EU state (France works), charge French TVA at the point of sale, and remit
+                monthly through the IOSS portal. Goods then clear French customs without a TVA bill at delivery —
+                though the flat €3 per item of duty introduced on 1 July 2026 still applies below €150. This is a huge
+                customer-experience win — no surprise TVA bill at delivery, no carrier handling fees, way fewer
+                refused packages. Over €150, standard import procedures apply and TVA is collected at the border. See
+                also our calculators for <a href="/china-to-germany-customs">Germany</a> and
+                <a href="/china-to-netherlands-hub">the Netherlands</a>.</p>
 
                 <h2>French Customs Entry Points and Clearance</h2>
-                <p>Most Chinese e-commerce cargo enters through <strong>Paris Charles de Gaulle Airport (CDG)</strong> for air freight, or <strong>Le Havre / Fos-sur-Mer</strong> for sea freight. Clearance runs through the DELTA electronic system (D&eacute;douanement en Ligne par Traitement Automatis&eacute;). You'll need a French or EU <strong>EORI number</strong> &mdash; apply through douane.gouv.fr, it's free, and takes about a week. Express parcels at CDG typically clear within hours. Sea freight at Le Havre: 1&ndash;2 days for standard entry. French customs has been investing heavily in automated parcel processing &mdash; throughput at CDG has improved significantly since 2024.</p>
+                <p>Most Chinese e-commerce cargo enters through <strong>Paris Charles de Gaulle Airport (CDG)</strong> for air freight, or <strong>Le Havre / Fos-sur-Mer</strong> for sea freight. Clearance runs through the DELTA electronic system (D&eacute;douanement en Ligne par Traitement Automatis&eacute;). You'll need a French or EU <strong>EORI number</strong> — apply through douane.gouv.fr, it's free, and takes about a week. Express parcels at CDG typically clear within hours. Sea freight at Le Havre: 1–2 days for standard entry. French customs has been investing heavily in automated parcel processing — throughput at CDG has improved significantly since 2024.</p>
 
                 <h2>Key TARIC Codes for Chinese E-Commerce into France</h2>
                 <ul class="content-list">
                     <li><strong>8517 12:</strong> Smartphones and mobile handsets</li>
                     <li><strong>8471 30:</strong> Laptops, tablets, and portable computing devices</li>
                     <li><strong>9503 00:</strong> Toys, games, and recreational articles</li>
-                    <li><strong>6110 20:</strong> Cotton knitwear &mdash; sweaters, hoodies, t-shirts</li>
+                    <li><strong>6110 20:</strong> Cotton knitwear — sweaters, hoodies, t-shirts</li>
                     <li><strong>9405 40:</strong> LED lighting fixtures and lamps</li>
                     <li><strong>4202 92:</strong> Bags, cases, and backpacks with textile outer surface</li>
                 </ul>
@@ -139,19 +155,19 @@
                 <h2>Frequently Asked Questions</h2>
 
                 <h3>What's the duty rate from China to France?</h3>
-                <p>The average TARIC rate is <strong>4.5%</strong> for general e-commerce goods. Actual rates range from 0% (ITA electronics) to 12% (certain textiles). The 4.5% figure is a realistic blended estimate &mdash; it won't be exact for every HS code, but it's close enough for most shipment planning.</p>
+                <p>The average TARIC rate is <strong>4.5%</strong> for general e-commerce goods. Actual rates range from 0% (ITA electronics) to 12% (certain textiles). The 4.5% figure is a realistic blended estimate — it won't be exact for every HS code, but it's close enough for most shipment planning.</p>
 
                 <h3>Do I need IOSS to sell from China to French customers?</h3>
-                <p>For B2C sales under &euro;150, IOSS isn't mandatory but is <strong>strongly recommended</strong>. Without it, your customer pays TVA plus a carrier handling fee (&euro;10&ndash;25) at delivery &mdash; and that leads straight to refused packages and chargebacks. With IOSS, the customer sees the all-in price at checkout and gets a clean delivery.</p>
+                <p>For B2C sales under €150, IOSS isn't mandatory but is <strong>strongly recommended</strong>. Without it, your customer pays TVA plus a carrier handling fee (€10–25) at delivery — and that leads straight to refused packages and chargebacks. With IOSS, the customer sees the all-in price at checkout and gets a clean delivery.</p>
 
                 <h3>How long does French customs clearance take?</h3>
-                <p>Express consignments through CDG courier hubs typically clear within hours. Sea freight at Le Havre: 1&ndash;2 working days for standard entry. Inspections add 2&ndash;5 days. DGDDI clearance is generally fast relative to some other EU member states &mdash; the automated DELTA system handles the vast majority of entries without manual intervention.</p>
+                <p>Express consignments through CDG courier hubs typically clear within hours. Sea freight at Le Havre: 1–2 working days for standard entry. Inspections add 2–5 days. DGDDI clearance is generally fast relative to some other EU member states — the automated DELTA system handles the vast majority of entries without manual intervention.</p>
 
                 <h3>Do I need a fiscal representative in France to import from China?</h3>
-                <p>If you're non-EU based and not registered under IOSS, you typically need a fiscal representative for TVA purposes. If you use IOSS, you don't &mdash; the IOSS registration handles it. If you're EU-based but not French, your home-country EORI works throughout the EU under the single-market customs rules.</p>
+                <p>If you're non-EU based and not registered under IOSS, you typically need a fiscal representative for TVA purposes. If you use IOSS, you don't — the IOSS registration handles it. If you're EU-based but not French, your home-country EORI works throughout the EU under the single-market customs rules.</p>
             </article>
 
-            <div class="trade-tip"><span class="tip-label">CDG airport clearance times</span><br>Charles de Gaulle handles the bulk of Chinese e-commerce parcels into the EU. Clearance at CDG is generally faster than at German or Dutch ports for air freight 鈥?but ground-handling fees are higher. <a href="/china-to-netherlands-hub">Rotterdam offers bonded warehousing 鈫?/a></div>
+            <div class="trade-tip"><span class="tip-label">CDG airport clearance times</span><br>Charles de Gaulle handles the bulk of Chinese e-commerce parcels into the EU. Clearance at CDG is generally faster than at German or Dutch ports for air freight — but ground-handling fees are higher. <a href="/china-to-netherlands-hub">Rotterdam offers bonded warehousing →</a></div>
         </div>
 
     </main>
@@ -223,48 +239,9 @@
         </div>
     </footer>
 
-    <script>
-    (function() {
-        var card = document.querySelector('.calculator-card');
-        var dutyRate = parseFloat(card.getAttribute('data-duty-rate')) / 100;
-        var vatRate = parseFloat(card.getAttribute('data-vat-rate')) / 100;
-        var deMinimis = parseFloat(card.getAttribute('data-deminimis'));
-
-        var goodsInput = document.getElementById('goods-value');
-        var shippingInput = document.getElementById('shipping-cost');
-        var calcBtn = document.getElementById('calc-btn');
-        var resultsDiv = document.getElementById('calc-results');
-        var dutySpan = document.getElementById('result-duty');
-        var vatSpan = document.getElementById('result-vat');
-        var totalSpan = document.getElementById('result-total');
-
-        function formatEUR(amount) {
-            return '&euro;' + amount.toFixed(2);
-        }
-
-        calcBtn.addEventListener('click', function() {
-            var goodsValue = parseFloat(goodsInput.value) || 0;
-            var shippingCost = parseFloat(shippingInput.value) || 0;
-            var cif = goodsValue + shippingCost;
-
-            var duty = 0;
-            if (goodsValue > deMinimis) {
-                duty = cif * dutyRate;
-            }
-
-            var vatBase = cif + duty;
-            var vat = vatBase * vatRate;
-            var total = cif + duty + vat;
-
-            dutySpan.innerHTML = formatEUR(duty);
-            vatSpan.innerHTML = formatEUR(vat);
-            totalSpan.innerHTML = formatEUR(total);
-            resultsDiv.style.display = 'block';
-        });
-    })();
-    </script>
-    <script src="rate-data.js?v=dd0fe60"></script>
-    <script src="main.js?v=dd0fe60"></script>
-    <script src="sw-register.js?v=dd0fe60"></script>
+    <!-- Calculator logic lives in main.js so every lane shares one engine. -->
+    <script src="rate-data.js?v=338eca8"></script>
+    <script src="main.js?v=338eca8"></script>
+    <script src="sw-register.js?v=338eca8"></script>
 </body>
 </html>

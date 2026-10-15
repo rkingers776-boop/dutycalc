@@ -8,21 +8,21 @@
     <meta name="description" content="Calculate import duty on French luxury goods shipped to the US — handbags, cosmetics, wine, fashion.">
     <link rel="canonical" href="https://www.dutycalc.online/france-to-us-luxury">
     <meta property="og:title" content="France to US Luxury Goods Duty? (Free &amp; Instant Calculator)">
-    <meta property="og:description" content="Calculate import duty on French luxury goods shipped to the US — handbags, cosmetics, wine, fashion. 5.2% average MFN tariff, $800 de minimis.">
+    <meta property="og:description" content="Calculate import duty on French luxury goods shipped to the US — handbags, cosmetics, wine, fashion. 5.2% base MFN tariff topped up to 10% by the Section 301 forced-labour layer, and no de minimis since 29 August 2025.">
     <meta property="og:url" content="https://www.dutycalc.online/france-to-us-luxury">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="France to US Luxury Goods Duty? (Free &amp; Instant Calculator)">
-    <meta name="twitter:description" content="Calculate import duty on French luxury goods shipped to the US — handbags, cosmetics, wine, fashion. 5.2% average MFN tariff, $800 de minimis.">
+    <meta name="twitter:description" content="Calculate import duty on French luxury goods shipped to the US — handbags, cosmetics, wine, fashion. 5.2% base MFN tariff topped up to 10% by the Section 301 forced-labour layer, and no de minimis since 29 August 2025.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=dd0fe60">
+    <link rel="stylesheet" href="style.css?v=338eca8">
 <meta property="og:image" content="https://www.dutycalc.online/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","name":"France to US Luxury Goods Duty? (Free & Instant Calculator)","url":"https://www.dutycalc.online/france-to-us-luxury","description":"Calculate import duty on French luxury goods shipped to the US — handbags, cosmetics, wine, fashion. 5.2% average MFN tariff, $800 de minimis — free instant estimator.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"isPartOf":{"@type":"WebSite","name":"DutyCalc Online","url":"https://www.dutycalc.online/"}}
+{"@context":"https://schema.org","@type":"Article","name":"France to US Luxury Goods Duty? (Free & Instant Calculator)","url":"https://www.dutycalc.online/france-to-us-luxury","description":"Calculate import duty on French luxury goods shipped to the US — handbags, cosmetics, wine, fashion. 5.2% base MFN tariff topped up to 10% by the Section 301 forced-labour layer, and no de minimis since 29 August 2025 — free instant estimator.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"isPartOf":{"@type":"WebSite","name":"DutyCalc Online","url":"https://www.dutycalc.online/"}}
 </script>
 </head>
 <body>
@@ -73,20 +73,21 @@
     <main class="container">
         <header>
             <h1>France to US Luxury Goods Duty Calculator</h1>
-            <p>French fashion, accessories, cosmetics, and spirits entering the United States — instant duty
-            estimates using 5.2% blended MFN rate with $800 de minimis for direct-to-consumer shipments.</p>
+            <p>French fashion, accessories, cosmetics, and spirits entering the United States — instant duty estimates
+            using a 5.2% blended MFN rate topped up to a 10% floor by the 2026 forced-labour Section 301 action. The
+            $800 de minimis that used to cover direct-to-consumer shipments was suspended on 29 August 2025.</p>
         </header>
 
         <div>
             <section class="calculator-section">
-                <div class="calculator" data-duty-rate="5.2" data-vat-rate="0" data-deminimis="800" data-currency="USD">
+                <div class="calculator" data-duty-rate="5.2" data-vat-rate="0" data-deminimis="0" data-currency="USD" data-duty-floor="10" data-layer-note="Base rate topped up to 10% by the Section 301 forced-labour duty (in force 24 July 2026).">
                     <label for="goods-value">Luxury Goods Value (USD)</label>
                     <input type="number" id="goods-value" value="5000" min="0" step="1">
                     <label for="shipping-cost">Shipping &amp; Insurance (USD)</label>
                     <input type="number" id="shipping-cost" value="200" min="0" step="1">
                     <button id="calc-btn" class="calc-btn">Calculate Landed Cost</button>
                     <div id="results">
-                        <p><strong>Import Tariff (5.2%):</strong> <span id="tariff-result">—</span></p>
+                        <p><strong>Import Tariff (10.0%):</strong> <span id="tariff-result">—</span></p>
                         <p><strong>Import VAT / Sales Tax:</strong> <span id="vat-result">—</span></p>
                         <p><strong>Total Landed Cost:</strong> <span id="landed-result">—</span></p>
                     </div>
@@ -103,22 +104,38 @@
                 scarves under 6214.10 sit at just <strong>2.6%</strong>. Cosmetics and fragrance compounds under Chapter 3304 range from <strong>0% to 6.5%</strong> depending on whether the product is a cream, a
                 powder, or an alcohol-based fragrance. Still wine under heading 2204 pays <strong>5.3 to 12.7 cents per liter</strong> — a specific-rate duty calculated by volume, not a percentage of value. The
                 blended average across all major French luxury categories is <strong>5.2%</strong>, drawn from CBP's publicly posted 2025 HTS revisions.</p> 
-                <p><strong>Concrete example — a real Parisian order.</strong> You buy a Herm&egrave;s silk scarf (&euro;2,500) and a Louis Vuitton leather handbag (&euro;2,500) from a Paris boutique. Declared value $5,000. Shipping via Chronopost or DHL Express runs $200 including insurance. Your CIF value — the
-                number CBP actually multiplies the duty rate against — is <strong>$5,200</strong>. Duty at the 5.2% blended rate = <strong>$270.40</strong>. The Merchandise Processing Fee (MPF) on formal entries is
-                a flat <strong>$18.00</strong> minimum for entries under $27,000 in entered value. Harbor Maintenance Fee (HMF) at 0.125% of CIF value adds <strong>$6.50</strong>. Total customs bill on
-                this shipment = <strong>$294.90</strong>. Landed cost before trucking and brokerage =
-                <strong>$5,494.90</strong>. If either item were shipped alone for under $800, Section 321 would
-                zero out the entire customs line.</p> 
-                <h2>The $800 De Minimis — Works for Single Items</h2>
-                <p>Section 321 de minimis is the unsung hero of French luxury e-commerce. The rule is simple: any
-                single shipment with a total CIF value of $800 or less enters the United States free of duty, tax, MPF, and HMF. No broker needed. No formal entry. A $750 Goyard card holder shipped direct from the
-                Rue Saint-Honor&eacute; store to a Manhattan apartment lands <strong>duty-free</strong>. The same logic applies to a $600 Diptyque candle order, a $400 Herm&egrave;s twilly, or a $700 Longchamp leather tote.
-                Section 321 covers the vast majority of single-piece French luxury purchases shipped direct-to-consumer — which is precisely why the DTC channel from Paris to the US has grown as fast as it has.</p> 
-                <p>The threshold bites when you combine items. A $5,000 Chanel tweed jacket packed with a $1,200
-                matching handbag in a single shipment has a combined declared value of $6,200 plus shipping — well over the limit. Full 5.2% duty plus MPF and HMF applies to the <em>entire</em> CIF value, not just
-                the amount above $800. There is no partial exemption. You are either under $800 (everything is free) or over (everything is dutiable). For individual luxury purchases from French retailers to US
-                consumers, de minimis comfortably covers most single-piece orders. For wholesale orders and importer-of-record entries from French maisons to US boutiques, de minimis almost never applies —
-                those shipments run in the thousands to tens of thousands of dollars. <a href="/de-minimis-value-guide">Full de minimis value guide with worked examples &rarr;</a></p> 
+                <p><strong>Concrete example — a real Parisian order.</strong> You buy a Herm&egrave;s silk scarf (€2,500) and a Louis Vuitton leather handbag (€2,500) from a Paris
+                boutique. Declared value $5,000. Shipping via Chronopost or DHL Express runs $200 including insurance.
+                The US assesses duty on the <strong>transaction value of the goods</strong>, not on CIF, so the
+                dutiable base here is <strong>$5,000</strong> — provided your invoice shows freight as a separate
+                line. A CIF or DDP invoice that buries it hands CBP a $5,200 base instead. The 5.2% blended MFN rate
+                is also not the rate you pay: the 2026 forced-labour Section 301 action tops EU-origin goods up to a
+                <strong>10% floor</strong>, so duty is 10% × $5,000 = <strong>$500.00</strong>. The Merchandise
+                Processing Fee (MPF) on formal entries carries a minimum of <strong>$31.67</strong> for entries under
+                $27,000 in entered value. Harbor Maintenance Fee (HMF), 0.125% of the entered value, applies to vessel
+                cargo rather than air express — <strong>$0</strong> on this shipment, and <strong>$6.25</strong> if
+                the same goods moved by sea. Total customs bill = <strong>$531.67</strong>. Landed cost before
+                trucking and brokerage = <strong>$5,731.67</strong>. There is no $800 relief to fall back on either —
+                Section 321 was suspended on 29 August 2025, so splitting the order into two parcels produces two
+                dutiable entries, not one free one.</p> 
+                <h2>No De Minimis Left — Duty From the First Dollar</h2>
+                <p>Section 321 de minimis used to be the unsung hero of French luxury e-commerce. The old rule: any
+                single shipment with a total value of $800 or less entered the United States free of duty, tax, MPF,
+                and HMF — no broker, no formal entry. That lane was suspended with effect from 29 August 2025, and the
+                suspension covers every country of origin, so duty is due from the first dollar. A $750 Goyard card
+                holder shipped direct from the Rue Saint-Honor&eacute; store to a Manhattan apartment is dutiable now,
+                and so are a $600 Diptyque candle order, a $400 Herm&egrave;s twilly, and a $700 Longchamp leather
+                tote. There is no de minimis line left for single-piece French luxury purchases to sit underneath —
+                the free ride on direct-to-consumer orders is over.</p> 
+                <p>De minimis used to bite when you combined items. A $5,000 Chanel tweed jacket packed with a $1,200
+                matching handbag in a single shipment has a combined declared value of $6,200 plus shipping — and
+                there is no longer any threshold to stay under. Full 5.2% duty — topped up to a 10% floor by the
+                Section 301 forced-labour layer — plus MPF and HMF applies to the <em>entire</em> shipment value, not
+                just part of it. There is no partial exemption left to argue about. A single-piece order from a French
+                retailer to a US consumer used to clear free; now it is dutiable like any other import. For wholesale
+                orders and importer-of-record entries from French maisons to US boutiques, de minimis almost never
+                applied anyway — those shipments run in the thousands to tens of thousands of dollars.
+                <a href="/de-minimis-value-guide">Full de minimis value guide with worked examples &rarr;</a></p> 
                 <h2>Category-Specific Duty Rates for French Luxury</h2>
                 <p>Below is a detailed breakout of the most common French luxury categories, their HTS codes, and
                 the duty rates CBP applies at the port of entry. Rates are based on the 2025 Harmonized Tariff Schedule, General (MFN) column. All are ad valorem (percentage of entered value) unless marked as specific (cents per unit).</p> 
@@ -213,23 +230,36 @@
                 jewelry is a flat 11%. The rate for your specific item depends entirely on the HTS classification at the 10-digit level — use our calculator for a blended estimate and consult a licensed customs
                 broker for an exact binding classification.</p> 
                 <h3>Do French luxury goods face Section 301 tariffs?</h3>
-                <p>No. Section 301 tariffs apply exclusively to goods of Chinese origin under the USTR's
-                China-focused trade action that began in 2018. French luxury goods pay standard MFN (Most Favored Nation) rates only — the rates in Column 1, General subcolumn of the HTS. There is no additional
-                punitive tariff layer on French or EU-origin goods. This has been stable through multiple administrations and there is no active trade proceeding that would extend Section 301-style tariffs
-                to the EU. The US and EU have their own trade disputes, including the longstanding Airbus-Boeing tariff rounds, but luxury consumer goods have generally been excluded from those targeting lists.</p> 
+                <p>Yes — one layer does now. The China-focused Section 301 action that began in 2018 still applies
+                only to goods of Chinese origin, and French luxury goods are not on those lists: they pay standard MFN
+                (Most Favored Nation) rates, the Column 1 General subcolumn of the HTS. But a second Section 301
+                action, the forced-labour measure in force since 24 July 2026, covers 60 economies including the EU
+                and tops EU-origin goods up to a <strong>10% floor</strong>, so French luxury steps up to 10% wherever
+                its MFN rate sits below that. The US and EU have their own trade disputes, including the longstanding
+                Airbus-Boeing tariff rounds, but luxury consumer goods have generally been excluded from those
+                targeting lists.</p> 
                 <h3>Can I bring a $5,000 French handbag into the US duty-free?</h3>
-                <p>Not through commercial import channels. A $5,000 handbag clears duty-free only if the entire
-                shipment's CIF value is at or below $800 under Section 321 de minimis — and a $5,000 handbag alone exceeds that before you add shipping. For personal travel — carrying the bag in your luggage
-                through the airport — CBP allows an $800 duty-free exemption per person under 19 CFR 148.12. The excess above $800 is dutiable at the applicable flat rate for personal exemptions, typically 3% on
-                the next $1,000 of value. Personal exemptions and commercial import rules are separate legal regimes with separate forms, separate exemptions, and separate enforcement mechanisms. A bag
-                purchased in Paris and shipped by the boutique to your US address is a commercial import, not a personal exemption.</p> 
+                <p>Not through commercial import channels. A $5,000 handbag does not clear duty-free: Section 321 was
+                suspended with effect from 29 August 2025, and the suspension covers every country of origin, so duty
+                is due from the first dollar on every commercial shipment. For personal travel — carrying the bag in
+                your luggage through the airport — the only treatment still outside the suspension is genuine bona
+                fide gifts and personal accompanied items valued at $100 or less. Anything above that is dutiable, and
+                the personal-travel rules are not a commercial channel. Personal exemptions and commercial import
+                rules are separate legal regimes with separate forms, separate exemptions, and separate enforcement
+                mechanisms. A bag purchased in Paris and shipped by the boutique to your US address is a commercial
+                import, not a personal exemption.</p> 
                 <h3>Do I need a customs broker for French luxury imports?</h3>
-                <p>For commercial shipments over $2,500 in entered value, formal entry is mandatory under 19 CFR
-                143.21, and a licensed customs broker is strongly recommended. The broker handles the ACE filing, HTS classification, PGA (Partner Government Agency) clearances including FDA for cosmetics and TTB
-                for alcohol, and payment of duties through the periodic monthly statement system. For direct-to-consumer shipments under $800 clearing through Section 321, informal entry suffices and a
-                broker is generally not needed — the express carrier (DHL, FedEx) handles the de minimis clearance as part of its standard door-to-door service. Between $800 and $2,500, informal entry is legally
-                possible but a broker adds meaningful protection against HTS misclassification and undervaluation enforcement. If your shipment includes alcohol or alcohol-based cosmetics requiring PGA clearance,
-                retain a broker from the start.</p> 
+                <p>For commercial shipments over $2,500 in entered value, formal entry is mandatory under 19 CFR 143.21,
+                and a licensed customs broker is strongly recommended. The broker handles the ACE filing, HTS
+                classification, PGA (Partner Government Agency) clearances including FDA for cosmetics and TTB for
+                alcohol, and payment of duties through the periodic monthly statement system. For direct-to-consumer
+                shipments up to $2,500, informal entry is available and a broker is generally not needed — the express
+                carrier (DHL, FedEx) files the entry as part of its standard door-to-door service. Note what changed
+                in August 2025: the informal track is now about paperwork and fees, not about liability. Section 321
+                was suspended on 29 August 2025, so a $300 scarf and a $5,000 order are both dutiable, and the carrier
+                bills the duty through to you either way. A broker is still worth paying for on any shipment where an
+                HTS misclassification or an undervaluation flag would be expensive. If your shipment includes alcohol
+                or alcohol-based cosmetics requiring PGA clearance, retain a broker from the start.</p> 
             </section>
 
             <div class="ad-banner">[Advertisement]</div>
@@ -304,8 +334,8 @@
         </div>
     </footer>
 
-    <script src="rate-data.js?v=dd0fe60"></script>
-    <script src="main.js?v=dd0fe60"></script>
-    <script src="sw-register.js?v=dd0fe60"></script>
+    <script src="rate-data.js?v=338eca8"></script>
+    <script src="main.js?v=338eca8"></script>
+    <script src="sw-register.js?v=338eca8"></script>
 </body>
 </html>

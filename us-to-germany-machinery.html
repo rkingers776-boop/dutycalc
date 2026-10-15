@@ -8,7 +8,7 @@
     <meta name="description" content="Calculate import duty and VAT on US industrial machinery shipped to Germany.">
     <link rel="canonical" href="https://www.dutycalc.online/us-to-germany-machinery">
     <meta property="og:title" content="US to Germany Machinery Duty? (Free &amp; Instant Calculator)">
-    <meta property="og:description" content="Calculate import duty and VAT on US industrial machinery shipped to Germany. 1.7% average TARIC MFN rate, 19% Einfuhrumsatzsteuer, €150 duty threshold.">
+    <meta property="og:description" content="Calculate import duty and VAT on US industrial machinery shipped to Germany. 1.7% average TARIC MFN rate, 19% Einfuhrumsatzsteuer, and the flat €3 per item that replaced the €150 duty exemption on 1 July 2026.">
     <meta property="og:url" content="https://www.dutycalc.online/us-to-germany-machinery">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
@@ -16,13 +16,13 @@
     <meta name="twitter:description" content="Calculate import duty and VAT on US industrial machinery shipped to Germany. 1.7% TARIC MFN, 19% VAT, free estimator.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=dd0fe60">
+    <link rel="stylesheet" href="style.css?v=338eca8">
 <meta property="og:image" content="https://www.dutycalc.online/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","name":"US to Germany Machinery Duty? (Free & Instant Calculator)","url":"https://www.dutycalc.online/us-to-germany-machinery","description":"Calculate import duty and VAT on US industrial machinery shipped to Germany. 1.7% average TARIC MFN rate, 19% Einfuhrumsatzsteuer, €150 duty threshold — free instant estimator.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"isPartOf":{"@type":"WebSite","name":"DutyCalc Online","url":"https://www.dutycalc.online/"}}
+{"@context":"https://schema.org","@type":"Article","name":"US to Germany Machinery Duty? (Free & Instant Calculator)","url":"https://www.dutycalc.online/us-to-germany-machinery","description":"Calculate import duty and VAT on US industrial machinery shipped to Germany. 1.7% average TARIC MFN rate, 19% Einfuhrumsatzsteuer, and the flat €3 per item that replaced the €150 duty exemption on 1 July 2026 — free instant estimator.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"isPartOf":{"@type":"WebSite","name":"DutyCalc Online","url":"https://www.dutycalc.online/"}}
 </script>
 </head>
 <body>
@@ -81,7 +81,7 @@
             <p class="intro-note">Use the estimator below to calculate the total import cost on any US-manufactured industrial machine shipped to Germany. Enter the machinery value and shipping cost in EUR — the tool applies the 1.7% average TARIC MFN rate and 19% German VAT on the CIF-plus-duty base.</p>
             <p class="intro-note">The default values (€20,000 machinery + €2,000 shipping) represent a typical mid-range industrial equipment shipment. Adjust both fields to match your actual invoice and freight quote.</p>
 
-            <section class="calculator" data-duty-rate="1.7" data-vat-rate="19" data-deminimis="150" data-threshold-base="cif">
+            <section class="calculator" data-duty-rate="1.7" data-vat-rate="19" data-deminimis="0" data-currency="EUR" data-vat-deminimis="0" data-threshold-base="cif" data-low-value-flat="3" data-low-value-ceiling="150" data-layer-note="EU low-value rule from 1 July 2026: a flat €3 per item replaces duty on consignments up to €150. One item assumed." data-autocalc>
                 <h2>Free Duty &amp; VAT Estimator</h2>
                 <div class="calc-row">
                     <label for="machinery-value">Machinery Value (EUR)</label>
@@ -91,9 +91,9 @@
                     <label for="shipping-cost">Shipping Cost (EUR)</label>
                     <input type="number" id="shipping-cost" value="2000" min="0" step="100">
                 </div>
-                <button id="calculate-btn">Calculate Duty &amp; VAT</button>
+                <button class="calc-btn" id="calculate-btn">Calculate Duty &amp; VAT</button>
                 <div id="results" class="calc-results">
-                    <p><strong>Import Tariff (1.7%):</strong> <span id="duty-result">€884.00</span></p>
+                    <p><strong>Import Tariff (1.7%; €3 flat per item under €150):</strong> <span id="duty-result">€884.00</span></p>
                     <p><strong>Einfuhrumsatzsteuer (19%):</strong> <span id="vat-result">€10,047.96</span></p>
                     <p><strong>Total Landed Cost:</strong> <span id="total-result">€62,931.96</span></p>
                 </div>
@@ -112,9 +112,16 @@
             <p>For VAT-registered German companies, import VAT is paid at customs but recovered through the monthly Umsatzsteuer-Voranmeldung (UStVA). The cash-flow impact lasts 30–60 days. For non-EU companies without German VAT registration, the 19% is a permanent cost. This is why US machinery companies selling into Germany often route sales through a German subsidiary or VAT-registered branch — to recover the 19%.</p>
             <p>US exporters who regularly ship to Germany should evaluate whether the volume justifies obtaining a German VAT registration. A fiscal representative (Steuerlicher Vertreter) can handle the registration and monthly filings without requiring a physical German office. The compliance cost must be weighed against the 19% VAT that would otherwise be permanently lost on each shipment.</p>
 
-                <h2>The €150 Threshold — Completely Irrelevant for Machinery</h2>
-                <p>The EU waives customs duty only below €150; VAT (Einfuhrumsatzsteuer) is charged from the first cent on every import. For a €50,000 CNC machine or even a €10,000 industrial pump, this threshold is laughably irrelevant — every US machinery shipment to Germany goes through full formal customs entry. The €150 line serves low-value e-commerce parcels, not industrial equipment.</p>
-                <p>There is no scenario where machinery shipped from the US to Germany falls under the €150 threshold — even spare parts for machinery typically exceed €150. Budget for the full duty and VAT on the entire CIF value. The only relevant "relief" for machinery importers is the VAT recovery mechanism for German VAT-registered entities, covered above. For the full machinery-duty picture across origins — including the Section 301 List 1 stack US exporters don't face but Chinese competitors do — our <a href="/machinery-import-duty">Machinery Import Duty</a> overview covers it.</p>
+                <h2>The €150 Line — No Longer a Duty Waiver, and Still Irrelevant for Machinery</h2>
+                <p>The EU used to waive customs duty below €150; since 1 July 2026 it does not — consignments at or
+                below €150 pay a flat €3 per item instead, under Council Regulation (EU) 2026/382. VAT
+                (Einfuhrumsatzsteuer) is still charged from the first cent on every import. For a €50,000 CNC machine
+                or even a €10,000 industrial pump, the €150 line is laughably irrelevant either way — every US
+                machinery shipment to Germany goes through full formal customs entry. That line serves low-value
+                e-commerce parcels, not industrial equipment.</p>
+                <p>There is no scenario where machinery shipped from the US to Germany falls under the €150 line — even
+                spare parts for machinery typically exceed €150, and crossing that line no longer means anything came
+                in free of duty anyway. Budget for the full duty and VAT on the entire CIF value. The only relevant "relief" for machinery importers is the VAT recovery mechanism for German VAT-registered entities, covered above. For the full machinery-duty picture across origins — including the Section 301 List 1 stack US exporters don't face but Chinese competitors do — our <a href="/machinery-import-duty">Machinery Import Duty</a> overview covers it.</p>
 
             <h2>Key TARIC Chapters for US Machinery Exports to Germany</h2>
             <p>Duty rates vary by TARIC subheading. The chapters below cover the vast majority of US machinery exports to Germany. Rates shown are the typical MFN range — always verify your specific subheading against the EU TARIC database before filing your customs declaration.</p>
@@ -160,7 +167,13 @@
             <p>Yes. The EU Machinery Directive (soon to be the Machinery Regulation) requires CE marking on virtually all industrial machinery. US manufacturers without an EU office need an authorized representative based in the EU. German Zoll can and does check CE compliance at the border — missing documentation will delay or block clearance. Start the CE certification process early; the technical file compilation and notified body review (if required for your machine category) can take 3–6 months for complex equipment.</p>
 
             <h3>Is US machinery subject to any additional EU tariffs?</h3>
-            <p>Currently no. The Airbus-Boeing retaliatory tariffs are suspended through mid-2026. There is no Section 301-style equivalent targeting US goods entering the EU. The standard TARIC MFN rates apply without surcharges. That said, trade policy can shift quickly — check the current EU tariff suspension status with your freight forwarder or on the European Commission's trade portal before shipping high-value consignments.</p>
+            <p>Currently no. The Airbus-Boeing retaliatory tariffs have been suspended since 2021, and when the
+            five-year truce came up for expiry in July 2026 the EU continued the suspension instead of letting it
+            lapse — Implementing Regulation (EU) 2026/1549, in force 11 July 2026. It remains a suspension rather than
+            a repeal, and it is kept under review, so there is no Section 301-style equivalent targeting US goods
+            entering the EU right now, and the standard TARIC MFN rates apply without surcharges. That said, trade
+            policy can shift quickly — check the current EU tariff suspension status with your freight forwarder or on
+            the European Commission's trade portal before shipping high-value consignments.</p>
 
             <h3>How does German import VAT work for US machinery exporters?</h3>
             <p>Germany charges 19% EUSt (Einfuhrumsatzsteuer) on CIF value plus duty. German VAT-registered buyers recover the full amount through their monthly Umsatzsteuer-Voranmeldung — it is a cash-flow item, not a permanent cost. Non-VAT-registered importers pay the 19% as a permanent cost with no recovery mechanism.</p>
@@ -242,43 +255,9 @@
         </div>
     </footer>
 
-    <script>
-        (function () {
-            var section = document.querySelector('.calculator');
-            var dutyRate = parseFloat(section.getAttribute('data-duty-rate')) / 100;
-            var vatRate = parseFloat(section.getAttribute('data-vat-rate')) / 100;
-            var deMinimis = parseFloat(section.getAttribute('data-deminimis'));
-
-            var machineryInput = document.getElementById('machinery-value');
-            var shippingInput = document.getElementById('shipping-cost');
-            var dutySpan = document.getElementById('duty-result');
-            var vatSpan = document.getElementById('vat-result');
-            var totalSpan = document.getElementById('total-result');
-            var btn = document.getElementById('calculate-btn');
-
-            function fmt(n) {
-                return '€' + n.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-            }
-
-            function calc() {
-                var machinery = parseFloat(machineryInput.value) || 0;
-                var shipping = parseFloat(shippingInput.value) || 0;
-                var cif = machinery + shipping;
-                var duty = cif <= deMinimis ? 0 : cif * dutyRate;
-                var vatBase = cif + duty;
-                var vat = vatBase * vatRate;
-                var total = vatBase + vat;
-                dutySpan.textContent = fmt(duty);
-                vatSpan.textContent = fmt(vat);
-                totalSpan.textContent = fmt(total);
-            }
-
-            btn.addEventListener('click', calc);
-            calc();
-        })();
-    </script>
-    <script src="rate-data.js?v=dd0fe60"></script>
-    <script src="main.js?v=dd0fe60"></script>
-    <script src="sw-register.js?v=dd0fe60"></script>
+    <!-- Calculator logic lives in main.js so every lane shares one engine. -->
+    <script src="rate-data.js?v=338eca8"></script>
+    <script src="main.js?v=338eca8"></script>
+    <script src="sw-register.js?v=338eca8"></script>
 </body>
 </html>

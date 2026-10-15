@@ -16,7 +16,7 @@
     <link rel="canonical" href="https://www.dutycalc.online/import-vat-guide">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=dd0fe60">
+    <link rel="stylesheet" href="style.css?v=338eca8">
 
     <!-- Structured Data: Article + FAQ + Breadcrumb -->
     <script type="application/ld+json">
@@ -26,7 +26,7 @@
       "headline": "How Import VAT & GST Work — the Taxable Base, the Threshold Trap, and 7 Markets Compared",
       "description": "Everyone compares VAT rates but nobody talks about the taxable base, the duty-on-tax compounding effect, and the split between customs-duty de minimis and VAT de minimis thresholds. 7-market comparison with real numbers.",
       "datePublished": "2026-07-05",
-      "dateModified": "2026-07-05",
+      "dateModified": "2026-10-16",
       "author": {"@type": "Organization", "name": "DutyCalc Research"},
       "publisher": {"@type": "Organization", "name": "DutyCalc Research", "url": "https://www.dutycalc.online"},
       "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.dutycalc.online/import-vat-guide"}
@@ -59,7 +59,8 @@
           "name": "What is the difference between customs duty de minimis and VAT de minimis?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Customs duty de minimis is the shipment value below which no customs duty is charged. VAT de minimis is the value below which no VAT is charged. These are different numbers in most markets. The EU has a €150 de minimis for customs duty but no VAT de minimis at all — VAT applies from the first euro. The UK exempts duty under £135 but VAT from £1. Australia exempts duty under AUD $1,000 but GST from AUD $1. Assuming a shipment clears tax-free because it's under the customs de minimis is the single most common mistake first-time importers make. The duty line and the VAT line are checked separately."
+            "text": "Customs duty de minimis is the shipment value below which no customs duty is charged. VAT de minimis is the value below which no VAT is charged. These are different numbers in most markets. The EU charges a flat €3 per item at or below €150 instead of duty, and has no VAT de minimis at all — VAT
+            applies from the first euro. The UK exempts duty under £135 but VAT from £1. Australia exempts duty under AUD $1,000 but GST from AUD $1. Assuming a shipment clears tax-free because it's under the customs de minimis is the single most common mistake first-time importers make. The duty line and the VAT line are checked separately."
           }
         },
         {
@@ -329,7 +330,8 @@
             <div class="tldr-label">▌ TL;DR — The 30-Second Import VAT Map</div>
             <ul>
                 <li><strong>The formula never changes:</strong> VAT = (CIF + Duty) × Rate. Every country. Every time.</li>
-                <li><strong>Duty de minimis ≠ VAT de minimis.</strong> The EU waives duty under €150. It charges VAT from euro one. These are separate thresholds — assuming a shipment clears tax-free because it's under the customs line is the most common import costing mistake.</li>
+                <li><strong>Duty de minimis × VAT de minimis.</strong> The EU charges a flat €3 per item at or below €150,
+                and charges VAT from euro one. These are separate thresholds — assuming a shipment clears tax-free because it's under the customs line is the most common import costing mistake.</li>
                 <li><strong>VAT compounds on duty.</strong> 10% duty + 20% VAT = 22% effective VAT on CIF, not 20%. The duty becomes part of the taxable base. This is a tax on a tax, by design.</li>
                 <li><strong>The US has no VAT.</strong> It's the only G7 country without a border-level consumption tax. Importing into the US is structurally cheaper than importing into any other developed market — often by 15–22% of CIF.</li>
                 <li><strong>Run your numbers:</strong> <a href="/vat-calculator" style="font-weight:700;">VAT / GST Calculator</a> → then <a href="/landed-cost-calculator" style="font-weight:700;">Landed Cost Calculator</a> for the full picture.</li>
@@ -372,7 +374,10 @@
             <h3>Trap 1: VAT De Minimis Is Not the Same Number as Duty De Minimis</h3>
             <p>Every major market publishes a de minimis figure. Most importers assume one number covers everything — that below the threshold, the shipment clears free of all charges. That assumption is wrong in almost every jurisdiction outside the US and Japan.</p>
 
-            <p>The EU is the starkest example. The €150 de minimis for customs duty is well-publicized. But the EU abolished its €22 VAT de minimis in July 2021. A €30 shipment from China to Germany pays zero customs duty (under the €150 line) but 19% EUSt on the CIF value — because VAT applies from the first euro. No floor. The seller either registered for IOSS and collected the VAT at checkout, or the carrier collects it at delivery plus a €10–20 handling fee. Either way, the tax gets paid.</p>
+            <p>The EU is the starkest example. The €150 de minimis for customs duty used to be well-publicized; since 1
+            July 2026 it has been replaced by a flat €3 per item, so a €30 shipment is no longer duty-free either. The
+            EU abolished its €22 VAT de minimis back in July 2021. A €30 shipment from China to Germany now pays €3 in
+            duty plus 19% EUSt on the CIF value — because VAT applies from the first euro. No floor. The seller either registered for IOSS and collected the VAT at checkout, or the carrier collects it at delivery plus a €10–20 handling fee. Either way, the tax gets paid.</p>
 
             <p>The UK has a similar split: £135 for customs duty, but VAT from the first pound on commercial imports. Australia: AUD $1,000 FOB for customs duty, but GST from AUD $1 on low-value imported goods, collected at the point of sale by the seller or marketplace. Only Japan bundles both under one combined threshold (¥10,000), and the US has no VAT at all to split. Every other market — you check two numbers, not one.</p>
 
@@ -422,7 +427,7 @@
                         <td class="fee-num" style="color:#166534;">0%</td>
                         <td>N/A</td>
                         <td style="color:#166534;">N/A (no tax)</td>
-                        <td>$800 goods value</td>
+                        <td>None — suspended 29 Aug 2025</td>
                         <td>N/A</td>
                     </tr>
                     <tr class="vs-red">
@@ -431,7 +436,7 @@
                         <td class="fee-num" style="color:#991b1b;">19–22%</td>
                         <td>CIF + Duty</td>
                         <td style="color:#991b1b;font-weight:700;">None — VAT from €0.01</td>
-                        <td>€150 goods value</td>
+                        <td>Flat €3 per item at or below €150</td>
                         <td>IOSS (seller) or border (carrier)</td>
                     </tr>
                     <tr class="vs-red">
@@ -466,8 +471,9 @@
                         <td>IVA</td>
                         <td class="fee-num" style="color:#991b1b;">16%</td>
                         <td>CIF + Duty</td>
-                        <td>MXN $50 (~$2.50)</td>
-                        <td>MXN $50</td>
+                        <td>USD 50 (~MXN 900)</td>
+                        <td>USD 50 (postal; courier from US/CA
+                        only)</td>
                         <td>Border (agente aduanal)</td>
                     </tr>
                     <tr class="vs-green">
@@ -483,7 +489,13 @@
             </table>
             </div>
 
-            <p>The column that matters most is the second-to-last one: the VAT de minimis. The EU, UK, and Australia all have no meaningful VAT floor — tax applies from effectively zero. Canada's CAD $20 floor is so low it catches every commercial shipment. Japan's ¥10,000 combined threshold is the only genuinely generous de minimis outside the US, and it covers both duty and consumption tax in one test. Mexico's MXN $50 is symbolic. The US has no tax to threshold. Three markets charge VAT from dollar one; two have thresholds so low they're effectively the same; one bundles it with duty at a generous level; one doesn't charge it at all. That's the landscape.</p>
+            <p>The column that matters most is the VAT de minimis: the EU, UK, and Australia all have no meaningful VAT
+            floor — tax applies from effectively zero. Canada's CAD $20 floor is so low it catches every commercial
+            shipment. Japan's ¥10,000 combined threshold is the only genuinely generous de minimis anywhere in this
+            table, and it covers both duty and consumption tax in one test. Mexico's USD 50 is symbolic. The US has no
+            tax to threshold. Three markets charge VAT from dollar one; two have thresholds so low they're effectively
+            the same; one bundles it with duty at a generous level; one doesn't charge it at all. That's the
+            landscape.</p>
 
             <p>Run your shipment through each market's actual math: <a href="/vat-calculator" style="font-weight:700;">VAT / GST Calculator →</a> — enter your CIF and duty, see the tax line in all 7 markets side by side.</p>
         </section>
@@ -495,7 +507,9 @@
             <h3>🇪🇺 European Union — 27 Countries, One Customs Union, and No VAT Floor</h3>
             <p>The EU applies a uniform external customs tariff (the TARIC) and a single set of customs rules across all 27 member states. But VAT rates are set nationally — 19% in Germany, 20% in France, 21% in the Netherlands, 22% in Italy. The rate you pay is the rate of the member state where the goods enter free circulation. If your goods clear through Rotterdam (Netherlands) but are destined for a warehouse in Frankfurt (Germany), Dutch BTW at 21% applies at the border — unless you use a bonded warehouse or customs suspension procedure to defer the tax to the destination country. Most importers don't, because bonded warehousing adds administrative cost that only makes sense at volume.</p>
 
-            <p>Since July 2021, the €22 VAT exemption has been gone. Every commercial import — every single one — pays VAT from the first euro of CIF. The €150 customs duty de minimis still exists: goods under €150 FOB pay no customs duty but pay VAT. Goods over €150 pay customs duty plus VAT. The split catches a lot of importers who read "€150 de minimis" and stop reading before the VAT paragraph.</p>
+            <p>Since July 2021, the €22 VAT exemption has been gone. Every commercial import — every single one — pays VAT from the first euro of CIF. The €150 duty line still marks a boundary, but it no longer separates free from dutiable: since 1 July
+            2026, goods at or below €150 pay a flat €3 per item instead of duty, and goods above it pay ordinary TARIC
+            duty plus VAT. The split catches a lot of importers who read "€150 de minimis" and stop reading before the VAT paragraph.</p>
 
             <p>The IOSS (Import One-Stop Shop) system is the EU's answer to DTC e-commerce. Non-EU sellers register in one EU member state, collect VAT at the applicable rate for the customer's country at checkout, and remit quarterly through a single portal. Shipments with IOSS-registered VAT IDs clear customs as tax-paid — no carrier fees, no surprise invoice. Without IOSS: the carrier collects VAT at delivery plus a €10–20 brokerage fee, the customer pays before receiving the package, and the customer is unhappy. The registration itself is straightforward — an online application through any EU member state's IOSS portal. The ongoing compliance — 27 different VAT rates, quarterly filings, transaction records — is what costs. Most small DTC brands use a VAT intermediary (Avalara, TaxJar, SimplyVAT) to handle the filings rather than doing it manually.</p>
 
@@ -525,7 +539,12 @@
             <p>NACCS, Japan's electronic customs system, processes most low-to-mid-value entries within hours. Between ¥10,000 and ¥200,000, a simplified declaration works. Above ¥200,000, a formal C-5020 filing is required. The paperwork escalates, but the tax math stays the same at every tier. <a href="/china-to-japan-cargo">China→Japan Cargo</a> details the NACCS workflow.</p>
 
             <h3>🇲🇽 Mexico — Everybody Pays</h3>
-            <p>MXN $50 de minimis — about USD $2.50 at mid-2026 rates. Every commercial shipment triggers the full tax machinery: 16% IVA on the duty-paid CIF, plus the agente aduanal's filing fee (MXN $1,500–3,500, roughly USD $75–175). The IVA is straightforward — flat 16%, same formula, no weird splits. The broker fee is the real friction on low-value shipments: a $500 shipment pays $80 in IVA and $100+ in broker fees. The broker costs more than the tax.</p>
+            <p>USD 50 de minimis — about MXN 900 at mid-2026 rates, and it covers only postal shipments from any origin
+            plus courier shipments from the US or Canada. Every commercial shipment triggers the full tax machinery:
+            16% IVA on the duty-paid CIF, plus the agente aduanal's filing fee (MXN $1,500–3,500, roughly USD
+            $75–175). The IVA is straightforward — flat 16%, same formula, no weird splits. The broker fee is the real
+            friction on low-value shipments: a $500 shipment pays $80 in IVA and $100+ in broker fees. The broker
+            costs more than the tax.</p>
 
             <p>The only structural relief is IMMEX — the maquiladora program that allows duty and IVA deferral for goods processed in Mexico and re-exported. For domestic sales into the Mexican market, there's no shortcut. Every shipment pays. Budget the IVA and the broker in your landed cost from the start. <a href="/china-to-mexico-maquila">China→Mexico IMMEX</a> explains which goods qualify and how the deferral accounting works.</p>
 
@@ -633,7 +652,8 @@
             <p>Yes. Every country that charges VAT or GST at import calculates it on CIF + duty — not CIF alone. Customs duty becomes part of the taxable base. A 20% VAT rate on a shipment carrying 10% duty produces an effective VAT burden of 22% of the original CIF, not 20%. $10,000 CIF at 10% duty = $1,000 duty. Then 20% VAT on $11,000 = $2,200. Total border charges: $3,200 — 32% of CIF. The duty line alone understates the real cost by nearly half. This is not a quirk or a loophole — it's the explicit design of import VAT in every jurisdiction that charges it. Customs authorities define the taxable value as CIF plus all duties paid, including the customs duty.</p>
 
             <h3>What's the difference between customs duty de minimis and VAT de minimis?</h3>
-            <p>Customs duty de minimis is the shipment value below which no customs duty is charged. VAT de minimis is the value below which no VAT is charged. These are separate thresholds in most markets — and the VAT threshold is almost always lower, often zero. The EU waives customs duty under €150 but charges VAT from the first euro. The UK exempts duty under £135 but VAT from the first pound. Australia exempts duty under AUD $1,000 but GST from AUD $1. Assuming a shipment clears tax-free because it's under the customs de minimis is the single most common import costing mistake. The duty line and the VAT line are checked independently. Check the <a href="/de-minimis-checker">De Minimis Cliff Detector</a> to see both thresholds for each market on your shipment value.</p>
+            <p>Customs duty de minimis is the shipment value below which no customs duty is charged. VAT de minimis is the value below which no VAT is charged. These are separate thresholds in most markets — and the VAT threshold is almost always lower, often zero. The EU charges a flat €3 per item up to €150 instead of duty, and charges VAT from the first euro. The UK
+            exempts duty under £135 but VAT from the first pound. Australia exempts duty under AUD $1,000 but GST from AUD $1. Assuming a shipment clears tax-free because it's under the customs de minimis is the single most common import costing mistake. The duty line and the VAT line are checked independently. Check the <a href="/de-minimis-checker">De Minimis Cliff Detector</a> to see both thresholds for each market on your shipment value.</p>
 
             <h3>Which country charges the lowest import VAT?</h3>
             <p>The United States — it doesn't charge VAT at the border. Among countries that do: Canada at 5% federal GST has the lowest standard rate, but its CAD $20 de minimis means virtually every commercial shipment pays it. Australia's 10% GST is the next lowest. Japan's 10% JCT comes with a combined ¥10,000 de minimis that exempts many smaller shipments entirely. Mexico charges 16% IVA with no meaningful de minimis. The UK charges 20% VAT from the first pound. EU rates range from 19% (Germany) to 22% (Italy), with no VAT de minimis since July 2021. Comparing rates alone is misleading — a 5% rate with no de minimis exemption produces more tax friction than a 10% rate with a generous threshold. The effective burden depends on your shipment value and the threshold, not just the rate. Run it through the <a href="/vat-calculator">VAT Calculator</a> to see the actual dollar amount per market.</p>
@@ -766,7 +786,7 @@
         </div>
     </footer>
 
-    <script src="main.js?v=dd0fe60"></script>
-    <script src="sw-register.js?v=dd0fe60"></script>
+    <script src="main.js?v=338eca8"></script>
+    <script src="sw-register.js?v=338eca8"></script>
 </body>
 </html>

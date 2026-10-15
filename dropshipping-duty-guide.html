@@ -16,7 +16,7 @@
     <meta name="twitter:description" content="De minimis thresholds per market, who actually pays the duty, VAT registration rules, and the mistakes that get dropshipped parcels held.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=dd0fe60">
+    <link rel="stylesheet" href="style.css?v=338eca8">
 <meta property="og:image" content="https://www.dutycalc.online/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -78,7 +78,12 @@
             <p style="font-size:0.85rem;color:#94A3B8;">Thresholds per CBP / HMRC / EU rules in force · August 2026</p>
         </header>
 
-        <div class="trade-tip"><span class="tip-label">The two-minute version</span><br>US: under $800, nothing — the friendliest market on earth. UK: under £135, no duty, but <em>you</em> must be VAT-registered and collect 20% at checkout. EU: under €150, no duty, but IOSS-registered sellers collect VAT from order one. Canada: CAD $20 — nearly every order is taxed. Australia: AUD $1,000 for duty, but GST is collected by the seller from order one. Japan: ¥10,000 combined, then duty plus consumption tax on the full value.</div>
+        <div class="trade-tip"><span class="tip-label">The two-minute version</span><br>US: nothing is exempt since 29 August 2025 — duty
+        runs from the first dollar, though there is still no VAT. UK: under £135, no duty, but <em>you</em> must be
+        VAT-registered and collect 20% at checkout. EU: at or below €150, no ordinary duty but a flat €3 per item, and
+        IOSS-registered sellers collect VAT from order one. Canada: CAD $20 — nearly every order is taxed. Australia:
+        AUD $1,000 for duty, but GST is collected by the seller from order one. Japan: ¥10,000 combined, then duty
+        plus consumption tax on the full value.</div>
 
         <div>
             <article class="seo-section">
@@ -86,14 +91,30 @@
                 <h2>Why this keeps confusing people</h2>
                 <p>Dropshipping looks domestic from the seller's chair. You take an order, a supplier in Shenzhen or Istanbul ships it, and the customer gets a parcel. Customs sees a different story: a commercial shipment crossing a border, with a declared value, an importer, and a tax bill. The parcel's journey decides who pays, and the rulebook is different in every market. The <a href="/de-minimis-value-guide">de minimis value guide</a> has the full threshold map; this page is about what those thresholds mean when the package is yours.</p>
 
-                <h2>The United States: the $800 gift that built the industry</h2>
-                <p>Section 321 lets parcels under <strong>$800 in goods value</strong> per person per day clear with no duty, no VAT — the US has none — and no paperwork beyond a Type 86 line on the manifest. That one rule is why dropshipping as a business model exists: the economics are clean, and the buyer never sees a customs charge. Two warnings keep it clean. The threshold tests <em>goods value only</em>, so $780 of goods plus $40 shipping is fine, while $810 of goods is fully dutiable — the entire CIF, not just the ten dollars over. And the reform debate is not theoretical: Congress has repeatedly proposed cutting the threshold to $200, and the <a href="/section-321-de-minimis-reform-2026">2026 reform page</a> tracks where that stands. Model the US on the assumption the line may shrink.</p>
+                <h2>The United States: the $800 gift that closed on 29 August 2025</h2>
+                <p>Section 321 used to let parcels under <strong>$800 in goods value</strong> per person per day clear
+                with no duty, no VAT — the US has none — and no paperwork beyond a Type 86 line on the manifest. That
+                one rule is why dropshipping as a business model exists: the economics were clean, and the buyer never
+                saw a customs charge. It was suspended with effect from 29 August 2025, for every country of origin,
+                and written up as indefinite — there is no de minimis line left to sit just underneath. Duty is now
+                due from the first dollar, so a $12 phone case and a $42 hoodie are both dutiable. The
+                <a href="/section-321-de-minimis-reform-2026">2026 reform page</a> tracks the position — model the US
+                on the assumption duty applies to everything.</p>
 
                 <h2>The UK: £135 is not a tax-free line, it's a handoff</h2>
                 <p>Britain made a different choice in 2021. Parcels under <strong>£135</strong> pay no customs duty, but the <em>seller</em> is required to be UK VAT-registered and to collect 20% VAT at the point of sale. Read that again: under the threshold, the tax doesn't disappear — it moves from the border to your checkout. A £90 order from a non-registered seller is a compliance breach, not a free ride. Above £135 the picture flips again: duty applies on the CIF value at rates from the UK Global Tariff (the <a href="/china-to-uk-electronics">China-to-UK electronics</a> corridor shows typical numbers), and the carrier collects VAT plus a handling fee at the door. The practical rule: if UK customers are a meaningful share of revenue, register for UK VAT or sell through a marketplace that collects it for you. The <a href="/eu-to-uk-vat-registration">EU-to-UK VAT registration guide</a> has the mechanics.</p>
 
                 <h2>The EU: IOSS is the price of clean delivery</h2>
-                <p>The EU scrapped its €22 VAT exemption in 2021, so VAT applies to every import from the first cent; the €150 figure only covers customs duty. A non-EU seller has two ways to handle it. Register for <a href="/ioss-eu-vat-guide"><strong>IOSS</strong></a> — one registration, one return, covering all 27 member states — charge the local VAT rate at checkout, and the parcel clears without the customer paying a cent extra. Or skip it, and every order arrives with a VAT bill plus the carrier's €10–20 clearance fee at the door, which is a refund-request machine. There's also a rule change coming: the EU has proposed cutting the €150 duty threshold to €50 for 2027, which would drag far more parcels into formal processing. The <a href="/china-to-germany-customs">Germany</a> and <a href="/china-to-france-customs">France</a> corridor pages show the per-market rates.</p>
+                <p>The EU scrapped its €22 VAT exemption in 2021, so VAT applies to every import from the first cent.
+                The €150 figure used to be the duty-exemption line; that closed on 1 July 2026, when Council
+                Regulation (EU) 2026/382 replaced it with a flat €3 per item on consignments at or below €150. A
+                non-EU seller has two ways to handle the VAT. Register for
+                <a href="/ioss-eu-vat-guide"><strong>IOSS</strong></a> — one registration, one return, covering all 27
+                member states — charge the local VAT rate at checkout, and the parcel clears without the customer
+                paying a cent extra. Or skip it, and every order arrives with a VAT bill plus the carrier's €10–20
+                clearance fee at the door, which is a refund-request machine. The
+                <a href="/china-to-germany-customs">Germany</a> and <a href="/china-to-france-customs">France</a>
+                corridor pages show the per-market rates.</p>
 
                 <h2>Canada, Australia, Japan: the three ways to lose money politely</h2>
                 <p>Canada is the least friendly dropship market in the developed world: a <strong>CAD $20</strong> de minimis means nearly every parcel is dutiable and GST-assessed, and the buyer gets a collection bill at delivery. There is no low-value channel worth building there — the <a href="/china-to-canada-freight">China-to-Canada</a> page explains the mechanics. Australia splits the difference: AUD $1,000 for duty is genuinely generous, but since 2018 the 10% GST is collected by the <em>seller</em> on every low-value sale, so a $900 order is duty-free yet still carries GST you must remit if Australians are your customers. Japan bundles everything under a single <strong>¥10,000</strong> threshold tested on the freight-inclusive CIF: under it, nothing; over it, duty plus 10% consumption tax on the full amount — a ¥9,500 item with ¥600 shipping crosses the line. The <a href="/china-to-japan-cargo">China-to-Japan</a> page has the numbers.</p>
@@ -115,7 +136,10 @@
                 <p>No. Under-declaring to dodge duty is misdeclaration, it is the most common inspection trigger in parcel traffic, and penalties scale quickly for repeat offenses. The duty on most consumer parcels is small; the risk is not.</p>
 
                 <h3>Which country should a new dropshipper target first?</h3>
-                <p>For pure duty simplicity, the US — $800 threshold, no VAT, no registration. For tax simplicity with registration, the UK and EU once you've handled VAT/IOSS. Canada and Japan are the two markets where the threshold math works hardest against you; skip them until the volume justifies the compliance.</p>
+                <p>The US still has no VAT and one national regime, but the $800 threshold is gone — duty now applies
+                from the first dollar. For tax simplicity with registration, the UK and EU once you've handled
+                VAT/IOSS. Canada and Japan are the two markets where the threshold math works hardest against you;
+                skip them until the volume justifies the compliance.</p>
 
                 <p style="margin-top: 30px;"><a href="/">&larr; Back to All Calculators</a></p>
             </article>
@@ -190,8 +214,8 @@
         </div>
     </footer>
 
-    <script src="rate-data.js?v=dd0fe60"></script>
-    <script src="main.js?v=dd0fe60"></script>
-    <script src="sw-register.js?v=dd0fe60"></script>
+    <script src="rate-data.js?v=338eca8"></script>
+    <script src="main.js?v=338eca8"></script>
+    <script src="sw-register.js?v=338eca8"></script>
 </body>
 </html>
