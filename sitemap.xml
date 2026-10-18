@@ -279,7 +279,7 @@
   <!-- 东南亚 → 美国 贸易路线 -->
   <url>
     <loc>https://www.dutycalc.online/vietnam-to-us-textiles</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -381,7 +381,7 @@
   <!-- 墨西哥 → 美国 贸易路线 -->
   <url>
     <loc>https://www.dutycalc.online/mexico-to-us-duty</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -453,7 +453,7 @@
   <!-- 参考指南 -->
   <url>
     <loc>https://www.dutycalc.online/section-301-china-tariffs-guide</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -465,13 +465,13 @@
   </url>
   <url>
     <loc>https://www.dutycalc.online/anti-dumping-duties-guide</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.dutycalc.online/us-import-duty-layers-guide</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -486,6 +486,12 @@
     <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.dutycalc.online/country-of-origin-rules</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- 2026-08 New Tools -->
