@@ -5,24 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
     <title>2026 China–US Tariff Panorama</title>
-    <meta name="description" content="The total effective rate on Chinese imports isn't one number — it's a stack: MFN base rate + Section 301 surcharge + anti-dumping deposits + Section…">
+    <meta name="description" content="The total effective rate on Chinese imports is a stack: MFN, two Section 301 actions, anti-dumping deposits and Section 232 — product by product.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
     <link rel="canonical" href="https://www.dutycalc.online/china-to-us-tariff-panorama">
     <meta property="og:title" content="2026 China–US Tariff Panorama: Every List, Every Rate, Every Layer">
-    <meta property="og:description" content="MFN + Section 301 + anti-dumping + Section 232. Product-by-product breakdown across all major categories with real 2026 effective rates — not just the base number, the total you actually pay.">
+    <meta property="og:description" content="MFN + both Section 301 actions + anti-dumping + Section 232. Product-by-product breakdown across every major category with real October 2026 effective rates — not the base number, the total you actually pay.">
     <meta property="og:url" content="https://www.dutycalc.online/china-to-us-tariff-panorama">
     <meta property="og:type" content="article">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="2026 China–US Tariff Panorama: Every List, Every Rate, Every Layer">
-    <meta name="twitter:description" content="MFN + Section 301 + anti-dumping + Section 232. Product-by-product breakdown with real 2026 effective rates.">
+    <meta name="twitter:description" content="MFN + both Section 301 actions + anti-dumping + Section 232. Product-by-product breakdown with real October 2026 effective rates.">
     <link rel="stylesheet" href="style.css?v=338eca8">
+<style>
+    /* Eight columns cannot survive a 375px viewport at width:100% — every cell
+       would collapse to three characters. The wrapper already scrolls, so give
+       the table a floor and let the reader swipe. Same pattern as
+       import-cost-workflow.html's 700px table. */
+    .table-scroll > .rate-history-table { min-width: 760px; }
+</style>
 <meta property="og:image" content="https://www.dutycalc.online/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","name":"2026 China–US Tariff Panorama: Every Section 301 List, Every Rate, Every Layer That Hits Your Landed Cost","url":"https://www.dutycalc.online/china-to-us-tariff-panorama","description":"The total effective rate on Chinese imports isn't one number — it's a stack: MFN base rate + Section 301 surcharge + anti-dumping deposits + Section 232 steel/aluminum. Product-by-product breakdown across all major categories with real 2026 rates.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"isPartOf":{"@type":"WebSite","name":"DutyCalc Online","url":"https://www.dutycalc.online/"}}
+{"@context":"https://schema.org","@type":"Article","name":"2026 China–US Tariff Panorama: Every Section 301 List, Every Rate, Every Layer That Hits Your Landed Cost","url":"https://www.dutycalc.online/china-to-us-tariff-panorama","description":"The total effective rate on Chinese imports is a stack: MFN base rate, the China Section 301 lists, the 12.5% forced-labour Section 301 layer of 24 July 2026, anti-dumping deposits and Section 232 steel/aluminum. Product-by-product breakdown with real October 2026 rates.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"isPartOf":{"@type":"WebSite","name":"DutyCalc Online","url":"https://www.dutycalc.online/"}}
 </script>
 </head>
 <body>
@@ -74,24 +81,25 @@
 
         <header>
             <h1>2026 China–US Tariff Panorama: The Total Number, Layer by Layer</h1>
-            <p>If you Google "China import duty" you'll get a table someone copied from a blog that copied it from a 2019 USTR press release. That table is wrong. Here's the real picture in mid-2026 — MFN base rate, Section 301 surcharge, anti-dumping overlay, steel/aluminum national-security tariff, and the de minimis cliff — for every major product category shipped from China to the United States.</p>
+            <p>If you Google "China import duty" you'll get a table someone copied from a blog that copied it from a 2019 USTR press release. That table is wrong. Here's the real picture in October 2026 — MFN base rate, the original Section 301 China lists, the forced-labour Section 301 layer that arrived on 24 July 2026, anti-dumping overlay, steel/aluminum national-security tariff, and the de minimis cliff — for every major product category shipped from China to the United States.</p>
         </header>
 
         <div class="trade-tip"><span class="tip-label">This is a map, not a binding ruling</span><br>Every rate below is a representative figure for a common HTS subheading in that product category. Your specific product's 10-digit code could land on a different Section 301 list, have an active exclusion, or be subject to an anti-dumping order that changes the total. Use this page to understand the landscape. Use a licensed customs broker to get your exact rate. Our <a href="/hscode-duty-estimator">HS Code Duty Estimator</a> gives a baseline for any code you look up.</div>
 
         <article class="seo-section">
 
-            <h2>The layer cake: four charges that stack on Chinese imports</h2>
-            <p>Every Chinese product entering the US runs through the same four questions. Most people stop after question one and quote a number that's 7.5 to 25 points too low.</p>
+            <h2>The layer cake: five charges that stack on Chinese imports</h2>
+            <p>Every Chinese product entering the US runs through the same five questions. Most people stop after the second one and quote a number that is 12.5 points too low — the gap the July 2026 action opened.</p>
             <ol class="content-list">
                 <li><strong>MFN base rate.</strong> The standard US tariff on that HTS code, applied to all WTO members without a preferential FTA rate. China's MFN status has not been revoked (despite periodic legislative proposals to do so), so Chinese goods get the same base rate as goods from Germany, Japan, or Brazil. Most industrial products land between 0% and 8%, with a few outliers above 15%.</li>
-                <li><strong>Section 301.</strong> Additional duties imposed specifically on Chinese-origin goods under USTR's finding that China's intellectual property practices and technology-transfer policies are unreasonable and burden US commerce. These are the 7.5% and 25% numbers everyone talks about. They apply to virtually every HTS code on the four Section 301 lists, with narrow product-specific exclusions.</li>
+                <li><strong>Section 301 — the China lists.</strong> Additional duties imposed specifically on Chinese-origin goods under USTR's finding that China's intellectual property practices and technology-transfer policies are unreasonable and burden US commerce. These are the 7.5% and 25% numbers everyone talks about. They apply to virtually every HTS code on the four Section 301 lists, with narrow product-specific exclusions.</li>
+                <li><strong>Section 301 — the forced-labour action, in force 24 July 2026.</strong> A separate determination, not an extension of the China lists. USTR applied it to roughly 60 economies, China included, at <strong>+12.5% additive</strong> on the MFN rate. It stacks with the China lists — a List 1 machine at 25% becomes 37.5% — and it does <em>not</em> stack with Section 232, so steel, aluminium, copper, autos and auto parts, lumber and semiconductors pay 232 and skip this layer. It replaced the 10% Section 122 surcharge that lapsed the same day, which is why the figure is 12.5% rather than a round number.</li>
                 <li><strong>Anti-dumping / countervailing duties (AD/CVD).</strong> Factory-specific penalty deposits imposed when the Department of Commerce finds that a Chinese product is being sold below fair value (dumping) or with countervailable subsidies. Unlike the MFN and Section 301 rates, which are the same for all Chinese exporters of a given HTS code, AD/CVD rates vary by factory. Two Chinese brake-rotor factories making the identical product can face AD margins of 3% and 94% respectively depending on whether they cooperated with Commerce's investigation.</li>
-                <li><strong>Section 232 (steel/aluminum).</strong> 25% on steel articles and 10% on aluminum articles imported under specific HTS chapters, imposed on national-security grounds in 2018. These are not China-specific — they apply globally unless a country has a negotiated exemption or tariff-rate quota. For China, the Section 232 duties generally pile on top of everything else. Finished assemblies with incidental steel content (a brake caliper, an engine) are usually not caught; raw steel billet, hot-rolled coil, or simple stampings are.</li>
+                <li><strong>Section 232 (steel, aluminum, copper).</strong> 50% on articles wholly or nearly wholly of metal and 25% on derivatives whose metal content exceeds 15% by value — both charged on the <em>full</em> customs value since 6 April 2026, not on the metal inside the article. The measure is product-based, so it applies to every origin; the UK rates and the 200% rate on Russian aluminum are the negotiated exceptions. For China the 232 duty piles on top of everything else, and the 12.5% forced-labour layer drops out where 232 already applies. Finished assemblies with incidental metal content are no longer automatically clear — the 15% threshold decides that, and the tier ladder is set out in the <a href="/section-232-tariffs-guide">Section 232 guide</a>.</li>
             </ol>
-            <p>The total effective rate on a Chinese import is the sum of whichever of these four layers apply. For most consumer goods, it's MFN + Section 301 (no AD/CVD, no 232). For industrial metal products, it can be all four. The table below shows the real numbers.</p>
+            <p>The total effective rate on a Chinese import is the sum of whichever of these five layers apply. For most consumer goods it is MFN + the China list + the 12.5% forced-labour layer, with no AD/CVD and no 232. For industrial metal products it can be all five. There is exactly one subtraction in the whole stack, and it matters: <strong>where Section 232 applies, the forced-labour layer drops out.</strong> A steel article does not get both. The table below shows the real numbers.</p>
 
-            <h2>Product-by-product: what you actually pay, mid-2026</h2>
+            <h2>Product-by-product: what you actually pay, October 2026</h2>
             <p>These are representative rates for the most commonly imported Chinese goods in each category. The "Total" column is the rate on your CBP Form 7501, assuming no active exclusion and no AD/CVD (AD/CVD is noted separately where it commonly applies).</p>
 
             <div class="table-scroll">
@@ -102,6 +110,7 @@
                     <th>HTS Chapters</th>
                     <th>MFN Base</th>
                     <th>301 List (Rate)</th>
+                    <th>Forced-labour 301</th>
                     <th>Total Effective</th>
                     <th>AD/CVD Risk</th>
                     <th>Calculator</th>
@@ -113,7 +122,8 @@
                     <td>8471, 8517</td>
                     <td>0% (ITA)</td>
                     <td>List 4A (0%, suspended)</td>
-                    <td><strong>0%</strong></td>
+                    <td>+12.5%</td>
+                    <td><strong>12.5%</strong></td>
                     <td>Low</td>
                     <td><a href="/china-to-us-electronics">Calc →</a></td>
                 </tr>
@@ -122,16 +132,18 @@
                     <td>8534, 8517.62</td>
                     <td>0–3%</td>
                     <td>List 1 (25%)</td>
-                    <td><strong>25–28%</strong></td>
+                    <td>+12.5%</td>
+                    <td><strong>37.5–40.5%</strong></td>
                     <td>Low</td>
                     <td><a href="/china-to-us-electronics">Calc →</a></td>
                 </tr>
                 <tr>
-                    <td><strong>Apparel & Textiles</strong></td>
+                    <td><strong>Apparel &amp; Textiles</strong></td>
                     <td>61, 62, 63</td>
                     <td>8–32%</td>
                     <td>List 3 (7.5%)</td>
-                    <td><strong>16.5–29.5%</strong></td>
+                    <td>+12.5%</td>
+                    <td><strong>28–52%</strong></td>
                     <td>Low</td>
                     <td><a href="/china-to-us-clothing">Calc →</a></td>
                 </tr>
@@ -140,7 +152,8 @@
                     <td>84 (exc. 8471)</td>
                     <td>0–4.2%</td>
                     <td>List 1 (25%)</td>
-                    <td><strong>25–29.2%</strong></td>
+                    <td>+12.5%</td>
+                    <td><strong>37.5–41.7%</strong></td>
                     <td>Medium (bearings)</td>
                     <td><a href="/china-to-us-machinery">Calc →</a></td>
                 </tr>
@@ -149,16 +162,18 @@
                     <td>9401, 9403</td>
                     <td>0–8%</td>
                     <td>List 3 (7.5%)</td>
-                    <td><strong>7.5–15.5%</strong></td>
+                    <td>+12.5%</td>
+                    <td><strong>20–28%</strong></td>
                     <td>High (A-570-890)</td>
                     <td><a href="/china-to-us-furniture">Calc →</a></td>
                 </tr>
                 <tr>
-                    <td><strong>Plastics & Articles</strong></td>
+                    <td><strong>Plastics &amp; Articles</strong></td>
                     <td>39, 40</td>
                     <td>0–6.5%</td>
                     <td>List 3 (7.5%)</td>
-                    <td><strong>7.5–14%</strong></td>
+                    <td>+12.5%</td>
+                    <td><strong>20–26.5%</strong></td>
                     <td>Low</td>
                     <td><a href="/china-to-us-plastics">Calc →</a></td>
                 </tr>
@@ -167,6 +182,7 @@
                     <td>8708, 8483, 8511</td>
                     <td>2.5%</td>
                     <td>List 1 (25%)</td>
+                    <td>Not added (232 autos)</td>
                     <td><strong>27.5%</strong></td>
                     <td>High (brakes, bearings)</td>
                     <td><a href="/auto-parts-import-duty">Hub →</a></td>
@@ -176,6 +192,7 @@
                     <td>73</td>
                     <td>0–7%</td>
                     <td>List 1 (25%)</td>
+                    <td>Not added (232 steel)</td>
                     <td><strong>~57%</strong> (+25% 232)</td>
                     <td>Very High</td>
                     <td><a href="/landed-cost-calculator">Calc →</a></td>
@@ -185,6 +202,7 @@
                     <td>76</td>
                     <td>0–5.7%</td>
                     <td>List 1 (25%)</td>
+                    <td>Not added (232 alu)</td>
                     <td><strong>~35.7%</strong> (+10% 232)</td>
                     <td>High</td>
                     <td><a href="/landed-cost-calculator">Calc →</a></td>
@@ -194,15 +212,17 @@
                     <td>9503–9506</td>
                     <td>0–4.5%</td>
                     <td>List 3 (7.5%)</td>
-                    <td><strong>7.5–12%</strong></td>
+                    <td>+12.5%</td>
+                    <td><strong>20–24.5%</strong></td>
                     <td>Low</td>
                     <td><a href="/import-duty-calculator">Calc →</a></td>
                 </tr>
             </tbody>
+            </tbody>
             </table>
             </div>
 
-            <p>Three things jump out. First, the spread from the cheapest to most expensive category is roughly 0% (ITA phones) to ~57% (Chinese steel with all four layers). Same origin, same trade lane, a 57-point gap driven entirely by what the product is. Second, the MFN base rate is almost never the number you pay — Section 301 dominates for industrial goods. Third, the two products most people worry about (consumer electronics and apparel) are at opposite ends of the spectrum: phones near zero, apparel up to 29.5%. If someone tells you "China tariffs are 25%," ask them which China tariffs.</p>
+            <p>Four things jump out. First, the spread from cheapest to most expensive is 12.5% (phones that used to clear at zero) to ~57% (steel carrying both Section 232 and the China list) — same origin, same lane, a 44-point gap driven entirely by what the product is. Second, the MFN base rate is almost never the number you pay; Section 301 dominates for industrial goods, and since July 2026 there are two Section 301 actions doing the dominating. Third, the forced-labour layer is why nothing enters free any more — it is not a China tariff, so "source it elsewhere" only moves you between tiers, never back to zero. Fourth, where Section 232 applies the forced-labour column reads "not added": steel, aluminium and auto parts genuinely do not pay both. If someone tells you "China tariffs are 25%," ask which China tariffs, and then ask which tier.</p>
 
             <h2>Section 301 explained — the four lists, in plain English</h2>
             <p>The USTR's Section 301 action against China was announced in four stages between 2018 and 2019. Each "list" is a set of HTS codes, and each list carries its own surcharge rate. Here's what matters for importers in 2026:</p>
@@ -249,14 +269,14 @@
 
             <h2>The exclusion landscape: what's available, and what isn't</h2>
             <p>Since 2018, USTR has operated an exclusion process for Section 301 tariffs. Importers can request that a specific 10-digit HTS code be excluded from the Section 301 surcharge, typically on grounds that the product is not available from non-Chinese sources or that the tariff causes disproportionate economic harm. Thousands of exclusions have been granted, and thousands more have been denied. Most exclusions are temporary — 12 to 18 months — and many that were granted and later expired were not renewed.</p>
-            <p>What's covered in mid-2026: active exclusions are concentrated in medical supplies (PPE, certain medical devices), a narrow set of electronics components, and specific industrial inputs where domestic production capacity doesn't exist. Consumer goods exclusions are rare and getting rarer — USTR's general posture since the Phase One deal has been to narrow the exclusion program rather than expand it.</p>
+            <p>What's covered in October 2026: active exclusions are concentrated in medical supplies (PPE, certain medical devices), a narrow set of electronics components, and specific industrial inputs where domestic production capacity doesn't exist. Consumer goods exclusions are rare and getting rarer — USTR's general posture since the Phase One deal has been to narrow the exclusion program rather than expand it.</p>
             <p>What's under review: USTR announced a comprehensive exclusion review for Q3 2026 covering several hundred HTS codes. The outcome is uncertain, but the review itself signals that at least some changes to the exclusion list are coming. The <a href="/section-301-china-tariffs-guide">Section 301 guide</a> tracks the current exclusion list and the status of pending reviews.</p>
             <p>The practical advice for importers: check the USTR exclusion portal for your specific 10-digit code before you quote a landed cost. An active exclusion on a List 1 product reduces the rate from 27.5% (2.5% MFN + 25% 301) to 2.5% — a 25-point swing that determines whether the product is sourceable from China at all. If no exclusion exists, assume the full Section 301 rate applies. Exclusions are not granted retroactively, so you can't claim one on a shipment that already cleared.</p>
 
             <h2>Section 232: steel and aluminum — a global tariff that China can't avoid</h2>
-            <p>Section 232 of the Trade Expansion Act of 1962 allows the President to impose tariffs on national-security grounds. In 2018, the administration imposed 25% on steel articles and 10% on aluminum articles from most countries. These tariffs are global — they apply to all origins unless a country negotiated an exemption (Canada, Mexico under USMCA; Australia; Argentina and Brazil under quota arrangements) or a tariff-rate quota (EU, UK, Japan, Korea). China has no exemption and no TRQ for steel or aluminum. Chinese steel and aluminum articles pay the full Section 232 surcharge.</p>
-            <p>When Section 232 applies, it layers on top of MFN and Section 301. A Chinese steel pipe under HTS Chapter 73 that would otherwise pay 2.5% MFN + 25% Section 301 = 27.5% instead pays 2.5% + 25% + 25% = roughly 52.5% effective (the calculation is sequential — 25% on the MFN-inclusive value, then another 25% — so the total lands slightly above simple addition, but 52–57% is the right ballpark for most steel product subheadings).</p>
-            <p>The bright line: Section 232 applies to <em>articles</em> of steel or aluminum, not to products that <em>contain</em> steel or aluminum. A Chinese brake caliper contains cast iron and steel but is classified under 8708.30 as a brake part, not under Chapter 73 as a steel article — so it pays MFN + 301 only, no 232. A Chinese steel I-beam classified under 7216 pays all three layers. The classification boundary is at the HTS chapter level, not the material content level, and it's one of the more important distinctions a competent customs broker makes on your behalf.</p>
+            <p>Section 232 of the Trade Expansion Act of 1962 allows the President to impose tariffs on national-security grounds. The measure began in 2018 at 25% on steel and 10% on aluminum and has been rebuilt twice since: the rate rose to 50% in June 2025, and on 6 April 2026 the duty base moved from the value of the metal in an article to its <em>full customs value</em>. These tariffs are product-based, so they apply to every origin. The country carve-outs that once existed — the EU, Japanese, Korean and other tariff-rate quotas, and the Australian, Argentine and Brazilian arrangements — were revoked in March 2025, leaving the UK rates and the 200% rate on Russian aluminum as the remaining exceptions. China never had an exemption, and Chinese steel and aluminum articles pay the full surcharge.</p>
+            <p>When Section 232 applies, it layers on top of MFN and Section 301. A Chinese steel pipe under HTS Chapter 73 that would otherwise pay 2.5% MFN + 25% Section 301 = 27.5% instead pays 2.5% + 25% + 25% = <strong>52.5%</strong>. All three rates are computed on the same customs value, so the effective rate is their sum and not a compound. One correction to the pre-2026 arithmetic: the forced-labour layer added in July 2026 does <strong>not</strong> stack with Section 232. A steel article picks up 232 and the China list, and the 12.5% layer stays out entirely — which is why the steel row in the table above is unchanged by it.</p>
+            <p>The line is no longer drawn at the HTS chapter, and this is the single most expensive thing that changed in April 2026. Until then the rule was easy to state: Section 232 reached <em>articles</em> of steel or aluminum, not products that merely <em>contained</em> them, so a Chinese brake caliper under 8708.30 paid MFN and Section 301 but no 232, while a steel I-beam under 7216 paid all three layers. The metals regime now reaches derivative products as well, and the test is the metal share of the article by value — above 15% and the derivative tier charges 25% on the full customs value, at or below 15% and the article stays outside. For the brake caliper the answer now depends on how much of its value is metal, not on which chapter it sits in. The <a href="/section-232-tariffs-guide">Section 232 guide</a> works through the thresholds and the tiers.</p>
 
             <h2>The Mexico question: nearshoring is real, but it's not a loophole</h2>
             <p>The Chinese tariff stack has driven a significant share of US-bound manufacturing to Mexico. The logic is straightforward: a Chinese auto part at 27.5% effective vs a Mexican auto part at 0% under USMCA. The 27.5-point gap more than covers the labor-cost difference for many product categories. The Guanajuato, Nuevo León, and Aguascalientes automotive and industrial clusters have absorbed billions in redirected investment as a result.</p>
@@ -269,15 +289,16 @@
                 <li><strong>Product:</strong> 500 units of CNC-machined aluminum pump housings for industrial water pumps</li>
                 <li><strong>HTS classification:</strong> 8413.91.9080 (parts of pumps, Chapter 84)</li>
                 <li><strong>MFN base rate:</strong> 0% (many pump parts are duty-free)</li>
-                <li><strong>Section 301:</strong> List 1, 25%</li>
+                <li><strong>Section 301 — China list:</strong> List 1, 25%</li>
+                <li><strong>Section 301 — forced-labour layer:</strong> +12.5%, additive on the MFN base, in force since 24 July 2026</li>
                 <li><strong>Section 232 aluminum:</strong> Does not apply — the article is classified under Chapter 84 (machinery), not Chapter 76 (aluminum). The aluminum content is incidental to the classification.</li>
                 <li><strong>AD/CVD:</strong> No specific AD/CVD order covers this subheading</li>
                 <li><strong>Goods value (FOB Shanghai):</strong> $25,000</li>
                 <li><strong>Ocean freight + insurance to Long Beach:</strong> $1,200</li>
                 <li><strong>CIF value (entered value for customs):</strong> $26,200</li>
             </ul>
-            <p>Duty calculation: $26,200 × 25% (Section 301 only, MFN is 0%) = <strong>$6,550</strong>. Merchandise Processing Fee: $26,200 × 0.3464% = $90.76. Harbor Maintenance Fee (ocean freight, 0.125%): $32.75. Total customs cost: <strong>$6,673.51</strong>. Landed cost: $26,200 + $6,673.51 = <strong>$32,873.51</strong>. Effective rate: 25.5% on CIF. The supplier's invoice said $25,000. Your actual cost to get those pump housings into your US warehouse: almost $33,000 — 31% above the supplier price. That's the difference between FOB and landed, and it's the number your margin model needs.</p>
-            <p>Now change one variable: the pump housings are machined in Taiwan instead of China, using the same aluminum stock. Section 301 drops off entirely — it only applies to Chinese-origin goods. Duty: $26,200 × 0% = $0. MPF: $90.76. HMF: $32.75. Total customs: $123.51. Landed: $26,323.51. The origin change saves $6,550 in duty. Same part, same process, different factory location. That 25-point spread is why the supply chain has been slowly migrating out of China for seven years — and why knowing your product's Section 301 list is worth $6,550 on a single container.</p>
+            <p>Duty calculation: $26,200 × 37.5% (0% MFN + List 1 at 25% + the 12.5% forced-labour layer) = <strong>$9,825</strong>. Merchandise Processing Fee: $26,200 × 0.3464% = $90.76. Harbor Maintenance Fee (ocean freight, 0.125%): $32.75. Total customs cost: <strong>$9,948.51</strong>. Landed cost: $26,200 + $9,948.51 = <strong>$36,148.51</strong>. Effective rate: 38.0% on CIF. The supplier's invoice said $25,000. Your actual cost to get those pump housings into your US warehouse: over $36,000 — 45% above the supplier price. That's the difference between FOB and landed, and it's the number your margin model needs.</p>
+            <p>Now change one variable: the pump housings are machined in Taiwan instead of China, using the same aluminum stock. The China lists drop off — they reach Chinese origin only — and the forced-labour layer stops being additive and becomes a floor: Taiwan sits in the fill-to-10 tier, so duty is 10% of value rather than zero. Duty: $26,200 × 10% = <strong>$2,620</strong>. MPF: $90.76. HMF: $32.75. Total customs: $2,743.51. Landed: $28,943.51. The origin change saves <strong>$7,205</strong> on one container. Same part, same process, different factory location — but note that even the better answer is no longer zero, which is the part most sourcing models still get wrong. Knowing both your product's China list and your origin tier is worth more than any freight negotiation.</p>
             <p>Run your own numbers on the <a href="/landed-cost-calculator">Landed Cost Calculator</a> or use the corridor-specific calculators on each China→US product page: <a href="/china-to-us-electronics">Electronics</a>, <a href="/china-to-us-clothing">Apparel</a>, <a href="/china-to-us-furniture">Furniture</a>, <a href="/china-to-us-machinery">Machinery</a>, <a href="/china-to-us-plastics">Plastics</a>.</p>
 
             <h2>What to watch, Q3 2026 and beyond</h2>
@@ -295,7 +316,7 @@
             <h2>Frequently asked questions</h2>
 
             <h3>What's the real total tariff rate on Chinese imports in 2026?</h3>
-            <p>There is no single "real rate." It depends on your product's HTS chapter. Consumer electronics (phones, laptops) often clear at <strong>0%</strong> under the ITA with Section 301 List 4A suspended. Apparel and textiles run <strong>16.5–29.5%</strong> (MFN 8–32% + Section 301 List 3 at 7.5%). Industrial machinery is typically <strong>25–29.2%</strong> (MFN 0–4.2% + List 1 at 25%). Steel articles from China can exceed <strong>50%</strong> once all four layers are applied. The rate is set by your 10-digit HTS code, not by the word "China."</p>
+            <p>There is no single "real rate." It depends on your product's HTS chapter. Consumer electronics (phones, laptops) land at <strong>12.5%</strong> — 0% MFN, List 4A still suspended, plus the 12.5% forced-labour layer in force since 24 July 2026. Apparel and textiles run <strong>28–52%</strong> (MFN 8–32% + List 3 at 7.5% + the 12.5% layer). Industrial machinery is typically <strong>37.5–41.7%</strong> (MFN 0–4.2% + List 1 at 25% + 12.5%). Steel articles from China can exceed <strong>50%</strong> once Section 232 is added — and there the forced-labour layer drops out, because it does not stack with 232. The rate is set by your 10-digit HTS code, not by the word "China."</p>
 
             <h3>How do I know if my Section 301 rate is 7.5% or 25%?</h3>
             <p>Find your 10-digit HTS code on the USTR Section 301 lists. List 1 and 2 are at 25%. List 3 is at 7.5% (reduced from 25% under the Phase One deal). List 4A is 15% but suspended. List 4B was never imposed. If your code doesn't appear on any list, you pay the MFN rate only. Most Chinese industrial goods land on Lists 1 or 2; most consumer goods on List 3. A customs broker can confirm the code-to-list mapping definitively.</p>
@@ -304,10 +325,10 @@
             <p><strong>No.</strong> Section 301 applies to Chinese-<em>origin</em> goods regardless of the shipping route. A product made in China, shipped to Vietnam, and re-exported to the US remains Chinese origin and still pays Section 301. Changing the country of origin requires substantial transformation — a change in name, character, or use — in the third country, not repackaging or relabeling. CBP has enforced this aggressively since 2018, with transshipment audits and penalties in the millions. If someone sells you a "simple transshipment solution," walk away.</p>
 
             <h3>What's the difference between the MFN rate and the Section 301 surcharge?</h3>
-            <p>The MFN rate is the standard US tariff applied to all WTO members without a preferential trade agreement. It's set by the Harmonized Tariff Schedule and changes slowly through legislation and trade negotiations. Section 301 is an additional duty imposed specifically on Chinese-origin goods as a trade-remedy action. It's applied on top of the MFN rate and is administered through USTR, not through the legislative tariff-setting process. The total rate = MFN + 301 + any applicable AD/CVD + Section 232 if the product is a steel or aluminum article.</p>
+            <p>The MFN rate is the standard US tariff applied to all WTO members without a preferential trade agreement. It is set by the Harmonized Tariff Schedule and changes slowly through legislation and trade negotiations. Section 301 is a trade-remedy action administered by USTR rather than through the tariff schedule, and since July 2026 there are two of them: the China lists, which reach Chinese-origin goods only, and the forced-labour action, which reaches about 60 economies at +12.5%, +10%, or a 10–12.5% floor depending on origin. The total rate = MFN + the China list where it applies + the forced-labour layer + any applicable AD/CVD + Section 232 if the product is a steel or aluminium article — and where 232 applies, the forced-labour layer drops out.</p>
 
             <h3>Are Chinese consumer electronics still zero-duty?</h3>
-            <p><strong>Phones and laptops: yes, 0%.</strong> They're ITA products with bound zero MFN rates, and Section 301 List 4A (which would have added 15%) remains suspended. Bare PCBs, networking gear, and non-ITA electronics from China pay up to 25% on List 1. The distinction is at the 10-digit HTS level, and your product either falls under an ITA subheading or it doesn't. Check your specific code on the <a href="/china-to-us-electronics">China → US Electronics</a> calculator.</p>
+            <p><strong>Not any more — 12.5%.</strong> Phones and laptops are ITA products with bound zero MFN rates and Section 301 List 4A (which would have added 15%) is still suspended, so the headline MFN number remains zero. But the forced-labour Section 301 action of 24 July 2026 adds 12.5% to Chinese-origin goods, so a phone that cleared free in June now pays 12.5%. Bare PCBs, networking gear and non-ITA electronics from China stack List 1 at 25% on top of it, reaching 37.5%. The distinction is still made at the 10-digit HTS level. Check your code on the <a href="/china-to-us-electronics">China → US Electronics</a> calculator.</p>
 
             <h3>How does the anti-dumping deposit work in practice?</h3>
             <p>When you import a product subject to an AD order, CBP collects a cash deposit at the published margin rate for your specific exporter. For a cooperating factory with an individually determined rate, the deposit might be 3–10%. For a non-cooperating factory, it's the China-wide entity rate, which can be 40–200%+. The deposit is held by CBP and reconciled when Commerce completes its annual administrative review — a process that typically takes 2–3 years. If the final rate is lower, you get a refund with interest. If it's higher, you owe the difference. The practical advice: find a cooperating factory with a published low AD rate, and build your model around the deposit rate. If a refund comes, treat it as a bonus.</p>
@@ -357,6 +378,7 @@
                     <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
                     <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
                     <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+                    <li><a href="/section-232-tariffs-guide">Section 232 Metals</a></li>
                     <li><a href="/trade-terms-glossary">Trade Terms Glossary</a></li>
                     <li><a href="/incoterms-guide">Incoterms Explained</a></li>
                     <li><a href="/uflpa-forced-labor-compliance">UFLPA Compliance Guide</a></li>

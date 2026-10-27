@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
     <title>Electronics Import Duty</title>
-    <meta name="description" content="How duty on imported electronics actually works — HTS 85/84/90 rates, why phones clear at 0% but PCBs hit 25%, FCC and lithium-battery rules, and duty…">
+    <meta name="description" content="How duty on imported electronics works — HTS 85/84/90 rates, why a phone pays 12.5% and a PCB 37.5%, FCC and lithium-battery rules, and duty by origin.">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
     <link rel="canonical" href="https://www.dutycalc.online/electronics-import-duty">
@@ -28,7 +28,7 @@
           "name": "What import duty do I pay on consumer electronics from China?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It depends on the HTS code. Phones, laptops, and most consumer IT hardware enter duty-free under WTO ITA agreements (0% MFN). Accessories, peripherals, and non-ITA goods average 2.5% MFN. Add Section 301 tariffs: List 1 at 25% applies to many electronics subheadings, while List 4A at 7.5% covers others. A PCB (bare board) can hit 25%+ through Section 301, while a finished smartphone clears at 0% — same 'electronics' category, a 25-point difference. Always check the 10-digit HTS before quoting."
+            "text": "It depends on the HTS code. Phones, laptops, and most consumer IT hardware enter duty-free under WTO ITA agreements (0% MFN). Accessories, peripherals, and non-ITA goods average 2.5% MFN. Add Section 301 tariffs: List 1 at 25% applies to many electronics subheadings, while List 4A at 7.5% covers others. A PCB (bare board) can reach 37.5% for China origin through Section 301 plus the 12.5% forced-labour layer, while the same-origin finished smartphone pays 12.5% — same 'electronics' category, a 25-point difference. Korea and Japan are floored at 12.5% and Taiwan at 10% by that same action, so no origin clears at zero any more. Always check the 10-digit HTS before quoting."
           }
         },
         {
@@ -36,7 +36,7 @@
           "name": "Why do cellphones and laptops have zero import duty?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "They're covered by the WTO Information Technology Agreement (ITA), a 1996 multilateral treaty that eliminated tariffs on defined IT products. The US, EU, China, Japan, and 80+ other countries are signatories. The ITA covers semiconductors, computers, telecommunications equipment, and certain electronic components. But coverage is product-by-product — a tablet may be ITA-covered while its charger is not. Section 301 tariffs can still apply to Chinese-origin ITA goods, so 'MFN 0%' doesn't mean 'total 0%.' Always check for Section 301 Chapter 99 subheadings on your specific HTS code."
+            "text": "They're covered by the WTO Information Technology Agreement (ITA), a 1996 multilateral treaty that eliminated tariffs on defined IT products. The US, EU, China, Japan, and 80+ other countries are signatories. The ITA covers semiconductors, computers, telecommunications equipment, and certain electronic components. But coverage is product-by-product — a tablet may be ITA-covered while its charger is not. Section 301 tariffs can still apply to Chinese-origin ITA goods, and since 24 July 2026 the forced-labour Section 301 action floors the total duty at 12.5% for Korea and Japan and at 10% for Taiwan and the EU — so 'MFN 0%' never means 'total 0%' now. Always check for Section 301 Chapter 99 subheadings on your specific HTS code."
           }
         },
         {
@@ -157,15 +157,18 @@
             <p>A lithium-ion pack (8507.60) is its own HTS line, separate from the speaker or laptop it powers. That matters because batteries draw both a duty question <em>and</em> a shipping question — and the shipping question will stop your shipment long before customs ever sees it. See the lithium section below.</p>
 
             <h2>Duty by origin country — same product, different bill</h2>
-            <p>Because Section 301 applies only to Chinese-origin goods, the country your electronics ship from can change the effective rate by 7.5 to 25 points. This is the single biggest lever most importers overlook.</p>
+            <p>Origin used to be simple arithmetic: Section 301 reached Chinese goods and everything else paid MFN. That ended on 24 July 2026, when USTR's forced-labour Section 301 action put a second surcharge on roughly 60 economies. Korean and Japanese electronics no longer clear at zero, and the gap between a Shenzhen board and a Kaohsiung board is thinner than most sourcing models assume.</p>
+            <p>The layer comes in two shapes. <strong>Additive</strong> means the percentage is added to the MFN rate: China, Vietnam and Thailand at +12.5%, India, Malaysia, Mexico and the UK at +10%. <strong>Fill-to</strong> means the total is floored at a number: Korea, Japan and Switzerland at 12.5%, Taiwan and the EU at 10%. On a zero-rated ITA product the two shapes converge — a Vietnamese and a Korean laptop both land at 12.5% — so quote the tier, not the adjective.</p>
             <ul class="content-list">
-                <li><strong>From China:</strong> 0–3.5% MFN on most finished goods, <em>plus</em> Section 301 of 7.5–25% on codes without an active exclusion. Consumer devices (phones, laptops, tablets, consoles) have active exclusions in mid-2026, so you often pay just the base rate — but PCBs and network gear are a different story. Estimate it on the <a href="/china-to-us-electronics">China → US Electronics</a> calculator.</li>
-                <li><strong>From Korea:</strong> Most electronics enter the US at 0% under KORUS. No Section 301. A structural advantage for Korean brands. Run it on the <a href="/korea-to-us-electronics">Korea → US Electronics</a> calculator.</li>
-                <li><strong>From Japan:</strong> ~1.5% average MFN, no Section 301. See how auto electronics compare on the <a href="/japan-to-us-auto-parts">Japan → US Auto Parts</a> page.</li>
-                <li><strong>From the UK:</strong> Post-Brexit, UK-origin goods get preferential rates under the US–UK trade agreement, but the UK itself is a smaller electronics exporter to the US. The <a href="/china-to-uk-electronics">China → UK Electronics</a> page flips the direction and shows the UK import side (where VAT, not duty, is the bigger line).</li>
+                <li><strong>From China:</strong> 0–3.5% MFN on most finished goods, <em>plus</em> the China Section 301 list of 7.5–25% where the code appears on it, <em>plus</em> the 12.5% forced-labour layer on top of both. Consumer devices (phones, laptops, tablets, consoles) hold active China-list exclusions in mid-2026, so the list line can be zero — the forced-labour 12.5% is not something an exclusion removes. Estimate it on the <a href="/china-to-us-electronics">China → US Electronics</a> calculator.</li>
+                <li><strong>From Korea:</strong> KORUS takes most electronics to 0% MFN, and the forced-labour action then fills the total to <strong>12.5%</strong>, so a zero-MFN phone still pays duty from the first dollar. Claim the "KR" SPI regardless: it keeps the MFN line at zero and the layer is computed on the same value either way. Run it on the <a href="/korea-to-us-electronics">Korea → US Electronics</a> calculator.</li>
+                <li><strong>From Japan:</strong> ~1.5% average MFN and the same 12.5% fill-to floor as Korea. Auto electronics sit in a different stack — Section 232 on autos and parts does not combine with the forced-labour layer — see the <a href="/japan-to-us-auto-parts">Japan → US Auto Parts</a> page.</li>
+                <li><strong>From Taiwan or the EU:</strong> the fill-to tier is 10%, a step below Korea and Japan. A zero-rated ITA board from Taiwan pays 10%, not 12.5%. Two and a half points across a container of boards is usually worth more than the freight negotiation.</li>
+                <li><strong>From Vietnam or Thailand:</strong> additive +12.5% on top of MFN — the same layer as China, minus the China list. That is where the real sourcing difference now sits, not in the layer itself.</li>
+                <li><strong>From the UK:</strong> there is no US–UK free trade agreement in force, so UK-origin electronics pay MFN plus the additive 10% tier. The <a href="/china-to-uk-electronics">China → UK Electronics</a> page flips the direction and shows the UK import side, where VAT, not duty, is the bigger line.</li>
                 <li><strong>Intra-EU and EU→UK:</strong> If you're moving electronics <em>into</em> the UK or between EU and UK, duty is often low but VAT is the real cost. The <a href="/import-vat-guide">Import VAT Guide</a> and <a href="/eu-to-uk-tca-origin-rules">EU–UK TCA origin rules</a> explain how to keep the preference.</li>
             </ul>
-            <p>One nuance worth flagging: "origin" means where the product was <em>substantially transformed</em>, not where it shipped from. A board fabricated in Taiwan, stuffed in China, and boxed in Vietnam is a classification question in its own right — and it can be the difference between owing Section 301 or not. Don't take the "Made in" line on the carton as gospel.</p>
+            <p>One nuance worth flagging: "origin" means where the product was <em>substantially transformed</em>, not where it shipped from. A board fabricated in Taiwan, stuffed in China, and boxed in Vietnam is a classification question in its own right — and since all three now sit in the action, the origin test decides <em>which tier</em> you pay rather than whether you pay. Don't take the "Made in" line on the carton as gospel.</p>
 
             <h2>Compliance that isn't duty — but will stop the shipment anyway</h2>
             <p>Duty is the easy part. These are the rules that actually delay electronics at the border, and none of them show up in a duty calculator.</p>
@@ -202,16 +205,16 @@
             <h2>Frequently asked questions</h2>
 
             <h3>What's the real duty rate on imported electronics?</h3>
-            <p>There isn't one. Finished phones and laptops are typically 0% under the ITA; audio and accessories run 0–3.5%; bare PCBs and networking gear can hit 25% for China origin once Section 301 is added. The rate is set by your 10-digit HTS code, not by the word "electronics." Check the code before you trust any single percentage.</p>
+            <p>There isn't one. Finished phones and laptops are typically 0% under the ITA, audio and accessories run 0–3.5%, and bare PCBs and networking gear can reach 25–37.5% for China origin once Section 301 is added. Then the forced-labour layer applies to whatever the total is: +12.5% for China, Vietnam or Thailand, a 12.5% floor for Korea and Japan, a 10% floor for Taiwan and the EU. The rate is set by your 10-digit HTS code and your origin tier, not by the word "electronics." Check both before you trust any single percentage.</p>
 
-            <h3>Why does a phone pay 0% but a circuit board pay 25%?</h3>
-            <p>Because of which agreement covers which product. Phones and laptops are ITA products with bound zero tariffs; bare PCBs aren't ITA products and, for China origin, landed on Section 301 List 1 at 25%. The ITA zeroes the <em>base</em> rate but does nothing about Section 301. The net effect is a finished device that's free and the part inside it that's heavily taxed.</p>
+            <h3>Why does a phone pay 12.5% but a circuit board pay 37.5%?</h3>
+            <p>Because of which agreement covers which product. Phones and laptops are ITA products with bound zero tariffs; bare PCBs aren't ITA products and, for China origin, landed on Section 301 List 1 at 25%. The ITA zeroes the <em>base</em> rate but does nothing about Section 301 — and nothing about the 12.5% forced-labour layer either, which is why a zero-rated phone still pays 12.5% and a Chinese board lands at 37.5%. The part inside the device is taxed more than twice as heavily as the finished device.</p>
 
             <h3>Do I need FCC certification to import electronics?</h3>
             <p>Only if the device transmits or emits RF — Wi-Fi, Bluetooth, cellular. Those need FCC equipment authorization (Certification for intentional radiators, SDoC for unintentional). Non-RF products like a basic power adapter or a wired keyboard don't. But "no FCC" doesn't mean "no rules": lithium batteries, Prop 65, and retailer UL requirements still apply.</p>
 
             <h3>Does shipping from Korea or Japan avoid the China tariffs?</h3>
-            <p>Yes, on Section 301 specifically — that surcharge applies only to Chinese-origin goods. Korean electronics enter at 0% under KORUS; Japanese at roughly 1.5% MFN with no Section 301. But "origin" means substantial transformation, not the last port of load, so a product merely transshipped through a third country doesn't shed the China tariff. Confirm the transformation point, not just the shipping label.</p>
+            <p>Only the China-specific part. Korean and Japanese goods are outside the China Section 301 lists, so that 7.5–25% surcharge does not apply. But both countries sit in the forced-labour action's fill-to-12.5 tier: KORUS takes Korean electronics to 0% MFN, and the layer then floors the total at 12.5%. Japan is the same, from a ~1.5% MFN base. So the saving versus China is real but bounded — and "origin" still means substantial transformation, not the last port of load.</p>
 
             <h3>Is the de minimis still a thing for electronics?</h3>
             <p>No. Section 321 was suspended on 29 August 2025 for every origin, so there is no sub-$800 duty-free lane
@@ -266,6 +269,7 @@
                     <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
                     <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
                     <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+                    <li><a href="/section-232-tariffs-guide">Section 232 Metals</a></li>
                     <li><a href="/trade-terms-glossary">Trade Terms Glossary</a></li>
                     <li><a href="/incoterms-guide">Incoterms Explained</a></li>
                     <li><a href="/uflpa-forced-labor-compliance">UFLPA Compliance Guide</a></li>
