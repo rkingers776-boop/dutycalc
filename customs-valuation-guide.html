@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://cloud.umami.is; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://formsubmit.co https://cloudflareinsights.com https://cloud.umami.is https://gateway.umami.is; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co;">
     <title>Customs Value: What Counts, What Doesn't (2026 Guide)</title>
     <meta name="description" content="US duty is a percentage of a number nobody explains. What CBP adds, what it strips out, and how first sale still cuts the base legally.">
     <link rel="canonical" href="https://www.dutycalc.online/customs-valuation-guide">
@@ -15,8 +15,9 @@
     <meta name="twitter:title" content="Customs Value: What Counts, What Doesn't">
     <meta name="twitter:description" content="Assists, royalties, buying commissions, freight and the FOB/CIF fork. How the number your duty is multiplied against actually gets built.">
     <link rel="manifest" href="/manifest.json">
+    <meta name="dc-analytics" content="">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=338eca8">
+    <link rel="stylesheet" href="style.css?v=9c4ea23">
 <meta property="og:image" content="https://www.dutycalc.online/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -683,6 +684,13 @@
         <h3>Are royalties always dutiable?</h3>
         <p>No. A royalty enters customs value only when it relates to the imported merchandise and the buyer must pay it as a condition of the sale for export to the United States. A trademark royalty paid for the right to sell the goods in the United States after importation is generally not dutiable, while the same payment bundled into the price of the goods is. Because the answer turns on the specific agreement, importers with complex licence arrangements request a binding ruling from CBP before filing.</p>
 
+            <div class="dc-sources">
+                <p class="sources-title">Primary sources</p>
+                <ul>
+                    <li><a href="https://www.law.cornell.edu/uscode/text/19/1401a" target="_blank" rel="noopener noreferrer">19 U.S.C. § 1401a — transaction value</a></li>
+                    <li><a href="https://www.cbp.gov/trade/rulings" target="_blank" rel="noopener noreferrer">CBP ruling database</a></li>
+                </ul>
+            </div>
     </main>
 
         <footer class="site-footer">
@@ -753,6 +761,8 @@
         </div>
     </footer>
 
-    <script src="sw-register.js?v=338eca8"></script>
+    <script src="sw-register.js?v=9c4ea23"></script>
+    <script src="analytics.js?v=9c4ea23" defer></script>
+    <script src="next-step.js?v=9c4ea23" defer></script>
 </body>
 </html>

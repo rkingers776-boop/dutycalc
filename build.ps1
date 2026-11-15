@@ -60,7 +60,7 @@ if (-not $Version) {
     }
     else {
         # Default: combined SHA256 of the shipped assets — changes when ANY changes
-        $assets = @('style.css', 'main.js', 'rate-data.js', 'sw-register.js')
+        $assets = @('style.css', 'main.js', 'rate-data.js', 'sw-register.js', 'analytics.js', 'next-step.js')
         $concat = ''
         foreach ($asset in $assets) {
             $path = Join-Path $scriptDir $asset
@@ -109,7 +109,7 @@ if ($count -eq 0) {
 # rate-updates.html carries a maintenance comment naming that source file — so
 # the stamp landed inside a sentence and corrupted the prose. Only real asset
 # references may be rewritten.
-$assetPattern = '(?<=src="|href="|src=''|href='')(style\.css|main\.js|rate-data\.js|sw-register\.js)(\?v=[^"\s<>'']+)?'
+$assetPattern = '(?<=src="|href="|src=''|href='')(style\.css|main\.js|rate-data\.js|sw-register\.js|analytics\.js|next-step\.js)(\?v=[^"\s<>'']+)?'
 $evaluator = [System.Text.RegularExpressions.MatchEvaluator] {
     param($m)
     "$($m.Groups[1].Value)?v=$Version"
@@ -169,7 +169,7 @@ foreach ($file in $htmlFiles) {
     }
     # A tag with no query string is invisible to the cache-busting above and will
     # be served cache-first by sw.js forever — treat it as a build failure.
-    $bareCount += [regex]::Matches($txt, '(?:src|href)="(?:style\.css|main\.js|rate-data\.js|sw-register\.js)"').Count
+    $bareCount += [regex]::Matches($txt, '(?:src|href)="(?:style\.css|main\.js|rate-data\.js|sw-register\.js|analytics\.js|next-step\.js)"').Count
 }
 
 Write-Host ""

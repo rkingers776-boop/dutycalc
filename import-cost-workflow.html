@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://cloud.umami.is; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://formsubmit.co https://cloudflareinsights.com https://cloud.umami.is https://gateway.umami.is; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co;">
     <title>How to Calculate Import Costs</title>
     <meta name="description" content="Stop budgeting off your supplier's invoice. Here's how to calculate the actual landed cost of an import shipment — HS classification, tariff rate…">
     <meta property="og:title" content="How to Calculate Import Costs — The Complete 4-Step Workflow (with Real Numbers)">
@@ -15,8 +15,9 @@
     <meta name="twitter:description" content="Stop budgeting off your supplier's invoice. Here's how to calculate the actual landed cost of an import shipment — HS classification, tariff rate…">
     <link rel="canonical" href="https://www.dutycalc.online/import-cost-workflow">
     <link rel="manifest" href="/manifest.json">
+    <meta name="dc-analytics" content="">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=338eca8">
+    <link rel="stylesheet" href="style.css?v=9c4ea23">
     <style>
         .article-body { margin: 0 auto; }
         .article-lede { font-size: 1.15rem; color: var(--text-primary); line-height: 1.75; margin: 0 0 36px; font-weight: 500; border-left: 3px solid var(--offshore-green); padding-left: 24px; }
@@ -888,7 +889,9 @@
         </div>
     </footer>
 
-    <script src="main.js?v=338eca8"></script>
-    <script src="sw-register.js?v=338eca8"></script>
+    <script src="main.js?v=9c4ea23"></script>
+    <script src="sw-register.js?v=9c4ea23"></script>
+    <script src="analytics.js?v=9c4ea23" defer></script>
+    <script src="next-step.js?v=9c4ea23" defer></script>
 </body>
 </html>

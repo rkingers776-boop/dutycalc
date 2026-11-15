@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://cloud.umami.is; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://formsubmit.co https://cloudflareinsights.com https://cloud.umami.is https://gateway.umami.is; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co;">
     <title>Section 321 De Minimis Is Suspended — What You Pay Now</title>
     <meta name="description" content="The $800 US de minimis exemption was suspended on 29 August 2025 for all origins. What replaced it, and what duty now applies from the first dollar.">
     <link rel="canonical" href="https://www.dutycalc.online/section-321-de-minimis-reform-2026">
@@ -15,8 +15,9 @@
     <meta name="twitter:title" content="Section 321 De Minimis Suspended: What You Pay on Imports Now">
     <meta name="twitter:description" content="The $800 exemption ended on 29 August 2025 for every origin, and the EU replaced its €150 line with a flat €3 per item on 1 July 2026. What it costs per shipment, and what still has a threshold.">
     <link rel="manifest" href="/manifest.json">
+    <meta name="dc-analytics" content="">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=338eca8">
+    <link rel="stylesheet" href="style.css?v=9c4ea23">
 
     <!-- Structured Data: Article + FAQ + Breadcrumb -->
     <script type="application/ld+json">
@@ -321,6 +322,12 @@
 
         <div class="trade-tip"><span class="tip-label">Back to all calculators</span><br><a href="/corridors">Browse every corridor</a> &nbsp;·&nbsp; <a href="/de-minimis-value-guide">Global threshold guide</a> &nbsp;·&nbsp; <a href="/section-301-china-tariffs-guide">Section 301 guide</a></div>
 
+            <div class="dc-sources">
+                <p class="sources-title">Primary sources</p>
+                <ul>
+                    <li><a href="https://www.cbp.gov/trade/basic-import-export" target="_blank" rel="noopener noreferrer">CBP — importing into the United States</a></li>
+                </ul>
+            </div>
     </main>
 
     <!-- Semantic Footer -->
@@ -391,7 +398,9 @@
             <p class="footer-github"><a href="https://github.com/rkingers776-boop/dutycalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">&#128194; View on GitHub</a></p>
         </div>
     </footer>
-    <script src="main.js?v=338eca8"></script>
-    <script src="sw-register.js?v=338eca8"></script>
+    <script src="main.js?v=9c4ea23"></script>
+    <script src="sw-register.js?v=9c4ea23"></script>
+    <script src="analytics.js?v=9c4ea23" defer></script>
+    <script src="next-step.js?v=9c4ea23" defer></script>
 </body>
 </html>

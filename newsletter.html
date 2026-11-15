@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://cloud.umami.is; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://formsubmit.co https://cloudflareinsights.com https://cloud.umami.is https://gateway.umami.is; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co;">
     <title>Weekly Tariff Briefing</title>
     <meta name="description" content="Free weekly email briefing on tariff changes, policy alerts, and landed cost implications for international trade corridors. Curated by DutyCalc Online.">
     <meta property="og:title" content="Weekly Tariff Briefing — Stay Ahead of Customs Duty Changes | DutyCalc Online">
@@ -14,9 +14,10 @@
     <meta name="twitter:title" content="Weekly Tariff Briefing — Stay Ahead of Customs Duty Changes | DutyCalc Online">
     <meta name="twitter:description" content="Free weekly email briefing on tariff changes, policy alerts, and landed cost implications for international trade corridors. Curated by DutyCalc Online.">
     <link rel="manifest" href="/manifest.json">
+    <meta name="dc-analytics" content="">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
     <link rel="canonical" href="https://www.dutycalc.online/newsletter">
-    <link rel="stylesheet" href="style.css?v=338eca8">
+    <link rel="stylesheet" href="style.css?v=9c4ea23">
 <meta property="og:image" content="https://www.dutycalc.online/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -103,13 +104,20 @@
                 <p>No paywall, no upsell, no spam. We built DutyCalc because trade math shouldn't be locked behind software subscriptions. The briefing is the same idea — useful intelligence, delivered clean. If we ever build a paid product, you'll hear about it from the briefing first, but the briefing itself stays free.</p>
 
                 <div class="newsletter-embed" style="margin: 25px 0;">
-                    <h3>Subscribe — First Issue Coming Soon</h3>
-                    <p>We're wiring up delivery. Leave your email and we'll notify you the moment the weekly briefing goes live.</p>
-                    <form id="newsletter-form" class="newsletter-form" action="#" method="post">
-                        <input type="email" placeholder="Your email address" required aria-label="Email for weekly tariff briefing">
+                    <h3>Know when a rate on this site changes</h3>
+                    <p>One email when a duty rate, de minimis threshold or valuation rule here changes. Not a marketing list — if nothing changes, you hear nothing. Unsubscribe in one click.</p>
+                    <form id="newsletter-form" class="newsletter-form" method="post"
+                          action="https://formsubmit.co/admin@dutycalc.online"
+                          data-subscribe-form="1" data-surface="newsletter"
+                          data-endpoint="https://formsubmit.co/ajax/admin@dutycalc.online">
+                        <input type="email" name="email" placeholder="Your email address" required aria-label="Email for tariff change alerts">
+                        <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+                        <input type="hidden" name="_subject" value="DutyCalc - new rate-change subscriber">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
                         <button type="submit">Notify Me</button>
                     </form>
-                    <div id="newsletter-confirm" class="newsletter-confirm">✓ Thanks — your interest is saved. We'll email you when the briefing launches.</div>
+                    <div id="newsletter-confirm" class="newsletter-confirm subscribe-status" role="status" aria-live="polite"></div>
                 </div>
 
                 <h3>Past Briefings</h3>
@@ -190,31 +198,9 @@
         </div>
     </footer>
 
-    <script src="main.js?v=338eca8"></script>
-    <script>
-        // Lightweight newsletter handler (standalone, no external JS dependency)
-        document.addEventListener('DOMContentLoaded', function() {
-            var form = document.getElementById('newsletter-form');
-            if (!form) return;
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                var email = form.querySelector('input[type="email"]');
-                var confirmEl = document.getElementById('newsletter-confirm');
-                if (email && email.value && confirmEl) {
-                    try {
-                        var subs = JSON.parse(localStorage.getItem('dc_newsletter_subs') || '[]');
-                        if (subs.indexOf(email.value) === -1) {
-                            subs.push(email.value);
-                            localStorage.setItem('dc_newsletter_subs', JSON.stringify(subs));
-                        }
-                    } catch (ignore) {}
-                    email.value = '';
-                    confirmEl.style.display = 'block';
-                    setTimeout(function() { confirmEl.style.display = 'none'; }, 8000);
-                }
-            });
-        });
-    </script>
-    <script src="sw-register.js?v=338eca8"></script>
+    <script src="main.js?v=9c4ea23"></script>
+    <script src="sw-register.js?v=9c4ea23"></script>
+    <script src="analytics.js?v=9c4ea23" defer></script>
+    <script src="next-step.js?v=9c4ea23" defer></script>
 </body>
 </html>

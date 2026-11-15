@@ -25,7 +25,7 @@
 // Changing one of these without checking the destination's valuation rule will
 // silently misprice every result on that corridor.
 
-var MPF_RATES = { rate: 0.003464, min: 31.67, max: 614.35 };  // US Merchandise Processing Fee, 2026 (single source of truth)
+var MPF_RATES = { rate: 0.003464, min: 34.58, max: 670.86 };  // US Merchandise Processing Fee, FY2027 (CBP Dec. 26-14; effective 2026-10-01)
 
 // ADDITIONAL FIELD REFERENCE (added 2026-10-16)
 //   deMinimisStatus    'active' (default) | 'suspended' | 'abolished' | 'conditional'

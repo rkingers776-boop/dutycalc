@@ -244,7 +244,7 @@
 
         var mpfSpan = legacyFirst(root, ['#result-mpf', '#mpfResult']);
         if (mpfSpan) {
-            var mpfCfg = window.MPF_RATES || { rate: 0.003464, min: 31.67, max: 614.35 };
+            var mpfCfg = window.MPF_RATES || { rate: 0.003464, min: 34.58, max: 670.86 };
             var mpf = valueBase > deMinimis ? Math.min(mpfCfg.max, Math.max(mpfCfg.min, valueBase * mpfCfg.rate)) : 0;
             fill(mpfSpan, mpf);
         }
@@ -416,31 +416,94 @@
     }
 
     // ── NEWSLETTER HANDLER ────────────────────────────────
-    function initNewsletter() {
-        var form = document.getElementById('newsletter-form');
-        if (!form) return;
+    // ── SUBSCRIBE FORMS (newsletter page + calculator result CTAs) ──
+    // The old handler wrote the address into localStorage and showed a tick. That
+    // meant no subscriber list ever existed: the data never left the browser. It
+    // looked like it worked, which is worse than being visibly broken.
+    //
+    // Delivery now goes through FormSubmit to admin@dutycalc.online. No account,
+    // no SDK, no server. data-endpoint carries the AJAX URL; the form's own
+    // action attribute is a plain POST to the same service, used when fetch is
+    // blocked (offline, extension, proxy) so the address is never silently lost.
+    var SUBSCRIBE_FALLBACK = 'https://formsubmit.co/ajax/admin@dutycalc.online';
 
-        form.addEventListener('submit', function(e) {
+    function initNewsletter() {
+        var forms = document.querySelectorAll('[data-subscribe-form]');
+        for (var i = 0; i < forms.length; i++) bindSubscribe(forms[i]);
+    }
+
+    function bindSubscribe(form) {
+        if (form.getAttribute('data-bound') === '1') return;
+        form.setAttribute('data-bound', '1');
+
+        var input   = form.querySelector('input[type="email"]');
+        var button  = form.querySelector('button[type="submit"]');
+        var surface = form.getAttribute('data-surface') || 'unknown';
+        var status  = form.parentNode ? form.parentNode.querySelector('.subscribe-status') : null;
+        var settled = false;
+
+        if (!input || !button) return;
+
+        function say(msg, kind) {
+            if (!status) return;
+            status.textContent = msg;
+            // Keep any page-authored class (newsletter-confirm carries the base
+            // styling); only the state class is swapped.
+            status.classList.remove('ok', 'pending', 'error');
+            status.classList.add(kind || 'ok');
+            status.style.display = 'block';
+        }
+
+        form.addEventListener('submit', function (e) {
+            var email = (input.value || '').trim();
+            if (!email || email.indexOf('@') < 1) return;
+
+            // Honeypot: a bot that fills the hidden field never reaches the network.
+            var trap = form.querySelector('input[name="_honey"]');
+            if (trap && trap.value) { e.preventDefault(); return; }
+
             e.preventDefault();
-            var emailInput = form.querySelector('input[type="email"]');
-            var confirmEl = document.getElementById('newsletter-confirm');
-            if (emailInput && emailInput.value && confirmEl) {
-                // Client-side only — stores email intent locally.
-                // Delivery service (ConvertKit / Mailchimp / Buttondown) is wired up
-                // before launch; the UI now states the briefing is coming soon.
-                try {
-                    var subs = JSON.parse(localStorage.getItem('dc_newsletter_subs') || '[]');
-                    if (subs.indexOf(emailInput.value) === -1) {
-                        subs.push(emailInput.value);
-                        localStorage.setItem('dc_newsletter_subs', JSON.stringify(subs));
-                    }
-                } catch (ignore) {}
-                emailInput.value = '';
-                confirmEl.style.display = 'block';
-                setTimeout(function() {
-                    confirmEl.style.display = 'none';
-                }, 6000);
+            var endpoint = form.getAttribute('data-endpoint') || SUBSCRIBE_FALLBACK;
+            var label = button.textContent;
+
+            button.disabled = true;
+            button.textContent = 'Sending...';
+            say('Sending...', 'pending');
+            if (window.dcTrack) window.dcTrack('subscribe_submit', { surface: surface });
+
+            function restore() {
+                button.disabled = false;
+                button.textContent = label;
             }
+
+            fetch(endpoint, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    email: email,
+                    _subject: 'DutyCalc - new rate-change subscriber',
+                    _template: 'table'
+                })
+            })
+            .then(function (r) { return r.json().catch(function () { return {}; }); })
+            .then(function (data) {
+                var ok = data && (data.success === 'true' || data.success === true);
+                if (!ok) throw new Error('rejected');
+                settled = true;
+                form.style.display = 'none';
+                say('You are on the list. One email when a rate here changes.', 'ok');
+                if (window.dcTrack) window.dcTrack('subscribe_success', { surface: surface });
+            })
+            .catch(function () {
+                // Do not drop the address. Fall back to the native POST, which the
+                // CSP permits via form-action. Calling submit() on the prototype
+                // does not re-fire this handler, so there is no loop.
+                if (settled) return;
+                if (window.dcTrack) window.dcTrack('subscribe_fail', { surface: surface, mode: 'native' });
+                restore();
+                say('Finishing on the next screen...', 'pending');
+                HTMLFormElement.prototype.submit.call(form);
+            });
         });
     }
 

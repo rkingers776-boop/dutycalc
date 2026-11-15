@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://cloud.umami.is; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://formsubmit.co https://cloudflareinsights.com https://cloud.umami.is https://gateway.umami.is; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co;">
     <title>About DutyCalc</title>
     <meta name="description" content="DutyCalc is a free, browser-based suite of customs duty and landed cost calculators maintained by cross-border logistics practitioners.">
     <link rel="canonical" href="https://www.dutycalc.online/about">
@@ -15,8 +15,9 @@
     <meta name="twitter:title" content="About DutyCalc — Who's Behind It, How Rates Are Verified">
     <meta name="twitter:description" content="Free customs duty and landed cost calculators. Primary-source rates, published verification schedule, public change log.">
     <link rel="manifest" href="/manifest.json">
+    <meta name="dc-analytics" content="">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=338eca8">
+    <link rel="stylesheet" href="style.css?v=9c4ea23">
 
     <script type="application/ld+json">
     {
@@ -226,7 +227,9 @@
             <p class="footer-github"><a href="https://github.com/rkingers776-boop/dutycalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">&#128194; View on GitHub</a></p>
         </div>
     </footer>
-    <script src="main.js?v=338eca8"></script>
-    <script src="sw-register.js?v=338eca8"></script>
+    <script src="main.js?v=9c4ea23"></script>
+    <script src="sw-register.js?v=9c4ea23"></script>
+    <script src="analytics.js?v=9c4ea23" defer></script>
+    <script src="next-step.js?v=9c4ea23" defer></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://cloud.umami.is; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://formsubmit.co https://cloudflareinsights.com https://cloud.umami.is https://gateway.umami.is; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co;">
     <title>Section 232 Tariffs: Why the Metal Taxes Your Whole Invoice</title>
     <meta name="description" content="Since 6 April 2026 Section 232 taxes the full customs value, not the metal content. The 15% scope test, the tier ladder, and how to tell if you are caught.">
     <link rel="canonical" href="https://www.dutycalc.online/section-232-tariffs-guide">
@@ -15,8 +15,9 @@
     <meta name="twitter:title" content="Section 232 Tariffs: Why the Metal Taxes Your Whole Invoice">
     <meta name="twitter:description" content="The metal content test, the 15% cliff, and the four relief routes that still work after the exclusion process closed.">
     <link rel="manifest" href="/manifest.json">
+    <meta name="dc-analytics" content="">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="style.css?v=338eca8">
+    <link rel="stylesheet" href="style.css?v=9c4ea23">
 <meta property="og:image" content="https://www.dutycalc.online/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -655,6 +656,13 @@
         <h3>Are USMCA-qualifying goods exempt from Section 232?</h3>
         <p>Not generally. The metals regime is a global product measure, so qualifying for USMCA does not remove a steel or aluminium duty. The automotive and truck programmes do contain USMCA carve-outs, but they turn on regional value content and where the vehicle or part was assembled, not on the certificate alone. Treat a USMCA claim as irrelevant to Section 232 metals unless the specific proclamation provides otherwise.</p>
 
+            <div class="dc-sources">
+                <p class="sources-title">Primary sources</p>
+                <ul>
+                    <li><a href="https://www.usitc.gov/" target="_blank" rel="noopener noreferrer">USITC — Section 232 investigations</a></li>
+                    <li><a href="https://www.trade.gov/" target="_blank" rel="noopener noreferrer">International Trade Administration</a></li>
+                </ul>
+            </div>
     </main>
 <footer class="site-footer">
         <div class="footer-grid">
@@ -723,6 +731,8 @@
             <p class="footer-github"><a href="https://github.com/rkingers776-boop/dutycalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">&#128194; View on GitHub</a></p>
         </div>
     </footer>
-    <script src="sw-register.js?v=338eca8"></script>
+    <script src="sw-register.js?v=9c4ea23"></script>
+    <script src="analytics.js?v=9c4ea23" defer></script>
+    <script src="next-step.js?v=9c4ea23" defer></script>
 </body>
 </html>

@@ -1183,3 +1183,81 @@ h3 { font-size: 1.1rem; line-height: 1.35; }
     .detector-currency-select { border-radius: 0 0 var(--radius-sharp) var(--radius-sharp); }
     .matrix-bento { padding-top: 56px; }
 }
+
+/* ── Subscribe plumbing (2026-11) ───────────────────────────────
+   The newsletter form used to be a localStorage stub. It now posts to a real
+   endpoint, so it needs states the stub never had — sending, rejected — plus
+   a honeypot that must exist in the DOM but stay invisible. */
+.hp-field { display: none !important; }
+
+.subscribe-status { margin-top: 10px; }
+.subscribe-status.ok {
+    display: block; padding: 12px 16px;
+    background: #F0FDF4; border: 1px solid var(--success);
+    border-radius: var(--radius-sharp); font-size: 0.85rem;
+    font-weight: 600; font-family: var(--font-data); color: #059669;
+}
+.subscribe-status.pending {
+    display: block; padding: 12px 16px;
+    background: var(--bg-surface); border: 1px solid var(--border-light);
+    border-radius: var(--radius-sharp); font-size: 0.85rem;
+    font-family: var(--font-data); color: var(--text-muted);
+}
+.subscribe-status.error {
+    display: block; padding: 12px 16px;
+    background: #FEF2F2; border: 1px solid #FCA5A5;
+    border-radius: var(--radius-sharp); font-size: 0.85rem;
+    font-weight: 600; font-family: var(--font-data); color: #B91C1C;
+}
+
+/* Result -> next step. Sits directly under the result panel, so it lands in
+   view the moment the number appears — the one place on the page where the
+   reader has already invested their own figures. */
+.dc-next-step {
+    margin: 24px 0 4px; padding: 18px 20px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-left: 3px solid var(--accent);
+}
+.dc-next-step .ns-title {
+    font-size: 0.95rem; font-weight: 700; color: var(--steel-black);
+    margin-bottom: 6px; line-height: 1.4;
+}
+.dc-next-step .ns-body {
+    font-size: 0.85rem; color: var(--text-muted);
+    margin-bottom: 12px; line-height: 1.55;
+}
+.dc-next-step .newsletter-form { margin: 0; max-width: 440px; }
+.dc-next-step .newsletter-form input[type="email"] { padding: 9px 12px; }
+.dc-next-step .newsletter-form button { padding: 9px 18px; }
+
+@media (max-width: 640px) {
+    .dc-next-step { padding: 16px; }
+    .dc-next-step .newsletter-form { flex-direction: column; max-width: 100%; }
+    .dc-next-step .newsletter-form button { width: 100%; }
+}
+
+/* Primary sources. Every legal claim points at the instrument it came from, so
+   a reader can check the arithmetic instead of trusting the page. This is also
+   the cheapest credibility signal a B2B trade site has. */
+.dc-sources {
+    margin: 32px 0 8px; padding: 18px 20px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-light);
+}
+.dc-sources .sources-title {
+    font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.05em; color: var(--text-muted);
+    margin-bottom: 10px;
+}
+.dc-sources ul { list-style: none; margin: 0; padding: 0; }
+.dc-sources li {
+    font-size: 0.85rem; padding: 6px 0; line-height: 1.5;
+    border-bottom: 1px dashed var(--border-light);
+}
+.dc-sources li:last-child { border-bottom: 0; }
+.dc-sources a {
+    color: var(--offshore-green); text-decoration: underline;
+    text-underline-offset: 2px; word-break: break-word;
+}
+.dc-sources a:hover { color: var(--accent); }
