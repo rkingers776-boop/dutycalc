@@ -421,15 +421,43 @@
     // meant no subscriber list ever existed: the data never left the browser. It
     // looked like it worked, which is worse than being visibly broken.
     //
-    // Delivery now goes through FormSubmit to admin@dutycalc.online. No account,
-    // no SDK, no server. data-endpoint carries the AJAX URL; the form's own
-    // action attribute is a plain POST to the same service, used when fetch is
-    // blocked (offline, extension, proxy) so the address is never silently lost.
-    var SUBSCRIBE_FALLBACK = 'https://formsubmit.co/ajax/admin@dutycalc.online';
+    // Delivery goes through /api/subscribe, not straight to a form provider.
+    // Two reasons. The deployed site carries a CSP response header this repo
+    // does not own (connect-src 'self', form-action 'self'), and the browser
+    // intersects it with the meta tag — so every cross-origin submit is blocked
+    // no matter what the meta tag allows. And the provider rate-limits the
+    // shared Cloudflare egress IP, which is not ours to fix. A same-origin route
+    // satisfies both policies, and the worker forwards server-side where CSP
+    // does not apply and the upstream is swappable.
+    // data-endpoint carries that URL for the fetch path; the form's own action
+    // attribute is the same path, used when fetch is blocked (offline,
+    // extension, proxy) so the address is never silently lost.
+    var SUBSCRIBE_FALLBACK = '/api/subscribe';
 
     function initNewsletter() {
         var forms = document.querySelectorAll('[data-subscribe-form]');
         for (var i = 0; i < forms.length; i++) bindSubscribe(forms[i]);
+
+        // A native form POST comes back as /newsletter?subscribe=ok|failed|invalid.
+        // Without this the reader lands on a page that looks untouched, which is
+        // exactly the failure mode this rewrite was meant to end.
+        var state = new URLSearchParams(location.search).get('subscribe');
+        if (!state) return;
+        var box = document.getElementById('newsletter-confirm');
+        if (!box) return;
+        var msg = state === 'ok'
+            ? 'You are on the list. One email when a rate here changes.'
+            : state === 'invalid'
+                ? 'That address did not look valid. Try again.'
+                : 'That did not go through. Email admin@dutycalc.online and we will add you by hand.';
+        box.textContent = msg;
+        box.classList.remove('ok', 'pending', 'error');
+        box.classList.add(state === 'ok' ? 'ok' : 'error');
+        box.style.display = 'block';
+        if (state === 'ok') {
+            var form = document.getElementById('newsletter-form');
+            if (form) form.style.display = 'none';
+        }
     }
 
     function bindSubscribe(form) {

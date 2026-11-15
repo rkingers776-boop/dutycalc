@@ -1209,6 +1209,7 @@ h3 { font-size: 1.1rem; line-height: 1.35; }
     border-radius: var(--radius-sharp); font-size: 0.85rem;
     font-weight: 600; font-family: var(--font-data); color: #B91C1C;
 }
+.subscribe-status:empty { display: none; margin-top: 0; }
 
 /* Result -> next step. Sits directly under the result panel, so it lands in
    view the moment the number appears — the one place on the page where the

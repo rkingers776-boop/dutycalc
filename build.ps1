@@ -225,6 +225,29 @@ else
 Write-Host "===========================================" -ForegroundColor Cyan
 Write-Host ""
 
+# ── GATE 5: every page's own JavaScript must parse ──────────────────────────
+# tariff-calculator.html shipped with an unescaped apostrophe inside a
+# single-quoted string. The page still rendered and the HTML still validated,
+# but the calculator silently stopped answering. On a site whose product is
+# the number, that is the worst shape a bug can take, so it now fails the build.
+$jsScript = Join-Path (Split-Path $PSScriptRoot -Parent) '.workbuddy\assert_inline_js.py'
+
+if ((Test-Path $jsScript) -and (Test-Path $pyExe)) {
+    Write-Host "  Inline JS syntax:" -ForegroundColor Cyan
+    & $pyExe $jsScript
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host ""
+        Write-Host "  BUILD FAILED - a page script does not parse (see above)." -ForegroundColor Red
+        Write-Host "===========================================" -ForegroundColor Cyan
+        exit 1
+    }
+}
+else
+{
+    Write-Host "  Inline JS check SKIPPED (python or script not found)" -ForegroundColor Yellow
+}
+
+
 if ($errors -gt 0 -or $bomCount -gt 0 -or $bareCount -gt 0) {
     exit 1
 }
