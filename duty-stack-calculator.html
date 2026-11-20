@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://cloud.umami.is; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://formsubmit.co https://cloudflareinsights.com https://cloud.umami.is https://gateway.umami.is; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co;">
+    <title>Duty Stack Calculator: MFN + 301 + 232 + AD/CVD</title>
+    <meta name="description" content="Add every US duty layer on one customs value: MFN, both Section 301 actions, Section 232 metals and AD/CVD, with the stacking rules shown.">
+    <link rel="canonical" href="https://www.dutycalc.online/duty-stack-calculator">
+    <meta property="og:title" content="Duty Stack Calculator: MFN + 301 + 232 + AD/CVD">
+    <meta property="og:description" content="Add every US duty layer on one customs value: MFN, both Section 301 actions, Section 232 metals and AD/CVD, with the stacking rules shown.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.dutycalc.online/duty-stack-calculator">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Duty Stack Calculator: MFN + 301 + 232 + AD/CVD">
+    <meta name="twitter:description" content="Four duties, one customs value. Add the MFN rate, both Section 301 actions, Section 232 and AD/CVD without compounding them.">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="dc-analytics" content="">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=f7f05fc">
+<meta property="og:image" content="https://www.dutycalc.online/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Duty Stack Calculator: MFN + 301 + 232 + AD/CVD","url":"https://www.dutycalc.online/duty-stack-calculator","description":"Sums the US duty layers that apply to one customs value: MFN, the Section 301 forced-labour action, the Section 301 China lists, Section 232 metals and AD/CVD.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"applicationCategory":"BusinessApplication","operatingSystem":"Any"}
+</script>
+    <style>
+        .ds-panel { background: var(--steel-dark); border: 1px solid #1E293B; border-left: 4px solid var(--offshore-green); border-radius: var(--radius-sharp); padding: 34px 40px; margin-bottom: 22px; }
+        .ds-panel h3 { color: var(--offshore-green); font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
+        .ds-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+        .ds-field { flex: 1; min-width: 160px; }
+        .ds-field.ds-wide { flex: 2; min-width: 260px; }
+        .ds-field label { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: rgba(255,255,255,0.6); margin-bottom: 6px; }
+        .ds-field input, .ds-field select { width: 100%; padding: 12px 14px; font-size: 0.95rem; font-weight: 500; color: #fff; background: #1a1f2e; border: 2px solid #1E293B; border-radius: var(--radius-sharp); outline: none; font-family: var(--font-data); }
+        .ds-field input:focus, .ds-field select:focus { border-color: var(--offshore-green); }
+        .ds-field select:disabled { opacity: 0.45; }
+        .ds-field .unit { font-size: 0.7rem; color: rgba(255,255,255,0.45); margin-top: 5px; line-height: 1.4; }
+        .ds-btn { display: inline-block; padding: 13px 30px; font-size: 0.9rem; font-weight: 600; color: #fff; background: var(--accent); border: none; border-radius: var(--radius-sharp); cursor: pointer; margin-top: 6px; }
+        .ds-btn:hover { background: #EA580C; }
+        .ds-results { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 24px; }
+        .ds-card { background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-sharp); padding: 16px 14px; text-align: center; }
+        .ds-card .lbl { font-size: 0.64rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; color: var(--text-muted); margin-bottom: 7px; line-height: 1.3; }
+        .ds-card .val { font-size: 1.28rem; font-weight: 800; color: var(--steel-black); }
+        .ds-card .sub { font-size: 0.7rem; color: var(--text-muted); margin-top: 5px; line-height: 1.35; }
+        .ds-card.highlight { border: 2px solid var(--offshore-green); background: #F0F9FF; }
+        .ds-table-wrap { margin-top: 22px; overflow-x: auto; background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-sharp); }
+        .ds-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+        .ds-table th { text-align: left; padding: 11px 14px; background: var(--bg-terminal); color: var(--steel-black); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid var(--border-light); }
+        .ds-table td { padding: 11px 14px; border-bottom: 1px solid var(--border-light); color: var(--text-secondary); vertical-align: top; }
+        .ds-table td:nth-child(2), .ds-table td:nth-child(3) { white-space: nowrap; font-family: var(--font-data); font-weight: 600; color: var(--steel-black); }
+        .ds-table tr.ds-dim td { color: #94A3B8; }
+        .ds-table tr.ds-dim td:nth-child(2), .ds-table tr.ds-dim td:nth-child(3) { color: #94A3B8; font-weight: 500; }
+        .ds-table tr.ds-total-row td { background: #F0F9FF; font-weight: 800; color: var(--steel-black); border-bottom: none; }
+        .ds-note { font-size: 0.82rem; color: var(--text-muted); margin-top: 14px; line-height: 1.6; }
+        @media (max-width: 768px) {
+            .ds-panel { padding: 22px 18px; }
+            .ds-results { grid-template-columns: repeat(2, 1fr); }
+            .ds-card .val { font-size: 1.1rem; }
+            .ds-table { font-size: 0.76rem; }
+            .ds-table th, .ds-table td { padding: 9px 8px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open main navigation">
+            <label for="nav-toggle" class="nav-toggle-btn" aria-hidden="true"><span></span><span></span><span></span></label>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/corridors">Corridors</a>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                        <a href="/customs-bond-calculator">Customs Bond</a>
+                        <a href="/sourcing-comparison">Sourcing Compare</a>
+                        <a href="/volume-weight-calculator">Volume Weight</a>
+                        <a href="/ddp-pricing-calculator">DDP Pricing</a>
+                        <a href="/container-loading-calculator">Container Loading</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Guides</span>
+                    <div class="nav-drop-menu">
+                        <a href="/trade-terms-glossary">Terms Glossary</a>
+                        <a href="/uflpa-forced-labor-compliance">UFLPA Guide</a>
+                        <a href="/anti-dumping-duties-guide">AD/CVD Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+
+        <header>
+            <h1>Duty Stack Calculator</h1>
+            <p>Four duties can land on the same shipment, and they all multiply the same number. A 2026 entry of Chinese furniture carries 8% MFN, 12.5% under the forced-labour action, and 25% if the line sits on List 3 &mdash; 45.5% before anyone mentions the metal tariffs. Most calculators stop at the MFN rate, which is why importers get brokerage invoices that do not match their spreadsheets. This one adds the layers in the right order, drops the ones that cancel, and shows the arithmetic line by line.</p>
+        </header>
+
+        <section class="ds-panel">
+            <h3>Shipment &amp; Applies-To</h3>
+            <div class="ds-row">
+                <div class="ds-field ds-wide">
+                    <label for="ds-corridor">Product corridor</label>
+                    <select id="ds-corridor" aria-label="Product corridor"></select>
+                    <div class="unit">MFN rate from the site's corridor database, re-verified per market</div>
+                </div>
+                <div class="ds-field">
+                    <label for="ds-value">Customs value</label>
+                    <input id="ds-value" type="number" value="40000" min="0" step="100" aria-label="Customs value in US dollars">
+                    <div class="unit">USD, transaction value</div>
+                </div>
+            </div>
+            <div class="ds-row">
+                <div class="ds-field">
+                    <label for="ds-list">Section 301 China list</label>
+                    <select id="ds-list" aria-label="Section 301 China list">
+                        <option value="0">Not on a list</option>
+                        <option value="7.5">List 4A &mdash; 7.5%</option>
+                        <option value="25">Lists 1&ndash;3 &mdash; 25%</option>
+                    </select>
+                    <div class="unit" id="ds-list-unit">goods of Chinese origin only</div>
+                </div>
+                <div class="ds-field">
+                    <label for="ds-232">Section 232 metals</label>
+                    <select id="ds-232" aria-label="Section 232 metals">
+                        <option value="none">No 232 duty</option>
+                        <option value="bulk">Bulk steel or aluminium &mdash; 50%</option>
+                        <option value="deriv">Derivative, metal content above 15% &mdash; 25%</option>
+                        <option value="out">Derivative, metal content 15% or less &mdash; 0%</option>
+                        <option value="melt">Made entirely of US-melted metal &mdash; 10%</option>
+                    </select>
+                    <div class="unit">the line decides, not the invoice description</div>
+                </div>
+                <div class="ds-field">
+                    <label for="ds-adcvd">AD/CVD rate</label>
+                    <input id="ds-adcvd" type="number" value="0" min="0" step="0.1" aria-label="AD/CVD rate in percent">
+                    <div class="unit">% &mdash; from the case order, 0 if none</div>
+                </div>
+            </div>
+            <button type="button" class="ds-btn" id="ds-calc">Stack the duties</button>
+            <div class="ds-results" id="ds-results" role="status" aria-live="polite">
+                <div class="ds-card"><div class="lbl">MFN Duty</div><div class="val" id="ds-mfn">—</div><div class="sub" id="ds-mfn-rate">—</div></div>
+                <div class="ds-card"><div class="lbl">Section 301 &mdash; Forced Labour</div><div class="val" id="ds-fl">—</div><div class="sub" id="ds-fl-rate">—</div></div>
+                <div class="ds-card"><div class="lbl">Section 301 &mdash; China List</div><div class="val" id="ds-list-amt">—</div><div class="sub" id="ds-list-rate">—</div></div>
+                <div class="ds-card"><div class="lbl">Section 232</div><div class="val" id="ds-232-amt">—</div><div class="sub" id="ds-232-rate">—</div></div>
+                <div class="ds-card"><div class="lbl">AD/CVD</div><div class="val" id="ds-adcvd-amt">—</div><div class="sub" id="ds-adcvd-rate">—</div></div>
+                <div class="ds-card highlight"><div class="lbl">Total Duty</div><div class="val" id="ds-total">—</div><div class="sub" id="ds-effective">—</div></div>
+            </div>
+            <div class="ds-table-wrap">
+                <table class="ds-table" id="ds-table">
+                    <thead>
+                        <tr><th>Layer</th><th>Rate</th><th>Amount</th><th>What governs it</th></tr>
+                    </thead>
+                    <tbody id="ds-tbody"></tbody>
+                </table>
+            </div>
+            <p class="ds-note" id="ds-note"></p>
+        </section>
+
+        <div>
+            <article class="seo-section">
+
+                <h2>Four duties, one customs value, no compounding</h2>
+                <p>The arithmetic that trips people up is simpler than the law behind it. Every ad valorem layer is assessed on the same customs value &mdash; the transaction value under 19 U.S.C. 1401a, which for US imports excludes international freight and insurance &mdash; and the layers are then added, not multiplied into each other. A product at 8% MFN with a 12.5% forced-labour duty and a 25% China list duty owes 45.5% of its value. Not 8% on the first pass, 12.5% on the total, then 25% on that: 8 + 12.5 + 25 = 45.5. On $40,000 that is $18,200 of duty, and the difference between the two methods is not small &mdash; compounding the same three rates would produce $21,975, a $3,775 overestimate that shows up when someone tries to reconcile the entry summary.</p>
+                <p>That is the whole reason this calculator exists. The <a href="/tariff-calculator">tariff lookup</a> answers what the HTS line says. The <a href="/us-import-duty-layers-guide">duty layers guide</a> explains how the stack was built. Neither does the sum for a specific shipment with a specific list assignment, which is the number an importer needs before they agree to a price.</p>
+
+                <h2>Where two layers cancel each other</h2>
+                <p>There are two places the stack is not a simple addition, and both are worth knowing because they move the number in opposite directions.</p>
+                <p>The first is the forced-labour action. USTR's 2026 action assigns each economy a tier &mdash; additive 12.5%, additive 10%, fill-to 10%, or fill-to 12.5% &mdash; and the tiers behave differently. For a country in an additive tier, the duty is a flat addition to whatever the MFN rate is: Chinese furniture at 8% becomes 20.5%. For a country in a fill-to tier, the duty brings the total <em>up to</em> the tier percentage and no further, so a German part at 2.5% MFN carries 7.5% and lands exactly on 10%, while a Korean part at 0% carries the full 12.5%. Two origins, same nominal tier language, very different outcomes. The <a href="/section-301-china-tariffs-guide">Section 301 guide</a> walks the tiers country by country.</p>
+                <p>The second is the interaction with Section 232. When a 232 duty applies to a line, the forced-labour 301 layer drops out &mdash; the two do not stack, by the terms of the action itself. That is why the calculator greys that row out and reduces the total when you switch 232 on. What does <em>not</em> drop out is the metal duty: MFN still applies underneath it, AD/CVD still applies on top, and if the line is also on a China 301 list, that duty generally survives &mdash; most 232-covered lines sit outside the 301 lists, but not all of them, so the line is the authority and the calculator lets you add it manually.</p>
+
+                <h2>What Section 232 actually multiplies</h2>
+                <p>Until April 2026, the metals duty was assessed on the value of the metal in the product. A $40,000 machine containing $9,000 of steel was dutiable on $9,000, which is why the old 50% headline produced a bill of $4,500. The proclamation effective 6 April 2026 changed the base to the full customs value of the article. The same machine now pays 25% of $40,000 &mdash; $10,000. The headline rate fell by half and the bill more than doubled, and that single change is responsible for a large share of the invoice shock importers have reported since spring.</p>
+                <p>Two other details follow from the same change. The 15% metal-content test now decides <em>whether a derivative is in scope at all</em>, not how much of it is dutiable: above 15% by value it is a derivative and pays 25% on the whole article, at or below 15% it falls out of scope entirely and pays nothing under 232. And the exclusions are gone &mdash; the product-exclusion process stopped accepting and issuing requests on 10 February 2025, and the country arrangements were revoked on 12 March 2025 &mdash; so any advice that starts with "apply for an exclusion" or "import under the quota" is describing a regime that no longer exists. The <a href="/section-232-tariffs-guide">232 guide</a> carries the tier table and the dates.</p>
+
+                <h2>Where the calculator stops</h2>
+                <p>Three things it deliberately does not do, because guessing them would be worse than asking you to look.</p>
+                <p>It uses a category-level MFN rate, not your line. The corridor database groups goods the way importers talk about them &mdash; apparel, electronics, furniture &mdash; and a category rate is a composite of the HTS lines inside it. A knitted cotton shirt at 19.7% and a polyester one at 32% both live under "apparel", and neither is 16.5%. Treat the output as the right order of magnitude and the right stacking logic, then replace the rate with your own from the <a href="/tariff-calculator">HTS lookup</a>.</p>
+                <p>It cannot know your AD/CVD case. Antidumping and countervailing duties are set per case and per producer, from 0% for a cooperating respondent to rates above 300% for a non-cooperating one, and they are frequently specific amounts per kilogram rather than a percentage. That is why the box is an input and not a lookup: the <a href="/anti-dumping-duties-guide">AD/CVD guide</a> explains how to read an order.</p>
+                <p>It does not add the fees. The merchandise processing fee and the harbor maintenance fee are assessed on the same value but are not duties, and they have their own minimums and caps &mdash; the <a href="/mpf-hmf-calculator">MPF and HMF calculator</a> does that sum, and it is the difference between a duty estimate and a landed cost.</p>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>Does Section 301 stack with Section 232?</h3>
+                <p>The forced-labour 301 layer does not: when a 232 duty applies, that layer drops out. The older Section 301 China lists are a separate question and mostly do not reach 232-covered lines, but "mostly" is doing real work in that sentence &mdash; check your HTS line against both lists rather than assuming either answer.</p>
+
+                <h3>My goods are not from China. Why does the calculator still show a Section 301 layer?</h3>
+                <p>Because the 2026 forced-labour action covers 60 economies, not one. The tiers run from additive 12.5% down to fill-to 10%, and the calculator applies whichever one your corridor's origin falls into. Goods from the EU or Japan can carry a duty under this action while paying a low or zero MFN rate.</p>
+
+                <h3>Is the duty base the same for all four layers?</h3>
+                <p>For US imports, yes &mdash; the transaction value, which excludes international freight and insurance when they are shown separately on the invoice. That is different from the EU and UK, where duty is assessed on a CIF value that includes freight and insurance. The <a href="/cif-value-calculator">CIF value calculator</a> converts between the two bases if you are pricing for more than one market.</p>
+
+                <h3>What about the $800 de minimis exemption?</h3>
+                <p>It no longer exists. Section 321 was suspended for all countries on 29 August 2025 and made indefinite by CBP rule in June 2026, so there is no value below which a commercial shipment escapes duty. The <a href="/de-minimis-value-guide">threshold guide</a> covers the remaining exceptions, which are narrow: bona fide gifts of $100 or less and personal articles accompanying a traveller.</p>
+
+                <p style="margin-top: 30px;"><a href="/">&larr; Back to All Calculators</a> &nbsp;&middot;&nbsp; <a href="/mpf-hmf-calculator">Next: the fees on top &rarr;</a></p>
+            </article>
+        </div>
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>DutyCalc Online</h2>
+                <p>Customs duty, VAT, and landed cost calculators for international trade. Independent trade metrology &mdash; not affiliated with any government customs agency.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <ul>
+                    <li><a href="/landed-cost-calculator">Landed Cost Calculator</a></li>
+                    <li><a href="/import-duty-calculator">Import Duty Calculator</a></li>
+                    <li><a href="/vat-calculator">VAT / GST Calculator</a></li>
+                    <li><a href="/tariff-calculator">Tariff Rate Lookup</a></li>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/hscode-duty-estimator">HS Code Estimator</a></li>
+                    <li><a href="/customs-bond-calculator">Customs Bond Calculator</a></li>
+                    <li><a href="/sourcing-comparison">Sourcing Comparison</a></li>
+                    <li><a href="/volume-weight-calculator">Volume Weight Calculator</a></li>
+                    <li><a href="/ddp-pricing-calculator">DDP Pricing Calculator</a></li>
+                    <li><a href="/container-loading-calculator">Container Loading Calculator</a></li>
+                    <li><a href="/duty-stack-calculator">Duty Stack Calculator</a></li>
+                    <li><a href="/mpf-hmf-calculator">MPF &amp; HMF Calculator</a></li>
+                    <li><a href="/cif-value-calculator">CIF Value Calculator</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Guides &amp; Reference</h4>
+                <ul>
+                    <li><a href="/import-cost-workflow">Import Workflow Guide</a></li>
+                    <li><a href="/how-to-find-hs-code">How to Find Your HS Code</a></li>
+                    <li><a href="/customs-valuation-guide">Customs Value Explained</a></li>
+                    <li><a href="/fba-import-guide">FBA Import Guide</a></li>
+                    <li><a href="/importer-of-record-guide">Importer of Record Guide</a></li>
+                    <li><a href="/customs-broker-cost-guide">Customs Broker Cost Guide</a></li>
+                    <li><a href="/customs-hold-guide">Customs Hold Guide</a></li>
+                    <li><a href="/dropshipping-duty-guide">Dropshipping Duty Guide</a></li>
+                    <li><a href="/ioss-eu-vat-guide">EU IOSS Guide</a></li>
+                    <li><a href="/import-vat-guide">Import VAT Explained</a></li>
+                    <li><a href="/de-minimis-value-guide">De Minimis Threshold Guide</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                    <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+                    <li><a href="/section-232-tariffs-guide">Section 232 Metals</a></li>
+                    <li><a href="/trade-terms-glossary">Trade Terms Glossary</a></li>
+                    <li><a href="/incoterms-guide">Incoterms Explained</a></li>
+                    <li><a href="/uflpa-forced-labor-compliance">UFLPA Compliance Guide</a></li>
+                    <li><a href="/country-of-origin-rules">Country of Origin Rules</a></li>
+                    <li><a href="/rate-updates">Rate Update History</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Corridors &amp; Hubs</h4>
+                <ul>
+                    <li><a href="/corridors">Corridor Directory</a></li>
+                    <li><a href="/southeast-asia-to-us-duty">Southeast Asia &rarr; US Duty</a></li>
+                    <li><a href="/gcc-ecommerce-market-guide">Selling into the Gulf</a></li>
+                    <li><a href="/electronics-import-duty">Electronics Duty</a></li>
+                    <li><a href="/apparel-import-duty">Apparel Duty</a></li>
+                    <li><a href="/furniture-import-duty">Furniture Duty</a></li>
+                    <li><a href="/machinery-import-duty">Machinery Duty</a></li>
+                    <li><a href="/auto-parts-import-duty">Auto Parts Duty</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent trade data &mdash; not affiliated with any government customs agency.</p>
+            <p class="footer-legal"><a href="/about">About</a> <a href="/contact">Contact</a> <a href="/privacy">Privacy</a> <a href="/sitemap.xml">Sitemap</a></p>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/dutycalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">&#128194; View on GitHub</a></p>
+        </div>
+    </footer>
+
+    <script src="rate-data.js?v=f7f05fc"></script>
+    <script>
+        (function () {
+            'use strict';
+
+            var DB = window.RATE_DATABASE || {};
+            var selC = document.getElementById('ds-corridor');
+            var selList = document.getElementById('ds-list');
+            var sel232 = document.getElementById('ds-232');
+            var valueIn = document.getElementById('ds-value');
+            var adcvdIn = document.getElementById('ds-adcvd');
+            var tbody = document.getElementById('ds-tbody');
+            var noteEl = document.getElementById('ds-note');
+
+            // Pull the corridors that land in the US straight out of rate-data.js.
+            // Duplicating the rates here would create a second source of truth, and
+            // the two would drift the first time a rate is re-verified.
+            var rows = [];
+            for (var k in DB) {
+                if (!Object.prototype.hasOwnProperty.call(DB, k)) continue;
+                var c = DB[k];
+                if (!c || c.destination !== 'United States') continue;
+                rows.push(c);
+            }
+            rows.sort(function (a, b) {
+                if (a.origin === b.origin) return a.category < b.category ? -1 : 1;
+                return a.origin < b.origin ? -1 : 1;
+            });
+
+            var byOrigin = {};
+            var order = [];
+            for (var i = 0; i < rows.length; i++) {
+                var o = rows[i].origin;
+                if (!byOrigin[o]) { byOrigin[o] = []; order.push(o); }
+                byOrigin[o].push(rows[i]);
+            }
+            for (var j = 0; j < order.length; j++) {
+                var g = document.createElement('optgroup');
+                g.label = order[j];
+                var list = byOrigin[order[j]];
+                for (var n = 0; n < list.length; n++) {
+                    var opt = document.createElement('option');
+                    opt.value = list[n].id;
+                    opt.textContent = list[n].category + ' (' + list[n].dutyRate + '% MFN)';
+                    g.appendChild(opt);
+                }
+                selC.appendChild(g);
+            }
+            selC.value = 'cn-us-furniture';
+
+            function money(n) {
+                if (!isFinite(n)) return '—';
+                return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            }
+            function pct(n) {
+                if (!isFinite(n)) return '—';
+                return (Math.round(n * 100) / 100) + '%';
+            }
+            function current() {
+                for (var i = 0; i < rows.length; i++) {
+                    if (rows[i].id === selC.value) return rows[i];
+                }
+                return rows[0];
+            }
+
+            function layerOf(c) {
+                // The forced-labour action is the only layer the corridor data carries
+                // for US destinations. The China lists live in prose because they are
+                // assigned per HTS line, so they are an input below, not a lookup.
+                var ls = c.dutyLayers || [];
+                for (var i = 0; i < ls.length; i++) {
+                    if (ls[i].name && ls[i].name.indexOf('forced-labour') !== -1) return ls[i];
+                }
+                return null;
+            }
+
+            function compute() {
+                var c = current();
+                var value = parseFloat(valueIn.value);
+                if (!isFinite(value) || value <= 0) value = 0;
+
+                var mfnRate = c.dutyRate;
+                var mfnAmt = value * mfnRate / 100;
+
+                var lay = layerOf(c);
+                var flRate = lay ? lay.rate : 0;
+
+                var listRate = parseFloat(selList.value) || 0;
+                if (c.origin !== 'China') listRate = 0;
+
+                var mode = sel232.value;
+                var t232 = mode === 'bulk' ? 50 : mode === 'deriv' ? 25 : mode === 'melt' ? 10 : 0;
+
+                // 232 and the forced-labour layer do not stack. Suppression keys off the
+                // duty actually owed, not the selection: a derivative that falls outside
+                // scope pays no 232, so there is nothing for the layer to yield to.
+                var flActive = flRate > 0 && t232 === 0;
+                var flAmt = flActive ? value * flRate / 100 : 0;
+                var amt232 = value * t232 / 100;
+                var adRate = parseFloat(adcvdIn.value) || 0;
+                var adAmt = value * adRate / 100;
+
+                var listAmt = value * listRate / 100;
+                var total = mfnAmt + flAmt + listAmt + amt232 + adAmt;
+
+                document.getElementById('ds-mfn').textContent = money(mfnAmt);
+                document.getElementById('ds-mfn-rate').textContent = pct(mfnRate) + ' of ' + money(value);
+                document.getElementById('ds-fl').textContent = flActive ? money(flAmt) : '—';
+                document.getElementById('ds-fl-rate').textContent = flActive
+                    ? pct(flRate) + ' additive'
+                    : (flRate > 0 ? 'drops out — 232 applies' : 'no layer for this origin');
+                document.getElementById('ds-list-amt').textContent = money(listAmt);
+                document.getElementById('ds-list-rate').textContent = listRate > 0
+                    ? pct(listRate) + ' of value'
+                    : (c.origin === 'China' ? 'select a list if the line is on one' : 'China lists do not apply');
+                document.getElementById('ds-232-amt').textContent = money(amt232);
+                document.getElementById('ds-232-rate').textContent = t232 > 0 ? pct(t232) + ' of full value' : 'not in scope';
+                document.getElementById('ds-adcvd-amt').textContent = money(adAmt);
+                document.getElementById('ds-adcvd-rate').textContent = adRate > 0 ? pct(adRate) + ' from the order' : 'no order';
+                document.getElementById('ds-total').textContent = money(total);
+                document.getElementById('ds-effective').textContent = value > 0
+                    ? 'effective rate ' + pct(total / value * 100) + ' of value'
+                    : '—';
+
+                renderTable(c, value, mfnRate, mfnAmt, flRate, flActive, flAmt, listRate, listAmt, t232, amt232, adRate, adAmt, total);
+                sayNote(c, listRate, mode, t232, flRate, flActive);
+            }
+
+            function row(label, rate, amount, rule, dim) {
+                var tr = document.createElement('tr');
+                if (dim) tr.className = 'ds-dim';
+                var cells = [label, rate, amount, rule];
+                for (var i = 0; i < cells.length; i++) {
+                    var td = document.createElement('td');
+                    td.textContent = cells[i];
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+            }
+
+            function renderTable(c, value, mfnRate, mfnAmt, flRate, flActive, flAmt, listRate, listAmt, t232, amt232, adRate, adAmt, total) {
+                tbody.innerHTML = '';
+                row('MFN (HTS General rate)', pct(mfnRate), money(mfnAmt), 'Category composite for ' + c.category + ', not your 10-digit line', false);
+                if (flRate > 0) {
+                    row('Section 301 - forced labour',
+                        flActive ? pct(flRate) : 'suppressed',
+                        flActive ? money(flAmt) : '$0.00',
+                        flActive ? 'Additive; stacks with the China lists' : 'Does not stack with Section 232',
+                        !flActive);
+                } else {
+                    row('Section 301 - forced labour', '—', '$0.00', 'Origin outside the action', true);
+                }
+                row('Section 301 &mdash; China list',
+                    listRate > 0 ? pct(listRate) : '—',
+                    money(listAmt),
+                    listRate > 0 ? 'Per HTS line; stacks with everything on this page' : 'Not claimed',
+                    listRate === 0);
+                row('Section 232 - metals',
+                    t232 > 0 ? pct(t232) : '—',
+                    money(amt232),
+                    t232 > 0 ? 'Assessed on the full customs value since 6 Apr 2026' : 'Line outside the 232 scope',
+                    t232 === 0);
+                row('AD/CVD', adRate > 0 ? pct(adRate) : '—', money(adAmt),
+                    adRate > 0 ? 'Case order; often specific, not ad valorem' : 'No order entered', adRate === 0);
+                var tr = document.createElement('tr');
+                tr.className = 'ds-total-row';
+                var a = document.createElement('td'); a.textContent = 'Total duty';
+                var b = document.createElement('td'); b.textContent = value > 0 ? pct(total / value * 100) : '—';
+                var c2 = document.createElement('td'); c2.textContent = money(total);
+                var d = document.createElement('td'); d.textContent = 'Sum of the layers above, on one value';
+                tr.appendChild(a); tr.appendChild(b); tr.appendChild(c2); tr.appendChild(d);
+                tbody.appendChild(tr);
+            }
+
+            function sayNote(c, listRate, mode, t232, flRate, flActive) {
+                var msg = '';
+                if (c.origin === 'China' && listRate === 0) {
+                    msg = 'Chinese goods are almost always on a Section 301 list — 25% for Lists 1 to 3, 7.5% for List 4A. Leaving this at zero usually understates the bill by a wide margin.';
+                } else if (t232 > 0 && flRate > 0) {
+                    msg = 'Section 232 is applied and the forced-labour 301 layer has dropped out, as the action requires. MFN stays underneath.';
+                } else if (mode === 'deriv') {
+                    msg = '25% is charged on the full customs value, not on the metal content. That is the 2026 change, and it is why a lower headline rate can produce a bigger bill.';
+                } else if (mode === 'out') {
+                    msg = 'Derivatives with 15% or less metal content by value sit outside Section 232 entirely, so no metal duty applies and the 301 layer stays in.';
+                } else if (mode === 'melt') {
+                    msg = 'The 10% rate for articles made entirely of US-melted metal needs documentation of the melt and pour, not just a supplier statement.';
+                } else if (listRate === 0) {
+                    msg = 'No China list duty claimed. If any component of the stack changes, re-run this before you quote a landed price.';
+                }
+                noteEl.textContent = msg;
+            }
+
+            selC.addEventListener('change', function () {
+                var c = current();
+                var isCn = c.origin === 'China';
+                selList.disabled = !isCn;
+                if (!isCn) selList.value = '0';
+                document.getElementById('ds-list-unit').textContent = isCn
+                    ? 'goods of Chinese origin only'
+                    : 'China lists do not apply to this origin';
+                compute();
+            });
+            [selList, sel232, valueIn, adcvdIn].forEach(function (el) {
+                el.addEventListener('input', compute);
+                el.addEventListener('change', compute);
+            });
+            document.getElementById('ds-calc').addEventListener('click', compute);
+
+            selC.dispatchEvent(new Event('change'));
+        })();
+    </script>
+    <script src="sw-register.js?v=f7f05fc"></script>
+    <script src="analytics.js?v=f7f05fc" defer></script>
+    <script src="next-step.js?v=f7f05fc" defer></script>
+</body>
+</html>

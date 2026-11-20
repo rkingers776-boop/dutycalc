@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://cloud.umami.is; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://formsubmit.co https://cloudflareinsights.com https://cloud.umami.is https://gateway.umami.is; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co;">
+    <title>MPF &amp; HMF Calculator: US Customs Fees FY2027</title>
+    <meta name="description" content="The two US fees that are not duty: merchandise processing at 0.3464% with its FY2027 floor and cap, and harbor maintenance at 0.125% on ocean cargo.">
+    <link rel="canonical" href="https://www.dutycalc.online/mpf-hmf-calculator">
+    <meta property="og:title" content="MPF &amp; HMF Calculator: US Customs Fees FY2027">
+    <meta property="og:description" content="The two US fees that are not duty: merchandise processing at 0.3464% with its FY2027 floor and cap, and harbor maintenance at 0.125% on ocean cargo.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.dutycalc.online/mpf-hmf-calculator">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MPF &amp; HMF Calculator: US Customs Fees FY2027">
+    <meta name="twitter:description" content="MPF at 0.3464% with a $34.58 floor and a $670.86 cap, HMF at 0.125% on ocean cargo, and the informal-entry flat fees.">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="dc-analytics" content="">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231E293B'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Arial' font-size='20' font-weight='bold' fill='white'%3E$%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css?v=f7f05fc">
+<meta property="og:image" content="https://www.dutycalc.online/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://www.dutycalc.online/og-image.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"MPF & HMF Calculator: US Customs Fees FY2027","url":"https://www.dutycalc.online/mpf-hmf-calculator","description":"Calculates the US merchandise processing fee at 0.3464% with its FY2027 minimum and maximum, the harbor maintenance fee at 0.125% on ocean cargo, and the flat informal-entry fees.","inLanguage":"en-US","publisher":{"@type":"Organization","name":"DutyCalc Online","url":"https://www.dutycalc.online/"},"applicationCategory":"BusinessApplication","operatingSystem":"Any"}
+</script>
+    <style>
+        .fs-panel { background: var(--steel-dark); border: 1px solid #1E293B; border-left: 4px solid var(--accent); border-radius: var(--radius-sharp); padding: 34px 40px; margin-bottom: 22px; }
+        .fs-panel h3 { color: var(--accent); font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 20px; }
+        .fs-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+        .fs-field { flex: 1; min-width: 170px; }
+        .fs-field label { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: rgba(255,255,255,0.6); margin-bottom: 6px; }
+        .fs-field input, .fs-field select { width: 100%; padding: 12px 14px; font-size: 0.95rem; font-weight: 500; color: #fff; background: #1a1f2e; border: 2px solid #1E293B; border-radius: var(--radius-sharp); outline: none; font-family: var(--font-data); }
+        .fs-field input:focus, .fs-field select:focus { border-color: var(--accent); }
+        .fs-field .unit { font-size: 0.7rem; color: rgba(255,255,255,0.45); margin-top: 5px; line-height: 1.4; }
+        .fs-field.fs-check label { display: flex; align-items: flex-start; gap: 9px; text-transform: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0; color: rgba(255,255,255,0.85); line-height: 1.4; }
+        .fs-field.fs-check input { width: 17px; height: 17px; flex: 0 0 auto; margin-top: 2px; padding: 0; accent-color: var(--accent); }
+        .fs-btn { display: inline-block; padding: 13px 30px; font-size: 0.9rem; font-weight: 600; color: #fff; background: var(--offshore-green); border: none; border-radius: var(--radius-sharp); cursor: pointer; margin-top: 6px; }
+        .fs-btn:hover { background: #0284C7; }
+        .fs-results { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin-top: 24px; }
+        .fs-card { background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: var(--radius-sharp); padding: 18px 16px; text-align: center; }
+        .fs-card .lbl { font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; color: var(--text-muted); margin-bottom: 8px; line-height: 1.3; }
+        .fs-card .val { font-size: 1.35rem; font-weight: 800; color: var(--steel-black); }
+        .fs-card .sub { font-size: 0.7rem; color: var(--text-muted); margin-top: 6px; line-height: 1.4; }
+        .fs-card.highlight { border: 2px solid var(--accent); background: #FFF7ED; }
+        .fs-note { font-size: 0.82rem; color: var(--text-muted); margin-top: 14px; line-height: 1.6; }
+        @media (max-width: 768px) {
+            .fs-panel { padding: 22px 18px; }
+            .fs-results { grid-template-columns: repeat(2, 1fr); }
+            .fs-card .val { font-size: 1.12rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ── Header Navigation ── -->
+    <nav class="site-nav" aria-label="Main Navigation">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">Duty<span>Calc.online</span></a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open main navigation">
+            <label for="nav-toggle" class="nav-toggle-btn" aria-hidden="true"><span></span><span></span><span></span></label>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/corridors">Corridors</a>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Tools</span>
+                    <div class="nav-drop-menu">
+                        <a href="/landed-cost-calculator">Landed Cost</a>
+                        <a href="/import-duty-calculator">Import Duty</a>
+                        <a href="/vat-calculator">VAT / GST</a>
+                        <a href="/tariff-calculator">Tariff Rates</a>
+                        <a href="/customs-bond-calculator">Customs Bond</a>
+                        <a href="/sourcing-comparison">Sourcing Compare</a>
+                        <a href="/volume-weight-calculator">Volume Weight</a>
+                        <a href="/ddp-pricing-calculator">DDP Pricing</a>
+                        <a href="/container-loading-calculator">Container Loading</a>
+                    </div>
+                </div>
+                <a href="/import-cost-workflow">Workflow</a>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">De Minimis</span>
+                    <div class="nav-drop-menu">
+                        <a href="/de-minimis-checker">Cliff Detector</a>
+                        <a href="/de-minimis-value-guide">Threshold Guide</a>
+                        <a href="/section-321-de-minimis-reform-2026">2026 Reform</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <span tabindex="0" role="button">Guides</span>
+                    <div class="nav-drop-menu">
+                        <a href="/trade-terms-glossary">Terms Glossary</a>
+                        <a href="/uflpa-forced-labor-compliance">UFLPA Guide</a>
+                        <a href="/anti-dumping-duties-guide">AD/CVD Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+
+        <header>
+            <h1>MPF and HMF Calculator</h1>
+            <p>Two charges on a US entry are not duty, are not optional, and almost never appear in the rate a broker quotes you over the phone. The merchandise processing fee is 0.3464% of the entered value held between a floor and a ceiling that CBP resets every October. The harbor maintenance fee is 0.125% of the same value, charged only when the cargo arrives by sea. Together they run anywhere from 0.47% to well over 1% of the shipment's value depending on its size &mdash; which is exactly why they deserve a calculator instead of a line item called "misc".</p>
+        </header>
+
+        <section class="fs-panel">
+            <h3>Entry Details</h3>
+            <div class="fs-row">
+                <div class="fs-field">
+                    <label for="fs-value">Entered value</label>
+                    <input id="fs-value" type="number" value="40000" min="0" step="100" aria-label="Entered value in US dollars">
+                    <div class="unit">USD, the value duty is assessed on</div>
+                </div>
+                <div class="fs-field">
+                    <label for="fs-entry">Entry type</label>
+                    <select id="fs-entry" aria-label="Entry type">
+                        <option value="formal">Formal entry</option>
+                        <option value="auto">Informal, automated &mdash; $2.77</option>
+                        <option value="manual">Informal, manual &mdash; $8.30</option>
+                        <option value="cbp">Informal, prepared by CBP &mdash; $12.45</option>
+                    </select>
+                    <div class="unit">informal is generally $2,500 or less</div>
+                </div>
+                <div class="fs-field">
+                    <label for="fs-mode">How it arrives</label>
+                    <select id="fs-mode" aria-label="Mode of transport">
+                        <option value="ocean">By vessel, at a US port</option>
+                        <option value="other">Air, truck or rail</option>
+                    </select>
+                    <div class="unit">HMF is charged on ocean cargo only</div>
+                </div>
+            </div>
+            <div class="fs-row">
+                <div class="fs-field">
+                    <label for="fs-entries">Entries per year</label>
+                    <input id="fs-entries" type="number" value="12" min="1" step="1" aria-label="Number of entries per year">
+                    <div class="unit">for the annual total</div>
+                </div>
+                <div class="fs-field fs-check">
+                    <label for="fs-exempt">
+                        <input id="fs-exempt" type="checkbox"> MPF-exempt (USMCA, Israel, CBERA, GSP-LDB)
+                    </label>
+                    <div class="unit">removes the fee entirely, not just the formal tier</div>
+                </div>
+                <div class="fs-field fs-check">
+                    <label for="fs-paper">
+                        <input id="fs-paper" type="checkbox"> Formal entry filed manually (+$4.15)
+                    </label>
+                    <div class="unit">added on top, even at the cap</div>
+                </div>
+            </div>
+            <button type="button" class="fs-btn" id="fs-calc">Calculate fees</button>
+            <div class="fs-results" id="fs-results" role="status" aria-live="polite">
+                <div class="fs-card"><div class="lbl">Merchandise Processing Fee</div><div class="val" id="fs-mpf">—</div><div class="sub" id="fs-mpf-note">—</div></div>
+                <div class="fs-card"><div class="lbl">Harbor Maintenance Fee</div><div class="val" id="fs-hmf">—</div><div class="sub" id="fs-hmf-note">—</div></div>
+                <div class="fs-card highlight"><div class="lbl">Fees, This Entry</div><div class="val" id="fs-total">—</div><div class="sub" id="fs-eff">—</div></div>
+                <div class="fs-card"><div class="lbl">Fees, Per Year</div><div class="val" id="fs-year">—</div><div class="sub" id="fs-year-note">—</div></div>
+            </div>
+            <p class="fs-note" id="fs-note"></p>
+        </section>
+
+        <div>
+            <article class="seo-section">
+
+                <h2>The floor and the cap decide more than the rate does</h2>
+                <p>The ad valorem rate has not moved in years: 0.3464% of entered value, set by 19 CFR 24.23 and confirmed unchanged in the FY2027 fee notice. What moves every October is the pair of limits around it, and those limits are what make the fee behave strangely at both ends of the size range. At the small end, 0.3464% does not reach the $34.58 minimum until the shipment is worth about $9,983 &mdash; so a $5,000 entry pays 0.69% of its value, and a $500 spare-parts shipment pays nearly 7%. The floor is the same money whether the box holds a thousand dollars of goods or ten thousand, which is why consolidating small shipments is often worth more than a better freight rate.</p>
+                <p>At the large end the fee stops growing. The $670.86 maximum binds from roughly $193,666 of entered value upward, so a $400,000 container pays 0.17% and a $2 million one pays 0.03%. Between those two numbers the fee is a genuine percentage and the arithmetic is uninteresting &mdash; which is most of the range most importers live in, and probably why the floor and the ceiling get so little attention until they matter.</p>
+
+                <h2>Formal, informal, and the line at $2,500</h2>
+                <p>An informal entry pays a flat fee instead of the percentage: $2.77 when it is filed electronically and not prepared by CBP, $8.30 when it is filed on paper, $12.45 when a CBP officer prepares it. Informal entry is available up to $2,500 in value under 19 CFR 143.21, and the arithmetic looks obviously favourable &mdash; $2.77 against a $34.58 floor is a saving of $31.81 on the entry. Filing formal anyway sometimes still makes sense, because formal entry is what gives you a bond, a preference claim, and a liquidation record you can protest, but the gap should be a decision rather than a surprise.</p>
+                <p>There is one carve-out worth knowing if you are importing from China. Articles valued over $250 that are classified in Chapter 99 subchapters III and IV &mdash; which is where the Section 301 China lines and the forced-labour line sit &mdash; cannot use informal entry even when the shipment as a whole is under $2,500. A single $300 item on a 9903.88 line pushes the whole entry to formal, and the $34.58 floor comes with it. The <a href="/duty-stack-calculator">duty stack calculator</a> is the right place to work out what that entry owes in duty before you decide how to file it.</p>
+
+                <h2>HMF is the ocean-only one</h2>
+                <p>The harbor maintenance fee is 0.125% of the value of commercial cargo unloaded from a vessel at a covered US port, under 19 CFR 24.24. It has no minimum and no maximum, which makes it the simplest of the two fees to predict and, at scale, the larger one: on a $400,000 container it is $500, more than three times the capped MPF. Air, truck and rail shipments pay nothing here, which is one of the quieter reasons air freight is less disadvantaged than its headline rate suggests on high-value, low-weight goods.</p>
+                <p>Two wrinkles come up often enough to mention. Cargo admitted into a foreign trade zone pays HMF at admission rather than at entry, reported quarterly on CBP Form 349 &mdash; so an FTZ does not remove the fee, it moves the moment. And unlike MPF, no trade agreement waives HMF; a USMCA-qualifying shipment that pays zero MPF still pays 0.125% if it arrives by sea.</p>
+
+                <h2>Who pays no MPF at all</h2>
+                <p>19 CFR 24.23(c) lists the programs whose originating goods are exempt from both tiers. USMCA, the US-Israel FTA, CBERA, GSP least-developed beneficiaries, and products of US insular possessions are exempt outright. A second group &mdash; Singapore, Chile, Australia, Bahrain, CAFTA-DR, Oman, Peru, Korea, Colombia, Panama &mdash; is exempt from the formal fee and the manual surcharge but not from the informal flat fee. Agreements that are not on the list, Jordan and Morocco among them, remove nothing. When an entry mixes qualifying and non-qualifying goods, the fee is computed on the non-qualifying value only, still subject to the floor.</p>
+                <p>Which means the interesting question on a USMCA shipment is not "is duty zero" &mdash; usually it is &mdash; but whether the origin claim is documented well enough to also zero the $34.58. On a thousand small entries a year that is $34,580 of avoidable cost, and it is the kind of number that only shows up when someone actually runs the arithmetic.</p>
+
+                <h2>Frequently Asked Questions</h2>
+
+                <h3>Are these fees deductible from the duty I owe?</h3>
+                <p>No. Duty, MPF and HMF are separate charges paid together at entry, and the fees are not computed on the duty or the other way round &mdash; both use the entered value. AD/CVD is separate again.</p>
+
+                <h3>Do the FY2027 figures apply to my entry?</h3>
+                <p>They apply to entries dated 1 October 2026 through 30 September 2027. An entry filed on 30 September 2026 gets the FY2026 limits of $33.58 and $651.50, and the difference on a large shipment is $19.36 &mdash; small, but it appears on every reconciliation if the cut-off was handled carelessly.</p>
+
+                <h3>Why is my broker's MPF different from this number?</h3>
+                <p>Three usual causes: the broker is computing on a different value than you are (they use the entered value, which can include assists and packing you left off), a manual filing added the $4.15, or the entry includes goods that qualify for an agreement you did not claim. The fee itself is not negotiable; the base and the exemption are.</p>
+
+                <h3>Does de minimis affect these fees?</h3>
+                <p>The old $800 exemption is gone for all countries as of 29 August 2025, so there is no longer a value band where a commercial shipment escapes both duty and fees. What remains is the informal-entry route for shipments of $2,500 or less, which changes the fee amount but not whether one is owed. The <a href="/de-minimis-value-guide">threshold guide</a> keeps the current position per market.</p>
+
+                <p style="margin-top: 30px;"><a href="/">&larr; Back to All Calculators</a> &nbsp;&middot;&nbsp; <a href="/duty-stack-calculator">Work out the duty first &rarr;</a></p>
+            </article>
+        </div>
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h2>DutyCalc Online</h2>
+                <p>Customs duty, VAT, and landed cost calculators for international trade. Independent trade metrology &mdash; not affiliated with any government customs agency.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Calculators</h4>
+                <ul>
+                    <li><a href="/landed-cost-calculator">Landed Cost Calculator</a></li>
+                    <li><a href="/import-duty-calculator">Import Duty Calculator</a></li>
+                    <li><a href="/vat-calculator">VAT / GST Calculator</a></li>
+                    <li><a href="/tariff-calculator">Tariff Rate Lookup</a></li>
+                    <li><a href="/de-minimis-checker">Cliff Detector</a></li>
+                    <li><a href="/hscode-duty-estimator">HS Code Estimator</a></li>
+                    <li><a href="/customs-bond-calculator">Customs Bond Calculator</a></li>
+                    <li><a href="/sourcing-comparison">Sourcing Comparison</a></li>
+                    <li><a href="/volume-weight-calculator">Volume Weight Calculator</a></li>
+                    <li><a href="/ddp-pricing-calculator">DDP Pricing Calculator</a></li>
+                    <li><a href="/container-loading-calculator">Container Loading Calculator</a></li>
+                    <li><a href="/duty-stack-calculator">Duty Stack Calculator</a></li>
+                    <li><a href="/mpf-hmf-calculator">MPF &amp; HMF Calculator</a></li>
+                    <li><a href="/cif-value-calculator">CIF Value Calculator</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Guides &amp; Reference</h4>
+                <ul>
+                    <li><a href="/import-cost-workflow">Import Workflow Guide</a></li>
+                    <li><a href="/how-to-find-hs-code">How to Find Your HS Code</a></li>
+                    <li><a href="/customs-valuation-guide">Customs Value Explained</a></li>
+                    <li><a href="/fba-import-guide">FBA Import Guide</a></li>
+                    <li><a href="/importer-of-record-guide">Importer of Record Guide</a></li>
+                    <li><a href="/customs-broker-cost-guide">Customs Broker Cost Guide</a></li>
+                    <li><a href="/customs-hold-guide">Customs Hold Guide</a></li>
+                    <li><a href="/dropshipping-duty-guide">Dropshipping Duty Guide</a></li>
+                    <li><a href="/ioss-eu-vat-guide">EU IOSS Guide</a></li>
+                    <li><a href="/import-vat-guide">Import VAT Explained</a></li>
+                    <li><a href="/de-minimis-value-guide">De Minimis Threshold Guide</a></li>
+                    <li><a href="/anti-dumping-duties-guide">Anti-Dumping &amp; CVD Guide</a></li>
+                    <li><a href="/us-import-duty-layers-guide">Duty Layers Stack</a></li>
+                    <li><a href="/section-122-tariffs-guide">Section 122 Expiration</a></li>
+                    <li><a href="/section-232-tariffs-guide">Section 232 Metals</a></li>
+                    <li><a href="/trade-terms-glossary">Trade Terms Glossary</a></li>
+                    <li><a href="/incoterms-guide">Incoterms Explained</a></li>
+                    <li><a href="/uflpa-forced-labor-compliance">UFLPA Compliance Guide</a></li>
+                    <li><a href="/country-of-origin-rules">Country of Origin Rules</a></li>
+                    <li><a href="/rate-updates">Rate Update History</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Corridors &amp; Hubs</h4>
+                <ul>
+                    <li><a href="/corridors">Corridor Directory</a></li>
+                    <li><a href="/southeast-asia-to-us-duty">Southeast Asia &rarr; US Duty</a></li>
+                    <li><a href="/gcc-ecommerce-market-guide">Selling into the Gulf</a></li>
+                    <li><a href="/electronics-import-duty">Electronics Duty</a></li>
+                    <li><a href="/apparel-import-duty">Apparel Duty</a></li>
+                    <li><a href="/furniture-import-duty">Furniture Duty</a></li>
+                    <li><a href="/machinery-import-duty">Machinery Duty</a></li>
+                    <li><a href="/auto-parts-import-duty">Auto Parts Duty</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DutyCalc Research. All rights reserved. Independent trade data &mdash; not affiliated with any government customs agency.</p>
+            <p class="footer-legal"><a href="/about">About</a> <a href="/contact">Contact</a> <a href="/privacy">Privacy</a> <a href="/sitemap.xml">Sitemap</a></p>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/dutycalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">&#128194; View on GitHub</a></p>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            'use strict';
+
+            // FY2027, effective 1 Oct 2026. CBP Dec. 26-14, 91 FR 48398 (31 Jul 2026).
+            // rate-data.js carries the same pair for the calculators that embed it, but
+            // this page must work even if that file fails to load, so the constants sit
+            // here too and are labelled with the notice they came from.
+            var MPF = { rate: 0.003464, min: 34.58, max: 670.86, surcharge: 4.15 };
+            var HMF_RATE = 0.00125;
+            var INFORMAL = { auto: 2.77, manual: 8.30, cbp: 12.45 };
+
+            var valueIn = document.getElementById('fs-value');
+            var entryIn = document.getElementById('fs-entry');
+            var modeIn = document.getElementById('fs-mode');
+            var entriesIn = document.getElementById('fs-entries');
+            var exemptIn = document.getElementById('fs-exempt');
+            var paperIn = document.getElementById('fs-paper');
+            var noteEl = document.getElementById('fs-note');
+
+            function money(n) {
+                if (!isFinite(n)) return '—';
+                return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            }
+
+            function compute() {
+                var v = parseFloat(valueIn.value);
+                if (!isFinite(v) || v < 0) v = 0;
+                var kind = entryIn.value;
+                var ocean = modeIn.value === 'ocean';
+                var entries = parseInt(entriesIn.value, 10);
+                if (!isFinite(entries) || entries < 1) entries = 1;
+
+                var informal = kind !== 'formal';
+                var mpf, mpfNote;
+
+                if (exemptIn.checked) {
+                    mpf = 0;
+                    mpfNote = 'exempt under 19 CFR 24.23(c)';
+                } else if (informal) {
+                    mpf = INFORMAL[kind];
+                    mpfNote = 'flat informal fee';
+                } else {
+                    var raw = v * MPF.rate;
+                    if (raw < MPF.min) {
+                        mpf = MPF.min;
+                        mpfNote = 'at the floor — ' + money(v) + ' x 0.3464% = ' + money(raw);
+                    } else if (raw > MPF.max) {
+                        mpf = MPF.max;
+                        mpfNote = 'at the cap — unbounded would be ' + money(raw);
+                    } else {
+                        mpf = raw;
+                        mpfNote = money(v) + ' x 0.3464%';
+                    }
+                    if (paperIn.checked) {
+                        mpf += MPF.surcharge;
+                        mpfNote += ' + $4.15 manual';
+                    }
+                }
+
+                var hmf = ocean ? v * HMF_RATE : 0;
+                var total = mpf + hmf;
+
+                document.getElementById('fs-mpf').textContent = money(mpf);
+                document.getElementById('fs-mpf-note').textContent = mpfNote;
+                document.getElementById('fs-hmf').textContent = money(hmf);
+                document.getElementById('fs-hmf-note').textContent = ocean
+                    ? money(v) + ' x 0.125%, no cap'
+                    : 'not charged — cargo did not arrive by vessel';
+                document.getElementById('fs-total').textContent = money(total);
+                document.getElementById('fs-eff').textContent = v > 0
+                    ? (Math.round(total / v * 10000) / 100) + '% of entered value'
+                    : '—';
+                document.getElementById('fs-year').textContent = money(total * entries);
+                document.getElementById('fs-year-note').textContent = entries + ' entr' + (entries === 1 ? 'y' : 'ies') + ' at this size';
+
+                var msg = '';
+                if (informal && v > 2500) {
+                    msg = 'Informal entry is generally limited to $2,500 of value, so this entry probably has to be filed formally — and the $34.58 floor applies instead of the flat fee.';
+                } else if (!informal && v > 0 && v <= 2500) {
+                    msg = 'A formal entry on a shipment this small pays the $34.58 floor. The informal route would cost $2.77, so the formal filing is buying a bond, a preference claim or a cleaner liquidation record rather than a cheaper fee.';
+                } else if (!informal && v * MPF.rate > MPF.max) {
+                    msg = 'Above roughly $193,666 the fee is capped, so the effective rate falls as the shipment grows. HMF has no cap and keeps scaling.';
+                } else if (!informal && v * MPF.rate < MPF.min && v > 0) {
+                    msg = 'Below roughly $9,983 the floor binds, so the fee is a fixed $34.58 rather than a percentage. Consolidating small entries saves more here than it does on freight.';
+                } else if (exemptIn.checked && ocean) {
+                    msg = 'The agreement removes MPF but not HMF — a vessel arrival still pays 0.125% of value.';
+                }
+                noteEl.textContent = msg;
+            }
+
+            [valueIn, entriesIn].forEach(function (el) { el.addEventListener('input', compute); });
+            [entryIn, modeIn, exemptIn, paperIn].forEach(function (el) { el.addEventListener('change', compute); });
+            document.getElementById('fs-calc').addEventListener('click', compute);
+            compute();
+        })();
+    </script>
+    <script src="sw-register.js?v=f7f05fc"></script>
+    <script src="analytics.js?v=f7f05fc" defer></script>
+    <script src="next-step.js?v=f7f05fc" defer></script>
+</body>
+</html>
