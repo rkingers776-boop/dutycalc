@@ -247,6 +247,27 @@ else
     Write-Host "  Inline JS check SKIPPED (python or script not found)" -ForegroundColor Yellow
 }
 
+# ── GATE 6: structured data must parse ──────────────────────────────────────
+# Two FAQ blocks shipped with JSON that no parser accepts: one had an <a href>
+# inside an answer (quotes closed the string early), the other a literal newline.
+# The pages looked perfect and the HTML validated -- only the graph Google reads
+# was dead. Fail the build instead of shipping quietly broken schema.
+$ldScript = Join-Path (Split-Path $PSScriptRoot -Parent) '.workbuddy\assert_ldjson.py'
+
+if ((Test-Path $ldScript) -and (Test-Path $pyExe)) {
+    & $pyExe $ldScript
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host ""
+        Write-Host "  BUILD FAILED - a JSON-LD block does not parse (see above)." -ForegroundColor Red
+        Write-Host "===========================================" -ForegroundColor Cyan
+        exit 1
+    }
+}
+else
+{
+    Write-Host "  JSON-LD check SKIPPED (python or script not found)" -ForegroundColor Yellow
+}
+
 
 if ($errors -gt 0 -or $bomCount -gt 0 -or $bareCount -gt 0) {
     exit 1
